@@ -39,8 +39,9 @@ whisper = WhisperModel("base.en", device="cpu", compute_type="int8")
 audio, t, lines, caps = [np.zeros(int(script["lead_in"] * SR), np.float32)], script["lead_in"], [], []
 for ln in script["lines"]:
     path = os.path.join(BUILD, "lines", ln["id"] + ".wav")
-    subprocess.run(["piper", "-m", model, "-f", path, "--length-scale", str(ln.get("length_scale", 0.9))],
-                   input=ln["say"].encode(), check=True, capture_output=True)
+    if not os.path.exists(path):  # Piper is random per run: keep (or supply) a take to reproduce it exactly
+        subprocess.run(["piper", "-m", model, "-f", path, "--length-scale", str(ln.get("length_scale", 0.9))],
+                       input=ln["say"].encode(), check=True, capture_output=True)
     x = trim(read_wav(path))
     dur = len(x) / SR
 

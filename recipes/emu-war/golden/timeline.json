@@ -1,0 +1,894 @@
+{
+ "duration": 46.039,
+ "lines": [
+  {
+   "id": "hook",
+   "start": 0.35,
+   "end": 3.531,
+   "words": [
+    {
+     "w": "In",
+     "t": 0.35
+    },
+    {
+     "w": "nineteen",
+     "t": 0.502
+    },
+    {
+     "w": "thirty-two,",
+     "t": 0.96
+    },
+    {
+     "w": "Australia",
+     "t": 1.57
+    },
+    {
+     "w": "went",
+     "t": 1.93
+    },
+    {
+     "w": "to",
+     "t": 2.33
+    },
+    {
+     "w": "war",
+     "t": 2.47
+    },
+    {
+     "w": "against",
+     "t": 2.61
+    },
+    {
+     "w": "birds.",
+     "t": 2.89
+    }
+   ]
+  },
+  {
+   "id": "lost",
+   "start": 3.781,
+   "end": 4.385,
+   "words": [
+    {
+     "w": "And",
+     "t": 3.781
+    },
+    {
+     "w": "lost.",
+     "t": 3.901
+    }
+   ]
+  },
+  {
+   "id": "vets",
+   "start": 4.935,
+   "end": 8.917,
+   "words": [
+    {
+     "w": "After",
+     "t": 4.935
+    },
+    {
+     "w": "World",
+     "t": 5.135
+    },
+    {
+     "w": "War",
+     "t": 5.375
+    },
+    {
+     "w": "One,",
+     "t": 5.713
+    },
+    {
+     "w": "the",
+     "t": 6.135
+    },
+    {
+     "w": "government",
+     "t": 6.215
+    },
+    {
+     "w": "gave",
+     "t": 6.435
+    },
+    {
+     "w": "veterans",
+     "t": 6.775
+    },
+    {
+     "w": "farmland",
+     "t": 7.055
+    },
+    {
+     "w": "in",
+     "t": 7.475
+    },
+    {
+     "w": "Western",
+     "t": 7.895
+    },
+    {
+     "w": "Australia.",
+     "t": 8.155
+    }
+   ]
+  },
+  {
+   "id": "emus",
+   "start": 9.117,
+   "end": 12.391,
+   "words": [
+    {
+     "w": "Then",
+     "t": 9.117
+    },
+    {
+     "w": "twenty",
+     "t": 9.331
+    },
+    {
+     "w": "thousand",
+     "t": 9.631
+    },
+    {
+     "w": "emus",
+     "t": 10.017
+    },
+    {
+     "w": "showed",
+     "t": 10.337
+    },
+    {
+     "w": "up,",
+     "t": 10.577
+    },
+    {
+     "w": "and",
+     "t": 10.817
+    },
+    {
+     "w": "started",
+     "t": 11.177
+    },
+    {
+     "w": "eating",
+     "t": 11.457
+    },
+    {
+     "w": "the",
+     "t": 11.737
+    },
+    {
+     "w": "wheat.",
+     "t": 12.017
+    }
+   ]
+  },
+  {
+   "id": "call",
+   "start": 12.641,
+   "end": 14.545,
+   "words": [
+    {
+     "w": "So",
+     "t": 12.641
+    },
+    {
+     "w": "the",
+     "t": 12.821
+    },
+    {
+     "w": "farmers",
+     "t": 13.021
+    },
+    {
+     "w": "called",
+     "t": 13.301
+    },
+    {
+     "w": "the",
+     "t": 13.721
+    },
+    {
+     "w": "army.",
+     "t": 14.041
+    }
+   ]
+  },
+  {
+   "id": "sent",
+   "start": 14.745,
+   "end": 19.273,
+   "words": [
+    {
+     "w": "The",
+     "t": 14.745
+    },
+    {
+     "w": "army",
+     "t": 14.805
+    },
+    {
+     "w": "sent",
+     "t": 15.025
+    },
+    {
+     "w": "one",
+     "t": 15.305
+    },
+    {
+     "w": "major,",
+     "t": 15.525
+    },
+    {
+     "w": "two",
+     "t": 15.845
+    },
+    {
+     "w": "soldiers,",
+     "t": 16.185
+    },
+    {
+     "w": "two",
+     "t": 16.925
+    },
+    {
+     "w": "machine",
+     "t": 17.025
+    },
+    {
+     "w": "guns,",
+     "t": 17.325
+    },
+    {
+     "w": "and",
+     "t": 17.985
+    },
+    {
+     "w": "ten",
+     "t": 18.155
+    },
+    {
+     "w": "thousand",
+     "t": 18.324
+    },
+    {
+     "w": "bullets.",
+     "t": 18.705
+    }
+   ]
+  },
+  {
+   "id": "scatter",
+   "start": 19.573,
+   "end": 22.371,
+   "words": [
+    {
+     "w": "The",
+     "t": 19.573
+    },
+    {
+     "w": "emus",
+     "t": 19.633
+    },
+    {
+     "w": "split",
+     "t": 19.973
+    },
+    {
+     "w": "into",
+     "t": 20.213
+    },
+    {
+     "w": "tiny",
+     "t": 20.413
+    },
+    {
+     "w": "groups,",
+     "t": 20.693
+    },
+    {
+     "w": "and",
+     "t": 21.053
+    },
+    {
+     "w": "ran",
+     "t": 21.393
+    },
+    {
+     "w": "out",
+     "t": 21.573
+    },
+    {
+     "w": "of",
+     "t": 21.813
+    },
+    {
+     "w": "range.",
+     "t": 21.913
+    }
+   ]
+  },
+  {
+   "id": "ambush",
+   "start": 22.621,
+   "end": 25.013,
+   "words": [
+    {
+     "w": "When",
+     "t": 22.621
+    },
+    {
+     "w": "a",
+     "t": 22.701
+    },
+    {
+     "w": "thousand",
+     "t": 22.801
+    },
+    {
+     "w": "of",
+     "t": 23.061
+    },
+    {
+     "w": "them",
+     "t": 23.261
+    },
+    {
+     "w": "finally",
+     "t": 23.361
+    },
+    {
+     "w": "walked",
+     "t": 23.721
+    },
+    {
+     "w": "into",
+     "t": 24.041
+    },
+    {
+     "w": "an",
+     "t": 24.381
+    },
+    {
+     "w": "ambush,",
+     "t": 24.501
+    }
+   ]
+  },
+  {
+   "id": "jam",
+   "start": 25.313,
+   "end": 26.125,
+   "words": [
+    {
+     "w": "the",
+     "t": 25.313
+    },
+    {
+     "w": "gun",
+     "t": 25.373
+    },
+    {
+     "w": "jammed.",
+     "t": 25.573
+    }
+   ]
+  },
+  {
+   "id": "truck",
+   "start": 26.575,
+   "end": 28.247,
+   "words": [
+    {
+     "w": "So",
+     "t": 26.575
+    },
+    {
+     "w": "they",
+     "t": 26.715
+    },
+    {
+     "w": "mounted",
+     "t": 26.855
+    },
+    {
+     "w": "a",
+     "t": 27.115
+    },
+    {
+     "w": "gun",
+     "t": 27.335
+    },
+    {
+     "w": "on",
+     "t": 27.515
+    },
+    {
+     "w": "a",
+     "t": 27.755
+    },
+    {
+     "w": "truck.",
+     "t": 27.835
+    }
+   ]
+  },
+  {
+   "id": "faster",
+   "start": 28.447,
+   "end": 30.084,
+   "words": [
+    {
+     "w": "The",
+     "t": 28.447
+    },
+    {
+     "w": "emus",
+     "t": 28.625
+    },
+    {
+     "w": "were",
+     "t": 28.847
+    },
+    {
+     "w": "faster",
+     "t": 29.047
+    },
+    {
+     "w": "than",
+     "t": 29.307
+    },
+    {
+     "w": "the",
+     "t": 29.607
+    },
+    {
+     "w": "truck.",
+     "t": 29.707
+    }
+   ]
+  },
+  {
+   "id": "tally",
+   "start": 30.484,
+   "end": 34.815,
+   "words": [
+    {
+     "w": "By",
+     "t": 30.484
+    },
+    {
+     "w": "December:",
+     "t": 30.584
+    },
+    {
+     "w": "nearly",
+     "t": 31.324
+    },
+    {
+     "w": "ten",
+     "t": 31.646
+    },
+    {
+     "w": "thousand",
+     "t": 31.83
+    },
+    {
+     "w": "bullets,",
+     "t": 32.244
+    },
+    {
+     "w": "for",
+     "t": 32.524
+    },
+    {
+     "w": "nine",
+     "t": 32.719
+    },
+    {
+     "w": "hundred",
+     "t": 32.961
+    },
+    {
+     "w": "eighty-six",
+     "t": 33.35
+    },
+    {
+     "w": "emus.",
+     "t": 33.884
+    }
+   ]
+  },
+  {
+   "id": "perbird",
+   "start": 35.065,
+   "end": 36.261,
+   "words": [
+    {
+     "w": "Ten",
+     "t": 35.065
+    },
+    {
+     "w": "bullets",
+     "t": 35.245
+    },
+    {
+     "w": "per",
+     "t": 35.505
+    },
+    {
+     "w": "bird.",
+     "t": 35.785
+    }
+   ]
+  },
+  {
+   "id": "review",
+   "start": 36.711,
+   "end": 38.301,
+   "words": [
+    {
+     "w": "The",
+     "t": 36.711
+    },
+    {
+     "w": "major's",
+     "t": 36.891
+    },
+    {
+     "w": "review",
+     "t": 37.251
+    },
+    {
+     "w": "of",
+     "t": 37.411
+    },
+    {
+     "w": "the",
+     "t": 37.731
+    },
+    {
+     "w": "enemy?",
+     "t": 37.871
+    }
+   ]
+  },
+  {
+   "id": "quote",
+   "start": 38.601,
+   "end": 41.689,
+   "words": [
+    {
+     "w": "They",
+     "t": 38.601
+    },
+    {
+     "w": "can",
+     "t": 38.681
+    },
+    {
+     "w": "face",
+     "t": 38.821
+    },
+    {
+     "w": "machine",
+     "t": 39.041
+    },
+    {
+     "w": "guns,",
+     "t": 39.461
+    },
+    {
+     "w": "with",
+     "t": 39.761
+    },
+    {
+     "w": "the",
+     "t": 40.061
+    },
+    {
+     "w": "invulnerability",
+     "t": 40.181
+    },
+    {
+     "w": "of",
+     "t": 40.681
+    },
+    {
+     "w": "tanks.",
+     "t": 41.161
+    }
+   ]
+  },
+  {
+   "id": "home",
+   "start": 42.289,
+   "end": 43.16,
+   "words": [
+    {
+     "w": "The",
+     "t": 42.289
+    },
+    {
+     "w": "army",
+     "t": 42.44
+    },
+    {
+     "w": "went",
+     "t": 42.629
+    },
+    {
+     "w": "home.",
+     "t": 42.769
+    }
+   ]
+  },
+  {
+   "id": "didnot",
+   "start": 43.51,
+   "end": 44.439,
+   "words": [
+    {
+     "w": "The",
+     "t": 43.51
+    },
+    {
+     "w": "emus",
+     "t": 43.664
+    },
+    {
+     "w": "did",
+     "t": 43.856
+    },
+    {
+     "w": "not.",
+     "t": 44.01
+    }
+   ]
+  }
+ ],
+ "caps": [
+  {
+   "text": "IN 1932,",
+   "line": "hook",
+   "start": 0.35,
+   "end": 1.57
+  },
+  {
+   "text": "AUSTRALIA WENT TO WAR",
+   "line": "hook",
+   "start": 1.57,
+   "end": 2.61
+  },
+  {
+   "text": "AGAINST BIRDS.",
+   "line": "hook",
+   "start": 2.61,
+   "end": 3.651
+  },
+  {
+   "text": "AND LOST.",
+   "line": "lost",
+   "start": 3.781,
+   "end": 4.505
+  },
+  {
+   "text": "AFTER WORLD WAR ONE,",
+   "line": "vets",
+   "start": 4.935,
+   "end": 6.135
+  },
+  {
+   "text": "THE GOVERNMENT GAVE VETERANS",
+   "line": "vets",
+   "start": 6.135,
+   "end": 7.055
+  },
+  {
+   "text": "FARMLAND",
+   "line": "vets",
+   "start": 7.055,
+   "end": 7.475
+  },
+  {
+   "text": "IN WESTERN AUSTRALIA.",
+   "line": "vets",
+   "start": 7.475,
+   "end": 9.037
+  },
+  {
+   "text": "THEN 20,000 EMUS",
+   "line": "emus",
+   "start": 9.117,
+   "end": 10.337
+  },
+  {
+   "text": "SHOWED UP,",
+   "line": "emus",
+   "start": 10.337,
+   "end": 10.817
+  },
+  {
+   "text": "AND STARTED EATING",
+   "line": "emus",
+   "start": 10.817,
+   "end": 11.737
+  },
+  {
+   "text": "THE WHEAT.",
+   "line": "emus",
+   "start": 11.737,
+   "end": 12.511
+  },
+  {
+   "text": "SO THE FARMERS",
+   "line": "call",
+   "start": 12.641,
+   "end": 13.301
+  },
+  {
+   "text": "CALLED THE ARMY.",
+   "line": "call",
+   "start": 13.301,
+   "end": 14.665
+  },
+  {
+   "text": "THE ARMY SENT",
+   "line": "sent",
+   "start": 14.745,
+   "end": 15.305
+  },
+  {
+   "text": "ONE MAJOR,",
+   "line": "sent",
+   "start": 15.305,
+   "end": 15.845
+  },
+  {
+   "text": "TWO SOLDIERS,",
+   "line": "sent",
+   "start": 15.845,
+   "end": 16.925
+  },
+  {
+   "text": "TWO MACHINE GUNS,",
+   "line": "sent",
+   "start": 16.925,
+   "end": 17.985
+  },
+  {
+   "text": "AND 10,000 BULLETS.",
+   "line": "sent",
+   "start": 17.985,
+   "end": 19.393
+  },
+  {
+   "text": "THE EMUS SPLIT",
+   "line": "scatter",
+   "start": 19.573,
+   "end": 20.213
+  },
+  {
+   "text": "INTO TINY GROUPS,",
+   "line": "scatter",
+   "start": 20.213,
+   "end": 21.053
+  },
+  {
+   "text": "AND RAN OUT OF RANGE.",
+   "line": "scatter",
+   "start": 21.053,
+   "end": 22.491
+  },
+  {
+   "text": "WHEN 1,000 OF THEM",
+   "line": "ambush",
+   "start": 22.621,
+   "end": 23.361
+  },
+  {
+   "text": "FINALLY WALKED",
+   "line": "ambush",
+   "start": 23.361,
+   "end": 24.041
+  },
+  {
+   "text": "INTO AN AMBUSH...",
+   "line": "ambush",
+   "start": 24.041,
+   "end": 25.133
+  },
+  {
+   "text": "THE GUN JAMMED.",
+   "line": "jam",
+   "start": 25.313,
+   "end": 26.245
+  },
+  {
+   "text": "SO THEY MOUNTED",
+   "line": "truck",
+   "start": 26.575,
+   "end": 27.115
+  },
+  {
+   "text": "A GUN ON A TRUCK.",
+   "line": "truck",
+   "start": 27.115,
+   "end": 28.367
+  },
+  {
+   "text": "THE EMUS WERE",
+   "line": "faster",
+   "start": 28.447,
+   "end": 29.047
+  },
+  {
+   "text": "FASTER THAN THE TRUCK.",
+   "line": "faster",
+   "start": 29.047,
+   "end": 30.204
+  },
+  {
+   "text": "BY DECEMBER:",
+   "line": "tally",
+   "start": 30.484,
+   "end": 31.324
+  },
+  {
+   "text": "NEARLY 10,000 BULLETS,",
+   "line": "tally",
+   "start": 31.324,
+   "end": 32.524
+  },
+  {
+   "text": "FOR 986 EMUS.",
+   "line": "tally",
+   "start": 32.524,
+   "end": 34.935
+  },
+  {
+   "text": "TEN BULLETS",
+   "line": "perbird",
+   "start": 35.065,
+   "end": 35.505
+  },
+  {
+   "text": "PER BIRD.",
+   "line": "perbird",
+   "start": 35.505,
+   "end": 36.381
+  },
+  {
+   "text": "THE MAJOR'S REVIEW",
+   "line": "review",
+   "start": 36.711,
+   "end": 37.411
+  },
+  {
+   "text": "OF THE ENEMY?",
+   "line": "review",
+   "start": 37.411,
+   "end": 38.421
+  },
+  {
+   "text": "THE ARMY WENT HOME.",
+   "line": "home",
+   "start": 42.289,
+   "end": 43.28
+  },
+  {
+   "text": "THE EMUS",
+   "line": "didnot",
+   "start": 43.51,
+   "end": 43.856
+  },
+  {
+   "text": "DID NOT.",
+   "line": "didnot",
+   "start": 43.856,
+   "end": 44.559
+  }
+ ]
+}
