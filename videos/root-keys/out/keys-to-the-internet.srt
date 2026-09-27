@@ -1,0 +1,531 @@
+1
+00:00:00,600 --> 00:00:03,560
+Four times a year, a handful of strangers travel
+
+2
+00:00:03,560 --> 00:00:06,680
+to one of two very boring-looking buildings.
+
+3
+00:00:06,680 --> 00:00:08,980
+One is in Culpeper, Virginia.
+
+4
+00:00:08,980 --> 00:00:11,960
+The other is in El Segundo, California.
+
+5
+00:00:11,960 --> 00:00:13,520
+They type in a PIN.
+
+6
+00:00:13,520 --> 00:00:14,980
+They swipe a smartcard.
+
+7
+00:00:14,980 --> 00:00:17,260
+They scan their hand, and then their eye.
+
+8
+00:00:17,260 --> 00:00:18,660
+They open a safe.
+
+9
+00:00:18,660 --> 00:00:20,840
+And inside that safe are the keys to the
+
+10
+00:00:20,840 --> 00:00:21,286
+internet.
+
+11
+00:00:21,836 --> 00:00:26,236
+Sort of. And in two weeks, for only the
+
+12
+00:00:26,236 --> 00:00:28,932
+second time in history, they're changing the locks.
+
+13
+00:00:30,032 --> 00:00:31,972
+You might have seen the headlines.
+
+14
+00:00:31,972 --> 00:00:34,532
+Meet the seven people who hold the keys to
+
+15
+00:00:34,532 --> 00:00:37,372
+the internet. It's a fantastic headline.
+
+16
+00:00:37,372 --> 00:00:39,892
+It is also, according to the people who actually
+
+17
+00:00:39,892 --> 00:00:41,832
+hold the keys, wrong.
+
+18
+00:00:41,832 --> 00:00:44,132
+So let's figure out what these keys really do,
+
+19
+00:00:44,132 --> 00:00:47,012
+who has them, and what happens if someone loses
+
+20
+00:00:47,012 --> 00:00:47,462
+one.
+
+21
+00:00:48,012 --> 00:00:50,772
+Every time you visit a website, your computer has
+
+22
+00:00:50,772 --> 00:00:53,312
+to ask where that website lives.
+
+23
+00:00:53,312 --> 00:00:56,092
+A name like wikipedia dot org means nothing to
+
+24
+00:00:56,092 --> 00:00:59,532
+a computer. It needs a number, an IP address.
+
+25
+00:00:59,532 --> 00:01:02,232
+The system that translates one into the other is
+
+26
+00:01:02,232 --> 00:01:05,192
+called the Domain Name System, or DNS.
+
+27
+00:01:05,192 --> 00:01:07,294
+It's basically the internet's phone book.
+
+28
+00:01:07,844 --> 00:01:10,204
+And for a long time, that phone book had
+
+29
+00:01:10,204 --> 00:01:13,124
+a problem. It trusted whoever answered.
+
+30
+00:01:13,124 --> 00:01:14,984
+If a hacker could slip in a fake answer
+
+31
+00:01:14,984 --> 00:01:18,024
+first, your computer would happily believe it, and send
+
+32
+00:01:18,024 --> 00:01:20,064
+you to a fake version of your bank.
+
+33
+00:01:20,064 --> 00:01:22,717
+In two thousand and eight, a researcher named Dan
+
+34
+00:01:22,717 --> 00:01:25,724
+Kaminsky showed that this was much, much easier than
+
+35
+00:01:25,724 --> 00:01:26,449
+anyone thought.
+
+36
+00:01:26,999 --> 00:01:29,559
+The fix is called DNSSEC.
+
+37
+00:01:29,559 --> 00:01:31,619
+Every answer in the phone book now comes with
+
+38
+00:01:31,619 --> 00:01:35,699
+a cryptographic signature, a kind of tamper-proof seal.
+
+39
+00:01:35,699 --> 00:01:38,459
+And every level vouches for the level below it.
+
+40
+00:01:38,459 --> 00:01:41,819
+Wikipedia dot org is vouched for by dot org.
+
+41
+00:01:41,819 --> 00:01:44,139
+And dot org is vouched for by the very
+
+42
+00:01:44,139 --> 00:01:45,959
+top of the whole system:
+
+43
+00:01:45,959 --> 00:01:46,521
+the root.
+
+44
+00:01:47,071 --> 00:01:49,711
+But who vouches for the root?
+
+45
+00:01:49,711 --> 00:01:51,751
+Nobody. There's nothing above it.
+
+46
+00:01:51,751 --> 00:01:54,471
+The root's signature is the one thing the entire
+
+47
+00:01:54,471 --> 00:01:56,451
+system has to take on faith.
+
+48
+00:01:56,451 --> 00:01:59,451
+Which means the key that makes that signature had
+
+49
+00:01:59,451 --> 00:02:01,319
+better be very, very well protected.
+
+50
+00:02:01,869 --> 00:02:04,789
+That key is called the Key Signing Key.
+
+51
+00:02:04,789 --> 00:02:07,919
+It lives inside machines called hardware security modules:
+
+52
+00:02:07,919 --> 00:02:12,189
+tamper-proof boxes designed to wipe themselves if anyone tries
+
+53
+00:02:12,189 --> 00:02:13,269
+to break in.
+
+54
+00:02:13,269 --> 00:02:15,949
+There are copies on both coasts, more than four
+
+55
+00:02:15,949 --> 00:02:17,849
+thousand kilometres apart.
+
+56
+00:02:17,849 --> 00:02:19,969
+The key never leaves these boxes.
+
+57
+00:02:19,969 --> 00:02:20,352
+Ever.
+
+58
+00:02:20,902 --> 00:02:24,122
+But to wake one of these machines up, you
+
+59
+00:02:24,122 --> 00:02:28,000
+need smartcards. The smartcards are sealed in bags, inside
+
+60
+00:02:28,000 --> 00:02:30,682
+safe-deposit boxes, inside a safe.
+
+61
+00:02:30,682 --> 00:02:33,622
+And every safe-deposit box needs two keys.
+
+62
+00:02:33,622 --> 00:02:36,722
+One is held by ICANN, the organisation that runs
+
+63
+00:02:36,722 --> 00:02:39,042
+all this. The other is held by a crypto
+
+64
+00:02:39,042 --> 00:02:39,637
+officer.
+
+65
+00:02:40,187 --> 00:02:44,567
+There are fourteen crypto officers, seven for each coast.
+
+66
+00:02:44,567 --> 00:02:47,567
+They're volunteers from the internet community, from all over
+
+67
+00:02:47,567 --> 00:02:49,587
+the world, and at least three of them have
+
+68
+00:02:49,587 --> 00:02:51,467
+to show up for anything to happen.
+
+69
+00:02:51,467 --> 00:02:54,189
+Then there are seven more people, called recovery key
+
+70
+00:02:54,189 --> 00:02:56,487
+share holders, who each hold a piece of the
+
+71
+00:02:56,487 --> 00:02:59,427
+backup. Five of them are needed, but only if
+
+72
+00:02:59,427 --> 00:03:01,131
+every single machine is destroyed.
+
+73
+00:03:01,681 --> 00:03:04,221
+So the famous seven people?
+
+74
+00:03:04,221 --> 00:03:06,061
+It's actually twenty-one people.
+
+75
+00:03:06,061 --> 00:03:09,371
+And not one of them can do anything alone.
+
+76
+00:03:10,271 --> 00:03:13,351
+The ceremony itself is gloriously over the top.
+
+77
+00:03:13,351 --> 00:03:16,571
+The officers pass through layer after layer of security.
+
+78
+00:03:16,571 --> 00:03:19,711
+Two staff members, who must always stay together, enter
+
+79
+00:03:19,711 --> 00:03:22,431
+a separate safe room to fetch the equipment.
+
+80
+00:03:22,431 --> 00:03:25,311
+Every tamper-evident bag is checked against a serial number
+
+81
+00:03:25,311 --> 00:03:27,051
+written down months earlier.
+
+82
+00:03:27,051 --> 00:03:29,331
+The laptop they use has no battery and no
+
+83
+00:03:29,331 --> 00:03:32,011
+hard drive. It boots from a DVD.
+
+84
+00:03:32,011 --> 00:03:33,931
+And every single step is read aloud from a
+
+85
+00:03:33,931 --> 00:03:36,447
+script, filmed, and streamed live on the internet.
+
+86
+00:03:36,997 --> 00:03:41,177
+Then, three officers insert their smartcards, the machine wakes
+
+87
+00:03:41,177 --> 00:03:43,737
+up, and it signs the keys the internet will
+
+88
+00:03:43,737 --> 00:03:45,797
+use for the next three months.
+
+89
+00:03:45,797 --> 00:03:48,117
+That's it. That's the whole ritual.
+
+90
+00:03:48,117 --> 00:03:50,377
+It's designed so that even if one in twenty
+
+91
+00:03:50,377 --> 00:03:53,297
+participants were dishonest, the odds of a group of
+
+92
+00:03:53,297 --> 00:03:55,417
+them stealing the key are less than one in
+
+93
+00:03:55,417 --> 00:03:55,946
+a million.
+
+94
+00:03:56,496 --> 00:03:58,596
+Of course, even the most secure room on the
+
+95
+00:03:58,596 --> 00:04:00,136
+internet has a weakness.
+
+96
+00:04:00,136 --> 00:04:04,236
+In February twenty twenty, during routine maintenance in California,
+
+97
+00:04:04,236 --> 00:04:06,336
+the lock on one of the safes failed.
+
+98
+00:04:06,336 --> 00:04:08,316
+Not hacked. Just broken.
+
+99
+00:04:08,316 --> 00:04:10,336
+The only fix was to call a locksmith and
+
+100
+00:04:10,336 --> 00:04:12,636
+drill through the safe, which took most of two
+
+101
+00:04:12,636 --> 00:04:15,076
+days. It was the first time in ten years
+
+102
+00:04:15,076 --> 00:04:17,192
+that a ceremony had to be rescheduled.
+
+103
+00:04:17,742 --> 00:04:21,002
+Two months later, a pandemic grounded flights around the
+
+104
+00:04:21,002 --> 00:04:24,142
+world. So the crypto officers did the only sensible
+
+105
+00:04:24,142 --> 00:04:28,602
+thing. They mailed their keys, sealed in tamper-evident bags,
+
+106
+00:04:28,602 --> 00:04:31,162
+and watched the ceremony on a video call.
+
+107
+00:04:31,162 --> 00:04:33,782
+And just to be safe, the machine signed nine
+
+108
+00:04:33,782 --> 00:04:36,214
+months of keys at once, instead of three.
+
+109
+00:04:36,764 --> 00:04:39,504
+So, can these people turn off the internet?
+
+110
+00:04:39,504 --> 00:04:42,724
+No. The keys only work inside those two buildings.
+
+111
+00:04:42,724 --> 00:04:44,564
+They only protect one thing:
+
+112
+00:04:44,564 --> 00:04:47,044
+the signature at the top of the phone book.
+
+113
+00:04:47,044 --> 00:04:50,064
+And if every key vanished tomorrow, ICANN could buy
+
+114
+00:04:50,064 --> 00:04:53,724
+a new machine and restore everything from encrypted backups.
+
+115
+00:04:53,724 --> 00:04:56,224
+Annoying? Very. Apocalyptic?
+
+116
+00:04:56,224 --> 00:04:56,599
+No.
+
+117
+00:04:57,149 --> 00:04:59,729
+Which brings us back to changing the locks.
+
+118
+00:04:59,729 --> 00:05:02,689
+The first root key was created in twenty ten.
+
+119
+00:05:02,689 --> 00:05:05,269
+It was supposed to be replaced in twenty seventeen,
+
+120
+00:05:05,269 --> 00:05:07,569
+but that got delayed by a whole year, because
+
+121
+00:05:07,569 --> 00:05:09,709
+too many systems weren't ready.
+
+122
+00:05:09,709 --> 00:05:12,878
+The switch finally happened on October the eleventh, twenty
+
+123
+00:05:12,878 --> 00:05:16,069
+eighteen. A new key was made in twenty twenty-four.
+
+124
+00:05:16,069 --> 00:05:19,229
+And on October the eleventh, twenty twenty-six, it takes
+
+125
+00:05:19,229 --> 00:05:19,662
+over.
+
+126
+00:05:20,212 --> 00:05:22,472
+If everything goes to plan, you won't notice a
+
+127
+00:05:22,472 --> 00:05:25,432
+thing. Which is exactly the point.
+
+128
+00:05:25,432 --> 00:05:27,132
+Nobody can switch off the internet.
+
+129
+00:05:27,132 --> 00:05:29,572
+But four times a year, a few volunteers fly
+
+130
+00:05:29,572 --> 00:05:32,712
+across the world, scan their eyeballs, and read a
+
+131
+00:05:32,712 --> 00:05:35,192
+script out loud next to a safe, just so
+
+132
+00:05:35,192 --> 00:05:36,932
+the rest of us never have to think about
+
+133
+00:05:36,932 --> 00:05:37,101
+it.
