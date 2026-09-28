@@ -1,14 +1,12 @@
 {
  "stages": {
   "topic": {
-   "result": "fail",
-   "at": "2026-09-28T08:12:40Z",
+   "result": "pass",
+   "at": "2026-09-28T08:30:34Z",
    "hashes": {
-    "topic.json": "6c859b7578d9"
+    "topic.json": "85fadeb1f90f"
    },
-   "failed": [
-    "approved by a human (set approved_by / approved_at; a model must not fill this in)"
-   ]
+   "failed": []
   }
  }
 }
