@@ -1,0 +1,559 @@
+{
+ "duration": 42.745,
+ "voices": [
+  "piper:en_US-ryan-high"
+ ],
+ "paras": [
+  {
+   "id": "hook",
+   "start": 0.35,
+   "end": 4.46,
+   "wer": 0.0,
+   "heard": "in two thousand seven the swiss army invaded liechtenstein by accident",
+   "words": [
+    {
+     "w": "In",
+     "t": 0.35
+    },
+    {
+     "w": "two",
+     "t": 0.552
+    },
+    {
+     "w": "thousand",
+     "t": 0.822
+    },
+    {
+     "w": "seven,",
+     "t": 1.428
+    },
+    {
+     "w": "the",
+     "t": 1.9
+    },
+    {
+     "w": "Swiss",
+     "t": 1.96
+    },
+    {
+     "w": "army",
+     "t": 2.2
+    },
+    {
+     "w": "invaded",
+     "t": 2.52
+    },
+    {
+     "w": "Liechtenstein",
+     "t": 2.94
+    },
+    {
+     "w": "by",
+     "t": 3.64
+    },
+    {
+     "w": "accident.",
+     "t": 3.9
+    }
+   ]
+  },
+  {
+   "id": "itwasnt",
+   "start": 4.76,
+   "end": 5.77,
+   "wer": 0.0,
+   "heard": "it wasn't the first time",
+   "words": [
+    {
+     "w": "It",
+     "t": 4.78
+    },
+    {
+     "w": "wasn't",
+     "t": 4.86
+    },
+    {
+     "w": "the",
+     "t": 5.1
+    },
+    {
+     "w": "first",
+     "t": 5.24
+    },
+    {
+     "w": "time.",
+     "t": 5.4
+    }
+   ]
+  },
+  {
+   "id": "neutral",
+   "start": 6.27,
+   "end": 8.72,
+   "wer": 0.0,
+   "heard": "switzerland has been neutral for five hundred years",
+   "words": [
+    {
+     "w": "Switzerland",
+     "t": 6.42
+    },
+    {
+     "w": "has",
+     "t": 6.64
+    },
+    {
+     "w": "been",
+     "t": 6.94
+    },
+    {
+     "w": "neutral",
+     "t": 7.12
+    },
+    {
+     "w": "for",
+     "t": 7.4
+    },
+    {
+     "w": "five",
+     "t": 7.56
+    },
+    {
+     "w": "hundred",
+     "t": 7.76
+    },
+    {
+     "w": "years.",
+     "t": 8.08
+    }
+   ]
+  },
+  {
+   "id": "y1968",
+   "start": 9.02,
+   "end": 13.002,
+   "wer": 0.0,
+   "heard": "in nineteen sixty eight swiss shells hit liechtenstein's only ski resort",
+   "words": [
+    {
+     "w": "In",
+     "t": 9.02
+    },
+    {
+     "w": "nineteen",
+     "t": 9.181
+    },
+    {
+     "w": "sixty-eight,",
+     "t": 9.663
+    },
+    {
+     "w": "Swiss",
+     "t": 10.36
+    },
+    {
+     "w": "shells",
+     "t": 10.68
+    },
+    {
+     "w": "hit",
+     "t": 11.04
+    },
+    {
+     "w": "Liechtenstein's",
+     "t": 11.32
+    },
+    {
+     "w": "only",
+     "t": 12.06
+    },
+    {
+     "w": "ski",
+     "t": 12.26
+    },
+    {
+     "w": "resort.",
+     "t": 12.54
+    }
+   ]
+  },
+  {
+   "id": "y1976",
+   "start": 13.252,
+   "end": 17.582,
+   "wer": 0.0,
+   "heard": "in nineteen seventy six seventy five soldiers wandered in got offered drinks",
+   "words": [
+    {
+     "w": "In",
+     "t": 13.252
+    },
+    {
+     "w": "nineteen",
+     "t": 13.406
+    },
+    {
+     "w": "seventy-six,",
+     "t": 13.867
+    },
+    {
+     "w": "seventy-five",
+     "t": 14.534
+    },
+    {
+     "w": "soldiers",
+     "t": 15.2
+    },
+    {
+     "w": "wandered",
+     "t": 15.64
+    },
+    {
+     "w": "in,",
+     "t": 16.02
+    },
+    {
+     "w": "and",
+     "t": 16.36
+    },
+    {
+     "w": "got",
+     "t": 16.64
+    },
+    {
+     "w": "offered",
+     "t": 16.84
+    },
+    {
+     "w": "drinks.",
+     "t": 17.12
+    }
+   ]
+  },
+  {
+   "id": "y1985",
+   "start": 17.832,
+   "end": 22.128,
+   "wer": 0.0,
+   "heard": "in nineteen eighty five missiles started a forest fire that switzerland had to pay for",
+   "words": [
+    {
+     "w": "In",
+     "t": 17.84
+    },
+    {
+     "w": "nineteen",
+     "t": 18.015
+    },
+    {
+     "w": "eighty-five,",
+     "t": 18.541
+    },
+    {
+     "w": "missiles",
+     "t": 19.3
+    },
+    {
+     "w": "started",
+     "t": 19.44
+    },
+    {
+     "w": "a",
+     "t": 19.82
+    },
+    {
+     "w": "forest",
+     "t": 20.04
+    },
+    {
+     "w": "fire",
+     "t": 20.3
+    },
+    {
+     "w": "that",
+     "t": 20.64
+    },
+    {
+     "w": "Switzerland",
+     "t": 20.86
+    },
+    {
+     "w": "had",
+     "t": 21.26
+    },
+    {
+     "w": "to",
+     "t": 21.56
+    },
+    {
+     "w": "pay",
+     "t": 21.66
+    },
+    {
+     "w": "for.",
+     "t": 21.8
+    }
+   ]
+  },
+  {
+   "id": "y1992",
+   "start": 22.428,
+   "end": 27.084,
+   "wer": 0.0,
+   "heard": "in nineteen ninety two soldiers set up camp in the wrong country had to apologize",
+   "words": [
+    {
+     "w": "In",
+     "t": 22.428
+    },
+    {
+     "w": "nineteen",
+     "t": 22.625
+    },
+    {
+     "w": "ninety-two,",
+     "t": 23.214
+    },
+    {
+     "w": "soldiers",
+     "t": 24.0
+    },
+    {
+     "w": "set",
+     "t": 24.0
+    },
+    {
+     "w": "up",
+     "t": 24.28
+    },
+    {
+     "w": "camp",
+     "t": 24.5
+    },
+    {
+     "w": "in",
+     "t": 24.76
+    },
+    {
+     "w": "the",
+     "t": 24.96
+    },
+    {
+     "w": "wrong",
+     "t": 25.06
+    },
+    {
+     "w": "country,",
+     "t": 25.28
+    },
+    {
+     "w": "and",
+     "t": 25.7
+    },
+    {
+     "w": "had",
+     "t": 26.02
+    },
+    {
+     "w": "to",
+     "t": 26.2
+    },
+    {
+     "w": "apologize.",
+     "t": 26.36
+    }
+   ]
+  },
+  {
+   "id": "then2007",
+   "start": 27.484,
+   "end": 30.038,
+   "wer": 0.0,
+   "heard": "then in two thousand seven they did it again",
+   "words": [
+    {
+     "w": "Then,",
+     "t": 27.484
+    },
+    {
+     "w": "in",
+     "t": 27.94
+    },
+    {
+     "w": "two",
+     "t": 28.13
+    },
+    {
+     "w": "thousand",
+     "t": 28.384
+    },
+    {
+     "w": "seven,",
+     "t": 28.956
+    },
+    {
+     "w": "they",
+     "t": 29.4
+    },
+    {
+     "w": "did",
+     "t": 29.42
+    },
+    {
+     "w": "it",
+     "t": 29.56
+    },
+    {
+     "w": "again.",
+     "t": 29.68
+    }
+   ]
+  },
+  {
+   "id": "soldiers2007",
+   "start": 30.338,
+   "end": 34.785,
+   "wer": 0.0,
+   "heard": "one hundred seventy soldiers lost in the dark marched over a kilometer inside",
+   "words": [
+    {
+     "w": "One",
+     "t": 30.338
+    },
+    {
+     "w": "hundred",
+     "t": 30.474
+    },
+    {
+     "w": "seventy",
+     "t": 30.747
+    },
+    {
+     "w": "soldiers,",
+     "t": 31.02
+    },
+    {
+     "w": "lost",
+     "t": 32.02
+    },
+    {
+     "w": "in",
+     "t": 32.22
+    },
+    {
+     "w": "the",
+     "t": 32.44
+    },
+    {
+     "w": "dark,",
+     "t": 32.54
+    },
+    {
+     "w": "marched",
+     "t": 33.12
+    },
+    {
+     "w": "over",
+     "t": 33.26
+    },
+    {
+     "w": "a",
+     "t": 33.58
+    },
+    {
+     "w": "kilometer",
+     "t": 33.78
+    },
+    {
+     "w": "inside.",
+     "t": 34.24
+    }
+   ]
+  },
+  {
+   "id": "verdict",
+   "start": 35.235,
+   "end": 39.194,
+   "wer": 0.0,
+   "heard": "it's not like they invaded with attack helicopters said a liechtenstein spokesman",
+   "words": [
+    {
+     "w": "\"It's",
+     "t": 35.235
+    },
+    {
+     "w": "not",
+     "t": 35.4
+    },
+    {
+     "w": "like",
+     "t": 35.58
+    },
+    {
+     "w": "they",
+     "t": 35.78
+    },
+    {
+     "w": "invaded",
+     "t": 35.94
+    },
+    {
+     "w": "with",
+     "t": 36.22
+    },
+    {
+     "w": "attack",
+     "t": 36.44
+    },
+    {
+     "w": "helicopters,\"",
+     "t": 36.74
+    },
+    {
+     "w": "said",
+     "t": 37.84
+    },
+    {
+     "w": "a",
+     "t": 37.9
+    },
+    {
+     "w": "Liechtenstein",
+     "t": 38.02
+    },
+    {
+     "w": "spokesman.",
+     "t": 38.62
+    }
+   ]
+  },
+  {
+   "id": "callback",
+   "start": 39.694,
+   "end": 41.145,
+   "wer": 0.0,
+   "heard": "number six could still happen",
+   "words": [
+    {
+     "w": "Number",
+     "t": 39.74
+    },
+    {
+     "w": "six",
+     "t": 40.007
+    },
+    {
+     "w": "could",
+     "t": 40.16
+    },
+    {
+     "w": "still",
+     "t": 40.4
+    },
+    {
+     "w": "happen.",
+     "t": 40.7
+    }
+   ]
+  }
+ ]
+}

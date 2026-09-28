@@ -1,0 +1,115 @@
+{
+ "topic": "Baarle-Hertog / Baarle-Nassau: the village where the front door decides your country",
+ "sources": [
+  {
+   "id": "wiki",
+   "title": "Baarle",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Baarle",
+   "type": "reference",
+   "accessed": "2026-09-28"
+  },
+  {
+   "id": "tom1843",
+   "title": "Treaty of Maastricht (1843)",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Treaty_of_Maastricht_(1843)",
+   "type": "reference",
+   "accessed": "2026-09-28"
+  },
+  {
+   "id": "barry",
+   "title": "Baarle-Hertog – a border puzzle",
+   "publisher": "Barry's Border Points",
+   "url": "https://barrysborderpoints.com/oddities-and-extremities/baarle-hertog/",
+   "type": "secondary",
+   "accessed": "2026-09-28",
+   "note": "Independent travel/enthusiast site used for cross-checking; its own exclave/pocket count differs from Wikipedia's (see open_questions)."
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_origin1198",
+   "key": true,
+   "status": "confirmed",
+   "sources": ["wiki", "barry"],
+   "text": "The division dates back to 1198, when Henry I, Duke of Brabant, granted some of his land to Godfried of Schoten, the Lord of Breda, while keeping the parts that paid him rent; what he kept became Belgium, what he gave away became the Netherlands.",
+   "quote": "In 1198, Henry I, Duke of Brabant (Dutch: Hendrick I) made over some of the land to Godfried of Schoten, the Lord of Breda. Hendrick kept the lands that were paying him a rent. The area that Hendrick kept is now part of Belgium. The area that was given to Gotfried is now in the Netherlands. (Wikipedia); 33a Nieuwstraat or 3 Nieuwstraat if you're on the Belgian side is a divided store with a border marker noting 1198 when the exclaves were first created. (Barry's Border Points)"
+  },
+  {
+   "id": "c_treaty1843",
+   "key": true,
+   "status": "confirmed",
+   "sources": ["tom1843", "barry"],
+   "text": "An 1843 treaty (the Treaty of Maastricht) settled the overall Belgium-Netherlands border, but in Baarle the negotiators couldn't agree on a clean line, so they divided the disputed area into 5,732 separate land parcels assigned by ownership rather than geography.",
+   "quote": "The Treaty of Maastricht, signed in 1843 by Belgium and the Netherlands four years after the Treaty of London established Belgian independence, finally settled the border between the two countries. (Wikipedia); Inability to decide a clear line of demarcation in Baarle-Hertog resulted in the division of the disputed territory into 5732 separate parcels of land. (Wikipedia); The border between Belgium and the Netherlands was established as part of the Treaty of Maastricht in 1843. (Barry's Border Points)"
+  },
+  {
+   "id": "c_finalized1995",
+   "key": true,
+   "status": "confirmed",
+   "sources": ["wiki", "barry"],
+   "text": "The parcel-by-parcel border wasn't even fully finalized until 1995, when a last formerly neutral strip of grassland was formally assigned.",
+   "quote": "In 1995, the border was finalized to include a formerly neutral grassland. (Wikipedia); a process that was not finally complete until 1995. (Barry's Border Points)"
+  },
+  {
+   "id": "c_exclave_count",
+   "key": false,
+   "status": "confirmed",
+   "sources": ["wiki"],
+   "text": "Belgium's Baarle-Hertog is split into 16 separate exclaves inside the Netherlands, and those exclaves in turn surround seven Dutch pockets of their own.",
+   "quote": "The Belgian part includes 16 exclaves within Dutch territory. The exclaves, in turn, surround seven Dutch areas."
+  },
+  {
+   "id": "c_voordeurregel",
+   "key": true,
+   "status": "confirmed",
+   "sources": ["wiki", "barry"],
+   "text": "Where the border runs through a building, the voordeurregel (\"front door rule\") decides its nationality: whichever country contains the front door. A Zeeman clothing store straddling the line is legally Dutch because that's where its front door sits.",
+   "quote": "For these properties, the voordeurregel (literally: \"front door rule\") policy applies: their address lies in the country that contains their front door. (Wikipedia); Zeeman's Supermarket, straddles the border with its front door in the Netherlands and therefore it is Dutch!! (Barry's Border Points)"
+  },
+  {
+   "id": "c_loveren",
+   "key": false,
+   "status": "confirmed",
+   "sources": ["wiki"],
+   "text": "One house on Loveren Street has both a Belgian and a Dutch house number because its front door sits exactly on the line; every house number plaque in Baarle shows a national flag so people can tell which country they are looking at.",
+   "quote": "The exception is a house on Loveren Street with both Belgian (No. 2) and Dutch (No. 19) house numbers, whose front door is on the border line itself. For convenience, every house number plaque shows a national flag."
+  },
+  {
+   "id": "c_shopping",
+   "key": false,
+   "status": "confirmed",
+   "sources": ["wiki"],
+   "text": "The two different national legal systems side by side produce odd local shopping: a fireworks store allowed to stay open year-round on the Belgian side, and Sunday trading every week because Belgian shop-hours rules apply there.",
+   "quote": "Due to legislation, there is an erotic video store in Baarle-Nassau and a fireworks store in Baarle-Hertog which is open the entire year. In Baarle there is Sunday shopping every week"
+  },
+  {
+   "id": "c_fireservice",
+   "key": false,
+   "status": "confirmed",
+   "sources": ["wiki"],
+   "text": "Since 2010 the two towns even share a single, joint Dutch-Belgian fire service.",
+   "quote": "The fire services of Baarle-Nassau and Baarle-Hertog merged into a single body on 1 January 2010."
+  },
+  {
+   "id": "c_quadripoint",
+   "key": false,
+   "status": "confirmed",
+   "sources": ["wiki"],
+   "text": "Baarle even has a quadripoint: a single spot where four separate pieces of territory meet.",
+   "quote": "Baarle also includes a quadripoint shared by two of the exclaves."
+  }
+ ],
+ "myths": [
+  {
+   "myth": "The 'front door decides your country' rule is just a quirky unofficial nickname or tourist gimmick, not real law.",
+   "truth": "The voordeurregel is genuine, enforced policy that sets a building's address, taxation and municipal jurisdiction, and the underlying border itself was not even fully finalized on paper until 1995.",
+   "sources": ["wiki"]
+  }
+ ],
+ "open_questions": [
+  "Atlas Obscura's 'House with Two Numbers' page returned HTTP 403 to both a direct fetch and the WebFetch tool, so it could not be opened or quoted; the Loveren Street detail is instead sourced to Wikipedia, which independently confirms the same fact.",
+  "Sources disagree on the exact pocket count: Barry's Border Points gives 26 pockets (22 fully surrounded by the Netherlands) while Wikipedia's Baarle article gives 16 exclaves surrounding 7 Dutch areas. The script uses only Wikipedia's own count (c_exclave_count) rather than mixing the two tallies; the 5,732-parcel figure (c_treaty1843) is a separate, specifically-sourced statistic and not in tension with either count."
+ ]
+}

@@ -1,0 +1,162 @@
+{
+ "channel": "why-map",
+ "episode": "point-roberts",
+ "series": "why",
+ "working_title": "The US town you can only reach through Canada.",
+ "lead_in": 0.35,
+ "tail": 1.6,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "There's a United States town you can only reach by driving through Canada.",
+   "kind": "hook",
+   "claims": ["c_access"],
+   "gap": 0.3,
+   "caps": [
+    ["THERE'S A", 2],
+    ["UNITED STATES TOWN", 3],
+    ["YOU CAN ONLY REACH", 4],
+    ["BY DRIVING THROUGH CANADA.", 4]
+   ]
+  },
+  {
+   "id": "onlyway",
+   "say": "That's not a shortcut. It's the only way in.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.5,
+   "caps": [
+    ["THAT'S NOT A SHORTCUT.", 4],
+    ["IT'S THE ONLY WAY IN.", 5]
+   ]
+  },
+  {
+   "id": "wrongidea",
+   "say": "You'd think that was a mapping mistake nobody ever fixed.",
+   "kind": "transition",
+   "claims": [],
+   "gap": 0.3,
+   "caps": [
+    ["YOU'D THINK THAT WAS A", 5],
+    ["MAPPING MISTAKE", 2],
+    ["NOBODY EVER FIXED.", 3]
+   ]
+  },
+  {
+   "id": "reveal",
+   "say": "It's not a mistake. It's an old treaty line.",
+   "kind": "fact",
+   "claims": ["c_treaty"],
+   "gap": 0.25,
+   "caps": [
+    ["IT'S NOT A MISTAKE.", 4],
+    ["IT'S AN OLD TREATY LINE.", 5]
+   ]
+  },
+  {
+   "id": "treaty_detail",
+   "say": "In eighteen forty-six, Britain and the United States agreed to draw the border along parallel forty-nine.",
+   "kind": "fact",
+   "claims": ["c_treaty"],
+   "gap": 0.3,
+   "caps": [
+    ["IN 1846,", 3],
+    ["BRITAIN AND THE", 3],
+    ["UNITED STATES", 2],
+    ["AGREED TO DRAW", 3],
+    ["THE BORDER ALONG", 3],
+    ["PARALLEL 49.", 2]
+   ]
+  },
+  {
+   "id": "oops",
+   "say": "Nobody checked what that line would cut off.",
+   "kind": "fact",
+   "claims": ["c_treaty"],
+   "gap": 0.45,
+   "caps": [
+    ["NOBODY CHECKED WHAT", 3],
+    ["THAT LINE WOULD CUT OFF.", 5]
+   ]
+  },
+  {
+   "id": "cutoff",
+   "say": "The line sliced the tip of a peninsula off from the rest of Washington.",
+   "kind": "fact",
+   "claims": ["c_exclave"],
+   "gap": 0.25,
+   "caps": [
+    ["THE LINE SLICED THE TIP", 5],
+    ["OF A PENINSULA OFF", 4],
+    ["FROM THE REST OF WASHINGTON.", 5]
+   ]
+  },
+  {
+   "id": "howfar",
+   "say": "To drive there from the mainland, you cross the border twice.",
+   "kind": "fact",
+   "claims": ["c_access"],
+   "gap": 0.25,
+   "caps": [
+    ["TO DRIVE THERE FROM THE", 5],
+    ["MAINLAND, YOU CROSS", 3],
+    ["THE BORDER TWICE.", 3]
+   ]
+  },
+  {
+   "id": "kids",
+   "say": "Kids there cross the border four times a day, just to get to school.",
+   "kind": "fact",
+   "claims": ["c_school"],
+   "gap": 0.25,
+   "caps": [
+    ["KIDS THERE CROSS THE BORDER", 5],
+    ["4 TIMES A DAY,", 4],
+    ["JUST TO GET TO SCHOOL.", 5]
+   ]
+  },
+  {
+   "id": "water",
+   "say": "Even the tap water comes from Canada, under a deal signed in nineteen eighty-seven.",
+   "kind": "fact",
+   "claims": ["c_utilities"],
+   "gap": 0.3,
+   "caps": [
+    ["EVEN THE TAP WATER", 4],
+    ["COMES FROM CANADA,", 3],
+    ["UNDER A DEAL SIGNED", 4],
+    ["IN 1987.", 3]
+   ]
+  },
+  {
+   "id": "todaybeat",
+   "say": "In twenty twenty-five, one shop owner said her business fell by more than half.",
+   "kind": "fact",
+   "claims": ["c_tariff2025"],
+   "gap": 0.35,
+   "caps": [
+    ["IN 2025,", 3],
+    ["ONE SHOP OWNER SAID", 4],
+    ["HER BUSINESS FELL", 3],
+    ["BY MORE THAN HALF.", 4]
+   ]
+  },
+  {
+   "id": "loopback",
+   "say": "Still only reachable through Canada.",
+   "kind": "callback",
+   "claims": [],
+   "gap": 0.0,
+   "caps": [
+    ["STILL ONLY REACHABLE", 3],
+    ["THROUGH CANADA.", 2]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "loopback",
+  "connects_to": "hook",
+  "how": "'Still only reachable through Canada.' answers the hook's 'you can only reach by driving through Canada'; the closing map frame mirrors the opening one, just with the loop drawn on it."
+ }
+}

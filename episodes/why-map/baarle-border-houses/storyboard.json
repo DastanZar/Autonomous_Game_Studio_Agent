@@ -1,0 +1,125 @@
+{
+ "episode": "baarle-border-houses",
+ "scenes": [
+  {
+   "id": "s1_hook",
+   "type": "title_card",
+   "start": "0",
+   "params": {
+    "text": "YOUR FRONT DOOR PICKS YOUR COUNTRY",
+    "prop": "building"
+   },
+   "events": [
+    {
+     "at": "hook/door",
+     "do": "highlight_door",
+     "sfx": "thud"
+    }
+   ]
+  },
+  {
+   "id": "s2_literally",
+   "type": "stamp_reveal",
+   "start": "literally.start-0.1",
+   "params": {
+    "text": "LITERALLY",
+    "color": "yellow"
+   }
+  },
+  {
+   "id": "s3_samevillage",
+   "type": "map_focus",
+   "start": "samevillage.start-0.15",
+   "params": {
+    "region": [4.9, 51.4, 5.0, 51.47],
+    "highlight": ["NL", "BE"],
+    "pins": []
+   }
+  },
+  {
+   "id": "s4_origin",
+   "type": "map_focus",
+   "start": "origin.start-0.15",
+   "params": {
+    "region": [4.9, 51.4, 5.0, 51.47],
+    "highlight": ["NL", "BE"],
+    "pins": [
+     {"lon": 4.93, "lat": 51.44, "label": "1198: DUKE SPLITS THE LAND", "at": "origin/two"}
+    ]
+   }
+  },
+  {
+   "id": "s5_treaty",
+   "type": "map_focus",
+   "start": "treaty.start-0.1",
+   "params": {
+    "region": [4.9, 51.4, 5.0, 51.47],
+    "highlight": ["NL", "BE"],
+    "pins": [
+     {"lon": 4.93, "lat": 51.44, "label": "1843: ONE CLEAN BORDER?", "at": "treaty/border"}
+    ]
+   }
+  },
+  {
+   "id": "s6_toohard",
+   "type": "count_up",
+   "start": "toohard.start-0.15",
+   "params": {
+    "value": 5732,
+    "unit": "PARCELS"
+   },
+   "events": [
+    {
+     "at": "toohard/thousand",
+     "do": "count_start",
+     "sfx": "tick"
+    }
+   ]
+  },
+  {
+   "id": "s7_finalized",
+   "type": "stamp_reveal",
+   "start": "finalized.start-0.1",
+   "params": {
+    "text": "1995",
+    "color": "navy"
+   }
+  },
+  {
+   "id": "s8_storedoor",
+   "type": "diagram_callout",
+   "start": "storedoor.start-0.15",
+   "params": {
+    "object": "building",
+    "callouts": [
+     {"label": "FRONT DOOR: NETHERLANDS", "at": "storedoor/netherlands"},
+     {"label": "WHOLE STORE: DUTCH", "at": "storedoor/dutch"}
+    ]
+   }
+  },
+  {
+   "id": "s9_fireworks",
+   "type": "split_compare",
+   "start": "fireworks.start-0.15",
+   "params": {
+    "left_label": "BELGIUM: FIREWORKS ALL YEAR",
+    "right_label": "NETHERLANDS: NOT ALLOWED"
+   },
+   "events": [
+    {
+     "at": "fireworks/fireworks",
+     "do": "reveal_split",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s10_callback",
+   "type": "outro_loop",
+   "start": "callback.start-0.2",
+   "params": {
+    "echo_of": "s1_hook"
+   }
+  }
+ ]
+}

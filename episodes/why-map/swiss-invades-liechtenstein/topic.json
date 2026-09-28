@@ -1,0 +1,28 @@
+{
+ "slug": "swiss-invades-liechtenstein",
+ "channel": "why-map",
+ "series": "the_time",
+ "hook": "In two thousand seven, Switzerland invaded Liechtenstein by accident. It wasn't the first time.",
+ "twist": "Switzerland, one of the most neutral countries on earth, has accidentally sent its own troops across the unmarked border into Liechtenstein at least three times since the 1960s, most recently in 2007, and each time Liechtenstein just shrugged.",
+ "angle": "How does the world's most neutral army keep accidentally invading its tiny, defenseless neighbor, and why does nobody involved seem to care?",
+ "why_now": "Evergreen border-oddity story; no anniversary trigger, but the repeat pattern (multiple incursions across five decades) gives a strong escalation structure regardless of timing.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/Liechtenstein%E2%80%93Switzerland_relations",
+  "https://www.thelocal.ch/20200228/swiss-history-army-attacked-liechtenstein-three-times-by-mistake"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 5,
+  "visual": 5,
+  "sourceability": 4,
+  "timeliness": 2,
+  "series_fit": 5
+ },
+ "risks": [
+  "Already circulates as a 'fun fact' on social media and listicle sites; our edge has to be the repeat-offense structure (a rule-of-three escalation: 1968, 1985, 2007) and Liechtenstein's deadpan non-reaction, not the 2007 incident alone.",
+  "Sources disagree on the exact incursion count (three vs four depending on the outlet) and on precise dates for the earlier incidents; research stage must pin the count and dates to a primary or official account before scripting any specific number.",
+  "Risk of the joke reading as mocking a small country's lack of a military; keep the target of the joke on Switzerland's blunder, not on Liechtenstein having no army."
+ ],
+ "approved_by": "user (approved in the orchestrator chat)",
+ "approved_at": "2026-09-28"
+}

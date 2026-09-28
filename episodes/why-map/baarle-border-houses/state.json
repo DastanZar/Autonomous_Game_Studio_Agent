@@ -1,0 +1,50 @@
+{
+ "stages": {
+  "topic": {
+   "result": "pass",
+   "at": "2026-09-28T08:30:34Z",
+   "hashes": {
+    "topic.json": "85fadeb1f90f"
+   },
+   "failed": []
+  },
+  "research": {
+   "result": "pass",
+   "at": "2026-09-28T09:00:36Z",
+   "hashes": {
+    "topic.json": "85fadeb1f90f",
+    "dossier.json": "ff143da3e8f5"
+   },
+   "failed": []
+  },
+  "script": {
+   "result": "pass",
+   "at": "2026-09-28T09:02:48Z",
+   "hashes": {
+    "topic.json": "85fadeb1f90f",
+    "dossier.json": "ff143da3e8f5",
+    "script.json": "128b85d7fd23"
+   },
+   "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-09-28T09:02:49Z",
+   "hashes": {
+    "script.json": "128b85d7fd23",
+    "build/timeline.json": "2dc3e0d22109"
+   },
+   "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-09-28T09:08:29Z",
+   "hashes": {
+    "script.json": "128b85d7fd23",
+    "build/timeline.json": "2dc3e0d22109",
+    "storyboard.json": "1f8abbe8f934"
+   },
+   "failed": []
+  }
+ }
+}

@@ -1,0 +1,136 @@
+{
+ "episode": "swiss-invades-liechtenstein",
+ "scenes": [
+  {
+   "id": "s1_hook",
+   "type": "title_card",
+   "start": "0",
+   "params": {
+    "text": "SWITZERLAND INVADED LIECHTENSTEIN",
+    "prop": "soldier"
+   },
+   "events": [
+    {
+     "at": "hook/accident",
+     "do": "map_zoom",
+     "sfx": "thud"
+    }
+   ]
+  },
+  {
+   "id": "s2_itwasnt",
+   "type": "stamp_reveal",
+   "start": "itwasnt.start-0.1",
+   "params": {
+    "text": "AGAIN?",
+    "color": "orange"
+   }
+  },
+  {
+   "id": "s3_neutral",
+   "type": "map_focus",
+   "start": "neutral.start-0.15",
+   "params": {
+    "region": [9.4, 47.0, 9.7, 47.3],
+    "highlight": ["CH", "LI"],
+    "pins": []
+   }
+  },
+  {
+   "id": "s4_1968",
+   "type": "map_focus",
+   "start": "y1968.start-0.15",
+   "params": {
+    "region": [9.4, 47.0, 9.7, 47.3],
+    "highlight": ["CH", "LI"],
+    "pins": [
+     {"lon": 9.53, "lat": 47.10, "label": "1968: SHELLS HIT A SKI RESORT", "at": "y1968/resort"}
+    ]
+   }
+  },
+  {
+   "id": "s5_1976",
+   "type": "map_focus",
+   "start": "y1976.start-0.15",
+   "params": {
+    "region": [9.4, 47.0, 9.7, 47.3],
+    "highlight": ["CH", "LI"],
+    "pins": [
+     {"lon": 9.49, "lat": 47.07, "label": "1976: 75 SOLDIERS, OFFERED DRINKS", "at": "y1976/drinks"}
+    ]
+   }
+  },
+  {
+   "id": "s6_1985",
+   "type": "map_focus",
+   "start": "y1985.start-0.15",
+   "params": {
+    "region": [9.4, 47.0, 9.7, 47.3],
+    "highlight": ["CH", "LI"],
+    "pins": [
+     {"lon": 9.55, "lat": 47.16, "label": "1985: MISSILES, FOREST FIRE", "at": "y1985/fire"}
+    ]
+   }
+  },
+  {
+   "id": "s7_1992",
+   "type": "map_focus",
+   "start": "y1992.start-0.15",
+   "params": {
+    "region": [9.4, 47.0, 9.7, 47.3],
+    "highlight": ["CH", "LI"],
+    "pins": [
+     {"lon": 9.57, "lat": 47.13, "label": "1992: WRONG COUNTRY, SORRY", "at": "y1992/apologize"}
+    ]
+   }
+  },
+  {
+   "id": "s8_then2007",
+   "type": "title_card",
+   "start": "then2007.start-0.2",
+   "params": {
+    "text": "THEN, IN 2007..."
+   }
+  },
+  {
+   "id": "s9_soldiers2007",
+   "type": "count_up",
+   "start": "soldiers2007.start-0.15",
+   "params": {
+    "value": 170,
+    "unit": "SOLDIERS"
+   },
+   "events": [
+    {
+     "at": "soldiers2007/soldiers",
+     "do": "count_start",
+     "sfx": "marching"
+    }
+   ]
+  },
+  {
+   "id": "s10_verdict",
+   "type": "quote_card",
+   "start": "verdict.start-0.2",
+   "params": {
+    "quote": "It's not like they invaded with attack helicopters.",
+    "who": "Liechtenstein government spokesman",
+    "year": "2007"
+   },
+   "events": [
+    {
+     "at": "verdict/helicopters",
+     "do": "card_reveal"
+    }
+   ]
+  },
+  {
+   "id": "s11_callback",
+   "type": "outro_loop",
+   "start": "callback.start-0.2",
+   "params": {
+    "echo_of": "s1_hook"
+   }
+  }
+ ]
+}

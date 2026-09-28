@@ -1,0 +1,128 @@
+{
+ "dossier_sha": "c64810aa4c15",
+ "sources": {
+  "wiki": "fetched",
+  "nasa": "fetched",
+  "ap": "fetched"
+ },
+ "claims": {
+  "c_treaty": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "The acceptance of the 49th parallel as the international boundary was concluded without precise knowledge of its effects. Later, as the Boundary Commission surveyed the line, the British government realized the peninsula of Point Roberts would be an isolated part of the United States.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "Point Roberts dangling below the 49th parallel\u2014the line of latitude that was established in 1846 as the political boundary between the northwestern United States and Canada.",
+     "found_in": [
+      "nasa"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_exclave": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "Point Roberts is what's known as an exclave\u2014part of a territory that is geographically separated from its main part by another territory. In this case, the 5-square-miles (13-square-kilometers) of U.S. territory that constitutes Point Roberts is separated from the rest of Washington by British Columbia, Canada.",
+     "found_in": [
+      "nasa"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_access": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "The area, which had a population of 1,191 at the 2020 census, is reached from the rest of the United States by traveling 25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "To drive there from mainland Washington, you must cross an international border twice.",
+     "found_in": [
+      "nasa"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_school": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "From 4th grade onward, American children must take a 40-minute ride through British Columbia, crossing back into the United States at Blaine, Washington. Students therefore cross the US\u2013Canada border four times, two on the trip to Blaine and two on the trip back.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_covid": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "In 2020, a study found that Point Roberts had lost 80 percent of its business and hundreds of seasonal residents as a result of the pandemic and border shutdown.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_utilities": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "An agreement signed on August 28, 1987, requires the Point Roberts Water District to purchase raw water on an annual basis from the Greater Vancouver Water District.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_name": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "Point Roberts acquired its present name from George Vancouver, who named it after his friend Henry Roberts, who had originally been given command of the expedition.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_tariff2025": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "business was down 55% in February compared with last year.",
+     "found_in": [
+      "ap"
+     ],
+     "unfetched": []
+    }
+   ]
+  }
+ }
+}

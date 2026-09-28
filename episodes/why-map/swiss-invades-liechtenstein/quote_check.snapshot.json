@@ -1,0 +1,155 @@
+{
+ "dossier_sha": "78c088480007",
+ "sources": {
+  "wiki": "cached",
+  "milwiki": "cached",
+  "local": "cached"
+ },
+ "claims": {
+  "c_1968": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "On 14 October 1968, five artillery shells fired by the Swiss army accidentally hit Liechtenstein's only ski resort, Malbun. The only recorded damages were to a few chairs belonging to an outdoor restaurant.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_1976": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "On 26 August 1976, just before midnight, 75 members of the Swiss Army and a number of packhorses mistakenly took a wrong turn and ended up 500 metres (550 yd) into Liechtenstein at Iradug, in Balzers. The Liechtensteiners reportedly offered drinks to the Swiss soldiers, who declined and quickly departed.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_1985": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "On 5 December 1985, anti-aircraft missiles fired by the Swiss Army landed in Liechtenstein amid a winter storm, causing a forest fire in a protected area. Switzerland paid millions of Francs in compensation.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "Swiss artillery launched rockets straight into Liechtenstein, igniting a massive forest fire along with a diplomatic snafu.",
+     "found_in": [
+      "local"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_1992": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "On 13 October 1992, following written orders, Swiss Army recruits unknowingly crossed the border and went to Triesenberg to set up an observation post. Swiss commanders had overlooked the fact that Triesenberg was not on Swiss territory. Switzerland apologized to Liechtenstein for the incident.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_2007": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "Early on 1 March 2007, a company of 171 Swiss soldiers mistakenly entered Liechtenstein, as they were disoriented and took a wrong turn due to bad weather conditions. The troops returned to Swiss territory after they had travelled more than 2 km (1\u00bc miles) into the country.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "Fast-forward to a rainy night in 2007, when 170 troops armed with rifles (but apparently not with a GPS) stumbled into Liechtenstein. They marched on for more than a kilometre until someone exclaimed, \"Hey, this isn't Switzerland\"!",
+     "found_in": [
+      "local"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_quote": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "A Liechtenstein spokesman said, \"It's not like they invaded with attack helicopters\".",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "It's not like they stormed over here with attack helicopters or something, Markus Amman, Liechtenstein's spokesman for the Interior, remarked at the time.",
+     "found_in": [
+      "local"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_pattern": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "Several incidents have occurred during routine training",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "Switzerland has been neutral for the past 500 years. But that didn't stop it from invading its tiny neighbour three times in the past 41 years.",
+     "found_in": [
+      "local"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_footbridge": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "Where a border should be between the two Alpine nations there is only a footbridge, which may explain why the Swiss military made its way into the minuscule, 23-kilometre-long principality with such ease.",
+     "found_in": [
+      "local"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_noarmy": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "Liechtenstein disbanded its army in 1868, and has had no standing army since.",
+     "found_in": [
+      "milwiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  }
+ }
+}
