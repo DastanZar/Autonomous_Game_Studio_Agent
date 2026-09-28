@@ -95,3 +95,47 @@ yt-dlp --flat-playlist --playlist-end 30 -J "https://www.youtube.com/@HANDLE/sho
 # search, shorts only: filter entries with duration <= 75
 yt-dlp --flat-playlist -J "ytsearch60:QUERY"
 ```
+
+## 4. Independent scan: other niches (same method, 2026-09-28)
+
+### Worth considering
+| Niche | Channel | Subs | Shorts median | Top Short |
+|---|---|---|---|---|
+| Science told by personified objects | SolarBalls | 2.25M | **0.75M** | [A Commercial Plane vs the Solar System](https://www.youtube.com/shorts/ELVK6PfDAbM) (10M) |
+| Data rankings with countryballs | Opera_cb | 190k | **0.69M** | [Axis Revenge – World GDP Ranking](https://www.youtube.com/shorts/cpuyhrcFIus) (5.4M). These are edits of other creators' work (credited "OGby"). |
+| Word and name origins | RobWords | 1.01M | 0.31M | [The surprising truth about "Ye Olde..."](https://www.youtube.com/shorts/aSg9oXeknIw) (1.4M) |
+| Aviation and transport oddities | Mentour Now! | 640k | 0.20M | [FLAT Airplane Engines?!](https://www.youtube.com/shorts/6h6-Zs0aztI) (1.5M) |
+| | Disaster Breakdown | 260k | 0.08M | [This Airport Had To Be Closed](https://www.youtube.com/shorts/PgGmvPONqRA) (1M) |
+
+### Blender-made channels: huge on long-form, weak on Shorts
+| Channel | Subs | Shorts median | Long-form median | Top long video |
+|---|---|---|---|---|
+| Jared Owen | 4.44M | 0.07M | 5.5M | [What's inside the Titanic?](https://www.youtube.com/watch?v=HLrBUwNSEo0) (22M) |
+| Animagraffs | 1.93M | 0.10M | 2.95M | [How a Jet Airliner Works](https://www.youtube.com/watch?v=NZLbTuBDhJg) (19M) |
+| Primer | 1.94M | — | 1.8M | [Simulating the Evolution of Aggression](https://www.youtube.com/watch?v=YNMkADpvO4w) (24M) |
+| MetaBallStudios | 1.97M | — | 1.1M | [Moon Impact, first-person view](https://www.youtube.com/watch?v=NN_mGhLEg5c) (29M) |
+| Blender N Chill | 90k | 0.04M | 0.47M | [Most Satisfying Physics Simulation](https://www.youtube.com/watch?v=APVFn6yKRfA) (8.6M) |
+
+### Big channels with weak Shorts
+| Niche | Channel | Subs | Shorts median |
+|---|---|---|---|
+| Psychology | Psych2Go | 13.2M | 0.05M |
+| Finance | How Money Works | 1.75M | 0.09M |
+| Finance | Economics Explained | 2.88M | 0.04M |
+| Finance | MagnatesMedia | 1.86M | 0.07M |
+| Disasters told over still images | Fascinating Horror | 1.46M | 0.05M |
+| Disasters told over still images | Plainly Difficult | 1.10M | 0.04M |
+| Animated true stories | storybooth | 4.56M | 0.02M |
+| Name explainers | Name Explain | 390k | 0.01M |
+
+Searches for AI fruit drama, riddle and brain-teaser Shorts, animal facts and mystery Shorts mostly turned up
+channels getting 0–300 views each.
+
+### Money and policy
+- **Shorts pay very little.** Most creators earn about **$0.01–0.08 per 1,000 views**; finance and tech reach roughly
+  $0.15–0.45 ([miraflow](https://miraflow.ai/blog/youtube-shorts-rpm-2026-real-ranges-by-niche)). So 1M views is
+  worth roughly $10–80. Shorts are a growth funnel; the money is in long-form, sponsors and licensing.
+- **Mass-produced uploads can lose monetization.** YouTube's "inauthentic content" policy (15 July 2025)
+  demonetizes templated, mass-produced, low-substance uploads
+  ([Social Media Today](https://www.socialmediatoday.com/news/youtube-clarifies-monetization-update-inauthentic-repeated-content/752892/)).
+  Automate the production, but every episode still needs a real, sourced hook.
