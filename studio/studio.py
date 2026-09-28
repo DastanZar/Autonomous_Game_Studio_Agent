@@ -212,6 +212,7 @@ def cmd_selftest():
         ("script", "script.json", lambda d: d["paras"][1].update(caps=[["AND LOST.", 3]]), "captions that don't cover the words"),
         ("topic", "topic.json", lambda d: d.update(approved_by=None), "topic not approved by a human"),
         ("research", "dossier.json", lambda d: d["claims"][8].update(label=""), "estimate without its on-screen label"),
+        ("research", "build/quote_check.json", lambda d: d["claims"]["c_scatter"].update(status="NOT_FOUND"), "quote that is not in its source"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][9]["params"].update(qualifier=""), "label of a self-reported number dropped from screen"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][3]["events"][0].update(at="emus/ostriches"), "cue on a word that is never spoken"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][1].update(type="explosion"), "scene type not in the catalog"),

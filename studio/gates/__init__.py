@@ -80,6 +80,20 @@ def gate_research(ctx):
             hosts = {urlparse(src[s]["url"]).netloc for s in c["sources"]}
             if not (types & STRONG_TYPES or len(hosts) >= 2):
                 res.append(ok(False, f"claim {cid}: key claims need 2 independent sites or 1 primary/scholarly/official/dataset source"))
+    # quotes must actually be in the sources: studio/tools/verify_quotes.py writes build/quote_check.json
+    qc = load(ctx, "build/quote_check.json")
+    import hashlib
+    cur = hashlib.sha1(open(os.path.join(ctx["ep"], "dossier.json"), "rb").read()).hexdigest()[:12]
+    if qc is None or qc.get("dossier_sha") != cur:
+        res.append(ok(False, "quotes not verified for this version of dossier.json: run python3 studio/tools/verify_quotes.py <episode>"))
+    else:
+        for cid, r in qc["claims"].items():
+            if r["status"] == "NOT_FOUND":
+                res.append(ok(False, f"claim {cid}: quote not found in its fetched source(s); copy the exact words or fix the source"))
+            elif r["key"] and r["status"] not in ("verified", "partial"):
+                res.append(ok(False, f"claim {cid}: key claim with no machine-verified excerpt (all its sources blocked fetching); add an excerpt from a fetchable source"))
+        manual = [cid for cid, r in qc["claims"].items() if r["status"] in ("partial", "unverified")]
+        res.append(ok(True, f"quotes verified against fetched sources; human spot-check list: {', '.join(manual) or 'none'}"))
     bad = [m for g, m in res if not g]
     res.append(ok(not bad, f"{live} live claims, {len(src)} sources: every claim sourced, quoted and labelled"))
     return res

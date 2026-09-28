@@ -1,0 +1,206 @@
+{
+ "dossier_sha": "60a702b945ea",
+ "sources": {
+  "wiki": "cached",
+  "brit": "fetch failed: HTTP Error 403: Forbidden",
+  "ausgeo": "cached",
+  "robin": "cached"
+ },
+ "claims": {
+  "c_operation": {
+   "status": "partial",
+   "key": true,
+   "segments": [
+    {
+     "text": "The Seventh Heavy Battery of the Royal Australian Artillery brought two Lewis guns and 10 000 rounds of ammunition to the 'war",
+     "found_in": [
+      "robin"
+     ],
+     "unfetched": [
+      "brit"
+     ]
+    },
+    {
+     "text": "cull roughly 20,000 emus using machine guns",
+     "found_in": [],
+     "unfetched": [
+      "brit"
+     ]
+    }
+   ]
+  },
+  "c_lost": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "A crestfallen field force therefore withdrew from the combat area after about a month.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_settlers": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "Following World War I, large numbers of discharged veterans who served in the war were given land by the Australian government to take up farming within Western Australia",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": [
+      "brit"
+     ]
+    }
+   ]
+  },
+  "c_20000": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "the planted crop in 1932 supported 20 000 emus in an area of about 40 square miles near Southern Cross",
+     "found_in": [
+      "robin"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "a marauding emu population of at least 20,000 had been devastating farms",
+     "found_in": [
+      "ausgeo"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_force": {
+   "status": "partial",
+   "key": true,
+   "segments": [
+    {
+     "text": "with Meredith commanding soldiers Sergeant S. McMurray and Gunner J. O'Halloran, armed with two Lewis guns and 10,000 rounds of ammunition",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": [
+      "brit"
+     ]
+    },
+    {
+     "text": "two Lewis machine guns and 10,000 rounds of ammunition",
+     "found_in": [],
+     "unfetched": [
+      "brit"
+     ]
+    }
+   ]
+  },
+  "c_scatter": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "The Emu command had evidently ordered guerrilla tactics, and its unwieldy army soon split up into innumerable small units.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_ambush": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "more than 1,000 emus were spotted heading towards their position",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "The gun jammed after only 12 birds were killed.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_truck": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "a later attempt to mount a machine-gun on a truck fell apart when it was made apparent that the vehicle could not keep up",
+     "found_in": [
+      "ausgeo"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_tally": {
+   "status": "partial",
+   "key": true,
+   "segments": [
+    {
+     "text": "he claimed 986 confirmed kills with 9,860 rounds, at a rate of exactly 10 rounds per confirmed kill",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": [
+      "brit"
+     ]
+    },
+    {
+     "text": "986 emus were killed",
+     "found_in": [],
+     "unfetched": [
+      "brit"
+     ]
+    },
+    {
+     "text": "though these figures remain disputed",
+     "found_in": [],
+     "unfetched": [
+      "brit"
+     ]
+    }
+   ]
+  },
+  "c_quote": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "They can face machine guns with the invulnerability of tanks.",
+     "found_in": [
+      "ausgeo"
+     ],
+     "unfetched": [
+      "brit"
+     ]
+    }
+   ]
+  },
+  "c_home": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "Meredith was recalled on 10 December, and in his report, he claimed 986 confirmed kills with 9,860 rounds.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  }
+ }
+}
