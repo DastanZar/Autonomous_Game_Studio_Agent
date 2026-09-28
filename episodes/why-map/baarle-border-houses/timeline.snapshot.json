@@ -1,5 +1,5 @@
 {
- "duration": 33.448,
+ "duration": 34.249,
  "voices": [
   "piper:en_US-ryan-high"
  ],
@@ -7,7 +7,7 @@
   {
    "id": "hook",
    "start": 0.35,
-   "end": 3.276,
+   "end": 3.415,
    "wer": 0.0,
    "heard": "in this village your front door decides which country you live in",
    "words": [
@@ -17,464 +17,468 @@
     },
     {
      "w": "this",
-     "t": 0.46
+     "t": 0.44
     },
     {
      "w": "village,",
-     "t": 0.62
+     "t": 0.6
     },
     {
      "w": "your",
-     "t": 1.3
+     "t": 1.28
     },
     {
      "w": "front",
-     "t": 1.4
+     "t": 1.36
     },
     {
      "w": "door",
-     "t": 1.62
+     "t": 1.6
     },
     {
      "w": "decides",
-     "t": 1.88
+     "t": 1.86
     },
     {
      "w": "which",
-     "t": 2.2
+     "t": 2.22
     },
     {
      "w": "country",
-     "t": 2.46
+     "t": 2.52
     },
     {
      "w": "you",
-     "t": 2.7
+     "t": 2.78
     },
     {
      "w": "live",
-     "t": 2.94
+     "t": 3.02
     },
     {
      "w": "in.",
-     "t": 3.06
+     "t": 3.2
     }
    ]
   },
   {
    "id": "literally",
-   "start": 3.576,
-   "end": 5.073,
+   "start": 3.715,
+   "end": 5.166,
    "wer": 0.0,
    "heard": "literally the front door",
    "words": [
     {
      "w": "Literally,",
-     "t": 3.66
+     "t": 4.08
     },
     {
      "w": "the",
-     "t": 4.28
+     "t": 4.4
     },
     {
      "w": "front",
-     "t": 4.36
+     "t": 4.5
     },
     {
      "w": "door.",
-     "t": 4.58
+     "t": 4.68
     }
    ]
   },
   {
    "id": "samevillage",
-   "start": 5.573,
-   "end": 7.477,
+   "start": 5.666,
+   "end": 7.57,
    "wer": 0.0,
    "heard": "same village different countries",
    "words": [
     {
      "w": "Same",
-     "t": 5.68
+     "t": 5.78
     },
     {
      "w": "village.",
-     "t": 5.9
+     "t": 5.98
     },
     {
      "w": "Different",
-     "t": 6.62
+     "t": 6.7
     },
     {
      "w": "countries.",
-     "t": 6.86
+     "t": 6.94
     }
    ]
   },
   {
    "id": "origin",
-   "start": 7.777,
-   "end": 11.075,
+   "start": 7.87,
+   "end": 11.168,
    "wer": 0.0,
    "heard": "it started in eleven ninety eight when a duke split the land in two",
    "words": [
     {
      "w": "It",
-     "t": 7.777
+     "t": 7.87
     },
     {
      "w": "started",
-     "t": 7.86
+     "t": 7.96
     },
     {
      "w": "in",
-     "t": 8.14
+     "t": 8.24
     },
     {
      "w": "eleven",
-     "t": 8.28
+     "t": 8.38
     },
     {
      "w": "ninety-eight,",
-     "t": 8.607
+     "t": 8.707
     },
     {
      "w": "when",
-     "t": 9.26
+     "t": 9.36
     },
     {
      "w": "a",
-     "t": 9.52
+     "t": 9.62
     },
     {
      "w": "duke",
-     "t": 9.66
+     "t": 9.76
     },
     {
      "w": "split",
-     "t": 9.82
+     "t": 9.92
     },
     {
      "w": "the",
-     "t": 10.1
+     "t": 10.2
     },
     {
      "w": "land",
-     "t": 10.3
+     "t": 10.4
     },
     {
      "w": "in",
-     "t": 10.52
+     "t": 10.62
     },
     {
      "w": "two.",
-     "t": 10.74
+     "t": 10.84
     }
    ]
   },
   {
    "id": "treaty",
-   "start": 11.325,
-   "end": 14.761,
+   "start": 11.418,
+   "end": 14.854,
    "wer": 0.0,
    "heard": "in eighteen forty three a treaty tried to draw one clean border",
    "words": [
     {
      "w": "In",
-     "t": 11.325
+     "t": 11.418
     },
     {
      "w": "eighteen",
-     "t": 11.509
+     "t": 11.598
     },
     {
      "w": "forty-three,",
-     "t": 12.062
+     "t": 12.139
     },
     {
      "w": "a",
-     "t": 12.86
+     "t": 12.92
     },
     {
      "w": "treaty",
-     "t": 12.88
+     "t": 12.98
     },
     {
      "w": "tried",
-     "t": 13.04
+     "t": 13.14
     },
     {
      "w": "to",
-     "t": 13.38
+     "t": 13.48
     },
     {
      "w": "draw",
-     "t": 13.54
+     "t": 13.64
     },
     {
      "w": "one",
-     "t": 13.76
+     "t": 13.86
     },
     {
      "w": "clean",
-     "t": 14.02
+     "t": 14.12
     },
     {
      "w": "border.",
-     "t": 14.34
+     "t": 14.44
     }
    ]
   },
   {
    "id": "toohard",
-   "start": 15.061,
-   "end": 18.997,
+   "start": 15.154,
+   "end": 19.09,
    "wer": 0.071,
    "heard": "it couldn't so they split the land into over five zero tiny parcels instead",
    "words": [
     {
      "w": "It",
-     "t": 15.061
+     "t": 15.154
     },
     {
      "w": "couldn't.",
-     "t": 15.2
+     "t": 15.3
     },
     {
      "w": "So",
-     "t": 15.76
+     "t": 15.82
     },
     {
      "w": "they",
-     "t": 15.86
+     "t": 15.96
     },
     {
      "w": "split",
-     "t": 16.02
+     "t": 16.08
     },
     {
      "w": "the",
-     "t": 16.2
+     "t": 16.3
     },
     {
      "w": "land",
-     "t": 16.34
+     "t": 16.44
     },
     {
      "w": "into",
-     "t": 16.56
+     "t": 16.66
     },
     {
      "w": "over",
-     "t": 16.84
+     "t": 16.92
     },
     {
      "w": "five",
-     "t": 17.103
+     "t": 17.183
     },
     {
      "w": "thousand",
-     "t": 17.366
+     "t": 17.446
     },
     {
      "w": "tiny",
-     "t": 17.84
+     "t": 17.92
     },
     {
      "w": "parcels",
-     "t": 18.16
+     "t": 18.24
     },
     {
      "w": "instead.",
-     "t": 18.44
+     "t": 18.54
     }
    ]
   },
   {
    "id": "finalized",
-   "start": 19.297,
-   "end": 22.025,
+   "start": 19.39,
+   "end": 22.118,
    "wer": 0.0,
    "heard": "that border wasn't even finished until nineteen ninety five",
    "words": [
     {
      "w": "That",
-     "t": 19.297
+     "t": 19.39
     },
     {
      "w": "border",
-     "t": 19.44
+     "t": 19.54
     },
     {
      "w": "wasn't",
-     "t": 19.7
+     "t": 19.8
     },
     {
      "w": "even",
-     "t": 20.02
+     "t": 20.12
     },
     {
      "w": "finished",
-     "t": 20.26
+     "t": 20.34
     },
     {
      "w": "until",
-     "t": 20.62
+     "t": 20.7
     },
     {
      "w": "nineteen",
-     "t": 20.921
+     "t": 21.004
     },
     {
      "w": "ninety-five.",
-     "t": 21.373
+     "t": 21.46
     }
    ]
   },
   {
    "id": "storedoor",
-   "start": 22.425,
-   "end": 26.814,
+   "start": 22.518,
+   "end": 26.907,
    "wer": 0.0,
    "heard": "one store has its front door in the netherlands so legally the whole store is dutch",
    "words": [
     {
      "w": "One",
-     "t": 22.425
+     "t": 22.518
     },
     {
      "w": "store",
-     "t": 22.66
+     "t": 22.76
     },
     {
      "w": "has",
-     "t": 22.88
+     "t": 22.98
     },
     {
      "w": "its",
-     "t": 23.12
+     "t": 23.22
     },
     {
      "w": "front",
-     "t": 23.28
+     "t": 23.38
     },
     {
      "w": "door",
-     "t": 23.48
+     "t": 23.56
     },
     {
      "w": "in",
-     "t": 23.7
+     "t": 23.8
     },
     {
      "w": "the",
-     "t": 23.86
+     "t": 23.94
     },
     {
      "w": "Netherlands,",
-     "t": 23.96
+     "t": 24.06
     },
     {
      "w": "so",
-     "t": 24.7
+     "t": 24.8
     },
     {
      "w": "legally,",
-     "t": 24.82
+     "t": 24.9
     },
     {
      "w": "the",
-     "t": 25.52
-    },
-    {
-     "w": "whole",
      "t": 25.62
     },
     {
+     "w": "whole",
+     "t": 25.7
+    },
+    {
      "w": "store",
-     "t": 25.86
+     "t": 25.94
     },
     {
      "w": "is",
-     "t": 26.14
+     "t": 26.24
     },
     {
      "w": "Dutch.",
-     "t": 26.36
+     "t": 26.44
     }
    ]
   },
   {
    "id": "fireworks",
-   "start": 27.114,
-   "end": 30.074,
+   "start": 27.207,
+   "end": 30.876,
    "wer": 0.0,
-   "heard": "cross the street fireworks are legal all year round",
+   "heard": "cross the street one fireworks store stays open all year",
    "words": [
     {
      "w": "Cross",
-     "t": 27.114
+     "t": 27.207
     },
     {
      "w": "the",
-     "t": 27.28
+     "t": 27.38
     },
     {
      "w": "street,",
-     "t": 27.52
+     "t": 27.64
     },
     {
      "w": "and",
-     "t": 28.08
+     "t": 28.22
+    },
+    {
+     "w": "one",
+     "t": 28.28
     },
     {
      "w": "fireworks",
-     "t": 28.2
+     "t": 28.54
     },
     {
-     "w": "are",
-     "t": 28.64
+     "w": "store",
+     "t": 29.06
     },
     {
-     "w": "legal",
-     "t": 28.94
+     "w": "stays",
+     "t": 29.5
+    },
+    {
+     "w": "open",
+     "t": 29.88
     },
     {
      "w": "all",
-     "t": 29.18
+     "t": 30.2
     },
     {
-     "w": "year",
-     "t": 29.46
-    },
-    {
-     "w": "round.",
-     "t": 29.66
+     "w": "year.",
+     "t": 30.54
     }
    ]
   },
   {
    "id": "callback",
-   "start": 30.524,
-   "end": 31.848,
+   "start": 31.326,
+   "end": 32.649,
    "wer": 0.0,
    "heard": "choose your doorway carefully",
    "words": [
     {
      "w": "Choose",
-     "t": 30.6
+     "t": 31.4
     },
     {
      "w": "your",
-     "t": 30.72
+     "t": 31.52
     },
     {
      "w": "doorway",
-     "t": 30.94
+     "t": 31.74
     },
     {
      "w": "carefully.",
-     "t": 31.28
+     "t": 32.08
     }
    ]
   }

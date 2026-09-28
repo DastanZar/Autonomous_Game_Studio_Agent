@@ -72,9 +72,9 @@
    "id": "c_quote",
    "key": false,
    "status": "confirmed",
-   "sources": ["wiki", "local"],
-   "text": "Liechtenstein's own spokespeople downplayed the incidents afterward, joking that at least the Swiss hadn't invaded with attack helicopters.",
-   "quote": "A Liechtenstein spokesman said, \"It's not like they invaded with attack helicopters\". (Wikipedia); It's not like they stormed over here with attack helicopters or something, Markus Amman, Liechtenstein's spokesman for the Interior, remarked at the time. (The Local)"
+   "sources": ["local"],
+   "text": "Liechtenstein's interior spokesman, Markus Amman, downplayed the incident afterward, joking that at least the Swiss hadn't stormed over with attack helicopters.",
+   "quote": "\"It's not like they stormed over here with attack helicopters or something\", Markus Amman, Liechtenstein's spokesman for the Interior, remarked at the time."
   },
   {
    "id": "c_pattern",

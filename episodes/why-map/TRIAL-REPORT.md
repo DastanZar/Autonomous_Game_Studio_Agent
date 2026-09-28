@@ -318,3 +318,117 @@ episodes/why-map/swiss-invades-liechtens     ✓     ✓     ✓     ✓     ✓
 
 All three episodes are through storyboard. Picture and everything after it were left untouched, as
 instructed (the render engine isn't built).
+
+---
+
+# Phase B fixes
+
+Worker: Claude (Sonnet 5). Pulled `trial/sonnet-1`, merged `main` (fast-forward, no conflicts:
+`studio/gates/__init__.py` gained per-scene word limits for `title_card`/`stamp_reveal` and
+validation of every nested `at` cue in scene `params`, and `sop/02-03-04-05` and `knowledge/lessons.md`
+picked up the "Common failures" the orchestrator's audit surfaced), re-read `sop/02-research.md` and
+`sop/03-script.md` before touching anything. All three re-checks below were run against these updated
+gates, so they also confirm the new word-limit and nested-cue checks pass cleanly. Nothing under
+`studio/` was edited.
+
+## What changed
+
+1. **baarle-border-houses / `fireworks`.** The dossier claim `c_shopping`'s `text` already said "a
+   fireworks store allowed to stay open year-round" (it never overstated this), so it was left as is.
+   Only the script line overstated it: reworded `say` from "Cross the street, and fireworks are legal
+   all year round." to **"Cross the street, and one fireworks store stays open all year."**, matching
+   the claim exactly. Captions rebalanced to the new 11-word count.
+2. **swiss-invades-liechtenstein / `verdict` + `c_quote` + `s10_verdict`.** `c_quote` in `dossier.json`
+   dropped the Wikipedia paraphrase entirely: `sources` narrowed to `["local"]` and `text`/`quote` now
+   read only The Local's original wording, attributed to Markus Amman, Liechtenstein's interior
+   spokesman. The script's `verdict` paragraph was rewritten to speak that exact original quote
+   ("It's not like they stormed over here with attack helicopters or something"); the spoken
+   attribution was simplified to "said Liechtenstein's interior spokesman" (dropping the name from the
+   *spoken* line only — see voice retake below), while the storyboard's `s10_verdict` quote-card
+   `who`/`quote` params were updated to the same original wording and still credit Markus Amman by name
+   on screen. `y1992`'s line was corrected from "soldiers set up camp" to **"soldiers set up an
+   observation post"**, matching `c_1992`'s claim text (which already said "observation post" — only
+   the script had drifted from it).
+3. **point-roberts / `reveal`.** "It's not a mistake. It's an old treaty line." contradicted the next
+   beat ("Nobody checked what that line would cut off."). Reworded to **"It wasn't a typo. It was a
+   guess."**, which agrees with `c_treaty`'s sourced framing ("without precise knowledge of its
+   effects") and no longer conflicts with `oops`. `wrongidea` and `oops` needed no changes — they were
+   already consistent with a "guess, unchecked" framing; `reveal` was the only contradicting line.
+
+## Check attempts and what failed
+
+| Episode / stage | Attempts | What failed |
+|---|---|---|
+| baarle-border-houses / script | 1 (passed) | Nothing. |
+| baarle-border-houses / voice | 3 `vo.py` runs, 1 `check` (passed) | Run 1 (only `fireworks` text changed) unexpectedly flagged **`hook`** (WER 0.08) and **`literally`** (WER 0.25) — both heard "front's door" for "front door" though neither line's text or cached audio changed. This is the whole-mix-retranscription effect `lessons.md` now documents: changing `fireworks`'s audio length shifted Whisper's decoding of earlier, bit-identical segments. Run 2 (no changes) reproduced the identical mis-hearing, confirming it wasn't random. Run 3 used `--redo hook literally` to force fresh Piper synthesis of those two lines (same text, new take); this cleared the artifact and all 10 paragraphs passed. |
+| baarle-border-houses / storyboard | 1 (passed) | Nothing; also the first real exercise of the new word-limit and nested-cue checks on this episode — no violations. |
+| swiss-invades-liechtenstein / research | 1 `verify_quotes.py` run (clean), 1 `check` (passed) | Nothing — the new `c_quote` quote matched The Local's cached text on the first try. |
+| swiss-invades-liechtenstein / script | 2 (both passed) | First pass (after the y1992/verdict rewording) passed 10/10 cleanly. A second pass was needed after the voice retake below simplified the verdict line's spoken attribution — also passed 10/10, nothing failed either time. |
+| swiss-invades-liechtenstein / voice | 2 `vo.py` runs, 1 `check` (passed) | Run 1 flagged `verdict` at WER 0.11: Piper/Whisper misheard the proper name "Markus Amman" as "marcus amand". Rather than alter the quoted words (which must stay verbatim per the fix above), removed the name from the *spoken* attribution only ("said Liechtenstein's interior spokesman"), keeping the on-screen quote card's named attribution intact. Run 2: all 11 paragraphs WER 0.00. |
+| swiss-invades-liechtenstein / storyboard | 1 (passed) | Nothing; confirmed the `y1992/apologize` pin cue and `verdict/helicopters` event cue still resolve since neither word moved. |
+| point-roberts / script | 1 (passed) | Nothing. |
+| point-roberts / voice | 1 `vo.py` run (clean), 1 `check` (passed) | Nothing — reworded `reveal` line passed WER 0.00 immediately. (As a side effect of the whole-mix shift, `cutoff` — previously 0.07 — came back at 0.00 this run; no other paragraph regressed.) |
+| point-roberts / storyboard | 1 (passed) | Nothing. |
+
+## New per-paragraph WER tables (after fixes)
+
+**point-roberts** (total 41.57s):
+
+| Paragraph | WER |
+|---|---|
+| hook | 0.00 |
+| onlyway | 0.00 |
+| wrongidea | 0.00 |
+| reveal | 0.00 |
+| treaty_detail | 0.00 |
+| oops | 0.00 |
+| cutoff | 0.00 |
+| howfar | 0.00 |
+| kids | 0.00 |
+| water | 0.00 |
+| todaybeat | 0.00 |
+| loopback | 0.00 |
+
+**swiss-invades-liechtenstein** (total 45.38s):
+
+| Paragraph | WER |
+|---|---|
+| hook | 0.00 |
+| itwasnt | 0.00 |
+| neutral | 0.00 |
+| y1968 | 0.00 |
+| y1976 | 0.00 |
+| y1985 | 0.00 |
+| y1992 | 0.00 |
+| then2007 | 0.00 |
+| soldiers2007 | 0.00 |
+| verdict | 0.00 |
+| callback | 0.00 |
+
+**baarle-border-houses** (total 34.25s):
+
+| Paragraph | WER |
+|---|---|
+| hook | 0.00 |
+| literally | 0.00 |
+| samevillage | 0.00 |
+| origin | 0.00 |
+| treaty | 0.00 |
+| toohard | 0.07 |
+| finalized | 0.00 |
+| storedoor | 0.00 |
+| fireworks | 0.00 |
+| callback | 0.00 |
+
+All values ≤ the bible's `voice.max_wer` (0.08). No `voice_waivers` were added anywhere.
+
+## Status after fixes
+
+```
+episode                                  topic resea scrip voice story pictu final packa publi analy
+episodes/why-map/baarle-border-houses        ✓     ✓     ✓     ✓     ✓     ·     ·     ·     ·     ·
+episodes/why-map/point-roberts               ✓     ✓     ✓     ✓     ✓     ·     ·     ·     ·     ·
+episodes/why-map/swiss-invades-liechtens     ✓     ✓     ✓     ✓     ✓     ·     ·     ·     ·     ·
+
+✓ passed   · pending   ✗ failed   ! stale (an input changed after it passed)
+```

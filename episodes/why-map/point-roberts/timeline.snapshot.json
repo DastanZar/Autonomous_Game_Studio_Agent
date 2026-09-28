@@ -1,5 +1,5 @@
 {
- "duration": 42.114,
+ "duration": 41.569,
  "voices": [
   "piper:en_US-ryan-high"
  ],
@@ -45,7 +45,7 @@
     },
     {
      "w": "reach",
-     "t": 2.06
+     "t": 2.08
     },
     {
      "w": "by",
@@ -74,7 +74,7 @@
    "words": [
     {
      "w": "That's",
-     "t": 3.76
+     "t": 3.8
     },
     {
      "w": "not",
@@ -90,7 +90,7 @@
     },
     {
      "w": "It's",
-     "t": 4.78
+     "t": 4.8
     },
     {
      "w": "the",
@@ -119,11 +119,11 @@
    "words": [
     {
      "w": "You'd",
-     "t": 6.421
+     "t": 6.44
     },
     {
      "w": "think",
-     "t": 6.66
+     "t": 6.64
     },
     {
      "w": "that",
@@ -139,7 +139,7 @@
     },
     {
      "w": "mapping",
-     "t": 7.18
+     "t": 7.2
     },
     {
      "w": "mistake",
@@ -147,11 +147,11 @@
     },
     {
      "w": "nobody",
-     "t": 7.96
+     "t": 7.84
     },
     {
      "w": "ever",
-     "t": 8.18
+     "t": 8.16
     },
     {
      "w": "fixed.",
@@ -162,501 +162,497 @@
   {
    "id": "reveal",
    "start": 9.252,
-   "end": 11.446,
+   "end": 10.901,
    "wer": 0.0,
-   "heard": "it's not a mistake it's an old treaty line",
+   "heard": "it wasn't a typo it was a guess",
    "words": [
     {
-     "w": "It's",
-     "t": 9.252
+     "w": "It",
+     "t": 9.28
     },
     {
-     "w": "not",
-     "t": 9.4
+     "w": "wasn't",
+     "t": 9.34
     },
     {
      "w": "a",
-     "t": 9.6
+     "t": 9.64
     },
     {
-     "w": "mistake.",
-     "t": 9.7
+     "w": "typo.",
+     "t": 9.76
     },
     {
-     "w": "It's",
-     "t": 10.0
+     "w": "It",
+     "t": 10.24
     },
     {
-     "w": "an",
-     "t": 10.22
+     "w": "was",
+     "t": 10.3
     },
     {
-     "w": "old",
-     "t": 10.32
+     "w": "a",
+     "t": 10.4
     },
     {
-     "w": "treaty",
-     "t": 10.66
-    },
-    {
-     "w": "line.",
-     "t": 10.96
+     "w": "guess.",
+     "t": 10.54
     }
    ]
   },
   {
    "id": "treaty_detail",
-   "start": 11.696,
-   "end": 17.06,
+   "start": 11.151,
+   "end": 16.514,
    "wer": 0.0,
    "heard": "in eighteen forty six britain the united states agreed to draw the border along parallel forty nine",
    "words": [
     {
      "w": "In",
-     "t": 11.696
+     "t": 11.24
     },
     {
      "w": "eighteen",
-     "t": 11.84
+     "t": 11.404
     },
     {
      "w": "forty-six,",
-     "t": 12.272
+     "t": 11.897
     },
     {
      "w": "Britain",
-     "t": 12.8
+     "t": 12.5
     },
     {
      "w": "and",
-     "t": 13.2
+     "t": 12.66
     },
     {
      "w": "the",
-     "t": 13.6
+     "t": 13.06
     },
     {
      "w": "United",
-     "t": 13.72
+     "t": 13.16
     },
     {
      "w": "States",
-     "t": 13.96
+     "t": 13.4
     },
     {
      "w": "agreed",
-     "t": 14.38
+     "t": 13.84
     },
     {
      "w": "to",
-     "t": 14.66
+     "t": 14.12
     },
     {
      "w": "draw",
-     "t": 14.86
+     "t": 14.34
     },
     {
      "w": "the",
-     "t": 15.08
+     "t": 14.54
     },
     {
      "w": "border",
-     "t": 15.22
+     "t": 14.68
     },
     {
      "w": "along",
-     "t": 15.48
+     "t": 14.92
     },
     {
      "w": "parallel",
-     "t": 15.78
+     "t": 15.26
     },
     {
      "w": "forty-nine.",
-     "t": 16.329
+     "t": 15.798
     }
    ]
   },
   {
    "id": "oops",
-   "start": 17.36,
-   "end": 19.438,
+   "start": 16.814,
+   "end": 18.893,
    "wer": 0.0,
    "heard": "nobody checked what that line would cut off",
    "words": [
     {
      "w": "Nobody",
-     "t": 17.36
+     "t": 16.814
     },
     {
      "w": "checked",
-     "t": 17.6
+     "t": 17.1
     },
     {
      "w": "what",
-     "t": 18.02
+     "t": 17.48
     },
     {
      "w": "that",
-     "t": 18.36
+     "t": 17.82
     },
     {
      "w": "line",
-     "t": 18.56
+     "t": 18.0
     },
     {
      "w": "would",
-     "t": 18.76
+     "t": 18.22
     },
     {
      "w": "cut",
-     "t": 18.9
+     "t": 18.38
     },
     {
      "w": "off.",
-     "t": 19.1
+     "t": 18.58
     }
    ]
   },
   {
    "id": "cutoff",
-   "start": 19.888,
-   "end": 23.232,
-   "wer": 0.071,
-   "heard": "the line sliced the tip of the peninsula off from the rest of washington",
+   "start": 19.343,
+   "end": 22.686,
+   "wer": 0.0,
+   "heard": "the line sliced the tip of a peninsula off from the rest of washington",
    "words": [
     {
      "w": "The",
-     "t": 19.888
+     "t": 19.343
     },
     {
      "w": "line",
-     "t": 19.98
+     "t": 19.46
     },
     {
      "w": "sliced",
-     "t": 20.26
+     "t": 19.7
     },
     {
      "w": "the",
-     "t": 20.54
+     "t": 20.0
     },
     {
      "w": "tip",
-     "t": 20.78
+     "t": 20.24
     },
     {
      "w": "of",
-     "t": 20.94
+     "t": 20.38
     },
     {
      "w": "a",
-     "t": 21.096
+     "t": 20.54
     },
     {
      "w": "peninsula",
-     "t": 21.2
+     "t": 20.68
     },
     {
      "w": "off",
-     "t": 21.54
+     "t": 20.96
     },
     {
      "w": "from",
-     "t": 21.9
+     "t": 21.36
     },
     {
      "w": "the",
-     "t": 22.1
+     "t": 21.56
     },
     {
      "w": "rest",
-     "t": 22.2
+     "t": 21.66
     },
     {
      "w": "of",
-     "t": 22.42
+     "t": 21.84
     },
     {
      "w": "Washington.",
-     "t": 22.58
+     "t": 22.04
     }
    ]
   },
   {
    "id": "howfar",
-   "start": 23.482,
-   "end": 26.268,
+   "start": 22.936,
+   "end": 25.723,
    "wer": 0.0,
    "heard": "to drive there from the mainland you cross the border twice",
    "words": [
     {
      "w": "To",
-     "t": 23.482
+     "t": 22.936
     },
     {
      "w": "drive",
-     "t": 23.58
+     "t": 23.04
     },
     {
      "w": "there",
-     "t": 23.88
+     "t": 23.32
     },
     {
      "w": "from",
-     "t": 24.1
+     "t": 23.54
     },
     {
      "w": "the",
-     "t": 24.26
+     "t": 23.72
     },
     {
      "w": "mainland,",
-     "t": 24.38
+     "t": 23.84
     },
     {
      "w": "you",
-     "t": 24.72
+     "t": 24.48
     },
     {
      "w": "cross",
-     "t": 25.12
+     "t": 24.58
     },
     {
      "w": "the",
-     "t": 25.34
+     "t": 24.8
     },
     {
      "w": "border",
-     "t": 25.54
+     "t": 25.0
     },
     {
      "w": "twice.",
-     "t": 25.78
+     "t": 25.22
     }
    ]
   },
   {
    "id": "kids",
-   "start": 26.518,
-   "end": 29.63,
+   "start": 25.973,
+   "end": 29.084,
    "wer": 0.0,
    "heard": "kids there cross the border four times a day just to get to school",
    "words": [
     {
      "w": "Kids",
-     "t": 26.518
+     "t": 26.0
     },
     {
      "w": "there",
-     "t": 26.66
+     "t": 26.12
     },
     {
      "w": "cross",
-     "t": 26.86
+     "t": 26.32
     },
     {
      "w": "the",
-     "t": 27.04
+     "t": 26.5
     },
     {
      "w": "border",
-     "t": 27.26
+     "t": 26.72
     },
     {
      "w": "four",
-     "t": 27.46
+     "t": 26.92
     },
     {
      "w": "times",
-     "t": 27.74
+     "t": 27.18
     },
     {
      "w": "a",
-     "t": 28.02
+     "t": 27.48
     },
     {
      "w": "day,",
-     "t": 28.18
+     "t": 27.64
     },
     {
      "w": "just",
-     "t": 28.42
+     "t": 27.94
     },
     {
      "w": "to",
-     "t": 28.84
+     "t": 28.3
     },
     {
      "w": "get",
-     "t": 29.0
+     "t": 28.46
     },
     {
      "w": "to",
-     "t": 29.08
+     "t": 28.54
     },
     {
      "w": "school.",
-     "t": 29.26
+     "t": 28.7
     }
    ]
   },
   {
    "id": "water",
-   "start": 29.88,
-   "end": 34.28,
+   "start": 29.334,
+   "end": 33.734,
    "wer": 0.0,
    "heard": "even the tap water comes from canada under a deal signed in nineteen eighty seven",
    "words": [
     {
      "w": "Even",
-     "t": 29.88
+     "t": 29.334
     },
     {
      "w": "the",
-     "t": 30.1
+     "t": 29.56
     },
     {
      "w": "tap",
-     "t": 30.28
+     "t": 29.72
     },
     {
      "w": "water",
-     "t": 30.46
+     "t": 29.92
     },
     {
      "w": "comes",
-     "t": 30.76
+     "t": 30.2
     },
     {
      "w": "from",
-     "t": 31.08
+     "t": 30.54
     },
     {
      "w": "Canada,",
-     "t": 31.38
+     "t": 30.82
     },
     {
      "w": "under",
-     "t": 31.82
+     "t": 31.52
     },
     {
      "w": "a",
-     "t": 32.28
+     "t": 31.76
     },
     {
      "w": "deal",
-     "t": 32.48
+     "t": 31.94
     },
     {
      "w": "signed",
-     "t": 32.64
+     "t": 32.08
     },
     {
      "w": "in",
-     "t": 33.02
+     "t": 32.48
     },
     {
      "w": "nineteen",
-     "t": 33.165
+     "t": 32.625
     },
     {
      "w": "eighty-seven.",
-     "t": 33.601
+     "t": 33.059
     }
    ]
   },
   {
    "id": "todaybeat",
-   "start": 34.58,
-   "end": 38.458,
+   "start": 34.034,
+   "end": 37.912,
    "wer": 0.0,
    "heard": "in twenty twenty five one shop owner said her business fell by more than half",
    "words": [
     {
      "w": "In",
-     "t": 34.58
+     "t": 34.06
     },
     {
      "w": "twenty",
-     "t": 34.679
+     "t": 34.23
     },
     {
      "w": "twenty-five,",
-     "t": 34.91
+     "t": 34.625
     },
     {
      "w": "one",
-     "t": 35.34
+     "t": 35.36
     },
     {
      "w": "shop",
-     "t": 36.0
+     "t": 35.46
     },
     {
      "w": "owner",
-     "t": 36.28
+     "t": 35.72
     },
     {
      "w": "said",
-     "t": 36.5
+     "t": 35.98
     },
     {
      "w": "her",
-     "t": 36.8
+     "t": 36.26
     },
     {
      "w": "business",
-     "t": 36.96
+     "t": 36.42
     },
     {
      "w": "fell",
-     "t": 37.24
+     "t": 36.72
     },
     {
      "w": "by",
-     "t": 37.52
+     "t": 36.98
     },
     {
      "w": "more",
-     "t": 37.76
+     "t": 37.22
     },
     {
      "w": "than",
-     "t": 37.94
+     "t": 37.38
     },
     {
      "w": "half.",
-     "t": 38.1
+     "t": 37.56
     }
    ]
   },
   {
    "id": "loopback",
-   "start": 38.808,
-   "end": 40.514,
+   "start": 38.262,
+   "end": 39.969,
    "wer": 0.0,
    "heard": "still only reachable through canada",
    "words": [
     {
      "w": "Still",
-     "t": 38.808
+     "t": 38.38
     },
     {
      "w": "only",
-     "t": 39.04
+     "t": 38.52
     },
     {
      "w": "reachable",
-     "t": 39.4
+     "t": 38.8
     },
     {
      "w": "through",
-     "t": 39.82
+     "t": 39.26
     },
     {
      "w": "Canada.",
-     "t": 40.18
+     "t": 39.46
     }
    ]
   }

@@ -1,5 +1,5 @@
 {
- "duration": 42.745,
+ "duration": 45.38,
  "voices": [
   "piper:en_US-ryan-high"
  ],
@@ -37,7 +37,7 @@
     },
     {
      "w": "army",
-     "t": 2.2
+     "t": 2.18
     },
     {
      "w": "invaded",
@@ -49,7 +49,7 @@
     },
     {
      "w": "by",
-     "t": 3.64
+     "t": 3.66
     },
     {
      "w": "accident.",
@@ -140,15 +140,15 @@
     },
     {
      "w": "nineteen",
-     "t": 9.181
+     "t": 9.186
     },
     {
      "w": "sixty-eight,",
-     "t": 9.663
+     "t": 9.682
     },
     {
      "w": "Swiss",
-     "t": 10.36
+     "t": 10.4
     },
     {
      "w": "shells",
@@ -172,7 +172,7 @@
     },
     {
      "w": "resort.",
-     "t": 12.54
+     "t": 12.52
     }
    ]
   },
@@ -205,7 +205,7 @@
     },
     {
      "w": "wandered",
-     "t": 15.64
+     "t": 15.62
     },
     {
      "w": "in,",
@@ -297,9 +297,9 @@
   {
    "id": "y1992",
    "start": 22.428,
-   "end": 27.084,
+   "end": 28.105,
    "wer": 0.0,
-   "heard": "in nineteen ninety two soldiers set up camp in the wrong country had to apologize",
+   "heard": "in nineteen ninety two soldiers set up an observation post in the wrong country had to apologize",
    "words": [
     {
      "w": "In",
@@ -307,251 +307,275 @@
     },
     {
      "w": "nineteen",
-     "t": 22.625
+     "t": 22.652
     },
     {
      "w": "ninety-two,",
-     "t": 23.214
+     "t": 23.324
     },
     {
      "w": "soldiers",
-     "t": 24.0
+     "t": 24.22
     },
     {
      "w": "set",
-     "t": 24.0
+     "t": 24.22
     },
     {
      "w": "up",
-     "t": 24.28
+     "t": 24.54
     },
     {
-     "w": "camp",
-     "t": 24.5
+     "w": "an",
+     "t": 24.74
+    },
+    {
+     "w": "observation",
+     "t": 24.9
+    },
+    {
+     "w": "post",
+     "t": 25.32
     },
     {
      "w": "in",
-     "t": 24.76
+     "t": 25.72
     },
     {
      "w": "the",
-     "t": 24.96
+     "t": 25.98
     },
     {
      "w": "wrong",
-     "t": 25.06
+     "t": 26.08
     },
     {
      "w": "country,",
-     "t": 25.28
+     "t": 26.3
     },
     {
      "w": "and",
-     "t": 25.7
+     "t": 26.74
     },
     {
      "w": "had",
-     "t": 26.02
+     "t": 27.06
     },
     {
      "w": "to",
-     "t": 26.2
+     "t": 27.22
     },
     {
      "w": "apologize.",
-     "t": 26.36
+     "t": 27.38
     }
    ]
   },
   {
    "id": "then2007",
-   "start": 27.484,
-   "end": 30.038,
+   "start": 28.505,
+   "end": 31.06,
    "wer": 0.0,
    "heard": "then in two thousand seven they did it again",
    "words": [
     {
      "w": "Then,",
-     "t": 27.484
+     "t": 28.505
     },
     {
      "w": "in",
-     "t": 27.94
+     "t": 28.96
     },
     {
      "w": "two",
-     "t": 28.13
+     "t": 29.148
     },
     {
      "w": "thousand",
-     "t": 28.384
+     "t": 29.398
     },
     {
      "w": "seven,",
-     "t": 28.956
+     "t": 29.962
     },
     {
      "w": "they",
-     "t": 29.4
+     "t": 30.4
     },
     {
      "w": "did",
-     "t": 29.42
+     "t": 30.44
     },
     {
      "w": "it",
-     "t": 29.56
+     "t": 30.58
     },
     {
      "w": "again.",
-     "t": 29.68
+     "t": 30.7
     }
    ]
   },
   {
    "id": "soldiers2007",
-   "start": 30.338,
-   "end": 34.785,
+   "start": 31.36,
+   "end": 35.806,
    "wer": 0.0,
    "heard": "one hundred seventy soldiers lost in the dark marched over a kilometer inside",
    "words": [
     {
      "w": "One",
-     "t": 30.338
+     "t": 31.36
     },
     {
      "w": "hundred",
-     "t": 30.474
+     "t": 31.496
     },
     {
      "w": "seventy",
-     "t": 30.747
+     "t": 31.768
     },
     {
      "w": "soldiers,",
-     "t": 31.02
+     "t": 32.04
     },
     {
      "w": "lost",
-     "t": 32.02
+     "t": 33.04
     },
     {
      "w": "in",
-     "t": 32.22
+     "t": 33.24
     },
     {
      "w": "the",
-     "t": 32.44
+     "t": 33.46
     },
     {
      "w": "dark,",
-     "t": 32.54
+     "t": 33.56
     },
     {
      "w": "marched",
-     "t": 33.12
+     "t": 34.14
     },
     {
      "w": "over",
-     "t": 33.26
+     "t": 34.28
     },
     {
      "w": "a",
-     "t": 33.58
+     "t": 34.62
     },
     {
      "w": "kilometer",
-     "t": 33.78
+     "t": 34.8
     },
     {
      "w": "inside.",
-     "t": 34.24
+     "t": 35.28
     }
    ]
   },
   {
    "id": "verdict",
-   "start": 35.235,
-   "end": 39.194,
+   "start": 36.256,
+   "end": 41.829,
    "wer": 0.0,
-   "heard": "it's not like they invaded with attack helicopters said a liechtenstein spokesman",
+   "heard": "it's not like they stormed over here with attack helicopters or something said liechtenstein's interior spokesman",
    "words": [
     {
      "w": "\"It's",
-     "t": 35.235
+     "t": 36.256
     },
     {
      "w": "not",
-     "t": 35.4
-    },
-    {
-     "w": "like",
-     "t": 35.58
-    },
-    {
-     "w": "they",
-     "t": 35.78
-    },
-    {
-     "w": "invaded",
-     "t": 35.94
-    },
-    {
-     "w": "with",
-     "t": 36.22
-    },
-    {
-     "w": "attack",
      "t": 36.44
     },
     {
-     "w": "helicopters,\"",
-     "t": 36.74
+     "w": "like",
+     "t": 36.64
+    },
+    {
+     "w": "they",
+     "t": 36.82
+    },
+    {
+     "w": "stormed",
+     "t": 36.96
+    },
+    {
+     "w": "over",
+     "t": 37.28
+    },
+    {
+     "w": "here",
+     "t": 37.64
+    },
+    {
+     "w": "with",
+     "t": 37.88
+    },
+    {
+     "w": "attack",
+     "t": 38.06
+    },
+    {
+     "w": "helicopters",
+     "t": 38.34
+    },
+    {
+     "w": "or",
+     "t": 38.96
+    },
+    {
+     "w": "something,\"",
+     "t": 39.24
     },
     {
      "w": "said",
-     "t": 37.84
+     "t": 39.98
     },
     {
-     "w": "a",
-     "t": 37.9
+     "w": "Liechtenstein's",
+     "t": 40.1
     },
     {
-     "w": "Liechtenstein",
-     "t": 38.02
+     "w": "interior",
+     "t": 40.82
     },
     {
      "w": "spokesman.",
-     "t": 38.62
+     "t": 41.16
     }
    ]
   },
   {
    "id": "callback",
-   "start": 39.694,
-   "end": 41.145,
+   "start": 42.329,
+   "end": 43.78,
    "wer": 0.0,
    "heard": "number six could still happen",
    "words": [
     {
      "w": "Number",
-     "t": 39.74
+     "t": 42.38
     },
     {
      "w": "six",
-     "t": 40.007
+     "t": 42.52
     },
     {
      "w": "could",
-     "t": 40.16
+     "t": 42.78
     },
     {
      "w": "still",
-     "t": 40.4
+     "t": 43.04
     },
     {
      "w": "happen.",
-     "t": 40.7
+     "t": 43.32
     }
    ]
   }

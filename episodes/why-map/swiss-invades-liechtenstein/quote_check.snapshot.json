@@ -1,5 +1,5 @@
 {
- "dossier_sha": "78c088480007",
+ "dossier_sha": "cb9d022c6d24",
  "sources": {
   "wiki": "cached",
   "milwiki": "cached",
@@ -90,14 +90,7 @@
    "key": false,
    "segments": [
     {
-     "text": "A Liechtenstein spokesman said, \"It's not like they invaded with attack helicopters\".",
-     "found_in": [
-      "wiki"
-     ],
-     "unfetched": []
-    },
-    {
-     "text": "It's not like they stormed over here with attack helicopters or something, Markus Amman, Liechtenstein's spokesman for the Interior, remarked at the time.",
+     "text": "It's not like they stormed over here with attack helicopters or something\", Markus Amman, Liechtenstein's spokesman for the Interior, remarked at the time.",
      "found_in": [
       "local"
      ],

@@ -112,14 +112,14 @@
   },
   {
    "id": "fireworks",
-   "say": "Cross the street, and fireworks are legal all year round.",
+   "say": "Cross the street, and one fireworks store stays open all year.",
    "kind": "fact",
    "claims": ["c_shopping"],
    "gap": 0.45,
    "caps": [
     ["CROSS THE STREET,", 3],
-    ["AND FIREWORKS ARE LEGAL", 4],
-    ["ALL YEAR ROUND.", 3]
+    ["AND ONE FIREWORKS STORE", 4],
+    ["STAYS OPEN ALL YEAR.", 4]
    ]
   },
   {

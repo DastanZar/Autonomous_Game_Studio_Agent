@@ -45,13 +45,13 @@
   },
   {
    "id": "reveal",
-   "say": "It's not a mistake. It's an old treaty line.",
+   "say": "It wasn't a typo. It was a guess.",
    "kind": "fact",
    "claims": ["c_treaty"],
    "gap": 0.25,
    "caps": [
-    ["IT'S NOT A MISTAKE.", 4],
-    ["IT'S AN OLD TREATY LINE.", 5]
+    ["IT WASN'T A TYPO.", 4],
+    ["IT WAS A GUESS.", 4]
    ]
   },
   {

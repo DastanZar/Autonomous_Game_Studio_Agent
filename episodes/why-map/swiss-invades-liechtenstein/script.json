@@ -85,13 +85,14 @@
   },
   {
    "id": "y1992",
-   "say": "In nineteen ninety-two, soldiers set up camp in the wrong country, and had to apologize.",
+   "say": "In nineteen ninety-two, soldiers set up an observation post in the wrong country, and had to apologize.",
    "kind": "fact",
    "claims": ["c_1992"],
    "gap": 0.4,
    "caps": [
     ["IN 1992,", 3],
-    ["SOLDIERS SET UP CAMP", 4],
+    ["SOLDIERS SET UP AN", 4],
+    ["OBSERVATION POST", 2],
     ["IN THE WRONG COUNTRY,", 4],
     ["AND HAD TO APOLOGIZE.", 4]
    ]
@@ -122,16 +123,17 @@
   },
   {
    "id": "verdict",
-   "say": "\"It's not like they invaded with attack helicopters,\" said a Liechtenstein spokesman.",
+   "say": "\"It's not like they stormed over here with attack helicopters or something,\" said Liechtenstein's interior spokesman.",
    "kind": "quote",
    "claims": ["c_quote"],
    "gap": 0.5,
    "caps": [
     ["\"IT'S NOT LIKE THEY", 4],
-    ["INVADED WITH ATTACK", 3],
-    ["HELICOPTERS,\"", 1],
-    ["SAID A LIECHTENSTEIN", 3],
-    ["SPOKESMAN.", 1]
+    ["STORMED OVER HERE", 3],
+    ["WITH ATTACK HELICOPTERS", 3],
+    ["OR SOMETHING,\"", 2],
+    ["SAID LIECHTENSTEIN'S", 2],
+    ["INTERIOR SPOKESMAN.", 2]
    ]
   },
   {
