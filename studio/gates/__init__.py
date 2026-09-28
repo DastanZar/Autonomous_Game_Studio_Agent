@@ -12,6 +12,21 @@ def ok(cond, msg):
     return (bool(cond), msg)
 
 
+WORD_LIMITS = {"title_card": ("text", 8), "stamp_reveal": ("text", 3)}   # from engine/catalog.json purposes
+
+
+def nested_cues(o):
+    if isinstance(o, dict):
+        for k, v in o.items():
+            if k == "at" and isinstance(v, str):
+                yield v
+            else:
+                yield from nested_cues(v)
+    elif isinstance(o, list):
+        for v in o:
+            yield from nested_cues(v)
+
+
 def epath(ctx, rel):
     """Episode-relative path; '@/x' means x relative to the repository root (for shared files)."""
     return os.path.join(ctx["root"], rel[2:]) if rel.startswith("@/") else os.path.join(ctx["ep"], rel)
@@ -212,6 +227,11 @@ def gate_storyboard(ctx):
             res.append(ok(False, f"scene {s['id']}: type '{s['type']}' is not in the catalog"))
         elif s["type"] not in allowed:
             res.append(ok(False, f"scene {s['id']}: type '{s['type']}' is not allowed on this channel"))
+        if s["type"] in WORD_LIMITS:
+            key, lim = WORD_LIMITS[s["type"]]
+            n = len(str(s["params"].get(key, "")).split())
+            if n > lim:
+                res.append(ok(False, f"scene {s['id']}: {s['type']}.{key} has {n} words (max {lim})"))
         if s["type"] == "custom" and not s["params"].get("why"):
             res.append(ok(False, f"scene {s['id']}: custom scenes must say why no catalog type fits"))
         try:
@@ -219,6 +239,8 @@ def gate_storyboard(ctx):
             t1 = cue_time(s["end"], tl) if s.get("end") else None
             for e in s.get("events", []):
                 cue_time(e["at"], tl)
+            for cue in nested_cues(s["params"]):          # e.g. map_focus.pins[].at, diagram_callout.callouts[].at
+                cue_time(cue, tl)
         except ValueError as e:
             res.append(ok(False, f"scene {s['id']}: {e}")); continue
         times.append((s["id"], t0, t1))

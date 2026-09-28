@@ -15,3 +15,7 @@ Each entry: date, stage, what happened, the rule. Workers append here when a sta
 | 2026-09 | infra | `git push` 403 = access problem, not network. Tell the user; don't retry in a loop. |
 | 2026-09-28 | voice | **Never transcribe short lines in isolation.** Per-line slices of the Emu mix scored "The emus did not" → "Daines did not" (WER 0.5), while one whole-mix transcript heard every line (WER 0.0). Transcribe once, align, score per paragraph (`textnorm.per_para_wer`). |
 | 2026-09-28 | voice | Whisper writes digits ("1932", "10,000", "World War I"). Normalize before WER (`studio/tools/textnorm.py`), or every year looks like an error. |
+| 2026-09-28 | research | Quote verification matches one uninterrupted span: skipping an aside or joining sentences across a heading gives NOT_FOUND (Sonnet trial, 2 of 3 episodes). |
+| 2026-09-28 | research | Wikipedia paraphrases quotations; use the original report's wording (Liechtenstein "attack helicopters" quote). |
+| 2026-09-28 | script | Gates can't catch a line that says more than its claim ("fireworks legal all year" from "fireworks store open all year"). The writer re-reads each line against its claim text. |
+| 2026-09-28 | voice | Piper: write "United States" not "US"; avoid "forty-ninth", "sixth" and noun possessives. A retake can change a neighbouring line's WER because the whole mix is transcribed at once. |

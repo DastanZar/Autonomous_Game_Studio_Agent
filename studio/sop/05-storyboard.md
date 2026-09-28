@@ -44,7 +44,8 @@ picture is ready when the voice lands.
       gate measures it;
    3. if the same custom need comes up twice in a channel, propose a new catalog type in your
       report. A catalog change is an engine task, not a storyboard task.
-7. Run the check. Every cue must resolve against the real timeline.
+7. Run the check. Every cue must resolve against the real timeline: scene starts and ends, events,
+   and any `at` inside params (pins, callouts, timeline events). Title cards allow 8 words, stamps 3.
 
 ## Worked example
 `studio/examples/emu-war/storyboard.json`. 14 scenes; 2 are custom (14% of runtime).

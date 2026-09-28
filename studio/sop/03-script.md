@@ -31,7 +31,8 @@ Read `studio/knowledge/style.md` first, then the example script.
    word pieces, uppercase, with digits allowed. Each chunk is `[text, number_of_spoken_words]`. The
    numbers must add up to the paragraph's word count. Example: "In nineteen thirty-two," is 3 words,
    giving `["IN 1932,", 3]`.
-9. **Check the runtime** with the gate. It estimates runtime at the bible's wpm plus gaps. Over
+9. **Check the runtime** with the gate. It estimates
+   `lead_in + words ÷ (wpm ÷ 60) + every gap except the last paragraph's + tail`, using the bible's `wpm`. Over
    budget? Cut a beat, don't speed up.
 10. **Read it aloud in your head once, as the narrator from the bible's `tone`.** Rewrite anything a
     tired Australian narrator wouldn't say.
@@ -47,6 +48,11 @@ Read `studio/knowledge/style.md` first, then the example script.
 - Callback: "The army went home. / The emus did not."
 
 ## Common failures
+- **Strengthening a claim.** "A fireworks store is open all year" is not "fireworks are legal all year".
+  "Set up an observation post" is not "set up camp". Every line must be true as worded; the gate can't
+  read meaning, so this one is on you. Re-read each line next to its claim `text` before checking.
+- **Contradicting yourself for a joke.** "It's not a mistake" followed by "Nobody checked" undercuts the
+  reveal. Pick one framing and let the facts carry it.
 - An explainer voice ("Let's dive in"). The bible's `banned_phrases` list catches the worst.
 - Jokes that add unsourced facts. A joke may only reframe a sourced fact.
 - A last line that summarises instead of landing. End on the callback, not a moral.

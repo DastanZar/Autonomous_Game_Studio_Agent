@@ -216,6 +216,8 @@ def cmd_selftest():
         ("storyboard", "storyboard.json", lambda d: d["scenes"][9]["params"].update(qualifier=""), "label of a self-reported number dropped from screen"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][3]["events"][0].update(at="emus/ostriches"), "cue on a word that is never spoken"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][1].update(type="explosion"), "scene type not in the catalog"),
+        ("storyboard", "storyboard.json", lambda d: d["scenes"][5]["params"]["callouts"][0].update(at="sent/generals"), "callout cued on a word never spoken"),
+        ("storyboard", "storyboard.json", lambda d: d["scenes"][1]["params"].update(text="THE ARMY LOST TO BIRDS"), "stamp text over 3 words"),
         ("voice", "build/timeline.json", lambda d: d["paras"][16].update(wer=0.4, heard="daines did not"), "misread line"),
         ("final", "build/final_report.json", lambda d: d.update(lufs=-19.0), "loudness off target"),
         ("package", "package.json", lambda d: d.update(description="no sources here"), "description without sources"),

@@ -37,9 +37,9 @@ Plus two supporting pieces:
 ```bash
 pip install -r studio/requirements.txt
 python3 studio/studio.py selftest                 # gates vs the gold example + 13 deliberate breakages
-python3 studio/studio.py new why-map point-roberts
-python3 studio/studio.py next why-map/point-roberts
-python3 studio/studio.py check why-map/point-roberts
+python3 studio/studio.py new why-map <slug>        # <slug>: your topic, e.g. some-border-story
+python3 studio/studio.py next why-map/<slug>
+python3 studio/studio.py check why-map/<slug>
 python3 studio/studio.py status
 ```
 

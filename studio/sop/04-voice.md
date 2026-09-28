@@ -39,6 +39,13 @@
 4. Run the check.
 
 ## Common failures
+- **Piper traps** (each cost a retake in the Sonnet trial): acronyms ("US" is read as "us" or "u s";
+  write "United States"), hyphenated ordinals ("forty-ninth"; write "parallel forty-nine"), bare
+  ordinals ("sixth" comes out as "six"), and possessives on nouns ("store's" heard as "store is").
+  Write around them in `say` before the first run.
+- **A retake can move another line's WER.** The whole narration is transcribed at once, so changing one
+  paragraph can change how Whisper hears a neighbouring, unchanged one. When a line that passed starts
+  failing after an unrelated retake, read its `heard` before re-recording it.
 - Editing `script.json` after voicing. The gate compares words and fails; re-run the tool.
 - A voice that differs from the bible. Use the channel's voice, or the cast member's voice for
   lines with a `speaker`.
