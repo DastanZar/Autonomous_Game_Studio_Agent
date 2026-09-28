@@ -1,0 +1,142 @@
+{
+ "channel": "why-map",
+ "episode": "baarle-border-houses",
+ "series": "border",
+ "working_title": "In this village, your front door decides your country.",
+ "lead_in": 0.35,
+ "tail": 1.6,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "In this village, your front door decides which country you live in.",
+   "kind": "hook",
+   "claims": ["c_voordeurregel"],
+   "gap": 0.3,
+   "caps": [
+    ["IN THIS VILLAGE,", 3],
+    ["YOUR FRONT DOOR", 3],
+    ["DECIDES WHICH COUNTRY", 3],
+    ["YOU LIVE IN.", 3]
+   ]
+  },
+  {
+   "id": "literally",
+   "say": "Literally, the front door.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.5,
+   "caps": [
+    ["LITERALLY,", 1],
+    ["THE FRONT DOOR.", 3]
+   ]
+  },
+  {
+   "id": "samevillage",
+   "say": "Same village. Different countries.",
+   "kind": "transition",
+   "claims": [],
+   "gap": 0.3,
+   "caps": [
+    ["SAME VILLAGE.", 2],
+    ["DIFFERENT COUNTRIES.", 2]
+   ]
+  },
+  {
+   "id": "origin",
+   "say": "It started in eleven ninety-eight, when a duke split the land in two.",
+   "kind": "fact",
+   "claims": ["c_origin1198"],
+   "gap": 0.25,
+   "caps": [
+    ["IT STARTED IN", 3],
+    ["1198,", 2],
+    ["WHEN A DUKE", 3],
+    ["SPLIT THE LAND", 3],
+    ["IN TWO.", 2]
+   ]
+  },
+  {
+   "id": "treaty",
+   "say": "In eighteen forty-three, a treaty tried to draw one clean border.",
+   "kind": "fact",
+   "claims": ["c_treaty1843"],
+   "gap": 0.3,
+   "caps": [
+    ["IN 1843,", 3],
+    ["A TREATY TRIED", 3],
+    ["TO DRAW", 2],
+    ["ONE CLEAN BORDER.", 3]
+   ]
+  },
+  {
+   "id": "toohard",
+   "say": "It couldn't. So they split the land into over five thousand tiny parcels instead.",
+   "kind": "fact",
+   "claims": ["c_treaty1843"],
+   "gap": 0.3,
+   "caps": [
+    ["IT COULDN'T.", 2],
+    ["SO THEY SPLIT", 3],
+    ["THE LAND INTO", 3],
+    ["OVER 5,000 TINY", 4],
+    ["PARCELS INSTEAD.", 2]
+   ]
+  },
+  {
+   "id": "finalized",
+   "say": "That border wasn't even finished until nineteen ninety-five.",
+   "kind": "fact",
+   "claims": ["c_finalized1995"],
+   "gap": 0.4,
+   "caps": [
+    ["THAT BORDER WASN'T", 3],
+    ["EVEN FINISHED", 2],
+    ["UNTIL 1995.", 3]
+   ]
+  },
+  {
+   "id": "storedoor",
+   "say": "One store has its front door in the Netherlands, so legally, the whole store is Dutch.",
+   "kind": "fact",
+   "claims": ["c_voordeurregel"],
+   "gap": 0.3,
+   "caps": [
+    ["ONE STORE HAS", 3],
+    ["ITS FRONT DOOR", 3],
+    ["IN THE NETHERLANDS,", 3],
+    ["SO LEGALLY,", 2],
+    ["THE WHOLE STORE", 3],
+    ["IS DUTCH.", 2]
+   ]
+  },
+  {
+   "id": "fireworks",
+   "say": "Cross the street, and fireworks are legal all year round.",
+   "kind": "fact",
+   "claims": ["c_shopping"],
+   "gap": 0.45,
+   "caps": [
+    ["CROSS THE STREET,", 3],
+    ["AND FIREWORKS ARE LEGAL", 4],
+    ["ALL YEAR ROUND.", 3]
+   ]
+  },
+  {
+   "id": "callback",
+   "say": "Choose your doorway carefully.",
+   "kind": "callback",
+   "claims": [],
+   "gap": 0.0,
+   "caps": [
+    ["CHOOSE YOUR DOORWAY", 3],
+    ["CAREFULLY.", 1]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "callback",
+  "connects_to": "hook",
+  "how": "'Choose your doorway carefully.' answers the hook's 'your front door decides which country you live in'; the closing frame mirrors the opening shot of the split house."
+ }
+}

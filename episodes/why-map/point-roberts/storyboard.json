@@ -1,0 +1,158 @@
+{
+ "episode": "point-roberts",
+ "scenes": [
+  {
+   "id": "s1_hook",
+   "type": "title_card",
+   "start": "0",
+   "params": {
+    "text": "A US TOWN CUT OFF BY CANADA",
+    "prop": "flag"
+   },
+   "events": [
+    {
+     "at": "hook/canada",
+     "do": "flag_reveal",
+     "args": {"prop": "flag"},
+     "sfx": "thud"
+    }
+   ]
+  },
+  {
+   "id": "s2_onlyway",
+   "type": "stamp_reveal",
+   "start": "onlyway.start-0.1",
+   "params": {
+    "text": "ONLY WAY IN",
+    "color": "orange"
+   }
+  },
+  {
+   "id": "s3_wrongidea",
+   "type": "title_card",
+   "start": "wrongidea.start-0.15",
+   "params": {
+    "text": "JUST A MAP MISTAKE?"
+   }
+  },
+  {
+   "id": "s4_reveal",
+   "type": "map_focus",
+   "start": "reveal.start-0.15",
+   "params": {
+    "region": [-125.0, 47.0, -121.0, 50.0],
+    "highlight": ["US", "CA"],
+    "pins": []
+   }
+  },
+  {
+   "id": "s5_treaty",
+   "type": "map_route",
+   "start": "treaty_detail.start-0.1",
+   "params": {
+    "region": [-125.0, 47.0, -121.0, 50.0],
+    "path": [[-125.0, 49.0], [-121.0, 49.0]],
+    "label": "49TH PARALLEL"
+   },
+   "events": [
+    {
+     "at": "treaty_detail/fortynine",
+     "do": "draw_line",
+     "sfx": "pen_scratch"
+    }
+   ]
+  },
+  {
+   "id": "s6_oops",
+   "type": "stamp_reveal",
+   "start": "oops.start-0.1",
+   "params": {
+    "text": "OOPS",
+    "color": "red"
+   }
+  },
+  {
+   "id": "s7_cutoff",
+   "type": "map_focus",
+   "start": "cutoff.start-0.1",
+   "params": {
+    "region": [-123.3, 48.85, -122.8, 49.1],
+    "highlight": ["US", "CA"],
+    "pins": [
+     {"lon": -123.07, "lat": 48.98, "label": "POINT ROBERTS", "at": "cutoff/washington"}
+    ]
+   }
+  },
+  {
+   "id": "s8_howfar",
+   "type": "map_route",
+   "start": "howfar.start-0.15",
+   "params": {
+    "region": [-123.3, 48.85, -122.8, 49.1],
+    "path": [[-123.07, 48.98], [-123.07, 49.0], [-122.92, 49.0], [-122.75, 48.99]],
+    "label": "25 MILES THROUGH CANADA"
+   },
+   "events": [
+    {
+     "at": "howfar/twice",
+     "do": "second_crossing_mark",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s9_kids",
+   "type": "diagram_callout",
+   "start": "kids.start-0.15",
+   "params": {
+    "object": "truck",
+    "callouts": [
+     {"label": "4 CROSSINGS", "at": "kids/four"},
+     {"label": "JUST FOR SCHOOL", "at": "kids/school"}
+    ]
+   }
+  },
+  {
+   "id": "s10_water",
+   "type": "diagram_callout",
+   "start": "water.start-0.15",
+   "params": {
+    "object": "building",
+    "callouts": [
+     {"label": "FROM CANADA", "at": "water/canada"},
+     {"label": "SIGNED 1987", "at": "water/eightyseven"}
+    ]
+   }
+  },
+  {
+   "id": "s11_today",
+   "type": "count_up",
+   "start": "todaybeat.start-0.15",
+   "params": {
+    "value": 55,
+    "unit": "PERCENT",
+    "qualifier": "one business owner's reported figure"
+   },
+   "events": [
+    {
+     "at": "todaybeat/half",
+     "do": "count_stop"
+    }
+   ]
+  },
+  {
+   "id": "s12_loop",
+   "type": "outro_loop",
+   "start": "loopback.start-0.2",
+   "params": {
+    "echo_of": "s1_hook"
+   },
+   "events": [
+    {
+     "at": "loopback/canada",
+     "do": "final_flag_freeze"
+    }
+   ]
+  }
+ ]
+}

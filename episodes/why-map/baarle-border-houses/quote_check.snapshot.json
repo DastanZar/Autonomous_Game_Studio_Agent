@@ -1,0 +1,162 @@
+{
+ "dossier_sha": "ff143da3e8f5",
+ "sources": {
+  "wiki": "cached",
+  "tom1843": "cached",
+  "barry": "cached"
+ },
+ "claims": {
+  "c_origin1198": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "In 1198, Henry I, Duke of Brabant (Dutch: Hendrick I) made over some of the land to Godfried of Schoten, the Lord of Breda. Hendrick kept the lands that were paying him a rent. The area that Hendrick kept is now part of Belgium. The area that was given to Gotfried is now in the Netherlands.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "33a Nieuwstraat or 3 Nieuwstraat if you're on the Belgian side is a divided store with a border marker noting 1198 when the exclaves were first created.",
+     "found_in": [
+      "barry"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_treaty1843": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "The Treaty of Maastricht, signed in 1843 by Belgium and the Netherlands four years after the Treaty of London established Belgian independence, finally settled the border between the two countries.",
+     "found_in": [
+      "tom1843"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "Inability to decide a clear line of demarcation in Baarle-Hertog resulted in the division of the disputed territory into 5732 separate parcels of land.",
+     "found_in": [
+      "tom1843"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "The border between Belgium and the Netherlands was established as part of the Treaty of Maastricht in 1843.",
+     "found_in": [
+      "barry"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_finalized1995": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "In 1995, the border was finalized to include a formerly neutral grassland.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "a process that was not finally complete until 1995.",
+     "found_in": [
+      "barry"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_exclave_count": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "The Belgian part includes 16 exclaves within Dutch territory. The exclaves, in turn, surround seven Dutch areas.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_voordeurregel": {
+   "status": "verified",
+   "key": true,
+   "segments": [
+    {
+     "text": "For these properties, the voordeurregel (literally: \"front door rule\") policy applies: their address lies in the country that contains their front door.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    },
+    {
+     "text": "Zeeman's Supermarket, straddles the border with its front door in the Netherlands and therefore it is Dutch!!",
+     "found_in": [
+      "barry"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_loveren": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "The exception is a house on Loveren Street with both Belgian (No. 2) and Dutch (No. 19) house numbers, whose front door is on the border line itself. For convenience, every house number plaque shows a national flag.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_shopping": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "Due to legislation, there is an erotic video store in Baarle-Nassau and a fireworks store in Baarle-Hertog which is open the entire year. In Baarle there is Sunday shopping every week",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_fireservice": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "The fire services of Baarle-Nassau and Baarle-Hertog merged into a single body on 1 January 2010.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  },
+  "c_quadripoint": {
+   "status": "verified",
+   "key": false,
+   "segments": [
+    {
+     "text": "Baarle also includes a quadripoint shared by two of the exclaves.",
+     "found_in": [
+      "wiki"
+     ],
+     "unfetched": []
+    }
+   ]
+  }
+ }
+}

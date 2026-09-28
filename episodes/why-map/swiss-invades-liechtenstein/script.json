@@ -1,0 +1,154 @@
+{
+ "channel": "why-map",
+ "episode": "swiss-invades-liechtenstein",
+ "series": "the_time",
+ "working_title": "Switzerland invaded Liechtenstein. Five times. By accident.",
+ "lead_in": 0.35,
+ "tail": 1.6,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "In two thousand seven, the Swiss army invaded Liechtenstein by accident.",
+   "kind": "hook",
+   "claims": ["c_2007"],
+   "gap": 0.3,
+   "caps": [
+    ["IN 2007,", 4],
+    ["THE SWISS ARMY", 3],
+    ["INVADED LIECHTENSTEIN", 2],
+    ["BY ACCIDENT.", 2]
+   ]
+  },
+  {
+   "id": "itwasnt",
+   "say": "It wasn't the first time.",
+   "kind": "joke",
+   "claims": ["c_pattern"],
+   "gap": 0.5,
+   "caps": [
+    ["IT WASN'T THE", 3],
+    ["FIRST TIME.", 2]
+   ]
+  },
+  {
+   "id": "neutral",
+   "say": "Switzerland has been neutral for five hundred years.",
+   "kind": "fact",
+   "claims": ["c_pattern"],
+   "gap": 0.3,
+   "caps": [
+    ["SWITZERLAND HAS BEEN", 3],
+    ["NEUTRAL FOR", 2],
+    ["500 YEARS.", 3]
+   ]
+  },
+  {
+   "id": "y1968",
+   "say": "In nineteen sixty-eight, Swiss shells hit Liechtenstein's only ski resort.",
+   "kind": "fact",
+   "claims": ["c_1968"],
+   "gap": 0.25,
+   "caps": [
+    ["IN 1968,", 3],
+    ["SWISS SHELLS HIT", 3],
+    ["LIECHTENSTEIN'S ONLY", 2],
+    ["SKI RESORT.", 2]
+   ]
+  },
+  {
+   "id": "y1976",
+   "say": "In nineteen seventy-six, seventy-five soldiers wandered in, and got offered drinks.",
+   "kind": "fact",
+   "claims": ["c_1976"],
+   "gap": 0.25,
+   "caps": [
+    ["IN 1976,", 3],
+    ["75 SOLDIERS WANDERED IN,", 4],
+    ["AND GOT OFFERED", 3],
+    ["DRINKS.", 1]
+   ]
+  },
+  {
+   "id": "y1985",
+   "say": "In nineteen eighty-five, missiles started a forest fire that Switzerland had to pay for.",
+   "kind": "fact",
+   "claims": ["c_1985"],
+   "gap": 0.3,
+   "caps": [
+    ["IN 1985,", 3],
+    ["MISSILES STARTED", 2],
+    ["A FOREST FIRE", 3],
+    ["THAT SWITZERLAND HAD", 3],
+    ["TO PAY FOR.", 3]
+   ]
+  },
+  {
+   "id": "y1992",
+   "say": "In nineteen ninety-two, soldiers set up camp in the wrong country, and had to apologize.",
+   "kind": "fact",
+   "claims": ["c_1992"],
+   "gap": 0.4,
+   "caps": [
+    ["IN 1992,", 3],
+    ["SOLDIERS SET UP CAMP", 4],
+    ["IN THE WRONG COUNTRY,", 4],
+    ["AND HAD TO APOLOGIZE.", 4]
+   ]
+  },
+  {
+   "id": "then2007",
+   "say": "Then, in two thousand seven, they did it again.",
+   "kind": "fact",
+   "claims": ["c_2007"],
+   "gap": 0.3,
+   "caps": [
+    ["THEN, IN 2007,", 5],
+    ["THEY DID IT AGAIN.", 4]
+   ]
+  },
+  {
+   "id": "soldiers2007",
+   "say": "One hundred seventy soldiers, lost in the dark, marched over a kilometer inside.",
+   "kind": "fact",
+   "claims": ["c_2007"],
+   "gap": 0.45,
+   "caps": [
+    ["170 SOLDIERS,", 4],
+    ["LOST IN THE DARK,", 4],
+    ["MARCHED OVER A", 3],
+    ["KILOMETER INSIDE.", 2]
+   ]
+  },
+  {
+   "id": "verdict",
+   "say": "\"It's not like they invaded with attack helicopters,\" said a Liechtenstein spokesman.",
+   "kind": "quote",
+   "claims": ["c_quote"],
+   "gap": 0.5,
+   "caps": [
+    ["\"IT'S NOT LIKE THEY", 4],
+    ["INVADED WITH ATTACK", 3],
+    ["HELICOPTERS,\"", 1],
+    ["SAID A LIECHTENSTEIN", 3],
+    ["SPOKESMAN.", 1]
+   ]
+  },
+  {
+   "id": "callback",
+   "say": "Number six could still happen.",
+   "kind": "callback",
+   "claims": ["c_pattern"],
+   "gap": 0.0,
+   "caps": [
+    ["NUMBER SIX", 2],
+    ["COULD STILL HAPPEN.", 3]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "callback",
+  "connects_to": "hook",
+  "how": "'Number six could still happen.' answers the hook's 'invaded by accident... wasn't the first time' by implying the pattern isn't over; the closing frame mirrors the opening map of the two countries."
+ }
+}

@@ -1,0 +1,664 @@
+{
+ "duration": 42.114,
+ "voices": [
+  "piper:en_US-ryan-high"
+ ],
+ "paras": [
+  {
+   "id": "hook",
+   "start": 0.35,
+   "end": 3.45,
+   "wer": 0.0,
+   "heard": "there's a united states town you can only reach by driving through canada",
+   "words": [
+    {
+     "w": "There's",
+     "t": 0.35
+    },
+    {
+     "w": "a",
+     "t": 0.54
+    },
+    {
+     "w": "United",
+     "t": 0.62
+    },
+    {
+     "w": "States",
+     "t": 0.9
+    },
+    {
+     "w": "town",
+     "t": 1.28
+    },
+    {
+     "w": "you",
+     "t": 1.56
+    },
+    {
+     "w": "can",
+     "t": 1.72
+    },
+    {
+     "w": "only",
+     "t": 1.86
+    },
+    {
+     "w": "reach",
+     "t": 2.06
+    },
+    {
+     "w": "by",
+     "t": 2.3
+    },
+    {
+     "w": "driving",
+     "t": 2.5
+    },
+    {
+     "w": "through",
+     "t": 2.78
+    },
+    {
+     "w": "Canada.",
+     "t": 3.02
+    }
+   ]
+  },
+  {
+   "id": "onlyway",
+   "start": 3.75,
+   "end": 5.921,
+   "wer": 0.0,
+   "heard": "that's not a shortcut it's the only way in",
+   "words": [
+    {
+     "w": "That's",
+     "t": 3.76
+    },
+    {
+     "w": "not",
+     "t": 3.94
+    },
+    {
+     "w": "a",
+     "t": 4.08
+    },
+    {
+     "w": "shortcut.",
+     "t": 4.24
+    },
+    {
+     "w": "It's",
+     "t": 4.78
+    },
+    {
+     "w": "the",
+     "t": 4.92
+    },
+    {
+     "w": "only",
+     "t": 5.06
+    },
+    {
+     "w": "way",
+     "t": 5.3
+    },
+    {
+     "w": "in.",
+     "t": 5.6
+    }
+   ]
+  },
+  {
+   "id": "wrongidea",
+   "start": 6.421,
+   "end": 8.952,
+   "wer": 0.0,
+   "heard": "you'd think that was a mapping mistake nobody ever fixed",
+   "words": [
+    {
+     "w": "You'd",
+     "t": 6.421
+    },
+    {
+     "w": "think",
+     "t": 6.66
+    },
+    {
+     "w": "that",
+     "t": 6.78
+    },
+    {
+     "w": "was",
+     "t": 6.94
+    },
+    {
+     "w": "a",
+     "t": 7.06
+    },
+    {
+     "w": "mapping",
+     "t": 7.18
+    },
+    {
+     "w": "mistake",
+     "t": 7.46
+    },
+    {
+     "w": "nobody",
+     "t": 7.96
+    },
+    {
+     "w": "ever",
+     "t": 8.18
+    },
+    {
+     "w": "fixed.",
+     "t": 8.46
+    }
+   ]
+  },
+  {
+   "id": "reveal",
+   "start": 9.252,
+   "end": 11.446,
+   "wer": 0.0,
+   "heard": "it's not a mistake it's an old treaty line",
+   "words": [
+    {
+     "w": "It's",
+     "t": 9.252
+    },
+    {
+     "w": "not",
+     "t": 9.4
+    },
+    {
+     "w": "a",
+     "t": 9.6
+    },
+    {
+     "w": "mistake.",
+     "t": 9.7
+    },
+    {
+     "w": "It's",
+     "t": 10.0
+    },
+    {
+     "w": "an",
+     "t": 10.22
+    },
+    {
+     "w": "old",
+     "t": 10.32
+    },
+    {
+     "w": "treaty",
+     "t": 10.66
+    },
+    {
+     "w": "line.",
+     "t": 10.96
+    }
+   ]
+  },
+  {
+   "id": "treaty_detail",
+   "start": 11.696,
+   "end": 17.06,
+   "wer": 0.0,
+   "heard": "in eighteen forty six britain the united states agreed to draw the border along parallel forty nine",
+   "words": [
+    {
+     "w": "In",
+     "t": 11.696
+    },
+    {
+     "w": "eighteen",
+     "t": 11.84
+    },
+    {
+     "w": "forty-six,",
+     "t": 12.272
+    },
+    {
+     "w": "Britain",
+     "t": 12.8
+    },
+    {
+     "w": "and",
+     "t": 13.2
+    },
+    {
+     "w": "the",
+     "t": 13.6
+    },
+    {
+     "w": "United",
+     "t": 13.72
+    },
+    {
+     "w": "States",
+     "t": 13.96
+    },
+    {
+     "w": "agreed",
+     "t": 14.38
+    },
+    {
+     "w": "to",
+     "t": 14.66
+    },
+    {
+     "w": "draw",
+     "t": 14.86
+    },
+    {
+     "w": "the",
+     "t": 15.08
+    },
+    {
+     "w": "border",
+     "t": 15.22
+    },
+    {
+     "w": "along",
+     "t": 15.48
+    },
+    {
+     "w": "parallel",
+     "t": 15.78
+    },
+    {
+     "w": "forty-nine.",
+     "t": 16.329
+    }
+   ]
+  },
+  {
+   "id": "oops",
+   "start": 17.36,
+   "end": 19.438,
+   "wer": 0.0,
+   "heard": "nobody checked what that line would cut off",
+   "words": [
+    {
+     "w": "Nobody",
+     "t": 17.36
+    },
+    {
+     "w": "checked",
+     "t": 17.6
+    },
+    {
+     "w": "what",
+     "t": 18.02
+    },
+    {
+     "w": "that",
+     "t": 18.36
+    },
+    {
+     "w": "line",
+     "t": 18.56
+    },
+    {
+     "w": "would",
+     "t": 18.76
+    },
+    {
+     "w": "cut",
+     "t": 18.9
+    },
+    {
+     "w": "off.",
+     "t": 19.1
+    }
+   ]
+  },
+  {
+   "id": "cutoff",
+   "start": 19.888,
+   "end": 23.232,
+   "wer": 0.071,
+   "heard": "the line sliced the tip of the peninsula off from the rest of washington",
+   "words": [
+    {
+     "w": "The",
+     "t": 19.888
+    },
+    {
+     "w": "line",
+     "t": 19.98
+    },
+    {
+     "w": "sliced",
+     "t": 20.26
+    },
+    {
+     "w": "the",
+     "t": 20.54
+    },
+    {
+     "w": "tip",
+     "t": 20.78
+    },
+    {
+     "w": "of",
+     "t": 20.94
+    },
+    {
+     "w": "a",
+     "t": 21.096
+    },
+    {
+     "w": "peninsula",
+     "t": 21.2
+    },
+    {
+     "w": "off",
+     "t": 21.54
+    },
+    {
+     "w": "from",
+     "t": 21.9
+    },
+    {
+     "w": "the",
+     "t": 22.1
+    },
+    {
+     "w": "rest",
+     "t": 22.2
+    },
+    {
+     "w": "of",
+     "t": 22.42
+    },
+    {
+     "w": "Washington.",
+     "t": 22.58
+    }
+   ]
+  },
+  {
+   "id": "howfar",
+   "start": 23.482,
+   "end": 26.268,
+   "wer": 0.0,
+   "heard": "to drive there from the mainland you cross the border twice",
+   "words": [
+    {
+     "w": "To",
+     "t": 23.482
+    },
+    {
+     "w": "drive",
+     "t": 23.58
+    },
+    {
+     "w": "there",
+     "t": 23.88
+    },
+    {
+     "w": "from",
+     "t": 24.1
+    },
+    {
+     "w": "the",
+     "t": 24.26
+    },
+    {
+     "w": "mainland,",
+     "t": 24.38
+    },
+    {
+     "w": "you",
+     "t": 24.72
+    },
+    {
+     "w": "cross",
+     "t": 25.12
+    },
+    {
+     "w": "the",
+     "t": 25.34
+    },
+    {
+     "w": "border",
+     "t": 25.54
+    },
+    {
+     "w": "twice.",
+     "t": 25.78
+    }
+   ]
+  },
+  {
+   "id": "kids",
+   "start": 26.518,
+   "end": 29.63,
+   "wer": 0.0,
+   "heard": "kids there cross the border four times a day just to get to school",
+   "words": [
+    {
+     "w": "Kids",
+     "t": 26.518
+    },
+    {
+     "w": "there",
+     "t": 26.66
+    },
+    {
+     "w": "cross",
+     "t": 26.86
+    },
+    {
+     "w": "the",
+     "t": 27.04
+    },
+    {
+     "w": "border",
+     "t": 27.26
+    },
+    {
+     "w": "four",
+     "t": 27.46
+    },
+    {
+     "w": "times",
+     "t": 27.74
+    },
+    {
+     "w": "a",
+     "t": 28.02
+    },
+    {
+     "w": "day,",
+     "t": 28.18
+    },
+    {
+     "w": "just",
+     "t": 28.42
+    },
+    {
+     "w": "to",
+     "t": 28.84
+    },
+    {
+     "w": "get",
+     "t": 29.0
+    },
+    {
+     "w": "to",
+     "t": 29.08
+    },
+    {
+     "w": "school.",
+     "t": 29.26
+    }
+   ]
+  },
+  {
+   "id": "water",
+   "start": 29.88,
+   "end": 34.28,
+   "wer": 0.0,
+   "heard": "even the tap water comes from canada under a deal signed in nineteen eighty seven",
+   "words": [
+    {
+     "w": "Even",
+     "t": 29.88
+    },
+    {
+     "w": "the",
+     "t": 30.1
+    },
+    {
+     "w": "tap",
+     "t": 30.28
+    },
+    {
+     "w": "water",
+     "t": 30.46
+    },
+    {
+     "w": "comes",
+     "t": 30.76
+    },
+    {
+     "w": "from",
+     "t": 31.08
+    },
+    {
+     "w": "Canada,",
+     "t": 31.38
+    },
+    {
+     "w": "under",
+     "t": 31.82
+    },
+    {
+     "w": "a",
+     "t": 32.28
+    },
+    {
+     "w": "deal",
+     "t": 32.48
+    },
+    {
+     "w": "signed",
+     "t": 32.64
+    },
+    {
+     "w": "in",
+     "t": 33.02
+    },
+    {
+     "w": "nineteen",
+     "t": 33.165
+    },
+    {
+     "w": "eighty-seven.",
+     "t": 33.601
+    }
+   ]
+  },
+  {
+   "id": "todaybeat",
+   "start": 34.58,
+   "end": 38.458,
+   "wer": 0.0,
+   "heard": "in twenty twenty five one shop owner said her business fell by more than half",
+   "words": [
+    {
+     "w": "In",
+     "t": 34.58
+    },
+    {
+     "w": "twenty",
+     "t": 34.679
+    },
+    {
+     "w": "twenty-five,",
+     "t": 34.91
+    },
+    {
+     "w": "one",
+     "t": 35.34
+    },
+    {
+     "w": "shop",
+     "t": 36.0
+    },
+    {
+     "w": "owner",
+     "t": 36.28
+    },
+    {
+     "w": "said",
+     "t": 36.5
+    },
+    {
+     "w": "her",
+     "t": 36.8
+    },
+    {
+     "w": "business",
+     "t": 36.96
+    },
+    {
+     "w": "fell",
+     "t": 37.24
+    },
+    {
+     "w": "by",
+     "t": 37.52
+    },
+    {
+     "w": "more",
+     "t": 37.76
+    },
+    {
+     "w": "than",
+     "t": 37.94
+    },
+    {
+     "w": "half.",
+     "t": 38.1
+    }
+   ]
+  },
+  {
+   "id": "loopback",
+   "start": 38.808,
+   "end": 40.514,
+   "wer": 0.0,
+   "heard": "still only reachable through canada",
+   "words": [
+    {
+     "w": "Still",
+     "t": 38.808
+    },
+    {
+     "w": "only",
+     "t": 39.04
+    },
+    {
+     "w": "reachable",
+     "t": 39.4
+    },
+    {
+     "w": "through",
+     "t": 39.82
+    },
+    {
+     "w": "Canada.",
+     "t": 40.18
+    }
+   ]
+  }
+ ]
+}

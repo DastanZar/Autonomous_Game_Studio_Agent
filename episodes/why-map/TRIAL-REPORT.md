@@ -123,3 +123,198 @@ episodes/why-map/swiss-invades-liechtens     ✗     ·     ·     ·     ·    
 
 The `✗` on `topic` for all three is expected and correct: every check in the topic gate passes except
 "approved by a human," which is intentionally left for the person running the studio.
+
+---
+
+# Phase B — research, script, voice, storyboard
+
+Worker: Claude (Sonnet 5). Order: point-roberts, swiss-invades-liechtenstein, baarle-border-houses,
+each taken through all four stages before the next started. `voice_waivers` was never filled; nothing
+under `studio/` was edited. `python3 studio/tools/verify_quotes.py <episode>` was run before every
+`check` at the research stage, per sop/02.
+
+## 1. Check attempts per episode/stage
+
+"Attempts" counts calls to `python3 studio/studio.py check <episode>` at that stage. Separately,
+research needed `verify_quotes.py` re-runs before a `check` was worth calling, and voice needed
+`vo.py` re-runs (rewording a misread line) before a `check` was worth calling; both are called out
+under "what failed" since they are the SOP-mandated pre-check tools, not the gate itself.
+
+### point-roberts
+
+| Stage | `check` attempts | What failed |
+|---|---|---|
+| research | 1 (passed) | Nothing at `check`. `verify_quotes.py` passed clean on its first run (8 claims, 0 NOT_FOUND). |
+| script | 1 (passed) | Nothing. |
+| voice | 1 (passed) | Nothing at `check`. `vo.py` itself needed 3 runs before its per-paragraph WER table was clean: run 1 flagged `treaty_detail` at WER 0.12 (heard "britain **the us** drew... along the **forty nine th** parallel" — dropped "and", split "forty-ninth" into three words); reworded the ordinal to "parallel forty-nine" and re-ran (run 2), which fixed `treaty_detail` but revealed `hook` had flipped to WER 0.17 ("u s" heard as two letters instead of the word "us") and `treaty_detail` regressed to WER 0.25 for the same reason; rewrote "US" → "United States" in both lines and re-ran (run 3), which passed all 12 paragraphs at WER ≤ 0.07. That is exactly the sop/04 "at most 2 retakes" budget (2 rewordings, not 2 reruns). |
+| storyboard | 1 (passed) | Nothing. |
+
+### swiss-invades-liechtenstein
+
+| Stage | `check` attempts | What failed |
+|---|---|---|
+| research | 1 (passed) | Nothing at `check`. `verify_quotes.py` run 1 flagged `c_2007` NOT_FOUND: my quote skipped an inline parenthetical ("armed with rifles **(but apparently not with a GPS)** stumbled") and the word "Hey," before a direct quote, breaking the source-text contiguity `verify_quotes.py` requires. Restored the skipped words verbatim and re-ran (run 2), 9/9 verified. |
+| script | 2 (1 failed, 1 passed) | First `check` after the voice retake (below) failed: `callback: kind 'callback' with numbers must cite claim ids from dossier.json` — rewording the callback from "a sixth" to "six" introduced a bare number word ("six" is in the gate's `NUMBER_WORDS` list; the ordinal "sixth" that preceded it was not). Added `claims: ["c_pattern"]` to the paragraph and re-ran; passed 10/10. |
+| voice | 1 (passed) | Nothing at `check`. `vo.py` run 1 flagged `callback` at WER 0.20 ("sixth" heard as "six", dropping "-th"); reworded to "Number six could still happen." and re-ran (run 2), all 11 paragraphs WER 0.00. (One retake, well under budget — the script-gate failure above was a side effect of this same fix, not a second voice retake.) |
+| storyboard | 1 (passed) | Nothing. |
+
+### baarle-border-houses
+
+| Stage | `check` attempts | What failed |
+|---|---|---|
+| research | 1 (passed) | Nothing at `check`. `verify_quotes.py` run 1 flagged `c_treaty1843` NOT_FOUND: the two Wikipedia sentences I quoted back-to-back are actually separated on the page by the "Border enclaves [edit]" section heading, breaking contiguity the same way as the swiss-invades-liechtenstein case. Split the quote into two semicolon-delimited, independently-verifiable segments and re-ran (run 2), 9/9 verified. |
+| script | 1 (passed) | Nothing. |
+| voice | 1 (passed) | Nothing at `check`. `vo.py` run 1 flagged `storedoor` at WER 0.13 ("store's" heard as "store is" — the possessive contraction was misread); reworded to "One store has its front door..." and re-ran (run 2), all 10 paragraphs WER ≤ 0.07. |
+| storyboard | 1 (passed) | Nothing. |
+
+## 2. Facts corrected or dropped versus the topic cards
+
+- **point-roberts** — Britannica (one of the topic card's two `candidate_sources`) turned out to be
+  unreliable for machine quote-verification (Cloudflare/anti-bot 403s, inconsistent between fetchers);
+  research used NASA Earth Observatory instead as the second, "official"-type source, and dropped
+  Britannica from the dossier entirely rather than cite a source that couldn't be reliably opened. The
+  topic card's "why now" pointed at 2026 tariff coverage; the best on-the-ground reporting actually
+  found was an AP story dated March 2025 — the dossier keeps the real publication date and treats the
+  business-decline figure as an "estimate" with a "one business owner's reported figure" label rather
+  than a confirmed 2026 statistic.
+- **swiss-invades-liechtenstein** — the topic card's risk note guessed "three vs four" prior
+  incursions and flagged the count as unresolved. Research found Wikipedia documents **five** separate
+  incidents (1968, 1976, 1985, 1992, 2007), which is a stronger, more surprising story than the topic
+  card assumed, not a weaker one — used all five rather than picking a smaller subset. The 2007 troop
+  count is genuinely disputed between sources (171 per Wikipedia, 170 per The Local); the dossier
+  records both and the script uses the rounded, source-agnostic "one hundred seventy" rather than
+  asserting one over the other.
+- **baarle-border-houses** — the topic card's risk note said the pre-1995 treaty history "isn't in
+  Wikipedia's summary" and would need a scholarly/official source. Research resolved this directly:
+  the 1843 Treaty of Maastricht (a separate Wikipedia article) gives the 5,732-parcel figure, and the
+  main Baarle article gives the 1198 origin story neither of which were in the topic card. Atlas
+  Obscura, the topic card's second candidate source, returned HTTP 403 to a direct fetch **and** to
+  the WebFetch tool — since research rules require citing only what was actually opened, it was
+  dropped rather than cited secondhand; the equivalent fact (the Loveren Street divided house) is
+  instead sourced to Wikipedia, which states it independently. A genuine numeric conflict surfaced
+  between Wikipedia (16 exclaves surrounding 7 Dutch areas) and a third source, Barry's Border Points
+  (26 pockets, 22 fully surrounded) — the dossier logs this as an open question and the script only
+  ever uses Wikipedia's own count rather than splitting the difference.
+
+## 3. Per-paragraph WER, final passing run
+
+**point-roberts** (12 paragraphs, `python3 studio/tools/vo.py`, Piper `en_US-ryan-high` DRAFT voice):
+
+| Paragraph | WER |
+|---|---|
+| hook | 0.00 |
+| onlyway | 0.00 |
+| wrongidea | 0.00 |
+| reveal | 0.00 |
+| treaty_detail | 0.00 |
+| oops | 0.00 |
+| cutoff | 0.07 |
+| howfar | 0.00 |
+| kids | 0.00 |
+| water | 0.00 |
+| todaybeat | 0.00 |
+| loopback | 0.00 |
+
+Total 42.11s. All ≤ bible max_wer 0.08.
+
+**swiss-invades-liechtenstein** (11 paragraphs):
+
+| Paragraph | WER |
+|---|---|
+| hook | 0.00 |
+| itwasnt | 0.00 |
+| neutral | 0.00 |
+| y1968 | 0.00 |
+| y1976 | 0.00 |
+| y1985 | 0.00 |
+| y1992 | 0.00 |
+| then2007 | 0.00 |
+| soldiers2007 | 0.00 |
+| verdict | 0.00 |
+| callback | 0.00 |
+
+Total 42.74s. All ≤ 0.08 (all exactly 0.00).
+
+**baarle-border-houses** (10 paragraphs):
+
+| Paragraph | WER |
+|---|---|
+| hook | 0.00 |
+| literally | 0.00 |
+| samevillage | 0.00 |
+| origin | 0.00 |
+| treaty | 0.00 |
+| toohard | 0.07 |
+| finalized | 0.00 |
+| storedoor | 0.00 |
+| fireworks | 0.00 |
+| callback | 0.00 |
+
+Total 33.45s. All ≤ 0.08.
+
+## 4. Friction log
+
+- **`studio/README.md` "Run it" example doubles as an unintentional claim on a slug.** (carried over
+  from Phase A, still relevant: `point-roberts` is only a documentation placeholder, not a reserved
+  topic — worth a one-line disclaimer.)
+- **`verify_quotes.py`'s contiguity rule isn't documented anywhere a worker would read before writing
+  quotes**, and it bit twice in three episodes (swiss-invades-liechtenstein's `c_2007`,
+  baarle-border-houses's `c_treaty1843`). The tool matches a quote segment (split only on `;` and
+  `...`) as one literal, whitespace-and-punctuation-stripped substring of the fetched page. Anything a
+  human would consider "the same quote" but that skips a parenthetical aside, an inline attribution,
+  or — on Wikipedia specifically — a section heading sitting between two sentences, silently breaks
+  the match and reports `NOT_FOUND` with no hint about *why* it wasn't found beyond the first 50
+  characters. `studio/sop/02-research.md`'s "Common failures" list ("Paraphrasing in `quote`") gets
+  close but doesn't name this specific failure mode. Suggest adding: "a quote must be a single
+  verbatim, uninterrupted span of the source page — never skip an inline aside, and never quote two
+  sentences that a section heading sits between; split into two semicolon-joined segments instead."
+- **Whisper's transcription of a whole-episode mix is non-deterministic in a way that goes beyond the
+  documented ~20ms timing wobble** (`studio/knowledge/lessons.md`): re-running `vo.py` after changing
+  only *one* paragraph's text caused an *earlier, unrelated, bit-identical* paragraph's transcribed
+  **content** to change ("us" → "u s"), flipping its WER from 0.00 to 0.17 on point-roberts's `hook`.
+  This means a paragraph that passed can silently fail on a later, unrelated retake, purely from
+  re-running the whole-mix transcription — worth a line in `lessons.md` next to the existing timing-
+  wobble entry, since it changes how a worker should read a WER regression (don't assume the newly-
+  failing line's *own* audio is the problem).
+- **Piper has a small, recognizable set of misread constructs that `studio/sop/04-voice.md`'s "Common
+  failures" doesn't list**, and three of the eleven per-line retakes across all three episodes fell
+  into it: an ordinal built from a hyphenated number ("forty-ninth" → "forty nine th"), the acronym
+  "US" (sometimes read as the word "us", sometimes spelled out "u s" with no way to predict which), a
+  possessive contraction ("store's" → "store is"), and the bare ordinal "sixth" (→ "six", dropping
+  "-th"). None of these are wrong `say` text, just Piper-specific pronunciation traps; spelling out
+  "United States", avoiding ordinal-suffix words, and avoiding possessive contractions on names/nouns
+  worked every time they were tried. Worth adding to the playbook's common-failures list so a worker
+  doesn't have to rediscover each one by burning a retake.
+- **The scene catalog's per-type param limits are documentation, not enforcement**, confirmed again
+  in Phase B: `storyboard.schema.json` defines `params` as an unconstrained `object`, and
+  `gate_storyboard` never reads `stamp_reveal`'s "≤3 words" or `title_card`'s "≤8 words" limits from
+  `engine/catalog.json`. All title cards and stamp reveals in these three storyboards were kept inside
+  those limits by hand, but nothing would have stopped a storyboard from passing `check` while
+  violating them.
+- **Nested cue references inside scene `params` (e.g. `map_focus.pins[].at`,
+  `diagram_callout.callouts[].at`) are never validated against the timeline** — `gate_storyboard` only
+  resolves `scene.start`, `scene.end`, and top-level `scene.events[].at`. A typo'd pin or callout `at`
+  cue (e.g. referencing a word never spoken) would pass the gate silently and only surface once a
+  human, or the not-yet-built render engine, looks at the actual picture. `sop/05-storyboard.md`'s
+  "Run the check. Every cue must resolve" reads as covering all cues; worth narrowing that sentence or
+  widening the gate.
+- **The script gate's runtime formula still isn't written down** (flagged in Phase A for the topic
+  score formula; same pattern here for `est_duration` in `studio/gates/__init__.py`:
+  `lead_in + words/(wpm/60) + sum(gap for all but the last paragraph) + tail`). Hand-computing this for
+  all three scripts before ever running `vo.py` matched the gate's printed number to one decimal place
+  every time, which confirms the formula is stable and worth publishing in `sop/03-script.md` so a
+  worker isn't reverse-engineering gate source before writing a script.
+
+## 5. `python3 studio/studio.py status` (verbatim, after all three episodes)
+
+```
+episode                                  topic resea scrip voice story pictu final packa publi analy
+episodes/why-map/baarle-border-houses        ✓     ✓     ✓     ✓     ✓     ·     ·     ·     ·     ·
+episodes/why-map/point-roberts               ✓     ✓     ✓     ✓     ✓     ·     ·     ·     ·     ·
+episodes/why-map/swiss-invades-liechtens     ✓     ✓     ✓     ✓     ✓     ·     ·     ·     ·     ·
+
+✓ passed   · pending   ✗ failed   ! stale (an input changed after it passed)
+```
+
+All three episodes are through storyboard. Picture and everything after it were left untouched, as
+instructed (the render engine isn't built).
