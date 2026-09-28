@@ -1,0 +1,36 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Publish record",
+ "type": "object",
+ "required": [
+  "youtube"
+ ],
+ "properties": {
+  "youtube": {
+   "type": "object",
+   "required": [
+    "url",
+    "published_at"
+   ],
+   "properties": {
+    "url": {
+     "type": "string",
+     "pattern": "^https://(www\\.)?youtube\\.com/"
+    },
+    "published_at": {
+     "type": "string"
+    }
+   }
+  },
+  "others": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "platform",
+     "url"
+    ]
+   }
+  }
+ }
+}

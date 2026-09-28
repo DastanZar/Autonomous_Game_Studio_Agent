@@ -1,0 +1,43 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "48-hour analytics",
+ "type": "object",
+ "required": [
+  "collected_at",
+  "hours_since_publish",
+  "views",
+  "engaged_views",
+  "viewed_vs_swiped",
+  "avg_pct_viewed",
+  "subs_gained"
+ ],
+ "properties": {
+  "collected_at": {
+   "type": "string"
+  },
+  "hours_since_publish": {
+   "type": "number",
+   "minimum": 48
+  },
+  "views": {
+   "type": "integer"
+  },
+  "engaged_views": {
+   "type": "integer"
+  },
+  "viewed_vs_swiped": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 100
+  },
+  "avg_pct_viewed": {
+   "type": "number"
+  },
+  "subs_gained": {
+   "type": "integer"
+  },
+  "lesson": {
+   "type": "string"
+  }
+ }
+}

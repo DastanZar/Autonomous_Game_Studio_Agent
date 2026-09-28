@@ -1,0 +1,27 @@
+{
+ "slug": "emu-war",
+ "channel": "why-map",
+ "series": "the_time",
+ "hook": "In nineteen thirty-two, Australia went to war against birds. And lost.",
+ "twist": "A real army unit with machine guns was sent against emus and was withdrawn after about a month.",
+ "angle": "How does a modern army lose to birds? Walk through each failed tactic until the major's own verdict.",
+ "why_now": "Evergreen; peaks around its November anniversary.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/Emu_War",
+  "https://www.britannica.com/event/Emu-War",
+  "https://www.australiangeographic.com.au/nature-wildlife/2016/10/australias-emu-wars/"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 5,
+  "visual": 5,
+  "sourceability": 4,
+  "timeliness": 2,
+  "series_fit": 5
+ },
+ "risks": [
+  "Heavily covered by other channels: our edge is the deadpan escalation and the 10-bullets-per-bird number."
+ ],
+ "approved_by": "user (example; approved in chat before the original short was made)",
+ "approved_at": "2026-09-25"
+}

@@ -1,0 +1,289 @@
+{
+ "id": "body-cast",
+ "name": "The Body Cast (working name)",
+ "status": "draft",
+ "promise": "Your organs, cells and microbes as a cast of characters, arguing about what really happens inside you, in under a minute.",
+ "audience": "Adults and older teens 16-40 who watch Kurzgesagt, SolarBalls, Zack D. Films. Written for adults: never 'made for kids'.",
+ "benchmarks": [
+  {
+   "channel": "SolarBalls",
+   "url": "https://www.youtube.com/@SolarBalls/shorts",
+   "shorts_median": 750000,
+   "measured": "2026-09-28",
+   "study": "Personified objects with fixed personalities; 'X vs Y' and 'what happens if' titles."
+  },
+  {
+   "channel": "Zack D. Films",
+   "url": "https://www.youtube.com/@zackdfilms/shorts",
+   "shorts_median": 3500000,
+   "measured": "2026-09-28",
+   "study": "Body and survival topics; 'How X works' titles."
+  },
+  {
+   "channel": "Kurzgesagt",
+   "url": "https://www.youtube.com/@kurzgesagt/shorts",
+   "shorts_median": 1200000,
+   "measured": "2026-09-28",
+   "study": "Flat vector look; one surprising number per Short."
+  }
+ ],
+ "format": {
+  "aspect": "9:16",
+  "width": 1080,
+  "height": 1920,
+  "fps": 24,
+  "duration_s": [
+   25,
+   55
+  ],
+  "wpm": 170,
+  "min_scene_s": 0.8,
+  "max_scene_s": 7
+ },
+ "voice": {
+  "engine": "fish",
+  "model": "fish-audio/s2.1-pro-free:free",
+  "id": "8062e83481fe4165a2a92cd753f9c06b",
+  "name": "Felix (Fish Audio library, Australian male)",
+  "max_wer": 0.08,
+  "fallback": {
+   "engine": "piper",
+   "id": "en_US-ryan-high",
+   "length_scale": 0.9
+  },
+  "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash. Narrator is Felix; each cast member gets its own voice in 'cast[].voice' once chosen."
+ },
+ "look": {
+  "theme": "flat-cast",
+  "texture": "flat vector shapes, soft grain, thick rounded outlines, big expressive eyes",
+  "palette": {
+   "ink": "#1d1b2e",
+   "bg": "#fbe9e4",
+   "flesh": "#f2a38f",
+   "blood": "#d2383f",
+   "bone": "#f4ecd8",
+   "bile": "#9bb63a",
+   "lymph": "#7fc8d8",
+   "neuron": "#9a7de0",
+   "sun": "#ffcc4d"
+  },
+  "fonts": {
+   "display": "Anton",
+   "body": "DM Serif Display"
+  },
+  "captions": {
+   "burned": true,
+   "style": "Anton, uppercase, 2-5 words per chunk, white with ink outline",
+   "safe_zone": {
+    "top": 220,
+    "bottom": 420,
+    "right": 140,
+    "note": "px at 1080x1920; keep text out of the platform UI (title, buttons, progress bar)"
+   }
+  },
+  "notes": "Character designs are original. No real people, no lookalikes of other channels' characters."
+ },
+ "cast": [
+  {
+   "id": "narrator",
+   "name": "Narrator",
+   "role": "Deadpan voice-over that sets up each scene",
+   "traits": "dry, precise, slightly tired of everyone"
+  },
+  {
+   "id": "liver",
+   "name": "Liver",
+   "role": "The overworked one",
+   "traits": "does 500 jobs, never thanked, passive-aggressive",
+   "design": "TBD"
+  },
+  {
+   "id": "brain",
+   "name": "Brain",
+   "role": "Thinks it runs the place",
+   "traits": "vain, anxious, takes credit",
+   "design": "TBD"
+  },
+  {
+   "id": "heart",
+   "name": "Heart",
+   "role": "The athlete",
+   "traits": "earnest, dramatic, never rests",
+   "design": "TBD"
+  },
+  {
+   "id": "gut_microbes",
+   "name": "The Microbes",
+   "role": "The crowd",
+   "traits": "chaotic, many voices, secretly in charge",
+   "design": "TBD"
+  }
+ ],
+ "series": [
+  {
+   "id": "versus",
+   "name": "X vs Y",
+   "title_pattern": "<Organ> vs <Organ>: who <does something>?",
+   "beats": [
+    "hook: the matchup",
+    "round 1",
+    "round 2",
+    "the surprising winner (a number)",
+    "loser's reaction as callback"
+   ],
+   "example_titles": [
+    "Liver vs Brain: who uses more energy?"
+   ]
+  },
+  {
+   "id": "what_if",
+   "name": "What happens if...",
+   "title_pattern": "What happens to your body if you <do X>?",
+   "beats": [
+    "hook",
+    "hour/day timeline with the cast reacting",
+    "the turning point",
+    "how long until recovery",
+    "callback"
+   ],
+   "example_titles": [
+    "What happens to your body if you stop sleeping?"
+   ]
+  },
+  {
+   "id": "day_in_life",
+   "name": "A day in the life",
+   "title_pattern": "A day in the life of your <organ>",
+   "beats": [
+    "hook: the absurd workload",
+    "morning",
+    "the crisis",
+    "the number",
+    "callback"
+   ],
+   "example_titles": [
+    "A day in the life of your liver"
+   ]
+  }
+ ],
+ "script": {
+  "hook_max_words": 14,
+  "tone": "Narrator deadpan; characters exaggerated but every fact they say is sourced. Health claims: no advice, no cures.",
+  "ending": "callback",
+  "banned_phrases": [
+   "did you know",
+   "you won't believe",
+   "let's dive in",
+   "in this video",
+   "buckle up",
+   "smash that",
+   "like and subscribe",
+   "fun fact",
+   "cure",
+   "detox",
+   "boost your immune system"
+  ],
+  "rules": [
+   "One idea per line. Short sentences. Deadpan: state absurd facts plainly and let the gap carry the joke.",
+   "Line one is the hook: the most surprising true sentence in the episode, under the word limit, no preamble.",
+   "Spell numbers the way they are spoken ('nineteen thirty-two', 'ten thousand'). Put the digits in the captions.",
+   "Every line with a fact, number, name or date cites dossier claim ids. Jokes may not smuggle in new facts.",
+   "Estimates and self-reported numbers carry their label on screen (e.g. 'the major's own count').",
+   "The last line calls back to the hook or loops into it, so a replay feels intentional.",
+   "Use 'gap' (seconds of silence after a line) for comic timing: 0.4-0.6 s before a punchline.",
+   "Every line has a speaker from the cast.",
+   "Health: describe how the body works; never give medical advice. Prefer NIH, NHS, WHO, peer-reviewed reviews."
+  ],
+  "speakers_required": true
+ },
+ "topic": {
+  "min_score": 3.5,
+  "weights": {
+   "hook": 3,
+   "surprise": 3,
+   "visual": 1,
+   "sourceability": 2,
+   "timeliness": 1,
+   "series_fit": 1
+  },
+  "radar": [
+   "NIH/NHS explainer pages",
+   "New peer-reviewed findings covered by two reputable outlets",
+   "Everyday experiences (hiccups, goosebumps, brain freeze)",
+   "Seasonal hooks (flu season, daylight saving, holidays and food)"
+  ],
+  "avoid": [
+   "Diet and supplement claims",
+   "Anything that reads as medical advice",
+   "Graphic injury content"
+  ]
+ },
+ "scene_types": [
+  "title_card",
+  "character_dialog",
+  "character_explain",
+  "versus",
+  "count_up",
+  "diagram_callout",
+  "stamp_reveal",
+  "split_compare",
+  "timeline",
+  "custom",
+  "outro_loop"
+ ],
+ "props": [
+  "cell",
+  "blood_cell",
+  "neuron",
+  "bacterium",
+  "virus",
+  "food",
+  "clock",
+  "bed"
+ ],
+ "sources": {
+  "preferred": [
+   "NIH / NCBI Bookshelf",
+   "NHS",
+   "WHO",
+   "Peer-reviewed reviews",
+   "University medical centre explainers"
+  ],
+  "banned": [
+   "reddit.com",
+   "quora.com",
+   "facebook.com",
+   "x.com",
+   "twitter.com",
+   "tiktok.com",
+   "pinterest.com",
+   "instagram.com",
+   "healthline.com",
+   "mercola.com",
+   "goop.com"
+  ],
+  "notes": "Health claims need a primary or official source; journalism alone is not enough."
+ },
+ "publishing": {
+  "title_max": 70,
+  "hashtags_max": 4,
+  "made_for_kids": false,
+  "cadence": "3-4/week while calibrating (weeks 1-2), then 1/day",
+  "cross_post": [
+   "tiktok",
+   "instagram_reels",
+   "facebook_reels"
+  ],
+  "default_hashtags": [
+   "#science",
+   "#biology",
+   "#shorts"
+  ]
+ },
+ "open_decisions": [
+  "Organs vs another cast (user)",
+  "Character designs: sketch sheet for approval before the first episode",
+  "Voices for each cast member (Fish library voices or Piper)",
+  "Channel name (user)"
+ ]
+}

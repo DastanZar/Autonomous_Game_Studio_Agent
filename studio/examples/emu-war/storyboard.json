@@ -1,0 +1,219 @@
+{
+ "episode": "emu-war",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "title_card",
+   "start": "0",
+   "params": {
+    "text": "1932: AUSTRALIA VS BIRDS",
+    "prop": "soldier"
+   },
+   "events": [
+    {
+     "at": "hook/war",
+     "do": "stamp_prop",
+     "args": {
+      "prop": "machine_gun"
+     },
+     "sfx": "thud"
+    }
+   ]
+  },
+  {
+   "id": "s_lost",
+   "type": "stamp_reveal",
+   "start": "lost.start-0.1",
+   "params": {
+    "text": "LOST",
+    "color": "red",
+    "footnote": "the army withdrew"
+   }
+  },
+  {
+   "id": "s_vets",
+   "type": "custom",
+   "start": "vets.start-0.2",
+   "params": {
+    "fn": "sceneVets",
+    "why": "One-off transformation: a soldier's uniform folds into a farmer's overalls."
+   }
+  },
+  {
+   "id": "s_map",
+   "type": "map_focus",
+   "start": "vets/farmland-0.15",
+   "params": {
+    "region": "AU",
+    "highlight": [
+     "AU-WA"
+    ],
+    "pins": [
+     {
+      "lon": 119.3,
+      "lat": -31.2,
+      "label": "WHEAT BELT",
+      "at": "vets/western"
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "emus/emus",
+     "do": "count_up",
+     "args": {
+      "value": 20000,
+      "unit": "EMUS",
+      "qualifier": "about 20,000"
+     },
+     "sfx": "flock"
+    },
+    {
+     "at": "emus/wheat",
+     "do": "wheat_disappears"
+    }
+   ]
+  },
+  {
+   "id": "s_telegram",
+   "type": "title_card",
+   "start": "call.start-0.2",
+   "params": {
+    "text": "SEND THE ARMY",
+    "prop": "telegram"
+   }
+  },
+  {
+   "id": "s_inventory",
+   "type": "diagram_callout",
+   "start": "sent.start-0.15",
+   "params": {
+    "object": "army_inventory",
+    "callouts": [
+     {
+      "label": "1 MAJOR",
+      "at": "sent/major"
+     },
+     {
+      "label": "2 SOLDIERS",
+      "at": "sent/soldiers"
+     },
+     {
+      "label": "2 MACHINE GUNS",
+      "at": "sent/guns"
+     },
+     {
+      "label": "10,000 BULLETS",
+      "at": "sent/bullets"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s_scatter",
+   "type": "custom",
+   "start": "scatter.start-0.15",
+   "params": {
+    "fn": "sceneScatter",
+    "why": "Flock splitting into small groups while a range ring shrinks; no catalog type animates a crowd."
+   }
+  },
+  {
+   "id": "s_ambush",
+   "type": "diagram_callout",
+   "start": "ambush.start-0.15",
+   "params": {
+    "object": "machine_gun",
+    "callouts": [
+     {
+      "label": "1,000 EMUS",
+      "at": "ambush/thousand"
+     },
+     {
+      "label": "JAMMED",
+      "at": "jam/jammed"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s_truck",
+   "type": "versus",
+   "start": "truck.start-0.2",
+   "params": {
+    "left": "truck",
+    "right": "emu",
+    "verdict": "EMU"
+   },
+   "events": [
+    {
+     "at": "faster/faster",
+     "do": "verdict",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_tally",
+   "type": "count_up",
+   "start": "tally.start-0.2",
+   "params": {
+    "value": 986,
+    "unit": "EMUS",
+    "qualifier": "the major's own count"
+   },
+   "events": [
+    {
+     "at": "tally/bullets",
+     "do": "second_counter",
+     "args": {
+      "value": 9860,
+      "unit": "BULLETS"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s_ratio",
+   "type": "stamp_reveal",
+   "start": "perbird.start-0.12",
+   "params": {
+    "text": "10 PER BIRD",
+    "color": "red"
+   }
+  },
+  {
+   "id": "s_review",
+   "type": "title_card",
+   "start": "review.start-0.2",
+   "params": {
+    "text": "THE MAJOR'S REVIEW",
+    "prop": "telegram"
+   }
+  },
+  {
+   "id": "s_quote",
+   "type": "quote_card",
+   "start": "quote.start-0.2",
+   "params": {
+    "quote": "They can face machine guns with the invulnerability of tanks.",
+    "who": "Maj. G.P.W. Meredith",
+    "year": "1932"
+   }
+  },
+  {
+   "id": "s_home",
+   "type": "outro_loop",
+   "start": "home.start-0.25",
+   "params": {
+    "echo_of": "s_hook"
+   },
+   "events": [
+    {
+     "at": "didnot/not",
+     "do": "emus_on_horizon"
+    }
+   ]
+  }
+ ]
+}

@@ -16,6 +16,11 @@ loads automatically via `CLAUDE.md`.
 | Voice shoot-out: Piper vs six Fish voices | `videos/voice-test/` | The user hasn't picked a favourite yet |
 | Research notes | `videos/RESEARCH.md` | §1 covers the Opus 5.5 video wave |
 
+## Studio machine (phase 1, 2026-09-28)
+`studio/`: bibles for 3 channels (why-map, body-cast, ranked), playbooks, gates, state machine, and the
+Emu War as a gold example. `python3 studio/studio.py selftest` must pass. Phase 2 = voice tool plus the shared
+storyboard engine. See `studio/README.md`.
+
 ## Open threads
 1. **Sonnet reproduction test.** The user wants to see whether a cheaper model (Sonnet) can rebuild
    the Emu War from `recipes/emu-war/00-START-HERE.md`. A perfect run ends with `SCORE 29/29`. Next

@@ -1,0 +1,71 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Upload package",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "title",
+  "description",
+  "hashtags",
+  "made_for_kids",
+  "synthetic_media",
+  "video",
+  "srt",
+  "thumbnail"
+ ],
+ "properties": {
+  "title": {
+   "type": "string"
+  },
+  "description": {
+   "type": "string"
+  },
+  "hashtags": {
+   "type": "array",
+   "items": {
+    "type": "string",
+    "pattern": "^#[A-Za-z0-9_]+$"
+   }
+  },
+  "pinned_comment": {
+   "type": "string"
+  },
+  "made_for_kids": {
+   "type": "boolean"
+  },
+  "synthetic_media": {
+   "type": "object",
+   "required": [
+    "voice",
+    "realistic"
+   ],
+   "properties": {
+    "voice": {
+     "type": "string"
+    },
+    "realistic": {
+     "type": "boolean",
+     "description": "True only if a viewer could mistake it for real footage of real people or events; then YouTube's altered-content disclosure is required."
+    }
+   }
+  },
+  "video": {
+   "type": "string"
+  },
+  "srt": {
+   "type": "string"
+  },
+  "thumbnail": {
+   "type": "string"
+  },
+  "schedule": {
+   "type": "string"
+  },
+  "cross_post": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  }
+ }
+}

@@ -1,0 +1,419 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Channel bible",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "id",
+  "name",
+  "status",
+  "promise",
+  "audience",
+  "benchmarks",
+  "format",
+  "voice",
+  "look",
+  "series",
+  "script",
+  "topic",
+  "scene_types",
+  "sources",
+  "publishing"
+ ],
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*$"
+  },
+  "name": {
+   "type": "string"
+  },
+  "status": {
+   "enum": [
+    "draft",
+    "active",
+    "paused"
+   ]
+  },
+  "promise": {
+   "type": "string",
+   "description": "One sentence: what every episode delivers to the viewer."
+  },
+  "audience": {
+   "type": "string"
+  },
+  "benchmarks": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "channel",
+     "url",
+     "shorts_median",
+     "measured"
+    ],
+    "properties": {
+     "channel": {
+      "type": "string"
+     },
+     "url": {
+      "type": "string"
+     },
+     "shorts_median": {
+      "type": "number"
+     },
+     "measured": {
+      "type": "string"
+     },
+     "study": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "format": {
+   "type": "object",
+   "required": [
+    "aspect",
+    "width",
+    "height",
+    "fps",
+    "duration_s",
+    "wpm"
+   ],
+   "properties": {
+    "aspect": {
+     "enum": [
+      "9:16",
+      "16:9"
+     ]
+    },
+    "width": {
+     "type": "integer"
+    },
+    "height": {
+     "type": "integer"
+    },
+    "fps": {
+     "type": "integer"
+    },
+    "duration_s": {
+     "type": "array",
+     "items": {
+      "type": "number"
+     },
+     "minItems": 2,
+     "maxItems": 2
+    },
+    "wpm": {
+     "type": "number"
+    },
+    "max_scene_s": {
+     "type": "number"
+    },
+    "min_scene_s": {
+     "type": "number"
+    }
+   }
+  },
+  "voice": {
+   "type": "object",
+   "required": [
+    "engine",
+    "id",
+    "name",
+    "max_wer"
+   ],
+   "properties": {
+    "engine": {
+     "enum": [
+      "fish",
+      "piper"
+     ]
+    },
+    "model": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "max_wer": {
+     "type": "number"
+    },
+    "fallback": {
+     "type": "object"
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "look": {
+   "type": "object",
+   "required": [
+    "theme",
+    "palette",
+    "fonts",
+    "captions"
+   ],
+   "properties": {
+    "theme": {
+     "type": "string"
+    },
+    "palette": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+     }
+    },
+    "fonts": {
+     "type": "object"
+    },
+    "captions": {
+     "type": "object",
+     "required": [
+      "burned"
+     ],
+     "properties": {
+      "burned": {
+       "type": "boolean"
+      },
+      "style": {
+       "type": "string"
+      },
+      "safe_zone": {
+       "type": "object"
+      }
+     }
+    },
+    "texture": {
+     "type": "string"
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "cast": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "role",
+     "traits"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+     },
+     "name": {
+      "type": "string"
+     },
+     "role": {
+      "type": "string"
+     },
+     "traits": {
+      "type": "string"
+     },
+     "voice": {
+      "type": "object"
+     },
+     "design": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "series": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "title_pattern",
+     "beats",
+     "example_titles"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+     },
+     "name": {
+      "type": "string"
+     },
+     "title_pattern": {
+      "type": "string"
+     },
+     "beats": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "example_titles": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    }
+   }
+  },
+  "script": {
+   "type": "object",
+   "required": [
+    "hook_max_words",
+    "tone",
+    "ending",
+    "banned_phrases",
+    "rules"
+   ],
+   "properties": {
+    "hook_max_words": {
+     "type": "integer"
+    },
+    "tone": {
+     "type": "string"
+    },
+    "ending": {
+     "enum": [
+      "callback",
+      "loop",
+      "callback_or_loop"
+     ]
+    },
+    "banned_phrases": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "rules": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "speakers_required": {
+     "type": "boolean"
+    }
+   }
+  },
+  "topic": {
+   "type": "object",
+   "required": [
+    "min_score",
+    "weights",
+    "radar"
+   ],
+   "properties": {
+    "min_score": {
+     "type": "number"
+    },
+    "weights": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "number"
+     }
+    },
+    "radar": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "avoid": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "scene_types": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "minItems": 1
+  },
+  "props": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "sources": {
+   "type": "object",
+   "properties": {
+    "preferred": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "banned": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "publishing": {
+   "type": "object",
+   "required": [
+    "title_max",
+    "hashtags_max",
+    "made_for_kids",
+    "cadence"
+   ],
+   "properties": {
+    "title_max": {
+     "type": "integer"
+    },
+    "hashtags_max": {
+     "type": "integer"
+    },
+    "default_hashtags": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "made_for_kids": {
+     "type": "boolean"
+    },
+    "cadence": {
+     "type": "string"
+    },
+    "cross_post": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "open_decisions": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  }
+ }
+}

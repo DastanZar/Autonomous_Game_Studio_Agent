@@ -1,0 +1,185 @@
+{
+ "topic": "The Great Emu War (1932)",
+ "sources": [
+  {
+   "id": "wiki",
+   "title": "Emu War",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Emu_War",
+   "type": "reference",
+   "accessed": "2026-09-28",
+   "cites": "Johnson, M. (2006) 'Feathered foes': soldier settlers and Western Australia's 'Emu War' of 1932, Journal of Australian Studies 30(88), doi:10.1080/14443050609388083; Sunday Herald (1953) for the Meredith quote"
+  },
+  {
+   "id": "brit",
+   "title": "Emu War",
+   "publisher": "Encyclopaedia Britannica (Rebecca M. Kulik)",
+   "url": "https://www.britannica.com/event/Emu-War",
+   "type": "reference",
+   "accessed": "2026-09-28"
+  },
+  {
+   "id": "ausgeo",
+   "title": "Looking back: Australia's Emu Wars",
+   "publisher": "Australian Geographic (Jasper Garner Gore, 18 Oct 2016)",
+   "url": "https://www.australiangeographic.com.au/nature-wildlife/2016/10/australias-emu-wars/",
+   "type": "journalism",
+   "accessed": "2026-09-28"
+  },
+  {
+   "id": "robin",
+   "title": "Emu: national symbols and ecological limits (in Boom and Bust, CSIRO Publishing 2009)",
+   "publisher": "Libby Robin, ANU Open Research",
+   "url": "https://openresearch-repository.anu.edu.au/server/api/core/bitstreams/c76f8ca1-5e83-4be7-981a-c7e9e2689bd0/content",
+   "type": "scholarly",
+   "accessed": "2026-09-28"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_operation",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "brit",
+    "robin"
+   ],
+   "text": "In late 1932 the Australian army was sent with machine guns to cull emus in Western Australia's wheat belt (the 'Emu War').",
+   "quote": "The Seventh Heavy Battery of the Royal Australian Artillery brought two Lewis guns and 10 000 rounds of ammunition to the 'war' (Robin); cull roughly 20,000 emus using machine guns (Britannica)"
+  },
+  {
+   "id": "c_lost",
+   "key": false,
+   "status": "framed",
+   "label": "the army withdrew",
+   "sources": [
+    "wiki"
+   ],
+   "text": "'Lost' is the popular framing: there was no declared war; the unit was withdrawn without solving the problem.",
+   "quote": "A crestfallen field force therefore withdrew from the combat area after about a month."
+  },
+  {
+   "id": "c_settlers",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "brit"
+   ],
+   "text": "After WWI, discharged veterans were given land to farm in Western Australia.",
+   "quote": "Following World War I, large numbers of discharged veterans who served in the war were given land by the Australian government to take up farming within Western Australia"
+  },
+  {
+   "id": "c_20000",
+   "key": true,
+   "status": "estimate",
+   "label": "about 20,000",
+   "sources": [
+    "robin",
+    "ausgeo"
+   ],
+   "text": "About 20,000 emus moved into the wheat-growing area and damaged crops.",
+   "quote": "the planted crop in 1932 supported 20 000 emus in an area of about 40 square miles near Southern Cross (Robin); a marauding emu population of at least 20,000 had been devastating farms (Australian Geographic)"
+  },
+  {
+   "id": "c_force",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "brit",
+    "ausgeo"
+   ],
+   "text": "The force: Major G.P.W. Meredith, two soldiers, two Lewis guns and 10,000 rounds.",
+   "quote": "Maj. Gwynydd Purves Wynne-Aubrey Meredith in command, Sgt. S. McMurray, and Gunner J. O'Halloran ... two Lewis machine guns and 10,000 rounds of ammunition"
+  },
+  {
+   "id": "c_scatter",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "The emus split into small groups, frustrating the gunners.",
+   "quote": "The Emu command had evidently ordered guerrilla tactics, and its unwieldy army soon split up into innumerable small units."
+  },
+  {
+   "id": "c_ambush",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "ausgeo"
+   ],
+   "text": "An ambush on more than 1,000 emus failed when a gun jammed.",
+   "quote": "more than 1,000 emus were spotted heading towards their position...The gun jammed after only 12 birds were killed."
+  },
+  {
+   "id": "c_truck",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "ausgeo",
+    "wiki"
+   ],
+   "text": "A machine gun mounted on a truck failed because the truck could not keep up with the emus.",
+   "quote": "a later attempt to mount a machine-gun on a truck fell apart when it was made apparent that the vehicle could not keep up"
+  },
+  {
+   "id": "c_tally",
+   "key": true,
+   "status": "estimate",
+   "label": "the major's own count",
+   "sources": [
+    "wiki",
+    "brit"
+   ],
+   "text": "Meredith reported 986 kills using 9,860 rounds: ten rounds per bird. These are his own claimed figures and are disputed.",
+   "quote": "he claimed 986 confirmed kills with 9,860 rounds, at a rate of exactly 10 rounds per confirmed kill (Wikipedia); 986 emus were killed ... though these figures remain disputed (Britannica)"
+  },
+  {
+   "id": "c_quote",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "ausgeo",
+    "brit"
+   ],
+   "text": "Meredith: 'They can face machine guns with the invulnerability of tanks.'",
+   "quote": "They can face machine guns with the invulnerability of tanks."
+  },
+  {
+   "id": "c_home",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "Meredith was recalled on 10 December 1932; the emus remained.",
+   "quote": "Meredith was recalled on 10 December, and in his report, he claimed 986 confirmed kills with 9,860 rounds."
+  },
+  {
+   "id": "c_speed",
+   "key": false,
+   "status": "rejected",
+   "sources": [
+    "brit"
+   ],
+   "text": "Emus run at nearly 50 km/h.",
+   "quote": "capable of running nearly 30 miles (50 km) per hour",
+   "note": "True, but not used: the script says 'faster than the truck' instead. Kept as an example of a rejected (unused) claim."
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Australia formally declared war on emus.",
+   "truth": "It was a military cull operation; 'war' is press and popular framing.",
+   "sources": [
+    "wiki"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Exact kill count is disputed; Meredith's figures are self-reported."
+ ]
+}

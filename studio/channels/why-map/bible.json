@@ -1,0 +1,249 @@
+{
+ "id": "why-map",
+ "name": "Why the Map Looks Like That (working name)",
+ "status": "draft",
+ "promise": "A true story about a place or a moment in history so strange it sounds made up, explained in under a minute on a real map.",
+ "audience": "Curious adults 18-45, English-speaking, who watch Half as Interesting, Knowledgia, RealLifeLore.",
+ "benchmarks": [
+  {
+   "channel": "Knowledgia",
+   "url": "https://www.youtube.com/@Knowledgia/shorts",
+   "shorts_median": 1550000,
+   "measured": "2026-09-28",
+   "study": "Question titles; map-first visuals; 30-50 s."
+  },
+  {
+   "channel": "Mustard",
+   "url": "https://www.youtube.com/@MustardChannel/shorts",
+   "shorts_median": 2150000,
+   "measured": "2026-09-28",
+   "study": "One astonishing object per episode; premium look."
+  },
+  {
+   "channel": "Half as Interesting",
+   "url": "https://www.youtube.com/@halfasinteresting/shorts",
+   "shorts_median": 997000,
+   "measured": "2026-09-28",
+   "study": "Deadpan narration; absurd escalation; callback ending."
+  }
+ ],
+ "format": {
+  "aspect": "9:16",
+  "width": 1080,
+  "height": 1920,
+  "fps": 24,
+  "duration_s": [
+   25,
+   55
+  ],
+  "wpm": 170,
+  "min_scene_s": 0.8,
+  "max_scene_s": 7
+ },
+ "voice": {
+  "engine": "fish",
+  "model": "fish-audio/s2.1-pro-free:free",
+  "id": "8062e83481fe4165a2a92cd753f9c06b",
+  "name": "Felix (Fish Audio library, Australian male)",
+  "max_wer": 0.08,
+  "fallback": {
+   "engine": "piper",
+   "id": "en_US-ryan-high",
+   "length_scale": 0.9
+  },
+  "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash."
+ },
+ "look": {
+  "theme": "paper-cutout",
+  "texture": "cream paper, ink outlines, offset drop shadows, film grain, 12 fps boil",
+  "palette": {
+   "ink": "#2b2320",
+   "paper": "#efe4cc",
+   "card": "#f8f1e2",
+   "sea": "#a9c7c2",
+   "land": "#ecd9ae",
+   "red": "#c8452d",
+   "orange": "#e08a3c",
+   "yellow": "#f2c14e",
+   "green": "#6d9a5b",
+   "navy": "#2f4858"
+  },
+  "fonts": {
+   "display": "Anton",
+   "typewriter": "Special Elite",
+   "serif": "DM Serif Display"
+  },
+  "captions": {
+   "burned": true,
+   "style": "Anton, uppercase, 2-5 words per chunk, white with ink outline",
+   "safe_zone": {
+    "top": 220,
+    "bottom": 420,
+    "right": 140,
+    "note": "px at 1080x1920; keep text out of the platform UI (title, buttons, progress bar)"
+   }
+  },
+  "notes": "Reference implementation: shorts/emu-war/render/emu.js and videos/root-keys/render/lib.js. Maps are Natural Earth only."
+ },
+ "series": [
+  {
+   "id": "the_time",
+   "name": "The time a country...",
+   "title_pattern": "The time <country> <did something absurd>",
+   "beats": [
+    "hook: the absurd claim",
+    "setup: who, where, when (1-2 lines)",
+    "escalation: 3-5 beats, each worse",
+    "the number: one hard statistic",
+    "the verdict: a sourced quote or outcome",
+    "callback to the hook"
+   ],
+   "example_titles": [
+    "Australia went to war with emus. The emus won.",
+    "The time Britain invaded Iceland by accident"
+   ]
+  },
+  {
+   "id": "why",
+   "name": "Why does...",
+   "title_pattern": "Why <place> <strange fact>?",
+   "beats": [
+    "hook: the strange fact as a question",
+    "the obvious answer (wrong)",
+    "the real reason, in 3 steps on the map",
+    "the twist consequence today",
+    "callback"
+   ],
+   "example_titles": [
+    "Why does Canada have a town you can only reach through the US?"
+   ]
+  },
+  {
+   "id": "border",
+   "name": "Border weirdness",
+   "title_pattern": "This border <does something absurd>",
+   "beats": [
+    "hook",
+    "zoom to the border",
+    "how it happened",
+    "what life is like there now",
+    "callback"
+   ],
+   "example_titles": [
+    "The Dutch village with houses split in two countries"
+   ]
+  }
+ ],
+ "script": {
+  "hook_max_words": 14,
+  "tone": "Deadpan, dry, Australian narrator. Never excited; the facts are the joke.",
+  "ending": "callback",
+  "banned_phrases": [
+   "did you know",
+   "you won't believe",
+   "let's dive in",
+   "in this video",
+   "buckle up",
+   "smash that",
+   "like and subscribe",
+   "fun fact"
+  ],
+  "rules": [
+   "One idea per line. Short sentences. Deadpan: state absurd facts plainly and let the gap carry the joke.",
+   "Line one is the hook: the most surprising true sentence in the episode, under the word limit, no preamble.",
+   "Spell numbers the way they are spoken ('nineteen thirty-two', 'ten thousand'). Put the digits in the captions.",
+   "Every line with a fact, number, name or date cites dossier claim ids. Jokes may not smuggle in new facts.",
+   "Estimates and self-reported numbers carry their label on screen (e.g. 'the major's own count').",
+   "The last line calls back to the hook or loops into it, so a replay feels intentional.",
+   "Use 'gap' (seconds of silence after a line) for comic timing: 0.4-0.6 s before a punchline."
+  ]
+ },
+ "topic": {
+  "min_score": 3.5,
+  "weights": {
+   "hook": 3,
+   "surprise": 3,
+   "visual": 1,
+   "sourceability": 2,
+   "timeliness": 1,
+   "series_fit": 1
+  },
+  "radar": [
+   "Wikipedia 'On this day' for the next 14 days",
+   "Wikipedia 'Unusual articles' list",
+   "Anniversaries (50/75/100 years) in the next 30 days",
+   "Border and enclave lists (Wikipedia 'List of enclaves and exclaves')",
+   "Current news that touches a place with a strange history"
+  ],
+  "avoid": [
+   "Active wars and atrocities told as comedy",
+   "Claims that exist only in listicles",
+   "Topics the channel covered in the last 90 days"
+  ]
+ },
+ "scene_types": [
+  "title_card",
+  "map_focus",
+  "map_route",
+  "count_up",
+  "versus",
+  "stamp_reveal",
+  "quote_card",
+  "timeline",
+  "diagram_callout",
+  "split_compare",
+  "custom",
+  "outro_loop"
+ ],
+ "props": [
+  "soldier",
+  "truck",
+  "machine_gun",
+  "telegram",
+  "plane",
+  "building",
+  "ship",
+  "flag",
+  "person"
+ ],
+ "sources": {
+  "preferred": [
+   "National archives and newspaper archives (e.g. Trove, Chronicling America)",
+   "Scholarly articles",
+   "Britannica",
+   "Official government sites",
+   "Wikipedia only as a map to its cited sources"
+  ],
+  "banned": [
+   "reddit.com",
+   "quora.com",
+   "facebook.com",
+   "x.com",
+   "twitter.com",
+   "tiktok.com",
+   "pinterest.com",
+   "instagram.com"
+  ],
+  "notes": "Reddit, Quora and social posts may suggest leads but are never cited."
+ },
+ "publishing": {
+  "title_max": 70,
+  "hashtags_max": 4,
+  "made_for_kids": false,
+  "cadence": "3-4/week while calibrating (weeks 1-2), then 1/day",
+  "cross_post": [
+   "tiktok",
+   "instagram_reels",
+   "facebook_reels"
+  ],
+  "default_hashtags": [
+   "#history",
+   "#geography",
+   "#shorts"
+  ]
+ },
+ "open_decisions": [
+  "Final channel name and handle (user)",
+  "Keep Felix or pick another voice from videos/voice-test/ (user)"
+ ]
+}

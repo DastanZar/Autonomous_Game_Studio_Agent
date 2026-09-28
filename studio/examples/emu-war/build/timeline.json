@@ -1,0 +1,687 @@
+{
+ "duration": 46.039,
+ "paras": [
+  {
+   "id": "hook",
+   "start": 0.35,
+   "end": 3.531,
+   "wer": 0.0,
+   "heard": "in nineteen thirty two australia went to war against birds",
+   "words": [
+    {
+     "w": "In",
+     "t": 0.35
+    },
+    {
+     "w": "nineteen",
+     "t": 0.502
+    },
+    {
+     "w": "thirty-two,",
+     "t": 0.96
+    },
+    {
+     "w": "Australia",
+     "t": 1.57
+    },
+    {
+     "w": "went",
+     "t": 1.93
+    },
+    {
+     "w": "to",
+     "t": 2.33
+    },
+    {
+     "w": "war",
+     "t": 2.47
+    },
+    {
+     "w": "against",
+     "t": 2.61
+    },
+    {
+     "w": "birds.",
+     "t": 2.89
+    }
+   ]
+  },
+  {
+   "id": "lost",
+   "start": 3.781,
+   "end": 4.385,
+   "wer": 0.0,
+   "heard": "lost",
+   "words": [
+    {
+     "w": "And",
+     "t": 3.781
+    },
+    {
+     "w": "lost.",
+     "t": 3.901
+    }
+   ]
+  },
+  {
+   "id": "vets",
+   "start": 4.935,
+   "end": 8.917,
+   "wer": 0.0,
+   "heard": "after world war one the government gave veterans farmland in western australia",
+   "words": [
+    {
+     "w": "After",
+     "t": 4.935
+    },
+    {
+     "w": "World",
+     "t": 5.135
+    },
+    {
+     "w": "War",
+     "t": 5.375
+    },
+    {
+     "w": "One,",
+     "t": 5.713
+    },
+    {
+     "w": "the",
+     "t": 6.135
+    },
+    {
+     "w": "government",
+     "t": 6.215
+    },
+    {
+     "w": "gave",
+     "t": 6.435
+    },
+    {
+     "w": "veterans",
+     "t": 6.775
+    },
+    {
+     "w": "farmland",
+     "t": 7.055
+    },
+    {
+     "w": "in",
+     "t": 7.475
+    },
+    {
+     "w": "Western",
+     "t": 7.895
+    },
+    {
+     "w": "Australia.",
+     "t": 8.155
+    }
+   ]
+  },
+  {
+   "id": "emus",
+   "start": 9.117,
+   "end": 12.391,
+   "wer": 0.0,
+   "heard": "then twenty thousand emus showed up started eating the wheat",
+   "words": [
+    {
+     "w": "Then",
+     "t": 9.117
+    },
+    {
+     "w": "twenty",
+     "t": 9.331
+    },
+    {
+     "w": "thousand",
+     "t": 9.631
+    },
+    {
+     "w": "emus",
+     "t": 10.017
+    },
+    {
+     "w": "showed",
+     "t": 10.337
+    },
+    {
+     "w": "up,",
+     "t": 10.577
+    },
+    {
+     "w": "and",
+     "t": 10.817
+    },
+    {
+     "w": "started",
+     "t": 11.177
+    },
+    {
+     "w": "eating",
+     "t": 11.457
+    },
+    {
+     "w": "the",
+     "t": 11.737
+    },
+    {
+     "w": "wheat.",
+     "t": 12.017
+    }
+   ]
+  },
+  {
+   "id": "call",
+   "start": 12.641,
+   "end": 14.545,
+   "wer": 0.0,
+   "heard": "so the farmers called the army",
+   "words": [
+    {
+     "w": "So",
+     "t": 12.641
+    },
+    {
+     "w": "the",
+     "t": 12.821
+    },
+    {
+     "w": "farmers",
+     "t": 13.021
+    },
+    {
+     "w": "called",
+     "t": 13.301
+    },
+    {
+     "w": "the",
+     "t": 13.721
+    },
+    {
+     "w": "army.",
+     "t": 14.041
+    }
+   ]
+  },
+  {
+   "id": "sent",
+   "start": 14.745,
+   "end": 19.273,
+   "wer": 0.0,
+   "heard": "the army sent one major two soldiers two machine guns ten thousand bullets",
+   "words": [
+    {
+     "w": "The",
+     "t": 14.745
+    },
+    {
+     "w": "army",
+     "t": 14.805
+    },
+    {
+     "w": "sent",
+     "t": 15.025
+    },
+    {
+     "w": "one",
+     "t": 15.305
+    },
+    {
+     "w": "major,",
+     "t": 15.525
+    },
+    {
+     "w": "two",
+     "t": 15.845
+    },
+    {
+     "w": "soldiers,",
+     "t": 16.185
+    },
+    {
+     "w": "two",
+     "t": 16.925
+    },
+    {
+     "w": "machine",
+     "t": 17.025
+    },
+    {
+     "w": "guns,",
+     "t": 17.325
+    },
+    {
+     "w": "and",
+     "t": 17.985
+    },
+    {
+     "w": "ten",
+     "t": 18.155
+    },
+    {
+     "w": "thousand",
+     "t": 18.324
+    },
+    {
+     "w": "bullets.",
+     "t": 18.705
+    }
+   ]
+  },
+  {
+   "id": "scatter",
+   "start": 19.573,
+   "end": 22.371,
+   "wer": 0.0,
+   "heard": "the emus split into tiny groups ran out of range",
+   "words": [
+    {
+     "w": "The",
+     "t": 19.573
+    },
+    {
+     "w": "emus",
+     "t": 19.633
+    },
+    {
+     "w": "split",
+     "t": 19.973
+    },
+    {
+     "w": "into",
+     "t": 20.213
+    },
+    {
+     "w": "tiny",
+     "t": 20.413
+    },
+    {
+     "w": "groups,",
+     "t": 20.693
+    },
+    {
+     "w": "and",
+     "t": 21.053
+    },
+    {
+     "w": "ran",
+     "t": 21.393
+    },
+    {
+     "w": "out",
+     "t": 21.573
+    },
+    {
+     "w": "of",
+     "t": 21.813
+    },
+    {
+     "w": "range.",
+     "t": 21.913
+    }
+   ]
+  },
+  {
+   "id": "ambush",
+   "start": 22.621,
+   "end": 25.013,
+   "wer": 0.0,
+   "heard": "when a thousand of them finally walked into an ambush",
+   "words": [
+    {
+     "w": "When",
+     "t": 22.621
+    },
+    {
+     "w": "a",
+     "t": 22.701
+    },
+    {
+     "w": "thousand",
+     "t": 22.801
+    },
+    {
+     "w": "of",
+     "t": 23.061
+    },
+    {
+     "w": "them",
+     "t": 23.261
+    },
+    {
+     "w": "finally",
+     "t": 23.361
+    },
+    {
+     "w": "walked",
+     "t": 23.721
+    },
+    {
+     "w": "into",
+     "t": 24.041
+    },
+    {
+     "w": "an",
+     "t": 24.381
+    },
+    {
+     "w": "ambush,",
+     "t": 24.501
+    }
+   ]
+  },
+  {
+   "id": "jam",
+   "start": 25.313,
+   "end": 26.125,
+   "wer": 0.0,
+   "heard": "the gun jammed",
+   "words": [
+    {
+     "w": "the",
+     "t": 25.313
+    },
+    {
+     "w": "gun",
+     "t": 25.373
+    },
+    {
+     "w": "jammed.",
+     "t": 25.573
+    }
+   ]
+  },
+  {
+   "id": "truck",
+   "start": 26.575,
+   "end": 28.247,
+   "wer": 0.0,
+   "heard": "so they mounted a gun on a truck",
+   "words": [
+    {
+     "w": "So",
+     "t": 26.575
+    },
+    {
+     "w": "they",
+     "t": 26.715
+    },
+    {
+     "w": "mounted",
+     "t": 26.855
+    },
+    {
+     "w": "a",
+     "t": 27.115
+    },
+    {
+     "w": "gun",
+     "t": 27.335
+    },
+    {
+     "w": "on",
+     "t": 27.515
+    },
+    {
+     "w": "a",
+     "t": 27.755
+    },
+    {
+     "w": "truck.",
+     "t": 27.835
+    }
+   ]
+  },
+  {
+   "id": "faster",
+   "start": 28.447,
+   "end": 30.084,
+   "wer": 0.0,
+   "heard": "the emus were faster than the truck",
+   "words": [
+    {
+     "w": "The",
+     "t": 28.447
+    },
+    {
+     "w": "emus",
+     "t": 28.625
+    },
+    {
+     "w": "were",
+     "t": 28.847
+    },
+    {
+     "w": "faster",
+     "t": 29.047
+    },
+    {
+     "w": "than",
+     "t": 29.307
+    },
+    {
+     "w": "the",
+     "t": 29.607
+    },
+    {
+     "w": "truck.",
+     "t": 29.707
+    }
+   ]
+  },
+  {
+   "id": "tally",
+   "start": 30.484,
+   "end": 34.815,
+   "wer": 0.0,
+   "heard": "by december nearly ten thousand bullets for nine hundred eighty six emus",
+   "words": [
+    {
+     "w": "By",
+     "t": 30.484
+    },
+    {
+     "w": "December:",
+     "t": 30.584
+    },
+    {
+     "w": "nearly",
+     "t": 31.324
+    },
+    {
+     "w": "ten",
+     "t": 31.646
+    },
+    {
+     "w": "thousand",
+     "t": 31.83
+    },
+    {
+     "w": "bullets,",
+     "t": 32.244
+    },
+    {
+     "w": "for",
+     "t": 32.524
+    },
+    {
+     "w": "nine",
+     "t": 32.719
+    },
+    {
+     "w": "hundred",
+     "t": 32.961
+    },
+    {
+     "w": "eighty-six",
+     "t": 33.35
+    },
+    {
+     "w": "emus.",
+     "t": 33.884
+    }
+   ]
+  },
+  {
+   "id": "perbird",
+   "start": 35.065,
+   "end": 36.261,
+   "wer": 0.0,
+   "heard": "ten bullets per bird",
+   "words": [
+    {
+     "w": "Ten",
+     "t": 35.065
+    },
+    {
+     "w": "bullets",
+     "t": 35.245
+    },
+    {
+     "w": "per",
+     "t": 35.505
+    },
+    {
+     "w": "bird.",
+     "t": 35.785
+    }
+   ]
+  },
+  {
+   "id": "review",
+   "start": 36.711,
+   "end": 38.301,
+   "wer": 0.0,
+   "heard": "the major's review of the enemy",
+   "words": [
+    {
+     "w": "The",
+     "t": 36.711
+    },
+    {
+     "w": "major's",
+     "t": 36.891
+    },
+    {
+     "w": "review",
+     "t": 37.251
+    },
+    {
+     "w": "of",
+     "t": 37.411
+    },
+    {
+     "w": "the",
+     "t": 37.731
+    },
+    {
+     "w": "enemy?",
+     "t": 37.871
+    }
+   ]
+  },
+  {
+   "id": "quote",
+   "start": 38.601,
+   "end": 41.689,
+   "wer": 0.0,
+   "heard": "they can face machine guns with the invulnerability of tanks",
+   "words": [
+    {
+     "w": "They",
+     "t": 38.601
+    },
+    {
+     "w": "can",
+     "t": 38.681
+    },
+    {
+     "w": "face",
+     "t": 38.821
+    },
+    {
+     "w": "machine",
+     "t": 39.041
+    },
+    {
+     "w": "guns,",
+     "t": 39.461
+    },
+    {
+     "w": "with",
+     "t": 39.761
+    },
+    {
+     "w": "the",
+     "t": 40.061
+    },
+    {
+     "w": "invulnerability",
+     "t": 40.181
+    },
+    {
+     "w": "of",
+     "t": 40.681
+    },
+    {
+     "w": "tanks.",
+     "t": 41.161
+    }
+   ]
+  },
+  {
+   "id": "home",
+   "start": 42.289,
+   "end": 43.16,
+   "wer": 0.0,
+   "heard": "the army went home",
+   "words": [
+    {
+     "w": "The",
+     "t": 42.289
+    },
+    {
+     "w": "army",
+     "t": 42.44
+    },
+    {
+     "w": "went",
+     "t": 42.629
+    },
+    {
+     "w": "home.",
+     "t": 42.769
+    }
+   ]
+  },
+  {
+   "id": "didnot",
+   "start": 43.51,
+   "end": 44.439,
+   "wer": 0.0,
+   "heard": "the emus did not",
+   "words": [
+    {
+     "w": "The",
+     "t": 43.51
+    },
+    {
+     "w": "emus",
+     "t": 43.664
+    },
+    {
+     "w": "did",
+     "t": 43.856
+    },
+    {
+     "w": "not.",
+     "t": 44.01
+    }
+   ]
+  }
+ ],
+ "_note": "Word times from recipes/emu-war/golden/timeline.json. WER re-measured 2026-09-28: ONE small.en transcript of the final mix, aligned to the script and scored per paragraph (studio/tools/textnorm.py per_para_wer). Transcribing each line's slice alone gave false failures on short lines ('The emus did not' -> 'Daines did not')."
+}

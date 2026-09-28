@@ -1,0 +1,22 @@
+{
+  "_doc": "Scene catalog: the only scene types a storyboard may use. A storyboard picks types and fills params; the engine draws them in the channel's look. Adding a type is an engine change (see studio/sop/06-storyboard.md, 'When no scene type fits'). status: 'planned' = specified, not yet implemented in the shared engine; 'built' = implemented and has a sample render.",
+  "version": 1,
+  "types": {
+    "title_card":        {"status": "planned", "purpose": "Big hook text with one supporting prop. The first 1-2 s of most Shorts.", "params": {"text": "string, <= 8 words, typeset", "prop": "optional prop id from the channel's prop set"}},
+    "map_focus":         {"status": "planned", "purpose": "Real Natural Earth map; zoom to a region, highlight it, drop pins.", "params": {"region": "ISO code or bbox", "highlight": "list of ISO codes", "pins": "list of {lon, lat, label, at}"}},
+    "map_route":         {"status": "planned", "purpose": "Animated path or arrows across a real map (routes, invasions, migrations).", "params": {"region": "ISO code or bbox", "path": "list of [lon, lat]", "label": "string"}},
+    "count_up":          {"status": "planned", "purpose": "A number that counts to its value, with a unit and an optional qualifier ('the major's own count').", "params": {"value": "number", "unit": "string", "qualifier": "optional string, required when the claim is an estimate"}},
+    "versus":            {"status": "planned", "purpose": "Two things side by side with a verdict (organ vs organ, country vs country, army vs emus).", "params": {"left": "subject", "right": "subject", "verdict": "optional string"}},
+    "ranking_bars":      {"status": "planned", "purpose": "Static ranked bars from a dataset, top N, one highlighted.", "params": {"dataset": "path to data file in the episode", "top": "int", "highlight": "optional key"}},
+    "ranking_race":      {"status": "planned", "purpose": "Bar-chart race through time from a dataset.", "params": {"dataset": "path", "top": "int", "from": "year", "to": "year"}},
+    "character_dialog":  {"status": "planned", "purpose": "Two or more cast members talking; each spoken para with a speaker animates that character.", "params": {"cast": "list of cast ids", "setting": "background id"}},
+    "character_explain": {"status": "planned", "purpose": "One cast member presents a diagram or prop.", "params": {"speaker": "cast id", "diagram": "diagram id or description"}},
+    "stamp_reveal":      {"status": "planned", "purpose": "Rubber-stamp punchline word over the previous scene (LOST, DENIED, 10x).", "params": {"text": "string, <= 3 words", "color": "palette key"}},
+    "quote_card":        {"status": "planned", "purpose": "A sourced quotation, typeset, with speaker and year. The voice reads it.", "params": {"quote": "exact text from the dossier", "who": "string", "year": "string"}},
+    "timeline":          {"status": "planned", "purpose": "Horizontal timeline with dated events popping in.", "params": {"events": "list of {date, label, at}"}},
+    "diagram_callout":   {"status": "planned", "purpose": "A drawn object with labelled callouts (a gun, a cell, a reactor).", "params": {"object": "prop id", "callouts": "list of {label, at}"}},
+    "split_compare":     {"status": "planned", "purpose": "Before and after, or expectation and reality, in two panels.", "params": {"left_label": "string", "right_label": "string"}},
+    "custom":            {"status": "planned", "purpose": "Escape hatch: a one-off scene written in code. Needs a stronger model or a human review; use sparingly (target: under 20% of runtime).", "params": {"fn": "name of a function in the episode's scenes.js", "why": "one sentence on why no catalog type fits"}},
+    "outro_loop":        {"status": "planned", "purpose": "Final beat that visually matches the first frame, so the Short loops cleanly.", "params": {"echo_of": "scene id of the opening scene"}}
+  }
+}

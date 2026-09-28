@@ -1,0 +1,154 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Script",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "channel",
+  "episode",
+  "series",
+  "lead_in",
+  "tail",
+  "gap",
+  "paras",
+  "loop"
+ ],
+ "properties": {
+  "channel": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*$"
+  },
+  "episode": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*$"
+  },
+  "series": {
+   "type": "string",
+   "pattern": "^[a-z0-9_]+$"
+  },
+  "working_title": {
+   "type": "string"
+  },
+  "lead_in": {
+   "type": "number"
+  },
+  "tail": {
+   "type": "number"
+  },
+  "gap": {
+   "type": "number"
+  },
+  "paras": {
+   "type": "array",
+   "minItems": 3,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "say",
+     "kind",
+     "claims"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+     },
+     "say": {
+      "type": "string"
+     },
+     "kind": {
+      "enum": [
+       "hook",
+       "fact",
+       "quote",
+       "joke",
+       "transition",
+       "callback",
+       "cta"
+      ]
+     },
+     "claims": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "pattern": "^[a-z0-9_]+$"
+      }
+     },
+     "speaker": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+     },
+     "gap": {
+      "type": "number"
+     },
+     "caps": {
+      "type": "array",
+      "items": {
+       "type": "array",
+       "prefixItems": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer",
+         "minimum": 1
+        }
+       ],
+       "minItems": 2,
+       "maxItems": 2
+      }
+     },
+     "length_scale": {
+      "type": "number"
+     },
+     "note": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "loop": {
+   "type": "object",
+   "required": [
+    "last",
+    "connects_to",
+    "how"
+   ],
+   "properties": {
+    "last": {
+     "type": "string",
+     "pattern": "^[a-z0-9_]+$"
+    },
+    "connects_to": {
+     "type": "string",
+     "pattern": "^[a-z0-9_]+$"
+    },
+    "how": {
+     "type": "string"
+    }
+   }
+  },
+  "voice_waivers": {
+   "type": "object",
+   "description": "Lines whose WER fails but a HUMAN listened and approved. Models must never add entries.",
+   "additionalProperties": {
+    "type": "object",
+    "required": [
+     "reason",
+     "listened_by"
+    ],
+    "properties": {
+     "reason": {
+      "type": "string"
+     },
+     "listened_by": {
+      "type": "string",
+      "minLength": 2
+     }
+    }
+   }
+  }
+ }
+}

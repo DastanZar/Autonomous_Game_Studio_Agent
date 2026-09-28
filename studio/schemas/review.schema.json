@@ -1,0 +1,58 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Picture review log",
+ "type": "object",
+ "required": [
+  "rounds"
+ ],
+ "properties": {
+  "rounds": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "at",
+     "reviewer",
+     "frames",
+     "defects"
+    ],
+    "properties": {
+     "at": {
+      "type": "string"
+     },
+     "reviewer": {
+      "type": "string"
+     },
+     "frames": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      }
+     },
+     "defects": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "t",
+        "issue",
+        "fixed"
+       ],
+       "properties": {
+        "t": {
+         "type": "number"
+        },
+        "issue": {
+         "type": "string"
+        },
+        "fixed": {
+         "type": "boolean"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

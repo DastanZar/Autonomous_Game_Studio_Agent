@@ -1,0 +1,78 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Storyboard",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "episode",
+  "scenes"
+ ],
+ "properties": {
+  "episode": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*$"
+  },
+  "scenes": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "type",
+     "start",
+     "params"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+     },
+     "type": {
+      "type": "string"
+     },
+     "start": {
+      "type": "string",
+      "pattern": "^([a-z0-9_]+)(\\.(start|end)|/[a-z0-9']+(#\\d+)?)?([+-]\\d+(\\.\\d+)?)?$|^0$"
+     },
+     "end": {
+      "type": "string",
+      "pattern": "^([a-z0-9_]+)(\\.(start|end)|/[a-z0-9']+(#\\d+)?)?([+-]\\d+(\\.\\d+)?)?$|^0$"
+     },
+     "params": {
+      "type": "object"
+     },
+     "events": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "at",
+        "do"
+       ],
+       "properties": {
+        "at": {
+         "type": "string",
+         "pattern": "^([a-z0-9_]+)(\\.(start|end)|/[a-z0-9']+(#\\d+)?)?([+-]\\d+(\\.\\d+)?)?$|^0$"
+        },
+        "do": {
+         "type": "string"
+        },
+        "args": {
+         "type": "object"
+        },
+        "sfx": {
+         "type": "string"
+        }
+       }
+      }
+     },
+     "note": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }
+}

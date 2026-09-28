@@ -1,0 +1,6 @@
+# studio gates and measurement tools
+jsonschema>=4.20
+jiwer>=3.0
+numpy
+imageio-ffmpeg
+faster-whisper

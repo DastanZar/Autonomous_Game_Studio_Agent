@@ -1,0 +1,115 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Topic card",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "slug",
+  "channel",
+  "series",
+  "hook",
+  "twist",
+  "angle",
+  "candidate_sources",
+  "scores",
+  "approved_by"
+ ],
+ "properties": {
+  "slug": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*$"
+  },
+  "channel": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*$"
+  },
+  "series": {
+   "type": "string",
+   "pattern": "^[a-z0-9_]+$"
+  },
+  "hook": {
+   "type": "string",
+   "description": "The one-sentence hook, as it would be spoken first."
+  },
+  "twist": {
+   "type": "string",
+   "description": "What makes it surprising. If you can't write this, the topic fails."
+  },
+  "angle": {
+   "type": "string",
+   "description": "The through-line: what question the episode answers."
+  },
+  "why_now": {
+   "type": "string"
+  },
+  "candidate_sources": {
+   "type": "array",
+   "items": {
+    "type": "string",
+    "pattern": "^https?://"
+   }
+  },
+  "scores": {
+   "type": "object",
+   "required": [
+    "hook",
+    "surprise",
+    "visual",
+    "sourceability",
+    "timeliness",
+    "series_fit"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "hook": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 5
+    },
+    "surprise": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 5
+    },
+    "visual": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 5
+    },
+    "sourceability": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 5
+    },
+    "timeliness": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 5
+    },
+    "series_fit": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 5
+    }
+   }
+  },
+  "risks": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "approved_by": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "approved_at": {
+   "type": [
+    "string",
+    "null"
+   ]
+  }
+ }
+}

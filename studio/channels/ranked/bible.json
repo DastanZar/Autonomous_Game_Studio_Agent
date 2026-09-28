@@ -1,0 +1,237 @@
+{
+ "id": "ranked",
+ "name": "Ranked (working name)",
+ "status": "draft",
+ "promise": "One surprising ranking between countries, drawn from real data and animated so you can watch it change.",
+ "audience": "Adults 18-45 who like maps, data and country rivalry; global audience.",
+ "benchmarks": [
+  {
+   "channel": "Opera_cb",
+   "url": "https://www.youtube.com/@Opera_cb/shorts",
+   "shorts_median": 690000,
+   "measured": "2026-09-28",
+   "study": "Countryball rankings (re-edits of other creators' work). We make original data episodes."
+  },
+  {
+   "channel": "RealLifeLore",
+   "url": "https://www.youtube.com/@RealLifeLore/shorts",
+   "shorts_median": 230000,
+   "measured": "2026-09-28",
+   "study": "Map facts that overturn intuition."
+  }
+ ],
+ "format": {
+  "aspect": "9:16",
+  "width": 1080,
+  "height": 1920,
+  "fps": 24,
+  "duration_s": [
+   20,
+   45
+  ],
+  "wpm": 170,
+  "min_scene_s": 0.8,
+  "max_scene_s": 7
+ },
+ "voice": {
+  "engine": "fish",
+  "model": "fish-audio/s2.1-pro-free:free",
+  "id": "8062e83481fe4165a2a92cd753f9c06b",
+  "name": "Felix (Fish Audio library, Australian male)",
+  "max_wer": 0.08,
+  "fallback": {
+   "engine": "piper",
+   "id": "en_US-ryan-high",
+   "length_scale": 0.9
+  },
+  "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash."
+ },
+ "look": {
+  "theme": "data-flags",
+  "texture": "clean flat bars, round flag badges with faces, subtle paper grain",
+  "palette": {
+   "ink": "#14213d",
+   "bg": "#f5f3ee",
+   "bar": "#4a78a8",
+   "highlight": "#e63946",
+   "gold": "#f4b942",
+   "silver": "#b8c0c8",
+   "bronze": "#c47f45",
+   "grid": "#d9d6cf"
+  },
+  "fonts": {
+   "display": "Anton",
+   "numbers": "Anton",
+   "labels": "Special Elite"
+  },
+  "captions": {
+   "burned": true,
+   "style": "Anton, uppercase, 2-5 words per chunk, white with ink outline",
+   "safe_zone": {
+    "top": 220,
+    "bottom": 420,
+    "right": 140,
+    "note": "px at 1080x1920; keep text out of the platform UI (title, buttons, progress bar)"
+   }
+  },
+  "notes": "Flags from a public-domain flag set, redrawn in code. Every chart shows its data source on screen."
+ },
+ "cast": [
+  {
+   "id": "narrator",
+   "name": "Narrator",
+   "role": "Deadpan commentator",
+   "traits": "unimpressed by the leader, delighted by the underdog"
+  }
+ ],
+ "series": [
+  {
+   "id": "race",
+   "name": "Race through time",
+   "title_pattern": "The richest/biggest/most <X> country, every year since <year>",
+   "beats": [
+    "hook: the surprising leader in year one",
+    "the race, with 2-3 narrated overtakes",
+    "the current leader",
+    "callback to the first leader"
+   ],
+   "example_titles": [
+    "The richest country in the world, every decade since 1960"
+   ]
+  },
+  {
+   "id": "per_person",
+   "name": "Per person",
+   "title_pattern": "Which country has the most <X> per person?",
+   "beats": [
+    "hook: the obvious guess",
+    "top 5 reveal from 5 to 1",
+    "the winner and why",
+    "callback"
+   ],
+   "example_titles": [
+    "The countries with more sheep than people"
+   ]
+  },
+  {
+   "id": "versus",
+   "name": "Country vs country",
+   "title_pattern": "<Country> vs <Country>: <metric>",
+   "beats": [
+    "hook",
+    "3 metrics side by side",
+    "the twist metric",
+    "callback"
+   ],
+   "example_titles": [
+    "Canada vs Russia: who is actually colder?"
+   ]
+  }
+ ],
+ "script": {
+  "hook_max_words": 14,
+  "tone": "Dry sports-commentator deadpan over the data.",
+  "ending": "callback",
+  "banned_phrases": [
+   "did you know",
+   "you won't believe",
+   "let's dive in",
+   "in this video",
+   "buckle up",
+   "smash that",
+   "like and subscribe",
+   "fun fact"
+  ],
+  "rules": [
+   "One idea per line. Short sentences. Deadpan: state absurd facts plainly and let the gap carry the joke.",
+   "Line one is the hook: the most surprising true sentence in the episode, under the word limit, no preamble.",
+   "Spell numbers the way they are spoken ('nineteen thirty-two', 'ten thousand'). Put the digits in the captions.",
+   "Every line with a fact, number, name or date cites dossier claim ids. Jokes may not smuggle in new facts.",
+   "Estimates and self-reported numbers carry their label on screen (e.g. 'the major's own count').",
+   "The last line calls back to the hook or loops into it, so a replay feels intentional.",
+   "Use 'gap' (seconds of silence after a line) for comic timing: 0.4-0.6 s before a punchline.",
+   "Every ranked number comes from one dataset file stored in the episode (data/*.csv) with its source URL and year.",
+   "Name the metric precisely (GDP per capita, PPP, current international $) on screen."
+  ]
+ },
+ "topic": {
+  "min_score": 3.5,
+  "weights": {
+   "hook": 3,
+   "surprise": 3,
+   "visual": 1,
+   "sourceability": 2,
+   "timeliness": 1,
+   "series_fit": 1
+  },
+  "radar": [
+   "New dataset releases (World Bank WDI, UN population prospects, FAO, IMF WEO)",
+   "Our World in Data grapher charts",
+   "Sporting and global events (Olympics medal tables)"
+  ],
+  "avoid": [
+   "Rankings that invite ethnic or religious hostility",
+   "Metrics without a clear, current, citable dataset"
+  ]
+ },
+ "scene_types": [
+  "title_card",
+  "ranking_bars",
+  "ranking_race",
+  "map_focus",
+  "count_up",
+  "versus",
+  "stamp_reveal",
+  "split_compare",
+  "custom",
+  "outro_loop"
+ ],
+ "props": [
+  "flag_badge",
+  "trophy",
+  "podium",
+  "globe"
+ ],
+ "sources": {
+  "preferred": [
+   "World Bank WDI",
+   "UN DESA",
+   "FAO",
+   "IMF",
+   "Our World in Data (cite its underlying source)"
+  ],
+  "banned": [
+   "reddit.com",
+   "quora.com",
+   "facebook.com",
+   "x.com",
+   "twitter.com",
+   "tiktok.com",
+   "pinterest.com",
+   "instagram.com",
+   "worldpopulationreview.com",
+   "statista.com"
+  ],
+  "notes": "Datasets are downloaded into the episode folder with the source URL and access date."
+ },
+ "publishing": {
+  "title_max": 70,
+  "hashtags_max": 4,
+  "made_for_kids": false,
+  "cadence": "3-4/week while calibrating (weeks 1-2), then 1/day",
+  "cross_post": [
+   "tiktok",
+   "instagram_reels",
+   "facebook_reels"
+  ],
+  "default_hashtags": [
+   "#data",
+   "#countries",
+   "#shorts"
+  ]
+ },
+ "open_decisions": [
+  "Flag characters (faces) vs clean data look (user)",
+  "Channel name (user)"
+ ]
+}
