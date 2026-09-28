@@ -1,0 +1,27 @@
+{
+ "slug": "point-roberts",
+ "channel": "why-map",
+ "series": "why",
+ "hook": "There's a piece of the United States you can only drive to through Canada.",
+ "twist": "An 1846 treaty drew the US-Canada border straight along the forty-ninth parallel without checking the map closely enough, slicing off a five-square-mile tip of Washington State that is still cut off from the rest of the US by land today, reachable by car only by crossing into and back out of Canada.",
+ "angle": "Why would two empires draw a border that strands their own citizens on the wrong side of it, and what does daily life look like for the roughly 1,200 people who live in the sliver they forgot?",
+ "why_now": "Current US-Canada trade friction (tariffs reported in 2026 coverage) is squeezing the town's cross-border economy, giving the story a live news hook on top of the 1846 origin.",
+ "candidate_sources": [
+  "https://www.britannica.com/place/Point-Roberts",
+  "https://en.wikipedia.org/wiki/Point_Roberts,_Washington"
+ ],
+ "scores": {
+  "hook": 4,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 3,
+  "series_fit": 5
+ },
+ "risks": [
+  "A well-trodden topic for map-fact channels (RealLifeLore, Half as Interesting style); needs a fresh detail (e.g. the town's reliance on a Canadian-side ambulance response, or the 2026 tariff squeeze) rather than just restating the 1846 line-drawing story.",
+  "The 'why now' tariff angle touches live US-Canada trade politics; keep the episode on the 1846 geography and daily-life absurdity, not partisan trade commentary.",
+  "Population and economic details (ambulance response times, border-crossing counts) need a current, dated source in research; NASA Earth Observatory and Britannica give geography, but town-life specifics need a separate check."
+ ],
+ "approved_by": null
+}

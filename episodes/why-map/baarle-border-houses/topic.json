@@ -1,0 +1,27 @@
+{
+ "slug": "baarle-border-houses",
+ "channel": "why-map",
+ "series": "border",
+ "hook": "In this village, your front door decides which country you live in.",
+ "twist": "The border between Baarle-Hertog, Belgium and Baarle-Nassau, Netherlands was carved parcel by parcel and wasn't even finalized until 1995, so it zigzags through streets and straight through individual buildings, and a house's nationality is set by a real rule, the 'voordeurregel', literally the front-door rule.",
+ "angle": "How do two countries end up sharing one village down to a single doorway, and what do the people who live split down the middle actually do about it, tax rates included?",
+ "why_now": "Evergreen; no anniversary trigger for the 1995 finalization, but the story doesn't need one.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/Baarle",
+  "https://www.atlasobscura.com/places/house-with-two-numbers"
+ ],
+ "scores": {
+  "hook": 4,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 1,
+  "series_fit": 5
+ },
+ "risks": [
+  "One of the most-covered border oddities on YouTube already (Tom Scott, Geography Now, Half as Interesting); differentiate with the tax-motivated door-moving detail and the 1995 finalization date, not the well-worn 'zigzag border' framing alone.",
+  "Historical origin (which treaty, how the parcels were originally assigned before the 1995 finalization) needs a primary or scholarly source in research; Wikipedia gives the front-door rule and the 1995 finalization but not the earlier treaty history.",
+  "Multiple travel-blog sources cite different parcel counts; use only the count that traces to an official or scholarly source in the dossier."
+ ],
+ "approved_by": null
+}
