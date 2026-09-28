@@ -1,0 +1,203 @@
+<title>Three-Channel Launch Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F3F4EF; --card:#FBFBF8; --ink:#1B2230; --muted:#586170; --rule:#D8DCD3;
+  --accent:#0E6E6B; --accent-soft:#DDEDEA; --warn:#9A5B00; --warn-soft:#F6E9D3;
+  --a:#0E6E6B; --b:#8A3FA0; --c:#B4531A;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#12161D; --card:#191F28; --ink:#E4E7E1; --muted:#98A1AD; --rule:#2B333F;
+    --accent:#4FC1B9; --accent-soft:#16312F; --warn:#E3A850; --warn-soft:#33281A;
+    --a:#4FC1B9; --b:#C58BD8; --c:#EE9A62;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#12161D; --card:#191F28; --ink:#E4E7E1; --muted:#98A1AD; --rule:#2B333F;
+  --accent:#4FC1B9; --accent-soft:#16312F; --warn:#E3A850; --warn-soft:#33281A;
+  --a:#4FC1B9; --b:#C58BD8; --c:#EE9A62;
+}
+body{background:var(--paper);color:var(--ink);font:15px/1.6 "IBM Plex Sans",system-ui,sans-serif;padding-inline:16px;padding-block:28px 64px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;letter-spacing:.01em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:clamp(34px,6vw,54px)}
+h2{font-size:28px}
+h3{font-size:16px;margin:0;font-weight:600}
+p{margin:0;max-width:68ch}
+.lede{color:var(--muted);font-size:16px;margin-top:10px}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:16px}
+.mono{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+.channels{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.ch{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--k);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.ch .tag{font:500 12px/1 "IBM Plex Mono",monospace;color:var(--k);letter-spacing:.06em;text-transform:uppercase}
+.ch h3{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:24px;letter-spacing:.01em}
+.ch dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+.ch dt{color:var(--muted)}
+.ch dd{margin:0}
+.bench{font-size:13px;color:var(--muted)}
+.big{font:500 26px/1 "IBM Plex Mono",monospace;color:var(--k)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:620px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font:500 12px/1.3 "IBM Plex Mono",monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.flow{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:16px;overflow-x:auto}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--muted)}
+.chip{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+.levers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.lever{border-left:3px solid var(--accent);padding:4px 0 4px 14px;display:flex;flex-direction:column;gap:4px}
+.lever p{font-size:14px;color:var(--muted)}
+.note{background:var(--warn-soft);border-radius:6px;padding:14px 16px;font-size:14px}
+.note strong{color:var(--warn)}
+.asks{counter-reset:a;list-style:none;padding:0}
+.asks li{counter-increment:a;padding-left:34px;position:relative}
+.asks li::before{content:counter(a);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font:500 12px/22px "IBM Plex Mono",monospace;text-align:center}
+.src{font-size:13px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Planning draft · 28 Sep 2026 · nothing generated yet</div>
+  <h1>Three-Channel Launch Plan</h1>
+  <p class="lede">Three Shorts channels, each with one niche and one look, all built on the same engine. They were picked by the median views of the closest channels already doing it, filtered to what our pipeline can make without paid video models.</p>
+</header>
+
+<section>
+  <div class="eyebrow">The picks</div>
+  <div class="channels">
+    <article class="ch" style="--k:var(--a)">
+      <span class="tag">Channel A</span>
+      <h3>Why the Map Looks Like That</h3>
+      <dl>
+        <dt>Niche</dt><dd>Strange geography and history, told as a “why”</dd>
+        <dt>Style</dt><dd>Our paper-cutout look on real Natural Earth maps; one deadpan narrator (Felix)</dd>
+        <dt>Series</dt><dd>“Why does…”, “The time a country…”, border oddities</dd>
+        <dt>Episode 1</dt><dd>The Great Emu War, recut from the finished short</dd>
+      </dl>
+      <div><div class="big">1.55M</div><div class="bench">Shorts median of Knowledgia (2.2M subs). Mustard: 2.15M across its 6 Shorts.</div></div>
+    </article>
+    <article class="ch" style="--k:var(--b)">
+      <span class="tag">Channel B</span>
+      <h3>The Body Cast</h3>
+      <dl>
+        <dt>Niche</dt><dd>Science with personified characters: organs, cells and microbes as a recurring cast</dd>
+        <dt>Style</dt><dd>Flat 2D characters drawn in code; each character has its own voice</dd>
+        <dt>Series</dt><dd>“X vs Y”, “What happens if…”, “A day in the life of your liver”</dd>
+        <dt>Why this cast</dt><dd>SolarBalls owns planets. The body is the top-performing Zack D. Films theme and has no cast yet.</dd>
+      </dl>
+      <div><div class="big">0.75M</div><div class="bench">Shorts median of SolarBalls (2.25M subs). Kurzgesagt: 1.2M.</div></div>
+    </article>
+    <article class="ch" style="--k:var(--c)">
+      <span class="tag">Channel C</span>
+      <h3>Ranked</h3>
+      <dl>
+        <dt>Niche</dt><dd>Data rankings and races between countries, using real datasets</dd>
+        <dt>Style</dt><dd>Animated charts and maps with flag characters; minimal narration plus music</dd>
+        <dt>Series</dt><dd>“Richest country every decade”, “More sheep than people”, “Who drinks the most coffee”</dd>
+        <dt>Data</dt><dd>World Bank, FAO, UN and Our World in Data, with the source on screen</dd>
+      </dl>
+      <div><div class="big">0.69M</div><div class="bench">Shorts median of Opera_cb (190k subs), which only re-edits other creators' work. Ours would be original data.</div></div>
+    </article>
+  </div>
+  <p class="src">Medians are from each channel's last 30 Shorts, pulled with yt-dlp on 28 Sep 2026. All episode ideas above are candidates and are fact-checked before scripting.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Considered, not picked</th><th>Median</th><th>Why not now</th></tr></thead>
+    <tbody>
+      <tr><td>3D “what happens if” stories (Zack D. Films)</td><td class="mono">3.5M</td><td>Needs rigged 3D humans. CPU Blender is too slow for a daily cadence, and the video models need credit. This is the next channel once we have credit.</td></tr>
+      <tr><td>AI time-travel history POV (Chloe VS History)</td><td class="mono">0.18M</td><td>Needs paid video models; realistic humans.</td></tr>
+      <tr><td>Daily AI news</td><td class="mono">&lt;40k</td><td>Low views across the niche; a daily fact-check burden.</td></tr>
+      <tr><td>Finance, psychology, disaster explainers over still images</td><td class="mono">20–90k</td><td>Strong long-form, weak as Shorts.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">The flowchart</div>
+  <h2>One engine, three series templates</h2>
+  <p>Each channel is a template: a cast, a palette, scene types and a voice. The pipeline is shared. You touch it twice a day at most.</p>
+  <div class="legend">
+    <span><span class="chip" style="background:var(--accent)"></span>Automated</span>
+    <span><span class="chip" style="background:var(--warn)"></span>You (about 5 min a day)</span>
+    <span><span class="chip" style="background:var(--muted)"></span>Hard gate: fail means fix or drop</span>
+  </div>
+  <div class="flow">
+<pre class="mermaid">
+flowchart TD
+  R["Topic radar<br/>anniversaries · datasets · Wikipedia · trending"] --> S["Score each idea<br/>one-line hook? sources? past results"]
+  S --> H1{{"You: approve 3 topics<br/>one per channel"}}
+  H1 --> F["Research<br/>claim → source table"]
+  F --> G1{"Fact gate<br/>every claim sourced?"}
+  G1 -- no --> F
+  G1 -- yes --> W["Script<br/>hook in second 1 · 25–40 s · loop ending"]
+  W --> V["Voice<br/>Fish or Piper, cached takes"]
+  V --> G2{"WER gate<br/>≤ 0.08 per line"}
+  G2 -- no --> V
+  G2 -- yes --> T["Storyboard from channel template<br/>word-keyed cues"]
+  T --> Q["Contact sheet + vision QA<br/>overlaps · crops · caption safe zone"]
+  Q --> RN["Render · score · mix"]
+  RN --> G3{"Final gate<br/>transcript WER ≤ 3% · −14 LUFS · specs"}
+  G3 -- no --> T
+  G3 -- yes --> P["Package<br/>title · captions · sources · thumbnail"]
+  P --> H2{{"You: optional 30-second preview"}}
+  H2 --> U["Publish<br/>YouTube, then TikTok · Reels"]
+  U --> A["48 h analytics<br/>viewed vs swiped · % viewed · subs per 1k"]
+  A -->|feeds back| S
+  classDef you fill:#F6E9D3,stroke:#9A5B00,color:#1B2230
+  classDef gate fill:#E6E8E3,stroke:#586170,color:#1B2230
+  classDef auto fill:#DDEDEA,stroke:#0E6E6B,color:#1B2230
+  class H1,H2 you
+  class G1,G2,G3 gate
+  class R,S,F,W,V,T,Q,RN,P,U,A auto
+</pre>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Getting views without paying</div>
+  <h2>How Shorts views are earned</h2>
+  <p>YouTube shows each new Short to a small test audience, then widens it if those viewers keep watching. The score it uses is <strong>viewed vs. swiped away</strong> and <strong>percentage viewed</strong>, not click-through rate. Since 31 March 2025, every start and replay counts as a public view. Monetization still uses “engaged views”.</p>
+  <div class="levers">
+    <div class="lever"><h3>Win the first second</h3><p>Motion and a question on screen at frame 1. Every top Short we pulled has a question or claim title: “Why wasn't Portugal conquered by Spain?”</p></div>
+    <div class="lever"><h3>Keep it short, make it loop</h3><p>25–40 s. The last line leads back into the first, so replays add views and percentage viewed goes above 100%.</p></div>
+    <div class="lever"><h3>One niche per channel</h3><p>The test audience is chosen from who watched you before. Mixing topics confuses it. This is why we're launching three channels rather than one.</p></div>
+    <div class="lever"><h3>Recurring series and cast</h3><p>A named series and returning characters turn one viral viewer into a subscriber. SolarBalls' cast is its moat.</p></div>
+    <div class="lever"><h3>Post every day</h3><p>Each upload is a fresh test. Volume raises the hit rate, as long as quality holds.</p></div>
+    <div class="lever"><h3>Ride the calendar</h3><p>Anniversaries, news hooks and data releases. Topic radar flags them a week ahead.</p></div>
+    <div class="lever"><h3>Cross-post the master</h3><p>The same clean file (no watermark) goes to TikTok, Instagram Reels and Facebook Reels. More reach for no extra production.</p></div>
+    <div class="lever"><h3>Learn from each upload</h3><p>At 48 hours, pull the swipe rate and percentage viewed; the best hooks feed the next topic scores. Baselines get set after the first 10 uploads per channel.</p></div>
+  </div>
+  <div class="note"><strong>What we won't do:</strong> paid promotion, engagement bait, re-uploading other creators' work, or template spam. YouTube's “inauthentic content” rule (15 July 2025) demonetizes mass-produced, low-substance uploads. The fact gate and a real hook in every episode keep us on the right side of it.</div>
+  <p class="src">Sources: <a href="https://vidiq.com/blog/post/youtube-shorts-algorithm/">vidIQ on the Shorts algorithm</a> · <a href="https://techcrunch.com/2025/03/26/youtube-is-changing-how-youtube-shorts-views-are-counted">TechCrunch on the March 2025 view count change</a> · <a href="https://www.socialmediatoday.com/news/youtube-clarifies-monetization-update-inauthentic-repeated-content/752892/">Social Media Today on the inauthentic content policy</a> · <a href="https://miraflow.ai/blog/youtube-shorts-rpm-2026-real-ranges-by-niche">miraflow on Shorts RPM</a></p>
+</section>
+
+<section>
+  <div class="eyebrow">Cadence and limits</div>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Phase</th><th>Per channel</th><th>Goal</th><th>Constraint</th></tr></thead>
+    <tbody>
+      <tr><td>Weeks 1–2: calibrate</td><td class="mono">3–4 / week</td><td>Lock each template; get the first 10 swipe-rate readings</td><td>Every video gets a full contact-sheet review</td></tr>
+      <tr><td>Weeks 3–8: daily</td><td class="mono">1 / day</td><td>Volume; the analytics loop starts steering topics</td><td>Fish free tier is 50 requests a day, about 24 for three Shorts; Piper is the fallback</td></tr>
+      <tr><td>Monetization bar</td><td class="mono">—</td><td>1,000 subs and 10M Shorts views in 90 days (YouTube Partner Program)</td><td>Shorts pay about $0.01–0.08 per 1,000 views; growth first, then long-form</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">What I need from you</div>
+  <ol class="asks">
+    <li>A yes or no on the three picks, and on the Body cast versus a different cast.</li>
+    <li>Create the three YouTube channels (Brand Accounts) and pick names. The titles above are working names.</li>
+    <li>For hands-off publishing: a YouTube Data API OAuth client, added as an environment secret. Until then, you upload the files I deliver.</li>
+    <li>Optional: TikTok and Instagram accounts for cross-posting.</li>
+  </ol>
+</section>
+
+</div>
