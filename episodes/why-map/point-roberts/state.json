@@ -29,20 +29,39 @@
   },
   "voice": {
    "result": "pass",
-   "at": "2026-09-28T09:25:54Z",
+   "at": "2026-09-28T09:52:26Z",
    "hashes": {
     "script.json": "fd3f3a912c35",
-    "build/timeline.json": "8c50c22ea163"
+    "build/timeline.json": "a8ee26d691cf"
    },
    "failed": []
   },
   "storyboard": {
    "result": "pass",
-   "at": "2026-09-28T09:25:54Z",
+   "at": "2026-09-28T10:05:45Z",
    "hashes": {
     "script.json": "fd3f3a912c35",
-    "build/timeline.json": "8c50c22ea163",
+    "build/timeline.json": "a8ee26d691cf",
     "storyboard.json": "438ecd109c2a"
+   },
+   "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-09-28T10:05:45Z",
+   "hashes": {
+    "storyboard.json": "438ecd109c2a",
+    "build/timeline.json": "a8ee26d691cf",
+    "review.json": "99211d4cb113"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "pass",
+   "at": "2026-09-28T10:05:45Z",
+   "hashes": {
+    "review.json": "99211d4cb113",
+    "build/final_report.json": "c2c1838dbaff"
    },
    "failed": []
   }

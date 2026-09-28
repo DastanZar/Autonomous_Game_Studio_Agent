@@ -19,3 +19,7 @@ Each entry: date, stage, what happened, the rule. Workers append here when a sta
 | 2026-09-28 | research | Wikipedia paraphrases quotations; use the original report's wording (Liechtenstein "attack helicopters" quote). |
 | 2026-09-28 | script | Gates can't catch a line that says more than its claim ("fireworks legal all year" from "fireworks store open all year"). The writer re-reads each line against its claim text. |
 | 2026-09-28 | voice | Piper: write "United States" not "US"; avoid "forty-ninth", "sixth" and noun possessives. A retake can change a neighbouring line's WER because the whole mix is transcribed at once. |
+| 2026-09-28 | picture | A contact sheet shows scenes at their landed moment and hid a quote card that was blank while being read. Spot-check frames from the encoded MP4. |
+| 2026-09-28 | final | One-pass `loudnorm` on speech with pauses gave −15.4 LUFS; measure the stereo mix and apply exact gain through a limiter (`tools/encode.py`). |
+| 2026-09-28 | picture | A generic striped flag read as the Dutch flag in a US/Canada story. Placeholder props must not resemble real symbols. |
+| 2026-09-28 | maps | Natural Earth can tag several features with one ISO code (AU also = Ashmore and Cartier Islands); keep the largest. Village-scale borders (Baarle) need OpenStreetMap. |

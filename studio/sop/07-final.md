@@ -5,11 +5,12 @@
 
 ## Steps
 
-1. **Music and SFX.** Adapt `videos/root-keys/tools/audio.py`: code-synthesised score in the
+1. **Music and SFX** (tool not built yet; until then the encode is voice-only). Adapt `videos/root-keys/tools/audio.py`: code-synthesised score in the
    channel's style, SFX taken from the storyboard `sfx` names at their cue times, and the voice
    ducked. Music should sit about 6–10 dB under speech.
-2. **Encode** with two-pass x264 at 4.8–5 Mbps for 1080p (grain makes files huge otherwise).
-   Loudness-normalise to −14 LUFS, AAC 48 kHz. Output to `out/<slug>.mp4`.
+2. **Encode:** `python3 studio/tools/encode.py episodes/<ch>/<slug>` (two-pass x264 at 4.8 Mbps, AAC 48 kHz,
+   gain set by measurement through a −1.5 dBTP limiter until −14 LUFS). It uses `build/mix.wav` if present, else the
+   voice alone. `--draft` does a quick one-pass encode.
 3. **Measure:** `python3 studio/tools/final_check.py episodes/<channel>/<slug>`. It records
    resolution, fps, duration, LUFS, true peak and the transcript WER of the final mix (small.en).
 4. **Spot-check 5 frames** from the encoded file, not from `build/frames`, by extracting them with

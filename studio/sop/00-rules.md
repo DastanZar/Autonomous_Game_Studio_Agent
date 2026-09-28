@@ -33,8 +33,8 @@ seems wrong, say so in your report and stop.
    pictures with rendered stills. Never write "sounds great" or "looks perfect". Write what you
    measured.
 6. **All on-screen text is typeset in code.** No image or video model ever draws text.
-7. **Real data for maps and charts.** Natural Earth for geography, published datasets for rankings.
-   Never hand-draw a border or invent a number.
+7. **Real data for maps and charts.** Natural Earth for countries; OpenStreetMap boundaries (credited on screen,
+   the engine does it) for anything smaller; published datasets for rankings. Never hand-draw a border or invent a number.
 8. **No impersonation.** No real person's face or voice, and no lookalikes of other creators'
    characters. Original casts only.
 9. **Deterministic frames.** Frames are pure functions of `t`: no `Math.random`, no clock. Use the

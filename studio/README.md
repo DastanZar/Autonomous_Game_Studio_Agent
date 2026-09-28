@@ -54,9 +54,10 @@ skill in `.claude/skills/studio/` says exactly this).
 | Gates for all 10 stages; state machine with staleness | **Built**; `selftest` passes |
 | Gold example (Emu War) through topic, research, script, voice, storyboard, final and package | **Built.** Real sources and excerpts; WER and loudness measured on the shipped file |
 | `tools/final_check.py` (specs, LUFS, true peak, final-mix WER) and `tools/textnorm.py` | **Built and run** on the Emu short |
-| Voice tool (`tools/vo.py`: bible-driven, Fish or Piper, cast voices, whole-transcript alignment) | Phase 2. Contract written in `sop/04-voice.md` |
-| Shared 9:16 engine that renders `storyboard.json` from the catalog, one theme per channel | Phase 2. The largest piece. Catalog specified; reference code in `shorts/emu-war/render/emu.js` and `videos/root-keys/render/lib.js` |
-| Audio tool per channel theme; SRT and thumbnail builder | Phase 2 |
+| Voice tool (`tools/vo.py`: bible-driven, Fish or Piper, cast voices, whole-transcript alignment) | **Built**; run on 3 episodes (Sonnet trial + engine build) |
+| Render engine (`engine/`: 12 catalog scene types, 10 props, real maps via `tools/geo.py`, burned captions, sheets, full frames) | **Built** for the paper-cutout theme (why-map). Planned: ranking_bars/race and character scenes (Ranked and Body Cast channels), their themes |
+| Encoder (`tools/encode.py`) | **Built**: two-pass x264, measured −14 LUFS |
+| Music and SFX tool (reads `build/cues.json`); SRT and thumbnail builder | Next |
 | Topic radar (daily candidate cards per channel) | Phase 3 |
 | YouTube upload and analytics via API | Phase 3. Needs the channel owner's OAuth client as an environment secret |
 | Daily scheduler (a Routine that runs radar → queue → workers) | Phase 3 |

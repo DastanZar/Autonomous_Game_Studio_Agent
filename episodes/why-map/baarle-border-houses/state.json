@@ -29,22 +29,34 @@
   },
   "voice": {
    "result": "pass",
-   "at": "2026-09-28T09:29:25Z",
+   "at": "2026-09-28T09:51:52Z",
    "hashes": {
     "script.json": "17d0ee41b6b4",
-    "build/timeline.json": "523101cad27e"
+    "build/timeline.json": "f3126240ca43"
    },
    "failed": []
   },
   "storyboard": {
    "result": "pass",
-   "at": "2026-09-28T09:29:25Z",
+   "at": "2026-09-28T10:05:46Z",
    "hashes": {
     "script.json": "17d0ee41b6b4",
-    "build/timeline.json": "523101cad27e",
-    "storyboard.json": "1f8abbe8f934"
+    "build/timeline.json": "f3126240ca43",
+    "storyboard.json": "9b1adb568d27"
    },
    "failed": []
+  },
+  "picture": {
+   "result": "fail",
+   "at": "2026-09-28T10:05:46Z",
+   "hashes": {
+    "storyboard.json": "9b1adb568d27",
+    "build/timeline.json": "f3126240ca43",
+    "review.json": "dfaa60d9d196"
+   },
+   "failed": [
+    "last round has no open defects: CONTENT: split_compare right_label 'NETHERLANDS: NOT ALLOWED' is not supported by any dossier claim (the source only says a fireworks store in Baarle-Hertog is open all year). Storyboard must change."
+   ]
   }
  }
 }

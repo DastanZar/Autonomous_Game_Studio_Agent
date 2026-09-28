@@ -1,0 +1,94 @@
+{
+ "rounds": [
+  {
+   "at": "2026-09-28T09:55:00Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    2.02,
+    4.25,
+    6.16,
+    11.06,
+    14.55,
+    18.82,
+    19.78,
+    26.53,
+    28.54,
+    31.5,
+    33.72
+   ],
+   "defects": [
+    {
+     "t": 0.05,
+     "issue": "frame 0 nearly empty (title still popping in): weak thumbnail and loop point",
+     "fixed": true
+    },
+    {
+     "t": 0,
+     "issue": "sheet stills taken before pins/callouts/count-ups had landed (engine ignored cues nested in params)",
+     "fixed": true
+    },
+    {
+     "t": 0,
+     "issue": "outro echo drawn before the opening's prop appeared",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-09-28T10:05:00Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    2.02,
+    4.25,
+    6.16,
+    11.06,
+    14.55,
+    18.82,
+    19.78,
+    26.53,
+    28.54,
+    31.5,
+    33.72
+   ],
+   "defects": [
+    {
+     "t": 11.17,
+     "issue": "NETHERLANDS label placed on the Belgian enclave cluster",
+     "fixed": true
+    },
+    {
+     "t": 26.91,
+     "issue": "the two callout tags overlap",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-09-28T09:59:06Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    2.02,
+    4.25,
+    6.16,
+    11.06,
+    14.55,
+    18.82,
+    19.78,
+    26.53,
+    28.54,
+    31.5,
+    33.72
+   ],
+   "defects": [
+    {
+     "t": 28.54,
+     "issue": "CONTENT: split_compare right_label 'NETHERLANDS: NOT ALLOWED' is not supported by any dossier claim (the source only says a fireworks store in Baarle-Hertog is open all year). Storyboard must change.",
+     "fixed": false
+    }
+   ]
+  }
+ ]
+}

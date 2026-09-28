@@ -34,7 +34,9 @@ picture is ready when the voice lands.
    2. a type that shows the joke (`stamp_reveal` for a one-word punch).
 3. **Fill params only with dossier facts.** Put labels on qualified numbers (`count_up.qualifier`).
    A quote card uses the exact `quote` text.
-4. **Add events** for things that change inside a scene. Key each one to the word that triggers it,
+4. **Add events** for things that change inside a scene. `do` should use a verb the engine knows: `reveal`, `draw`,
+   `count_start`, `count_stop`, `highlight`, `verdict` or `emphasize` (a word containing one counts, e.g. `flag_reveal`).
+   Props must come from the catalog's `props` list. For maps below country scale, add `detail: [{"osm": "<place>", "iso": "XX"}]`. Key each one to the word that triggers it,
    and add an `sfx` name where a sound helps.
 5. **The first scene** starts at `0` and must work as a thumbnail. **The last scene** is an
    `outro_loop` that echoes the first scene, so the replay is seamless.

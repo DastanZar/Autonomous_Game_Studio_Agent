@@ -1,5 +1,5 @@
 {
- "duration": 45.38,
+ "duration": 44.927,
  "voices": [
   "piper:en_US-ryan-high"
  ],
@@ -7,7 +7,7 @@
   {
    "id": "hook",
    "start": 0.35,
-   "end": 4.46,
+   "end": 4.483,
    "wer": 0.0,
    "heard": "in two thousand seven the swiss army invaded liechtenstein by accident",
    "words": [
@@ -17,60 +17,60 @@
     },
     {
      "w": "two",
-     "t": 0.552
+     "t": 0.563
     },
     {
      "w": "thousand",
-     "t": 0.822
+     "t": 0.846
     },
     {
      "w": "seven,",
-     "t": 1.428
+     "t": 1.484
     },
     {
      "w": "the",
-     "t": 1.9
+     "t": 1.98
     },
     {
      "w": "Swiss",
-     "t": 1.96
+     "t": 2.0
     },
     {
      "w": "army",
-     "t": 2.18
+     "t": 2.22
     },
     {
      "w": "invaded",
-     "t": 2.52
+     "t": 2.58
     },
     {
      "w": "Liechtenstein",
-     "t": 2.94
+     "t": 3.06
     },
     {
      "w": "by",
-     "t": 3.66
+     "t": 3.68
     },
     {
      "w": "accident.",
-     "t": 3.9
+     "t": 3.92
     }
    ]
   },
   {
    "id": "itwasnt",
-   "start": 4.76,
-   "end": 5.77,
+   "start": 4.783,
+   "end": 5.84,
    "wer": 0.0,
    "heard": "it wasn't the first time",
    "words": [
     {
      "w": "It",
-     "t": 4.78
+     "t": 4.8
     },
     {
      "w": "wasn't",
-     "t": 4.86
+     "t": 4.88
     },
     {
      "w": "the",
@@ -78,138 +78,138 @@
     },
     {
      "w": "first",
-     "t": 5.24
+     "t": 5.22
     },
     {
      "w": "time.",
-     "t": 5.4
+     "t": 5.44
     }
    ]
   },
   {
    "id": "neutral",
-   "start": 6.27,
-   "end": 8.72,
+   "start": 6.34,
+   "end": 8.766,
    "wer": 0.0,
    "heard": "switzerland has been neutral for five hundred years",
    "words": [
     {
      "w": "Switzerland",
-     "t": 6.42
+     "t": 6.5
     },
     {
      "w": "has",
-     "t": 6.64
+     "t": 6.72
     },
     {
      "w": "been",
-     "t": 6.94
+     "t": 6.98
     },
     {
      "w": "neutral",
-     "t": 7.12
+     "t": 7.14
     },
     {
      "w": "for",
-     "t": 7.4
+     "t": 7.42
     },
     {
      "w": "five",
-     "t": 7.56
+     "t": 7.58
     },
     {
      "w": "hundred",
-     "t": 7.76
+     "t": 7.78
     },
     {
      "w": "years.",
-     "t": 8.08
+     "t": 8.1
     }
    ]
   },
   {
    "id": "y1968",
-   "start": 9.02,
-   "end": 13.002,
+   "start": 9.066,
+   "end": 12.909,
    "wer": 0.0,
    "heard": "in nineteen sixty eight swiss shells hit liechtenstein's only ski resort",
    "words": [
     {
      "w": "In",
-     "t": 9.02
+     "t": 9.08
     },
     {
      "w": "nineteen",
-     "t": 9.186
+     "t": 9.243
     },
     {
      "w": "sixty-eight,",
-     "t": 9.682
+     "t": 9.733
     },
     {
      "w": "Swiss",
-     "t": 10.4
+     "t": 10.44
     },
     {
      "w": "shells",
-     "t": 10.68
+     "t": 10.58
     },
     {
      "w": "hit",
-     "t": 11.04
+     "t": 10.92
     },
     {
      "w": "Liechtenstein's",
-     "t": 11.32
+     "t": 11.2
     },
     {
      "w": "only",
-     "t": 12.06
+     "t": 11.9
     },
     {
      "w": "ski",
-     "t": 12.26
+     "t": 12.14
     },
     {
      "w": "resort.",
-     "t": 12.52
+     "t": 12.42
     }
    ]
   },
   {
    "id": "y1976",
-   "start": 13.252,
-   "end": 17.582,
+   "start": 13.159,
+   "end": 17.501,
    "wer": 0.0,
    "heard": "in nineteen seventy six seventy five soldiers wandered in got offered drinks",
    "words": [
     {
      "w": "In",
-     "t": 13.252
+     "t": 13.159
     },
     {
      "w": "nineteen",
-     "t": 13.406
+     "t": 13.323
     },
     {
      "w": "seventy-six,",
-     "t": 13.867
+     "t": 13.816
     },
     {
      "w": "seventy-five",
-     "t": 14.534
+     "t": 14.528
     },
     {
      "w": "soldiers",
-     "t": 15.2
+     "t": 15.24
     },
     {
      "w": "wandered",
-     "t": 15.62
+     "t": 15.7
     },
     {
      "w": "in,",
-     "t": 16.02
+     "t": 16.04
     },
     {
      "w": "and",
@@ -217,365 +217,365 @@
     },
     {
      "w": "got",
-     "t": 16.64
+     "t": 16.62
     },
     {
      "w": "offered",
-     "t": 16.84
+     "t": 16.78
     },
     {
      "w": "drinks.",
-     "t": 17.12
+     "t": 17.04
     }
    ]
   },
   {
    "id": "y1985",
-   "start": 17.832,
-   "end": 22.128,
+   "start": 17.751,
+   "end": 21.861,
    "wer": 0.0,
    "heard": "in nineteen eighty five missiles started a forest fire that switzerland had to pay for",
    "words": [
     {
      "w": "In",
-     "t": 17.84
+     "t": 17.76
     },
     {
      "w": "nineteen",
-     "t": 18.015
+     "t": 17.918
     },
     {
      "w": "eighty-five,",
-     "t": 18.541
+     "t": 18.394
     },
     {
      "w": "missiles",
-     "t": 19.3
+     "t": 19.08
     },
     {
      "w": "started",
-     "t": 19.44
+     "t": 19.24
     },
     {
      "w": "a",
-     "t": 19.82
+     "t": 19.6
     },
     {
      "w": "forest",
-     "t": 20.04
+     "t": 19.76
     },
     {
      "w": "fire",
-     "t": 20.3
+     "t": 19.98
     },
     {
      "w": "that",
-     "t": 20.64
+     "t": 20.34
     },
     {
      "w": "Switzerland",
-     "t": 20.86
+     "t": 20.58
     },
     {
      "w": "had",
-     "t": 21.26
+     "t": 20.98
     },
     {
      "w": "to",
-     "t": 21.56
+     "t": 21.3
     },
     {
      "w": "pay",
-     "t": 21.66
+     "t": 21.44
     },
     {
      "w": "for.",
-     "t": 21.8
+     "t": 21.6
     }
    ]
   },
   {
    "id": "y1992",
-   "start": 22.428,
-   "end": 28.105,
+   "start": 22.161,
+   "end": 27.653,
    "wer": 0.0,
    "heard": "in nineteen ninety two soldiers set up an observation post in the wrong country had to apologize",
    "words": [
     {
      "w": "In",
-     "t": 22.428
+     "t": 22.161
     },
     {
      "w": "nineteen",
-     "t": 22.652
+     "t": 22.336
     },
     {
      "w": "ninety-two,",
-     "t": 23.324
+     "t": 22.861
     },
     {
      "w": "soldiers",
-     "t": 24.22
+     "t": 23.56
     },
     {
      "w": "set",
-     "t": 24.22
+     "t": 23.76
     },
     {
      "w": "up",
-     "t": 24.54
+     "t": 24.08
     },
     {
      "w": "an",
-     "t": 24.74
+     "t": 24.3
     },
     {
      "w": "observation",
-     "t": 24.9
+     "t": 24.46
     },
     {
      "w": "post",
-     "t": 25.32
+     "t": 24.9
     },
     {
      "w": "in",
-     "t": 25.72
+     "t": 25.32
     },
     {
      "w": "the",
-     "t": 25.98
+     "t": 25.62
     },
     {
      "w": "wrong",
-     "t": 26.08
+     "t": 25.7
     },
     {
      "w": "country,",
-     "t": 26.3
+     "t": 25.92
     },
     {
      "w": "and",
-     "t": 26.74
+     "t": 26.34
     },
     {
      "w": "had",
-     "t": 27.06
+     "t": 26.68
     },
     {
      "w": "to",
-     "t": 27.22
+     "t": 26.84
     },
     {
      "w": "apologize.",
-     "t": 27.38
+     "t": 27.02
     }
    ]
   },
   {
    "id": "then2007",
-   "start": 28.505,
-   "end": 31.06,
+   "start": 28.053,
+   "end": 30.688,
    "wer": 0.0,
    "heard": "then in two thousand seven they did it again",
    "words": [
     {
      "w": "Then,",
-     "t": 28.505
+     "t": 28.053
     },
     {
      "w": "in",
-     "t": 28.96
+     "t": 28.54
     },
     {
      "w": "two",
-     "t": 29.148
+     "t": 28.725
     },
     {
      "w": "thousand",
-     "t": 29.398
+     "t": 28.972
     },
     {
      "w": "seven,",
-     "t": 29.962
+     "t": 29.528
     },
     {
      "w": "they",
-     "t": 30.4
+     "t": 29.96
     },
     {
      "w": "did",
-     "t": 30.44
+     "t": 30.06
     },
     {
      "w": "it",
-     "t": 30.58
+     "t": 30.2
     },
     {
      "w": "again.",
-     "t": 30.7
+     "t": 30.3
     }
    ]
   },
   {
    "id": "soldiers2007",
-   "start": 31.36,
-   "end": 35.806,
+   "start": 30.988,
+   "end": 35.4,
    "wer": 0.0,
    "heard": "one hundred seventy soldiers lost in the dark marched over a kilometer inside",
    "words": [
     {
      "w": "One",
-     "t": 31.36
+     "t": 30.988
     },
     {
      "w": "hundred",
-     "t": 31.496
+     "t": 31.126
     },
     {
      "w": "seventy",
-     "t": 31.768
+     "t": 31.403
     },
     {
      "w": "soldiers,",
-     "t": 32.04
+     "t": 31.68
     },
     {
      "w": "lost",
-     "t": 33.04
+     "t": 32.62
     },
     {
      "w": "in",
-     "t": 33.24
+     "t": 32.86
     },
     {
      "w": "the",
-     "t": 33.46
+     "t": 33.08
     },
     {
      "w": "dark,",
-     "t": 33.56
+     "t": 33.2
     },
     {
      "w": "marched",
-     "t": 34.14
+     "t": 33.82
     },
     {
      "w": "over",
-     "t": 34.28
+     "t": 33.9
     },
     {
      "w": "a",
-     "t": 34.62
+     "t": 34.22
     },
     {
      "w": "kilometer",
-     "t": 34.8
+     "t": 34.38
     },
     {
      "w": "inside.",
-     "t": 35.28
+     "t": 34.88
     }
    ]
   },
   {
    "id": "verdict",
-   "start": 36.256,
-   "end": 41.829,
+   "start": 35.85,
+   "end": 41.411,
    "wer": 0.0,
    "heard": "it's not like they stormed over here with attack helicopters or something said liechtenstein's interior spokesman",
    "words": [
     {
      "w": "\"It's",
-     "t": 36.256
+     "t": 35.85
     },
     {
      "w": "not",
-     "t": 36.44
+     "t": 36.02
     },
     {
      "w": "like",
-     "t": 36.64
+     "t": 36.24
     },
     {
      "w": "they",
-     "t": 36.82
+     "t": 36.44
     },
     {
      "w": "stormed",
-     "t": 36.96
+     "t": 36.64
     },
     {
      "w": "over",
-     "t": 37.28
+     "t": 36.94
     },
     {
      "w": "here",
-     "t": 37.64
+     "t": 37.26
     },
     {
      "w": "with",
-     "t": 37.88
+     "t": 37.46
     },
     {
      "w": "attack",
-     "t": 38.06
+     "t": 37.62
     },
     {
      "w": "helicopters",
-     "t": 38.34
+     "t": 37.92
     },
     {
      "w": "or",
-     "t": 38.96
+     "t": 38.58
     },
     {
      "w": "something,\"",
-     "t": 39.24
+     "t": 38.86
     },
     {
      "w": "said",
-     "t": 39.98
+     "t": 39.54
     },
     {
      "w": "Liechtenstein's",
-     "t": 40.1
+     "t": 39.66
     },
     {
      "w": "interior",
-     "t": 40.82
+     "t": 40.38
     },
     {
      "w": "spokesman.",
-     "t": 41.16
+     "t": 40.7
     }
    ]
   },
   {
    "id": "callback",
-   "start": 42.329,
-   "end": 43.78,
+   "start": 41.911,
+   "end": 43.327,
    "wer": 0.0,
    "heard": "number six could still happen",
    "words": [
     {
      "w": "Number",
-     "t": 42.38
+     "t": 41.98
     },
     {
      "w": "six",
-     "t": 42.52
+     "t": 42.18
     },
     {
      "w": "could",
-     "t": 42.78
+     "t": 42.42
     },
     {
      "w": "still",
-     "t": 43.04
+     "t": 42.66
     },
     {
      "w": "happen.",
-     "t": 43.32
+     "t": 42.9
     }
    ]
   }

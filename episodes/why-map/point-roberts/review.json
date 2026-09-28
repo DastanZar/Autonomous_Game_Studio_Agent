@@ -1,0 +1,99 @@
+{
+ "rounds": [
+  {
+   "at": "2026-09-28T09:55:00Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    3.58,
+    4.63,
+    7.09,
+    9.91,
+    16.49,
+    17.44,
+    22.48,
+    25.56,
+    29.04,
+    33.63,
+    37.86,
+    39.9,
+    41.45
+   ],
+   "defects": [
+    {
+     "t": 0.05,
+     "issue": "frame 0 nearly empty (title still popping in): weak thumbnail and loop point",
+     "fixed": true
+    },
+    {
+     "t": 0,
+     "issue": "sheet stills taken before pins/callouts/count-ups had landed (engine ignored cues nested in params)",
+     "fixed": true
+    },
+    {
+     "t": 0,
+     "issue": "outro echo drawn before the opening's prop appeared",
+     "fixed": true
+    },
+    {
+     "t": 16.83,
+     "issue": "map_route scenes lost the US/Canada colours (no highlight inherited from the map run)",
+     "fixed": true
+    },
+    {
+     "t": 3.52,
+     "issue": "placeholder flag striped red/white/blue: reads as the Dutch flag in a US/Canada story",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-09-28T10:05:00Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    3.58,
+    4.63,
+    7.09,
+    9.91,
+    16.49,
+    17.44,
+    22.48,
+    25.56,
+    29.04,
+    33.63,
+    37.86,
+    39.9,
+    41.45
+   ],
+   "defects": [
+    {
+     "t": 29.68,
+     "issue": "callout tags in the top corners with long arrows crossing the prop",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-09-28T09:59:06Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    3.58,
+    4.63,
+    7.09,
+    9.91,
+    16.49,
+    17.44,
+    22.48,
+    25.56,
+    29.04,
+    33.63,
+    37.86,
+    39.9,
+    41.45
+   ],
+   "defects": []
+  }
+ ]
+}

@@ -3,10 +3,8 @@
 **Goal:** narration audio, and a word-level timeline that every picture and sound cue is keyed to.
 **Input:** `script.json`. **Outputs:** `build/vo.wav`, `build/timeline.json`.
 
-> **Tool status: to be built (phase 2).** The studio's voice tool, `studio/tools/vo.py`, will be
-> generalised from `videos/root-keys/tools/vo.py` (Fish) and `shorts/emu-war/tools/vo.py` (Piper).
-> It will read the voice from the bible (or a cast member's voice for lines with a `speaker`). Until
-> then, copy the root-keys tool into the episode and point it at the episode's `script.json`.
+**Tool:** `python3 studio/tools/vo.py episodes/<ch>/<slug> [--redo <para_id> ...]` (Fish with an OpenRouter key,
+otherwise the bible's Piper fallback as a DRAFT voice).
 
 ## What the tool must do (contract)
 

@@ -31,9 +31,27 @@
    "type": "map_focus",
    "start": "samevillage.start-0.15",
    "params": {
-    "region": [4.9, 51.4, 5.0, 51.47],
-    "highlight": ["NL", "BE"],
-    "pins": []
+    "region": [
+     4.9,
+     51.4,
+     5.0,
+     51.47
+    ],
+    "highlight": [
+     "NL",
+     "BE"
+    ],
+    "pins": [],
+    "detail": [
+     {
+      "osm": "Baarle-Hertog",
+      "iso": "BE"
+     },
+     {
+      "osm": "Baarle-Nassau",
+      "iso": "NL"
+     }
+    ]
    }
   },
   {
@@ -41,10 +59,33 @@
    "type": "map_focus",
    "start": "origin.start-0.15",
    "params": {
-    "region": [4.9, 51.4, 5.0, 51.47],
-    "highlight": ["NL", "BE"],
+    "region": [
+     4.9,
+     51.4,
+     5.0,
+     51.47
+    ],
+    "highlight": [
+     "NL",
+     "BE"
+    ],
     "pins": [
-     {"lon": 4.93, "lat": 51.44, "label": "1198: DUKE SPLITS THE LAND", "at": "origin/two"}
+     {
+      "lon": 4.93,
+      "lat": 51.44,
+      "label": "1198: DUKE SPLITS THE LAND",
+      "at": "origin/two"
+     }
+    ],
+    "detail": [
+     {
+      "osm": "Baarle-Hertog",
+      "iso": "BE"
+     },
+     {
+      "osm": "Baarle-Nassau",
+      "iso": "NL"
+     }
     ]
    }
   },
@@ -53,10 +94,33 @@
    "type": "map_focus",
    "start": "treaty.start-0.1",
    "params": {
-    "region": [4.9, 51.4, 5.0, 51.47],
-    "highlight": ["NL", "BE"],
+    "region": [
+     4.9,
+     51.4,
+     5.0,
+     51.47
+    ],
+    "highlight": [
+     "NL",
+     "BE"
+    ],
     "pins": [
-     {"lon": 4.93, "lat": 51.44, "label": "1843: ONE CLEAN BORDER?", "at": "treaty/border"}
+     {
+      "lon": 4.93,
+      "lat": 51.44,
+      "label": "1843: ONE CLEAN BORDER?",
+      "at": "treaty/border"
+     }
+    ],
+    "detail": [
+     {
+      "osm": "Baarle-Hertog",
+      "iso": "BE"
+     },
+     {
+      "osm": "Baarle-Nassau",
+      "iso": "NL"
+     }
     ]
    }
   },
@@ -92,8 +156,14 @@
    "params": {
     "object": "building",
     "callouts": [
-     {"label": "FRONT DOOR: NETHERLANDS", "at": "storedoor/netherlands"},
-     {"label": "WHOLE STORE: DUTCH", "at": "storedoor/dutch"}
+     {
+      "label": "FRONT DOOR: NETHERLANDS",
+      "at": "storedoor/netherlands"
+     },
+     {
+      "label": "WHOLE STORE: DUTCH",
+      "at": "storedoor/dutch"
+     }
     ]
    }
   },

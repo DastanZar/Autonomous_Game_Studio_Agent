@@ -1,0 +1,122 @@
+{
+ "rounds": [
+  {
+   "at": "2026-09-28T09:55:00Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    4.42,
+    5.58,
+    7.09,
+    12.96,
+    17.55,
+    20.58,
+    27.62,
+    28.75,
+    33.58,
+    39.64,
+    42.61,
+    44.88
+   ],
+   "defects": [
+    {
+     "t": 0.05,
+     "issue": "frame 0 nearly empty (title still popping in): weak thumbnail and loop point",
+     "fixed": true
+    },
+    {
+     "t": 0,
+     "issue": "sheet stills taken before pins/callouts/count-ups had landed (engine ignored cues nested in params)",
+     "fixed": true
+    },
+    {
+     "t": 0,
+     "issue": "outro echo drawn before the opening's prop appeared",
+     "fixed": true
+    },
+    {
+     "t": 7.02,
+     "issue": "SWITZERLAND and LIECHTENSTEIN map labels overlap",
+     "fixed": true
+    },
+    {
+     "t": 28.18,
+     "issue": "title card without a prop sat at the top of an empty stage",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-09-28T10:00:00Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    4.42,
+    5.58,
+    7.09,
+    12.96,
+    17.55,
+    20.58,
+    27.62,
+    28.75,
+    33.58,
+    39.64,
+    42.61,
+    44.88
+   ],
+   "defects": [
+    {
+     "t": 13.05,
+     "issue": "pin label tags covered the country labels",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-09-28T09:59:06Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    4.42,
+    5.58,
+    7.09,
+    12.96,
+    17.55,
+    20.58,
+    27.62,
+    28.75,
+    33.58,
+    39.64,
+    42.61,
+    44.88
+   ],
+   "defects": [
+    {
+     "t": 36.67,
+     "issue": "spot-check of the ENCODED mp4: quote card blank while the quote is being read (text waited for the late 'card_reveal' event)",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-09-28T10:05:45Z",
+   "reviewer": "orchestrator (Claude, engine build review from contact sheets)",
+   "frames": [
+    0.05,
+    4.42,
+    5.58,
+    7.09,
+    12.96,
+    17.55,
+    20.58,
+    27.62,
+    28.75,
+    33.58,
+    38.42,
+    42.61,
+    44.88
+   ],
+   "defects": []
+  }
+ ]
+}
