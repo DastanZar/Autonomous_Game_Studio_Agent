@@ -75,7 +75,7 @@
    }
   },
   "notes": "Flags from a public-domain flag set, redrawn in code. Every chart shows its data source on screen.",
-  "direction": "A · Flag Badges (user-approved 2026-09-29): bar chart on off-white, round flag badges with faces (8 moods) riding bar tips; the Broadcast versus card is reused for the Country vs country series. Reference: studio/stylelab (rk_badge_*, rk_broadcast_versus)"
+  "direction": "A \u00b7 Flag Badges (user-approved 2026-09-29): bar chart on off-white, round flag badges with faces (8 moods) riding bar tips; the Broadcast versus card is reused for the Country vs country series. Reference: studio/stylelab (rk_badge_*, rk_broadcast_versus)"
  },
  "cast": [
   {
@@ -254,6 +254,20 @@
      "bpm": 110,
      "duration": 60,
      "seed": 32
+    },
+    {
+     "id": "countdown",
+     "caption": "punchy countdown underscore, tight drums, synth stabs, rising tension, modern, instrumental",
+     "bpm": 124,
+     "duration": 60,
+     "seed": 33
+    },
+    {
+     "id": "finale",
+     "caption": "triumphant winner reveal, big brass fanfare, bright synth arpeggios, celebratory, instrumental",
+     "bpm": 116,
+     "duration": 60,
+     "seed": 34
     }
    ]
   }

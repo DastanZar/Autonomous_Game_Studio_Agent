@@ -326,6 +326,20 @@
      "bpm": 96,
      "duration": 60,
      "seed": 22
+    },
+    {
+     "id": "heartbeat",
+     "caption": "soft pulsing bass like a heartbeat, warm vibraphone, light brushed percussion, gentle wonder, instrumental",
+     "bpm": 88,
+     "duration": 60,
+     "seed": 23
+    },
+    {
+     "id": "showdown",
+     "caption": "playful mock-epic showdown, snare rolls, comedic brass hits, pizzicato, energetic, instrumental",
+     "bpm": 120,
+     "duration": 60,
+     "seed": 24
     }
    ]
   }
