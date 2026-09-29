@@ -1,0 +1,92 @@
+{
+ "_doc": "Studio-level work that isn't a single episode stage (engine, assets, tools). `python3 studio/studio.py next` reads this together with the episodes. status: todo | doing | done | blocked. who: model | human | laptop (needs the user's GPU machine). done_when: a command whose exit code 0 proves the task is done (optional). Update status and notes when you finish; never mark done without the done_when check passing.",
+ "tasks": [
+  {
+   "id": "dashboard",
+   "title": "Build `python3 studio/studio.py dashboard` -> docs/dashboard.html",
+   "status": "todo",
+   "who": "model",
+   "detail": "studio.py already dispatches `dashboard` to studio/dashboard.py:build(root) (not written yet). One self-contained HTML page (no external assets except Google Fonts), readable on a phone, light and dark: per channel (bible status, open_decisions, music tracks approved/pending), every episode with its 10 stages (passed/pending/failed/stale, from studio.py's state functions), the backlog grouped by who (model/human/laptop), and the open + blocked lists from docs/DECISIONS.md. Regenerate it whenever state changes and commit it.",
+   "done_when": "python3 studio/studio.py dashboard && test -s docs/dashboard.html"
+  },
+  {
+   "id": "music-body-cast",
+   "title": "Generate the body-cast music library (4 tracks)",
+   "status": "todo",
+   "who": "model",
+   "detail": "Tracks are in the bible (audio.music.tracks). Setup: bash studio/tools/music_setup.sh cpu; then ACESTEP_DIR=~/ACE-Step-1.5 ~/studio-audio-venv/bin/python studio/tools/music_gen.py body-cast. Leave approved:false; a human listens.",
+   "done_when": "python3 -c \"import json,sys;m=json.load(open('studio/assets/music/body-cast/manifest.json'));sys.exit(0 if len(m['tracks'])>=4 else 1)\""
+  },
+  {
+   "id": "music-ranked",
+   "title": "Generate the ranked music library (4 tracks)",
+   "status": "todo",
+   "who": "model",
+   "detail": "Same as music-body-cast with channel ranked.",
+   "done_when": "python3 -c \"import json,sys;m=json.load(open('studio/assets/music/ranked/manifest.json'));sys.exit(0 if len(m['tracks'])>=4 else 1)\""
+  },
+  {
+   "id": "music-approve",
+   "title": "Listen to and approve the body-cast and ranked tracks",
+   "status": "blocked",
+   "who": "human",
+   "detail": "Set approved:true and approved_by in each manifest after listening. Models never do this."
+  },
+  {
+   "id": "engine-flat-cast",
+   "title": "Engine theme flat-cast + scene types character_dialog, character_explain (body-cast)",
+   "status": "todo",
+   "who": "model",
+   "detail": "Port studio/stylelab/cast.js and sets.js into studio/engine (theme chosen by bible look.theme). Rules: studio/channels/body-cast/bible.json look.sets. Mark the types built in catalog.json only when a test episode renders with no engine warnings."
+  },
+  {
+   "id": "engine-data-flags",
+   "title": "Engine theme data-flags + scene types ranking_bars, ranking_race (ranked)",
+   "status": "todo",
+   "who": "model",
+   "detail": "Port the Flag Badges board (studio/stylelab/boards.js rankedBadges, flags.js). Flags must come from official geometry; extend flags.js per country as episodes need them."
+  },
+  {
+   "id": "engine-map-history",
+   "title": "Scene type map_history (animated historical borders) for why-map how_did",
+   "status": "todo",
+   "who": "model",
+   "detail": "Geometry from OpenHistoricalMap (CC0) via Overpass, cached like geo.py; Natural Earth merge fallback. See docs/research/historical-borders-2026-09.md."
+  },
+  {
+   "id": "sfx-sao",
+   "title": "Generate Stable Audio Open SFX",
+   "status": "blocked",
+   "who": "laptop",
+   "detail": "Too slow on CPU (678 s per 1.5 s clip). On the RTX 3060: python studio/tools/sfx_gen.py --device cuda. Commit the .ogg files and manifest."
+  },
+  {
+   "id": "fish-key",
+   "title": "Add OPENROUTER_API_KEY so narration uses Fish (Felix) instead of the Piper draft voice",
+   "status": "blocked",
+   "who": "human",
+   "detail": "Environment secret in the Claude Code environment settings. Never commit or print it."
+  },
+  {
+   "id": "baarle-label",
+   "title": "Fix the unsourced 'NETHERLANDS: NOT ALLOWED' label in the Baarle storyboard",
+   "status": "todo",
+   "who": "model",
+   "detail": "Episode why-map/baarle-border-houses fails the picture gate. Source it or remove it, re-render the sheet, re-run check."
+  },
+  {
+   "id": "srt-thumb",
+   "title": "SRT captions + thumbnail builder for the package stage",
+   "status": "todo",
+   "who": "model",
+   "detail": "Generate out/<slug>.srt from timeline.json captions and a 1080x1920 thumbnail from a storyboard frame + title; wire into sop/08-package.md."
+  },
+  {
+   "id": "channel-names",
+   "title": "Pick channel names and handles; create the three YouTube channels",
+   "status": "blocked",
+   "who": "human",
+   "detail": "Open decision in each bible."
+  }
+ ]
+}

@@ -2,6 +2,7 @@
 """The studio machine: one state machine per episode, one gate per stage.
 
 Any agent (or person) runs the same loop:
+    python3 studio/studio.py next              # no argument: the whole studio's next job (episodes + backlog)
     python3 studio/studio.py next  <episode>   # what to do now, which playbook, which files
     ...do the work the playbook describes...
     python3 studio/studio.py check <episode>   # run the gate; PASS moves the episode forward
@@ -11,6 +12,7 @@ Other commands:
     status [<episode>]         every episode (or one) with each stage's state, incl. STALE
     bible <channel>            validate a channel bible
     selftest                   run every gate on studio/examples/ (+ deliberate failures)
+    dashboard                  write docs/dashboard.html (channels, episodes, backlog, open decisions)
 
 <episode> is a path to an episode folder, or <channel>/<slug> under episodes/.
 Gates are deterministic. They never call a model. They only read the episode's files.
@@ -134,6 +136,54 @@ def cmd_next(ref):
         print("\nAn input changed after this stage passed. Re-check it; if it fails, redo the stage.")
 
 
+def all_episodes():
+    return sorted(os.path.dirname(p) for p in (os.path.join(dp, "episode.json") for dp, _, fs in os.walk(EPISODES) if "episode.json" in fs))
+
+
+def load_backlog():
+    p = os.path.join(HERE, "backlog.json")
+    return json.load(open(p))["tasks"] if os.path.exists(p) else []
+
+
+def work_queue():
+    """Everything open in the studio: (kind, who, ref, title, how). Model-doable items first."""
+    q = []
+    for ep in all_episodes():
+        st = load_state(ep); s = next_stage(ep, st)
+        if not s:
+            continue
+        rel = os.path.relpath(ep, ROOT)
+        rec = st["stages"].get(s["id"], {})
+        human = s["id"] == "topic" and os.path.exists(os.path.join(ep, "topic.json")) and \
+            any("approved" in m for m in rec.get("failed", [])) and len(rec.get("failed", [])) == 1
+        who = "human" if human or s["who"].startswith("tool or HUMAN") else "model"
+        q.append(("episode", who, rel, f"{s['id']} ({stage_state(ep, st, s)})", f"python3 studio/studio.py next {rel}"))
+    for t in load_backlog():
+        if t["status"] in ("todo", "doing", "blocked"):
+            who = t["who"] if t["status"] != "blocked" or t["who"] != "model" else "blocked"
+            q.append(("backlog", who, t["id"], t["title"], t["detail"]))
+    return sorted(q, key=lambda r: (r[1] != "model", r[0] != "episode"))
+
+
+def cmd_queue():
+    q = work_queue()
+    mine = [r for r in q if r[1] == "model"]
+    if mine:
+        kind, _, ref, title, how = mine[0]
+        print(f"NEXT JOB  [{kind}] {ref}: {title}\nHOW       {how}")
+        if kind == "backlog":
+            print("WHEN DONE set its status to done in studio/backlog.json (its done_when check must pass), then log it")
+        else:
+            print("")
+            cmd_next(os.path.join(ROOT, ref))
+    else:
+        print("No model-doable work. Everything open is waiting on a human or the laptop.")
+    print("\nALSO OPEN")
+    for kind, who, ref, title, _ in q[1 if mine else 0:]:
+        print(f"  {who:7} [{kind}] {ref}: {title}")
+    print("\nRules: studio/sop/00-rules.md. Decisions: docs/DECISIONS.md. Log every turn in docs/log/.")
+
+
 def cmd_status(ref=None):
     eps = [resolve(ref)] if ref else sorted(
         os.path.dirname(p) for p in (os.path.join(dp, "episode.json") for dp, _, fs in os.walk(EPISODES) if "episode.json" in fs))
@@ -239,7 +289,9 @@ if __name__ == "__main__":
     if not a or a[0] in ("-h", "--help", "help"):
         print(__doc__); sys.exit(0)
     cmd, rest = a[0], a[1:]
-    if cmd == "next": cmd_next(*rest)
+    if cmd == "next": cmd_next(*rest) if rest else cmd_queue()
+    elif cmd == "dashboard":
+        import dashboard; print(dashboard.build(ROOT))
     elif cmd == "check": sys.exit(0 if cmd_check(*rest) else 1)
     elif cmd == "status": cmd_status(*rest)
     elif cmd == "new": cmd_new(*rest)
