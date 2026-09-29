@@ -70,14 +70,14 @@
   {
    "id": "baarle-label",
    "title": "Fix the unsourced 'NETHERLANDS: NOT ALLOWED' label in the Baarle storyboard",
-   "status": "todo",
+   "status": "done",
    "who": "model",
    "detail": "Episode why-map/baarle-border-houses fails the picture gate. Source it or remove it, re-render the sheet, re-run check."
   },
   {
    "id": "srt-thumb",
    "title": "SRT captions + thumbnail builder for the package stage",
-   "status": "todo",
+   "status": "done",
    "who": "model",
    "detail": "Generate out/<slug>.srt from timeline.json captions and a 1080x1920 thumbnail from a storyboard frame + title; wire into sop/08-package.md."
   },

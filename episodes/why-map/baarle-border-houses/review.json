@@ -85,8 +85,38 @@
    "defects": [
     {
      "t": 28.54,
-     "issue": "CONTENT: split_compare right_label 'NETHERLANDS: NOT ALLOWED' is not supported by any dossier claim (the source only says a fireworks store in Baarle-Hertog is open all year). Storyboard must change.",
-     "fixed": false
+     "issue": "CONTENT: split_compare right_label 'NETHERLANDS: NOT ALLOWED' is not supported by any dossier claim (the source only says a fireworks store in Baarle-Hertog is open all year). Storyboard must change. -> relabelled 'NETHERLANDS: NEXT DOOR' (no claim beyond the sourced fireworks-store fact)",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-09-29T10:01:10Z",
+   "reviewer": "Claude (viewed contact sheet + full-size s2 frame)",
+   "frames": [
+    0.05,
+    2.02,
+    4.25,
+    6.16,
+    11.06,
+    14.55,
+    18.82,
+    19.78,
+    26.53,
+    28.54,
+    31.5,
+    33.72
+   ],
+   "defects": [
+    {
+     "t": 4.25,
+     "issue": "LITERALLY stamp (yellow) overlapped the last headline line; illegible",
+     "fixed": true
+    },
+    {
+     "t": 19.78,
+     "issue": "1995 stamp covered the 5,732 count",
+     "fixed": true
     }
    ]
   }

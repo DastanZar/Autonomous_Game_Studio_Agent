@@ -1386,3 +1386,17 @@ we are back here again, can you start a chat seperate one, with sonnet 5.5 at hi
 
 - Created session `session_018BeNFZjCYstEUyRiTmegJN` ("Studio worker (Sonnet 5.5)"), model claude-sonnet-5-5, pushing to main. The prompt is deliberately minimal, as a plug-and-play test: "Follow AGENTS.md… do the dashboard task first, then the model-doable queue."
 - `create_session` has no reasoning-effort setting, so "high" could not be set from here; the user can set it in that session.
+
+---
+
+### 🤖 Automated queue run · 2026-09-29 UTC
+
+Message (verbatim): "Follow AGENTS.md in the repo root and work through `python3 studio/studio.py next`. Do the `dashboard` backlog task first, then continue down the model-doable queue. Push straight to main, no PRs."
+
+#### Claude · record
+
+- **dashboard:** wrote `studio/dashboard.py`; `docs/dashboard.html` is generated and committed. I didn't screenshot it (no Playwright in the Python env), so the phone layout is unchecked visually.
+- **baarle-label:** relabelled the fireworks split to "NETHERLANDS: NEXT DOOR". Restored `build/` from the committed snapshots (Piper/Whisper are not installed here) and re-rendered the sheet. The sheet showed two more overlaps: the LITERALLY stamp on the headline and the 1995 stamp on the 5,732 count. I added an optional `dy` param to `stamp_reveal` (engine + catalog), moved both stamps, and made LITERALLY red. Round 2 logged. Picture gate passes. Final needs a full render and audio, so I stopped there.
+- **srt-thumb:** `studio/tools/package_assets.py` builds SRT (36 cues for Baarle) and a 1080x1920 thumbnail; wired into SOP 08. No ffmpeg here, so it uses Pillow. I haven't viewed the thumbnail.
+- **Skipped:** `music-body-cast` and `music-ranked` (ACE-Step setup and about 30 min of CPU generation), `engine-*` tasks, and the two other STALE voice re-checks; not started this turn.
+- A push was rejected once because the remote had moved; rebased and pushed. HEAD had been detached; back on `main`.

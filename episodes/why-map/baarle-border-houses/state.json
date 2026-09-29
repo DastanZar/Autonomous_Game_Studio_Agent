@@ -38,24 +38,33 @@
   },
   "storyboard": {
    "result": "pass",
-   "at": "2026-09-28T10:05:46Z",
+   "at": "2026-09-29T10:01:10Z",
    "hashes": {
     "script.json": "17d0ee41b6b4",
     "build/timeline.json": "f3126240ca43",
-    "storyboard.json": "9b1adb568d27"
+    "storyboard.json": "483070c84819"
    },
    "failed": []
   },
   "picture": {
-   "result": "fail",
-   "at": "2026-09-28T10:05:46Z",
+   "result": "pass",
+   "at": "2026-09-29T10:01:10Z",
    "hashes": {
-    "storyboard.json": "9b1adb568d27",
+    "storyboard.json": "483070c84819",
     "build/timeline.json": "f3126240ca43",
-    "review.json": "dfaa60d9d196"
+    "review.json": "8f85b1ec3206"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "fail",
+   "at": "2026-09-29T10:01:11Z",
+   "hashes": {
+    "review.json": "8f85b1ec3206",
+    "build/final_report.json": null
    },
    "failed": [
-    "last round has no open defects: CONTENT: split_compare right_label 'NETHERLANDS: NOT ALLOWED' is not supported by any dossier claim (the source only says a fireworks store in Baarle-Hertog is open all year). Storyboard must change."
+    "build/final_report.json is missing: run python3 studio/tools/final_check.py <episode>"
    ]
   }
  }

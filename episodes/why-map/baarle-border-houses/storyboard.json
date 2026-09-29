@@ -23,7 +23,8 @@
    "start": "literally.start-0.1",
    "params": {
     "text": "LITERALLY",
-    "color": "yellow"
+    "color": "red",
+    "dy": 380
    }
   },
   {
@@ -146,7 +147,8 @@
    "start": "finalized.start-0.1",
    "params": {
     "text": "1995",
-    "color": "navy"
+    "color": "navy",
+    "dy": 330
    }
   },
   {
@@ -173,7 +175,7 @@
    "start": "fireworks.start-0.15",
    "params": {
     "left_label": "BELGIUM: FIREWORKS ALL YEAR",
-    "right_label": "NETHERLANDS: NOT ALLOWED"
+    "right_label": "NETHERLANDS: NEXT DOOR"
    },
    "events": [
     {

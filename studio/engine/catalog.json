@@ -88,7 +88,8 @@
    "purpose": "Rubber-stamp punchline word slammed over the previous scene, which keeps playing underneath.",
    "params": {
     "text": "string, <= 3 words",
-    "color": "palette key"
+    "color": "palette key",
+    "dy": "optional px offset down from stage centre, to keep the stamp off the text underneath"
    }
   },
   "quote_card": {

@@ -16,8 +16,11 @@
    - then any label the viewer should know ("The kill count is Major Meredith's own claim.").
 3. **Hashtags:** at most `publishing.hashtags_max`, starting from the bible's `default_hashtags`.
 4. **Pinned comment:** one question that invites an opinion about the story, not "like and subscribe".
-5. **Captions file:** build the SRT from the timeline, one caption chunk per cue.
-6. **Thumbnail:** the first scene's frame at rest.
+5. **Captions file and thumbnail:** `python3 studio/tools/package_assets.py episodes/<ch>/<slug>` writes
+   `out/<slug>.srt` (one cue per caption chunk, timed from the timeline) and `out/thumbnail.jpg` (the
+   storyboard frame at the end of the first paragraph, when the title has landed; `--thumb-at S` to
+   choose another moment). Look at the thumbnail before you sign off.
+6. **Thumbnail:** check it works with no motion: readable title, nothing cropped.
 7. **Flags:**
    - `made_for_kids` exactly as the bible says;
    - `synthetic_media.voice` names the TTS voice;

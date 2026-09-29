@@ -25,13 +25,12 @@ what is still open. It is updated with every step we take; newest entries are at
   draft voice. To unblock, add `OPENROUTER_API_KEY` as an environment secret.
 - **Stable Audio Open SFX:** too slow on this CPU (678 s per 1.5 s clip). Run `studio/tools/sfx_gen.py`
   on your RTX 3060 laptop.
-- **Baarle episode:** the picture gate fails on one unsourced on-screen label ("NETHERLANDS: NOT
-  ALLOWED"). A worker fixes the storyboard.
 
 ## Decision log (newest first)
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-09-29 | Dashboard built (`studio.py dashboard` → `docs/dashboard.html`). Baarle label fixed ("NETHERLANDS: NEXT DOOR"; picture gate now passes). `stamp_reveal` gets an optional `dy` offset so stamps don't cover text underneath. `package_assets.py` builds SRT + thumbnail. | Autonomous queue run | `studio/dashboard.py`, `studio/tools/package_assets.py`, `episodes/why-map/baarle-border-houses/` |
 | 2026-09-29 | body-cast, settled on my recommendation (you delegated it). **All 5 animated sets** become a library: each topic has a home set, plus Spotlight for the hook, versus and the loop ending. Frame 1 shows the matchup with the characters already on screen. The set or camera changes every 3–5 s, the character fills at least 35% of the frame, and there are no pale backgrounds. **Series order:** X vs Y first, then What happens if, then Day in the life. **Launch voice:** Felix narrates, and the cast speaks in bubbles; revisit after about 20 episodes with retention data. | The references (Kurzgesagt, SolarBalls) share saturated grounds and immediate motion. "A vs B" is SolarBalls' top format. It stays within the voice quota. | `studio/channels/body-cast/bible.json` (`look.sets`, `series[].priority`) |
 | 2026-09-29 | why-map runs both lanes: **Border oddities** (existing) and a new **Why did / How did** historical-geopolitics series (Knowledgia's lane; history only, no live conflicts). Historical borders come from **OpenHistoricalMap (CC0)**, with Natural Earth merges as the fallback. CShapes is reference-only; historical-basemaps (GPL-3) isn't used. A new `map_history` scene type is planned. | Your decision; licence check | `studio/channels/why-map/bible.json`, `docs/research/historical-borders-2026-09.md` |
 | 2026-09-29 | **Organs confirmed** as the body-cast cast. **Flat Cast** for body-cast, **Flag Badges** for ranked (with the Broadcast versus card for Country vs country). body-cast backgrounds should be fun and animated, not the paper/Emu look; you'll pick from pictures first. | Your decision | `studio/channels/*/bible.json` (`look.direction`), `docs/design/` |

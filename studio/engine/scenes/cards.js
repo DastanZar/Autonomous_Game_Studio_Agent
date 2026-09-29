@@ -42,7 +42,7 @@ SCENE_FNS.stamp_reveal = (t, S) => {
   if (S.prev) drawScene(S.prev, t); else graphPaper();
   const hit = evT(S, "reveal", S.t0 + 0.08);
   withAlpha(0.18 * clamp((t - hit) * 6), () => { ctx.fillStyle = P.ink; ctx.fillRect(0, 0, W, H); });
-  stamp(String(S.p.text || "").toUpperCase(), W / 2, STAGE_CY, t - hit, { color: col(S.p.color), size: 190, maxW: W - 140 });
+  stamp(String(S.p.text || "").toUpperCase(), W / 2, STAGE_CY + (+S.p.dy || 0), t - hit, { color: col(S.p.color), size: 190, maxW: W - 140 });
 };
 
 SCENE_FNS.count_up = (t, S) => {

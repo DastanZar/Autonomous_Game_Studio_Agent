@@ -7,3 +7,4 @@ faster-whisper
 shapely          # tools/geo.py
 piper-tts==1.8.0 # draft voice (Fish needs an OpenRouter key)
 scipy            # tools/audio.py
+pillow
