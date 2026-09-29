@@ -1316,3 +1316,22 @@ go ahead
 - **Body-cast sets:** built 5 original animated sets in `studio/stylelab/sets.js` (bloodstream, neuron night, stomach acid, gut city, spotlight stage). Each was rendered as a still and a 5 s clip; the board is `docs/design/bc_sets_board.png`. The "pH 1.5" label on the stomach set is a sample and not yet sourced.
 - **Knowledgia check:** pulled its last 60 Shorts. The top 20 are all historical geopolitics on maps, "Why/How did <country or empire> …", ranging from 2.7M to 10M views (top: "Why wasn't Portugal Conquered by Spain?", 10M).
 - **Geopolitics recommendation** (in the chat reply): add a historical-geopolitics series to why-map. It needs a historical-borders dataset, and that dataset's licence hasn't been vetted yet.
+
+---
+
+### 🧑 User · 2026-09-29 UTC
+
+add both series to why-map, check the historical borders license
+
+#### Claude · record
+
+- **Bible:** why-map now has the series `the_time`, `why`, `border` (renamed "Border oddities") and a new **`how_did`** (historical geopolitics, with rules: history only, dated data, "approximate" labels, contested claims named). The promise is widened to match. New `look.historical_borders` block. `map_history` added to the scene types and to the engine catalog as planned. Selftest OK.
+- **Licences checked:**
+  - OpenHistoricalMap is CC0 (per its FAQ).
+  - aourednik/historical-basemaps is GPL-3.0 (its LICENSE file), so it isn't used.
+  - The CShapes 2.0 site states no licence, and its CRAN package is GPL (≥ 2), so it's reference-only.
+  - Thenmap: no licence found.
+- **OHM coverage probed** via Overpass: Mexico 28 relations, Roman Empire 19, Ottoman 32, Thailand 13, Switzerland 7, Portugal only from 1910.
+- **Process notes:**
+  - A GitHub API licence lookup for a Thenmap repo was refused (outside this session's repo scope), and I didn't retry.
+  - One of my replies this turn was stopped by a safety classifier; its file edits had already run and were reviewed before commit.

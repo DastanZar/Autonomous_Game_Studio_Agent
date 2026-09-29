@@ -137,6 +137,15 @@
    "params": {
     "echo_of": "scene id of the opening scene"
    }
+  },
+  "map_history": {
+   "status": "planned",
+   "purpose": "Borders morph or recolour between dated snapshots of a territory, with a year counter; geometry from OpenHistoricalMap (CC0) or merged Natural Earth units.",
+   "params": {
+    "snapshots": "list of {date, relation_id or iso list}",
+    "focus": "bbox or iso",
+    "approximate": "bool: shows the 'approximate' label"
+   }
   }
  },
  "props": [

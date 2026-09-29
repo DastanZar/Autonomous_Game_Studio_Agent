@@ -2,7 +2,7 @@
  "id": "why-map",
  "name": "Why the Map Looks Like That (working name)",
  "status": "draft",
- "promise": "A true story about a place or a moment in history so strange it sounds made up, explained in under a minute on a real map.",
+ "promise": "A true story about a place, a border or a moment in history so strange it sounds made up, or the real reason a country's map looks the way it does, explained in under a minute on a real map.",
  "audience": "Curious adults 18-45, English-speaking, who watch Half as Interesting, Knowledgia, RealLifeLore.",
  "benchmarks": [
   {
@@ -83,7 +83,15 @@
     "note": "px at 1080x1920; keep text out of the platform UI (title, buttons, progress bar)"
    }
   },
-  "notes": "Reference implementation: shorts/emu-war/render/emu.js and videos/root-keys/render/lib.js. Maps are Natural Earth only."
+  "notes": "Reference implementation: shorts/emu-war/render/emu.js and videos/root-keys/render/lib.js. Maps are Natural Earth only.",
+  "historical_borders": {
+   "primary": "OpenHistoricalMap (CC0 unless an element carries its own license tag; check the tag per relation). Overpass: https://overpass-api.openhistoricalmap.org/api/interpreter",
+   "fallback": "Natural Earth admin-1 units (public domain) merged to approximate a historical extent when the historical line follows modern internal boundaries; label 'approximate'.",
+   "reference_only": "CShapes 2.0 (ETH Zurich, 1886-2019) as a fact-check reference for dates and extents; do not render its geometry until its licence is confirmed with the authors.",
+   "not_allowed": "aourednik/historical-basemaps (GPL-3.0, self-described approximate work in progress): copyleft terms are unclear for rendered monetised video.",
+   "credit": "Historical borders: OpenHistoricalMap contributors",
+   "detail": "docs/research/historical-borders-2026-09.md"
+  }
  },
  "series": [
   {
@@ -120,7 +128,7 @@
   },
   {
    "id": "border",
-   "name": "Border weirdness",
+   "name": "Border oddities",
    "title_pattern": "This border <does something absurd>",
    "beats": [
     "hook",
@@ -131,6 +139,31 @@
    ],
    "example_titles": [
     "The Dutch village with houses split in two countries"
+   ]
+  },
+  {
+   "id": "how_did",
+   "name": "Why did / How did (historical geopolitics)",
+   "title_pattern": "Why/How did <country or empire> <do something that shaped its map>?",
+   "beats": [
+    "hook: the map question, asked over today's map (0-2 s)",
+    "the obvious answer (wrong or incomplete)",
+    "the real reason in 3 map moves: borders animate between dated snapshots",
+    "the turning point: one date, one decision, one number",
+    "the consequence you can still see on today's map",
+    "callback to the opening map"
+   ],
+   "example_titles": [
+    "Why wasn't Portugal conquered by Spain?",
+    "How did the US take half of Mexico in two years?",
+    "Why was Thailand never colonised?"
+   ],
+   "benchmark": "Knowledgia (Shorts median 1.55M; its top 20 of the last 60 Shorts are all this pattern, 2.7M-10M, measured 2026-09-29)",
+   "rules": [
+    "History only: stories that ended at least ~25 years ago. No active wars or live disputes.",
+    "Every border shown comes from a dated dataset (see look.historical_borders); the on-screen date is the dataset's date.",
+    "Approximate borders (pre-modern, contested) are labelled 'approximate' on screen.",
+    "Name the contested view when borders were disputed at the time; never present one side's claim as the border."
    ]
   }
  ],
@@ -185,6 +218,7 @@
   "title_card",
   "map_focus",
   "map_route",
+  "map_history",
   "count_up",
   "versus",
   "stamp_reveal",
@@ -244,7 +278,8 @@
  },
  "open_decisions": [
   "Final channel name and handle (user)",
-  "Keep Felix or pick another voice from videos/voice-test/ (user)"
+  "Keep Felix or pick another voice from videos/voice-test/ (user)",
+  "map_history scene type (animated border changes between dated snapshots) must be built in the engine before the first how_did episode"
  ],
  "audio": {
   "music_under_voice_db": 8,
