@@ -1245,3 +1245,19 @@ i want the part where we decided based on actual research and examples of what t
 #### Claude · 2026-09-29 07:54 UTC
 
 The channel research happened in this chat and is already in the repo. I'm now turning the full conversation into a permanent, detailed log.
+
+---
+
+### 🧑 User · 2026-09-29 (after 07:53) UTC
+
+i want the part where we decided based on actual research and examples of what the 3 channels would be about, that data might be there in https://claude.ai/code/session_01NnimUSj3YBfLuuUNUwKv82 if not in this chat, so i want to start from there and maintain clear and detailed logs of everything no matter how minor
+
+#### Claude · record
+
+- Checked the linked session. It is the earlier "MAREA submarine cable explainer" chat (2026-09-25 → 29), and only its metadata is readable from here, not its transcript. The channel research happened in **this** chat (2026-09-28, 06:26–07:26 UTC) and was already committed (`docs/research/shorts-niches-2026-09.md`, `docs/plan/launch-plan.html`).
+- Wrote `docs/research/channel-selection.md`: the decision trail from the 5 ideas → independent scan → 3 picks → growth levers, with the benchmark numbers.
+- Exported this chat's full conversation to this file, with secrets redacted. The exporter falsely redacted one URL (a long miraflow slug), which I restored. One user message ("accepted the license for stable audio open") isn't in the transcript text, so it isn't here.
+- An attempt to print secret-like strings for a manual redaction check was blocked by the permission system. The export redacts automatically instead.
+- Added rules to `CLAUDE.md`: keep `docs/log/` and `docs/DECISIONS.md` current every turn.
+- Surfaced a new open item: the body cast (organs) was never explicitly confirmed by the user.
+- Commits: 76afac5, a7a2e54.
