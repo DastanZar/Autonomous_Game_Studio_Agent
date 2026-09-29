@@ -19,7 +19,9 @@
     "whisper_ignored": []
    },
    "sha1": "6ef6abeb219d",
-   "approved": false
+   "approved": true,
+   "approved_by": "user (listened; approved in chat)",
+   "approved_at": "2026-09-29"
   },
   {
    "id": "detective",
@@ -45,7 +47,9 @@
     ]
    },
    "sha1": "78e51a73c8e4",
-   "approved": false
+   "approved": true,
+   "approved_by": "user (listened; approved in chat)",
+   "approved_at": "2026-09-29"
   },
   {
    "id": "march",
@@ -71,7 +75,9 @@
     ]
    },
    "sha1": "30623526595e",
-   "approved": false
+   "approved": true,
+   "approved_by": "user (listened; approved in chat)",
+   "approved_at": "2026-09-29"
   },
   {
    "id": "spy",
@@ -91,7 +97,9 @@
     "whisper_ignored": []
    },
    "sha1": "2da474425d78",
-   "approved": false
+   "approved": true,
+   "approved_by": "user (listened; approved in chat)",
+   "approved_at": "2026-09-29"
   }
  ]
 }
