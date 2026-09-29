@@ -1261,3 +1261,21 @@ i want the part where we decided based on actual research and examples of what t
 - Added rules to `CLAUDE.md`: keep `docs/log/` and `docs/DECISIONS.md` current every turn.
 - Surfaced a new open item: the body cast (organs) was never explicitly confirmed by the user.
 - Commits: 76afac5, a7a2e54.
+
+---
+
+### 🧑 User · 2026-09-29 UTC
+
+so out of our 3 finalised niches, the one requiring zack, style 3D - is the blocker of not being able to use blender? where my home computer could help
+also for which niche and topic are we using the body-cast cast option and why is it organs?
+
+#### Claude · record
+
+- Clarified that the Zack-style 3D niche is **not** one of the 3 channels; it was parked as channel 4.
+- Blockers:
+  - render time on this CPU, which the RTX 3060 addresses;
+  - rigged, animated 3D characters and sets, which is the bigger blocker (free sources exist);
+  - daily production effort.
+- Measured the untested claim "the body is Zack's top theme" on his last 150 Shorts. Body-themed titles: n=14, median 6.85M, against 5.25M for the others; 3 of the top 20. So "top theme" was overstated: body topics beat his average by about 30% but are about 9% of his output. Wrote the correction into `docs/research/channel-selection.md`.
+- A first attempt at the analysis failed on a parsing error: the yt-dlp output had a literal `\t` instead of a tab. Fixed and re-run.
+- The body-cast explanation (channel B, niche, why organs) is given in the chat reply.

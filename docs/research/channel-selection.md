@@ -86,6 +86,25 @@ The rule: take the closest benchmark's median, then keep only what our pipeline 
 - Daily AI news: weak numbers, and daily fact-checking is too costly.
 - Word origins and aviation: good backups.
 
+## Check added 2026-09-29: is the body really Zack D. Films' best theme?
+
+The original pick said "the body is Zack D. Films' top-performing theme". That was **not measured** at the
+time, so I measured it on 2026-09-29:
+- **Sample:** his last 150 Shorts, pulled with `yt-dlp`.
+- **Method:** titles classified by a body-keyword list. This is crude: keywords, not a manual read.
+
+| | Shorts | Median views |
+|---|---|---|
+| All | 150 | 5.35M |
+| Body-themed | 14 | **6.85M** |
+| Everything else | 136 | 5.25M |
+
+Body-themed Shorts are 3 of his top 20.
+
+**Corrected claim:** body topics get about 30% more views than his other topics, but they are only
+about 9% of his output. It's a small sample (14), so this is suggestive, not proof. It still supports the
+pick: the demand is proven, and nobody runs it as a recurring-cast series.
+
 ## Step 4: how views are earned (organic only)
 
 - **How distribution works:** YouTube tests each Short on a small audience, then widens it based on
