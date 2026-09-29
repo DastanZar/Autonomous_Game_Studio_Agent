@@ -1,0 +1,85 @@
+{
+ "_doc": "Channel music library. approved=true only after a human listen.",
+ "tracks": [
+  {
+   "id": "heartbeat",
+   "file": "heartbeat.ogg",
+   "prompt": "soft pulsing bass like a heartbeat, warm vibraphone, light brushed percussion, gentle wonder, instrumental",
+   "bpm": 88,
+   "seed": 23,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 55.08,
+   "gen_seconds": 227,
+   "checks": {
+    "words_heard": "",
+    "whisper_ignored": [],
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.0,
+    "ok": true
+   },
+   "sha1": "6838e05b0205",
+   "approved": false
+  },
+  {
+   "id": "inside",
+   "file": "inside.ogg",
+   "prompt": "gentle quirky electronic, soft bleeps, round bass, xylophone, playful, instrumental",
+   "bpm": 96,
+   "seed": 22,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 58.21,
+   "gen_seconds": 234,
+   "checks": {
+    "words_heard": "",
+    "whisper_ignored": [],
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 1.0,
+    "ok": true
+   },
+   "sha1": "0849b2442cb2",
+   "approved": false
+  },
+  {
+   "id": "lab",
+   "file": "lab.ogg",
+   "prompt": "whimsical science underscore, pizzicato, marimba, plucked synth, light percussion, curious and bouncy, instrumental",
+   "bpm": 104,
+   "seed": 21,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 55.64,
+   "gen_seconds": 237,
+   "checks": {
+    "words_heard": "",
+    "whisper_ignored": [],
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.5,
+    "ok": true
+   },
+   "sha1": "8e2a366e8011",
+   "approved": false
+  },
+  {
+   "id": "showdown",
+   "file": "showdown.ogg",
+   "prompt": "playful mock-epic showdown, snare rolls, comedic brass hits, pizzicato, energetic, instrumental",
+   "bpm": 120,
+   "seed": 24,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 54.42,
+   "gen_seconds": 241,
+   "checks": {
+    "words_heard": "",
+    "whisper_ignored": [],
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.0,
+    "ok": true
+   },
+   "sha1": "16759d1cd539",
+   "approved": false
+  }
+ ]
+}

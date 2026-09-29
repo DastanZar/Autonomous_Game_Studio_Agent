@@ -1400,3 +1400,16 @@ Message (verbatim): "Follow AGENTS.md in the repo root and work through `python3
 - **srt-thumb:** `studio/tools/package_assets.py` builds SRT (36 cues for Baarle) and a 1080x1920 thumbnail; wired into SOP 08. No ffmpeg here, so it uses Pillow. I haven't viewed the thumbnail.
 - **Skipped:** `music-body-cast` and `music-ranked` (ACE-Step setup and about 30 min of CPU generation), `engine-*` tasks, and the two other STALE voice re-checks; not started this turn.
 - A push was rejected once because the remote had moved; rebased and pushed. HEAD had been detached; back on `main`.
+
+---
+
+### 🧑 User · 2026-09-29 UTC
+
+continue down the queue with the music tasks
+
+#### Claude · record
+
+- Ran `music_setup.sh cpu`, then `music_gen.py` for body-cast and ranked. The bibles listed only 2 tracks each, so I added 2 per channel (heartbeat, showdown, countdown, finale) to meet the 4-track `done_when`. Prompts and seeds are in the bibles.
+- The finish phase failed twice: `vocal_check.py` ran under system Python (no Whisper), then the venv lacked `imageio-ffmpeg`. I re-ran `--finish` and fixed both in the tools. The generated audio was not lost.
+- Result: 8 tracks, 54-58 s each, no words heard, no clipping, longest dropout 1.5 s. I can't hear them, so all stay `approved: false`; `music-approve` is waiting on you.
+- Stop hook flagged uncommitted bible edits mid-run; I committed and pushed those separately.

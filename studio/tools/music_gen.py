@@ -69,7 +69,7 @@ if not args.finish:
 
 # ---------------- phase 2: check, trim, encode, register
 man = json.load(open(man_p)) if os.path.exists(man_p) else {"_doc": "Channel music library. approved=true only after a human listen.", "tracks": []}
-check = [os.environ.get("STUDIO_PY", "python3"), os.path.join(STUDIO, "tools", "vocal_check.py")]
+check = [os.environ.get("STUDIO_PY", sys.executable), os.path.join(STUDIO, "tools", "vocal_check.py")]
 for meta_p in sorted(glob.glob(os.path.join(tmp, "*.json"))):
     tr = json.load(open(meta_p))
     wav = meta_p[:-5] + ".wav"

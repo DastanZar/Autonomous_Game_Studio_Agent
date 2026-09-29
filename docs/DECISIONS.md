@@ -15,6 +15,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | # | Decision | Options / recommendation | Detail |
 |---|---|---|---|
+| 2026-09-29 | body-cast and ranked music libraries generated: 4 tracks each (lab, inside, heartbeat, showdown / scoreboard, tally, countdown, finale; two added per channel to reach four). All pass the automatic checks and are **unapproved** until you listen. `music_gen.py` now defaults to the venv Python for the vocal check and setup installs `imageio-ffmpeg`. | Backlog music tasks | `studio/assets/music/{body-cast,ranked}/manifest.json` |
 | 3 | (decided 2026-09-29: narrator + speech bubbles at launch) body-cast cast voices | Recommended: narrator only (Felix), with characters speaking in typeset speech bubbles. Voiced cast later. | same doc, "Story style" |
 | 4 | Channel names and handles, all 3 | Working names: Why the Map Looks Like That / The Body Cast / Ranked | `studio/channels/*/bible.json` → `open_decisions` |
 | 5 | Keep Felix as the narrator voice for all channels? | Alternatives are in `videos/voice-test/` | why-map bible |

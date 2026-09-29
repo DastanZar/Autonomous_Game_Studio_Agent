@@ -19,6 +19,6 @@ keep = [d.split(";")[0].strip() for d in deps if not d.startswith(("torch", "tor
         and ("sys_platform" not in d or ("linux" in d and "x86_64" in d))]
 subprocess.run([sys.executable, "-m", "pip", "install", "-q"] + keep, check=True)
 PY
-pip install -q torchsde soundfile faster-whisper
+pip install -q torchsde soundfile faster-whisper imageio-ffmpeg
 echo "ready: ACESTEP_DIR=~/ACE-Step-1.5 ~/studio-audio-venv/bin/python studio/tools/music_gen.py <channel>"
 echo "       (the first run downloads the turbo model; the unused 1.7B LM can be deleted from ~/ACE-Step-1.5/checkpoints)"

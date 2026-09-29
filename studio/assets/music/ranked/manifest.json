@@ -1,0 +1,85 @@
+{
+ "_doc": "Channel music library. approved=true only after a human listen.",
+ "tracks": [
+  {
+   "id": "countdown",
+   "file": "countdown.ogg",
+   "prompt": "punchy countdown underscore, tight drums, synth stabs, rising tension, modern, instrumental",
+   "bpm": 124,
+   "seed": 33,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 58.16,
+   "gen_seconds": 240,
+   "checks": {
+    "words_heard": "",
+    "whisper_ignored": [],
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.0,
+    "ok": true
+   },
+   "sha1": "512da9ac5d72",
+   "approved": false
+  },
+  {
+   "id": "finale",
+   "file": "finale.ogg",
+   "prompt": "triumphant winner reveal, big brass fanfare, bright synth arpeggios, celebratory, instrumental",
+   "bpm": 116,
+   "seed": 34,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 55.63,
+   "gen_seconds": 245,
+   "checks": {
+    "words_heard": "",
+    "whisper_ignored": [],
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.0,
+    "ok": true
+   },
+   "sha1": "6429488e4f79",
+   "approved": false
+  },
+  {
+   "id": "scoreboard",
+   "file": "scoreboard.ogg",
+   "prompt": "upbeat sports broadcast underscore, driving drums, staccato brass, synth bass, competitive, instrumental",
+   "bpm": 118,
+   "seed": 31,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 57.19,
+   "gen_seconds": 251,
+   "checks": {
+    "words_heard": "",
+    "whisper_ignored": [],
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.5,
+    "ok": true
+   },
+   "sha1": "78f723bd304e",
+   "approved": false
+  },
+  {
+   "id": "tally",
+   "file": "tally.ogg",
+   "prompt": "light tension game-show underscore, ticking hi-hat, pizzicato, piano stabs, instrumental",
+   "bpm": 110,
+   "seed": 32,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 55.01,
+   "gen_seconds": 244,
+   "checks": {
+    "words_heard": "",
+    "whisper_ignored": [],
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 1.5,
+    "ok": true
+   },
+   "sha1": "403fb532eb7d",
+   "approved": false
+  }
+ ]
+}

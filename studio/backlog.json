@@ -12,7 +12,7 @@
   {
    "id": "music-body-cast",
    "title": "Generate the body-cast music library (4 tracks)",
-   "status": "todo",
+   "status": "done",
    "who": "model",
    "detail": "Tracks are in the bible (audio.music.tracks). Setup: bash studio/tools/music_setup.sh cpu; then ACESTEP_DIR=~/ACE-Step-1.5 ~/studio-audio-venv/bin/python studio/tools/music_gen.py body-cast. Leave approved:false; a human listens.",
    "done_when": "python3 -c \"import json,sys;m=json.load(open('studio/assets/music/body-cast/manifest.json'));sys.exit(0 if len(m['tracks'])>=4 else 1)\""
@@ -20,7 +20,7 @@
   {
    "id": "music-ranked",
    "title": "Generate the ranked music library (4 tracks)",
-   "status": "todo",
+   "status": "done",
    "who": "model",
    "detail": "Same as music-body-cast with channel ranked.",
    "done_when": "python3 -c \"import json,sys;m=json.load(open('studio/assets/music/ranked/manifest.json'));sys.exit(0 if len(m['tracks'])>=4 else 1)\""
