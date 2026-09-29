@@ -81,7 +81,8 @@
     "note": "px at 1080x1920; keep text out of the platform UI (title, buttons, progress bar)"
    }
   },
-  "notes": "Character designs are original. No real people, no lookalikes of other channels' characters."
+  "notes": "Character designs are original. No real people, no lookalikes of other channels' characters.",
+  "direction": "A · Flat Cast (user-approved 2026-09-29): flat vector, 8 px rounded ink outlines, crescent shade + highlight, big cartoon eyes, rubber-hose limbs. Reference: studio/stylelab (bc_flat_*), docs/design/body-cast-ranked-directions.md"
  },
  "cast": [
   {
@@ -281,10 +282,10 @@
   ]
  },
  "open_decisions": [
-  "Organs vs another cast (user)",
-  "Character designs: sketch sheet for approval before the first episode",
+  "Character designs: approved in style (Flat Cast); final sheet per character before the first episode",
   "Voices for each cast member (Fish library voices or Piper)",
-  "Channel name (user)"
+  "Channel name (user)",
+  "Backgrounds: fun animated sets (not the paper/emu look); user picks from style frames"
  ],
  "audio": {
   "music_under_voice_db": 8,

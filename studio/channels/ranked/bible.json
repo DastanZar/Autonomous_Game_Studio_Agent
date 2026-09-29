@@ -74,7 +74,8 @@
     "note": "px at 1080x1920; keep text out of the platform UI (title, buttons, progress bar)"
    }
   },
-  "notes": "Flags from a public-domain flag set, redrawn in code. Every chart shows its data source on screen."
+  "notes": "Flags from a public-domain flag set, redrawn in code. Every chart shows its data source on screen.",
+  "direction": "A · Flag Badges (user-approved 2026-09-29): bar chart on off-white, round flag badges with faces (8 moods) riding bar tips; the Broadcast versus card is reused for the Country vs country series. Reference: studio/stylelab (rk_badge_*, rk_broadcast_versus)"
  },
  "cast": [
   {
@@ -231,7 +232,6 @@
   ]
  },
  "open_decisions": [
-  "Flag characters (faces) vs clean data look (user)",
   "Channel name (user)"
  ],
  "audio": {

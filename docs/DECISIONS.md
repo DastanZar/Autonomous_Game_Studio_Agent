@@ -15,11 +15,10 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | # | Decision | Options / recommendation | Detail |
 |---|---|---|---|
-| 1 | body-cast visual direction | A Flat Cast (recommended) or B Paper Anatomy | `docs/design/body-cast-ranked-directions.md`, board `docs/design/bc_board.png` |
-| 2 | ranked visual direction | A Flag Badges (recommended), plus B's versus card; or B Broadcast | same doc, board `docs/design/rk_board.png` |
+| 1 | body-cast backgrounds: pick from style frames (fun animated inside-the-body sets) | Concepts to be drawn in the Flat Cast style | this log |
+| 2 | why-map scope: lean into Knowledgia-style geopolitics, or keep quirky borders? | To be shown with examples | `docs/research/channel-selection.md` |
 | 3 | body-cast cast voices | Recommended: narrator only (Felix), with characters speaking in typeset speech bubbles. Voiced cast later. | same doc, "Story style" |
 | 4 | Channel names and handles, all 3 | Working names: Why the Map Looks Like That / The Body Cast / Ranked | `studio/channels/*/bible.json` → `open_decisions` |
-| 6 | Confirm the body cast (organs) vs another cast. You were asked on 2026-09-28 and it isn't explicitly answered yet. | We've proceeded with organs | `docs/research/channel-selection.md` |
 | 5 | Keep Felix as the narrator voice for all channels? | Alternatives are in `videos/voice-test/` | why-map bible |
 
 ## Blocked (needs something from outside this container)
@@ -35,6 +34,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-09-29 | **Organs confirmed** as the body-cast cast. **Flat Cast** for body-cast, **Flag Badges** for ranked (with the Broadcast versus card for Country vs country). body-cast backgrounds should be fun and animated, not the paper/Emu look; you'll pick from pictures first. | Your decision | `studio/channels/*/bible.json` (`look.direction`), `docs/design/` |
 | 2026-09-29 | Two style directions per channel mocked for body-cast and ranked (character rig: 8 moods, blink, talk, walk). Music for these channels waits until you pick. | You asked to settle the visuals, characters, animation and story style before music | `docs/design/body-cast-ranked-directions.md`, `studio/stylelab/` |
 | 2026-09-29 | All 4 why-map music tracks approved (caper, spy, detective, march) | You listened and approved | `studio/assets/music/why-map/manifest.json` |
 | 2026-09-29 | Audio stack: ACE-Step 1.5 for music (MIT, one library of 4 tracks per channel), Kenney CC0 for SFX, Stable Audio Open for missing SFX, code-synth fallback. Music sits about 8 dB under the voice. | Best free option that allows commercial use; no Content ID risk | `docs/research/audio-stack-2026-09.md`, `studio/tools/audio.py`, `music_gen.py` |

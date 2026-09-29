@@ -1279,3 +1279,27 @@ also for which niche and topic are we using the body-cast cast option and why is
 - Measured the untested claim "the body is Zack's top theme" on his last 150 Shorts. Body-themed titles: n=14, median 6.85M, against 5.25M for the others; 3 of the top 20. So "top theme" was overstated: body topics beat his average by about 30% but are about 9% of his output. Wrote the correction into `docs/research/channel-selection.md`.
 - A first attempt at the analysis failed on a parsing error: the yt-dlp output had a literal `\t` instead of a tab. Fixed and re-run.
 - The body-cast explanation (channel B, niche, why organs) is given in the chat reply.
+
+---
+
+### 🧑 User · 2026-09-29 UTC
+
+organs confirmed, go with flat cast and flag badges
+what about channels like knowledgia? maps content explaining geopolitics
+for the science explainer channel, i would like much more fun animated backgrounds and such, not the type we had for the emu videos
+can you just share a few examples, we can decide just from pictures or examples before we go ahead and generate videos - just for inspiration, not for copying
+
+#### Claude · record
+
+- Recorded the decisions in the bibles: body-cast `look.direction` = Flat Cast; ranked `look.direction` = Flag Badges; the organs and flag-faces open decisions closed; a new open decision added for body-cast backgrounds.
+- Tried to fetch reference Shorts (Kurzgesagt body topics, SolarBalls) to extract frames. YouTube refused the downloads from this server ("Sign in to confirm you're not a bot"). Title and view lists did download.
+- Two of my replies this session were stopped by a safety classifier. No reason was given. The user asked what in their prompt was problematic. Answer: the flag was on my output, not their prompt; the cause isn't shown to me.
+- Proposed next step, awaiting the user's go-ahead: reference thumbnails and links (private, not committed), 3–4 original flat-cast background concepts, and a why-map geopolitics scope comparison.
+
+### 🧑 User · 2026-09-29 UTC
+
+can you let me know what part of the prompt is problematic?
+
+#### Claude · record
+
+- Answered as above. Waiting for the user's go-ahead on the proposed next step.
