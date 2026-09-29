@@ -91,3 +91,18 @@ series, where there are only two badges on screen.
    `character_explain`, `ranking_bars` and `ranking_race`.
 2. Put the cast designs and moods into each bible, which closes its `open_decisions`.
 3. Build each channel's music library (bible prompts: lab/inside, scoreboard/tally).
+
+## Decided 2026-09-29
+- body-cast: **Flat Cast**, organs confirmed. ranked: **Flag Badges**, plus the Broadcast versus card for Country vs country.
+- body-cast backgrounds must be fun and animated, not the paper/Emu look.
+  - Reference study (thumbnails only, kept private): Kurzgesagt body Shorts and SolarBalls. Their common traits:
+    - deep indigo or purple grounds, or one saturated colour block;
+    - neon subjects with glows;
+    - a big radial blob behind the subject.
+  - Five original set concepts, in `studio/stylelab/sets.js` (board: `docs/design/bc_sets_board.png`):
+    1. **Bloodstream:** a tunnel with three parallax layers of red cells.
+    2. **Neuron Night:** glowing neurons with pulses along the axons.
+    3. **Stomach Acid:** churning folds over a bubbling pool.
+    4. **Gut City:** swaying villi hills with microbe crowds.
+    5. **Spotlight Stage:** spinning rays and a wobbling blob, for titles and versus.
+  - The pale pink cell background from the first test is retired.

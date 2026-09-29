@@ -1303,3 +1303,16 @@ can you let me know what part of the prompt is problematic?
 #### Claude · record
 
 - Answered as above. Waiting for the user's go-ahead on the proposed next step.
+
+---
+
+### 🧑 User · 2026-09-29 UTC
+
+go ahead
+
+#### Claude · record
+
+- **References:** fetched thumbnails for 6 Kurzgesagt body Shorts and 2 SolarBalls Shorts (views from yt-dlp lists) and tiled them into a board. It's private in the scratchpad and not committed, because they're other creators' images. PIL isn't installed, so I tiled with ffmpeg; that means no labels on the board, and the captions are in the chat.
+- **Body-cast sets:** built 5 original animated sets in `studio/stylelab/sets.js` (bloodstream, neuron night, stomach acid, gut city, spotlight stage). Each was rendered as a still and a 5 s clip; the board is `docs/design/bc_sets_board.png`. The "pH 1.5" label on the stomach set is a sample and not yet sourced.
+- **Knowledgia check:** pulled its last 60 Shorts. The top 20 are all historical geopolitics on maps, "Why/How did <country or empire> …", ranging from 2.7M to 10M views (top: "Why wasn't Portugal Conquered by Spain?", 10M).
+- **Geopolitics recommendation** (in the chat reply): add a historical-geopolitics series to why-map. It needs a historical-borders dataset, and that dataset's licence hasn't been vetted yet.
