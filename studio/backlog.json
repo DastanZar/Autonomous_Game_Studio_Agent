@@ -4,7 +4,7 @@
   {
    "id": "dashboard",
    "title": "Build `python3 studio/studio.py dashboard` -> docs/dashboard.html",
-   "status": "todo",
+   "status": "done",
    "who": "model",
    "detail": "studio.py already dispatches `dashboard` to studio/dashboard.py:build(root) (not written yet). One self-contained HTML page (no external assets except Google Fonts), readable on a phone, light and dark: per channel (bible status, open_decisions, music tracks approved/pending), every episode with its 10 stages (passed/pending/failed/stale, from studio.py's state functions), the backlog grouped by who (model/human/laptop), and the open + blocked lists from docs/DECISIONS.md. Regenerate it whenever state changes and commit it.",
    "done_when": "python3 studio/studio.py dashboard && test -s docs/dashboard.html"
