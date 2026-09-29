@@ -51,14 +51,14 @@
    "id": "en_US-ryan-high",
    "length_scale": 0.9
   },
-  "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash. Narrator is Felix; each cast member gets its own voice in 'cast[].voice' once chosen."
+  "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash. Narrator is Felix; each cast member gets its own voice in 'cast[].voice' once chosen. Launch format: Felix narrates every sourced fact; cast lines are typeset speech bubbles (no second voice). Revisit a voiced cast after ~20 episodes using retention data."
  },
  "look": {
   "theme": "flat-cast",
-  "texture": "flat vector shapes, soft grain, thick rounded outlines, big expressive eyes",
+  "texture": "flat vector cast (8 px rounded ink outlines, big eyes) on saturated, always-moving animated sets; bright subjects on deep or bold grounds",
   "palette": {
    "ink": "#1d1b2e",
-   "bg": "#fbe9e4",
+   "bg": "#241a5c",
    "flesh": "#f2a38f",
    "blood": "#d2383f",
    "bone": "#f4ecd8",
@@ -82,7 +82,25 @@
    }
   },
   "notes": "Character designs are original. No real people, no lookalikes of other channels' characters.",
-  "direction": "A · Flat Cast (user-approved 2026-09-29): flat vector, 8 px rounded ink outlines, crescent shade + highlight, big cartoon eyes, rubber-hose limbs. Reference: studio/stylelab (bc_flat_*), docs/design/body-cast-ranked-directions.md"
+  "direction": "A \u00b7 Flat Cast (user-approved 2026-09-29): flat vector, 8 px rounded ink outlines, crescent shade + highlight, big cartoon eyes, rubber-hose limbs. Reference: studio/stylelab (bc_flat_*), docs/design/body-cast-ranked-directions.md",
+  "sets": {
+   "library": {
+    "bloodstream": "heart, blood, circulation, oxygen",
+    "neurons": "brain, nerves, sleep, memory, pain",
+    "stomach": "stomach, digestion, food, acid",
+    "gut": "microbes, intestines, immune crowd scenes",
+    "spotlight": "hook, versus matchups, verdicts, the loop ending"
+   },
+   "rules": [
+    "Frame 1: the Spotlight set with the matchup title and both characters already on screen (no build-up).",
+    "Cut to the topic's home set for the explanation; change set or camera every 3-5 s.",
+    "The speaking character fills at least 35% of the frame height.",
+    "Bright subject on a deep or saturated ground; never a pale background.",
+    "End on the Spotlight set so the loop back to frame 1 is seamless.",
+    "New sets (lungs, kidneys, skin, bone marrow) are added to the library as topics need them, built in studio/stylelab/sets.js first."
+   ],
+   "reference": "studio/stylelab/sets.js, docs/design/bc_sets_board.png"
+  }
  },
  "cast": [
   {
@@ -134,7 +152,8 @@
    ],
    "example_titles": [
     "Liver vs Brain: who uses more energy?"
-   ]
+   ],
+   "priority": 1
   },
   {
    "id": "what_if",
@@ -149,7 +168,8 @@
    ],
    "example_titles": [
     "What happens to your body if you stop sleeping?"
-   ]
+   ],
+   "priority": 2
   },
   {
    "id": "day_in_life",
@@ -164,7 +184,8 @@
    ],
    "example_titles": [
     "A day in the life of your liver"
-   ]
+   ],
+   "priority": 3
   }
  ],
  "script": {
@@ -283,9 +304,7 @@
  },
  "open_decisions": [
   "Character designs: approved in style (Flat Cast); final sheet per character before the first episode",
-  "Voices for each cast member (Fish library voices or Piper)",
-  "Channel name (user)",
-  "Backgrounds: fun animated sets (not the paper/emu look); user picks from style frames"
+  "Channel name (user)"
  ],
  "audio": {
   "music_under_voice_db": 8,

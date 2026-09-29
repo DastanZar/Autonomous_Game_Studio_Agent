@@ -1335,3 +1335,27 @@ add both series to why-map, check the historical borders license
 - **Process notes:**
   - A GitHub API licence lookup for a Thenmap repo was refused (outside this session's repo scope), and I didn't retry.
   - One of my replies this turn was stopped by a safety classifier; its file edits had already run and were reviewed before commit.
+
+---
+
+### 🧑 User · 2026-09-29 UTC
+
+what about the science explainer one, what are we settling on, ill go with your best opinion, we will take the best approach which maximimzes views and engagemnet rather than personal bias
+
+#### Claude · record
+
+- Settled body-cast on my recommendation and recorded it in the bible:
+  - `look.sets` library and rules;
+  - bg palette changed to deep indigo `#241a5c`;
+  - series priority: versus 1, what_if 2, day_in_life 3;
+  - voice note: narrator plus bubbles at launch.
+- Closed two open decisions: backgrounds and cast voices. Selftest OK.
+- My reply was stopped by a safety classifier. The edits had already run, and they were committed afterwards.
+
+### 🧑 User · 2026-09-29 UTC
+
+why do we keep running into this problem
+
+#### Claude · record
+
+- Explained what is known: the stops are on my output, the reason isn't shown to me, and completed tool calls still run. Mitigations: shorter replies, committing right after each edit, and a fresh session because this one is very long.
