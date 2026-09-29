@@ -84,14 +84,20 @@ for meta_p in sorted(glob.glob(os.path.join(tmp, "*.json"))):
     for q in (rms < 10 ** (-40 / 20))[2:-2]:
         run = run + 1 if q else 0
         worst = max(worst, run)
-    words = json.loads(subprocess.run(check + [wav], capture_output=True, text=True, check=True).stdout.strip().splitlines()[-1])["words"]
+    vc = json.loads(subprocess.run(check + [wav], capture_output=True, text=True, check=True).stdout.strip().splitlines()[-1])
+    words = vc["words"]
     x = x / peak * 10 ** (-1 / 20)
     path = os.path.join(out_dir, tr["id"] + ".ogg")
-    sf.write(path, x, sr, format="OGG", subtype="VORBIS")
+    norm_wav = wav[:-4] + ".norm.wav"
+    sf.write(norm_wav, x, sr)
+    # encode with ffmpeg/libvorbis: libsndfile's Vorbis writer segfaulted on a 60 s stereo track (exit 139)
+    import imageio_ffmpeg
+    subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-loglevel", "error", "-i", norm_wav, "-c:a", "libvorbis", "-q:a", "6", path], check=True)
+    os.remove(norm_wav)
     row = {"id": tr["id"], "file": tr["id"] + ".ogg", "prompt": tr["caption"], "bpm": tr.get("bpm"), "seed": tr.get("seed", 1),
            "model": tr["model"], "license": "ACE-Step 1.5 (MIT); output is ours", "duration_s": round(len(x) / sr, 2),
            "gen_seconds": tr["gen_seconds"],
-           "checks": {"words_heard": words, "clipped_before_normalise": peak >= 0.999, "longest_dropout_s": worst * 0.5,
+           "checks": {"words_heard": words, "whisper_ignored": vc["ignored"], "clipped_before_normalise": peak >= 0.999, "longest_dropout_s": worst * 0.5,
                       "ok": not words and worst * 0.5 <= 1.5},
            "sha1": hashlib.sha1(open(path, "rb").read()).hexdigest()[:12], "approved": False}
     man["tracks"] = [r for r in man["tracks"] if r["id"] != tr["id"]] + [row]

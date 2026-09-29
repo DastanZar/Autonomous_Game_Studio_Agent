@@ -20,7 +20,7 @@ frames = os.path.join(ep, "build", "frames", "%05d.jpg")
 audio = next(p for p in (os.path.join(ep, "build", "mix.wav"), os.path.join(ep, "build", "vo.wav")) if os.path.exists(p))
 os.makedirs(os.path.join(ep, "out"), exist_ok=True)
 out = os.path.join(ep, "out", f"{meta['slug']}{'-draft' if draft else ''}.mp4")
-# loudness: measure the stereo 48 kHz signal, apply the exact gain through a -1.5 dBTP limiter, measure again.
+# loudness: measure the stereo 48 kHz signal, apply the exact gain through a -2 dBFS sample-peak limiter (AAC overshoots ~0.6 dB, so the encoded file lands under -1 dBTP), measure again.
 # (one-pass loudnorm undershot to -15.4 LUFS on speech with pauses; a mono file also measures ~3 dB differently once upmixed)
 def lufs(path):
     e = subprocess.run([FF, "-hide_banner", "-nostats", "-i", path, "-af", "ebur128=peak=true", "-f", "null", "-"], capture_output=True, text=True).stderr
@@ -30,7 +30,7 @@ st = os.path.join(tmpd, "stereo.wav"); fin = os.path.join(tmpd, "final.wav")
 subprocess.run([FF, "-y", "-loglevel", "error", "-i", audio, "-ac", "2", "-ar", "48000", st], check=True)
 g = -14.0 - lufs(st)
 for _ in range(3):   # the limiter shaves a little, so correct and repeat
-    subprocess.run([FF, "-y", "-loglevel", "error", "-i", st, "-af", f"volume={g:.2f}dB,alimiter=limit=0.84:level=false", "-ar", "48000", fin], check=True)
+    subprocess.run([FF, "-y", "-loglevel", "error", "-i", st, "-af", f"volume={g:.2f}dB,alimiter=limit=0.79:level=false", "-ar", "48000", fin], check=True)
     err = -14.0 - lufs(fin)
     if abs(err) < 0.2:
         break

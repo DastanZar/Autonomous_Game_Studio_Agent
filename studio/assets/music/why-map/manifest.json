@@ -1,0 +1,97 @@
+{
+ "_doc": "Channel music library. approved=true only after a human listen.",
+ "tracks": [
+  {
+   "id": "caper",
+   "file": "caper.ogg",
+   "prompt": "playful pizzicato strings, brushed jazz drums, walking upright bass, vibraphone, light comedic documentary underscore, instrumental",
+   "bpm": 100,
+   "seed": 11,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 55.72,
+   "gen_seconds": 218,
+   "checks": {
+    "words_heard": "",
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.5,
+    "ok": true,
+    "whisper_ignored": []
+   },
+   "sha1": "6ef6abeb219d",
+   "approved": false
+  },
+  {
+   "id": "detective",
+   "file": "detective.ogg",
+   "prompt": "curious detective jazz, upright bass, vibraphone, soft piano stabs, brushed drums, understated, instrumental",
+   "bpm": 92,
+   "seed": 13,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 54.99,
+   "gen_seconds": 221,
+   "checks": {
+    "words_heard": "",
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.0,
+    "ok": true,
+    "whisper_ignored": [
+     {
+      "text": "Thank you for watching!",
+      "avg_logprob": -0.97,
+      "no_speech_prob": 0.76
+     }
+    ]
+   },
+   "sha1": "78e51a73c8e4",
+   "approved": false
+  },
+  {
+   "id": "march",
+   "file": "march.ogg",
+   "prompt": "light comedic marching band parody, tuba, snare drum, glockenspiel, piccolo, instrumental",
+   "bpm": 112,
+   "seed": 14,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 54.39,
+   "gen_seconds": 218,
+   "checks": {
+    "words_heard": "",
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.0,
+    "ok": true,
+    "whisper_ignored": [
+     {
+      "text": "Thanks for watching!",
+      "avg_logprob": -0.88,
+      "no_speech_prob": 0.31
+     }
+    ]
+   },
+   "sha1": "30623526595e",
+   "approved": false
+  },
+  {
+   "id": "spy",
+   "file": "spy.ogg",
+   "prompt": "quirky spy caper, muted trumpet, pizzicato strings, snare brushes, bass clarinet, mischievous, instrumental",
+   "bpm": 108,
+   "seed": 12,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 56.09,
+   "gen_seconds": 215,
+   "checks": {
+    "words_heard": "",
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.0,
+    "ok": true,
+    "whisper_ignored": []
+   },
+   "sha1": "2da474425d78",
+   "approved": false
+  }
+ ]
+}

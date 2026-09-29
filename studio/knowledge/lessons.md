@@ -26,3 +26,6 @@ Each entry: date, stage, what happened, the rule. Workers append here when a sta
 | 2026-09-29 | audio | ACE-Step 1.5 on CPU was OOM-killed (13.9 GB) in VAE decode; `ACESTEP_VAE_DECODE_CHUNK_SIZE=64` fixes it. 30 s of music = 109 s on 4 cores. |
 | 2026-09-29 | audio | ACE-Step may end a piece early and pad silence; trim trailing silence and loop with a crossfade. Whisper-check generated "instrumentals" for stray vocals. |
 | 2026-09-29 | infra | Model downloads eat the disk allowance fast (ACE-Step + Stable Audio Open = 20 GB). Delete unused checkpoints (ACE-Step's 1.7B LM is not needed with thinking=False). |
+| 2026-09-29 | audio | Whisper hallucinates stock phrases on instrumental music ("Thanks for watching!", avg_logprob about -0.9) while real speech scores about -0.1. Vocal checks must filter by confidence (`tools/vocal_check.py`). |
+| 2026-09-29 | audio | libsndfile's Vorbis writer segfaulted (exit 139) on a 60 s stereo track; encode OGG with ffmpeg/libvorbis. Loading Whisper next to the 13 GB music model got the process OOM-killed: check in a separate, fresh process. |
+| 2026-09-29 | final | A limiter at -1.5 dBFS sample peak still gave -0.9 dBTP after AAC encoding. Limit at -2 dBFS. |
