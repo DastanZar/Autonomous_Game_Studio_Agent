@@ -5,9 +5,17 @@
 
 ## Steps
 
-1. **Music and SFX** (tool not built yet; until then the encode is voice-only). Adapt `videos/root-keys/tools/audio.py`: code-synthesised score in the
-   channel's style, SFX taken from the storyboard `sfx` names at their cue times, and the voice
-   ducked. Music should sit about 6–10 dB under speech.
+1. **Music and SFX:** `python3 studio/tools/audio.py episodes/<ch>/<slug>` writes `build/mix.wav` and `build/audio_report.json`.
+   - Music comes from the channel's **approved** library tracks (`studio/assets/music/<ch>/manifest.json`, built with
+     `tools/music_gen.py`: ACE-Step 1.5, MIT), picked from the slug. Without one, it uses a code-synthesised underscore.
+     `--music <id>` previews a specific (even unapproved) track.
+   - SFX come from `build/cues.json`: recorded or generated files (`studio/assets/sfx/manifest.json`: Kenney CC0 and
+     Stable Audio Open), with a few synthesised sounds. The report lists any cue with no sound.
+   - The music is ducked under the voice and set to `audio.music_under_voice_db` (bible, default 8) below it, **measured**.
+     The gate needs 6–12 dB and no unknown cues. If the report lists `credits`, the package description must carry them.
+   - Research and licences: `docs/research/audio-stack-2026-09.md`.
+   - **New library tracks need a human listen.** `music_gen.py` writes them with `approved: false` and automatic checks
+     (no words heard, no dropouts). A person listens and flips `approved` in the manifest. Models never approve music.
 2. **Encode:** `python3 studio/tools/encode.py episodes/<ch>/<slug>` (two-pass x264 at 4.8 Mbps, AAC 48 kHz,
    gain set by measurement through a −1.5 dBTP limiter until −14 LUFS). It uses `build/mix.wav` if present, else the
    voice alone. `--draft` does a quick one-pass encode.

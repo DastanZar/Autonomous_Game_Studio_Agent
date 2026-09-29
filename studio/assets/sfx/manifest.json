@@ -1,0 +1,275 @@
+{
+ "_doc": "SFX library: cue type -> recorded variants (rotated deterministically). Types not listed here are synthesised by studio/tools/audio.py.",
+ "sources": {
+  "kenney": {
+   "license": "CC0 1.0",
+   "url": "https://kenney.nl/assets",
+   "credit_required": false
+  },
+  "sao": {
+   "license": "Stability AI Community License (outputs owned by us; free under US$1M revenue)",
+   "url": "https://huggingface.co/stabilityai/stable-audio-open-1.0",
+   "credit_required": false,
+   "credit": "Some sound effects generated with Stable Audio Open (Stability AI)"
+  }
+ },
+ "types": {
+  "stamp": {
+   "files": [
+    "kenney/impactWood_heavy_000.ogg",
+    "kenney/impactWood_heavy_001.ogg",
+    "kenney/impactWood_heavy_002.ogg",
+    "kenney/impactWood_heavy_003.ogg",
+    "kenney/impactWood_heavy_004.ogg"
+   ],
+   "gain_db": -2,
+   "source": "kenney",
+   "note": "rubber stamp / slam"
+  },
+  "thud": {
+   "files": [
+    "kenney/impactSoft_heavy_000.ogg",
+    "kenney/impactSoft_heavy_001.ogg",
+    "kenney/impactSoft_heavy_002.ogg",
+    "kenney/impactSoft_heavy_003.ogg",
+    "kenney/impactSoft_heavy_004.ogg"
+   ],
+   "gain_db": -1,
+   "source": "kenney",
+   "note": "soft heavy landing"
+  },
+  "punch": {
+   "files": [
+    "kenney/impactPunch_medium_000.ogg",
+    "kenney/impactPunch_medium_001.ogg",
+    "kenney/impactPunch_medium_002.ogg",
+    "kenney/impactPunch_medium_003.ogg",
+    "kenney/impactPunch_medium_004.ogg"
+   ],
+   "gain_db": -4,
+   "source": "kenney",
+   "note": ""
+  },
+  "tick": {
+   "files": [
+    "kenney/tick_001.ogg",
+    "kenney/tick_002.ogg",
+    "kenney/tick_004.ogg"
+   ],
+   "gain_db": -10,
+   "source": "kenney",
+   "note": "counter ticks"
+  },
+  "pop": {
+   "files": [
+    "kenney/pluck_001.ogg",
+    "kenney/pluck_002.ogg"
+   ],
+   "gain_db": -6,
+   "source": "kenney",
+   "note": "pins, callouts"
+  },
+  "pen_scratch": {
+   "files": [
+    "kenney/scratch_001.ogg",
+    "kenney/scratch_002.ogg",
+    "kenney/scratch_003.ogg",
+    "kenney/scratch_004.ogg",
+    "kenney/scratch_005.ogg"
+   ],
+   "gain_db": -6,
+   "source": "kenney",
+   "note": "drawing a line"
+  },
+  "marching": {
+   "files": [
+    "kenney/footstep_concrete_000.ogg",
+    "kenney/footstep_concrete_001.ogg",
+    "kenney/footstep_concrete_002.ogg",
+    "kenney/footstep_concrete_003.ogg",
+    "kenney/footstep_concrete_004.ogg"
+   ],
+   "gain_db": -8,
+   "source": "kenney",
+   "note": "played as a step sequence"
+  },
+  "paper": {
+   "files": [
+    "kenney/bookFlip1.ogg",
+    "kenney/bookFlip2.ogg",
+    "kenney/bookFlip3.ogg"
+   ],
+   "gain_db": -6,
+   "source": "kenney",
+   "note": ""
+  },
+  "click": {
+   "files": [
+    "kenney/click_001.ogg",
+    "kenney/click_002.ogg",
+    "kenney/click_003.ogg",
+    "kenney/click_004.ogg",
+    "kenney/click_005.ogg"
+   ],
+   "gain_db": -8,
+   "source": "kenney",
+   "note": ""
+  },
+  "type": {
+   "files": [
+    "kenney/click1.ogg",
+    "kenney/click2.ogg",
+    "kenney/click3.ogg",
+    "kenney/click4.ogg",
+    "kenney/click5.ogg"
+   ],
+   "gain_db": -12,
+   "source": "kenney",
+   "note": "typewriter keys"
+  },
+  "ding": {
+   "files": [
+    "kenney/confirmation_001.ogg",
+    "kenney/confirmation_002.ogg",
+    "kenney/confirmation_003.ogg",
+    "kenney/confirmation_004.ogg"
+   ],
+   "gain_db": -8,
+   "source": "kenney",
+   "note": ""
+  },
+  "clunk": {
+   "files": [
+    "kenney/impactMetal_heavy_000.ogg",
+    "kenney/impactMetal_heavy_001.ogg",
+    "kenney/impactMetal_heavy_002.ogg",
+    "kenney/impactMetal_heavy_003.ogg",
+    "kenney/impactMetal_heavy_004.ogg"
+   ],
+   "gain_db": -4,
+   "source": "kenney",
+   "note": ""
+  },
+  "coins": {
+   "files": [
+    "kenney/handleCoins.ogg",
+    "kenney/handleCoins2.ogg"
+   ],
+   "gain_db": -6,
+   "source": "kenney",
+   "note": ""
+  },
+  "card": {
+   "files": [
+    "kenney/card-place-1.ogg",
+    "kenney/card-place-2.ogg",
+    "kenney/card-place-3.ogg",
+    "kenney/card-place-4.ogg"
+   ],
+   "gain_db": -6,
+   "source": "kenney",
+   "note": ""
+  },
+  "glass": {
+   "files": [
+    "kenney/impactGlass_medium_000.ogg",
+    "kenney/impactGlass_medium_001.ogg",
+    "kenney/impactGlass_medium_002.ogg",
+    "kenney/impactGlass_medium_003.ogg",
+    "kenney/impactGlass_medium_004.ogg"
+   ],
+   "gain_db": -6,
+   "source": "kenney",
+   "note": ""
+  },
+  "error": {
+   "files": [
+    "kenney/error_001.ogg",
+    "kenney/error_002.ogg",
+    "kenney/error_003.ogg",
+    "kenney/error_004.ogg"
+   ],
+   "gain_db": -8,
+   "source": "kenney",
+   "note": "wrong-answer buzz"
+  },
+  "drop": {
+   "files": [
+    "kenney/drop_001.ogg",
+    "kenney/drop_002.ogg",
+    "kenney/drop_003.ogg",
+    "kenney/drop_004.ogg"
+   ],
+   "gain_db": -6,
+   "source": "kenney",
+   "note": ""
+  },
+  "switch": {
+   "files": [
+    "kenney/switch_001.ogg",
+    "kenney/switch_002.ogg",
+    "kenney/switch_003.ogg",
+    "kenney/switch_004.ogg"
+   ],
+   "gain_db": -8,
+   "source": "kenney",
+   "note": ""
+  },
+  "button": {
+   "files": [
+    "kenney/jingles_PIZZI00.ogg",
+    "kenney/jingles_PIZZI01.ogg",
+    "kenney/jingles_PIZZI02.ogg",
+    "kenney/jingles_PIZZI03.ogg",
+    "kenney/jingles_PIZZI04.ogg",
+    "kenney/jingles_PIZZI05.ogg"
+   ],
+   "gain_db": -6,
+   "source": "kenney",
+   "note": "end-of-video musical button"
+  },
+  "sting": {
+   "files": [
+    "kenney/jingles_HIT00.ogg",
+    "kenney/jingles_HIT01.ogg",
+    "kenney/jingles_HIT02.ogg",
+    "kenney/jingles_HIT03.ogg",
+    "kenney/jingles_HIT04.ogg",
+    "kenney/jingles_HIT05.ogg"
+   ],
+   "gain_db": -6,
+   "source": "kenney",
+   "note": "punchline sting"
+  },
+  "whoosh": {
+   "files": [
+    "sao/whoosh_0.ogg"
+   ],
+   "gain_db": -10,
+   "source": "sao",
+   "lead": 0.42,
+   "note": "fast cinematic whoosh swoosh transition, clean, short, no music",
+   "generation": {
+    "model": "stable-audio-open-1.0 (diffusers, CPU)",
+    "steps": 50,
+    "seed": 3,
+    "prompt": "fast cinematic whoosh swoosh transition, clean, short, no music"
+   }
+  },
+  "rip": {
+   "files": [
+    "sao/rip_0.ogg"
+   ],
+   "gain_db": -8,
+   "source": "sao",
+   "lead": 0.0,
+   "note": "paper tearing quickly, close mic, foley",
+   "generation": {
+    "model": "stable-audio-open-1.0 (diffusers, CPU)",
+    "steps": 50,
+    "seed": 3,
+    "prompt": "paper tearing quickly, close mic, foley"
+   }
+  }
+ }
+}

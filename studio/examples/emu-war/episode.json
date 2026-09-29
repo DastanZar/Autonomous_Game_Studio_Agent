@@ -2,5 +2,7 @@
  "channel": "why-map",
  "slug": "emu-war",
  "created": "2026-09-28T00:00:00Z",
- "note": "Gold example: the shipped Emu War short, re-expressed in studio contracts. Used by 'studio.py selftest'."
+ "note": "Gold example: the shipped Emu War short, re-expressed in studio contracts. Used by 'studio.py selftest'.",
+ "audio": "legacy",
+ "audio_note": "Mixed before the studio audio tool existed (shorts/emu-war/tools/audio.py: synthesised march + SFX)."
 }

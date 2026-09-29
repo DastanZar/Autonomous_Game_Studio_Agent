@@ -57,7 +57,8 @@ skill in `.claude/skills/studio/` says exactly this).
 | Voice tool (`tools/vo.py`: bible-driven, Fish or Piper, cast voices, whole-transcript alignment) | **Built**; run on 3 episodes (Sonnet trial + engine build) |
 | Render engine (`engine/`: 12 catalog scene types, 10 props, real maps via `tools/geo.py`, burned captions, sheets, full frames) | **Built** for the paper-cutout theme (why-map). Planned: ranking_bars/race and character scenes (Ranked and Body Cast channels), their themes |
 | Encoder (`tools/encode.py`) | **Built**: two-pass x264, measured −14 LUFS |
-| Music and SFX tool (reads `build/cues.json`); SRT and thumbnail builder | Next |
+| Music and SFX: `tools/audio.py` (mixer, measured ducking), `tools/music_gen.py` (ACE-Step 1.5 library builder), `tools/sfx_gen.py` (Stable Audio Open), Kenney CC0 SFX library | **Built**; see `docs/research/audio-stack-2026-09.md` |
+| SRT and thumbnail builder | Next |
 | Topic radar (daily candidate cards per channel) | Phase 3 |
 | YouTube upload and analytics via API | Phase 3. Needs the channel owner's OAuth client as an environment secret |
 | Daily scheduler (a Routine that runs radar → queue → workers) | Phase 3 |

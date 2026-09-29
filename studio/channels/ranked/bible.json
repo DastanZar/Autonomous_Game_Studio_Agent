@@ -233,5 +233,29 @@
  "open_decisions": [
   "Flag characters (faces) vs clean data look (user)",
   "Channel name (user)"
- ]
+ ],
+ "audio": {
+  "music_under_voice_db": 8,
+  "duck_db": 6,
+  "button": true,
+  "music": {
+   "bpm": 118,
+   "tracks": [
+    {
+     "id": "scoreboard",
+     "caption": "upbeat sports broadcast underscore, driving drums, staccato brass, synth bass, competitive, instrumental",
+     "bpm": 118,
+     "duration": 60,
+     "seed": 31
+    },
+    {
+     "id": "tally",
+     "caption": "light tension game-show underscore, ticking hi-hat, pizzicato, piano stabs, instrumental",
+     "bpm": 110,
+     "duration": 60,
+     "seed": 32
+    }
+   ]
+  }
+ }
 }

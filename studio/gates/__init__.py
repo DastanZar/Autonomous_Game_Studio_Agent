@@ -306,7 +306,14 @@ def gate_final(ctx):
     import hashlib
     cur = hashlib.sha1(open(mp4, "rb").read()).hexdigest()[:12] if os.path.exists(mp4) else None
     tl = load(ctx, "build/timeline.json") or {"duration": 0}
-    return [
+    ar = load(ctx, "build/audio_report.json")
+    legacy = ctx["meta"].get("audio") == "legacy"
+    audio_checks = [ok(legacy or ar is not None, "music and SFX mixed (build/audio_report.json from studio/tools/audio.py)")]
+    if ar is not None:
+        audio_checks += [
+            ok(6 <= ar["music_under_voice_db"] <= 12, f"music sits {ar['music_under_voice_db']} dB under the voice (6-12)"),
+            ok(not ar["sfx_unknown"], f"every sound cue has a sound{': missing ' + ', '.join(sorted(set(ar['sfx_unknown']))) if ar['sfx_unknown'] else ''}")]
+    return audio_checks + [
         ok(cur and cur == r.get("video_sha"), "report describes the current video file"),
         ok(r["width"] == f["width"] and r["height"] == f["height"], f"resolution {r['width']}x{r['height']}"),
         ok(abs(r["fps"] - f["fps"]) < 0.01, f"{r['fps']} fps"),
@@ -330,6 +337,9 @@ def gate_package(ctx):
     src_ids = {s for c in d["claims"] if c["id"] in used for s in c["sources"]}
     urls = [s["url"] for s in d["sources"] if s["id"] in src_ids]
     missing = [u for u in urls if u not in pk["description"]]
+    ar = load(ctx, "build/audio_report.json") or {"credits": []}
+    for credit in ar.get("credits", []):
+        res.append(ok(credit in pk["description"], f"description carries the audio credit: {credit}"))
     pub = b["publishing"]
     res += [
         ok(len(pk["title"]) <= pub["title_max"], f"title is {len(pk['title'])} chars (max {pub['title_max']})"),

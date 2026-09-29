@@ -1,0 +1,6 @@
+{
+ "whoosh": {"prompt": "fast cinematic whoosh swoosh transition, clean, short, no music", "seconds": 1.5, "variants": 4, "gain_db": -10, "lead": "peak"},
+ "flock":  {"prompt": "flock of large birds running and flapping away quickly, feet on dirt, foley", "seconds": 2.0, "variants": 2, "gain_db": -10, "lead": 0},
+ "boing":  {"prompt": "cartoon spring boing sound effect, comedic, clean", "seconds": 1.0, "variants": 2, "gain_db": -10, "lead": 0},
+ "poof":   {"prompt": "soft cartoon puff of smoke poof, short, clean", "seconds": 1.0, "variants": 2, "gain_db": -10, "lead": 0}
+}

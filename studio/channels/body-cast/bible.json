@@ -285,5 +285,29 @@
   "Character designs: sketch sheet for approval before the first episode",
   "Voices for each cast member (Fish library voices or Piper)",
   "Channel name (user)"
- ]
+ ],
+ "audio": {
+  "music_under_voice_db": 8,
+  "duck_db": 6,
+  "button": true,
+  "music": {
+   "bpm": 104,
+   "tracks": [
+    {
+     "id": "lab",
+     "caption": "whimsical science underscore, pizzicato, marimba, plucked synth, light percussion, curious and bouncy, instrumental",
+     "bpm": 104,
+     "duration": 60,
+     "seed": 21
+    },
+    {
+     "id": "inside",
+     "caption": "gentle quirky electronic, soft bleeps, round bass, xylophone, playful, instrumental",
+     "bpm": 96,
+     "duration": 60,
+     "seed": 22
+    }
+   ]
+  }
+ }
 }

@@ -23,3 +23,6 @@ Each entry: date, stage, what happened, the rule. Workers append here when a sta
 | 2026-09-28 | final | One-pass `loudnorm` on speech with pauses gave −15.4 LUFS; measure the stereo mix and apply exact gain through a limiter (`tools/encode.py`). |
 | 2026-09-28 | picture | A generic striped flag read as the Dutch flag in a US/Canada story. Placeholder props must not resemble real symbols. |
 | 2026-09-28 | maps | Natural Earth can tag several features with one ISO code (AU also = Ashmore and Cartier Islands); keep the largest. Village-scale borders (Baarle) need OpenStreetMap. |
+| 2026-09-29 | audio | ACE-Step 1.5 on CPU was OOM-killed (13.9 GB) in VAE decode; `ACESTEP_VAE_DECODE_CHUNK_SIZE=64` fixes it. 30 s of music = 109 s on 4 cores. |
+| 2026-09-29 | audio | ACE-Step may end a piece early and pad silence; trim trailing silence and loop with a crossfade. Whisper-check generated "instrumentals" for stray vocals. |
+| 2026-09-29 | infra | Model downloads eat the disk allowance fast (ACE-Step + Stable Audio Open = 20 GB). Delete unused checkpoints (ACE-Step's 1.7B LM is not needed with thinking=False). |

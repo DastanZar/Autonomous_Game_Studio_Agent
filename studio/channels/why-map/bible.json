@@ -245,5 +245,43 @@
  "open_decisions": [
   "Final channel name and handle (user)",
   "Keep Felix or pick another voice from videos/voice-test/ (user)"
- ]
+ ],
+ "audio": {
+  "music_under_voice_db": 8,
+  "duck_db": 6,
+  "button": true,
+  "music": {
+   "bpm": 100,
+   "tracks": [
+    {
+     "id": "caper",
+     "caption": "playful pizzicato strings, brushed jazz drums, walking upright bass, vibraphone, light comedic documentary underscore, instrumental",
+     "bpm": 100,
+     "duration": 60,
+     "seed": 11
+    },
+    {
+     "id": "spy",
+     "caption": "quirky spy caper, muted trumpet, pizzicato strings, snare brushes, bass clarinet, mischievous, instrumental",
+     "bpm": 108,
+     "duration": 60,
+     "seed": 12
+    },
+    {
+     "id": "detective",
+     "caption": "curious detective jazz, upright bass, vibraphone, soft piano stabs, brushed drums, understated, instrumental",
+     "bpm": 92,
+     "duration": 60,
+     "seed": 13
+    },
+    {
+     "id": "march",
+     "caption": "light comedic marching band parody, tuba, snare drum, glockenspiel, piccolo, instrumental",
+     "bpm": 112,
+     "duration": 60,
+     "seed": 14
+    }
+   ]
+  }
+ }
 }
