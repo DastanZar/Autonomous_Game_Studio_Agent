@@ -21,7 +21,6 @@ what is still open. It is updated with every step we take; newest entries are at
 
 ## Blocked (needs something from outside this container)
 
-- **Dashboard site:** turn on GitHub Pages once (repo Settings → Pages → Source: GitHub Actions). Until then, the workflow's deploy step fails.
 
 - **Fish voice:** there is no OpenRouter key in the container, so every episode so far uses the Piper
   draft voice. To unblock, add `OPENROUTER_API_KEY` as an environment secret.

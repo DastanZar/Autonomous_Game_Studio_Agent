@@ -1458,3 +1458,22 @@ i also want you to analyse this one video - https://youtu.be/8WbW_n95wc4?si=flA4
   - The repo is public, so the site is public too.
   - Pages must be switched on once by the user (Settings → Pages → Source: GitHub Actions). No tool here can change that setting.
 - The old artifact (`claude.ai/artifact/Tqda2ucDTavfwW45Wcd2yK`) was not deleted; that needs the user's say-so.
+
+---
+
+### 🧑 User · 2026-09-30 UTC
+
+i can only see an option add domain inside pages in settings
+
+#### Claude · record
+
+- The user was on the account-level Pages settings (verified domains). I pointed them to the repo's own page: /settings/pages → Source: GitHub Actions.
+- The first two workflow runs had failed in the build job: `pip install jsonschema` was missing. Fixed in cc77699.
+
+### 🧑 User · 2026-09-30 UTC
+
+done, set to github actions
+
+#### Claude · record
+
+- Triggered the workflow by hand (workflow_dispatch). The site is live: https://dastanzar.github.io/Autonomous_Game_Studio_Agent/ returns 200 with title "Studio Control Room", built 05:08 UTC. Removed the Pages item from the blocked list.
