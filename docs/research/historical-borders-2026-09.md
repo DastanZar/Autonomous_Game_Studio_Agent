@@ -35,3 +35,9 @@ monetised video.
 - Legal reading: this is a licence-text check, not legal advice.
 - OHM accuracy per relation. It's crowdsourced, so each episode's research stage cross-checks it
   (CShapes, or scholarly maps) and records that check in the fact table.
+
+## Known rendering limit (2026-09-30)
+OpenHistoricalMap polygons don't follow Natural Earth's coastline exactly. On a map_history scene, thin
+strips of Natural Earth land can show between an OHM territory and the sea. It's a mismatch between
+two real datasets, not an engine bug. Mention it in an episode's review only if a strip reads as a
+territory.

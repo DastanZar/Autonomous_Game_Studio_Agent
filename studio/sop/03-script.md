@@ -31,6 +31,9 @@ Read `studio/knowledge/style.md` first, then the example script.
    word pieces, uppercase, with digits allowed. Each chunk is `[text, number_of_spoken_words]`. The
    numbers must add up to the paragraph's word count. Example: "In nineteen thirty-two," is 3 words,
    giving `["IN 1932,", 3]`.
+   **Cast lines (channels with speech bubbles):** a line with a `speaker` is shown in that character's
+   bubble. Don't also put the same words in the burned captions, because one line shown twice wastes the
+   frame. Keep bubble text to 8 words or fewer, and let the captions carry the narrator's lines.
 9. **Check the runtime** with the gate. It estimates
    `lead_in + words ÷ (wpm ÷ 60) + every gap except the last paragraph's + tail`, using the bible's `wpm`. Over
    budget? Cut a beat, don't speed up.

@@ -102,16 +102,18 @@
   {
    "id": "props-ranked",
    "title": "Add the ranked bible's props trophy, podium, globe to props.js",
-   "status": "todo",
+   "status": "done",
    "who": "model",
-   "detail": "The bible lists them; title_card with these props currently warns and draws a placeholder card."
+   "detail": "The bible lists them; title_card with these props currently warns and draws a placeholder card.",
+   "note": "trophy, podium, globe added to props.js (globe has a graticule only, no hand-drawn continents); rendered with 0 warnings and reviewed."
   },
   {
    "id": "polish-engine-review",
    "title": "Engine polish from Opus review of the three new scene families",
-   "status": "todo",
+   "status": "done",
    "who": "model",
-   "detail": "flat-cast: idle characters overlap in two-shots; add a script rule that captions must not repeat bubble text. map_history: the map uses only the top ~60% of the frame (fit the region to the full stage); OHM US polygon leaves Natural Earth slivers at the coast. data-flags: OK after the clean-background fix."
+   "detail": "flat-cast: idle characters overlap in two-shots; add a script rule that captions must not repeat bubble text. map_history: the map uses only the top ~60% of the frame (fit the region to the full stage); OHM US polygon leaves Natural Earth slivers at the coast. data-flags: OK after the clean-background fix.",
+   "note": "flat-cast: listeners shrink to 55% in multi-character shots and every character is clamped inside the frame (no more overlap/cropping); script SOP now forbids repeating bubble text in captions. map_history: the lower third is the caption zone by design (same stage box as every map), so no change; the OHM-vs-Natural-Earth coast slivers are a data mismatch, left as is and noted in docs/research/historical-borders-2026-09.md."
   }
  ]
 }

@@ -1508,3 +1508,20 @@ done, set to github actions
   - The full-size still is readable.
 - **Re-verified:** selftest OK; flat-cast, map-history and data-flags fixtures all render with 0 engine warnings.
 - **New backlog items:** scene-length-ranking (max_scene_s 7 vs ~18 s reveals), props-ranked (trophy, podium, globe), polish-engine-review.
+
+---
+
+### 🧑 User · 2026-09-30 UTC
+
+finish the polish tasks on the backlog too
+
+#### Claude · record
+
+- **scene-length-ranking** was delegated to a Sonnet worker (c734184) and merged after I reviewed the gate diff.
+  - catalog `max_s` per type; the gate names the limit's source; SOP 05 updated; a new selftest breakage is caught.
+- **props-ranked** (Opus): trophy, podium and globe added to props.js. The globe has a graticule only, because hand-drawn continents would break the real-map rule. All three were rendered in scratch copies of the data-flags fixture: 0 warnings, reviewed.
+- **polish-engine-review** (Opus):
+  - **flat-cast:** my first attempt (wider anchors) cropped the liver off the left edge; I saw it on the contact sheet. The final fix shrinks listeners to 55% in multi-character shots and clamps every character inside the frame. Re-rendered: no cropping, and idle two-shots no longer overlap.
+  - **Script SOP:** cast lines go in bubbles only, never also in captions; bubbles are 8 words or fewer.
+  - **map_history:** the lower third is the caption zone by design, so no change. The coast slivers are a data mismatch, now documented.
+- Selftest OK. The data-flags, flat-cast and map-history fixtures render with 0 warnings.
