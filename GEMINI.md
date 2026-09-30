@@ -10,7 +10,7 @@ Nobody will re-explain anything. Everything you need is in this repo:
    - append the turn to `docs/log/` (the user's words verbatim, what you did, what failed);
    - update `docs/DECISIONS.md` if a decision changed;
    - update `studio/backlog.json` status;
-   - run `python3 studio/studio.py dashboard` once it exists.
+   - run `python3 studio/studio.py dashboard`, then republish it to the user's dashboard link (Artifact tool, publish `docs/dashboard.html` with `url: https://claude.ai/artifact/Tqda2ucDTavfwW45Wcd2yK`).
 5. Commit and push to `main` (no PRs). Then run `next` again.
 
 **Stop** and ask the user only for items whose `who` is `human` or `laptop`.
