@@ -297,6 +297,7 @@ function buildTextures() {
 }
 
 // ---------- transitions ----------
+const FLAT = EP.look.theme === "flat-cast";   // flat-cast: hard cuts, no paper texture or film grain
 const TR = 0.3;
 function tornEdge(x) {
   ctx.moveTo(x, -10);
@@ -305,7 +306,7 @@ function tornEdge(x) {
 }
 // a cut (no torn-paper wipe) when the next scene continues the same picture
 function continuous(S) {
-  if (!S.prev) return true;
+  if (!S.prev || FLAT) return true;
   if (S.type === "stamp_reveal") return true;                        // stamps land on the previous picture
   const same = a => JSON.stringify(a.p.region || null);
   return S.type.startsWith("map_") && S.prev.type.startsWith("map_") && same(S) === same(S.prev);
@@ -315,7 +316,7 @@ function continuous(S) {
 function sceneAt(t) { let i = 0; while (i + 1 < SC.length && t >= SC[i + 1].t0) i++; return SC[i]; }
 function render(t) {
   T = t;
-  if (!PAPER) buildTextures();
+  if (!PAPER && !FLAT) buildTextures();
   const S = sceneAt(t);
   const k = continuous(S) ? 1 : prog(t, S.t0, S.t0 + TR);
   if (k < 1) {
@@ -326,8 +327,9 @@ function render(t) {
     ctx.shadowColor = "rgba(30,15,5,0.5)"; ctx.shadowBlur = 20; ctx.shadowOffsetX = -8;
     ctx.strokeStyle = "#fbf5e8"; ctx.lineWidth = 8; ctx.stroke(); ctx.restore();
   } else drawScene(S, t);
-  ctx.save(); ctx.globalCompositeOperation = "multiply"; ctx.drawImage(PAPER, 0, 0); ctx.restore();
+  if (!FLAT) { ctx.save(); ctx.globalCompositeOperation = "multiply"; ctx.drawImage(PAPER, 0, 0); ctx.restore(); }
   captions(t);
+  if (FLAT) return;
   const f = Math.floor(t * 12);
   ctx.save(); ctx.globalCompositeOperation = "overlay"; ctx.globalAlpha = 0.09;
   ctx.translate(-rnd(f, 1) * 256, -rnd(f, 2) * 256);

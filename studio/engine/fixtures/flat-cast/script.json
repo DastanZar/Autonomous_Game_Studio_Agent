@@ -1,0 +1,150 @@
+{
+ "channel": "body-cast",
+ "episode": "flat-cast",
+ "note": "engine test fixture; lines are placeholders, not fact-checked content",
+ "lead_in": 0.3,
+ "tail": 1.0,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Brain thinks it runs this place.",
+   "kind": "joke",
+   "speaker": "liver",
+   "claims": [],
+   "caps": [
+    [
+     "BRAIN THINKS",
+     2
+    ],
+    [
+     "IT RUNS THIS PLACE.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "brag",
+   "say": "I am ninety percent of the operation.",
+   "kind": "joke",
+   "speaker": "brain",
+   "claims": [],
+   "caps": [
+    [
+     "I AM NINETY PERCENT",
+     4
+    ],
+    [
+     "OF THE OPERATION.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "chore",
+   "say": "Who filters the blood, makes the bile, and stores the sugar?",
+   "kind": "joke",
+   "speaker": "liver",
+   "claims": [],
+   "caps": [
+    [
+     "WHO FILTERS THE BLOOD,",
+     4
+    ],
+    [
+     "MAKES THE BILE,",
+     3
+    ],
+    [
+     "AND STORES THE SUGAR?",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "how",
+   "say": "Here is how one meal gets processed.",
+   "kind": "joke",
+   "speaker": "liver",
+   "claims": [],
+   "caps": [
+    [
+     "HERE IS HOW",
+     3
+    ],
+    [
+     "ONE MEAL GETS PROCESSED.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "steps",
+   "say": "Gut, then blood, then me. Every single time.",
+   "kind": "joke",
+   "speaker": "liver",
+   "claims": [],
+   "caps": [
+    [
+     "GUT, THEN BLOOD,",
+     3
+    ],
+    [
+     "THEN ME.",
+     2
+    ],
+    [
+     "EVERY SINGLE TIME.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "beat",
+   "say": "I deliver it. Nonstop. No days off.",
+   "kind": "joke",
+   "speaker": "heart",
+   "claims": [],
+   "caps": [
+    [
+     "I DELIVER IT.",
+     3
+    ],
+    [
+     "NONSTOP. NO DAYS OFF.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "think",
+   "say": "Fine. Nobody thanks the brain either.",
+   "kind": "joke",
+   "speaker": "brain",
+   "claims": [],
+   "caps": [
+    [
+     "FINE. NOBODY THANKS",
+     4
+    ],
+    [
+     "THE BRAIN EITHER.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "end",
+   "say": "Nobody thanks anyone.",
+   "kind": "joke",
+   "speaker": "liver",
+   "claims": [],
+   "caps": [
+    [
+     "NOBODY THANKS ANYONE.",
+     3
+    ]
+   ]
+  }
+ ]
+}

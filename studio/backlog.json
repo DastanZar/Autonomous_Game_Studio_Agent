@@ -35,9 +35,10 @@
   {
    "id": "engine-flat-cast",
    "title": "Engine theme flat-cast + scene types character_dialog, character_explain (body-cast)",
-   "status": "todo",
+   "status": "done",
    "who": "model",
-   "detail": "Port studio/stylelab/cast.js and sets.js into studio/engine (theme chosen by bible look.theme). Rules: studio/channels/body-cast/bible.json look.sets. Mark the types built in catalog.json only when a test episode renders with no engine warnings."
+   "detail": "Port studio/stylelab/cast.js and sets.js into studio/engine (theme chosen by bible look.theme). Rules: studio/channels/body-cast/bible.json look.sets. Mark the types built in catalog.json only when a test episode renders with no engine warnings.",
+   "note": "Flat-cast theme + character_dialog/character_explain in engine/scenes/cast.js; fixtures/flat-cast renders with 0 engine warnings."
   },
   {
    "id": "engine-data-flags",

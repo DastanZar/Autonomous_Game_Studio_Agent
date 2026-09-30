@@ -68,19 +68,24 @@
    }
   },
   "character_dialog": {
-   "status": "planned",
+   "status": "built",
    "purpose": "Two or more cast members talking; each spoken para with a speaker animates that character.",
    "params": {
     "cast": "list of cast ids",
-    "setting": "background id"
+    "setting": "set id: bloodstream, neurons, stomach, gut or spotlight",
+    "title": "optional big title on the stage until the first bubble (spotlight opener)",
+    "bubbles": "optional {paragraph id: bubble text}; default is the paragraph's caption text",
+    "moods": "optional {cast id: mood}"
    }
   },
   "character_explain": {
-   "status": "planned",
+   "status": "built",
    "purpose": "One cast member presents a diagram or prop.",
    "params": {
     "speaker": "cast id",
-    "diagram": "diagram id or description"
+    "diagram": "diagram id or description",
+    "setting": "set id: bloodstream, neurons, stomach, gut or spotlight",
+    "steps": "optional list of {label, at} chips that pop in on their cues"
    }
   },
   "stamp_reveal": {
