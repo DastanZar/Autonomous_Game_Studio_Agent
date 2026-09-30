@@ -119,7 +119,9 @@ def build(root):
              f"<div class=tile><b>{model_open}</b><span>jobs a model can do now</span></div>"
              f"<div class=tile><b>{len(all_episodes())}</b><span>episodes in the pipeline</span></div></div>")
 
-    page = f"""<title>Studio Control Room</title>
+    page = f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Studio Control Room</title>
 <link rel=preconnect href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Anton&display=swap" rel=stylesheet>
 <style>
 /* one column of status sections, summary first; chips carry state */
@@ -144,9 +146,9 @@ h3{{margin:0;font-size:18px}}h4{{margin:1em 0 .3em;font-size:13px;letter-spacing
 .scroll{{overflow-x:auto}}table{{border-collapse:collapse;width:100%;font-size:14px}}td,th{{border-bottom:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}}
 td.st{{text-align:center;font-weight:700}}td.name{{white-space:nowrap}}th.rot{{height:78px;vertical-align:bottom;padding:0 2px}}th.rot span{{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:600;font-size:12px}}
 code{{font-size:13px;background:var(--line);padding:0 4px;border-radius:4px;overflow-wrap:anywhere}}ul{{padding-left:20px;margin:.3em 0}}
-</style>
+</style></head><body>
 <div class=wrap>
-<h1>Studio <em>Control Room</em></h1><p class=sub>Three Shorts channels · updated {stamp} · regenerate with <code>python3 studio/studio.py dashboard</code></p>
+<h1>Studio <em>Control Room</em></h1><p class=sub>Three Shorts channels · updated {stamp} · rebuilt automatically on every push to <code>main</code></p>
 {tiles}
 <h2>Needs you</h2><div class=you><ul>{you or '<li>Nothing is waiting on you.</li>'}</ul></div>
 <h2>Channels</h2><div class=grid>{ch_html}</div>
@@ -155,7 +157,8 @@ code{{font-size:13px;background:var(--line);padding:0 4px;border-radius:4px;over
 <h2>Backlog</h2><p class=sub>Open work by who can do it:</p>{bl}
 <h4>Done ({done})</h4><ul>{done_list}</ul>
 <h2>Decisions</h2>{dec_html}
-</div>"""
+</div>
+</body></html>"""
     out = os.path.join(root, "docs", "dashboard.html")
     open(out, "w").write(page)
     return os.path.relpath(out, root)

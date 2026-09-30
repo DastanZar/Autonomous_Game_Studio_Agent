@@ -21,6 +21,8 @@ what is still open. It is updated with every step we take; newest entries are at
 
 ## Blocked (needs something from outside this container)
 
+- **Dashboard site:** turn on GitHub Pages once (repo Settings → Pages → Source: GitHub Actions). Until then, the workflow's deploy step fails.
+
 - **Fish voice:** there is no OpenRouter key in the container, so every episode so far uses the Piper
   draft voice. To unblock, add `OPENROUTER_API_KEY` as an environment secret.
 - **Stable Audio Open SFX:** too slow on this CPU (678 s per 1.5 s clip). Run `studio/tools/sfx_gen.py`
@@ -30,6 +32,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-09-30 | The dashboard becomes a standalone public site on GitHub Pages (`dastanzar.github.io/Autonomous_Game_Studio_Agent`), rebuilt by a workflow on every push. The cloud artifact is no longer maintained. **Delegation:** Opus orchestrates and Sonnet 5.5 subagents do bounded execution or recon from closed specs; design and visual review stay with Opus. | Your request; Theo's Sonnet 5.5 analysis | `.github/workflows/dashboard.yml`, `docs/research/model-delegation-2026-09.md` |
 | 2026-09-29 | body-cast and ranked music libraries generated: 4 tracks each (lab, inside, heartbeat, showdown / scoreboard, tally, countdown, finale; two added per channel to reach four). All pass the automatic checks and are **unapproved** until you listen. `music_gen.py` now defaults to the venv Python for the vocal check and setup installs `imageio-ffmpeg`. | Backlog music tasks | `studio/assets/music/{body-cast,ranked}/manifest.json` |
 | 2026-09-29 | Dashboard built (`studio.py dashboard` → `docs/dashboard.html`). Baarle label fixed ("NETHERLANDS: NEXT DOOR"; picture gate now passes). `stamp_reveal` gets an optional `dy` offset so stamps don't cover text underneath. `package_assets.py` builds SRT + thumbnail. | Autonomous queue run | `studio/dashboard.py`, `studio/tools/package_assets.py`, `episodes/why-map/baarle-border-houses/` |
 | 2026-09-29 | body-cast, settled on my recommendation (you delegated it). **All 5 animated sets** become a library: each topic has a home set, plus Spotlight for the hook, versus and the loop ending. Frame 1 shows the matchup with the characters already on screen. The set or camera changes every 3–5 s, the character fills at least 35% of the frame, and there are no pale backgrounds. **Series order:** X vs Y first, then What happens if, then Day in the life. **Launch voice:** Felix narrates, and the cast speaks in bubbles; revisit after about 20 episodes with retention data. | The references (Kurzgesagt, SolarBalls) share saturated grounds and immediate motion. "A vs B" is SolarBalls' top format. It stays within the voice quota. | `studio/channels/body-cast/bible.json` (`look.sets`, `series[].priority`) |

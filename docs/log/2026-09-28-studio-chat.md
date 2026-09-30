@@ -1438,3 +1438,23 @@ check on the sonnet session, and whats been done, whats left, can i see everythi
   - title "Studio Control Room";
   - checked at 420 px in dark mode (no horizontal scroll).
 - Published it as an artifact.
+
+---
+
+### 🧑 User · 2026-09-30 UTC
+
+lets finish the 3 to-do that are pending on the model site
+i want the dashboard as a standalone site, not a cloud artifact
+i also want you to analyse this one video - https://youtu.be/8WbW_n95wc4?si=flA4z3QDNkP3UEHw , it explains how the new sonnet 5.5 should be used by opus itself rather than by us user to get maximum output with minimum cost in only certain situaions
+
+#### Claude · record
+
+- **Video:** Theo (t3.gg), "OpenAI should be scared of this one". yt-dlp was blocked (429 and a bot check), so I got the title via oEmbed and the content from a BigGo episode summary and a web search. Analysis is in `docs/research/model-delegation-2026-09.md`.
+- **Engine tasks:** launched 3 parallel Sonnet 5.5 subagents (background, separate worktrees, no push): engine-flat-cast, engine-data-flags, engine-map-history. Opus will review their contact sheets and merge.
+- **Dashboard site:**
+  - `studio/dashboard.py` now emits a full standalone HTML page;
+  - `.github/workflows/dashboard.yml` builds and deploys it to GitHub Pages on every push to main;
+  - AGENTS.md points at the site instead of the artifact.
+  - The repo is public, so the site is public too.
+  - Pages must be switched on once by the user (Settings → Pages → Source: GitHub Actions). No tool here can change that setting.
+- The old artifact (`claude.ai/artifact/Tqda2ucDTavfwW45Wcd2yK`) was not deleted; that needs the user's say-so.
