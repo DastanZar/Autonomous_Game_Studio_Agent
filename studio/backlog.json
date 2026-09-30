@@ -94,8 +94,9 @@
   {
    "id": "scene-length-ranking",
    "title": "Let long ranking reveals pass the storyboard gate",
-   "status": "todo",
+   "status": "done",
    "who": "model",
+   "note": "Per-type max_s in catalog.json (ranking_bars 24, ranking_race 30, map_history 14, character_dialog 12) overrides bible max_scene_s in the storyboard gate; selftest catches an over-long title_card.",
    "detail": "A narrated top-7 ranking_bars reveal runs ~18 s but bibles cap scenes at max_scene_s 7. Decide per scene type (e.g. a per-type max in the catalog, used by the storyboard gate) and add a selftest breakage for it. Found by the data-flags worker."
   },
   {
