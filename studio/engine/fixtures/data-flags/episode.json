@@ -1,0 +1,6 @@
+{
+  "channel": "ranked",
+  "slug": "data-flags-fixture",
+  "created": "2026-09-30T00:00:00Z",
+  "note": "Engine test fixture for ranking_bars, ranking_race and country versus cards. ALL NUMBERS ARE SAMPLE DATA, invented for layout tests; not a real episode. build/timeline.json is synthetic (make_timeline.py)."
+}

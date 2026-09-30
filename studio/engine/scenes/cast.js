@@ -41,7 +41,7 @@ function limb(x1, y1, x2, y2, bend, color, w = 16) {
 function foot(x, y) { part(() => ctx.ellipse(x + 10, y - 12, 30, 15, 0, 0, 7), BC.ink, { lw: 4, hl: false }); }
 function hand(x, y, color) { part(() => ctx.arc(x, y, 15, 0, 7), color, { lw: 6, hl: false, sx: -3, sy: -4 }); }
 // blink: 0 open .. 1 shut, from a seeded schedule (every 2.2-4 s, 0.14 s long)
-function blinkAt(t, seed) {
+function castBlinkAt(t, seed) {
   let tb = 0.4 + rnd(seed, 0) * 2;
   for (let i = 1; tb < t + 1 && i < 200; i++) {
     if (t >= tb && t < tb + 0.14) return Math.sin((t - tb) / 0.14 * Math.PI);
@@ -49,11 +49,11 @@ function blinkAt(t, seed) {
   }
   return 0;
 }
-// mouth openness while talking: syllable-rate flap (in production, keyed to voice word times)
-const flap = (t, seed) => 0.25 + 0.75 * Math.abs(Math.sin(t * 11 + rnd(seed, Math.floor(t * 6)) * 2));
+// mouth openness while talking: syllable-rate castFlap (in production, keyed to voice word times)
+const castFlap = (t, seed) => 0.25 + 0.75 * Math.abs(Math.sin(t * 11 + rnd(seed, Math.floor(t * 6)) * 2));
 
 // face. f = {x, y, sz, mood, look:[dx,dy], blink, talk, body}; moods: neutral, happy, smug, tired, worried, shocked, angry, proud
-function face(f) {
+function castFace(f) {
   const { x, y, sz } = f, sp = sz * 0.62, mood = f.mood || "neutral";
   const look = f.look || [0, 0];
   const shock = mood === "shocked";
@@ -100,7 +100,7 @@ function face(f) {
     else strokePath(() => { ctx.moveTo(x - mw * 0.6, my); ctx.quadraticCurveTo(x, my + curve * mw, x + mw * 0.6, my); }, BC.ink, lw);
   }
 }
-function sweat(x, y, k, s = 1) {
+function castSweat(x, y, k, s = 1) {
   if (k <= 0) return;
   ctx.save(); ctx.translate(x, y + k * 20); ctx.scale(s, s); ctx.globalAlpha = clamp(k * 3) * clamp((1 - k) * 4);
   part(() => { ctx.moveTo(0, -26); ctx.quadraticCurveTo(16, 0, 0, 12); ctx.quadraticCurveTo(-16, 0, 0, -26); }, "#9fd8f0", { lw: 4, hl: false });
@@ -122,7 +122,7 @@ const CAST = {
     ctx.fillStyle = BC.ink; ctx.beginPath(); ctx.arc(-9, 40, 4, 0, 7); ctx.arc(9, 40, 4, 0, 7); ctx.fill();
     ctx.restore();
     arm(o, "R", 140, -275, c);
-    face({ x: -40, y: -272, sz: 68, mood: o.mood || "tired", look: o.look, blink: blinkAt(t, o.seed), talk: o.talk, body: c });
+    castFace({ x: -40, y: -272, sz: 68, mood: o.mood || "tired", look: o.look, blink: castBlinkAt(t, o.seed), talk: o.talk, body: c });
   },
   brain(o) {
     const c = BC.brain, t = o.t;
@@ -143,8 +143,8 @@ const CAST = {
     ctx.restore();
     arm(o, "R", 150, -250, c);
     // face panel so the eyes read over the folds
-    face({ x: 0, y: -305, sz: 72, mood: o.mood || "smug", look: o.look, blink: blinkAt(t, o.seed), talk: o.talk, body: c });
-    if (o.crown !== false) crown(70 + (o.crownFall || 0) * 120, -438 + (o.crownFall || 0) * 380, 0.35 + (o.crownFall || 0) * 2.6);
+    castFace({ x: 0, y: -305, sz: 72, mood: o.mood || "smug", look: o.look, blink: castBlinkAt(t, o.seed), talk: o.talk, body: c });
+    if (o.crown !== false) castCrown(70 + (o.crownFall || 0) * 120, -438 + (o.crownFall || 0) * 380, 0.35 + (o.crownFall || 0) * 2.6);
   },
   heart(o) {
     const c = BC.heart, t = o.t;
@@ -166,7 +166,7 @@ const CAST = {
     ctx.restore();
     strokePath(body, BC.ink, 8);
     arm(o, "R", 150, -290, c);
-    face({ x: -5, y: -290, sz: 70, mood: o.mood || "proud", look: o.look, blink: blinkAt(t, o.seed), talk: o.talk, body: c });
+    castFace({ x: -5, y: -290, sz: 70, mood: o.mood || "proud", look: o.look, blink: castBlinkAt(t, o.seed), talk: o.talk, body: c });
     ctx.restore();
   },
   microbe(o) {  // o.kind: rod | coccus | spiral; about 130 tall
@@ -177,21 +177,21 @@ const CAST = {
     if (k === "rod") {
       for (let i = 0; i < 4; i++) strokePath(() => { ctx.moveTo(-60, -70 + i * 6); ctx.quadraticCurveTo(-95, -60 + Math.sin(t * 9 + i) * 14, -120, -80 + i * 10); }, BC.ink, 4);
       part(() => ctx.roundRect(-72, -110, 144, 76, 38), col, { hlAt: [-30, -95, 22], lw: 6 });
-      face({ x: 5, y: -78, sz: 30, mood: o.mood || "happy", look: o.look, blink: blinkAt(t, sd), talk: o.talk, body: col });
+      castFace({ x: 5, y: -78, sz: 30, mood: o.mood || "happy", look: o.look, blink: castBlinkAt(t, sd), talk: o.talk, body: col });
     } else if (k === "coccus") {
       part(() => ctx.arc(-34, -46, 34, 0, 7), shade(col, -0.05), { lw: 6, hl: false });
       part(() => ctx.arc(8, -66, 48, 0, 7), col, { hlAt: [-10, -90, 16], lw: 6 });
-      face({ x: 8, y: -72, sz: 28, mood: o.mood || "happy", look: o.look, blink: blinkAt(t, sd), talk: o.talk, body: col });
+      castFace({ x: 8, y: -72, sz: 28, mood: o.mood || "happy", look: o.look, blink: castBlinkAt(t, sd), talk: o.talk, body: col });
     } else {
       const path = () => { ctx.moveTo(-80, -60); for (let x = -80; x <= 80; x += 4) ctx.lineTo(x, -60 + Math.sin(x * 0.07 + t * 6) * 22); };
       strokePath(path, BC.ink, 34); strokePath(path, col, 20);
       part(() => ctx.arc(86, -60 + Math.sin(86 * 0.07 + t * 6) * 22, 36, 0, 7), col, { lw: 6, hl: false });
-      face({ x: 86, y: -64 + Math.sin(86 * 0.07 + t * 6) * 22, sz: 26, mood: o.mood || "happy", look: o.look, blink: blinkAt(t, sd), talk: o.talk, body: col });
+      castFace({ x: 86, y: -64 + Math.sin(86 * 0.07 + t * 6) * 22, sz: 26, mood: o.mood || "happy", look: o.look, blink: castBlinkAt(t, sd), talk: o.talk, body: col });
     }
     ctx.restore();
   },
 };
-function crown(x, y, rot) {
+function castCrown(x, y, rot) {
   ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
   part(() => { ctx.moveTo(-44, 0); ctx.lineTo(-50, -52); ctx.lineTo(-22, -24); ctx.lineTo(0, -64); ctx.lineTo(22, -24); ctx.lineTo(50, -52); ctx.lineTo(44, 0); ctx.closePath(); }, BC.sun, { hlAt: [-20, -30, 14], lw: 6 });
   ctx.restore();
@@ -371,7 +371,7 @@ function talkAt(S, id, t) {
   let i = -1; p.words.forEach((w, k) => { if (w.t <= t) i = k; });
   if (i < 0) return 0;
   const next = p.words[i + 1] ? p.words[i + 1].t : p.end;
-  return t < Math.min(next, p.words[i].t + 0.55) ? flap(t, strSeed(id)) : 0;
+  return t < Math.min(next, p.words[i].t + 0.55) ? castFlap(t, strSeed(id)) : 0;
 }
 // the paragraph whose bubble is up at t (last speaker paragraph in the scene's cast that has started)
 function bubbleAt(S, t) {

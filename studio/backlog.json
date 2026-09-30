@@ -43,9 +43,10 @@
   {
    "id": "engine-data-flags",
    "title": "Engine theme data-flags + scene types ranking_bars, ranking_race (ranked)",
-   "status": "todo",
+   "status": "done",
    "who": "model",
-   "detail": "Port the Flag Badges board (studio/stylelab/boards.js rankedBadges, flags.js). Flags must come from official geometry; extend flags.js per country as episodes need them."
+   "detail": "Port the Flag Badges board (studio/stylelab/boards.js rankedBadges, flags.js). Flags must come from official geometry; extend flags.js per country as episodes need them.",
+   "note": "Done: studio/engine/scenes/ranking.js (ranking_bars, ranking_race, country versus card), engine/flags.js (40 flags, unknown code = neutral badge + warning), engine/faces.js; fixture studio/engine/fixtures/data-flags renders with 0 warnings."
   },
   {
    "id": "engine-map-history",

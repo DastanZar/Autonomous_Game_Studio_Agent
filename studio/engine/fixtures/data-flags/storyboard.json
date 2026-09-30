@@ -1,0 +1,44 @@
+{
+  "episode": "data-flags-fixture",
+  "scenes": [
+    {"id": "s_hook", "type": "title_card", "start": "0",
+     "params": {"text": "WHO DRINKS THE MOST COFFEE?"},
+     "events": [{"at": "hook/coffee", "do": "reveal"}]},
+    {"id": "s_bars", "type": "ranking_bars", "start": "count.start-0.2", "end": "italy.end+0.3",
+     "params": {"dataset": "data/coffee.json", "top": 7, "highlight": "IT", "title": "WHO DRINKS THE MOST COFFEE?"},
+     "events": [
+       {"at": "count/seven", "do": "reveal", "args": {"rank": 7}},
+       {"at": "count/six", "do": "reveal", "args": {"rank": 6}},
+       {"at": "count/five", "do": "reveal", "args": {"rank": 5}},
+       {"at": "count/four", "do": "reveal", "args": {"rank": 4}},
+       {"at": "count/three", "do": "reveal", "args": {"rank": 3}},
+       {"at": "count/two", "do": "reveal", "args": {"rank": 2}},
+       {"at": "first/finland", "do": "reveal", "args": {"rank": 1}},
+       {"at": "italy/italy", "do": "highlight"}
+     ]},
+    {"id": "s_race", "type": "ranking_race", "start": "race.start-0.15", "end": "race.end+0.2",
+     "params": {"dataset": "data/race.json", "top": 4, "from": 1960, "to": 2020, "highlight": "IT", "title": "COFFEE, DECADE BY DECADE"},
+     "events": [
+       {"at": "race/sixty", "do": "reveal", "args": {"year": 1960}},
+       {"at": "race/italy", "do": "highlight"},
+       {"at": "race/leads", "do": "reveal", "args": {"year": 1960}},
+       {"at": "race/eighty", "do": "reveal", "args": {"year": 1980}},
+       {"at": "race/eighty+0.45", "do": "reveal", "args": {"year": 1980}},
+       {"at": "race/thousand", "do": "reveal", "args": {"year": 2000}},
+       {"at": "race/thousand+0.3", "do": "reveal", "args": {"year": 2000}},
+       {"at": "race/twenty#1", "do": "reveal", "args": {"year": 2020}},
+       {"at": "race/thousand+0.4", "do": "emphasize", "args": {"code": "FI"}}
+     ]},
+    {"id": "s_vs", "type": "versus", "start": "vs.start-0.1",
+     "params": {"left": {"code": "IT", "name": "Italy"}, "right": {"code": "FI", "name": "Finland"}, "title": "TALE OF THE TAPE",
+                "source": "SAMPLE DATA (engine test, invented numbers, not fact-checked)",
+                "rows": [{"label": "Coffee, kg per person", "left": 5.9, "right": 12.0}, {"label": "Tea, kg per person", "left": 0.2, "right": 0.6}],
+                "verdict": "FINLAND", "verdict_side": "right"},
+     "events": [
+       {"at": "vs/coffee", "do": "reveal"},
+       {"at": "vs/tea", "do": "reveal"},
+       {"at": "vs/wins", "do": "verdict"}
+     ]},
+    {"id": "s_loop", "type": "outro_loop", "start": "loop.start-0.1", "params": {"echo_of": "s_hook"}, "events": []}
+  ]
+}

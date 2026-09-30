@@ -353,7 +353,7 @@ function nestedAt(o, out = []) {
   return out;
 }
 const landed = S => clamp(Math.max(S.t0 + 0.9, ...S.ev.map(e => e.t + 0.5), ...nestedAt(S.p).map(x => x + 0.6), ...(S.landAt ? [S.landAt] : [])), S.t0 + 0.3, S.t1 - 0.05);
-function sheetTimes() { return [0.05, ...SC.map(landed), TL.duration - 0.05]; }
+function sheetTimes() { return [0.05, ...SC.flatMap(S => [landed(S), ...(S.sheetAt || [])]).sort((a, b) => a - b), TL.duration - 0.05]; }   // S.sheetAt: extra review stills mid-scene (ranking_race)
 function contact(times, cols = 5, scale = 0.24) {
   const cw = Math.round(W * scale), ch = Math.round(H * scale), rows = Math.ceil(times.length / cols);
   const g = document.createElement("canvas"); g.width = cols * cw + (cols + 1) * 12; g.height = rows * (ch + 44) + 12;
