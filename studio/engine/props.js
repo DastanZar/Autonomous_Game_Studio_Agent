@@ -107,10 +107,43 @@ const PROPS = {
     cut(() => ctx.rect(-110, -200, 180, 90), P.card, { lw: 4 });
     cut(() => ctx.rect(20, -270, 40, 70), P.navy, { lw: 4 });
   },
+  trophy(o) {  // a cup on a stepped base; o.color: cup colour (default gold)
+    const c = o.color || P.gold || P.yellow;
+    cut(() => ctx.rect(-95, -60, 190, 60), P.brown, { lw: 5 });
+    cut(() => ctx.rect(-65, -95, 130, 36), "#5e4630", { lw: 4 });
+    cut(() => ctx.roundRect(-18, -150, 36, 58, 6), c, { lw: 4 });
+    for (const sg of [-1, 1]) stroke2(() => { ctx.moveTo(sg * 80, -290); ctx.bezierCurveTo(sg * 150, -290, sg * 150, -195, sg * 60, -185); }, c, 14, 22);
+    cut(() => { ctx.moveTo(-100, -310); ctx.lineTo(100, -310); ctx.bezierCurveTo(100, -205, 55, -150, 0, -150); ctx.bezierCurveTo(-55, -150, -100, -205, -100, -310); ctx.closePath(); }, c, { lw: 5 });
+    ctx.save(); ctx.globalAlpha *= 0.35; cut(() => ctx.ellipse(-48, -255, 14, 40, 0.2, 0, 7), "#fff", { lw: 0, shadow: false }); ctx.restore();
+    star(0, -238, 34, P.card);
+  },
+  podium(o) {  // three steps, 2-1-3; o.labels: optional ["2", "1", "3"] overrides
+    const steps = [[-190, 150, P.silver || "#b8c0c8", "2"], [0, 220, P.gold || P.yellow, "1"], [190, 110, P.bronze || "#c47f45", "3"]];
+    steps.forEach(([x, h, c, n], i) => {
+      cut(() => ctx.rect(x - 95, -h, 190, h), c, { lw: 5 });
+      text((o.labels || [])[i] || n, x, -h + 90, { size: 80, color: P.ink });
+    });
+  },
+  globe(o) {  // a stylised globe: sphere with graticule only (no hand-drawn continents: maps come from real data)
+    stroke2(() => { ctx.moveTo(0, 0); ctx.lineTo(0, -40); }, P.brown, 12, 20);
+    cut(() => ctx.ellipse(0, 0, 90, 18, 0, 0, 7), P.brown, { lw: 4 });
+    ctx.save(); ctx.translate(0, -200);
+    cut(() => ctx.arc(0, 0, 150, 0, 7), P.sea, { lw: 5 });
+    ctx.save(); ctx.beginPath(); ctx.arc(0, 0, 150, 0, 7); ctx.clip();
+    ctx.strokeStyle = "rgba(43,35,32,0.45)"; ctx.lineWidth = 3;
+    for (let k = -2; k <= 2; k++) { ctx.beginPath(); ctx.ellipse(0, k * 55, 150 * Math.cos(Math.asin(k * 55 / 150)), 14, 0, 0, 7); ctx.stroke(); }
+    const spin = (T * 0.4) % 1;
+    for (let m = 0; m < 6; m++) { const a = ((m / 6 + spin) % 1) * Math.PI; ctx.beginPath(); ctx.ellipse(0, 0, Math.abs(Math.cos(a)) * 150, 150, 0, 0, 7); ctx.stroke(); }
+    ctx.globalAlpha = 0.3; ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.ellipse(-55, -70, 45, 22, -0.6, 0, 7); ctx.fill();
+    ctx.restore();
+    stroke2(() => { ctx.arc(0, 0, 175, Math.PI * 0.62, Math.PI * 1.9); }, P.steel2, 8, 14);
+    ctx.restore();
+  },
 };
 // approximate drawn size at s = 1, for layout (callouts, fitting)
 const PROP_SIZE = { soldier: [120, 300], person: [120, 280], flag: [220, 340], building: [390, 410], truck: [470, 250], bus: [470, 250],
-  machine_gun: [320, 120], telegram: [340, 300], plane: [380, 170], ship: [440, 270] };
+  machine_gun: [320, 120], telegram: [340, 300], plane: [380, 170], ship: [440, 270],
+  trophy: [300, 320], podium: [570, 220], globe: [350, 390] };
 function prop(name, o = {}) {
   ctx.save(); ctx.translate(o.x || 0, o.y || 0); boil(o.id || strSeed(name) % 97, 0.7 / (o.s || 1));
   ctx.scale((o.s || 1) * (o.dir || 1), o.s || 1);

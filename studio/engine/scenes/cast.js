@@ -437,11 +437,11 @@ function drawCharacter(S, id, i, x, s, t, lookDir, extra = {}) {
 SCENE_FNS.character_dialog = (t, S) => {
   setBackdrop(S.p.setting, t);
   const ids = S.castIds, n = ids.length;
-  const ANCH = { 1: [470], 2: [345, 640], 3: [190, 470, 750], 4: [150, 350, 590, 800] }[n] || [470];
+  const ANCH = { 1: [470], 2: [255, 690], 3: [175, 470, 770], 4: [140, 345, 595, 805] }[n] || [470];   // wide enough that idle characters don't overlap
   const lv = ids.map(id => onMic(S, id, t));
   const sc = ids.map((id, i) => bigScale(RIGS[id]) * lerp(0.75, 1, lv[i]));
   const lead = lv.indexOf(Math.max(...lv));
-  const xs = ids.map((id, i) => ANCH[i] + (470 - ANCH[i]) * 0.6 * lv[i]);
+  const xs = ids.map((id, i) => ANCH[i] + (470 - ANCH[i]) * 0.3 * lv[i]);
   const order = ids.map((_, i) => i).sort((a, b) => lv[a] - lv[b] || a - b);   // the speaker draws in front
   order.forEach(i => {
     const flip = ANCH[i] > 470;                                                 // right-hand characters face left
