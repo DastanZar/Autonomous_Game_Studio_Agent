@@ -85,13 +85,6 @@
    "detail": "Generate out/<slug>.srt from timeline.json captions and a 1080x1920 thumbnail from a storyboard frame + title; wire into sop/08-package.md."
   },
   {
-   "id": "channel-names",
-   "title": "Pick channel names and handles; create the three YouTube channels",
-   "status": "blocked",
-   "who": "human",
-   "detail": "Open decision in each bible."
-  },
-  {
    "id": "scene-length-ranking",
    "title": "Let long ranking reveals pass the storyboard gate",
    "status": "done",
@@ -114,6 +107,41 @@
    "who": "model",
    "detail": "flat-cast: idle characters overlap in two-shots; add a script rule that captions must not repeat bubble text. map_history: the map uses only the top ~60% of the frame (fit the region to the full stage); OHM US polygon leaves Natural Earth slivers at the coast. data-flags: OK after the clean-background fix.",
    "note": "flat-cast: listeners shrink to 55% in multi-character shots and every character is clamped inside the frame (no more overlap/cropping); script SOP now forbids repeating bubble text in captions. map_history: the lower third is the caption zone by design (same stage box as every map), so no change; the OHM-vs-Natural-Earth coast slivers are a data mismatch, left as is and noted in docs/research/historical-borders-2026-09.md."
+  },
+  {
+   "id": "channel-names",
+   "title": "Pick final channel names and handles",
+   "status": "blocked",
+   "who": "human",
+   "detail": "Open decision in each bible; needed before creating the channels."
+  },
+  {
+   "id": "yt-channels",
+   "title": "Create the studio Gmail and 3 Brand Account channels",
+   "status": "blocked",
+   "who": "human",
+   "detail": "docs/setup/youtube.md step 1."
+  },
+  {
+   "id": "yt-api",
+   "title": "Google Cloud project + OAuth client; refresh token per channel as environment secrets",
+   "status": "blocked",
+   "who": "human",
+   "detail": "docs/setup/youtube.md step 2. Never paste secrets in chat."
+  },
+  {
+   "id": "yt-audit",
+   "title": "Apply for the YouTube API compliance audit (lifts the private-upload lock)",
+   "status": "blocked",
+   "who": "human",
+   "detail": "docs/setup/youtube.md step 3; takes days to weeks, so apply on day 1."
+  },
+  {
+   "id": "channel-art",
+   "title": "Banner + avatar for each channel in its style",
+   "status": "todo",
+   "who": "model",
+   "detail": "Render with the engine/stylelab at YouTube's sizes (banner 2560x1440 with a 1546x423 safe area; avatar 800x800). Opus reviews. Needs final channel names first."
   }
  ]
 }

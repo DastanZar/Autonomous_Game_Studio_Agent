@@ -1525,3 +1525,22 @@ finish the polish tasks on the backlog too
   - **Script SOP:** cast lines go in bubbles only, never also in captions; bubbles are 8 words or fewer.
   - **map_history:** the lower third is the caption zone by design, so no change. The coast slivers are a data mismatch, now documented.
 - Selftest OK. The data-flags, flat-cast and map-history fixtures render with 0 warnings.
+
+---
+
+### 🧑 User · 2026-09-30 UTC
+
+lets setup the youtube side too? do we need 3 gmail ids for 3 channels, how does all of that work?
+
+#### Claude · record
+
+- **Checked on the web:**
+  - One Google account can own up to 100 channels as Brand Accounts.
+  - Uploads from unverified API projects (created after July 2020) are locked private until the project passes the compliance audit.
+  - Since June 2026, videos.insert has its own bucket of 100 calls per day per project.
+- **Built `studio/tools/publish.py`** (stdlib only):
+  - an `auth` command using a loopback OAuth flow, to be run on the user's laptop;
+  - an `upload` command: resumable upload, private with optional publishAt, category 27, made-for-kids and synthetic-media flags, SRT captions, writes publish.json.
+  - The dry-run works on the gold example. The real upload is untested because there are no credentials yet.
+- **Wrote** `docs/setup/youtube.md` and updated SOP 09.
+- **Backlog:** yt-channels, yt-api and yt-audit (human); channel-art (model, needs the names).

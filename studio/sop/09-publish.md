@@ -19,6 +19,11 @@
 5. Write `publish.json`: `{"youtube": {"url": ..., "published_at": ...}, "others": [{"platform", "url"}]}`.
 6. Run the check.
 
-## Steps (API, phase 3)
-`studio/tools/publish.py` will perform the steps above with the YouTube Data API
-(`videos.insert`, `captions.insert`) and write `publish.json`. It's not built yet.
+## Steps (API)
+Setup: `docs/setup/youtube.md` (OAuth client and refresh tokens as environment secrets).
+1. `python3 studio/tools/publish.py upload <episode> --dry-run` validates package.json and the files.
+2. `python3 studio/tools/publish.py upload <episode>` uploads the video (private, or scheduled with
+   `package.schedule`), uploads the SRT captions and writes `publish.json`.
+3. Pin the comment by hand; the API can't pin comments.
+4. Until the Google Cloud project passes YouTube's API audit, uploads are locked to private. Publish
+   them in YouTube Studio, then fix `publish.json`'s `published_at`.
