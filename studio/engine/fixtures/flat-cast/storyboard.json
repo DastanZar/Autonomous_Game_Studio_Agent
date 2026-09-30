@@ -1,0 +1,111 @@
+{
+ "episode": "flat-cast",
+ "scenes": [
+  {
+   "id": "s_open",
+   "type": "character_dialog",
+   "start": "0",
+   "params": {
+    "cast": [
+     "liver",
+     "brain"
+    ],
+    "setting": "spotlight",
+    "title": "LIVER VS BRAIN"
+   }
+  },
+  {
+   "id": "s_brag",
+   "type": "character_dialog",
+   "start": "brag.start-0.15",
+   "params": {
+    "cast": [
+     "liver",
+     "brain"
+    ],
+    "setting": "neurons"
+   }
+  },
+  {
+   "id": "s_chore",
+   "type": "character_dialog",
+   "start": "chore.start-0.15",
+   "params": {
+    "cast": [
+     "liver"
+    ],
+    "setting": "stomach",
+    "bubbles": {
+     "chore": "WHO FILTERS THE BLOOD AND MAKES THE BILE?"
+    }
+   }
+  },
+  {
+   "id": "s_how",
+   "type": "character_explain",
+   "start": "how.start-0.15",
+   "params": {
+    "speaker": "liver",
+    "setting": "stomach",
+    "diagram": "One meal, three stops",
+    "steps": [
+     {
+      "label": "GUT",
+      "at": "steps/gut"
+     },
+     {
+      "label": "BLOOD",
+      "at": "steps/blood"
+     },
+     {
+      "label": "LIVER",
+      "at": "steps/me"
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "how/here",
+     "do": "reveal_card"
+    }
+   ]
+  },
+  {
+   "id": "s_beat",
+   "type": "character_dialog",
+   "start": "beat.start-0.15",
+   "params": {
+    "cast": [
+     "heart",
+     "liver"
+    ],
+    "setting": "bloodstream"
+   }
+  },
+  {
+   "id": "s_gut",
+   "type": "character_dialog",
+   "start": "think.start-0.15",
+   "params": {
+    "cast": [
+     "brain",
+     "gut_microbes"
+    ],
+    "setting": "gut"
+   }
+  },
+  {
+   "id": "s_end",
+   "type": "character_dialog",
+   "start": "end.start-0.15",
+   "params": {
+    "cast": [
+     "liver",
+     "brain"
+    ],
+    "setting": "spotlight",
+    "title": "NOBODY THANKS ANYONE"
+   }
+  }
+ ]
+}

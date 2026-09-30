@@ -1,0 +1,6 @@
+{
+ "channel": "body-cast",
+ "slug": "flat-cast",
+ "created": "2026-09-30T00:00:00Z",
+ "note": "Engine test fixture for the flat-cast theme and the character_dialog / character_explain scene types. Synthetic timeline (make_fixture.py writes build/timeline.json). Not a real episode."
+}
