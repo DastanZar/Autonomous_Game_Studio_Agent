@@ -145,12 +145,11 @@
    }
   },
   "map_history": {
-   "status": "planned",
-   "purpose": "Borders morph or recolour between dated snapshots of a territory, with a year counter; geometry from OpenHistoricalMap (CC0) or merged Natural Earth units.",
+   "status": "built",
+   "purpose": "Borders morph or recolour between dated snapshots of a territory, with a big year counter; geometry from OpenHistoricalMap (CC0 unless a relation's license tag says otherwise) or merged Natural Earth units (approximate). The engine draws the credit 'Historical borders: OpenHistoricalMap contributors'. Run studio/tools/geo.py to fetch and cache geometry; licence tags land in build/geo.json (ohm_licenses, ohm_non_cc0).",
    "params": {
-    "snapshots": "list of {date, relation_id or iso list}",
-    "focus": "bbox or iso",
-    "approximate": "bool: shows the 'approximate' label"
+    "focus": "[west, south, east, north] or an ISO alpha-2 code",
+    "snapshots": "list of {date: 'YYYY[-MM[-DD]]' (the dataset's date, shown on screen), at: cue where this snapshot replaces the previous one (omit on the first), approximate: optional bool, territories: [{key, name, color, and ONE of relation: <OHM relation id> | ohm_name: '<OHM admin_level 2 name; resolved to the relation valid on date>' | iso: ['MX', ...] (Natural Earth units merged; forces the 'approximate' label)}]}. Territories with the same key morph between snapshots."
    }
   }
  },

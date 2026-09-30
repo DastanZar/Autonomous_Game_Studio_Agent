@@ -1,0 +1,16 @@
+{
+ "episode": "map-history-fixture",
+ "series": "how_did",
+ "working_title": "Engine fixture: Mexico before and after the 1848 cession (not an episode)",
+ "lead_in": 0.35,
+ "tail": 1.6,
+ "gap": 0.3,
+ "paras": [
+  {"id": "hook", "say": "This is Mexico in eighteen forty-six.", "kind": "hook", "claims": [], "gap": 0.3,
+   "caps": [["THIS IS MEXICO", 3], ["IN 1846.", 2]]},
+  {"id": "war", "say": "Then came a war with the United States, and two years later the map looked very different.", "kind": "fact", "claims": [], "gap": 0.3,
+   "caps": [["THEN CAME A WAR", 4], ["WITH THE UNITED STATES,", 4], ["AND TWO YEARS LATER", 4], ["THE MAP LOOKED", 3], ["VERY DIFFERENT.", 2]]},
+  {"id": "after", "say": "By July eighteen forty-eight, Mexico had lost its northern territories.", "kind": "fact", "claims": [], "gap": 0.3,
+   "caps": [["BY JULY 1848,", 3], ["MEXICO HAD LOST", 3], ["ITS NORTHERN TERRITORIES.", 3]]}
+ ]
+}

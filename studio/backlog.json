@@ -50,7 +50,8 @@
   {
    "id": "engine-map-history",
    "title": "Scene type map_history (animated historical borders) for why-map how_did",
-   "status": "todo",
+   "status": "done",
+   "note": "map_history built in maps.js + geo.py (OHM Overpass, cached); fixture studio/engine/fixtures/map-history renders with 0 engine warnings.",
    "who": "model",
    "detail": "Geometry from OpenHistoricalMap (CC0) via Overpass, cached like geo.py; Natural Earth merge fallback. See docs/research/historical-borders-2026-09.md."
   },

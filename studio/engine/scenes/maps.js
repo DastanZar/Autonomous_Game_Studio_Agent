@@ -31,7 +31,7 @@ function pin(x, y, k, c, label) {
   if (label) tag(label, x, y - 118, { size: 34, k: Math.min(1, k) });
 }
 
-function drawMap(t, S, overlay) {
+function drawMap(t, S, overlay, hud) {
   paperBG(P.paper);
   const g = GEO[S.id];
   if (!g) { warn(`map scene ${S.id}: no geometry in build/geo.json (run studio/tools/geo.py)`); text("NO MAP DATA", W / 2, H / 2, { size: 80 }); return; }
@@ -86,8 +86,92 @@ function drawMap(t, S, overlay) {
     tag(b.label, 0, by, { size: 42, k, bg: P.yellow });
   });
   if (g.osm) text("© OpenStreetMap contributors", FRAME.w / 2 - 16, FRAME.h / 2 - 16, { size: 26, font: "Elite", align: "right", color: P.ink });
+  if (hud) hud(t);
   ctx.restore();
 }
+
+// ---------- map_history: territories recolour / morph between dated snapshots ----------
+// geo.json: scene.history.snapshots[i] = {date, approximate, territories: [{key, name, color, polys, label, morph}]}
+// (morph = equal-length resampled rings toward the next snapshot, made by geo.py). Transition times are storyboard cues
+// (snapshots[i].at); a transition lasts HIST_TR seconds. Text stays left of the right safe zone (frame right edge minus SAFE.right).
+const HIST_TR = 1.5;
+const MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+function mixColor(a, b, k) {
+  const pa = col(a), pb = col(b), h = s => [1, 3, 5].map(i => parseInt(s.slice(i, i + 2), 16));
+  const x = h(pa), y = h(pb);
+  return "#" + x.map((v, i) => Math.round(lerp(v, y[i], k)).toString(16).padStart(2, "0")).join("");
+}
+function parseDate(d) {   // "1846-08-22" | "1849" | "1823-07" -> {y, m, d}
+  const m = /^(-?\d+)(?:-(\d\d))?(?:-(\d\d))?$/.exec(String(d));
+  return m ? { y: +m[1], m: m[2] ? +m[2] : 0, d: m[3] ? +m[3] : 0 } : { y: 0, m: 0, d: 0 };
+}
+function dateLabel(d) { const p = parseDate(d); return p.m ? (p.d ? p.d + " " : "") + MONTHS[p.m - 1] + " " + p.y : String(p.y); }
+function histState(t, S) {
+  const snaps = (((GEO[S.id] || {}).history) || {}).snapshots || [];
+  const ats = (S.p.snapshots || []).map((s, i) => i ? cue(s.at) : S.t0);
+  let j = 0; ats.forEach((a, i) => { if (i && t >= a) j = i; });
+  const k = j ? eio(prog(t, ats[j], ats[j] + HIST_TR)) : 0;
+  return { snaps, j, k, ats };
+}
+function ringsMix(pairs, k) {   // interpolated exteriors of matched polygon pairs
+  return pairs.map(pr => pr.a.map((p, i) => [lerp(p[0], pr.b[i][0], k), lerp(p[1], pr.b[i][1], k)]));
+}
+function drawTerritory(proj, T, colr, alpha, sub) {
+  cut(() => ringPath(T.polys, proj), colr, { lw: 4, rule: "evenodd", alpha, sx: 3, sy: 4, sb: 4, ...(sub || {}) });
+}
+SC.forEach(S => { if (S.type === "map_history") S.landAt = Math.max(...(S.p.snapshots || []).map((s, i) => i ? cue(s.at) + HIST_TR : S.t0)) + 0.7; });
+SCENE_FNS.map_history = (t, S) => {
+  if (!(S.p.snapshots || []).length) { warn(`map_history ${S.id}: no snapshots`); }
+  const { snaps, j, k } = histState(t, S);
+  drawMap(t, S, (view, z) => {
+    if (!snaps.length) return;
+    const P2 = view.proj, cur = snaps[j], prv = j ? snaps[j - 1] : null;
+    const labels = [];
+    const shape = (ringsList, colr, alpha) => cut(() => { for (const ring of ringsList) { ring.forEach(([lo, la], i) => { const p = P2(lo, la); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); ctx.closePath(); } }, colr, { lw: 4, alpha, sx: 3, sy: 4, sb: 4 });
+    if (!prv || k >= 1) {
+      cur.territories.forEach(T => { drawTerritory(P2, T, col(T.color), 1); if (T.label) labels.push([T.name, T.label, 1]); });
+    } else {
+      const keysNow = new Set(cur.territories.map(T => T.key));
+      prv.territories.forEach(T => {
+        const nx = cur.territories.find(N => N.key === T.key);
+        if (!nx || !T.morph) { drawTerritory(P2, T, col(T.color), 1 - k); if (T.label) labels.push([T.name, T.label, 1 - k]); return; }
+        const colr = mixColor(T.color, nx.color, k), m = T.morph;
+        const usedA = new Set(m.pairs.map(p => p.ia)), usedB = new Set(m.pairs.map(p => p.ib));
+        m.a_polys.forEach((r, i) => { if (!usedA.has(i)) shape([r[0]], colr, 1 - k); });
+        m.b_polys.forEach((r, i) => { if (!usedB.has(i)) shape([r[0]], colr, k); });
+        ringsMix(m.pairs, k).forEach(r => shape([r], colr, 1));
+        const la = T.label || nx.label, lb = nx.label || T.label;
+        if (la && lb) labels.push([nx.name, [lerp(la[0], lb[0], k), lerp(la[1], lb[1], k)], 1]);
+      });
+      cur.territories.forEach(N => { if (!prv.territories.some(T => T.key === N.key)) { drawTerritory(P2, N, col(N.color), k); if (N.label) labels.push([N.name, N.label, k]); } });
+    }
+    labels.forEach(([name, lp, a]) => {
+      if (a <= 0.02) return;
+      const [x, y] = P2(...lp);
+      ctx.save(); ctx.translate(x, y); ctx.scale(1 / z, 1 / z); ctx.globalAlpha *= a;
+      text(name, 0, 0, { size: 46, color: P.white, stroke: 10 });
+      ctx.restore();
+    });
+  }, tt => {
+    // HUD in frame coordinates: year counter (top-left), exact date, approximate label, credit (bottom-left)
+    const { snaps: sn, j: jj, k: kk } = histState(tt, S);
+    if (!sn.length) return;
+    const a = sn[jj ? jj - 1 : 0], b = sn[jj || 0];
+    const ya = parseDate(a.date).y, yb = parseDate(b.date).y;
+    const yr = jj ? Math.round(lerp(ya, yb, kk)) : ya;
+    const shown = kk >= 0.5 && jj ? b : a;
+    const left = -FRAME.w / 2 + 30, bot = FRAME.h / 2 - 50;   // bottom-left corner: open sea in most maps, clear of the right safe zone
+    const pulse = jj && kk > 0 && kk < 1 ? 1 + 0.06 * Math.sin(kk * Math.PI) : 1;
+    ctx.save(); ctx.translate(left + 150, bot - 100); ctx.scale(pulse, pulse); ctx.rotate(-0.02);
+    cut(() => ctx.rect(-150, -100, 300, 200), P.card, { lw: 5 });
+    text(String(yr), 0, 22, { size: 130, color: P.red, stroke: 0 });
+    const dl = dateLabel(shown.date);
+    if (dl !== String(yr) && kk % 1 === 0) text(dl, 0, 76, { size: 30, font: "Elite", color: P.ink });
+    ctx.restore();
+    if (sn.some(s => s.approximate) && (shown.approximate || kk > 0 && kk < 1 && (a.approximate || b.approximate))) tag("APPROXIMATE BORDERS", left, bot - 235, { size: 30, align: "left", bg: P.yellow, rot: 0.01 });
+    text("Historical borders: OpenHistoricalMap contributors", left, FRAME.h / 2 - 18, { size: 24, font: "Elite", align: "left", color: P.ink });
+  });
+};
 
 SCENE_FNS.map_focus = (t, S) => drawMap(t, S);
 SC.forEach(S => { if (S.type === "map_route") S.landAt = evT(S, "draw", S.t0 + 0.3) + 1.8; });
