@@ -1,0 +1,30 @@
+{
+ "episode": "map-history-fixture",
+ "scenes": [
+  {
+   "id": "s1_mexico_before_after",
+   "type": "map_history",
+   "start": "0",
+   "params": {
+    "focus": [-126, 14, -80, 49],
+    "snapshots": [
+     {"date": "1846-08-22",
+      "territories": [
+       {"key": "MX", "name": "MEXICO", "color": "green", "relation": 2841222},
+       {"key": "US", "name": "UNITED STATES", "color": "orange", "ohm_name": "United States"}
+      ]},
+     {"date": "1848-07-14", "at": "war/later",
+      "territories": [
+       {"key": "MX", "name": "MEXICO", "color": "green", "ohm_name": "Mexico"},
+       {"key": "US", "name": "UNITED STATES", "color": "orange", "ohm_name": "United States"}
+      ]},
+     {"date": "2026", "at": "after/northern", "approximate": true,
+      "territories": [
+       {"key": "MX", "name": "MEXICO", "color": "green", "iso": ["MX"]},
+       {"key": "US", "name": "UNITED STATES", "color": "orange", "iso": ["US"]}
+      ]}
+    ]
+   }
+  }
+ ]
+}
