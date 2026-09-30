@@ -102,29 +102,60 @@ def build(root):
     bk = next((k for k in sec if k.startswith("Blocked")), None)
     dec_html = "".join(f"<h4>{e(k)}</h4>{_md_block(sec[k])}" for k in (op, bk) if k)
 
-    page = f"""<!doctype html><html lang=en><head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><title>Studio dashboard</title>
-<link rel=preconnect href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel=stylesheet>
+    # summary first: what needs the user, what the models are on
+    backlog = load_backlog()
+    needs = [t for t in backlog if t["status"] in ("todo", "doing", "blocked") and t["who"] in ("human", "laptop")]
+    pending_music = sum(1 for ch in os.listdir(os.path.join(studio_dir, "channels"))
+                        for t in (json.load(open(os.path.join(studio_dir, "assets", "music", ch, "manifest.json")))["tracks"]
+                                  if os.path.exists(os.path.join(studio_dir, "assets", "music", ch, "manifest.json")) else [])
+                        if not t.get("approved"))
+    model_open = sum(1 for t in backlog if t["status"] in ("todo", "doing") and t["who"] == "model")
+    done_list = "".join(f"<li><code>{e(t['id'])}</code> {e(t['title'])}</li>" for t in backlog if t["status"] == "done") or "<li>nothing yet</li>"
+    you = "".join(f"<li><span class='chip {'bad' if t['who']=='laptop' else 'wait'}'>{e(t['who'])}</span> {e(t['title'])}</li>" for t in needs)
+    import datetime
+    stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    tiles = (f"<div class=tiles><div class=tile><b>{len(needs)}</b><span>need you or the laptop</span></div>"
+             f"<div class=tile><b>{pending_music}</b><span>music tracks to listen to</span></div>"
+             f"<div class=tile><b>{model_open}</b><span>jobs a model can do now</span></div>"
+             f"<div class=tile><b>{len(all_episodes())}</b><span>episodes in the pipeline</span></div></div>")
+
+    page = f"""<title>Studio Control Room</title>
+<link rel=preconnect href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Anton&display=swap" rel=stylesheet>
 <style>
-:root{{--bg:#f6f4ef;--fg:#1d1b18;--card:#fff;--mut:#6b665e;--line:#e2ddd3;--ok:#1f7a45;--wait:#8a6d00;--bad:#b3261e;--stale:#b35a00}}
-@media(prefers-color-scheme:dark){{:root{{--bg:#16150f;--fg:#efece4;--card:#211f18;--mut:#9d978a;--line:#39352b;--ok:#5fcf8b;--wait:#e0c060;--bad:#ff8a80;--stale:#ffb066}}}}
-*{{box-sizing:border-box}}body{{margin:0;padding:16px;background:var(--bg);color:var(--fg);font:16px/1.45 'DM Sans',system-ui,sans-serif;max-width:1000px;margin-inline:auto}}
-h1{{margin:.2em 0}}h2{{margin-top:1.8em;border-bottom:1px solid var(--line);padding-bottom:.2em}}h3{{margin:0}}h4{{margin:1em 0 .3em}}
-.sub{{color:var(--mut);margin:.1em 0}}.grid{{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}}
-.card{{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}}
+/* one column of status sections, summary first; chips carry state */
+:root{{--bg:#f4f2ec;--fg:#1f1c16;--card:#fffdf8;--mut:#6b665c;--line:#e2ddd1;--ok:#1f7a45;--wait:#8a6200;--bad:#b3261e;--stale:#b35a00;--accent:#c8452d;
+--display:'Anton',Impact,'Arial Narrow',sans-serif;--body:'DM Sans',system-ui,sans-serif}}
+@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--bg:#17150f;--fg:#efebe1;--card:#221f18;--mut:#a09a8c;--line:#3a352a;--ok:#5fcf8b;--wait:#e6c35c;--bad:#ff8a80;--stale:#ffb066;--accent:#ff7a5c;color-scheme:dark}}}}
+:root[data-theme="dark"]{{--bg:#17150f;--fg:#efebe1;--card:#221f18;--mut:#a09a8c;--line:#3a352a;--ok:#5fcf8b;--wait:#e6c35c;--bad:#ff8a80;--stale:#ffb066;--accent:#ff7a5c;color-scheme:dark}}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 var(--body)}}
+.wrap{{max-width:1000px;margin-inline:auto;padding-inline:16px;padding-block:20px 48px;display:flex;flex-direction:column;gap:8px}}
+h1{{font-family:var(--display);font-weight:400;font-size:clamp(34px,7vw,52px);letter-spacing:.01em;margin:0;line-height:1.05;text-wrap:balance}}
+h1 em{{font-style:normal;color:var(--accent)}}
+h2{{font-family:var(--display);font-weight:400;letter-spacing:.02em;font-size:26px;margin:1.4em 0 .2em;border-bottom:1px solid var(--line);padding-bottom:.2em}}
+h3{{margin:0;font-size:18px}}h4{{margin:1em 0 .3em;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}}
+.sub{{color:var(--mut);margin:.1em 0}}.grid{{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}}.grid>*{{min-width:0}}
+.card{{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px}}
+.tiles{{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:12px}}
+.tile{{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;flex-direction:column}}
+.tile b{{font-family:var(--display);font-weight:400;font-size:40px;line-height:1;font-variant-numeric:tabular-nums}}.tile span{{color:var(--mut);font-size:14px}}
+.you{{background:var(--card);border:2px solid var(--accent);border-radius:8px;padding:12px 14px}}.you ul{{list-style:none;padding:0}}.you li{{padding:4px 0}}
 .chip{{display:inline-block;font-size:13px;padding:1px 8px;border-radius:99px;border:1px solid currentColor;margin:2px 4px 2px 0}}
 .ok{{color:var(--ok)}}.wait{{color:var(--wait)}}.bad{{color:var(--bad)}}.stale{{color:var(--stale)}}.none{{color:var(--mut)}}
 .scroll{{overflow-x:auto}}table{{border-collapse:collapse;width:100%;font-size:14px}}td,th{{border-bottom:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}}
-td.st{{text-align:center;font-weight:700}}td.name{{white-space:nowrap}}th.rot{{height:70px;vertical-align:bottom;padding:0 2px}}th.rot span{{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:600;font-size:12px}}
-code{{font-size:13px;background:var(--line);padding:0 4px;border-radius:4px}}ul{{padding-left:20px;margin:.3em 0}}
-</style></head><body>
-<h1>Studio dashboard</h1><p class=sub>Generated by <code>python3 studio/studio.py dashboard</code>. Regenerate after every change.</p>
+td.st{{text-align:center;font-weight:700}}td.name{{white-space:nowrap}}th.rot{{height:78px;vertical-align:bottom;padding:0 2px}}th.rot span{{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:600;font-size:12px}}
+code{{font-size:13px;background:var(--line);padding:0 4px;border-radius:4px;overflow-wrap:anywhere}}ul{{padding-left:20px;margin:.3em 0}}
+</style>
+<div class=wrap>
+<h1>Studio <em>Control Room</em></h1><p class=sub>Three Shorts channels · updated {stamp} · regenerate with <code>python3 studio/studio.py dashboard</code></p>
+{tiles}
+<h2>Needs you</h2><div class=you><ul>{you or '<li>Nothing is waiting on you.</li>'}</ul></div>
 <h2>Channels</h2><div class=grid>{ch_html}</div>
 <h2>Episodes</h2><div class=scroll><table><tr><th>episode</th>{head}</tr>{ep_rows}</table></div>
 <p class=sub>✓ passed · pending · ✗ failed · ! stale (an input changed after it passed)</p>
-<h2>Backlog</h2><p class=sub>{done} done. Open work by who can do it:</p>{bl}
+<h2>Backlog</h2><p class=sub>Open work by who can do it:</p>{bl}
+<h4>Done ({done})</h4><ul>{done_list}</ul>
 <h2>Decisions</h2>{dec_html}
-</body></html>"""
+</div>"""
     out = os.path.join(root, "docs", "dashboard.html")
     open(out, "w").write(page)
     return os.path.relpath(out, root)

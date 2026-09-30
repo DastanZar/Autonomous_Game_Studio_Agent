@@ -1413,3 +1413,28 @@ continue down the queue with the music tasks
 - The finish phase failed twice: `vocal_check.py` ran under system Python (no Whisper), then the venv lacked `imageio-ffmpeg`. I re-ran `--finish` and fixed both in the tools. The generated audio was not lost.
 - Result: 8 tracks, 54-58 s each, no words heard, no clipping, longest dropout 1.5 s. I can't hear them, so all stay `approved: false`; `music-approve` is waiting on you.
 - Stop hook flagged uncommitted bible edits mid-run; I committed and pushed those separately.
+
+---
+
+### 🧑 User · 2026-09-30 UTC
+
+check on the sonnet session, and whats been done, whats left, can i see everything on the dashboard?
+
+#### Claude · record
+
+- **Sonnet session** `session_018BeNFZjCYstEUyRiTmegJN` ran one turn (effort high, as the user set it) and is idle. Its commits:
+  - 0f706fb: dashboard;
+  - 4d9ef3d: Baarle picture gate passes, plus the SRT + thumbnail builder;
+  - 6aa013d and 80f9e6d: 4-track music libraries for body-cast and ranked, all passing the automatic checks and unapproved.
+- **Sonnet's mistakes, fixed here:**
+  - It filed its music entry in DECISIONS.md's open-decisions table instead of the log. I moved the row to the log.
+  - It left the decided "cast voices" item in the open table. I replaced it with "listen to the 8 tracks".
+- **What it didn't do:** it stopped after its first turn and didn't continue into the engine tasks.
+- **Baarle** now fails only because the final stage hasn't run in this fresh container (no build/final_report.json).
+- **Dashboard reworked:**
+  - summary tiles and a "Needs you" list first, then the rest;
+  - done backlog items listed;
+  - theme tokens per the artifact contract, and no html/head wrapper;
+  - title "Studio Control Room";
+  - checked at 420 px in dark mode (no horizontal scroll).
+- Published it as an artifact.

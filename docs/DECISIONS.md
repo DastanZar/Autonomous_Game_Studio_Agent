@@ -15,10 +15,9 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | # | Decision | Options / recommendation | Detail |
 |---|---|---|---|
-| 2026-09-29 | body-cast and ranked music libraries generated: 4 tracks each (lab, inside, heartbeat, showdown / scoreboard, tally, countdown, finale; two added per channel to reach four). All pass the automatic checks and are **unapproved** until you listen. `music_gen.py` now defaults to the venv Python for the vocal check and setup installs `imageio-ffmpeg`. | Backlog music tasks | `studio/assets/music/{body-cast,ranked}/manifest.json` |
-| 3 | (decided 2026-09-29: narrator + speech bubbles at launch) body-cast cast voices | Recommended: narrator only (Felix), with characters speaking in typeset speech bubbles. Voiced cast later. | same doc, "Story style" |
-| 4 | Channel names and handles, all 3 | Working names: Why the Map Looks Like That / The Body Cast / Ranked | `studio/channels/*/bible.json` → `open_decisions` |
-| 5 | Keep Felix as the narrator voice for all channels? | Alternatives are in `videos/voice-test/` | why-map bible |
+| 1 | Listen to the 8 new music tracks (4 body-cast, 4 ranked) and approve or reject each | Every track passed the automatic checks; only your ears can approve them | `studio/assets/music/{body-cast,ranked}/` |
+| 2 | Channel names and handles, all 3 | Working names: Why the Map Looks Like That / The Body Cast / Ranked | `studio/channels/*/bible.json` → `open_decisions` |
+| 3 | Keep Felix as the narrator voice for all channels? | Alternatives are in `videos/voice-test/` | why-map bible |
 
 ## Blocked (needs something from outside this container)
 
@@ -31,6 +30,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-09-29 | body-cast and ranked music libraries generated: 4 tracks each (lab, inside, heartbeat, showdown / scoreboard, tally, countdown, finale; two added per channel to reach four). All pass the automatic checks and are **unapproved** until you listen. `music_gen.py` now defaults to the venv Python for the vocal check and setup installs `imageio-ffmpeg`. | Backlog music tasks | `studio/assets/music/{body-cast,ranked}/manifest.json` |
 | 2026-09-29 | Dashboard built (`studio.py dashboard` → `docs/dashboard.html`). Baarle label fixed ("NETHERLANDS: NEXT DOOR"; picture gate now passes). `stamp_reveal` gets an optional `dy` offset so stamps don't cover text underneath. `package_assets.py` builds SRT + thumbnail. | Autonomous queue run | `studio/dashboard.py`, `studio/tools/package_assets.py`, `episodes/why-map/baarle-border-houses/` |
 | 2026-09-29 | body-cast, settled on my recommendation (you delegated it). **All 5 animated sets** become a library: each topic has a home set, plus Spotlight for the hook, versus and the loop ending. Frame 1 shows the matchup with the characters already on screen. The set or camera changes every 3–5 s, the character fills at least 35% of the frame, and there are no pale backgrounds. **Series order:** X vs Y first, then What happens if, then Day in the life. **Launch voice:** Felix narrates, and the cast speaks in bubbles; revisit after about 20 episodes with retention data. | The references (Kurzgesagt, SolarBalls) share saturated grounds and immediate motion. "A vs B" is SolarBalls' top format. It stays within the voice quota. | `studio/channels/body-cast/bible.json` (`look.sets`, `series[].priority`) |
 | 2026-09-29 | why-map runs both lanes: **Border oddities** (existing) and a new **Why did / How did** historical-geopolitics series (Knowledgia's lane; history only, no live conflicts). Historical borders come from **OpenHistoricalMap (CC0)**, with Natural Earth merges as the fallback. CShapes is reference-only; historical-basemaps (GPL-3) isn't used. A new `map_history` scene type is planned. | Your decision; licence check | `studio/channels/why-map/bible.json`, `docs/research/historical-borders-2026-09.md` |
