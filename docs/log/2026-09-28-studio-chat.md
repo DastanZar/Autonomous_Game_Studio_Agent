@@ -1477,3 +1477,19 @@ done, set to github actions
 #### Claude · record
 
 - Triggered the workflow by hand (workflow_dispatch). The site is live: https://dastanzar.github.io/Autonomous_Game_Studio_Agent/ returns 200 with title "Studio Control Room", built 05:08 UTC. Removed the Pages item from the blocked list.
+
+#### Claude · record (worker results, 2026-09-30)
+
+- **engine-flat-cast** (Sonnet worker, commit df630d3) was merged.
+  - Adds `scenes/cast.js` with character_dialog and character_explain, all 5 sets, mouth flap keyed to `speaker` paragraphs, and speakers at ≥35% of frame height.
+  - core.js: the flat-cast theme gets hard cuts and no paper texture or film grain.
+  - The worker dropped the unsourced "pH 1.5" label.
+  - Opus reviewed the contact sheet. It's acceptable; follow-ups are that the idle characters overlap each other in two-shots, and captions can duplicate bubble text (a script-writing rule, not an engine fault).
+- **engine-map-history** (Sonnet worker, commit 3bffd48) was merged.
+  - geo.py resolves OHM relations by id or by name + date, records their licences, and falls back to Natural Earth.
+  - maps.js adds map_history, with a morph, a year card, an "approximate" tag and the OHM credit.
+  - Test case: Mexico 1846 → 1848, OHM relations 2841222, 2693580, 2841219 and 2800549, none carrying a licence tag (CC0 by OHM default).
+  - Opus review: the shapes are plausible (1846 Mexico includes California and the Southwest; Texas is already in the US). Follow-up: the map uses only the top ~60% of the frame, and the lower stage is empty.
+- **Re-verified on merged main:** selftest OK; both fixtures render with 0 engine warnings.
+- Fixture `build/` dirs are now gitignored.
+- engine-data-flags is still running.

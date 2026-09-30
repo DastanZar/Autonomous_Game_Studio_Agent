@@ -1,2 +1,3 @@
 .cache/
 .claude/worktrees/
+studio/engine/fixtures/*/build/
