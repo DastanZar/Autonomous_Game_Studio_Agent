@@ -1493,3 +1493,18 @@ done, set to github actions
 - **Re-verified on merged main:** selftest OK; both fixtures render with 0 engine warnings.
 - Fixture `build/` dirs are now gitignored.
 - engine-data-flags is still running.
+
+#### Claude · record (data-flags merge, 2026-09-30)
+
+- **engine-data-flags** (Sonnet worker, 2144a90) was merged.
+  - Adds ranking.js with ranking_bars, ranking_race and the country versus card.
+  - Adds faces.js and flags.js (40 flags; unknown codes get a neutral badge plus a warning).
+  - render.mjs loads episode datasets; sheetTimes adds mid-race stills.
+- **Merge problems I fixed:**
+  - index.html conflicted; I kept both sets of scripts.
+  - Both workers had ported the same face helpers, and `const flap` declared twice would have stopped cast.js from loading. I renamed cast.js's copies to castFace, castFlap, castBlinkAt, castSweat and castCrown.
+- **Opus review:**
+  - The data-flags frames were tinted tan by the paper texture. core.js now treats data-flags as a flat theme (clean off-white, as on the approved board).
+  - The full-size still is readable.
+- **Re-verified:** selftest OK; flat-cast, map-history and data-flags fixtures all render with 0 engine warnings.
+- **New backlog items:** scene-length-ranking (max_scene_s 7 vs ~18 s reveals), props-ranked (trophy, podium, globe), polish-engine-review.

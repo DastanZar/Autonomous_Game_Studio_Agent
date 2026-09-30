@@ -90,6 +90,27 @@
    "status": "blocked",
    "who": "human",
    "detail": "Open decision in each bible."
+  },
+  {
+   "id": "scene-length-ranking",
+   "title": "Let long ranking reveals pass the storyboard gate",
+   "status": "todo",
+   "who": "model",
+   "detail": "A narrated top-7 ranking_bars reveal runs ~18 s but bibles cap scenes at max_scene_s 7. Decide per scene type (e.g. a per-type max in the catalog, used by the storyboard gate) and add a selftest breakage for it. Found by the data-flags worker."
+  },
+  {
+   "id": "props-ranked",
+   "title": "Add the ranked bible's props trophy, podium, globe to props.js",
+   "status": "todo",
+   "who": "model",
+   "detail": "The bible lists them; title_card with these props currently warns and draws a placeholder card."
+  },
+  {
+   "id": "polish-engine-review",
+   "title": "Engine polish from Opus review of the three new scene families",
+   "status": "todo",
+   "who": "model",
+   "detail": "flat-cast: idle characters overlap in two-shots; add a script rule that captions must not repeat bubble text. map_history: the map uses only the top ~60% of the frame (fit the region to the full stage); OHM US polygon leaves Natural Earth slivers at the coast. data-flags: OK after the clean-background fix."
   }
  ]
 }
