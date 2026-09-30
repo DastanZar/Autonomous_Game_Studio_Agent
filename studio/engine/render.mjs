@@ -26,7 +26,15 @@ const EP = {
   timeline: rd(path.join(BUILD, "timeline.json")),
   script: rd(path.join(EPD, "script.json")),
   geo: rd(path.join(BUILD, "geo.json"), null),
+  data: {},   // datasets named by scene params.dataset (ranking_bars, ranking_race), keyed by that path, raw text
 };
+for (const sc of EP.storyboard.scenes) {
+  const ds = sc.params && sc.params.dataset;
+  if (!ds || EP.data[ds] !== undefined) continue;
+  const f = path.resolve(EPD, ds);
+  if (!f.startsWith(EPD + path.sep) || !fs.existsSync(f)) { console.error(`scene ${sc.id}: dataset '${ds}' must be a file inside the episode folder`); process.exit(1); }
+  EP.data[ds] = fs.readFileSync(f, "utf8");
+}
 if (!EP.timeline) { console.error("missing build/timeline.json: run the voice stage first"); process.exit(1); }
 const customJs = path.join(EPD, "scenes.js");
 const FPS = bible.format.fps, W = bible.format.width, H = bible.format.height;

@@ -1,0 +1,27 @@
+{
+  "channel": "ranked",
+  "episode": "data-flags-fixture",
+  "working_title": "Sample: who drinks the most coffee?",
+  "lead_in": 0.35,
+  "tail": 1.4,
+  "gap": 0.3,
+  "paras": [
+    {"id": "hook", "say": "Which country drinks the most coffee?", "kind": "hook", "claims": [], "gap": 0.25,
+     "caps": [["WHICH COUNTRY", 2], ["DRINKS THE MOST COFFEE?", 4]]},
+    {"id": "guess", "say": "Everyone says Italy.", "kind": "joke", "claims": [], "gap": 0.35,
+     "caps": [["EVERYONE SAYS ITALY.", 3]]},
+    {"id": "count", "say": "Seven, Switzerland. Six, Sweden. Five, the Netherlands. Four, Denmark. Three, Iceland. Two, Norway.", "kind": "fact", "claims": [], "gap": 0.3,
+     "caps": [["SEVEN, SWITZERLAND.", 2], ["SIX, SWEDEN.", 2], ["FIVE, THE NETHERLANDS.", 3], ["FOUR, DENMARK.", 2], ["THREE, ICELAND.", 2], ["TWO, NORWAY.", 2]]},
+    {"id": "first", "say": "And number one. Finland. Twelve kilos each year.", "kind": "fact", "claims": [], "gap": 0.4,
+     "caps": [["AND NUMBER ONE.", 3], ["FINLAND.", 1], ["TWELVE KILOS", 2], ["EACH YEAR.", 2]]},
+    {"id": "italy", "say": "Italy? Not even the top seven.", "kind": "joke", "claims": [], "gap": 0.4,
+     "caps": [["ITALY?", 1], ["NOT EVEN THE TOP SEVEN.", 5]]},
+    {"id": "race", "say": "Now watch the race. Nineteen sixty, Italy leads. Nineteen eighty. Two thousand. Twenty twenty.", "kind": "fact", "claims": [], "gap": 0.3,
+     "caps": [["NOW WATCH THE RACE.", 4], ["1960, ITALY LEADS.", 4], ["1980.", 2], ["2000.", 2], ["2020.", 2]]},
+    {"id": "vs", "say": "Italy versus Finland. Coffee. Tea. Finland wins both.", "kind": "joke", "claims": [], "gap": 0.3,
+     "caps": [["ITALY VERSUS FINLAND.", 3], ["COFFEE.", 1], ["TEA.", 1], ["FINLAND WINS BOTH.", 3]]},
+    {"id": "loop", "say": "Which country drinks the most coffee?", "kind": "callback", "claims": [], "gap": 0.0,
+     "caps": [["WHICH COUNTRY", 2], ["DRINKS THE MOST COFFEE?", 4]]}
+  ],
+  "loop": "Ends on the opening question."
+}

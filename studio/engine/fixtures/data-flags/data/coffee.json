@@ -1,0 +1,16 @@
+{
+  "title": "Coffee per person",
+  "metric": "Coffee, kilograms per person per year (sample)",
+  "source": "SAMPLE DATA for an engine test: invented numbers, not a real dataset",
+  "decimals": 1,
+  "rows": [
+    {"code": "FI", "name": "Finland", "value": 12.0},
+    {"code": "NO", "name": "Norway", "value": 9.9},
+    {"code": "IS", "name": "Iceland", "value": 9.0},
+    {"code": "DK", "name": "Denmark", "value": 8.7},
+    {"code": "NL", "name": "Netherlands", "value": 8.4},
+    {"code": "SE", "name": "Sweden", "value": 8.2},
+    {"code": "CH", "name": "Switzerland", "value": 7.9},
+    {"code": "IT", "name": "Italy", "value": 5.9}
+  ]
+}

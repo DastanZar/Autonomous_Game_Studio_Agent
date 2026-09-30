@@ -41,31 +41,37 @@
   },
   "versus": {
    "status": "built",
-   "purpose": "Two things side by side with a verdict (organ vs organ, country vs country, army vs emus).",
+   "purpose": "Two things side by side with a verdict (organ vs organ, army vs emus). With {code, name} objects on both sides it draws the ranked channel's Broadcast 'tale of the tape' card (waving flags, metric rows) for the Country vs country series.",
    "params": {
-    "left": "subject",
-    "right": "subject",
-    "verdict": "optional string"
+    "left": "subject (prop id or text), or {code, name} for a country card",
+    "right": "subject, or {code, name}",
+    "verdict": "optional string",
+    "country card only": "title, source (required, on screen), rows [{label, left, right, decimals?}] (real numbers), verdict_side left|right (default centre). Events: reveal (one per row, in order), verdict"
    }
   },
   "ranking_bars": {
-   "status": "planned",
-   "purpose": "Static ranked bars from a dataset, top N, one highlighted.",
+   "status": "built",
+   "purpose": "Static ranked bars from a dataset (ranked channel, 'Flag Badges' look): round flag badges with faces ride the bar tips, medal rank circles, confetti and a crown on #1, and the highlighted country (worried, or parked below the chart and shocked when it is outside the top N). The source line is on screen the whole scene.",
    "params": {
-    "dataset": "path to data file in the episode",
-    "top": "int",
-    "highlight": "optional key"
-   }
+    "dataset": "path to a data file inside the episode (JSON or CSV, see studio/engine/scenes/ranking.js header): rows of code (ISO alpha-2), name, value, plus a source string (required, drawn on screen), metric, decimals, prefix, suffix",
+    "top": "int, 1-8 (default 5)",
+    "highlight": "optional ISO code. Inside the top N: its bar turns red and the leader gets gold. Outside: it is parked below the chart with its true rank",
+    "title": "optional string, <= 2 lines (defaults to the dataset title)"
+   },
+   "events": "reveal {rank?}: reveals rank N, N-1 ... 1 in order on the spoken word (or the named rank); highlight: the underdog beat (defaults to just after the crown); emphasize {code?}: pulses a badge. Flags come from studio/engine/flags.js; a code with no drawing gets a neutral badge and an engine warning."
   },
   "ranking_race": {
-   "status": "planned",
-   "purpose": "Bar-chart race through time from a dataset.",
+   "status": "built",
+   "purpose": "Bar-chart race through years from a dataset: bars re-rank smoothly (overtakes glide), values interpolate between real data years (the source line says so), a big year counter, crown follows the leader, the highlighted country worries and is parked when it drops out of the top N.",
    "params": {
-    "dataset": "path",
-    "top": "int",
-    "from": "year",
-    "to": "year"
-   }
+    "dataset": "path in the episode; JSON rows {code, name, values: {year: number}} or CSV long format code,name,year,value; plus source (required)",
+    "top": "int, 1-8 (default 5)",
+    "from": "first year shown",
+    "to": "last year shown",
+    "highlight": "optional ISO code",
+    "title": "optional string"
+   },
+   "events": "any event with args.year pins that year to the spoken word (linear between pins; repeat a year to hold it); highlight: activates the highlighted country; emphasize {code}: pulses that badge."
   },
   "character_dialog": {
    "status": "planned",

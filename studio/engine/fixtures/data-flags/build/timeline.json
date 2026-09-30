@@ -1,0 +1,334 @@
+{
+ "duration": 41.47,
+ "paras": [
+  {
+   "id": "hook",
+   "start": 0.35,
+   "end": 3.405,
+   "wer": 0.0,
+   "heard": "which country drinks the most coffee?",
+   "words": [
+    {
+     "w": "Which",
+     "t": 0.35
+    },
+    {
+     "w": "country",
+     "t": 0.825
+    },
+    {
+     "w": "drinks",
+     "t": 1.37
+    },
+    {
+     "w": "the",
+     "t": 1.88
+    },
+    {
+     "w": "most",
+     "t": 2.285
+    },
+    {
+     "w": "coffee?",
+     "t": 2.725
+    }
+   ]
+  },
+  {
+   "id": "guess",
+   "start": 3.705,
+   "end": 5.37,
+   "wer": 0.0,
+   "heard": "everyone says italy.",
+   "words": [
+    {
+     "w": "Everyone",
+     "t": 3.705
+    },
+    {
+     "w": "says",
+     "t": 4.285
+    },
+    {
+     "w": "Italy.",
+     "t": 4.725
+    }
+   ]
+  },
+  {
+   "id": "count",
+   "start": 5.77,
+   "end": 14.885,
+   "wer": 0.0,
+   "heard": "seven, switzerland. six, sweden. five, the netherlands. four, denmark. three, iceland. two, norway.",
+   "words": [
+    {
+     "w": "Seven,",
+     "t": 5.77
+    },
+    {
+     "w": "Switzerland.",
+     "t": 6.465
+    },
+    {
+     "w": "Six,",
+     "t": 7.37
+    },
+    {
+     "w": "Sweden.",
+     "t": 7.995
+    },
+    {
+     "w": "Five,",
+     "t": 8.725
+    },
+    {
+     "w": "the",
+     "t": 9.385
+    },
+    {
+     "w": "Netherlands.",
+     "t": 9.79
+    },
+    {
+     "w": "Four,",
+     "t": 10.695
+    },
+    {
+     "w": "Denmark.",
+     "t": 11.355
+    },
+    {
+     "w": "Three,",
+     "t": 12.12
+    },
+    {
+     "w": "Iceland.",
+     "t": 12.815
+    },
+    {
+     "w": "Two,",
+     "t": 13.58
+    },
+    {
+     "w": "Norway.",
+     "t": 14.205
+    }
+   ]
+  },
+  {
+   "id": "first",
+   "start": 15.235,
+   "end": 19.575,
+   "wer": 0.0,
+   "heard": "and number one. finland. twelve kilos each year.",
+   "words": [
+    {
+     "w": "And",
+     "t": 15.235
+    },
+    {
+     "w": "number",
+     "t": 15.64
+    },
+    {
+     "w": "one.",
+     "t": 16.15
+    },
+    {
+     "w": "Finland.",
+     "t": 16.775
+    },
+    {
+     "w": "Twelve",
+     "t": 17.54
+    },
+    {
+     "w": "kilos",
+     "t": 18.05
+    },
+    {
+     "w": "each",
+     "t": 18.525
+    },
+    {
+     "w": "year.",
+     "t": 18.965
+    }
+   ]
+  },
+  {
+   "id": "italy",
+   "start": 20.025,
+   "end": 23.02,
+   "wer": 0.0,
+   "heard": "italy? not even the top seven.",
+   "words": [
+    {
+     "w": "Italy?",
+     "t": 20.025
+    },
+    {
+     "w": "Not",
+     "t": 20.72
+    },
+    {
+     "w": "even",
+     "t": 21.125
+    },
+    {
+     "w": "the",
+     "t": 21.565
+    },
+    {
+     "w": "top",
+     "t": 21.97
+    },
+    {
+     "w": "seven.",
+     "t": 22.375
+    }
+   ]
+  },
+  {
+   "id": "race",
+   "start": 23.47,
+   "end": 31.565,
+   "wer": 0.0,
+   "heard": "now watch the race. nineteen sixty, italy leads. nineteen eighty. two thousand. twenty twenty.",
+   "words": [
+    {
+     "w": "Now",
+     "t": 23.47
+    },
+    {
+     "w": "watch",
+     "t": 23.875
+    },
+    {
+     "w": "the",
+     "t": 24.35
+    },
+    {
+     "w": "race.",
+     "t": 24.755
+    },
+    {
+     "w": "Nineteen",
+     "t": 25.415
+    },
+    {
+     "w": "sixty,",
+     "t": 25.995
+    },
+    {
+     "w": "Italy",
+     "t": 26.69
+    },
+    {
+     "w": "leads.",
+     "t": 27.165
+    },
+    {
+     "w": "Nineteen",
+     "t": 27.86
+    },
+    {
+     "w": "eighty.",
+     "t": 28.44
+    },
+    {
+     "w": "Two",
+     "t": 29.17
+    },
+    {
+     "w": "thousand.",
+     "t": 29.575
+    },
+    {
+     "w": "Twenty",
+     "t": 30.375
+    },
+    {
+     "w": "twenty.",
+     "t": 30.885
+    }
+   ]
+  },
+  {
+   "id": "vs",
+   "start": 31.915,
+   "end": 36.615,
+   "wer": 0.0,
+   "heard": "italy versus finland. coffee. tea. finland wins both.",
+   "words": [
+    {
+     "w": "Italy",
+     "t": 31.915
+    },
+    {
+     "w": "versus",
+     "t": 32.39
+    },
+    {
+     "w": "Finland.",
+     "t": 32.9
+    },
+    {
+     "w": "Coffee.",
+     "t": 33.665
+    },
+    {
+     "w": "Tea.",
+     "t": 34.395
+    },
+    {
+     "w": "Finland",
+     "t": 35.02
+    },
+    {
+     "w": "wins",
+     "t": 35.565
+    },
+    {
+     "w": "both.",
+     "t": 36.005
+    }
+   ]
+  },
+  {
+   "id": "loop",
+   "start": 36.965,
+   "end": 40.02,
+   "wer": 0.0,
+   "heard": "which country drinks the most coffee?",
+   "words": [
+    {
+     "w": "Which",
+     "t": 36.965
+    },
+    {
+     "w": "country",
+     "t": 37.44
+    },
+    {
+     "w": "drinks",
+     "t": 37.985
+    },
+    {
+     "w": "the",
+     "t": 38.495
+    },
+    {
+     "w": "most",
+     "t": 38.9
+    },
+    {
+     "w": "coffee?",
+     "t": 39.34
+    }
+   ]
+  }
+ ],
+ "_note": "synthetic timeline for the engine fixture, not real speech"
+}
