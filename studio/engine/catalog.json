@@ -50,6 +50,7 @@
    }
   },
   "ranking_bars": {
+   "max_s": 24,
    "status": "built",
    "purpose": "Static ranked bars from a dataset (ranked channel, 'Flag Badges' look): round flag badges with faces ride the bar tips, medal rank circles, confetti and a crown on #1, and the highlighted country (worried, or parked below the chart and shocked when it is outside the top N). The source line is on screen the whole scene.",
    "params": {
@@ -61,6 +62,7 @@
    "events": "reveal {rank?}: reveals rank N, N-1 ... 1 in order on the spoken word (or the named rank); highlight: the underdog beat (defaults to just after the crown); emphasize {code?}: pulses a badge. Flags come from studio/engine/flags.js; a code with no drawing gets a neutral badge and an engine warning."
   },
   "ranking_race": {
+   "max_s": 30,
    "status": "built",
    "purpose": "Bar-chart race through years from a dataset: bars re-rank smoothly (overtakes glide), values interpolate between real data years (the source line says so), a big year counter, crown follows the leader, the highlighted country worries and is parked when it drops out of the top N.",
    "params": {
@@ -74,6 +76,7 @@
    "events": "any event with args.year pins that year to the spoken word (linear between pins; repeat a year to hold it); highlight: activates the highlighted country; emphasize {code}: pulses that badge."
   },
   "character_dialog": {
+   "max_s": 12,
    "status": "built",
    "purpose": "Two or more cast members talking; each spoken para with a speaker animates that character.",
    "params": {
@@ -151,6 +154,7 @@
    }
   },
   "map_history": {
+   "max_s": 14,
    "status": "built",
    "purpose": "Borders morph or recolour between dated snapshots of a territory, with a big year counter; geometry from OpenHistoricalMap (CC0 unless a relation's license tag says otherwise) or merged Natural Earth units (approximate). The engine draws the credit 'Historical borders: OpenHistoricalMap contributors'. Run studio/tools/geo.py to fetch and cache geometry; licence tags land in build/geo.json (ohm_licenses, ohm_non_cc0).",
    "params": {

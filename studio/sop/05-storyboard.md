@@ -27,7 +27,9 @@ picture is ready when the voice lands.
 ## Steps
 
 1. **One scene per beat**, usually one per 1–2 paragraphs. Each scene must last between
-   `format.min_scene_s` and `format.max_scene_s`. In practice Shorts change picture every 2–4 s.
+   `format.min_scene_s` and the scene's maximum: the catalog type's `max_s` when it has one
+   (`ranking_bars` 24 s, `ranking_race` 30 s, `map_history` 14 s, `character_dialog` 12 s), otherwise
+   `format.max_scene_s`. In practice Shorts change picture every 2–4 s.
 2. **Choose the type** from the bible's `scene_types`. Read each type's `purpose` in the catalog.
    Prefer, in order:
    1. a type that shows the fact (a map for a place, `count_up` for a number, `versus` for a contest);

@@ -221,6 +221,7 @@ def gate_storyboard(ctx):
     cat = load_catalog(ctx["studio"])
     allowed = set(b["scene_types"])
     mn, mx = b["format"].get("min_scene_s", 0.8), b["format"].get("max_scene_s", 8)
+    by_id = {s["id"]: s for s in sb["scenes"]}
     times = []
     for i, s in enumerate(sb["scenes"]):
         if s["type"] not in cat:
@@ -250,8 +251,12 @@ def gate_storyboard(ctx):
             end = t1 if t1 is not None else nxt[1]
             if end - t0 < mn:
                 res.append(ok(False, f"scene {a}: {end - t0:.2f}s is shorter than {mn}s (flicker)"))
-            if end - t0 > mx:
-                res.append(ok(False, f"scene {a}: {end - t0:.2f}s is longer than {mx}s (pace; split it)"))
+            typ = by_id[a]["type"]
+            lim, src = mx, "the bible's format.max_scene_s"
+            if cat.get(typ, {}).get("max_s") is not None:
+                lim, src = cat[typ]["max_s"], f"catalog max_s for {typ}"
+            if end - t0 > lim:
+                res.append(ok(False, f"scene {a} ({typ}): {end - t0:.2f}s is longer than {lim}s, the limit from {src} (pace; split it)"))
             if nxt[1] < t0:
                 res.append(ok(False, f"scene {nxt[0]} starts before {a}: scenes must be in time order"))
     # qualified claims (estimates, the source's own count, disputed) must show their label to the viewer

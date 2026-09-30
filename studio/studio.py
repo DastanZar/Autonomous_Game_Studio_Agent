@@ -265,6 +265,7 @@ def cmd_selftest():
         ("research", "build/quote_check.json", lambda d: d["claims"]["c_scatter"].update(status="NOT_FOUND"), "quote that is not in its source"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][9]["params"].update(qualifier=""), "label of a self-reported number dropped from screen"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][3]["events"][0].update(at="emus/ostriches"), "cue on a word that is never spoken"),
+        ("storyboard", "storyboard.json", lambda d: d["scenes"][0].update(end="call.start"), "title_card longer than the bible's max_scene_s"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][1].update(type="explosion"), "scene type not in the catalog"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][5]["params"]["callouts"][0].update(at="sent/generals"), "callout cued on a word never spoken"),
         ("storyboard", "storyboard.json", lambda d: d["scenes"][1]["params"].update(text="THE ARMY LOST TO BIRDS"), "stamp text over 3 words"),
