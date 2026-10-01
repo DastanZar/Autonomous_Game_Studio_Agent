@@ -3,3 +3,4 @@ failures/
 .playwright-mcp/
 .venv/
 .env
+runs/

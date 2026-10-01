@@ -40,3 +40,30 @@ I also have access to models like deepseekv4.1 flash, mimo v2.6 flash & pro, qwe
   - Real Google pages (no login here).
   - The b.ai endpoint and its model ids; its base URL isn't known, so it's an env var.
   - The Windows launcher.
+
+---
+
+### 🧑 User · 2026-10-01 UTC
+
+the google cloud task was just an example, i want a general use browser automation that can do anything based on the task defined to it and only ask for help where human intervention is the only way, is brwoser use the best option, what about cua latest and others
+
+#### Claude · record
+
+- **Checked on the web:**
+  - **Online-Mind2Web (Steel leaderboard):** Browser Use Cloud bu-max is first at 97%, but it's proprietary. The best open-source entry is ABP + Claude Opus 4.6 at 90.5%. Stagehand scores 55–65%.
+  - **Cua:** the driver reached v0.30 (Sep 2026). It's a whole-desktop, background computer-use driver, not a web-agent score.
+  - **Browser Use library:** MIT; has custom Tools, `fallback_llm`, `sensitive_data` and `step_timeout`.
+- **Decided:** keep Browser Use as the engine, because the b.ai models need a model-agnostic engine. ABP is recommended for the Claude Code route; Cua only for tasks outside the browser.
+- **Rewrote `agent.py` as general-purpose:**
+  - Three human tools: `ask_human`, `hand_over` and `confirm`, with a policy for when each is used.
+  - Every pause rings the terminal bell, with an optional ntfy push to the phone.
+  - `--chat` for follow-up tasks; `LLM_FALLBACK_MODEL`; `SECRET_*` values the agent types without seeing.
+  - Every site allowed by default; runs saved to `runs/`.
+  - `step_timeout` raised to 6 h, because the default 180 s would kill a step that's waiting on the human.
+- Added `tasks/TEMPLATE.md` and rewrote the README with the comparison table.
+- **Verified with a mock model:**
+  - It scripted ask, then hand-over, then confirm (declined), then done, then a chat follow-up.
+  - All three pauses fired, and each answer reached the model.
+  - The secret value was absent from the model's input; exit 0.
+- **Fixed:** two tasks in the same second wrote to the same run-log filename; the name now includes microseconds.
+- **Not verified:** real sites and the b.ai models.
