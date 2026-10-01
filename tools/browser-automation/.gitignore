@@ -1,0 +1,5 @@
+node_modules/
+failures/
+.playwright-mcp/
+.venv/
+.env
