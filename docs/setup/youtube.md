@@ -23,10 +23,13 @@
 1. [console.cloud.google.com](https://console.cloud.google.com) (signed in as the studio Gmail) → new project
    "studio-publisher".
 2. *APIs & Services → Library* → enable **YouTube Data API v3**.
-3. *OAuth consent screen*: External, app name "studio-publisher", your email; add yourself as a test user.
+3. *OAuth consent screen* (in the newer console this is *Google Auth Platform*: Branding / Audience): External, app
+   name "studio-publisher", your email. Then under *Audience* click **Publish app** ("In production"). If you leave it
+   in *Testing*, Google expires its refresh tokens after 7 days and uploads stop working every week. An unverified
+   app in production is fine for our own channels; when you sign in, click *Advanced → Go to studio-publisher*.
 4. *Credentials → Create credentials → OAuth client ID → Desktop app.* Keep the client ID and secret.
-5. Add the ID and secret as **environment secrets** `YT_CLIENT_ID` and `YT_CLIENT_SECRET`, in the Claude Code
-   environment settings. **Never paste them into chat or commit them.**
+5. Add the ID and secret as environment variables `YT_CLIENT_ID` and `YT_CLIENT_SECRET` in the Claude Code
+   environment settings (the cloud environment menu in the session's title bar → Edit). A new session picks them up. **Never paste them into chat or commit them.**
 6. On your laptop (it needs a browser), run this once per channel, choosing that channel's Brand Account
    when Google asks:
    `YT_CLIENT_ID=… YT_CLIENT_SECRET=… python3 studio/tools/publish.py auth why-map`
