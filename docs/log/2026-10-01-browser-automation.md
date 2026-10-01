@@ -154,3 +154,17 @@ its qwen 3.8 flash, sorry
   - Chrome's real "Allow remote debugging" prompt; real sites with logins.
   - The Windows `dashboard.ps1`.
 - The user's API key was pasted in chat. It's stored only in the container's `~/.config/bai/key`, and the repo scan found no copy.
+
+---
+
+### 🧑 User · 2026-10-01 UTC
+
+when we install claude extension in chrome and it does exactly this, we dont turn on any remote debugging, so how does it work automatically there?
+
+#### Claude · record
+
+- **Explained:** Claude in Chrome is an extension that uses Chrome's `chrome.debugger` API. That's the same DevTools Protocol, but granted per extension at install time, so it needs no remote-debugging switch. Chrome shows the "Claude started debugging this browser" bar while it's attached.
+- **Options to do the same here:**
+  - Playwright MCP's `--extension` mode (its Bridge extension) already does this for the Claude Code route.
+  - For the dashboard, we'd need our own small extension plus a relay that makes per-tab `chrome.debugger` look like the browser-level connection Browser Use expects.
+- **Offered to build it; not started.** It's a meaningful chunk of work and the user hasn't asked for it yet.
