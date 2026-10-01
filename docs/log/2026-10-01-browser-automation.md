@@ -168,3 +168,22 @@ when we install claude extension in chrome and it does exactly this, we dont tur
   - Playwright MCP's `--extension` mode (its Bridge extension) already does this for the Claude Code route.
   - For the dashboard, we'd need our own small extension plus a relay that makes per-tab `chrome.debugger` look like the browser-level connection Browser Use expects.
 - **Offered to build it; not started.** It's a meaningful chunk of work and the user hasn't asked for it yet.
+
+---
+
+### 🧑 User · 2026-10-01 UTC
+
+what about the original route of browser use where we open a seperate chrome session and i lgo into whatever service i need, for example linkedin, that login stays persistent and now the agent can use my linkedin account as i tell it to
+
+#### Claude · record
+
+- **Confirmed** that route was already supported (the agent window and `start-chrome`), then removed the manual steps:
+  - `core.open_agent_chrome()` launches Chrome with the persistent profile (`~/.agent-chrome`, port 9222) when it isn't running. It's detached, so it outlives the dashboard; Windows and macOS paths are handled.
+  - New dashboard button *Sign in to a site* (`/api/signin`) opens a URL in that window for a one-time login.
+- **Fixed:** *auto* mode trusted a leftover `DevToolsActivePort` from a closed Chrome; it now checks the port is listening.
+- **Approval gate:** added connect, follow, like, endorse and repost. Regex check: Save, Create, Enable API, Next and Search don't trigger it.
+- **Tested** (headless Chromium):
+  - The dashboard launched the agent Chrome from nothing via *Open*, and a test sign-in page set a 30-day session cookie.
+  - Chrome was fully closed.
+  - A new task (DeepSeek) relaunched Chrome automatically and read "Welcome back, Dastan…": the login persisted.
+- **LinkedIn:** checked the current User Agreement §8.2 (bans bots or automated messaging, connecting and engagement; accounts get restricted). The README says reading and drafting is low risk, and to keep sends human-scale with approvals.

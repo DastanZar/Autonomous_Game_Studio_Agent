@@ -103,7 +103,12 @@ details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
         </select>
         <button id="bconnect" style="flex:0 0 auto">Connect</button>
       </div>
-      <p class="muted"><b>Auto</b> uses your Chrome if remote debugging is on, else the separate window from <code>start-chrome</code>. To use your own tabs: Chrome 144+, open <code>chrome://inspect/#remote-debugging</code>, switch it on, and click <b>Allow</b> when Chrome asks.</p>
+      <label for="signinUrl">Sign in to a site in the agent window (logins persist)</label>
+      <div class="row">
+        <input id="signinUrl" placeholder="linkedin.com">
+        <button id="signinBtn" style="flex:0 0 auto">Open</button>
+      </div>
+      <p class="muted"><b>Agent window</b> is a separate Chrome with its own profile (<code>~/.agent-chrome</code>): log in to the sites you want the agent to use once, and they stay logged in. <b>Auto</b> uses your everyday Chrome if remote debugging is on, else the agent window. To use your own tabs: Chrome 144+, open <code>chrome://inspect/#remote-debugging</code>, switch it on, and click <b>Allow</b> when Chrome asks.</p>
       <div class="err" id="bErr"></div>
     </section>
 
@@ -265,6 +270,11 @@ $("stopBtn").onclick = () => { if (confirm("Stop the current task?")) api("/api/
 $("bconnect").onclick = async () => {
   $("bErr").textContent = "Connecting… (click Allow in Chrome if it asks)";
   try { const r = await api("/api/browser", { mode: $("bmode").value }); $("bErr").textContent = ""; refresh(); }
+  catch (e) { $("bErr").textContent = e.message; }
+};
+$("signinBtn").onclick = async () => {
+  $("bErr").textContent = "";
+  try { await api("/api/signin", { url: $("signinUrl").value.trim() }); $("bErr").textContent = "Opened. Log in there; the agent window keeps the session."; }
   catch (e) { $("bErr").textContent = e.message; }
 };
 $("keyBtn").onclick = async () => {

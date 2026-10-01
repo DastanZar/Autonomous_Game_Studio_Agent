@@ -7,6 +7,12 @@ import json
 import os
 import platform
 import re
+import shutil
+import socket
+import subprocess
+import time
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 from browser_use import ActionResult, Agent, Browser, ChatOpenAI, Tools
@@ -92,12 +98,67 @@ def default_chrome_dir():
     return Path(os.environ.get("CHROME_CONFIG_HOME") or Path.home() / ".config") / "google-chrome"
 
 
+AGENT_PORT = int(os.environ.get("AGENT_PORT", "9222"))
+AGENT_PROFILE = Path(os.environ.get("AGENT_PROFILE") or Path.home() / ".agent-chrome")
+
+
+def port_open(port):
+    with socket.socket() as sock:
+        sock.settimeout(0.5)
+        return sock.connect_ex(("127.0.0.1", port)) == 0
+
+
+def find_chrome():
+    if os.environ.get("CHROME_PATH"):
+        return os.environ["CHROME_PATH"]
+    system = platform.system()
+    if system == "Windows":
+        roots = [os.environ.get(k) for k in ("PROGRAMFILES", "PROGRAMFILES(X86)", "LOCALAPPDATA")]
+        cands = [Path(r) / "Google" / "Chrome" / "Application" / "chrome.exe" for r in roots if r]
+    elif system == "Darwin":
+        cands = [Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")]
+    else:
+        cands = [shutil.which(n) for n in ("google-chrome", "google-chrome-stable", "chromium", "chromium-browser")]
+    for c in cands:
+        if c and Path(c).exists():
+            return str(c)
+    raise RuntimeError("Chrome not found; set CHROME_PATH to chrome's executable")
+
+
+def open_agent_chrome(url=None):
+    """Start the agent's own Chrome (persistent profile in ~/.agent-chrome) if it isn't running,
+    optionally opening `url` in it. Logins you make in this window persist across restarts."""
+    if not port_open(AGENT_PORT):
+        AGENT_PROFILE.mkdir(parents=True, exist_ok=True)
+        args = [find_chrome(), f"--remote-debugging-port={AGENT_PORT}", "--remote-debugging-address=127.0.0.1",
+                f"--user-data-dir={AGENT_PROFILE}", "--no-first-run", "--no-default-browser-check",
+                *os.environ.get("CHROME_ARGS", "").split(), url or "about:blank"]
+        kwargs = {"stdout": subprocess.DEVNULL, "stderr": subprocess.DEVNULL, "stdin": subprocess.DEVNULL}
+        if platform.system() == "Windows":
+            kwargs["creationflags"] = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
+        else:
+            kwargs["start_new_session"] = True  # keeps running after the dashboard exits
+        subprocess.Popen(args, **kwargs)
+        for _ in range(60):
+            if port_open(AGENT_PORT):
+                break
+            time.sleep(0.25)
+        else:
+            raise RuntimeError("the agent Chrome didn't start; is another Chrome using that profile?")
+    elif url:
+        req = urllib.request.Request(f"http://127.0.0.1:{AGENT_PORT}/json/new?{urllib.parse.quote(url, safe=':/?=&')}",
+                                     method="PUT")
+        urllib.request.urlopen(req, timeout=5).read()
+    return f"http://127.0.0.1:{AGENT_PORT}"
+
+
 def resolve_cdp(mode=None):
     """Return (cdp_url, description).
 
+    mode "agent" - the agent's own Chrome window with its persistent profile (~/.agent-chrome);
+                   started automatically if needed. Log in to sites there once; it stays logged in.
     mode "mine"  - your everyday Chrome and its open tabs (Chrome 144+, remote debugging on)
-    mode "agent" - the separate window from start-chrome.sh (http://127.0.0.1:9222)
-    mode "auto"  - "mine" if available, else "agent"
+    mode "auto"  - "mine" if it's reachable, else "agent"
     Any other value is used as a CDP URL as-is.
     """
     mode = mode or os.environ.get("CDP", "auto")
@@ -108,13 +169,15 @@ def resolve_cdp(mode=None):
         try:
             lines = [l.strip() for l in port_file.read_text().splitlines() if l.strip()]
             port, path = int(lines[0]), lines[1]
+            if not port_open(port):  # stale file left by a Chrome that has since closed
+                raise OSError("not listening")
             return f"ws://127.0.0.1:{port}{path}", "your Chrome (existing tabs)"
         except (OSError, ValueError, IndexError):
             if mode == "mine":
                 raise RuntimeError(
-                    f"Can't find your Chrome's debugging port ({port_file}). In Chrome 144+, open "
+                    f"Can't reach your Chrome's debugging port ({port_file}). In Chrome 144+, open "
                     "chrome://inspect/#remote-debugging and switch on remote debugging, then retry.")
-    return "http://127.0.0.1:9222", "agent Chrome window (start-chrome.sh)"
+    return open_agent_chrome(), "agent Chrome window (its own logins)"
 
 
 def make_browser(cdp_url):
@@ -150,7 +213,7 @@ async def visible_tab_hint(browser):
 # work isn't interrupted; it targets money, messages, deletion, publishing, legal and security.
 RISKY = re.compile(
     r"\b(pay|buy|purchase|order|checkout|check ?out|subscribe|upgrade|donate|tip|bid|"
-    r"send|post|publish|share|tweet|reply|comment|invite|"
+    r"send|post|publish|share|tweet|reply|comment|invite|connect|follow|like|endorse|repost|"
     r"delete|remove|erase|destroy|terminate|shut ?down|revoke|reset|wipe|"
     r"transfer|withdraw|refund|cancel (?:my |the )?(?:account|subscription|plan|order)|close (?:my |the )?account|"
     r"confirm|submit|agree|accept|sign ?up|register|create (?:my |an |your )?account|book|reserve|apply)\b",

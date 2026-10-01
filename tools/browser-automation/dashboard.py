@@ -287,6 +287,18 @@ async def set_browser(request: Request):
 
 
 @guard
+async def signin_window(request: Request):
+    url = ((await request.json()).get("url") or "").strip()
+    if url and not url.startswith(("http://", "https://")):
+        url = "https://" + url
+    try:
+        await asyncio.to_thread(core.open_agent_chrome, url or None)
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=400)
+    return JSONResponse({"ok": True})
+
+
+@guard
 async def set_key(request: Request):
     key = ((await request.json()).get("key") or "").strip()
     if len(key) < 10:
@@ -325,6 +337,7 @@ app = Starlette(routes=[
     Route("/api/control", control, methods=["POST"]),
     Route("/api/browser", set_browser, methods=["POST"]),
     Route("/api/key", set_key, methods=["POST"]),
+    Route("/api/signin", signin_window, methods=["POST"]),
     Route("/api/shot", shot),
 ], lifespan=lifespan)
 

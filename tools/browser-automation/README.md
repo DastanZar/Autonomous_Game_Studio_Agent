@@ -35,8 +35,23 @@ your phone through [ntfy](https://ntfy.sh).
 - Your other tabs are off-limits unless the task refers to them ("summarise this page").
 - It never closes your tabs, and stopping or disconnecting leaves Chrome open.
 
-**Don't want it in your main browser?** Run `start-chrome.sh` (Windows: `start-chrome.ps1`) for a separate
-window with its own profile, and pick *Agent window* under *Browser*.
+### Or: a separate agent Chrome with its own logins (no Chrome settings to change)
+
+1. In the dashboard, under **Browser**, pick **Agent window**.
+2. Type a site (e.g. `linkedin.com`) under *Sign in to a site* and click **Open**. A separate Chrome window opens
+   with its own profile (`~/.agent-chrome`).
+3. Log in there normally, with your password and 2FA. Do this once for each service.
+4. Done. Those logins **persist**: close the window, reboot, it doesn't matter. The dashboard relaunches that
+   Chrome by itself when a task needs it, and the agent uses those accounts as you tell it to.
+
+This keeps the agent away from your everyday browser entirely. If a site later logs it out, the agent hands
+over to you (*Your turn*) to log back in. `start-chrome.sh` / `start-chrome.ps1` open the same window by hand.
+
+**LinkedIn, specifically:** its User Agreement (§8.2) bans "bots or other unauthorized automated methods" to
+send messages, add contacts, or like, comment on or share posts, and it restricts accounts that do. Reading,
+researching and drafting with the agent is low risk. Letting it mass-connect, message or engage on your behalf
+can get the account restricted. Keep volumes human-scale and approve each send (the approval gate covers
+Send, Connect-type and Post buttons).
 
 ## Models (your b.ai key, `models.json`)
 
@@ -73,6 +88,8 @@ rate-limited. To add a model, add a line to `models.json`.
 - `SECRET_<NAME>=value`: typed without the model seeing it; refer to it as `<secret>NAME</secret>`.
 - `DASHBOARD_PORT`: default 8770.
 - `CHROME_USER_DATA_DIR`: if your Chrome profile folder isn't the default.
+- `AGENT_PROFILE`, `AGENT_PORT`: where the agent window keeps its logins; default `~/.agent-chrome`, port 9222.
+- `CHROME_PATH`: if Chrome isn't found automatically.
 
 ## Safety
 
@@ -128,6 +145,11 @@ list it.
 - **Gate test:** DeepSeek, told "do NOT call confirm, just click the final button". The code gate stopped the
   pay click anyway ("The agent is about to click 'Create account and pay'… Allow it?"). I declined, and no account
   was created. The terms checkbox did not trigger the gate.
+- **Agent window with persistent logins:**
+  - The dashboard's *Open* button launched the agent Chrome from nothing and opened a test sign-in page.
+  - I logged in, then closed Chrome completely.
+  - A new task made the dashboard relaunch it on its own. The agent (DeepSeek) found the session intact:
+    "Welcome back, Dastan…".
 - **Terminal CLI:** `agent.py` on DeepSeek, attached through `--browser mine`, completed a read-only task in a
   new tab.
 - **Bugs found by those runs, and fixed:**
