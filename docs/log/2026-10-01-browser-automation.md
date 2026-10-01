@@ -217,3 +217,16 @@ the dashboard isnt opening
   - A second launch printed "already running".
   - A full mock task (ask, handover, confirm, done) under `PYTHONIOENCODING=cp1252`: no encoding errors.
 - **Not verified:** real Windows (cmd double-click, py launcher). Asked the user what they see if it still fails.
+
+---
+
+### 🧑 User · 2026-10-01 UTC
+
+im still confused, how am i supposed to run the thing youve made?
+
+#### Claude · record
+
+- The root confusion: the tool was built in the cloud container, but it must run on the user's own computer, where their Chrome and logins are. Instructions that assumed git and a terminal were too much.
+- Added `tools/browser-automation/START HERE.txt`: plain six-step Windows instructions (install Python, unzip, double-click the `.cmd`, paste the key, sign in to sites, run a task).
+- Built `browser-agent.zip` of the folder (25 files, ~78 KB; no caches, run logs or keys; key scan clean) and sent it in chat, so no git is needed.
+- **Verified:** unzipped into an empty folder and ran `dashboard.sh` from scratch. It created `.venv`, installed the requirements and served the dashboard (title "Browser Agent").
