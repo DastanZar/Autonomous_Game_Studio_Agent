@@ -18,11 +18,25 @@ your phone through [ntfy](https://ntfy.sh).
    - open `chrome://inspect/#remote-debugging` and switch remote debugging **on**;
    - when the agent connects, Chrome asks *"Allow remote debugging?"*: click **Allow**. That happens once per
      dashboard session.
-2. **Launch the dashboard.** The first run installs everything into `.venv`.
-   - **Windows:** `powershell -ExecutionPolicy Bypass -File tools\browser-automation\dashboard.ps1`
+2. **Launch the dashboard.**
+   - **Windows:** double-click **`Start Browser Agent.cmd`** in this folder. Don't double-click the `.ps1`:
+     Windows opens those in Notepad.
    - **macOS/Linux:** `tools/browser-automation/dashboard.sh`
 
-   It opens <http://127.0.0.1:8770>.
+   It opens <http://127.0.0.1:8770> in your browser. Keep the black window open while you use it.
+   - **First run:** it creates `.venv` and installs everything, which takes a few minutes. It needs
+     **Python 3.11+**; if that's missing, it tells you where to get it.
+   - **On error:** the window stays open with the message instead of flashing shut.
+   - **Launched twice?** The second launch just reopens the page.
+   - **The files are on the `claude/vigilant-curie-hs8zmk` branch**, not `main`. Check that branch out (or
+     merge it) first.
+
+**Not opening?**
+- **Page:** go to <http://127.0.0.1:8770> by hand.
+- **Black window:** read the message in it.
+- **Python:** `py -0p` lists your installed Pythons; you need 3.11 or newer.
+- **Port in use:** start with `set DASHBOARD_PORT=8771` before launching.
+
 3. **First time only:** paste your b.ai key into *b.ai API key → Save*. It's stored in `~/.config/bai/key` on
    your machine and never in this repo.
 4. **Run a task:** type it and press *Run task*, or Ctrl+Enter.

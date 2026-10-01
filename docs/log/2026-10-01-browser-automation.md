@@ -187,3 +187,33 @@ what about the original route of browser use where we open a seperate chrome ses
   - Chrome was fully closed.
   - A new task (DeepSeek) relaunched Chrome automatically and read "Welcome back, Dastan…": the login persisted.
 - **LinkedIn:** checked the current User Agreement §8.2 (bans bots or automated messaging, connecting and engagement; accounts get restricted). The README says reading and drafting is low risk, and to keep sends human-scale with approvals.
+
+---
+
+### 🧑 User · 2026-10-01 UTC
+
+the dashboard isnt opening
+
+#### Claude · record
+
+- The branch was clean and pushed, so the failure is on the user's machine, which I can't see. Likely Windows causes:
+  - double-clicking a `.ps1` opens Notepad;
+  - errors flash the window shut;
+  - Browser Use needs Python ≥3.11;
+  - the browser opened before the server was listening;
+  - the files are on `claude/vigilant-curie-hs8zmk`, not main.
+- **Fixed:**
+  - `Start Browser Agent.cmd`: double-clickable; runs the ps1 with ExecutionPolicy Bypass and pauses on error.
+  - `dashboard.ps1`: finds Python 3.11+ (py launcher, then PATH), sets PYTHONUTF8, removes a broken `.venv` after a failed install, and keeps errors on screen.
+  - `dashboard.sh`: the same version check.
+  - `dashboard.py`:
+    - opens the browser only once the port is listening;
+    - a second launch reopens the page instead of crashing;
+    - names the port clash and how to fix it if another program holds it.
+  - `core`: `LLM_BASE_URL` override (used for tests).
+- **Verified here:**
+  - Installed PowerShell 7.4.6 in the container: both `.ps1` files parse, and `Find-Python` found Python 3.11.
+  - A fake browser (via `$BROWSER`) got HTTP 200 on open.
+  - A second launch printed "already running".
+  - A full mock task (ask, handover, confirm, done) under `PYTHONIOENCODING=cp1252`: no encoding errors.
+- **Not verified:** real Windows (cmd double-click, py launcher). Asked the user what they see if it still fails.

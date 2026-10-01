@@ -12,7 +12,9 @@ import itertools
 import json
 import os
 import secrets
+import threading
 import time
+import urllib.request
 import webbrowser
 from datetime import datetime
 from pathlib import Path
@@ -321,9 +323,10 @@ async def shot(request: Request):
 async def lifespan(app):
     worker = asyncio.get_running_loop().create_task(studio.worker())
     url = f"http://{HOST}:{PORT}/"
-    print(f"\n  Browser agent dashboard: {url}\n")
+    print(f"\n  Browser agent dashboard: {url}\n  (keep this window open; close it or press Ctrl+C to stop)\n")
     if os.environ.get("NO_OPEN") != "1":
-        webbrowser.open(url)
+        # Open the page only once the server is actually listening (lifespan runs before the bind).
+        threading.Thread(target=_open_when_ready, args=(url,), daemon=True).start()
     yield
     worker.cancel()
     await studio.drop_browser()
@@ -341,5 +344,31 @@ app = Starlette(routes=[
     Route("/api/shot", shot),
 ], lifespan=lifespan)
 
+def _open_when_ready(url):
+    for _ in range(100):
+        if core.port_open(PORT):
+            webbrowser.open(url)
+            return
+        time.sleep(0.1)
+
+
+def _already_running():
+    """True if a dashboard is already serving on PORT (a second launch just reopens the page)."""
+    if not core.port_open(PORT):
+        return False
+    try:
+        with urllib.request.urlopen(f"http://{HOST}:{PORT}/", timeout=3) as r:
+            return b"Browser Agent" in r.read(4000)
+    except Exception:
+        return False
+
+
 if __name__ == "__main__":
-    uvicorn.run(app, host=HOST, port=PORT, log_level="warning")
+    url = f"http://{HOST}:{PORT}/"
+    if _already_running():
+        print(f"The dashboard is already running: {url}")
+        webbrowser.open(url)
+    elif core.port_open(PORT):
+        raise SystemExit(f"Port {PORT} is used by another program. Start with DASHBOARD_PORT=8771 (or any free port).")
+    else:
+        uvicorn.run(app, host=HOST, port=PORT, log_level="warning")

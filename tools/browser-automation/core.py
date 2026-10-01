@@ -79,7 +79,7 @@ def make_llm(model_id):
         raise RuntimeError(f"no API key: set {CONFIG['key_env']} or save it in the dashboard")
     json_mode = MODELS[model_id]["json_mode"]
     # Reasoning models spend part of the budget thinking; 4096 (the default) truncated replies in tests.
-    return ChatOpenAI(model=model_id, base_url=CONFIG["base_url"], api_key=key, temperature=0.2,
+    return ChatOpenAI(model=model_id, base_url=os.environ.get("LLM_BASE_URL", CONFIG["base_url"]), api_key=key, temperature=0.2,
                       max_completion_tokens=12000, max_retries=3,
                       dont_force_structured_output=not json_mode, add_schema_to_system_prompt=not json_mode)
 
