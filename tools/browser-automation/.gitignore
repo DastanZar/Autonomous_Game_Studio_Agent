@@ -4,3 +4,4 @@ failures/
 .venv/
 .env
 runs/
+__pycache__/

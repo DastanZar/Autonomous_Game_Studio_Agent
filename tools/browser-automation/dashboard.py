@@ -1,0 +1,332 @@
+"""Local dashboard for the browser agent: type tasks, watch it work, answer it when it needs you.
+
+    python dashboard.py            # opens http://127.0.0.1:8770 in your browser
+
+Only reachable from this machine. Every API call needs the per-session token embedded in the
+page, and the Host header is checked, so other websites can't drive your browser through it.
+"""
+import asyncio
+import base64
+import contextlib
+import itertools
+import json
+import os
+import secrets
+import time
+import webbrowser
+from datetime import datetime
+from pathlib import Path
+
+import uvicorn
+from starlette.applications import Starlette
+from starlette.requests import Request
+from starlette.responses import HTMLResponse, JSONResponse, Response
+from starlette.routing import Route
+
+import core
+
+HOST, PORT = "127.0.0.1", int(os.environ.get("DASHBOARD_PORT", "8770"))
+TOKEN = secrets.token_urlsafe(24)
+RUNS_DIR = core.HERE / "runs"
+HISTORY = RUNS_DIR / "history.jsonl"
+MAX_STEPS = int(os.environ.get("MAX_STEPS", "100"))
+_ids = itertools.count(int(time.time()))
+
+
+class Run:
+    def __init__(self, task, model, fallback):
+        self.id, self.task, self.model, self.fallback = next(_ids), task, model, fallback
+        self.status, self.steps, self.result, self.ok = "queued", [], None, None
+        self.started = self.ended = None
+        self.prompt, self.future, self.shot = None, None, None
+
+    def public(self, full=True):
+        d = {k: getattr(self, k) for k in ("id", "task", "model", "fallback", "status", "result", "ok", "started", "ended")}
+        if full:
+            d.update(steps=self.steps[-200:], prompt=self.prompt, has_shot=self.shot is not None)
+        return d
+
+
+class Studio:
+    def __init__(self):
+        self.queue: asyncio.Queue = asyncio.Queue()
+        self.runs: list[Run] = []
+        self.current: Run | None = None
+        self.agent = None
+        self.browser = None
+        self.browser_mode = os.environ.get("CDP", "auto")
+        self.browser_where = "not connected"
+        self.history = self._load_history()
+
+    @staticmethod
+    def _load_history():
+        if not HISTORY.exists():
+            return []
+        rows = []
+        for line in HISTORY.read_text(encoding="utf-8").splitlines()[-50:]:
+            try:
+                rows.append(json.loads(line))
+            except ValueError:
+                pass
+        return rows[::-1]
+
+    async def ensure_browser(self):
+        if self.browser is not None:
+            return
+        cdp_url, where = core.resolve_cdp(self.browser_mode)
+        browser = core.make_browser(cdp_url)
+        await browser.start()  # your Chrome may ask "Allow remote debugging?" once: click Allow
+        self.browser, self.browser_where = browser, where
+
+    async def drop_browser(self):
+        if self.browser is not None:
+            try:
+                await self.browser.stop()  # disconnects; keep_alive leaves Chrome and its tabs alone
+            except Exception:
+                pass
+        self.browser, self.browser_where = None, "not connected"
+
+    async def human(self, run, kind, text):
+        loop = asyncio.get_running_loop()
+        run.future = loop.create_future()
+        run.prompt = {"id": secrets.token_hex(4), "kind": kind, "text": text, "since": time.time()}
+        run.status = "waiting"
+        notify_phone(text)
+        try:
+            return await run.future
+        finally:
+            run.prompt, run.future = None, None
+            if run.status == "waiting":
+                run.status = "running"
+
+    async def worker(self):
+        while True:
+            run = await self.queue.get()
+            if run.status == "stopped":
+                continue
+            self.current, run.status, run.started = run, "running", time.time()
+            try:
+                await self.ensure_browser()
+                hint = await core.visible_tab_hint(self.browser)
+
+                def on_step(state, output, n, run=run):
+                    if state is not None and getattr(state, "screenshot", None):
+                        run.shot = state.screenshot
+                    actions = []
+                    for a in (output.action if output else []) or []:
+                        d = a.model_dump(exclude_none=True)
+                        actions += [f"{k}({_short(v)})" for k, v in d.items()]
+                    run.steps.append({"n": n, "t": time.time(), "url": getattr(state, "url", ""),
+                                      "goal": getattr(output, "next_goal", "") or "",
+                                      "eval": getattr(output, "evaluation_previous_goal", "") or "",
+                                      "actions": actions})
+
+                async def human(kind, text, run=run):
+                    return await self.human(run, kind, text)
+
+                self.agent = core.make_agent(run.task + ("\n\n" + hint if hint else ""), run.model,
+                                             run.fallback, self.browser, human, on_step=on_step)
+                history = await self.agent.run(max_steps=MAX_STEPS)
+                RUNS_DIR.mkdir(exist_ok=True)
+                history.save_to_file(RUNS_DIR / f"{datetime.now():%Y%m%d-%H%M%S}-{run.id}.json")
+                run.result = history.final_result() or "(no final answer; see the steps)"
+                run.ok = bool(history.is_successful())
+                if run.status != "stopped":
+                    run.status = "done" if run.ok else "unfinished"
+            except Exception as e:
+                run.status, run.ok = "failed", False
+                run.result = f"{type(e).__name__}: {e}"
+                if "connect" in str(e).lower() or "websocket" in str(e).lower():
+                    await self.drop_browser()  # reconnect on the next task
+            finally:
+                run.ended, self.agent, self.current = time.time(), None, None
+                RUNS_DIR.mkdir(exist_ok=True)
+                with HISTORY.open("a", encoding="utf-8") as f:
+                    f.write(json.dumps(run.public(full=False)) + "\n")
+                self.history.insert(0, run.public(full=False))
+                del self.history[50:]
+
+
+def _short(v, n=120):
+    s = json.dumps(v, ensure_ascii=False) if not isinstance(v, str) else v
+    return s if len(s) <= n else s[: n - 1] + "…"
+
+
+def notify_phone(text):
+    topic = os.environ.get("NTFY_TOPIC")
+    if not topic:
+        return
+    import urllib.request
+
+    def send():
+        try:
+            urllib.request.urlopen(urllib.request.Request(
+                f"https://ntfy.sh/{topic}", data=text[:300].encode(), headers={"Title": "Browser agent needs you"}),
+                timeout=5)
+        except Exception:
+            pass
+    asyncio.get_running_loop().run_in_executor(None, send)
+
+
+studio = Studio()
+
+
+# ---------------------------------------------------------------- HTTP
+
+def guard(handler):
+    async def wrapped(request: Request):
+        host = request.headers.get("host", "")
+        if host not in (f"127.0.0.1:{PORT}", f"localhost:{PORT}"):
+            return Response("bad host", status_code=403)
+        token = request.headers.get("x-token") or request.query_params.get("token")
+        if not secrets.compare_digest(token or "", TOKEN):
+            return Response("bad token", status_code=403)
+        return await handler(request)
+    return wrapped
+
+
+async def page(request: Request):
+    if request.headers.get("host", "") not in (f"127.0.0.1:{PORT}", f"localhost:{PORT}"):
+        return Response("bad host", status_code=403)
+    html = (core.HERE / "dashboard.html").read_text(encoding="utf-8").replace("__TOKEN__", TOKEN)
+    return HTMLResponse(html, headers={"Cache-Control": "no-store", "X-Frame-Options": "DENY"})
+
+
+def templates():
+    out = []
+    for p in sorted((core.HERE / "tasks").glob("*.md")):
+        out.append({"name": p.stem, "text": p.read_text(encoding="utf-8")})
+    return out
+
+
+@guard
+async def state(request: Request):
+    cur = studio.current
+    return JSONResponse({
+        "models": core.CONFIG["models"], "default": core.CONFIG["default"], "fallback": core.CONFIG["fallback"],
+        "key_set": bool(core.api_key()),
+        "browser": {"mode": studio.browser_mode, "where": studio.browser_where},
+        "current": cur.public() if cur else None,
+        "paused": bool(studio.agent and getattr(studio.agent.state, "paused", False)),
+        "queue": [r.public(full=False) for r in studio.runs if r.status == "queued"],
+        "recent": [r.public() for r in studio.runs[-10:]][::-1],
+        "history": studio.history,
+        "templates": templates(),
+    })
+
+
+@guard
+async def run_task(request: Request):
+    body = await request.json()
+    task = (body.get("task") or "").strip()
+    model = body.get("model") or core.CONFIG["default"]
+    fallback = body.get("fallback") or None
+    if not task:
+        return JSONResponse({"error": "empty task"}, status_code=400)
+    if model not in core.MODELS or (fallback and fallback not in core.MODELS):
+        return JSONResponse({"error": "unknown model"}, status_code=400)
+    if not core.api_key():
+        return JSONResponse({"error": "save your b.ai API key first"}, status_code=400)
+    run = Run(task, model, fallback)
+    studio.runs.append(run)
+    await studio.queue.put(run)
+    return JSONResponse({"id": run.id})
+
+
+@guard
+async def answer(request: Request):
+    body = await request.json()
+    run = studio.current
+    if not run or not run.prompt or run.prompt["id"] != body.get("prompt_id") or run.future.done():
+        return JSONResponse({"error": "no such question (already answered?)"}, status_code=409)
+    run.future.set_result(str(body.get("answer", "")))
+    return JSONResponse({"ok": True})
+
+
+@guard
+async def control(request: Request):
+    body = await request.json()
+    action = body.get("action")
+    agent, run = studio.agent, studio.current
+    if action == "pause" and agent:
+        agent.pause()
+    elif action == "resume" and agent:
+        agent.resume()
+    elif action == "stop" and run:
+        run.status = "stopped"
+        if agent:
+            agent.stop()
+            if getattr(agent.state, "paused", False):
+                agent.resume()
+        if run.future and not run.future.done():
+            run.future.set_result("STOP. The human cancelled this task. Do nothing else and finish now.")
+    elif action == "cancel":
+        rid = body.get("id")
+        for r in studio.runs:
+            if r.id == rid and r.status == "queued":
+                r.status = "stopped"
+    else:
+        return JSONResponse({"error": "nothing to do"}, status_code=400)
+    return JSONResponse({"ok": True})
+
+
+@guard
+async def set_browser(request: Request):
+    mode = (await request.json()).get("mode")
+    if mode not in ("auto", "mine", "agent"):
+        return JSONResponse({"error": "mode must be auto, mine or agent"}, status_code=400)
+    if studio.current:
+        return JSONResponse({"error": "wait for the current task to finish"}, status_code=409)
+    studio.browser_mode = mode
+    await studio.drop_browser()
+    try:
+        await studio.ensure_browser()
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=400)
+    return JSONResponse({"ok": True, "where": studio.browser_where})
+
+
+@guard
+async def set_key(request: Request):
+    key = ((await request.json()).get("key") or "").strip()
+    if len(key) < 10:
+        return JSONResponse({"error": "that doesn't look like a key"}, status_code=400)
+    core.save_api_key(key)
+    return JSONResponse({"ok": True})
+
+
+@guard
+async def shot(request: Request):
+    run = studio.current
+    if not run or not run.shot:
+        return Response(status_code=204)
+    data = base64.b64decode(run.shot)
+    kind = "image/png" if data[:4] == b"\x89PNG" else "image/jpeg"
+    return Response(data, media_type=kind, headers={"Cache-Control": "no-store"})
+
+
+@contextlib.asynccontextmanager
+async def lifespan(app):
+    worker = asyncio.get_running_loop().create_task(studio.worker())
+    url = f"http://{HOST}:{PORT}/"
+    print(f"\n  Browser agent dashboard: {url}\n")
+    if os.environ.get("NO_OPEN") != "1":
+        webbrowser.open(url)
+    yield
+    worker.cancel()
+    await studio.drop_browser()
+
+
+app = Starlette(routes=[
+    Route("/", page),
+    Route("/api/state", state),
+    Route("/api/run", run_task, methods=["POST"]),
+    Route("/api/answer", answer, methods=["POST"]),
+    Route("/api/control", control, methods=["POST"]),
+    Route("/api/browser", set_browser, methods=["POST"]),
+    Route("/api/key", set_key, methods=["POST"]),
+    Route("/api/shot", shot),
+], lifespan=lifespan)
+
+if __name__ == "__main__":
+    uvicorn.run(app, host=HOST, port=PORT, log_level="warning")

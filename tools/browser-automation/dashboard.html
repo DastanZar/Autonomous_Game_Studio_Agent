@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Browser Agent</title>
+<style>
+:root {
+  --bg: #f6f6f3; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6b66; --line: #e3e2dc;
+  --accent: #2f5bea; --accent-ink: #ffffff; --warn: #b4530a; --warn-bg: #fff4e5;
+  --ok: #1f7a4d; --bad: #b42318; --code: #f1f0ec;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413; --panel: #1d1d1b; --ink: #ecebe6; --muted: #9a9993; --line: #2f2f2c;
+    --accent: #7b9bff; --accent-ink: #0d0d0c; --warn: #ffb35c; --warn-bg: #2b2112;
+    --ok: #5fcf95; --bad: #ff7b72; --code: #262624;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--line); background: var(--panel); flex-wrap: wrap; }
+header h1 { font-size: 17px; margin: 0; font-weight: 650; }
+.pill { font-size: 12px; padding: 3px 9px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.pill.on { color: var(--ok); border-color: currentColor; }
+.spacer { flex: 1; }
+main { display: grid; grid-template-columns: minmax(320px, 420px) 1fr; gap: 16px; padding: 16px 20px; max-width: 1500px; margin: 0 auto; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; padding: 12px 16px; } }
+section { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0; }
+section + section { margin-top: 16px; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+textarea, select, input { width: 100%; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; }
+textarea { min-height: 150px; resize: vertical; }
+textarea:focus, select:focus, input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+label { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+.row { display: flex; gap: 8px; align-items: end; }
+.row > * { flex: 1; min-width: 0; }
+button { font: inherit; font-weight: 600; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button.danger { color: var(--bad); }
+button:disabled { opacity: .5; cursor: default; }
+.muted { color: var(--muted); font-size: 13px; }
+.status { font-weight: 650; }
+.status.running { color: var(--accent); } .status.waiting { color: var(--warn); }
+.status.done { color: var(--ok); } .status.failed, .status.unfinished, .status.stopped { color: var(--bad); }
+.ask { border: 2px solid var(--warn); background: var(--warn-bg); border-radius: 12px; padding: 14px; margin: 12px 0; }
+.ask .kind { font-weight: 700; color: var(--warn); font-size: 13px; text-transform: uppercase; letter-spacing: .05em; }
+.ask .text { font-size: 16px; margin: 6px 0 10px; white-space: pre-wrap; }
+.ask .row { align-items: center; }
+.ask .row button { flex: 0 0 auto; }
+.live { display: grid; grid-template-columns: 1fr minmax(240px, 42%); gap: 14px; }
+@media (max-width: 1100px) { .live { grid-template-columns: 1fr; } }
+.shot { width: 100%; border: 1px solid var(--line); border-radius: 8px; background: var(--code); min-height: 120px; object-fit: contain; }
+ol.steps { list-style: none; padding: 0; margin: 0; max-height: 52vh; overflow: auto; }
+ol.steps li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+ol.steps .goal { font-weight: 550; }
+ol.steps .meta { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+code, .act { font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code); border-radius: 4px; padding: 1px 5px; overflow-wrap: anywhere; }
+.result { white-space: pre-wrap; background: var(--code); border-radius: 8px; padding: 12px; margin-top: 10px; overflow-wrap: anywhere; }
+.hist { list-style: none; margin: 0; padding: 0; }
+.hist li { padding: 9px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.hist li:hover .t { color: var(--accent); }
+.hist .t { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.err { color: var(--bad); font-size: 13px; min-height: 18px; margin-top: 8px; }
+.empty { color: var(--muted); padding: 30px 0; text-align: center; }
+details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Browser Agent</h1>
+  <span id="browserPill" class="pill">browser: …</span>
+  <span id="keyPill" class="pill">key: …</span>
+  <span class="spacer"></span>
+  <span class="muted" id="hint">Ctrl/⌘ + Enter runs the task</span>
+</header>
+
+<main>
+  <div>
+    <section>
+      <h2>New task</h2>
+      <textarea id="task" placeholder="Describe what to do, in plain words. E.g. “In my Google Cloud project X, create a Desktop OAuth client and give me its client ID.”"></textarea>
+      <label for="template">Start from a template</label>
+      <select id="template"><option value="">—</option></select>
+      <div class="row">
+        <div><label for="model">Model</label><select id="model"></select></div>
+        <div><label for="fallback">Fallback</label><select id="fallback"></select></div>
+      </div>
+      <div class="row" style="margin-top:14px">
+        <button class="primary" id="runBtn">Run task</button>
+      </div>
+      <div class="err" id="runErr"></div>
+    </section>
+
+    <section>
+      <h2>Browser</h2>
+      <label for="bmode">Which Chrome to drive</label>
+      <div class="row">
+        <select id="bmode">
+          <option value="auto">Auto</option>
+          <option value="mine">My Chrome (my tabs)</option>
+          <option value="agent">Agent window</option>
+        </select>
+        <button id="bconnect" style="flex:0 0 auto">Connect</button>
+      </div>
+      <p class="muted"><b>Auto</b> uses your Chrome if remote debugging is on, else the separate window from <code>start-chrome</code>. To use your own tabs: Chrome 144+, open <code>chrome://inspect/#remote-debugging</code>, switch it on, and click <b>Allow</b> when Chrome asks.</p>
+      <div class="err" id="bErr"></div>
+    </section>
+
+    <section>
+      <h2>b.ai API key</h2>
+      <div class="row"><input id="key" type="password" placeholder="sk-…" autocomplete="off"><button id="keyBtn" style="flex:0 0 auto">Save</button></div>
+      <p class="muted">Stored only in <code>~/.config/bai/key</code> on this machine.</p>
+      <div class="err" id="keyErr"></div>
+    </section>
+  </div>
+
+  <div>
+    <section>
+      <div class="row" style="align-items:center">
+        <h2 style="margin:0">Now</h2>
+        <span class="spacer"></span>
+        <button id="pauseBtn" style="flex:0 0 auto" disabled>Pause</button>
+        <button id="stopBtn" class="danger" style="flex:0 0 auto" disabled>Stop</button>
+      </div>
+      <div id="now"><div class="empty">Nothing running. Type a task on the left.</div></div>
+    </section>
+
+    <section>
+      <h2>Queue</h2>
+      <ul class="hist" id="queue"></ul>
+    </section>
+
+    <section>
+      <h2>History</h2>
+      <ul class="hist" id="history"></ul>
+    </section>
+  </div>
+</main>
+
+<script>
+const TOKEN = "__TOKEN__";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let S = null, lastPromptId = null, lastNowKey = "", initDone = false, titleTimer = null;
+
+async function api(path, body) {
+  const opt = { headers: { "X-Token": TOKEN } };
+  if (body !== undefined) { opt.method = "POST"; opt.headers["Content-Type"] = "application/json"; opt.body = JSON.stringify(body); }
+  const r = await fetch(path, opt);
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+}
+
+function initOnce(s) {
+  if (initDone) return; initDone = true;
+  const opts = s.models.map((m) => `<option value="${esc(m.id)}" title="${esc(m.note)}">${esc(m.label)}</option>`).join("");
+  $("model").innerHTML = opts; $("fallback").innerHTML = `<option value="">none</option>` + opts;
+  $("model").value = localStorage.getItem("model") || s.default;
+  $("fallback").value = localStorage.getItem("fallback") ?? s.fallback;
+  $("template").innerHTML = `<option value="">—</option>` + s.templates.map((t, i) => `<option value="${i}">${esc(t.name)}</option>`).join("");
+  $("bmode").value = s.browser.mode;
+  if ("Notification" in window && Notification.permission === "default") Notification.requestPermission();
+}
+
+function beep() {
+  try {
+    const a = new (window.AudioContext || window.webkitAudioContext)(), o = a.createOscillator(), g = a.createGain();
+    o.connect(g); g.connect(a.destination); o.frequency.value = 880; g.gain.value = .08; o.start(); o.stop(a.currentTime + .25);
+  } catch (e) {}
+}
+
+function attention(p) {
+  beep();
+  if ("Notification" in window && Notification.permission === "granted") new Notification("Browser agent needs you", { body: p.text });
+  clearInterval(titleTimer); let on = false;
+  titleTimer = setInterval(() => { document.title = (on = !on) ? "⚠ Needs you" : "Browser Agent"; }, 900);
+}
+
+const KIND = {
+  ask: ["Question for you", "Your answer…", [["Send", "primary", null]]],
+  handover: ["Your turn in the browser", "Optional note (e.g. “logged in”)", [["I'm done, continue", "primary", null]]],
+  confirm: ["Approval needed", "Or tell it what to do instead…", [["Approve", "primary", "yes"], ["Decline", "danger", "no"]]],
+};
+
+function renderNow(c, paused) {
+  $("pauseBtn").disabled = $("stopBtn").disabled = !c;
+  $("pauseBtn").textContent = paused ? "Resume" : "Pause";
+  if (!c) { $("now").innerHTML = `<div class="empty">Nothing running. Type a task on the left.</div>`; return; }
+  const p = c.prompt;
+  let ask = "";
+  if (p) {
+    const [title, ph, btns] = KIND[p.kind];
+    ask = `<div class="ask"><div class="kind">${title}</div><div class="text">${esc(p.text)}</div>
+      <div class="row"><input id="ans" placeholder="${ph}">${btns.map(([l, cls, v]) =>
+        `<button class="${cls}" data-v="${v ?? ""}" data-pid="${p.id}">${l}</button>`).join("")}</div></div>`;
+  }
+  const steps = c.steps.slice().reverse().map((s) => `<li><div class="goal">${s.n}. ${esc(s.goal || "…")}</div>
+    <div class="meta">${s.actions.map((a) => `<span class="act">${esc(a)}</span>`).join(" ")}</div>
+    <div class="meta">${esc(s.url)}</div></li>`).join("");
+  const keepAns = document.activeElement && document.activeElement.id === "ans" ? $("ans").value : null;
+  $("now").innerHTML = `<div class="muted">${esc(c.model)}${c.fallback ? " → " + esc(c.fallback) : ""}</div>
+    <div style="margin:4px 0 8px"><span class="status ${c.status}">${paused ? "paused" : c.status}</span> · ${esc(c.task.slice(0, 220))}</div>
+    ${ask}
+    <div class="live"><ol class="steps">${steps || '<li class="muted">Starting…</li>'}</ol>
+    <img class="shot" id="shot" alt="Latest screenshot of the page the agent sees"></div>`;
+  if (keepAns !== null && $("ans")) { $("ans").value = keepAns; $("ans").focus(); }
+  if (c.has_shot) $("shot").src = `/api/shot?token=${TOKEN}&s=${c.steps.length}`;
+  else $("shot").style.display = "none";
+  document.querySelectorAll(".ask button").forEach((b) => b.onclick = () => sendAnswer(b.dataset.pid, b.dataset.v));
+  if ($("ans")) $("ans").onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); sendAnswer(p.id, p.kind === "confirm" ? "" : null); } };
+}
+
+async function sendAnswer(pid, preset) {
+  const typed = $("ans") ? $("ans").value.trim() : "";
+  const answer = preset === "yes" ? (typed ? "yes. " + typed : "yes") : preset === "no" ? (typed || "no") : typed;
+  try { await api("/api/answer", { prompt_id: pid, answer }); } catch (e) { alert(e.message); }
+  clearInterval(titleTimer); document.title = "Browser Agent"; refresh();
+}
+
+function renderList(el, rows, empty, withCancel) {
+  el.innerHTML = rows.length ? rows.map((r) => `<li data-task="${esc(r.task)}">
+    <div class="t">${esc(r.task)}</div>
+    <div class="muted"><span class="status ${r.status}">${r.status}</span> · ${esc(r.model)}${r.started ? " · " + new Date(r.started * 1000).toLocaleString() : ""}
+    ${withCancel ? ` · <a href="#" data-cancel="${r.id}">cancel</a>` : ""}</div>
+    ${r.result ? `<details><summary>result</summary><div class="result">${esc(r.result)}</div></details>` : ""}</li>`).join("")
+    : `<li class="muted" style="cursor:default">${empty}</li>`;
+  el.querySelectorAll("li[data-task] .t").forEach((t) => t.onclick = () => { $("task").value = t.parentElement.dataset.task; $("task").focus(); });
+  el.querySelectorAll("[data-cancel]").forEach((a) => a.onclick = async (e) => { e.preventDefault(); await api("/api/control", { action: "cancel", id: +a.dataset.cancel }); refresh(); });
+}
+
+async function refresh() {
+  try { S = await api("/api/state"); } catch (e) { $("browserPill").textContent = "dashboard offline"; return; }
+  initOnce(S);
+  $("browserPill").textContent = "browser: " + S.browser.where;
+  $("browserPill").classList.toggle("on", S.browser.where !== "not connected");
+  $("keyPill").textContent = S.key_set ? "key: saved" : "key: missing";
+  $("keyPill").classList.toggle("on", S.key_set);
+  const c = S.current;
+  const pid = c && c.prompt ? c.prompt.id : null;
+  if (pid && pid !== lastPromptId) attention(c.prompt);
+  if (!pid) { clearInterval(titleTimer); document.title = "Browser Agent"; }
+  const nowKey = JSON.stringify([c, S.paused]);
+  const typing = document.activeElement && document.activeElement.id === "ans" && pid === lastPromptId;
+  if (nowKey !== lastNowKey && !typing) { renderNow(c, S.paused); lastNowKey = nowKey; }
+  lastPromptId = pid;
+  renderList($("queue"), S.queue, "Empty.", true);
+  const done = S.history;
+  renderList($("history"), done, "No finished tasks yet.", false);
+}
+
+$("runBtn").onclick = async () => {
+  $("runErr").textContent = "";
+  const task = $("task").value.trim();
+  if (!task) { $("runErr").textContent = "Write a task first."; return; }
+  localStorage.setItem("model", $("model").value); localStorage.setItem("fallback", $("fallback").value);
+  try { await api("/api/run", { task, model: $("model").value, fallback: $("fallback").value || null }); $("task").value = ""; refresh(); }
+  catch (e) { $("runErr").textContent = e.message; }
+};
+$("task").onkeydown = (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) $("runBtn").click(); };
+$("template").onchange = () => { const t = S && S.templates[$("template").value]; if (t) $("task").value = t.text; };
+$("pauseBtn").onclick = () => api("/api/control", { action: S && S.paused ? "resume" : "pause" }).then(refresh);
+$("stopBtn").onclick = () => { if (confirm("Stop the current task?")) api("/api/control", { action: "stop" }).then(refresh); };
+$("bconnect").onclick = async () => {
+  $("bErr").textContent = "Connecting… (click Allow in Chrome if it asks)";
+  try { const r = await api("/api/browser", { mode: $("bmode").value }); $("bErr").textContent = ""; refresh(); }
+  catch (e) { $("bErr").textContent = e.message; }
+};
+$("keyBtn").onclick = async () => {
+  $("keyErr").textContent = "";
+  try { await api("/api/key", { key: $("key").value }); $("key").value = ""; refresh(); }
+  catch (e) { $("keyErr").textContent = e.message; }
+};
+
+refresh();
+setInterval(refresh, 1200);
+</script>
+</body>
+</html>
