@@ -1544,3 +1544,31 @@ lets setup the youtube side too? do we need 3 gmail ids for 3 channels, how does
   - The dry-run works on the gold example. The real upload is untested because there are no credentials yet.
 - **Wrote** `docs/setup/youtube.md` and updated SOP 09.
 - **Backlog:** yt-channels, yt-api and yt-audit (human); channel-art (model, needs the names).
+
+---
+
+### 🧑 User · 2026-10-01 UTC
+
+can you help me with the process of whatever you need to connect to the yt account?
+
+#### Claude · record
+
+- Gave a staged walkthrough. Added a pitfall to the guide: the OAuth app must be published ("In production"), because refresh tokens from Testing-mode apps expire after 7 days. Added where environment variables are set (cloud environment menu → Edit; new sessions pick them up). Commit 5abd14c.
+
+### 🧑 User · 2026-10-05 UTC
+
+give me the complete step by step of what you want to setup the yt side, and how and where the options exactly are
+
+#### Claude · record
+
+- Rewrote `docs/setup/youtube.md` as a complete click-path checklist:
+  - A: Gmail;
+  - B: 3 channels and their settings;
+  - C: Cloud project and the API;
+  - D: Google Auth Platform (publish the app, scopes, Desktop client);
+  - E: environment variables;
+  - F: laptop auth per channel, with PowerShell commands;
+  - G: test upload;
+  - H: the audit form;
+  - I: optional extras.
+- UI labels are as of 2026 and may drift; the doc says so.

@@ -1,53 +1,124 @@
-# YouTube setup: 3 channels, 1 Google account
+# YouTube setup: the complete checklist
 
-## How it works
-- **One Google account can own several channels.** Every channel after the first is a *Brand Account*,
-  with its own name, handle, subscribers, analytics and monetisation. You switch between them from the
-  profile menu. There's no need for three Gmail addresses.
-  ([YouTube Help](https://support.google.com/youtube/answer/4642409?hl=en)).
-- **Use a new Gmail just for the studio**, not your personal one. That keeps the studio separate if
-  you ever sell it, share it or hand it over. You can add your personal account as a **manager** of each
-  Brand Account later.
-- **Monetisation is per channel.** Each one has to reach the YouTube Partner Program bar on its own.
+**What it gets us:** one studio Google account owning the 3 channels, and `studio/tools/publish.py` able to upload
+to each one.
 
-## Step 1: channels (you, about 15 minutes)
-1. Create the studio Gmail. Turn on 2-step verification.
-2. youtube.com → profile → *Settings* → *Add or manage your channel(s)* → *Create a channel*, three times.
-   Use the final channel names (still an open decision; the working names are in the bibles).
-3. For each channel: *YouTube Studio → Settings → Channel → Feature eligibility → verify with a phone
-   number*. This unlocks uploads over 15 minutes, custom thumbnails and live streaming. Shorts don't need it,
-   but do it once anyway.
-4. Upload a banner and an avatar. We can generate these in each channel's style.
+**Time:** about 45 minutes of clicks, plus Google's audit, which runs in the background for days to weeks.
 
-## Step 2: API access for automatic uploads (you, about 20 minutes)
-1. [console.cloud.google.com](https://console.cloud.google.com) (signed in as the studio Gmail) → new project
-   "studio-publisher".
-2. *APIs & Services → Library* → enable **YouTube Data API v3**.
-3. *OAuth consent screen* (in the newer console this is *Google Auth Platform*: Branding / Audience): External, app
-   name "studio-publisher", your email. Then under *Audience* click **Publish app** ("In production"). If you leave it
-   in *Testing*, Google expires its refresh tokens after 7 days and uploads stop working every week. An unverified
-   app in production is fine for our own channels; when you sign in, click *Advanced → Go to studio-publisher*.
-4. *Credentials → Create credentials → OAuth client ID → Desktop app.* Keep the client ID and secret.
-5. Add the ID and secret as environment variables `YT_CLIENT_ID` and `YT_CLIENT_SECRET` in the Claude Code
-   environment settings (the cloud environment menu in the session's title bar → Edit). A new session picks them up. **Never paste them into chat or commit them.**
-6. On your laptop (it needs a browser), run this once per channel, choosing that channel's Brand Account
-   when Google asks:
-   `YT_CLIENT_ID=… YT_CLIENT_SECRET=… python3 studio/tools/publish.py auth why-map`
-   Store each printed token as an environment secret: `YT_REFRESH_TOKEN_WHY_MAP`,
-   `YT_REFRESH_TOKEN_BODY_CAST` and `YT_REFRESH_TOKEN_RANKED`.
+**Rule:** passwords, keys and tokens never go into chat or into git. They go into the environment settings (Part E).
 
-## Step 3: the audit (you apply once; Google takes days to weeks)
-Google locks every video uploaded through an **unverified** API project to **private**
-([videos.insert docs](https://developers.google.com/youtube/v3/docs/videos/insert)). To lift that, submit the
-YouTube API Services audit / quota extension form for the project.
-- **Until it passes:** the tool uploads privately and you press *Publish* in YouTube Studio, which is one tap
-  per video. Or upload manually; `studio/sop/09-publish.md` has both routes.
-- **Quota** (since June 2026): 100 uploads a day per project, which is plenty for 3 channels.
+Menu names below are as of October 2026; Google renames things now and then. If a label differs, look for
+the nearest match. Tick the boxes as you go.
 
-## Recommendation
-Run weeks 1–2 manually: 3–4 Shorts a week per channel while we calibrate. Watching each one go out is worth it.
-Apply for the audit on day 1, so automation is ready when the cadence reaches daily.
+---
 
-## Later
-TikTok, Instagram Reels and Facebook Reels cross-posts are in each bible (`publishing.cross_post`). They need
-their own accounts, one per channel brand. Automating them is a separate step.
+## Part A: the studio Google account (5 min)
+- [ ] A1. Open **accounts.google.com/signup**. Create an account → *For my personal use*. Pick an address like
+      `yourstudio.shorts@gmail.com`.
+- [ ] A2. **myaccount.google.com → Security** (left menu) → *How you sign in to Google* →
+      **2-Step Verification** → turn it on.
+- [ ] A3. Sign out of your personal account in this browser, or use a separate Chrome profile
+      (**profile icon at the top right of Chrome → Add**). That way everything below happens as the studio account.
+
+## Part B: three channels (10 min)
+Do this once per channel. Use the working names for now; you can rename later.
+- [ ] B1. Open **youtube.com**, signed in as the studio account.
+- [ ] B2. Click your **profile picture (top right) → Settings** → under *Your YouTube channel*, click
+      **Add or manage your channel(s)** → **Create a channel**.
+- [ ] B3. Type the channel name → tick the box → **Create**. The three channels are:
+      1. Why the Map Looks Like That
+      2. The Body Cast
+      3. Ranked
+- [ ] B4. Repeat B2–B3 for the other two.
+- [ ] B5. For each channel, switch to it (**profile picture → Switch account → pick the channel**), open
+      **studio.youtube.com**, then **Settings (bottom left) → Channel → Feature eligibility** → under
+      *Intermediate features* click **Verify phone number**.
+- [ ] B6. While you're in **Settings → Channel → Basic info**, set *Country of residence*. In
+      **Settings → Upload defaults**, set the category to **Education** and the language to **English**.
+
+## Part C: the Google Cloud project (10 min)
+- [ ] C1. Open **console.cloud.google.com**, signed in as the studio account. Accept the terms if asked.
+- [ ] C2. Click the **project picker at the top left** (next to the Google Cloud logo) → **New project** → name it
+      `studio-publisher` → **Create**. Then select that project in the picker.
+- [ ] C3. In the **search bar at the top**, type `YouTube Data API v3`, open it and click **Enable**.
+
+## Part D: the sign-in client (10 min)
+- [ ] D1. Search bar → **Google Auth Platform** (older consoles call it *OAuth consent screen*) → **Get started**.
+      - App name `studio-publisher`; support email = the studio address → **Next**
+      - Audience: **External** → **Next**
+      - Contact email = the studio address → **Next** → agree → **Create**
+- [ ] D2. Left menu **Audience** → under *Publishing status* click **Publish app** → **Confirm**. It should say
+      **In production**.
+      This step matters: in *Testing* mode, Google expires the connection every 7 days.
+- [ ] D3. Left menu **Data access** → **Add or remove scopes**. Tick
+      `.../auth/youtube.upload` and `.../auth/youtube.force-ssl` (search "youtube") → **Update** → **Save**.
+- [ ] D4. Left menu **Clients** → **Create client** → *Application type*: **Desktop app**, name `studio-laptop` →
+      **Create**.
+- [ ] D5. A box shows the **Client ID** and the **Client secret**. Click **Download JSON** and keep the file
+      somewhere private on your laptop. Don't paste either value in chat.
+
+## Part E: give the studio the client (3 min)
+- [ ] E1. In this Claude Code session, open the **cloud environment menu in the title bar → Edit**.
+- [ ] E2. Add two environment variables, using the values from D5:
+      - `YT_CLIENT_ID` = the Client ID
+      - `YT_CLIENT_SECRET` = the Client secret
+- [ ] E3. Save. New sessions pick them up.
+
+## Part F: link each channel, on your laptop (10 min)
+This needs a browser on the same computer that runs the command. Python 3 must be installed: on Windows,
+get it from **python.org/downloads** and tick *Add python.exe to PATH* during install.
+
+- [ ] F1. Get the script. In PowerShell:
+      ```powershell
+      mkdir $HOME\studio; cd $HOME\studio
+      curl.exe -L -o publish.py https://raw.githubusercontent.com/DastanZar/Autonomous_Game_Studio_Agent/main/studio/tools/publish.py
+      ```
+- [ ] F2. In the same window, set the client for this window only (it's forgotten when you close it):
+      ```powershell
+      $env:YT_CLIENT_ID = "paste the Client ID here"
+      $env:YT_CLIENT_SECRET = "paste the Client secret here"
+      ```
+- [ ] F3. Run `python publish.py auth why-map`.
+      1. A browser opens. Pick the **studio account**, then the channel **Why the Map Looks Like That**.
+      2. Google says *"Google hasn't verified this app"*. Click **Advanced → Go to studio-publisher (unsafe)**. It's
+         your own app, so this is expected.
+      3. Allow both permissions. The tab says *Done*.
+      4. The terminal prints a long token.
+- [ ] F4. Add that token in the environment settings (as in E1) as **`YT_REFRESH_TOKEN_WHY_MAP`**.
+- [ ] F5. Repeat F3–F4 for the other two channels:
+      - `python publish.py auth body-cast` → pick *The Body Cast* → save as **`YT_REFRESH_TOKEN_BODY_CAST`**
+      - `python publish.py auth ranked` → pick *Ranked* → save as **`YT_REFRESH_TOKEN_RANKED`**
+- [ ] F6. Close PowerShell. You can delete the downloaded JSON once all three are saved, or keep it somewhere private.
+
+## Part G: test (Claude does this; you just say "go")
+In a new session, which has the variables, Claude runs:
+1. `publish.py upload <episode> --dry-run`
+2. one real upload of a finished why-map episode as **private**.
+
+You check it in YouTube Studio → Content. If it lands on the right channel, the link works.
+
+## Part H: the API audit (5 min to submit; Google takes days to weeks)
+Until this passes, YouTube locks every API upload to **private**. You can still publish each video with
+one tap in YouTube Studio.
+- [ ] H1. Open the **YouTube API Services – Audit and Quota Extension Form**
+      (support.google.com/youtube/contact/yt_api_form, or search for that name).
+- [ ] H2. Give the Cloud project ID from C2 (shown in the project picker), and say the app is an internal tool that
+      uploads the owner's own original videos to the owner's own 3 channels. No other users, no data stored.
+      Claude can draft the answers to each field when you open the form.
+
+## Part I: optional, later
+- **Channel art:** banner 2560×1440 (keep text inside the central 1546×423), avatar 800×800. Claude makes these
+  once the names are final.
+- **TikTok, Instagram Reels and Facebook Reels** (cross-posting): one account per channel brand, set up separately.
+
+---
+
+### What each piece is for
+| Piece | Where it lives | Used for |
+|---|---|---|
+| Studio Gmail | Google | Owns everything; one login |
+| 3 channels (Brand Accounts) | YouTube | Separate names, subscribers and analytics |
+| Cloud project + YouTube Data API | console.cloud.google.com | Lets software upload for you |
+| Client ID and secret | Environment settings | Identifies our uploader app |
+| 3 refresh tokens | Environment settings | Each one says "this app may upload to this channel" |
+| Audit | Google | Lifts the private-only lock on API uploads |
