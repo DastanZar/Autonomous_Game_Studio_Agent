@@ -1,6 +1,6 @@
 {
  "id": "body-cast",
- "name": "The Body Cast (working name)",
+ "name": "The Gut Gang",
  "status": "draft",
  "promise": "Your organs, cells and microbes as a cast of characters, arguing about what really happens inside you, in under a minute.",
  "audience": "Adults and older teens 16-40 who watch Kurzgesagt, SolarBalls, Zack D. Films. Written for adults: never 'made for kids'.",
@@ -303,8 +303,7 @@
   ]
  },
  "open_decisions": [
-  "Character designs: approved in style (Flat Cast); final sheet per character before the first episode",
-  "Channel name (user)"
+  "Character designs: approved in style (Flat Cast); final sheet per character before the first episode"
  ],
  "audio": {
   "music_under_voice_db": 8,
@@ -343,5 +342,6 @@
     }
    ]
   }
- }
+ },
+ "handle": "@GutGang"
 }

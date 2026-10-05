@@ -1572,3 +1572,20 @@ give me the complete step by step of what you want to setup the yt side, and how
   - H: the audit form;
   - I: optional extras.
 - UI labels are as of 2026 and may drift; the doc says so.
+
+---
+
+### 🧑 User · 2026-10-05 UTC
+
+Should the handle also be Why the Map Looks Like That? Can we decide on naming right here itself while i create the channels? I want naming that will boost engagement, drive views i ave no personal bias towards any particular name
+
+#### Claude · record
+
+- **Method:** probed youtube.com/@handle for each candidate. A 404 means free (checked against a random control handle); a 200 means taken. For collisions I looked up the page title and subscriber count.
+- **Taken:**
+  - WhyTheMap (8 subs), MapRiddle (63), OrganSquad (459), FlagRanks (2.2K), Rankistan (1.81K);
+  - also OddAtlas, Mapsplained, TheInnards, Flagboard ("Flag Board"), FlagLeague, WorldRanked, RankTheWorld, CountryRanked, MapWhy, MapTwist, OrganCrew, OrganTalk, NationRank, TopNation.
+- **Free:** AtlasOddity, GutGang, TheGutGang, LeaderFlags, BorderQuirks, MapRiddles, InnardsCrew, OrganFolk, OrganOpera, FlagRanked, RankedFlags, TheFlagboard.
+- **Decided** (the user delegated it): Atlas Oddity @AtlasOddity, The Gut Gang @GutGang, LeaderFlags @LeaderFlags.
+- Bibles, backlog, DECISIONS and the setup guide are updated. Selftest OK.
+- **Caveat told to the user:** names have a modest effect on views; clarity and uniqueness matter most. Grab the handles soon, because free on this check doesn't guarantee YouTube will allow them.

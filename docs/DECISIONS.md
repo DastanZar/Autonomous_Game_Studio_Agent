@@ -16,7 +16,6 @@ what is still open. It is updated with every step we take; newest entries are at
 | # | Decision | Options / recommendation | Detail |
 |---|---|---|---|
 | 1 | Listen to the 8 new music tracks (4 body-cast, 4 ranked) and approve or reject each | Every track passed the automatic checks; only your ears can approve them | `studio/assets/music/{body-cast,ranked}/` |
-| 2 | Channel names and handles, all 3 | Working names: Why the Map Looks Like That / The Body Cast / Ranked | `studio/channels/*/bible.json` → `open_decisions` |
 | 3 | Keep Felix as the narrator voice for all channels? | Alternatives are in `videos/voice-test/` | why-map bible |
 
 ## Blocked (needs something from outside this container)
@@ -31,6 +30,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-10-05 | **Channel names, with the handle matching the name:** why-map is **Atlas Oddity** (@AtlasOddity), body-cast is **The Gut Gang** (@GutGang), ranked is **LeaderFlags** (@LeaderFlags). The criteria were: short, easy to say and spell, signals the niche, and not already taken. Rejected because the name or handle already existed: WhyTheMap, Organ Squad, FlagRank(s), Map Riddle, Odd Atlas, Mapsplained, Rankistan, Flag League. | You delegated the choice; Shorts show the @handle under every video | `studio/channels/*/bible.json` (`name`, `handle`) |
 | 2026-09-30 | **YouTube:** one new studio Gmail owns all 3 channels as Brand Accounts, not 3 Gmails. Uploads go through `studio/tools/publish.py` (Data API v3; OAuth tokens as environment secrets). Weeks 1–2 are published by hand; apply for the API audit on day 1, because unverified projects' uploads are locked to private. | One login, separate channels; Google's audit rule | `docs/setup/youtube.md` |
 | 2026-09-30 | **Scene length limits can differ by scene type:** catalog `max_s` values are ranking_bars 24 s, ranking_race 30 s, map_history 14 s and character_dialog 12 s; every other type keeps the bible's 7 s. **Cast lines** appear in the speech bubble and are never repeated in the captions. The ranked props trophy, podium and globe exist; the globe is drawn without continents, because maps must come from real data. | Polish backlog | `studio/engine/catalog.json`, `studio/gates/__init__.py`, `studio/sop/03-script.md`, `studio/engine/props.js` |
 | 2026-09-30 | The engine now renders all three channels' looks. **flat-cast** adds character_dialog and character_explain. **data-flags** adds ranking_bars, ranking_race and the country versus card, with 40 code-drawn flags. **map_history** draws OpenHistoricalMap borders. All three were built by parallel Sonnet 5.5 workers and reviewed and merged by Opus. Both flat themes (flat-cast, data-flags) skip the paper texture and film grain. | Backlog engine tasks; delegation pattern | `studio/engine/`, fixtures in `studio/engine/fixtures/` |

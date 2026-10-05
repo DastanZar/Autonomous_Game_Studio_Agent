@@ -1,6 +1,6 @@
 {
  "id": "ranked",
- "name": "Ranked (working name)",
+ "name": "LeaderFlags",
  "status": "draft",
  "promise": "One surprising ranking between countries, drawn from real data and animated so you can watch it change.",
  "audience": "Adults 18-45 who like maps, data and country rivalry; global audience.",
@@ -231,9 +231,7 @@
    "#shorts"
   ]
  },
- "open_decisions": [
-  "Channel name (user)"
- ],
+ "open_decisions": [],
  "audio": {
   "music_under_voice_db": 8,
   "duck_db": 6,
@@ -271,5 +269,6 @@
     }
    ]
   }
- }
+ },
+ "handle": "@LeaderFlags"
 }

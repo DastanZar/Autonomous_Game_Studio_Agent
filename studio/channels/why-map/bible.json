@@ -1,6 +1,6 @@
 {
  "id": "why-map",
- "name": "Why the Map Looks Like That (working name)",
+ "name": "Atlas Oddity",
  "status": "draft",
  "promise": "A true story about a place, a border or a moment in history so strange it sounds made up, or the real reason a country's map looks the way it does, explained in under a minute on a real map.",
  "audience": "Curious adults 18-45, English-speaking, who watch Half as Interesting, Knowledgia, RealLifeLore.",
@@ -277,7 +277,6 @@
   ]
  },
  "open_decisions": [
-  "Final channel name and handle (user)",
   "Keep Felix or pick another voice from videos/voice-test/ (user)",
   "map_history scene type (animated border changes between dated snapshots) must be built in the engine before the first how_did episode"
  ],
@@ -318,5 +317,6 @@
     }
    ]
   }
- }
+ },
+ "handle": "@AtlasOddity"
 }

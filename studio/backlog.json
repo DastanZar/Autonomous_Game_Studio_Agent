@@ -111,9 +111,10 @@
   {
    "id": "channel-names",
    "title": "Pick final channel names and handles",
-   "status": "blocked",
+   "status": "done",
    "who": "human",
-   "detail": "Open decision in each bible; needed before creating the channels."
+   "detail": "Open decision in each bible; needed before creating the channels.",
+   "note": "Atlas Oddity @AtlasOddity, The Gut Gang @GutGang, LeaderFlags @LeaderFlags (handles were free on 2026-10-05)"
   },
   {
    "id": "yt-channels",
