@@ -211,18 +211,19 @@ class Studio:
     async def run_digest(self, run):
         watch = run.watch
         seen_text = []  # what was really on the page, captured by us at every step
+        saved = []      # posts the agent saves one by one with save_post
 
         async def capture(state, output, n):
             self.on_step(state, output, n)
             seen_text.append(await core.page_text(self.browser))
 
         agent = core.make_agent(digest.task_for(watch), run.model, run.fallback, self.browser, self.ask,
-                                on_step=capture, read_only=True, flash_mode=run.fast,
-                                output_model_schema=digest.Feed)
+                                on_step=capture, read_only=True, flash_mode=run.fast, capture=seen_text,
+                                collector=saved)
         self.agent = agent
         before = {t.target_id for t in self.browser.session_manager.get_all_page_targets()}
         try:
-            history = await agent.run(max_steps=10 + 3 * watch["max_scrolls"])
+            history = await agent.run(max_steps=10 + 3 * watch["max_scrolls"] + 2 * watch.get("open_links", 3))
         finally:
             seen_text.append(await core.page_text(self.browser))  # the final screen, before the tab closes
             for t in self.browser.session_manager.get_all_page_targets():  # close the tabs this digest opened
@@ -231,16 +232,13 @@ class Studio:
                         await self.browser._cdp_client_root.send.Target.closeTarget(params={"targetId": t.target_id})
                     except Exception:
                         pass
-        try:
-            feed = history.structured_output
-        except Exception:
-            feed = None
-        entry = digest.record(watch, feed, "\n".join(seen_text))
+        notes = history.final_result() or ""
+        ok = bool(saved) or bool(history.is_successful())
+        entry = digest.record(watch, saved, notes, "\n".join(seen_text), ok=ok)
         new = sum(1 for i in entry["items"] if i["new"])
         self.batch_new += new
-        run.ok = feed is not None
-        run.result = (f"{new} new of {len(entry['items'])} item(s)" + (f". Notes: {entry['notes']}" if entry["notes"] else "")
-                      if feed is not None else "No digest returned: " + (history.final_result() or "see the steps"))
+        run.ok = ok
+        run.result = f"{new} new of {len(entry['items'])} item(s)" + (f". Notes: {notes}" if notes else "")
         if run.status != "stopped":
             run.status = "done" if run.ok else "unfinished"
 
@@ -260,7 +258,7 @@ class Studio:
             at, today = st.get("daily_at") or "", datetime.now().strftime("%Y-%m-%d")
             if at and datetime.now().strftime("%H:%M") >= at and st.get("last_auto") != today:
                 digest.save_settings(last_auto=today)
-                self.queue_digest(core.CONFIG["default"], core.CONFIG["fallback"])
+                self.queue_digest(core.CONFIG["digest_model"], core.CONFIG["digest_fallback"])
 
 
 def _short(v, n=120):
@@ -443,7 +441,8 @@ async def watches_action(request: Request):
         if action == "add":
             if not (body.get("url") or "").strip():
                 return JSONResponse({"error": "a watch needs a URL"}, status_code=400)
-            digest.add_watch(body.get("name", ""), body["url"].strip(), body.get("focus", ""), body.get("max_scrolls", 5))
+            digest.add_watch(body.get("name", ""), body["url"].strip(), body.get("focus", ""), body.get("max_scrolls", 5),
+                             body.get("open_links", 3))
         elif action == "toggle":
             digest.update_watch(body["id"], enabled=bool(body.get("enabled")))
         elif action == "remove":
@@ -456,7 +455,7 @@ async def watches_action(request: Request):
         elif action == "run":
             if not core.api_key():
                 return JSONResponse({"error": "save your b.ai API key first"}, status_code=400)
-            n = studio.queue_digest(body.get("model") or core.CONFIG["default"], body.get("fallback") or None,
+            n = studio.queue_digest(core.CONFIG["digest_model"], core.CONFIG["digest_fallback"],
                                     fast=bool(body.get("fast", True)))
             return JSONResponse({"ok": True, "queued": n})
         else:

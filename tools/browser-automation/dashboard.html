@@ -158,12 +158,12 @@ details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
         <span class="spacer"></span>
         <button id="digestRun" class="primary" style="flex:0 0 auto">Run digest now</button>
       </div>
-      <p class="muted">Pages it reads for you, read-only and at a human pace, so you don't have to scroll them. It brings back only what's new.</p>
+      <p class="muted">Pages it reads for you, read-only and at a human pace, so you don't have to scroll them. It brings back only what's new, and opens links inside posts in a background tab to tell you what they say. Uses DeepSeek v4.1 Flash, the most reliable in tests (<code>digest_model</code> in models.json).</p>
       <div id="digestItems"><div class="empty">No digest yet. Add pages below, then <b>Run digest now</b>.</div></div>
       <details style="margin-top:12px"><summary>Watchlist and schedule</summary>
         <div id="watchList" style="margin:8px 0"></div>
         <div class="row"><input id="wName" placeholder="Name (e.g. Priya on LinkedIn)"><input id="wUrl" placeholder="URL (e.g. linkedin.com/in/priya/recent-activity/all/)"></div>
-        <div class="row" style="margin-top:8px"><input id="wFocus" placeholder="Only keep… (optional, e.g. job changes, launches)"><input id="wScrolls" type="number" min="1" max="20" value="5" style="flex:0 0 90px" title="max scrolls"><button id="wAdd" style="flex:0 0 auto">Add</button></div>
+        <div class="row" style="margin-top:8px"><input id="wFocus" placeholder="Only keep… (optional, e.g. job changes, launches)"><input id="wScrolls" type="number" min="1" max="20" value="5" style="flex:0 0 90px" title="max scrolls"><input id="wLinks" type="number" min="0" max="10" value="3" style="flex:0 0 90px" title="links in posts to open and read (0 = none)"><button id="wAdd" style="flex:0 0 auto">Add</button></div>
         <div class="row" style="margin-top:10px;align-items:center"><span class="muted" style="flex:0 0 auto">Run daily at</span><input id="dailyAt" type="time" style="flex:0 0 140px"><button id="dailySave" style="flex:0 0 auto">Save</button><span class="muted">(while the dashboard is open; blank = off)</span></div>
         <div class="err" id="wErr"></div>
       </details>
@@ -327,7 +327,7 @@ async function refreshLibrary() {
   const key = JSON.stringify(L); if (key === libKey) return; libKey = key;
   $("watchList").innerHTML = L.watches.length ? L.watches.map((w) => `<div class="watch">
       <input type="checkbox" data-wt="${w.id}" ${w.enabled ? "checked" : ""} style="width:auto" title="include in digest">
-      <div class="t"><b>${esc(w.name)}</b> <span class="muted">· up to ${w.max_scrolls} scrolls${w.focus ? " · " + esc(w.focus) : ""}</span><div class="muted">${esc(w.url)}</div></div>
+      <div class="t"><b>${esc(w.name)}</b> <span class="muted">· up to ${w.max_scrolls} scrolls · opens ${w.open_links ?? 3} link(s)${w.focus ? " · " + esc(w.focus) : ""}</span><div class="muted">${esc(w.url)}</div></div>
       <a href="#" data-wr="${w.id}">remove</a></div>`).join("") : `<div class="muted">No pages yet.</div>`;
   document.querySelectorAll("[data-wt]").forEach((c) => c.onchange = () => api("/api/watches", { action: "toggle", id: c.dataset.wt, enabled: c.checked }).then(refreshLibrary));
   document.querySelectorAll("[data-wr]").forEach((a) => a.onclick = (e) => { e.preventDefault(); api("/api/watches", { action: "remove", id: a.dataset.wr }).then(refreshLibrary); });
@@ -340,13 +340,14 @@ async function refreshLibrary() {
       ${d.notes ? `<div class="muted">${esc(d.notes)}</div>` : ""}
       ${items.map((i) => `<div class="dig ${i.new ? "newi" : ""}"><div><span class="who">${esc(i.author)}</span> <span class="muted">· ${esc(i.when)}${i.new ? " · new" : ""}</span>${i.check === "corrected" ? ' <span class="pill" title="The model misquoted this post; the text shown is what was actually on the page.">text corrected from page</span>' : i.check === "unverified" ? ' <span class="pill" style="color:var(--bad);border-color:currentColor" title="Nothing on the page matched what the model returned.">unverified</span>' : ""}</div>
         <div>${esc(i.summary)}</div>
+        ${(i.links || []).map((l) => `<div class="muted" style="margin:4px 0 0 12px">↳ linked: <b>${esc(l.title || l.url)}</b>: ${esc(l.summary)} ${/^https?:\/\//i.test(l.url || "") ? `<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">open</a>` : ""}</div>`).join("")}
         ${i.text ? `<details><summary>full text</summary><div class="result">${esc(i.text)}</div></details>` : ""}
         ${/^https?:\/\//i.test(i.url || "") ? `<a href="${esc(i.url)}" target="_blank" rel="noopener noreferrer">open</a>` : ""}</div>`).join("") || '<div class="muted">Nothing found.</div>'}
     </details>`; }).join("") : `<div class="empty">No digest yet. Add pages below, then <b>Run digest now</b>.</div>`;
 }
 $("wAdd").onclick = async () => {
   $("wErr").textContent = "";
-  try { await api("/api/watches", { action: "add", name: $("wName").value, url: $("wUrl").value, focus: $("wFocus").value, max_scrolls: +$("wScrolls").value || 5 });
+  try { await api("/api/watches", { action: "add", name: $("wName").value, url: $("wUrl").value, focus: $("wFocus").value, max_scrolls: +$("wScrolls").value || 5, open_links: $("wLinks").value === "" ? 3 : +$("wLinks").value });
         $("wName").value = $("wUrl").value = $("wFocus").value = ""; refreshLibrary(); }
   catch (e) { $("wErr").textContent = e.message; }
 };

@@ -384,9 +384,14 @@ class Gate:
 
 # ---------------------------------------------------------------- human-in-the-loop tools
 
-def build_tools(human, gate=None):
+def _bare(u):
+    return re.sub(r"^https?://(www\.)?", "", (u or "").strip().lower()).rstrip("/")
+
+
+def build_tools(human, gate=None, capture=None, collector=None):
     """human: async (kind, text) -> str, with kind in {"ask", "handover", "confirm"}."""
     tools = Tools()
+    opened = {}  # what read_link was asked for -> (real URL, title), to fix links the model reports later
 
     @tools.action("Ask the human a question only they can answer. Returns their answer.")
     async def ask_human(question: str) -> ActionResult:
@@ -418,7 +423,7 @@ def build_tools(human, gate=None):
     @tools.action("Scroll a feed or long page down by about one screen, wait for new posts to load, and report "
                   "whether more content appeared and whether you're at the bottom. Use this instead of scroll "
                   "on infinite feeds (LinkedIn, X, Reddit…); repeat while it says more loaded.")
-    async def scroll_feed(browser_session: BrowserSession) -> ActionResult:
+    async def scroll_feed(browser_session: BrowserSession, direction: str = "down") -> ActionResult:
         cdp = await browser_session.get_or_create_cdp_session()
 
         async def js(expr):
@@ -427,7 +432,8 @@ def build_tools(human, gate=None):
             return res.get("result", {}).get("value")
 
         before = await js("document.scrollingElement.scrollHeight")
-        await js("window.scrollBy(0, Math.round(window.innerHeight * 0.9))")
+        sign = -1 if str(direction).lower().startswith("u") else 1
+        await js(f"window.scrollBy(0, {sign} * Math.round(window.innerHeight * 0.9))")
         for _ in range(8):  # give lazy feeds up to ~2.4 s to load the next batch
             await asyncio.sleep(0.3)
             if (await js("document.scrollingElement.scrollHeight")) > before:
@@ -456,10 +462,115 @@ def build_tools(human, gate=None):
         links = res.get("result", {}).get("value") or "(no matching links)"
         return ActionResult(extracted_content=links, include_extracted_content_only_once=True)
 
+    @tools.action("Open a link in a background tab, read its title and text, then close that tab. Pass the link's "
+                  "URL or its visible text; it is resolved on the current page. The current "
+                  "page (e.g. a timeline) stays exactly where it is, so you can keep scrolling afterwards. Use it "
+                  "to look at what a post links to instead of clicking the link and going back.")
+    async def read_link(link: str, browser_session: BrowserSession) -> ActionResult:
+        # Resolve against the current page first: a link's visible text ("fastqueue.dev/…", "t.co/…")
+        # often isn't its real address, and relative links need the page's base URL.
+        here = await browser_session.get_or_create_cdp_session()
+        probe = json.dumps((link or "").strip())
+        res = await here.cdp_client.send.Runtime.evaluate(params={"expression": """(() => { const q = %s, ql = q.toLowerCase();
+            const as = [...document.querySelectorAll('a[href]')];
+            const bare = s => (s || '').trim().toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');
+            const qb = bare(q);
+            let a = as.find(x => x.href === q) || as.find(x => x.getAttribute('href') === q)
+                 || as.find(x => bare(x.innerText) === qb)            // the model turned link text into a URL
+                 || as.find(x => qb.length > 5 && (bare(x.innerText).includes(qb) || bare(x.href).includes(qb)
+                                                   || (bare(x.innerText).length > 5 && qb.includes(bare(x.innerText)))));
+            if (a) return a.href;
+            try { return new URL(q, location.href).href; } catch (e) { return ''; } })()""" % probe,
+            "returnByValue": True}, session_id=here.session_id)
+        url = res.get("result", {}).get("value") or ""
+        if not re.match(r"^https?://", url):
+            return ActionResult(error=f"Couldn't find a link matching {link!r} on this page (try page_links first).")
+        root = browser_session._cdp_client_root
+        target = (await root.send.Target.createTarget(params={"url": url, "background": True}))["targetId"]
+        try:
+            session = (await root.send.Target.attachToTarget(params={"targetId": target, "flatten": True}))["sessionId"]
+
+            async def js(expr):
+                res = await root.send.Runtime.evaluate(params={"expression": expr, "returnByValue": True},
+                                                       session_id=session)
+                return res.get("result", {}).get("value")
+
+            for _ in range(40):  # up to ~10 s for the page to load
+                await asyncio.sleep(0.25)
+                if await js("document.readyState") == "complete":
+                    break
+            await asyncio.sleep(0.8)  # let client-rendered pages paint their text
+            title = (await js("document.title")) or ""
+            final_url = (await js("location.href")) or url
+            text = re.sub(r"\n{3,}", "\n\n", (await js("document.body ? document.body.innerText : ''") or "")).strip()
+        except Exception as e:
+            return ActionResult(error=f"Couldn't read {url}: {type(e).__name__}")
+        finally:
+            try:
+                await root.send.Target.closeTarget(params={"targetId": target})
+            except Exception:
+                pass
+        if capture is not None:
+            capture.append(f"{title}\n{text}")  # so summaries of the linked page can be checked too
+        for key in (link, url, final_url):
+            opened[_bare(key)] = (final_url, title)
+        for p in collector or []:  # the post may have been saved before its link was read
+            for l in p["links"]:
+                if _bare(l["url"]) in (_bare(link), _bare(url), _bare(final_url)):
+                    l["url"], l["title"] = final_url, l.get("title") or title
+        body = text[:6000] + ("\n…(truncated)" if len(text) > 6000 else "")
+        return ActionResult(extracted_content=f"LINK {final_url}\nTITLE: {title}\n\n{body or '(no readable text)'}",
+                            include_extracted_content_only_once=True,
+                            long_term_memory=f"Read linked page: {title or final_url}")
+
+    if collector is not None:
+        async def real_link(browser_session, u):
+            """The post link only if it really exists on the page (models invent anchors like #post-1)."""
+            if not u:
+                return ""
+            here = await browser_session.get_or_create_cdp_session()
+            res = await here.cdp_client.send.Runtime.evaluate(params={"expression": """(() => { const q = %s;
+                const bare = s => (s || '').trim().toLowerCase().replace(/^https?:\\/\\/(www\\.)?/, '').replace(/\\/$/, '');
+                const a = [...document.querySelectorAll('a[href]')].find(x => x.href === q || bare(x.href) === bare(q)
+                          || x.getAttribute('href') === q);
+                return a ? a.href : ''; })()""" % json.dumps(u), "returnByValue": True}, session_id=here.session_id)
+            return res.get("result", {}).get("value") or ""
+
+        def fix_link(link_url, link_title):
+            if link_url and _bare(link_url) in opened:  # use the address read_link really opened
+                real, title = opened[_bare(link_url)]
+                return real, link_title or title
+            return link_url, link_title
+
+        @tools.action("Save one post or activity item to the digest as soon as you see it on screen. Call it once "
+                      "per item; you don't need to remember items afterwards, and never need to go back up for them. "
+                      "quote = the first 10-20 words of the post exactly as shown (used to find its full text). "
+                      "url = the post's own link from page_links, or empty. If you read a link in the post with "
+                      "read_link, call save_post again for that item with link_url and link_summary.")
+        async def save_post(author: str, when: str, quote: str, summary: str, browser_session: BrowserSession,
+                            url: str = "", link_url: str = "", link_title: str = "", link_summary: str = "") -> ActionResult:
+            key = re.sub(r"\W+", " ", quote.lower()).strip()[:60]
+            link_url, link_title = fix_link(link_url, link_title)
+            link = {"url": link_url, "title": link_title, "summary": link_summary} if link_url else None
+            for p in collector:
+                if re.sub(r"\W+", " ", p["quote"].lower()).strip()[:60] == key:  # same item again: merge what's new
+                    if link and not any(_bare(l["url"]) == _bare(link_url) for l in p["links"]):
+                        p["links"].append(link)
+                    elif link:
+                        for l in p["links"]:
+                            if _bare(l["url"]) == _bare(link_url):
+                                l.update({k: v for k, v in link.items() if v})
+                    return ActionResult(extracted_content="Updated that item. Keep going from here.")
+            collector.append({"author": author, "when": when, "quote": quote, "summary": summary,
+                              "url": await real_link(browser_session, url), "links": [link] if link else []})
+            return ActionResult(extracted_content=f"Saved ({len(collector)} so far). Keep going from here.",
+                                long_term_memory=f"Saved post: {author} {when}: {quote[:40]}")
+
     return tools
 
 
-def make_agent(task, model_id, fallback_id, browser, human, on_step=None, vision=None, read_only=False,
+def make_agent(task, model_id, fallback_id, browser, human, on_step=None, vision=None, read_only=False, capture=None,
+               collector=None,
                **agent_kwargs):
     gate = Gate(human, read_only=read_only)
 
@@ -476,7 +587,7 @@ def make_agent(task, model_id, fallback_id, browser, human, on_step=None, vision
     return Agent(
         task=task.strip(), llm=make_llm(model_id),
         fallback_llm=make_llm(fallback_id) if fallback_id and fallback_id != model_id else None,
-        browser=browser, tools=build_tools(human, gate), extend_system_message=POLICY,
+        browser=browser, tools=build_tools(human, gate, capture, collector), extend_system_message=POLICY,
         sensitive_data=secrets or None, use_vision=vision,
         register_new_step_callback=step_hook,
         # Start in a fresh tab so the human's tabs are never navigated by accident.

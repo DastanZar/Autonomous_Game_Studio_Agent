@@ -5,6 +5,8 @@
   "key_file": "~/.config/bai/key",
   "default": "mimo-v2.6-pro",
   "fallback": "deepseek-v4.1-flash",
+  "digest_model": "deepseek-v4.1-flash",
+  "digest_fallback": "qwen3.8-flash",
   "models": [
     {"id": "mimo-v2.6-pro",       "label": "MiMo v2.6 Pro",       "json_mode": true,  "vision": true, "note": "strongest of the five; default"},
     {"id": "deepseek-v4.1-flash", "label": "DeepSeek v4.1 Flash", "json_mode": true,  "vision": false, "note": "fast; default fallback; Browser Use disables screenshots for DeepSeek"},

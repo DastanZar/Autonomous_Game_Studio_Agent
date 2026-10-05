@@ -4,9 +4,9 @@ BROWSER AGENT - HOW TO RUN IT (Windows)
 This runs on YOUR computer (it drives your Chrome). Nothing runs in the Claude chat.
 
 ONE-TIME SETUP
-1. Install Python 3.11 or newer: https://www.python.org/downloads/
-   On the first installer screen, TICK "Add python.exe to PATH", then Install.
-   (Already have it? Skip this. Check by typing  py -0p  in a terminal.)
+1. Python 3.11+ is needed. You can usually skip this step: the launcher installs Python 3.12 for you with
+   winget (built into Windows 10/11). If that fails, install it from https://www.python.org/downloads/
+   and TICK "Add python.exe to PATH".
 2. Unzip this folder somewhere permanent, e.g. Documents\browser-agent.
 
 EVERY TIME
@@ -18,8 +18,11 @@ EVERY TIME
 IN THE DASHBOARD (first time only)
 4. "b.ai API key" box: paste your key, click Save.
 5. "Browser" box: choose "Agent window". Type a site you want it to use (e.g. linkedin.com),
-   click Open, and log in in the Chrome window that appears. Repeat for other sites.
-   These logins are remembered.
+   click Open, and log in in the Chrome window that appears. Repeat for other sites, then
+   CLOSE that window with its X: closing it normally is what saves the logins.
+
+MOVING TO ANOTHER PC: do steps 1-5 there. Logins can't be copied (Chrome encrypts them per PC), so log in
+once again. To keep your Digest watchlist, copy the folder %USERPROFILE%\.browser-agent across.
 
 THEN
 6. Type a task in "New task" (plain English) and click Run task.

@@ -5,8 +5,9 @@ focus ("only job changes and launches"). A digest run opens each watch in turn, 
 like a person would, and returns the posts as structured text (author, when, summary, text, link).
 Items it has shown you before are recognised and marked as not new.
 
-Text, not screenshots: it is searchable, tiny, and the model can summarise it. The agent still
-sees the page (screenshots on capable models) while it reads.
+Text, not screenshots: it is searchable, tiny, and the model can summarise it. The agent saves each
+item as it sees it (save_post: author, time, a short quote, a summary); the full text is then taken
+from page text we capture ourselves, never from the model's memory.
 
 This is personal, low-volume reading in your own logged-in browser, at human pace. It is still
 automated access, which some sites' terms (LinkedIn's §8.2, for one) prohibit; keep the watchlist
@@ -23,27 +24,12 @@ from datetime import datetime, timezone
 
 from pathlib import Path
 
-from pydantic import BaseModel, Field
-
 APP_DIR = Path(os.environ.get("BROWSER_AGENT_HOME") or Path.home() / ".browser-agent")
 
 WATCHES = APP_DIR / "watches.json"
 SEEN = APP_DIR / "seen.json"
 DIGESTS = APP_DIR / "digests.jsonl"
 SETTINGS = APP_DIR / "settings.json"
-
-
-class Post(BaseModel):
-    author: str = Field(description="who posted or did it, as shown")
-    when: str = Field(description="when, as shown on the page (e.g. '3h', '2d', 'Oct 3')")
-    summary: str = Field(description="one or two plain sentences: what is new here")
-    text: str = Field(default="", description="the post's own text, up to ~1500 characters")
-    url: str = Field(default="", description="link to the post if visible, else empty")
-
-
-class Feed(BaseModel):
-    items: list[Post] = Field(default_factory=list)
-    notes: str = Field(default="", description="anything that stopped you, e.g. logged out or nothing new")
 
 
 def _read(path, default):
@@ -64,12 +50,13 @@ def list_watches():
     return _read(WATCHES, [])
 
 
-def add_watch(name, url, focus="", max_scrolls=5):
+def add_watch(name, url, focus="", max_scrolls=5, open_links=3):
     if not url.startswith(("http://", "https://")):
         url = "https://" + url
     rows = list_watches()
     rows.append({"id": uuid.uuid4().hex[:8], "name": name.strip() or url, "url": url, "focus": focus.strip(),
-                 "max_scrolls": max(1, min(int(max_scrolls or 5), 20)), "enabled": True})
+                 "max_scrolls": max(1, min(int(max_scrolls or 5), 20)),
+                 "open_links": max(0, min(int(open_links if open_links is not None else 3), 10)), "enabled": True})
     _write(WATCHES, rows)
 
 
@@ -77,7 +64,7 @@ def update_watch(watch_id, **fields):
     rows = list_watches()
     for r in rows:
         if r["id"] == watch_id:
-            r.update({k: v for k, v in fields.items() if k in ("enabled", "name", "focus", "max_scrolls")})
+            r.update({k: v for k, v in fields.items() if k in ("enabled", "name", "focus", "max_scrolls", "open_links")})
     _write(WATCHES, rows)
 
 
@@ -98,32 +85,37 @@ def save_settings(**fields):
 def task_for(watch):
     last = _read(SEEN, {}).get(watch["id"], {}).get("last_run")
     since = f"since {last[:16].replace('T', ' ')} UTC" if last else "from roughly the last 7 days"
-    focus = f"\nOnly keep items about: {watch['focus']}." if watch.get("focus") else ""
-    return f"""Read-only digest. Open {watch['url']} and collect the recent posts and activity {since}.{focus}
+    focus = f"\nOnly save items about: {watch['focus']}." if watch.get("focus") else ""
+    n_links = watch.get("open_links", 3)
+    links_rule = ("- Don't open links in posts." if not n_links else
+                  f"- If a post links to an article, page, video or another post (not just a profile or hashtag), read it\n"
+                  f"  with read_link (pass the link's text or address), up to {n_links} links in total, and include\n"
+                  f"  link_url / link_title / link_summary when you save that post. read_link leaves this page where\n"
+                  f"  it is: carry on from the same spot afterwards.")
+    return f"""Read-only digest. Open {watch['url']} and save the recent posts and activity {since}.{focus}
 
-How to read:
-- This is reading only. Do not like, comment, react, follow, connect, message, share or post anything,
-  and do not change any setting.
-- First record every item visible at the top of the page before scrolling (the newest items are there).
-- Use scroll_feed to move down (at most {watch['max_scrolls']} times). Read what's on screen after each one.
-- Keep going while scroll_feed says new content loaded or there's more page below; stop once items are
-  older than the period above, or it says you're at the bottom.
-- Before finishing, call page_links (e.g. with contains="post" or the site's post-link pattern) to get each
-  item's real link instead of clicking it.
-- Click "see more" / "…more" on a post only if its text is cut off and the rest matters.
-- If you're logged out or blocked, don't try to get around it: report it in notes and finish.
+How to work:
+- Reading only: never like, comment, react, follow, connect, message, share or post, or change settings.
+- As soon as an item is on screen, call save_post for it (once per item): author, when (as shown), quote
+  (its first 10-20 words exactly as shown), a one or two sentence summary of what's new, and its link if
+  you can see it. The full text is taken from the page automatically, so you never need to copy it,
+  remember it, or go back up the page for it.
+- Start with the items at the top, then use scroll_feed to move down (at most {watch['max_scrolls']} times).
+  Stop when items are older than the period above, or scroll_feed says you're at the bottom.
+{links_rule}
+- Use page_links if you need a post's real link; don't click into posts.
+- If you're logged out or blocked, don't try to get around it: say so when you finish.
 
-Return every item you found with: author, when (as shown), the post's text COPIED EXACTLY as it appears on
-the page (up to ~1500 characters; copy it while it's on screen, never write it from memory), a one or two
-sentence summary that uses only facts in that text, and its link. Return an empty list if nothing is new."""
+When done, finish with a one-line note (e.g. "saved 6 items, stopped at a 9-day-old post")."""
 
 
 # ---------------------------------------------------------------- remembering what you've seen
 
-def _fingerprint(post):
-    if post.get("url"):
+def _fingerprint(post, use_url=True):
+    if use_url and post.get("url"):
         return "u:" + re.sub(r"[?#].*$", "", post["url"].strip().lower())
-    body = re.sub(r"\W+", " ", (post.get("author", "") + " " + (post.get("text") or post.get("summary", ""))[:200]).lower())
+    # The text comes from the page, so it's stable between runs; the model's wording of the author isn't.
+    body = re.sub(r"\W+", " ", ((post.get("text") or post.get("author", "") + " " + post.get("summary", ""))[:200]).lower())
     return "t:" + hashlib.sha1(body.strip().encode()).hexdigest()[:16]
 
 
@@ -142,65 +134,96 @@ note notes nothing no one two""".split())
 
 
 def verify(post, page_text):
-    """Check a post the model returned against the text that was really on the page.
+    """Fill in a saved post's full text from what was really on the page, and check the model's claims.
 
-    Sets post["check"] to "verbatim", "corrected" (text replaced by the matching passage on the
-    page) or "unverified" (nothing on the page matched). A summary that names things the page
-    never mentions is replaced by the start of the real text."""
-    corpus = _norm(page_text)
-    text = _norm(post.get("text"))
-    if not corpus:
-        post["check"] = "unverified"
-        return post
-    grams = _grams(text)
-    overlap = len(grams & _grams(corpus)) / len(grams) if grams else 0.0
-    if text and (text in corpus or overlap >= 0.8):
-        post["check"] = "verbatim"
+    The model only gives a short quote; the post's text is the line(s) of captured page text that
+    contain it. post["check"]: "verbatim" (quote found as written), "corrected" (found only by a
+    fuzzy match: the model misquoted) or "unverified" (nothing on the page matched). Summaries that
+    name people, companies or numbers absent from the page are replaced by the real text."""
+    lines = [l.strip() for l in (page_text or "").splitlines() if len(l.strip()) > 2]
+    quote = _norm(post.get("quote") or post.get("text") or "")
+    probe = quote[:80]
+    hits = [l for l in lines if probe and probe in _norm(l)]
+    if hits:
+        post["text"], post["check"] = max(hits, key=len)[:1500], "verbatim"
     else:
-        # snap to the closest passage on the page (paragraph-sized chunks)
-        chunks = [c.strip() for c in re.split(r"\n\s*\n|\n", page_text) if len(c.strip()) > 20]
-        probe = post.get("text") or post.get("summary", "")
         best, score = "", 0.0
-        for c in chunks:
-            r = difflib.SequenceMatcher(None, probe.lower()[:600], c.lower()[:600]).ratio()
+        for l in lines:
+            if len(l) < 15:
+                continue
+            r = difflib.SequenceMatcher(None, quote[:200], _norm(l)[:max(200, len(quote))]).ratio()
             if r > score:
-                best, score = c, r
-        if score >= 0.45:
+                best, score = l, r
+        if score >= 0.6:
             post["text"], post["check"] = best[:1500], "corrected"
         else:
-            post["check"] = "unverified"
-    # Names, numbers and capitalised words in the summary must exist on the page.
+            post["text"], post["check"] = post.get("quote", ""), "unverified"
+    corpus = _norm(page_text)
     claims = {re.sub(r"['’]s$", "", c) for c in re.findall(r"\b(?:[A-Z][\w&.'’-]+|\d[\d,.%]*)", post.get("summary", ""))}
     allowed = corpus + " " + _norm(post.get("author"))
     missing = [c for c in claims if c.lower() not in _COMMON and c.lower().rstrip(".") not in allowed]
     real = re.sub(r"\s+", " ", post.get("text", "")).strip()
     excerpt = real[:220] + ("…" if len(real) > 220 else "")
-    if post["check"] == "corrected":
-        post["summary"] = excerpt  # the model misread the post, so its summary can't be trusted either
-    elif post["check"] == "unverified":
-        post["summary"] = "Couldn't verify this against the page; open the link before relying on it. Model's summary: " + post.get("summary", "")
+    if post["check"] == "unverified":
+        post["summary"] = "Couldn't find this on the page; open the link before relying on it. Model's summary: " + post.get("summary", "")
     elif missing:
         post["summary"], post["summary_replaced"] = excerpt, missing[:5]
+    for link in post.get("links") or []:  # linked pages were captured by read_link, so check those summaries too
+        names = {re.sub(r"['’]s$", "", c) for c in re.findall(r"\b(?:[A-Z][\w&.'’-]+|\d[\d,.%]*)", link.get("summary", ""))}
+        bad = [c for c in names if c.lower() not in _COMMON and c.lower().rstrip(".") not in corpus]
+        if bad:
+            link["summary"], link["check"] = "(summary withheld: it named things that weren't on the linked page)", "unverified"
     return post
 
 
-def record(watch, feed, page_text=""):
-    """Mark which items are new, remember them, and append the run to the digest log."""
+def record(watch, posts, notes="", page_text="", ok=True):
+    """Check the saved posts against the page, mark which are new, and append the run to the digest log."""
     seen = _read(SEEN, {})
     mine = seen.setdefault(watch["id"], {"hashes": [], "last_run": None})
     known = set(mine["hashes"])
     items = []
-    for post in feed.items if feed else []:
-        d = verify(post.model_dump(), page_text)
-        fp = _fingerprint(d)
-        d["new"] = fp not in known
-        known.add(fp)
+    def page_of(u):
+        return re.sub(r"[?#].*$", "", (u or "").strip()).rstrip("/").lower()
+
+    # Fill in text from the page first, then merge items that turn out to be the same post
+    # (models sometimes save one post twice with slightly different quotes).
+    merged = []
+    for post in posts or []:
+        d = verify(dict(post), page_text)
+        if any(page_of(l.get("url")) == page_of(d.get("url")) for l in d.get("links") or []):
+            d["url"] = ""  # that's the post's outbound link, not the post itself
+        twin = next((m for m in merged if m["check"] != "unverified" and _norm(m["text"]) == _norm(d["text"])), None)
+        if twin:
+            for l in d.get("links") or []:
+                if not any(page_of(x["url"]) == page_of(l["url"]) for x in twin["links"]):
+                    twin["links"].append(l)
+            twin["url"] = twin.get("url") or d.get("url", "")
+            continue
+        d["links"] = [l for l in d.get("links") or [] if page_of(l.get("url")) != page_of(watch["url"])]
+        merged.append(d)
+    urls = [page_of(p.get("url")) for p in merged if p.get("url")]
+    for d in merged:
+        # A URL identifies a post only if it's unique in this run and isn't just the watched page.
+        u = page_of(d.get("url"))
+        own = bool(u) and urls.count(u) == 1 and u != page_of(watch["url"])
+        if not own and u == page_of(watch["url"]):
+            d["url"] = ""
+        # Remember a post by its link AND by its page text, and count it as seen if either matches:
+        # the model doesn't always report the link, but the text (taken from the page) is stable.
+        fps = {_fingerprint(d, use_url=False)} if d["check"] != "unverified" else set()
+        if own:
+            fps.add(_fingerprint(d, use_url=True))
+        if not fps:
+            fps = {_fingerprint(d, use_url=False)}
+        d["new"] = not (fps & known)
+        known |= fps
         items.append(d)
     mine["hashes"] = list(known)[-2000:]
-    mine["last_run"] = datetime.now(timezone.utc).isoformat(timespec="minutes")
+    if ok:  # a failed run must not move the "since" marker, or the next run would skip what it missed
+        mine["last_run"] = datetime.now(timezone.utc).isoformat(timespec="minutes")
     _write(SEEN, seen)
     entry = {"at": time.time(), "watch_id": watch["id"], "watch": watch["name"], "url": watch["url"],
-             "items": items, "notes": feed.notes if feed else "no result"}
+             "items": items, "notes": notes}
     APP_DIR.mkdir(parents=True, exist_ok=True)
     with DIGESTS.open("a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")

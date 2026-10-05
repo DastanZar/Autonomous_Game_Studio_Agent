@@ -92,12 +92,23 @@ focus ("job changes, launches") and a scroll limit. Then click **Run digest now*
 while the dashboard is open.
 
 **What a run does:** it opens each page in turn, about 20 s apart, at a human pace.
-- **Read-only:** it can't like, comment, follow, connect or post. Those clicks are refused in code, without
-  asking you, since you may be away.
+- **Read-only:** it *does* click: it can open posts, "see more", tabs and links. What it can't do is like,
+  comment, follow, connect or post. Those clicks are refused in code, without asking you, since you may be
+  away.
 - **Scrolling:** it uses `scroll_feed`, which scrolls one screen, waits for the feed to load more, and reports
-  whether anything new appeared. It stops when items are older than your last run (7 days on the first run).
-- **What it brings back:** each post's author, time, text, a short summary and a real link (`page_links`).
-  You get text, not screenshots: searchable, small and easy to skim.
+  whether anything new appeared. No scroll-bar clicking is needed. It stops when items are older than your
+  last successful run (7 days on the first run).
+- **Saving as it goes:** it calls `save_post` for each item as soon as it's on screen, giving the author,
+  time, the first words of the post, a summary and the link. Nothing is lost when a post scrolls away, so it
+  never has to go back up.
+- **Full text from the page:** the full text is taken from page text the dashboard captures itself, never
+  from the model's memory.
+- **Links inside posts** (up to N per page; set per watch): `read_link` opens the link in a background tab,
+  reads it, closes it and summarises it under the post. The timeline stays exactly where it was, so scrolling
+  continues from the same spot. The link's visible text (e.g. `t.co/…`) is resolved to its real address.
+- **What it brings back:** text, not screenshots: searchable, small and easy to skim.
+- **Model:** digests use DeepSeek v4.1 Flash (`digest_model` in models.json). In tests it was the most
+  reliable; MiMo Pro once produced runaway fake output and another time misquoted posts.
 - **What's new:** items it has shown you before are recognised; only new ones are highlighted. You get a phone
   push if `NTFY_TOPIC` is set.
 
@@ -115,6 +126,20 @@ human pace for your own reading. It *is* still automated access, which LinkedIn'
 prohibits, so the risk isn't zero. Keep the list short and the schedule daily. The fully ToS-clean
 alternative is the site's own notifications (e.g. LinkedIn's 🔔 on a profile sends you their posts), with
 the agent summarising your notifications or email instead.
+
+## Moving to another computer (e.g. work → home)
+
+You don't need an installer for your own machines:
+1. On the home PC, download `browser-agent.zip` from this chat and unzip it somewhere permanent.
+2. Double-click **`Start Browser Agent.cmd`**. If Python 3.11+ is missing, it installs Python 3.12 for your
+   user with `winget` (built into Windows 10/11), then installs the rest. The first run takes a few minutes.
+3. In the dashboard, paste your b.ai key and sign in to your sites once with *Open*.
+4. *Optional:* copy your watchlist and digest history by copying the folder `%USERPROFILE%\.browser-agent`
+   from the old PC to the same place on the new one.
+
+**Logins don't move:** Chrome encrypts saved cookies to the Windows user and machine, so a copied profile
+arrives logged out. Logging in once per site on the new PC is the only reliable route. Personal accounts
+are better kept off a work computer anyway, since work devices are often monitored and managed.
 
 ## Models (your b.ai key, `models.json`)
 
@@ -236,6 +261,15 @@ list it.
     "for Go" instead of Python). After the "copy exactly" instruction, all 7 were word-for-word. The new check
     against the page marks fabricated items corrected or unverified; the faithful runs passed as verbatim with
     no false flags.
+- **Links and scrolling, after the `save_post` redesign** (Oct 5), on the same test profile plus a post linking
+  to an article:
+  - **DeepSeek:** 8/8 recent posts, all 8 texts taken word for word from the page, the article read with the
+    right figures ("48,000 jobs per second"), the timeline continued afterwards, no reloads, zero clicks,
+    78–80 s.
+  - **Before the redesign:** runs took 305–343 s with repeated reloads. Causes: a parameter bug in
+    `scroll_feed`, and the model trying to memorise exact texts.
+  - **"Seen before":** a second run after adding one post marked only that post new, once the link-or-text
+    identity fix was in.
 - **Sign-in window** (visible Chrome on a virtual display):
   - It runs without a debugging port.
   - Force-closing it 5 s after login lost the login, which is why it's never force-closed.

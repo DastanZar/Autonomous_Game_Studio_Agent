@@ -289,3 +289,28 @@ next  3 things -
 - The test server had died, so Chrome showed an error page: the "cookie access denied" red herring.
 - I deleted a test profile while its Chrome was alive, which caused a hang.
 - I fixed the test harness, not the product, in both cases.
+
+---
+
+### 🧑 User · 2026-10-05 UTC
+
+why cant it perform clicks, it will have to click to scroll the scroll bar right, also click to open links, like for example a tweet has a link, it will have to open the link examine that too and then get back to scrolling the timeline
+also is desktop app the best package? what if i just want to be able to put this on my own home system from my work system (where it currently is) whats the least hassle quick route for that
+
+#### Claude · record
+
+- **Clarified:** read-only only refuses state-changing clicks (like, comment, follow, connect, post); it clicks everything else. Scrolling uses the wheel or JS, not the scroll bar.
+- **Built** `read_link`: a background tab, read, close; the timeline is untouched. It resolves visible link text and relative links to real addresses.
+- **First test exposed my bugs:**
+  - `scroll_feed` took no parameters, but models pass `direction`, causing 57 validation errors per step and page reloads (likely present in earlier runs too). Fixed.
+  - Link text was used as the URL. Fixed with resolution on the page.
+- **Second test:** the reload loop persisted. The cause was my "copy exactly" instruction: the model kept going back to re-read texts that had scrolled off.
+  - **Redesign:** `save_post` (incremental saving: author, time, quote, summary, link); the full text is filled from captured page text by the quote. Repeat saves merge; links reported by the model map to what `read_link` really opened; post links that don't exist on the page (models invented `#post-1`) are dropped.
+  - **Result with DeepSeek:** 8/8, all verbatim, the article summarised with the correct figures, 78–80 s, zero clicks, no reloads.
+- **MiMo Pro:**
+  - Once 8/8 verbatim in 49 s.
+  - Once runaway output: invented posts by "Maya Chen" and "Dev Patel" with chat-template tokens inside a navigate URL. It noticed and saved nothing.
+  - That failed run had advanced the "since" marker, so the next run skipped posts (my bug). Fixed: only successful runs move it.
+- **Digests now default to DeepSeek** (`digest_model`).
+- **Seen-memory bug:** the link-based identity in run 1 vs text-based in run 2 made an old post "new". Fixed by keeping both fingerprints. Unit-tested; the live run before the fix found the new post correctly.
+- **Moving PCs:** documented that the zip plus launcher is enough for personal use. `dashboard.ps1` now installs Python 3.12 via winget when missing (parses in PowerShell 7; untested on real Windows). Logins must be redone (Chrome's per-machine encryption); the watchlist folder can be copied.

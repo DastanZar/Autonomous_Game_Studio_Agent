@@ -31,6 +31,12 @@ function Find-Python {
 try {
   if (-not (Test-Path ".venv\Scripts\python.exe")) {
     $py = Find-Python
+    if (-not $py -and (Get-Command winget -ErrorAction SilentlyContinue)) {
+      Write-Host "Python 3.11+ not found. Installing Python 3.12 for your user account with winget (one-time)..."
+      & winget install -e --id Python.Python.3.12 --scope user --accept-package-agreements --accept-source-agreements
+      $candidate = Join-Path $env:LOCALAPPDATA "Programs\Python\Python312\python.exe"
+      if (Test-Path $candidate) { $py = $candidate } else { $py = Find-Python }
+    }
     if (-not $py) {
       Fail "Python 3.11 or newer was not found. Install it from https://www.python.org/downloads/ (tick 'Add python.exe to PATH'), then run this again."
     }
