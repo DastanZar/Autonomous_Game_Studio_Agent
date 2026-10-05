@@ -3,6 +3,7 @@
 Used by agent.py (terminal) and dashboard.py (web UI). The API key is read from BAI_API_KEY or
 ~/.config/bai/key and is never written anywhere else.
 """
+import asyncio
 import json
 import os
 import platform
@@ -15,7 +16,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-from browser_use import ActionResult, Agent, Browser, ChatOpenAI, Tools
+from browser_use import ActionResult, Agent, Browser, BrowserSession, ChatOpenAI, Tools
 
 HERE = Path(__file__).resolve().parent
 CONFIG = json.loads((HERE / "models.json").read_text())
@@ -45,6 +46,10 @@ WHEN TO INVOLVE THE HUMAN (only these):
   final form. Describe exactly what will happen. If the human declines, do not do it.
   This is always a separate step: answers to ask_human (e.g. picking a plan) are NOT approval, so do
   not bundle "shall I proceed?" into ask_human.
+
+LOGINS
+- If a site shows you logged out, use hand_over so the human can log in. When you or they log in,
+  tick "remember me" / "keep me signed in" if offered, so the session lasts.
 
 FINISH with: what you did, what you changed (if anything), defaults you chose, what you could not do.
 """
@@ -125,26 +130,77 @@ def find_chrome():
     raise RuntimeError("Chrome not found; set CHROME_PATH to chrome's executable")
 
 
-def open_agent_chrome(url=None):
-    """Start the agent's own Chrome (persistent profile in ~/.agent-chrome) if it isn't running,
-    optionally opening `url` in it. Logins you make in this window persist across restarts."""
+_SIGNIN = None  # the plain Chrome window opened for signing in (no debugging port)
+
+
+def _spawn(args):
+    kwargs = {"stdout": subprocess.DEVNULL, "stderr": subprocess.DEVNULL, "stdin": subprocess.DEVNULL}
+    if platform.system() == "Windows":
+        kwargs["creationflags"] = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
+    else:
+        kwargs["start_new_session"] = True  # keeps running after the dashboard exits
+    return subprocess.Popen(args, **kwargs)
+
+
+def _base_args():
+    AGENT_PROFILE.mkdir(parents=True, exist_ok=True)
+    return [find_chrome(), f"--user-data-dir={AGENT_PROFILE}", "--no-first-run", "--no-default-browser-check",
+            *os.environ.get("CHROME_ARGS", "").split()]
+
+
+def signin_open():
+    """True while the sign-in window is still open. It must be closed by the user (its X button):
+    that is a normal shutdown, which saves the new login. Killing it can lose the last ~30 s of
+    cookies (tested), so we never force it closed."""
+    global _SIGNIN
+    if _SIGNIN is not None and _SIGNIN.poll() is not None:
+        _SIGNIN = None
+    return _SIGNIN is not None
+
+
+def close_agent_chrome():
+    """Ask the agent Chrome to quit cleanly over CDP (saves cookies); no-op if it isn't running."""
     if not port_open(AGENT_PORT):
-        AGENT_PROFILE.mkdir(parents=True, exist_ok=True)
-        args = [find_chrome(), f"--remote-debugging-port={AGENT_PORT}", "--remote-debugging-address=127.0.0.1",
-                f"--user-data-dir={AGENT_PROFILE}", "--no-first-run", "--no-default-browser-check",
-                *os.environ.get("CHROME_ARGS", "").split(), url or "about:blank"]
-        kwargs = {"stdout": subprocess.DEVNULL, "stderr": subprocess.DEVNULL, "stdin": subprocess.DEVNULL}
-        if platform.system() == "Windows":
-            kwargs["creationflags"] = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
-        else:
-            kwargs["start_new_session"] = True  # keeps running after the dashboard exits
-        subprocess.Popen(args, **kwargs)
+        return
+    try:
+        import websockets.sync.client as ws_client
+        info = json.load(urllib.request.urlopen(f"http://127.0.0.1:{AGENT_PORT}/json/version", timeout=5))
+        with ws_client.connect(info["webSocketDebuggerUrl"], max_size=None) as conn:
+            conn.send(json.dumps({"id": 1, "method": "Browser.close"}))
+    except Exception:
+        pass
+    for _ in range(80):
+        if not port_open(AGENT_PORT):
+            return
+        time.sleep(0.25)
+
+
+def open_signin_window(url=None):
+    """Open the agent's profile in a PLAIN Chrome window (no debugging port) for you to log in.
+    Google and some other sites refuse sign-in in a browser that is under automation; this window
+    isn't, and the logins you make here are saved in the same profile the agent uses later."""
+    global _SIGNIN
+    close_agent_chrome()
+    if _SIGNIN is not None and _SIGNIN.poll() is None:
+        _spawn([*_base_args(), url or "about:blank"])  # hands the URL to the open window as a new tab
+        return
+    _SIGNIN = _spawn([*_base_args(), url or "about:blank"])
+
+
+def open_agent_chrome(url=None):
+    """Start the agent's own Chrome (persistent profile in ~/.agent-chrome) with its debugging port
+    if it isn't running, optionally opening `url`. Logins made in this profile persist."""
+    if not port_open(AGENT_PORT):
+        if signin_open():  # one Chrome per profile, and it must close normally to keep the login
+            raise RuntimeError("Close the sign-in Chrome window (its X button) so it saves your logins, then try again.")
+        _spawn([*_base_args(), f"--remote-debugging-port={AGENT_PORT}", "--remote-debugging-address=127.0.0.1",
+                url or "about:blank"])
         for _ in range(60):
             if port_open(AGENT_PORT):
                 break
             time.sleep(0.25)
         else:
-            raise RuntimeError("the agent Chrome didn't start; is another Chrome using that profile?")
+            raise RuntimeError("the agent Chrome didn't start; is another Chrome window using that profile? Close it and retry.")
     elif url:
         req = urllib.request.Request(f"http://127.0.0.1:{AGENT_PORT}/json/new?{urllib.parse.quote(url, safe=':/?=&')}",
                                      method="PUT")
@@ -206,6 +262,18 @@ async def visible_tab_hint(browser):
     return ""
 
 
+async def page_text(browser):
+    """The visible text of the agent's current tab (for checking what a model claims it read)."""
+    try:
+        cdp = await browser.get_or_create_cdp_session()
+        res = await cdp.cdp_client.send.Runtime.evaluate(
+            params={"expression": "document.body ? document.body.innerText.slice(0, 300000) : ''", "returnByValue": True},
+            session_id=cdp.session_id)
+        return res.get("result", {}).get("value") or ""
+    except Exception:
+        return ""
+
+
 # ---------------------------------------------------------------- approval gate (enforced in code)
 
 # Clicks on elements whose label matches this need an approval, even if the model forgot to ask.
@@ -245,8 +313,8 @@ def _element_label(state, index, for_click=False):
 class Gate:
     """Runs between the model's decision and the browser action (Browser Use step callback)."""
 
-    def __init__(self, human):
-        self.human, self.step, self.approved_at = human, 0, -99
+    def __init__(self, human, read_only=False):
+        self.human, self.step, self.approved_at, self.read_only = human, 0, -99, read_only
         self.approved_labels = set()  # approvals the gate itself got cover only that exact element
 
     def note_approval(self):
@@ -266,13 +334,43 @@ class Gate:
             return "run JavaScript that clicks or submits something"
         return ""
 
+    @staticmethod
+    def _secret_misuse(name, params, state):
+        """A saved password may only be typed into a password field (and a username into a plain
+        input), so a page can't trick the agent into posting it somewhere visible."""
+        if name != "input":
+            return ""
+        text = str(params.get("text", ""))
+        names = re.findall(r"<secret>(.*?)</secret>", text)
+        if re.fullmatch(r"[a-z0-9_]+_(?:username|password|bu_2fa_code)", text):
+            names.append(text)
+        if not names:
+            return ""
+        node = state.dom_state.selector_map.get(int(params.get("index", -1))) if state else None
+        tag = (getattr(node, "tag_name", "") or "").lower()
+        kind = ((getattr(node, "attributes", None) or {}).get("type") or "text").lower()
+        for secret in names:
+            if secret.endswith("_password") and not (tag == "input" and kind == "password"):
+                return "a saved password can only be typed into a password field"
+            if tag != "input" or kind not in ("text", "email", "tel", "number", "password", ""):
+                return "saved login details can only be typed into a login form field"
+        return ""
+
     async def check(self, state, output, n):
         self.step = n
-        if os.environ.get("AUTO_CONFIRM") == "1" or not output or state is None:
+        if not output or state is None:
             return
         for action in output.action or []:
             for name, params in action.model_dump(exclude_none=True).items():
+                misuse = self._secret_misuse(name, params or {}, state)
+                if misuse:
+                    raise GateBlocked(f"REFUSED: {misuse}. Do not try this again.")
+                if os.environ.get("AUTO_CONFIRM") == "1":
+                    continue
                 label = self._risky(name, params or {}, state)
+                if label and self.read_only:
+                    raise GateBlocked(f"READ-ONLY TASK: you may not {label}. Do not interact with the page; "
+                                      "keep reading and scrolling, or finish.")
                 # The model's own confirm() covers the next couple of steps; the gate's covers that element only.
                 if not label or n - self.approved_at <= 2 or label in self.approved_labels:
                     continue
@@ -317,15 +415,59 @@ def build_tools(human, gate=None):
         return ActionResult(extracted_content=f"NOT approved. Do not do it. Human said: {answer or 'no'}",
                             long_term_memory=f"Declined: {action_description}")
 
+    @tools.action("Scroll a feed or long page down by about one screen, wait for new posts to load, and report "
+                  "whether more content appeared and whether you're at the bottom. Use this instead of scroll "
+                  "on infinite feeds (LinkedIn, X, Reddit…); repeat while it says more loaded.")
+    async def scroll_feed(browser_session: BrowserSession) -> ActionResult:
+        cdp = await browser_session.get_or_create_cdp_session()
+
+        async def js(expr):
+            res = await cdp.cdp_client.send.Runtime.evaluate(
+                params={"expression": expr, "returnByValue": True, "awaitPromise": True}, session_id=cdp.session_id)
+            return res.get("result", {}).get("value")
+
+        before = await js("document.scrollingElement.scrollHeight")
+        await js("window.scrollBy(0, Math.round(window.innerHeight * 0.9))")
+        for _ in range(8):  # give lazy feeds up to ~2.4 s to load the next batch
+            await asyncio.sleep(0.3)
+            if (await js("document.scrollingElement.scrollHeight")) > before:
+                break
+        info = await js("({h: document.scrollingElement.scrollHeight, y: Math.round(window.scrollY),"
+                        " v: window.innerHeight})") or {}
+        grew = info.get("h", 0) > before
+        bottom = info.get("y", 0) + info.get("v", 0) >= info.get("h", 0) - 4
+        msg = (f"Scrolled. {'New content loaded.' if grew else 'No new content loaded.'} "
+               f"{'At the bottom of the page.' if bottom and not grew else 'More page below.'}")
+        return ActionResult(extracted_content=msg, long_term_memory=msg)
+
+    @tools.action("List the links on the current page (text and address), optionally only those whose text or "
+                  "address contains `contains`. Use it to get the real URL of posts or profiles without clicking.")
+    async def page_links(browser_session: BrowserSession, contains: str = "") -> ActionResult:
+        cdp = await browser_session.get_or_create_cdp_session()
+        expr = """(() => { const f = %s.toLowerCase(); const out = [], seen = new Set();
+          for (const a of document.querySelectorAll('a[href]')) {
+            const t = (a.innerText || a.getAttribute('aria-label') || '').trim().replace(/\\s+/g, ' ').slice(0, 80);
+            const h = a.href; if (!/^https?:/.test(h) || seen.has(h)) continue;
+            if (f && !(t.toLowerCase().includes(f) || h.toLowerCase().includes(f))) continue;
+            seen.add(h); out.push(t + ' -> ' + h); if (out.length >= 80) break; }
+          return out.join('\\n'); })()""" % json.dumps(contains or "")
+        res = await cdp.cdp_client.send.Runtime.evaluate(params={"expression": expr, "returnByValue": True},
+                                                         session_id=cdp.session_id)
+        links = res.get("result", {}).get("value") or "(no matching links)"
+        return ActionResult(extracted_content=links, include_extracted_content_only_once=True)
+
     return tools
 
 
-def make_agent(task, model_id, fallback_id, browser, human, on_step=None, vision=None, **agent_kwargs):
-    gate = Gate(human)
+def make_agent(task, model_id, fallback_id, browser, human, on_step=None, vision=None, read_only=False,
+               **agent_kwargs):
+    gate = Gate(human, read_only=read_only)
 
     async def step_hook(state, output, n):
         if on_step:
-            on_step(state, output, n)
+            result = on_step(state, output, n)
+            if asyncio.iscoroutine(result):
+                await result
         await gate.check(state, output, n)  # may wait for the human, or raise GateBlocked
 
     secrets = {k[7:]: v for k, v in os.environ.items() if k.startswith("SECRET_") and v}

@@ -63,6 +63,11 @@ code, .act { font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monos
 .hist .t { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .err { color: var(--bad); font-size: 13px; min-height: 18px; margin-top: 8px; }
 .empty { color: var(--muted); padding: 30px 0; text-align: center; }
+.dig { border-bottom: 1px solid var(--line); padding: 10px 0; }
+.dig .who { font-weight: 600; }
+.dig.newi { border-left: 3px solid var(--ok); padding-left: 10px; }
+.watch { display: flex; gap: 8px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.watch .t { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
 </style>
 </head>
@@ -119,7 +124,7 @@ details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
         <input id="signinUrl" placeholder="linkedin.com">
         <button id="signinBtn" style="flex:0 0 auto">Open</button>
       </div>
-      <p class="muted"><b>Agent window</b> is a separate Chrome with its own profile (<code>~/.agent-chrome</code>): log in to the sites you want the agent to use once, and they stay logged in. <b>Auto</b> uses your everyday Chrome if remote debugging is on, else the agent window. To use your own tabs: Chrome 144+, open <code>chrome://inspect/#remote-debugging</code>, switch it on, and click <b>Allow</b> when Chrome asks.</p>
+      <p class="muted"><b>Agent window</b> is a separate Chrome with its own profile (<code>~/.agent-chrome</code>). <b>Open</b> starts it as a normal, non-automated window so Google and others let you log in; log in once per site, tick "keep me signed in", then <b>close that window</b> (its ✕): closing it normally is what saves the login. The agent reuses those logins from then on. <b>Auto</b> uses your everyday Chrome if remote debugging is on, else the agent window. To use your own tabs: Chrome 144+, open <code>chrome://inspect/#remote-debugging</code>, switch it on, and click <b>Allow</b> when Chrome asks.</p>
       <div class="err" id="bErr"></div>
     </section>
 
@@ -145,6 +150,23 @@ details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
     <section>
       <h2>Queue</h2>
       <ul class="hist" id="queue"></ul>
+    </section>
+
+    <section>
+      <div class="row" style="align-items:center">
+        <h2 style="margin:0">Digest</h2>
+        <span class="spacer"></span>
+        <button id="digestRun" class="primary" style="flex:0 0 auto">Run digest now</button>
+      </div>
+      <p class="muted">Pages it reads for you, read-only and at a human pace, so you don't have to scroll them. It brings back only what's new.</p>
+      <div id="digestItems"><div class="empty">No digest yet. Add pages below, then <b>Run digest now</b>.</div></div>
+      <details style="margin-top:12px"><summary>Watchlist and schedule</summary>
+        <div id="watchList" style="margin:8px 0"></div>
+        <div class="row"><input id="wName" placeholder="Name (e.g. Priya on LinkedIn)"><input id="wUrl" placeholder="URL (e.g. linkedin.com/in/priya/recent-activity/all/)"></div>
+        <div class="row" style="margin-top:8px"><input id="wFocus" placeholder="Only keep… (optional, e.g. job changes, launches)"><input id="wScrolls" type="number" min="1" max="20" value="5" style="flex:0 0 90px" title="max scrolls"><button id="wAdd" style="flex:0 0 auto">Add</button></div>
+        <div class="row" style="margin-top:10px;align-items:center"><span class="muted" style="flex:0 0 auto">Run daily at</span><input id="dailyAt" type="time" style="flex:0 0 140px"><button id="dailySave" style="flex:0 0 auto">Save</button><span class="muted">(while the dashboard is open; blank = off)</span></div>
+        <div class="err" id="wErr"></div>
+      </details>
     </section>
 
     <section>
@@ -290,7 +312,7 @@ $("bconnect").onclick = async () => {
 };
 $("signinBtn").onclick = async () => {
   $("bErr").textContent = "";
-  try { await api("/api/signin", { url: $("signinUrl").value.trim() }); $("bErr").textContent = "Opened. Log in there; the agent window keeps the session."; }
+  try { await api("/api/signin", { url: $("signinUrl").value.trim() }); $("bErr").textContent = "Opened. Log in there, then close that window (✕) to save the login."; }
   catch (e) { $("bErr").textContent = e.message; }
 };
 $("keyBtn").onclick = async () => {
@@ -299,8 +321,50 @@ $("keyBtn").onclick = async () => {
   catch (e) { $("keyErr").textContent = e.message; }
 };
 
+let L = null, libKey = "";
+async function refreshLibrary() {
+  try { L = await api("/api/library"); } catch (e) { return; }
+  const key = JSON.stringify(L); if (key === libKey) return; libKey = key;
+  $("watchList").innerHTML = L.watches.length ? L.watches.map((w) => `<div class="watch">
+      <input type="checkbox" data-wt="${w.id}" ${w.enabled ? "checked" : ""} style="width:auto" title="include in digest">
+      <div class="t"><b>${esc(w.name)}</b> <span class="muted">· up to ${w.max_scrolls} scrolls${w.focus ? " · " + esc(w.focus) : ""}</span><div class="muted">${esc(w.url)}</div></div>
+      <a href="#" data-wr="${w.id}">remove</a></div>`).join("") : `<div class="muted">No pages yet.</div>`;
+  document.querySelectorAll("[data-wt]").forEach((c) => c.onchange = () => api("/api/watches", { action: "toggle", id: c.dataset.wt, enabled: c.checked }).then(refreshLibrary));
+  document.querySelectorAll("[data-wr]").forEach((a) => a.onclick = (e) => { e.preventDefault(); api("/api/watches", { action: "remove", id: a.dataset.wr }).then(refreshLibrary); });
+  if (document.activeElement !== $("dailyAt")) $("dailyAt").value = L.settings.daily_at || "";
+  const runs = L.digests;
+  $("digestItems").innerHTML = runs.length ? runs.slice(0, 12).map((d) => {
+    const items = d.items.slice().sort((a, b) => b.new - a.new);
+    const nNew = items.filter((i) => i.new).length;
+    return `<details ${nNew ? "open" : ""}><summary><b>${esc(d.watch)}</b> · ${nNew} new of ${items.length} · ${new Date(d.at * 1000).toLocaleString()}</summary>
+      ${d.notes ? `<div class="muted">${esc(d.notes)}</div>` : ""}
+      ${items.map((i) => `<div class="dig ${i.new ? "newi" : ""}"><div><span class="who">${esc(i.author)}</span> <span class="muted">· ${esc(i.when)}${i.new ? " · new" : ""}</span>${i.check === "corrected" ? ' <span class="pill" title="The model misquoted this post; the text shown is what was actually on the page.">text corrected from page</span>' : i.check === "unverified" ? ' <span class="pill" style="color:var(--bad);border-color:currentColor" title="Nothing on the page matched what the model returned.">unverified</span>' : ""}</div>
+        <div>${esc(i.summary)}</div>
+        ${i.text ? `<details><summary>full text</summary><div class="result">${esc(i.text)}</div></details>` : ""}
+        ${/^https?:\/\//i.test(i.url || "") ? `<a href="${esc(i.url)}" target="_blank" rel="noopener noreferrer">open</a>` : ""}</div>`).join("") || '<div class="muted">Nothing found.</div>'}
+    </details>`; }).join("") : `<div class="empty">No digest yet. Add pages below, then <b>Run digest now</b>.</div>`;
+}
+$("wAdd").onclick = async () => {
+  $("wErr").textContent = "";
+  try { await api("/api/watches", { action: "add", name: $("wName").value, url: $("wUrl").value, focus: $("wFocus").value, max_scrolls: +$("wScrolls").value || 5 });
+        $("wName").value = $("wUrl").value = $("wFocus").value = ""; refreshLibrary(); }
+  catch (e) { $("wErr").textContent = e.message; }
+};
+$("dailySave").onclick = async () => {
+  $("wErr").textContent = "";
+  try { await api("/api/watches", { action: "schedule", daily_at: $("dailyAt").value }); $("wErr").textContent = $("dailyAt").value ? "Saved: runs daily at " + $("dailyAt").value + "." : "Daily digest off."; refreshLibrary(); }
+  catch (e) { $("wErr").textContent = e.message; }
+};
+$("digestRun").onclick = async () => {
+  try { const r = await api("/api/watches", { action: "run", model: $("model").value, fallback: $("fallback").value || null, fast: $("fast").checked });
+        $("runErr").textContent = r.queued ? `Queued ${r.queued} page(s) for the digest.` : "Add pages to the watchlist first."; refresh(); }
+  catch (e) { $("runErr").textContent = e.message; }
+};
+
 refresh();
+refreshLibrary();
 setInterval(refresh, 1200);
+setInterval(refreshLibrary, 5000);
 </script>
 </body>
 </html>

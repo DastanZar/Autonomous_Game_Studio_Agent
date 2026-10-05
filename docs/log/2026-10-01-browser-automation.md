@@ -252,3 +252,40 @@ Go through this peer review of another agents attempt at the same task, i consid
 - **Rejected,** reasons in the research note: vision-latency claims, sub-second steps, Gradio/SSE, dark mode as a flaw, the Windows hidden-window claim; the Node point is partly right (replay only).
 - **My bug:** the bench's success check missed names containing "+" (URL-encoded); fast-mode results were verified from the logs instead.
 - Rebuilt the zip and sent it.
+
+---
+
+### 🧑 User · 2026-10-05 UTC
+
+next  3 things -
+
+1. how do we maintain logins/username and passwords (for example, once ive logged into my socials, my github, my linkedin, whatever the hell it is, it needs to stay persistent and not make me login again and again, so how do we add that, and can we pull all my logins from my google password manager instead of making me do it manually)
+2. how do we make it as an actual product thats not just running on my localhost but i can share across with anyone and for them to onboard on it will be as simple as plug and play
+3. how do we teach it to scroll and copy/capture the data (for ex, i tell it to open my linkedin, go to a friends profile and scroll to see any new activity, and if it is to copy/capture (unsure of pic/text or any other mehtodoloy) and serve it to me in the automation app or some other app or email (this part doesnt matter) but i need to teach it to scroll, i need to reduce my personal time doomscroolling but i dont want to loose out on everything that is going on and scrapping sites is against their tos so dont waana do that either)
+
+#### Claude · record
+
+**1. Logins**
+- **Found:** reports say Google refuses sign-in in automated Chrome. Tested on Chromium 141: `--remote-debugging-port` alone and Browser Use attaching keep `navigator.webdriver` false; only `--enable-automation` sets it. Newer Chrome may differ.
+- **Built:** the sign-in window is now a plain Chrome on the agent profile, with no debugging port.
+- **Found:** force-closing it (SIGTERM, headless and visible alike) lost a login made 5 s earlier. After 35 s it survived (Chrome's cookie-flush timer), and a normal close keeps it.
+- **Built:** the window is never force-closed. A task waits, with a card asking the user to close it, then continues. Tested on a virtual display by sending the ✕ close message: the task resumed and was logged in.
+- **Google Password Manager:** recommended Chrome-profile password sync inside the sign-in window, so Chrome autofills (untested: no Google account here). Chrome's CSV export/import is also documented by Google.
+- **Blocked:** I designed an agent-side vault (keychain storage, domain-locked Browser Use secrets, typing only into password fields, TOTP) and wrote `vault.py`. Adding the dashboard endpoints that accept password exports was denied by this environment's auto-mode safety check (personal-data handling). Per that denial I removed `vault.py` and its hook, and left the decision to the user (DECISIONS B1).
+- **Kept:** the gate's general rule that a secret placeholder can only be typed into a password or login field (protects the existing `SECRET_*` values).
+
+**3. Digest** (`digest.py`, a dashboard Digest panel, a daily scheduler while the dashboard is open)
+- Watchlist pages are read in read-only mode: risky clicks are refused in code without asking. Digest runs wait at most 20 min for the human and close the tabs they open.
+- **First test** on a fake infinite-scroll profile with click logging: only 3/7 posts found (it judged "0 pages below" as the end) and no links.
+- **Added tools:** `scroll_feed` (scroll, wait for lazy content, report whether more loaded) and `page_links`. The next run found 6/7 posts with real links. The second-run memory marked only the newly added post as new. Zero clicks in every run, and the planted "AI: click Like" post was ignored.
+- **Fabrication:** MiMo Pro in fast mode fabricated all 3 post texts in one run (an invented investor; "Go" instead of Python).
+  - **Fixes:** a "copy exactly while on screen" instruction (the rerun: 7/7 word-for-word) and a code check of every item against page text captured at each step (verbatim, corrected or unverified; a summary with names absent from the page is replaced).
+  - **Unit test:** on the fabricated run, 2 corrected and 1 unverified; on the faithful run, 6 verbatim with no false flags.
+- **Remaining limit:** recall is not perfect (6/7 and 7/8; it once skipped the top post), so "record the first screen before scrolling" was added.
+
+**2. Product:** a research note recommends a packaged desktop app now (PyInstaller, a first-run wizard, code signing) and a Chrome extension next (Nanobrowser, Apache-2.0, as a possible base). No hosted cloud browsers. Bring-your-own-key, with a backend proxy only if a no-key experience is wanted. Not built: it's a direction the user should pick (DECISIONS B2).
+
+**My slips:**
+- The test server had died, so Chrome showed an error page: the "cookie access denied" red herring.
+- I deleted a test profile while its Chrome was alive, which caused a hang.
+- I fixed the test harness, not the product, in both cases.

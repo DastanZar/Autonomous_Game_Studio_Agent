@@ -26,25 +26,30 @@ from starlette.responses import HTMLResponse, JSONResponse, Response
 from starlette.routing import Route
 
 import core
+import digest
 
 HOST, PORT = "127.0.0.1", int(os.environ.get("DASHBOARD_PORT", "8770"))
 TOKEN = secrets.token_urlsafe(24)
 RUNS_DIR = core.HERE / "runs"
 HISTORY = RUNS_DIR / "history.jsonl"
 MAX_STEPS = int(os.environ.get("MAX_STEPS", "100"))
+DIGEST_GAP = int(os.environ.get("DIGEST_GAP", "20"))          # seconds between pages, to read at a human pace
+UNATTENDED_WAIT = int(os.environ.get("UNATTENDED_WAIT", "1200"))  # how long a digest waits for you before moving on
 _ids = itertools.count(int(time.time()))
 
 
 class Run:
-    def __init__(self, task, model, fallback, follow_up=False, fast=True):
+    def __init__(self, task, model, fallback, follow_up=False, fast=True, watch=None):
         self.id, self.task, self.model, self.fallback = next(_ids), task, model, fallback
         self.follow_up, self.fast = follow_up, fast
+        self.watch = watch                      # set for digest runs
+        self.kind = "digest" if watch else "task"
         self.status, self.steps, self.result, self.ok = "queued", [], None, None
         self.started = self.ended = None
         self.prompt, self.future, self.shot = None, None, None
 
     def public(self, full=True):
-        d = {k: getattr(self, k) for k in ("id", "task", "model", "fallback", "follow_up", "fast", "status", "result", "ok",
+        d = {k: getattr(self, k) for k in ("id", "kind", "task", "model", "fallback", "follow_up", "fast", "status", "result", "ok",
                                            "started", "ended")}
         if full:
             d.update(steps=self.steps[-200:], prompt=self.prompt, has_shot=self.shot is not None)
@@ -65,6 +70,8 @@ class Studio:
         self.browser_mode = os.environ.get("CDP", "auto")
         self.browser_where = "not connected"
         self.history = self._load_history()
+        self.last_digest_end = 0.0
+        self.batch_new = 0
 
     @staticmethod
     def _load_history():
@@ -81,6 +88,18 @@ class Studio:
     async def ensure_browser(self):
         if self.browser is not None:
             return
+        run = self.current
+        if core.signin_open() and run is not None:
+            # Wait for the human to close the sign-in window normally (that saves their logins).
+            run.status, run.prompt = "waiting", {"id": secrets.token_hex(4), "kind": "handover", "since": time.time(),
+                                                 "text": "Close the sign-in Chrome window (click its X) so it saves your "
+                                                         "logins. The task starts by itself right after."}
+            notify_phone(run.prompt["text"])
+            while core.signin_open() and run.status != "stopped":
+                await asyncio.sleep(1)
+            run.prompt = None
+            if run.status == "waiting":
+                run.status = "running"
         cdp_url, where = core.resolve_cdp(self.browser_mode)
         browser = core.make_browser(cdp_url)
         await browser.start()  # your Chrome may ask "Allow remote debugging?" once: click Allow
@@ -102,6 +121,12 @@ class Studio:
         run.status = "waiting"
         notify_phone(text)
         try:
+            if run.kind == "digest":  # nobody may be watching: don't wait forever
+                try:
+                    return await asyncio.wait_for(asyncio.shield(run.future), UNATTENDED_WAIT)
+                except asyncio.TimeoutError:
+                    return ("no" if kind == "confirm" else
+                            "(No answer: the human is away. Skip whatever needs them, note it, and finish.)")
             return await run.future
         finally:
             run.prompt, run.future = None, None
@@ -135,10 +160,14 @@ class Studio:
             run = await self.queue.get()
             if run.status == "stopped":
                 continue
+            if run.kind == "digest":  # read one page at a time, at a human pace
+                await asyncio.sleep(max(0.0, self.last_digest_end + DIGEST_GAP - time.time()))
             self.current, run.status, run.started = run, "running", time.time()
             try:
                 await self.ensure_browser()
-                if (run.follow_up and self.convo is not None and self.convo_model == run.model
+                if run.kind == "digest":
+                    await self.run_digest(run)
+                elif (run.follow_up and self.convo is not None and self.convo_model == run.model
                         and self.convo_fast == run.fast):
                     agent = self.convo
                     agent.add_new_task(run.task)  # keeps everything it saw and did in earlier tasks
@@ -149,15 +178,16 @@ class Studio:
                                             run.fallback, self.browser, self.ask, on_step=self.on_step,
                                             flash_mode=run.fast)
                     self.convo, self.convo_model, self.convo_fast, self.convo_turns = agent, run.model, run.fast, 0
-                self.agent = agent
-                history = await agent.run(max_steps=MAX_STEPS)
-                self.convo_turns += 1
-                RUNS_DIR.mkdir(exist_ok=True)
-                history.save_to_file(RUNS_DIR / f"{datetime.now():%Y%m%d-%H%M%S}-{run.id}.json")
-                run.result = history.final_result() or "(no final answer; see the steps)"
-                run.ok = bool(history.is_successful())
-                if run.status != "stopped":
-                    run.status = "done" if run.ok else "unfinished"
+                if run.kind == "task":
+                    self.agent = agent
+                    history = await agent.run(max_steps=MAX_STEPS)
+                    self.convo_turns += 1
+                    RUNS_DIR.mkdir(exist_ok=True)
+                    history.save_to_file(RUNS_DIR / f"{datetime.now():%Y%m%d-%H%M%S}-{run.id}.json")
+                    run.result = history.final_result() or "(no final answer; see the steps)"
+                    run.ok = bool(history.is_successful())
+                    if run.status != "stopped":
+                        run.status = "done" if run.ok else "unfinished"
             except Exception as e:
                 run.status, run.ok = "failed", False
                 run.result = f"{type(e).__name__}: {e}"
@@ -166,11 +196,71 @@ class Studio:
                     await self.drop_browser()  # reconnect on the next task
             finally:
                 run.ended, self.agent, self.current = time.time(), None, None
+                if run.kind == "digest":
+                    self.last_digest_end = run.ended
+                    if not any(r.kind == "digest" and r.status == "queued" for r in self.runs):
+                        if self.batch_new:
+                            notify_phone(f"Digest ready: {self.batch_new} new item(s). Open the dashboard to read them.")
+                        self.batch_new = 0
                 RUNS_DIR.mkdir(exist_ok=True)
                 with HISTORY.open("a", encoding="utf-8") as f:
                     f.write(json.dumps(run.public(full=False)) + "\n")
                 self.history.insert(0, run.public(full=False))
                 del self.history[50:]
+
+    async def run_digest(self, run):
+        watch = run.watch
+        seen_text = []  # what was really on the page, captured by us at every step
+
+        async def capture(state, output, n):
+            self.on_step(state, output, n)
+            seen_text.append(await core.page_text(self.browser))
+
+        agent = core.make_agent(digest.task_for(watch), run.model, run.fallback, self.browser, self.ask,
+                                on_step=capture, read_only=True, flash_mode=run.fast,
+                                output_model_schema=digest.Feed)
+        self.agent = agent
+        before = {t.target_id for t in self.browser.session_manager.get_all_page_targets()}
+        try:
+            history = await agent.run(max_steps=10 + 3 * watch["max_scrolls"])
+        finally:
+            seen_text.append(await core.page_text(self.browser))  # the final screen, before the tab closes
+            for t in self.browser.session_manager.get_all_page_targets():  # close the tabs this digest opened
+                if t.target_id not in before:
+                    try:
+                        await self.browser._cdp_client_root.send.Target.closeTarget(params={"targetId": t.target_id})
+                    except Exception:
+                        pass
+        try:
+            feed = history.structured_output
+        except Exception:
+            feed = None
+        entry = digest.record(watch, feed, "\n".join(seen_text))
+        new = sum(1 for i in entry["items"] if i["new"])
+        self.batch_new += new
+        run.ok = feed is not None
+        run.result = (f"{new} new of {len(entry['items'])} item(s)" + (f". Notes: {entry['notes']}" if entry["notes"] else "")
+                      if feed is not None else "No digest returned: " + (history.final_result() or "see the steps"))
+        if run.status != "stopped":
+            run.status = "done" if run.ok else "unfinished"
+
+    def queue_digest(self, model, fallback, fast=True):
+        watches = [w for w in digest.list_watches() if w.get("enabled")]
+        for w in watches:
+            run = Run(f"Digest: {w['name']}", model, fallback, fast=fast, watch=w)
+            self.runs.append(run)
+            self.queue.put_nowait(run)
+        return len(watches)
+
+    async def scheduler(self):
+        """Runs the daily digest at the time set in the dashboard, while the dashboard is open."""
+        while True:
+            await asyncio.sleep(30)
+            st = digest.settings()
+            at, today = st.get("daily_at") or "", datetime.now().strftime("%Y-%m-%d")
+            if at and datetime.now().strftime("%H:%M") >= at and st.get("last_auto") != today:
+                digest.save_settings(last_auto=today)
+                self.queue_digest(core.CONFIG["default"], core.CONFIG["fallback"])
 
 
 def _short(v, n=120):
@@ -264,6 +354,8 @@ async def run_task(request: Request):
 async def answer(request: Request):
     body = await request.json()
     run = studio.current
+    if run and run.prompt and run.prompt["id"] == body.get("prompt_id") and run.future is None:
+        return JSONResponse({"error": "close the sign-in Chrome window first; the task continues by itself"}, status_code=409)
     if not run or not run.prompt or run.prompt["id"] != body.get("prompt_id") or run.future.done():
         return JSONResponse({"error": "no such question (already answered?)"}, status_code=409)
     run.future.set_result(str(body.get("answer", "")))
@@ -326,8 +418,49 @@ async def signin_window(request: Request):
     url = ((await request.json()).get("url") or "").strip()
     if url and not url.startswith(("http://", "https://")):
         url = "https://" + url
+    if studio.current:
+        return JSONResponse({"error": "wait for the current task to finish"}, status_code=409)
     try:
-        await asyncio.to_thread(core.open_agent_chrome, url or None)
+        await studio.drop_browser()  # the agent reconnects on the next task
+        await asyncio.to_thread(core.open_signin_window, url or None)
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=400)
+    return JSONResponse({"ok": True})
+
+
+# ---------------------------------------------------------------- watchlist and digest
+
+@guard
+async def library(request: Request):
+    return JSONResponse({"watches": digest.list_watches(), "settings": digest.settings(), "digests": digest.recent(30)})
+
+
+@guard
+async def watches_action(request: Request):
+    body = await request.json()
+    action = body.get("action")
+    try:
+        if action == "add":
+            if not (body.get("url") or "").strip():
+                return JSONResponse({"error": "a watch needs a URL"}, status_code=400)
+            digest.add_watch(body.get("name", ""), body["url"].strip(), body.get("focus", ""), body.get("max_scrolls", 5))
+        elif action == "toggle":
+            digest.update_watch(body["id"], enabled=bool(body.get("enabled")))
+        elif action == "remove":
+            digest.remove_watch(body["id"])
+        elif action == "schedule":
+            at = (body.get("daily_at") or "").strip()
+            if at and not (len(at) == 5 and at[2] == ":" and at.replace(":", "").isdigit()):
+                return JSONResponse({"error": "use HH:MM, e.g. 08:30"}, status_code=400)
+            digest.save_settings(daily_at=at)
+        elif action == "run":
+            if not core.api_key():
+                return JSONResponse({"error": "save your b.ai API key first"}, status_code=400)
+            n = studio.queue_digest(body.get("model") or core.CONFIG["default"], body.get("fallback") or None,
+                                    fast=bool(body.get("fast", True)))
+            return JSONResponse({"ok": True, "queued": n})
+        else:
+            return JSONResponse({"error": "unknown action"}, status_code=400)
     except Exception as e:
         return JSONResponse({"error": str(e)}, status_code=400)
     return JSONResponse({"ok": True})
@@ -355,6 +488,7 @@ async def shot(request: Request):
 @contextlib.asynccontextmanager
 async def lifespan(app):
     worker = asyncio.get_running_loop().create_task(studio.worker())
+    scheduler = asyncio.get_running_loop().create_task(studio.scheduler())
     url = f"http://{HOST}:{PORT}/"
     print(f"\n  Browser agent dashboard: {url}\n  (keep this window open; close it or press Ctrl+C to stop)\n")
     if os.environ.get("NO_OPEN") != "1":
@@ -362,6 +496,7 @@ async def lifespan(app):
         threading.Thread(target=_open_when_ready, args=(url,), daemon=True).start()
     yield
     worker.cancel()
+    scheduler.cancel()
     await studio.drop_browser()
 
 
@@ -375,6 +510,8 @@ app = Starlette(routes=[
     Route("/api/key", set_key, methods=["POST"]),
     Route("/api/signin", signin_window, methods=["POST"]),
     Route("/api/new", new_conversation, methods=["POST"]),
+    Route("/api/library", library),
+    Route("/api/watches", watches_action, methods=["POST"]),
     Route("/api/shot", shot),
 ], lifespan=lifespan)
 

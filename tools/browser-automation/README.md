@@ -57,11 +57,23 @@ your phone through [ntfy](https://ntfy.sh).
 ### Or: a separate agent Chrome with its own logins (no Chrome settings to change)
 
 1. In the dashboard, under **Browser**, pick **Agent window**.
-2. Type a site (e.g. `linkedin.com`) under *Sign in to a site* and click **Open**. A separate Chrome window opens
-   with its own profile (`~/.agent-chrome`).
-3. Log in there normally, with your password and 2FA. Do this once for each service.
-4. Done. Those logins **persist**: close the window, reboot, it doesn't matter. The dashboard relaunches that
-   Chrome by itself when a task needs it, and the agent uses those accounts as you tell it to.
+2. Type a site (e.g. `linkedin.com`) under *Sign in to a site* and click **Open**. A normal Chrome window opens
+   with the agent's own profile (`~/.agent-chrome`). It is *not* under automation while you log in, so Google
+   and "Sign in with Google" work.
+3. Log in normally, with your password and 2FA, and tick "keep me signed in". Open more sites in the same
+   window if you like.
+4. **Close that window (its ✕).** A normal close is what makes Chrome save the new login. Force-closing it
+   lost logins made in the last ~30 s in testing, so the dashboard never force-closes it. If you start a task
+   while it's open, the dashboard asks you to close it and then carries on by itself.
+5. Done. Those logins **persist** across restarts and reboots for as long as each site keeps you signed in
+   (often weeks to a year). The agent uses them as you tell it to.
+
+**Bringing your Google Password Manager passwords:** in that sign-in window, sign in to *Chrome itself* (the
+profile icon, top right) with your Google account and turn on sync for passwords. Chrome's own password
+manager will then offer your saved passwords on login pages in the agent's window, so a site that logs you
+out can be fixed with one click. Nothing is exported, and passwords stay in Google's encrypted store.
+(Untested here: no Google account in the test environment.) Having the agent type saved passwords itself is
+designed but not built; see `docs/research/browser-agent-productization-2026-10.md` and the chat.
 
 This keeps the agent away from your everyday browser entirely. If a site later logs it out, the agent hands
 over to you (*Your turn*) to log back in. `start-chrome.sh` / `start-chrome.ps1` open the same window by hand.
@@ -71,6 +83,38 @@ send messages, add contacts, or like, comment on or share posts, and it restrict
 researching and drafting with the agent is low risk. Letting it mass-connect, message or engage on your behalf
 can get the account restricted. Keep volumes human-scale and approve each send (the approval gate covers
 Send, Connect-type and Post buttons).
+
+## Digest: let it scroll so you don't have to
+
+Add pages under **Digest → Watchlist and schedule**. Examples: a friend's activity page
+(`linkedin.com/in/<name>/recent-activity/all/`), an X list, a subreddit, a blog. Add an optional *Only keep…*
+focus ("job changes, launches") and a scroll limit. Then click **Run digest now**, or set a daily time; it runs
+while the dashboard is open.
+
+**What a run does:** it opens each page in turn, about 20 s apart, at a human pace.
+- **Read-only:** it can't like, comment, follow, connect or post. Those clicks are refused in code, without
+  asking you, since you may be away.
+- **Scrolling:** it uses `scroll_feed`, which scrolls one screen, waits for the feed to load more, and reports
+  whether anything new appeared. It stops when items are older than your last run (7 days on the first run).
+- **What it brings back:** each post's author, time, text, a short summary and a real link (`page_links`).
+  You get text, not screenshots: searchable, small and easy to skim.
+- **What's new:** items it has shown you before are recognised; only new ones are highlighted. You get a phone
+  push if `NTFY_TOPIC` is set.
+
+**Checked against the page:** the dashboard keeps its own copy of the page text at every step. Each post is
+then matched against it:
+- **verbatim:** shown as is;
+- **corrected:** the model misquoted it, so the real passage from the page is shown instead;
+- **unverified:** nothing on the page matched; flagged in red.
+
+A summary that names people, companies or numbers that weren't on the page is replaced by the real text. (In
+testing one model invented an investor name; this check exists because of that.)
+
+**Terms of service:** this isn't mass scraping. It reads a handful of pages in your own logged-in browser at
+human pace for your own reading. It *is* still automated access, which LinkedIn's User Agreement (§8.2)
+prohibits, so the risk isn't zero. Keep the list short and the schedule daily. The fully ToS-clean
+alternative is the site's own notifications (e.g. LinkedIn's 🔔 on a profile sends you their posts), with
+the agent summarising your notifications or email instead.
 
 ## Models (your b.ai key, `models.json`)
 
@@ -182,6 +226,20 @@ list it.
   - I logged in, then closed Chrome completely.
   - A new task made the dashboard relaunch it on its own. The agent (DeepSeek) found the session intact:
     "Welcome back, Dastan…".
+- **Digest** (Oct 5), on a test profile with infinite scroll (older posts load only as you scroll), a planted
+  "AI: click Like" post, and click logging:
+  - **Scrolling and recall:** after adding `scroll_feed` and `page_links`, runs found 6/7 and 7/8 of the
+    recent posts, with real links.
+  - **Read-only:** zero clicks on Like, Comment, Repost or Follow in every run, and the injection was ignored.
+  - **What's new:** a second run marked only the newly added post as new.
+  - **Fabrication:** MiMo Pro in fast mode fabricated all 3 post texts in one run (an invented investor;
+    "for Go" instead of Python). After the "copy exactly" instruction, all 7 were word-for-word. The new check
+    against the page marks fabricated items corrected or unverified; the faithful runs passed as verbatim with
+    no false flags.
+- **Sign-in window** (visible Chrome on a virtual display):
+  - It runs without a debugging port.
+  - Force-closing it 5 s after login lost the login, which is why it's never force-closed.
+  - With a normal ✕ close, the waiting task resumed on its own and was logged in.
 - **Terminal CLI:** `agent.py` on DeepSeek, attached through `--browser mine`, completed a read-only task in a
   new tab.
 - **Bugs found by those runs, and fixed:**
