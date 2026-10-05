@@ -1,6 +1,6 @@
 {
  "id": "why-map",
- "name": "Atlas Oddity",
+ "name": "Border Quirks",
  "status": "draft",
  "promise": "A true story about a place, a border or a moment in history so strange it sounds made up, or the real reason a country's map looks the way it does, explained in under a minute on a real map.",
  "audience": "Curious adults 18-45, English-speaking, who watch Half as Interesting, Knowledgia, RealLifeLore.",
@@ -318,5 +318,5 @@
    ]
   }
  },
- "handle": "@AtlasOddity"
+ "handle": "@BorderQuirks"
 }

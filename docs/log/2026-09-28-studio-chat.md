@@ -1589,3 +1589,22 @@ Should the handle also be Why the Map Looks Like That? Can we decide on naming r
 - **Decided** (the user delegated it): Atlas Oddity @AtlasOddity, The Gut Gang @GutGang, LeaderFlags @LeaderFlags.
 - Bibles, backlog, DECISIONS and the setup guide are updated. The first commit (395379d) broke the selftest: the bible schema has no `handle` field. Fixed by adding `handle` to the schema; selftest OK.
 - **Caveat told to the user:** names have a modest effect on views; clarity and uniqueness matter most. Grab the handles soon, because free on this check doesn't guarantee YouTube will allow them.
+
+---
+
+### 🧑 User · 2026-10-05 UTC
+
+unavailaible - 
+AtlasOddity
+
+#### Claude · record
+
+- **Why it failed:** @AtlasOddity returns 404 publicly, but YouTube refused it, and a channel named "Atlas Oddity" already exists at @TheAtlasOddity. **My mistake:** the earlier check looked at handles only, not channel names.
+- **New check:**
+  - handle 404 plus a YouTube channel-search for the name;
+  - Map Quirk, Quirky Atlas, Atlas Twist, Twisted Atlas and Mapquirks were all taken.
+- **Picked Border Quirks @BorderQuirks:** the handle is free and no channel has that name (the nearest is "Atlas Quirks").
+- **Re-checked the other two names:**
+  - LeaderFlags: no channel-name collision.
+  - Gut Gang: tiny same-name channels exist ("gut gang", "GuT GaNg"), but @GutGang is free. Kept, and told the user.
+- Bible, backlog, DECISIONS, setup guide and dashboard are updated.

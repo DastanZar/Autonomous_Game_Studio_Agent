@@ -26,7 +26,7 @@ Do this once per channel. Names were decided on 2026-10-05 (docs/DECISIONS.md).
 - [ ] B2. Click your **profile picture (top right) → Settings** → under *Your YouTube channel*, click
       **Add or manage your channel(s)** → **Create a channel**.
 - [ ] B3. Type the channel name → tick the box → **Create**. The three channels are:
-      1. **Atlas Oddity**, handle `@AtlasOddity`
+      1. **Border Quirks**, handle `@BorderQuirks`
       2. **The Gut Gang**, handle `@GutGang`
       3. **LeaderFlags**, handle `@LeaderFlags`
       Set the handle at creation if offered, or later in **YouTube Studio → Customisation → Basic info → Handle**.
