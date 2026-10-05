@@ -230,3 +230,25 @@ im still confused, how am i supposed to run the thing youve made?
 - Added `tools/browser-automation/START HERE.txt`: plain six-step Windows instructions (install Python, unzip, double-click the `.cmd`, paste the key, sign in to sites, run a task).
 - Built `browser-agent.zip` of the folder (25 files, ~78 KB; no caches, run logs or keys; key scan clean) and sent it in chat, so no git is needed.
 - **Verified:** unzipped into an empty folder and ran `dashboard.sh` from scratch. It created `.venv`, installed the requirements and served the dashboard (title "Browser Agent").
+
+---
+
+### 🧑 User · 2026-10-05 UTC
+
+Go through this peer review of another agents attempt at the same task, i consider you to be the smarter agent here hence you have final authority on what to do with its response
+
+[pasted: the other agent's audit of browser-agent.zip; it ran on the user's Windows machine and compared it with its own Gradio / "Jev ultrafast DOM-only" build. Full text in the chat.]
+
+#### Claude · record
+
+- **Benchmarked** instead of arguing: `bench.py` timed each model call. 12 runs, all successful; the table is in `docs/research/browser-agent-peer-review-2026-10.md`.
+  - The model is 86–98% of the time; the browser side is about 0.3–0.5 s per step.
+  - Browser Use silently disables vision for DeepSeek.
+  - Screenshots off made MiMo Pro slower: 139–172 s against 39–121 s, because it needed more steps.
+  - `flash_mode` gave 34–46 s across both models, and the model called confirm in 4/4 runs.
+- **Accepted:**
+  - Follow-up conversations: `Studio.convo` with `add_new_task`; callbacks bound to the current run; reset on browser change or failure; `/api/new` and a UI link. Tested with the mock model: the second request held both tasks, and no new tab opened.
+- **Adopted from the measurements:** Fast mode as the default (dashboard checkbox; `--no-fast` in the CLI), and DeepSeek `vision: false` in `models.json`.
+- **Rejected,** reasons in the research note: vision-latency claims, sub-second steps, Gradio/SSE, dark mode as a flaw, the Windows hidden-window claim; the Node point is partly right (replay only).
+- **My bug:** the bench's success check missed names containing "+" (URL-encoded); fast-mode results were verified from the logs instead.
+- Rebuilt the zip and sent it.

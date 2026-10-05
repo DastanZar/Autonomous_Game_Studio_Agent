@@ -36,14 +36,16 @@ _ids = itertools.count(int(time.time()))
 
 
 class Run:
-    def __init__(self, task, model, fallback):
+    def __init__(self, task, model, fallback, follow_up=False, fast=True):
         self.id, self.task, self.model, self.fallback = next(_ids), task, model, fallback
+        self.follow_up, self.fast = follow_up, fast
         self.status, self.steps, self.result, self.ok = "queued", [], None, None
         self.started = self.ended = None
         self.prompt, self.future, self.shot = None, None, None
 
     def public(self, full=True):
-        d = {k: getattr(self, k) for k in ("id", "task", "model", "fallback", "status", "result", "ok", "started", "ended")}
+        d = {k: getattr(self, k) for k in ("id", "task", "model", "fallback", "follow_up", "fast", "status", "result", "ok",
+                                           "started", "ended")}
         if full:
             d.update(steps=self.steps[-200:], prompt=self.prompt, has_shot=self.shot is not None)
         return d
@@ -54,7 +56,11 @@ class Studio:
         self.queue: asyncio.Queue = asyncio.Queue()
         self.runs: list[Run] = []
         self.current: Run | None = None
-        self.agent = None
+        self.agent = None          # the agent currently running (for pause/stop)
+        self.convo = None          # the last agent, kept so a follow-up task continues its conversation
+        self.convo_model = None
+        self.convo_fast = None
+        self.convo_turns = 0
         self.browser = None
         self.browser_mode = os.environ.get("CDP", "auto")
         self.browser_where = "not connected"
@@ -87,6 +93,7 @@ class Studio:
             except Exception:
                 pass
         self.browser, self.browser_where = None, "not connected"
+        self.new_conversation()  # a conversation is tied to its browser connection
 
     async def human(self, run, kind, text):
         loop = asyncio.get_running_loop()
@@ -101,6 +108,28 @@ class Studio:
             if run.status == "waiting":
                 run.status = "running"
 
+    def on_step(self, state, output, n):
+        run = self.current
+        if run is None:
+            return
+        if state is not None and getattr(state, "screenshot", None):
+            run.shot = state.screenshot
+        actions = []
+        for a in (output.action if output else []) or []:
+            d = a.model_dump(exclude_none=True)
+            actions += [f"{k}({_short(v)})" for k, v in d.items()]
+        run.steps.append({"n": n, "t": time.time(), "url": getattr(state, "url", ""),
+                          "goal": getattr(output, "next_goal", "") or "",
+                          "eval": getattr(output, "evaluation_previous_goal", "") or "",
+                          "actions": actions})
+
+    async def ask(self, kind, text):
+        # Bound to whichever task is running, so one agent can serve several follow-up tasks.
+        return await self.human(self.current, kind, text)
+
+    def new_conversation(self):
+        self.convo, self.convo_model, self.convo_fast, self.convo_turns = None, None, None, 0
+
     async def worker(self):
         while True:
             run = await self.queue.get()
@@ -109,26 +138,20 @@ class Studio:
             self.current, run.status, run.started = run, "running", time.time()
             try:
                 await self.ensure_browser()
-                hint = await core.visible_tab_hint(self.browser)
-
-                def on_step(state, output, n, run=run):
-                    if state is not None and getattr(state, "screenshot", None):
-                        run.shot = state.screenshot
-                    actions = []
-                    for a in (output.action if output else []) or []:
-                        d = a.model_dump(exclude_none=True)
-                        actions += [f"{k}({_short(v)})" for k, v in d.items()]
-                    run.steps.append({"n": n, "t": time.time(), "url": getattr(state, "url", ""),
-                                      "goal": getattr(output, "next_goal", "") or "",
-                                      "eval": getattr(output, "evaluation_previous_goal", "") or "",
-                                      "actions": actions})
-
-                async def human(kind, text, run=run):
-                    return await self.human(run, kind, text)
-
-                self.agent = core.make_agent(run.task + ("\n\n" + hint if hint else ""), run.model,
-                                             run.fallback, self.browser, human, on_step=on_step)
-                history = await self.agent.run(max_steps=MAX_STEPS)
+                if (run.follow_up and self.convo is not None and self.convo_model == run.model
+                        and self.convo_fast == run.fast):
+                    agent = self.convo
+                    agent.add_new_task(run.task)  # keeps everything it saw and did in earlier tasks
+                else:
+                    run.follow_up = False
+                    hint = await core.visible_tab_hint(self.browser)
+                    agent = core.make_agent(run.task + ("\n\n" + hint if hint else ""), run.model,
+                                            run.fallback, self.browser, self.ask, on_step=self.on_step,
+                                            flash_mode=run.fast)
+                    self.convo, self.convo_model, self.convo_fast, self.convo_turns = agent, run.model, run.fast, 0
+                self.agent = agent
+                history = await agent.run(max_steps=MAX_STEPS)
+                self.convo_turns += 1
                 RUNS_DIR.mkdir(exist_ok=True)
                 history.save_to_file(RUNS_DIR / f"{datetime.now():%Y%m%d-%H%M%S}-{run.id}.json")
                 run.result = history.final_result() or "(no final answer; see the steps)"
@@ -138,6 +161,7 @@ class Studio:
             except Exception as e:
                 run.status, run.ok = "failed", False
                 run.result = f"{type(e).__name__}: {e}"
+                self.new_conversation()  # don't continue from a broken state
                 if "connect" in str(e).lower() or "websocket" in str(e).lower():
                     await self.drop_browser()  # reconnect on the next task
             finally:
@@ -210,6 +234,7 @@ async def state(request: Request):
         "browser": {"mode": studio.browser_mode, "where": studio.browser_where},
         "current": cur.public() if cur else None,
         "paused": bool(studio.agent and getattr(studio.agent.state, "paused", False)),
+        "conversation": {"active": studio.convo is not None, "model": studio.convo_model, "turns": studio.convo_turns},
         "queue": [r.public(full=False) for r in studio.runs if r.status == "queued"],
         "recent": [r.public() for r in studio.runs[-10:]][::-1],
         "history": studio.history,
@@ -229,7 +254,7 @@ async def run_task(request: Request):
         return JSONResponse({"error": "unknown model"}, status_code=400)
     if not core.api_key():
         return JSONResponse({"error": "save your b.ai API key first"}, status_code=400)
-    run = Run(task, model, fallback)
+    run = Run(task, model, fallback, follow_up=bool(body.get("follow_up")), fast=bool(body.get("fast", True)))
     studio.runs.append(run)
     await studio.queue.put(run)
     return JSONResponse({"id": run.id})
@@ -289,6 +314,14 @@ async def set_browser(request: Request):
 
 
 @guard
+async def new_conversation(request: Request):
+    if studio.current:
+        return JSONResponse({"error": "wait for the current task to finish"}, status_code=409)
+    studio.new_conversation()
+    return JSONResponse({"ok": True})
+
+
+@guard
 async def signin_window(request: Request):
     url = ((await request.json()).get("url") or "").strip()
     if url and not url.startswith(("http://", "https://")):
@@ -341,6 +374,7 @@ app = Starlette(routes=[
     Route("/api/browser", set_browser, methods=["POST"]),
     Route("/api/key", set_key, methods=["POST"]),
     Route("/api/signin", signin_window, methods=["POST"]),
+    Route("/api/new", new_conversation, methods=["POST"]),
     Route("/api/shot", shot),
 ], lifespan=lifespan)
 

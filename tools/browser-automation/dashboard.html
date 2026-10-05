@@ -89,6 +89,17 @@ details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
       <div class="row" style="margin-top:14px">
         <button class="primary" id="runBtn">Run task</button>
       </div>
+      <div class="row" style="margin-top:10px;align-items:center">
+        <label style="margin:0;display:flex;gap:8px;align-items:center;font-size:13px;color:var(--ink)">
+          <input type="checkbox" id="followUp" checked style="width:auto"> Follow-up: continue from the last task
+        </label>
+      </div>
+      <div class="row" style="margin-top:6px;align-items:center">
+        <label style="margin:0;display:flex;gap:8px;align-items:center;font-size:13px;color:var(--ink)">
+          <input type="checkbox" id="fast" checked style="width:auto"> Fast mode: shorter model replies (2–4× faster)
+        </label>
+      </div>
+      <div class="muted" id="convo" style="margin-top:4px"></div>
       <div class="err" id="runErr"></div>
     </section>
 
@@ -250,6 +261,11 @@ async function refresh() {
   const typing = document.activeElement && document.activeElement.id === "ans" && pid === lastPromptId;
   if (nowKey !== lastNowKey && !typing) { renderNow(c, S.paused); lastNowKey = nowKey; }
   lastPromptId = pid;
+  const cv = S.conversation;
+  $("convo").innerHTML = cv.active
+    ? `Conversation: ${cv.turns} task${cv.turns === 1 ? "" : "s"} with ${esc(cv.model)}. It remembers what it did and stays on its page. <a href="#" id="newConvo">New conversation</a>`
+    : "No conversation yet: the next task starts fresh in a new tab.";
+  if ($("newConvo")) $("newConvo").onclick = async (e) => { e.preventDefault(); try { await api("/api/new", {}); refresh(); } catch (err) { $("runErr").textContent = err.message; } };
   renderList($("queue"), S.queue, "Empty.", true);
   const done = S.history;
   renderList($("history"), done, "No finished tasks yet.", false);
@@ -260,7 +276,7 @@ $("runBtn").onclick = async () => {
   const task = $("task").value.trim();
   if (!task) { $("runErr").textContent = "Write a task first."; return; }
   localStorage.setItem("model", $("model").value); localStorage.setItem("fallback", $("fallback").value);
-  try { await api("/api/run", { task, model: $("model").value, fallback: $("fallback").value || null }); $("task").value = ""; refresh(); }
+  try { await api("/api/run", { task, model: $("model").value, fallback: $("fallback").value || null, follow_up: $("followUp").checked, fast: $("fast").checked }); $("task").value = ""; refresh(); }
   catch (e) { $("runErr").textContent = e.message; }
 };
 $("task").onkeydown = (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) $("runBtn").click(); };

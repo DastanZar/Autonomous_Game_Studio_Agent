@@ -43,6 +43,11 @@ your phone through [ntfy](https://ntfy.sh).
    - **Templates:** *Start from a template* loads one from `tasks/`. Add your own `.md` files there; copy
      `TEMPLATE.md`.
    - **History:** click a past task to reuse its text.
+   - **Follow-up** (on by default): the next task continues the same conversation. It remembers what it saw and
+     did, and stays on its page, so "now open the third result" works. Click *New conversation* (under the Run
+     button) to start fresh. Changing the model or Fast mode also starts fresh.
+   - **Fast mode** (on by default): the model skips writing its long reasoning each step, so runs take 2–4×
+     less time. Turn it off for long, tricky tasks if the agent starts making careless mistakes.
 
 **How it treats your tabs:**
 - Each task starts in a **new tab**, never in one of yours.
@@ -80,7 +85,20 @@ Send, Connect-type and Post buttons).
 The flash models are fine for explicit instructions. For anything with a choice in it, use MiMo Pro,
 DeepSeek Flash or Qwen Flash. b.ai returned an occasional 502 during tests; the fallback model covered it.
 
-All five accept screenshots, which is on by default. *Fallback* is used when the main model errors or is
+**Speed** (Oct 5 benchmark: the same signup task, 2 runs each):
+
+| Model | Normal | **Fast mode (default)** |
+|---|---|---|
+| MiMo v2.6 Pro | 39–121 s | **36–46 s** |
+| DeepSeek v4.1 Flash | 41–80 s | **34–37 s** |
+
+- **Where the time goes:** 86–98% of every run is waiting for the model. Taking the screenshot and reading the
+  page cost about 0.3–0.5 s per step.
+- **Screenshots:** turning them off made MiMo Pro *slower* (139–172 s), because without seeing the page it
+  needed more steps.
+
+So screenshots stay on for models that support them: MiMo, Qwen and GLM. Browser Use turns them off for
+DeepSeek itself. *Fallback* is used when the main model errors or is
 rate-limited. To add a model, add a line to `models.json`.
 
 ## Other ways to drive it

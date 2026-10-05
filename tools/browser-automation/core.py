@@ -320,7 +320,7 @@ def build_tools(human, gate=None):
     return tools
 
 
-def make_agent(task, model_id, fallback_id, browser, human, on_step=None, vision=None):
+def make_agent(task, model_id, fallback_id, browser, human, on_step=None, vision=None, **agent_kwargs):
     gate = Gate(human)
 
     async def step_hook(state, output, n):
@@ -342,4 +342,5 @@ def make_agent(task, model_id, fallback_id, browser, human, on_step=None, vision
         max_failures=4, step_timeout=6 * 3600,  # a step may wait on the human for a long time
         llm_timeout=150,  # the default 75 s was too short for flash models on long pages
         use_judge=False,  # extra LLM pass that grades the run; it added minutes and failed in tests
+        **agent_kwargs,
     )
