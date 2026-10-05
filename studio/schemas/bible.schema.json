@@ -465,6 +465,11 @@
      }
     }
    }
+  },
+  "handle": {
+   "type": "string",
+   "pattern": "^@[A-Za-z0-9._-]{3,30}$",
+   "description": "YouTube handle, matching the channel name"
   }
  }
 }

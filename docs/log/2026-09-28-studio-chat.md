@@ -1587,5 +1587,5 @@ Should the handle also be Why the Map Looks Like That? Can we decide on naming r
   - also OddAtlas, Mapsplained, TheInnards, Flagboard ("Flag Board"), FlagLeague, WorldRanked, RankTheWorld, CountryRanked, MapWhy, MapTwist, OrganCrew, OrganTalk, NationRank, TopNation.
 - **Free:** AtlasOddity, GutGang, TheGutGang, LeaderFlags, BorderQuirks, MapRiddles, InnardsCrew, OrganFolk, OrganOpera, FlagRanked, RankedFlags, TheFlagboard.
 - **Decided** (the user delegated it): Atlas Oddity @AtlasOddity, The Gut Gang @GutGang, LeaderFlags @LeaderFlags.
-- Bibles, backlog, DECISIONS and the setup guide are updated. Selftest OK.
+- Bibles, backlog, DECISIONS and the setup guide are updated. The first commit (395379d) broke the selftest: the bible schema has no `handle` field. Fixed by adding `handle` to the schema; selftest OK.
 - **Caveat told to the user:** names have a modest effect on views; clarity and uniqueness matter most. Grab the handles soon, because free on this check doesn't guarantee YouTube will allow them.
