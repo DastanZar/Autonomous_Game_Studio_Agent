@@ -1738,3 +1738,13 @@ how do i enable option 2? / yes,add rule
 - Removed the need for git on the laptop. The vault file is encrypted, so the user uploads it through the GitHub web UI ("Add file → Upload files").
 - `publish.py auth` now saves each refresh token straight into the vault when a vault key is present, so there is no copying of tokens.
 - Sequence given: git pull, link 3 channels, one web upload, one STUDIO_VAULT_KEY setting.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+im confused, all 3 channels are setup, i have the tokens for all 3, i have the two yt secrets also, i also have the github key, what do i need to do
+
+#### Claude · record
+
+- Simplified to one step: put the 5 values directly into the environment settings. The vault is optional, only for non-Claude platforms later.
