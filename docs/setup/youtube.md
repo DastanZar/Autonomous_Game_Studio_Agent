@@ -58,8 +58,12 @@ Do this once per channel. Names were decided on 2026-10-05 (docs/DECISIONS.md).
 - [ ] D2. Left menu **Audience** → under *Publishing status* click **Publish app** → **Confirm**. It should say
       **In production**.
       This step matters: in *Testing* mode, Google expires the connection every 7 days.
-- [ ] D3. Left menu **Data access** → **Add or remove scopes**. Tick
-      `.../auth/youtube.upload` and `.../auth/youtube.force-ssl` (search "youtube") → **Update** → **Save**.
+- [ ] D3. *(Optional: you can skip it, because the script asks for these permissions itself at sign-in.)* Left menu **Data access** →
+      **Add or remove scopes**. Every row's *API* column says "YouTube Data API v3"; read the **Scope** and description columns:
+      tick `.../auth/youtube.upload` ("Manage your YouTube videos") and `.../auth/youtube.force-ssl` ("See, edit, and
+      permanently delete your YouTube videos, ratings, comments and captions"). To add them by hand, paste the full URLs
+      `https://www.googleapis.com/auth/youtube.upload` and `https://www.googleapis.com/auth/youtube.force-ssl` →
+      **Update** → **Save**.
 - [ ] D4. Left menu **Clients** → **Create client** → *Application type*: **Desktop app**, name `studio-laptop` →
       **Create**.
 - [ ] D5. A box shows the **Client ID** and the **Client secret**. Click **Download JSON** and keep the file

@@ -1641,3 +1641,13 @@ can i understand why we gave this github link, how is it pertinent, and will thi
 
 - Explained the purpose of the GitHub Pages link: Google requires a home page and a privacy policy for the sign-in screen.
 - Explained how long it stays live, and that it has no effect on channel performance.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+only seeing youtube data api v3 scopes nothing about the ones you said, and got an error when trying to add it manually (re: step D3)
+
+#### Claude · record
+
+- Explained that every row in the picker is labelled "YouTube Data API v3"; the scope name is in the Scope column, and adding a scope by hand needs the full URL. Made D3 optional, since publish.py requests the scopes at sign-in. Guide updated.
