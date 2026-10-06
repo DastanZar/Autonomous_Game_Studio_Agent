@@ -1619,3 +1619,14 @@ i created border quirks, it was the first channel on the id because i was seeing
 
 - Border Quirks has been created by the user. It's the account's first channel, so it's a personal channel rather than a Brand Account, which is fine.
 - **Answer:** no extra Gmail. Open youtube.com/channel_switcher in a desktop browser → "+ Create a channel". Added this to setup guide step B4.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+im in part d of the setup, and seeing this inside audience - To publish your app, you must complete your configuration on the Branding page.
+
+#### Claude · record
+
+- Added `docs/site/privacy.html`, a factual privacy policy for the internal uploader (scopes, token storage, no third-party data, revocation link). The Pages workflow now publishes `docs/site/*.html` next to the dashboard.
+- Setup guide step D1b covers the Branding fields: home page and privacy URLs on dastanzar.github.io, the authorized domain, and developer contact. No logo, because a logo triggers brand verification.

@@ -50,6 +50,11 @@ Do this once per channel. Names were decided on 2026-10-05 (docs/DECISIONS.md).
       - App name `studio-publisher`; support email = the studio address → **Next**
       - Audience: **External** → **Next**
       - Contact email = the studio address → **Next** → agree → **Create**
+- [ ] D1b. Left menu **Branding**. Fill in: *App name*, *User support email*,
+      *Application home page* `https://dastanzar.github.io/Autonomous_Game_Studio_Agent/`,
+      *Application privacy policy link* `https://dastanzar.github.io/Autonomous_Game_Studio_Agent/privacy.html`,
+      *Authorized domains* → **Add domain** `dastanzar.github.io`, and *Developer contact information* (the studio email).
+      **Don't upload a logo**: a logo triggers Google's brand-verification review. → **Save**.
 - [ ] D2. Left menu **Audience** → under *Publishing status* click **Publish app** → **Confirm**. It should say
       **In production**.
       This step matters: in *Testing* mode, Google expires the connection every 7 days.
