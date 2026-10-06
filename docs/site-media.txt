@@ -1,7 +1,3 @@
-docs/review/music/why-map-caper.mp3
-docs/review/music/why-map-detective.mp3
-docs/review/music/why-map-march.mp3
-docs/review/music/why-map-spy.mp3
 episodes/why-map/point-roberts/variants/a/out/preview-a.mp4
 episodes/why-map/point-roberts/variants/b/out/preview-b.mp4
 episodes/why-map/point-roberts/variants/c/out/preview-c.mp4
