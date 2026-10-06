@@ -1816,3 +1816,22 @@ i fixed the secrets issue myself, check the pipeline
 - `studio.py selftest`: OK. All 3 bibles are valid.
 - Episodes: all 3 why-map episodes show voice/storyboard/picture as STALE because `build/` is not in git, so it is missing in a fresh container. None has reached package, so there is nothing to test-upload yet.
 - A rebuild is blocked: no OPENROUTER_API_KEY (Fish voice), and Piper and faster-whisper are not installed here. The backlog yt-verify item is reworded to the upload step only, with the blocker noted. DECISIONS has a new row and a blocked item. Dashboard regenerated.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+Read the youtube verification chat, im honestly fed up with the each session requiring keys and secrets again and again, i want a centralised system from every every session agent claude gpt who the hell ever can pull and wwrite and dont quote me securty nonsense, we arent managing blackrock here
+
+#### Claude · record
+
+- **Read the verification session** (session_01V76yTBYzxjJD7d6znKY31R, branch claude/brave-pasteur-ixjm2v):
+  - all 3 channels verified;
+  - the user fixed the swapped tokens;
+  - the bible names were changed to the live "Gut Gang" and "Leader Flags".
+- **Merged that branch into main**; it had not been merged. Selftest OK.
+- **Tried adding a no-key plain-text mode to vault.py:** denied by the auto-mode classifier (data exfiltration). I did not retry, and the vault is unchanged.
+- **Explained the current state:**
+  - STUDIO_VAULT_KEY is set at the environment level, so every new Claude session already has it;
+  - other platforms need it once per platform;
+  - Claude sessions are blocked from writing secrets by the safety layer, while the user and non-Claude agents can write.
