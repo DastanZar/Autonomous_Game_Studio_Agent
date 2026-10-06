@@ -1,0 +1,373 @@
+{
+ "channel": "why-map",
+ "episode": "point-roberts",
+ "series": "why",
+ "working_title": "This US town's only road goes through Canada",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "This American town has one road out. And it goes through Canada.",
+   "kind": "hook",
+   "claims": [
+    "c_access"
+   ],
+   "gap": 0.25,
+   "caps": [
+    [
+     "THIS AMERICAN TOWN",
+     3
+    ],
+    [
+     "HAS ONE ROAD OUT.",
+     4
+    ],
+    [
+     "AND IT GOES",
+     3
+    ],
+    [
+     "THROUGH CANADA.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "who",
+   "say": "About twelve hundred people. Five square miles.",
+   "kind": "fact",
+   "claims": [
+    "c_access",
+    "c_exclave"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "ABOUT 1,200 PEOPLE.",
+     4
+    ],
+    [
+     "5 SQUARE MILES.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "treaty",
+   "say": "In eighteen forty-six, Britain and America drew their border with a ruler: the forty-ninth parallel.",
+   "kind": "fact",
+   "claims": [
+    "c_treaty"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 1846,",
+     3
+    ],
+    [
+     "BRITAIN AND AMERICA",
+     3
+    ],
+    [
+     "DREW THEIR BORDER",
+     3
+    ],
+    [
+     "WITH A RULER:",
+     3
+    ],
+    [
+     "THE 49TH PARALLEL.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "coast",
+   "say": "Nobody checked the coast.",
+   "kind": "joke",
+   "claims": [
+    "c_treaty"
+   ],
+   "gap": 0.55,
+   "caps": [
+    [
+     "NOBODY CHECKED",
+     2
+    ],
+    [
+     "THE COAST.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "survey",
+   "say": "Surveyors found it had cut off the tip of a peninsula.",
+   "kind": "fact",
+   "claims": [
+    "c_treaty",
+    "c_exclave"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "SURVEYORS FOUND",
+     2
+    ],
+    [
+     "IT HAD CUT OFF",
+     4
+    ],
+    [
+     "THE TIP OF A PENINSULA.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "drive",
+   "say": "To reach the rest of America by car, you cross the border twice.",
+   "kind": "fact",
+   "claims": [
+    "c_access"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "TO REACH THE REST",
+     4
+    ],
+    [
+     "OF AMERICA BY CAR,",
+     4
+    ],
+    [
+     "YOU CROSS",
+     2
+    ],
+    [
+     "THE BORDER TWICE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "kids",
+   "say": "Kids ride a school bus through Canada. Four crossings a day.",
+   "kind": "fact",
+   "claims": [
+    "c_school"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "KIDS RIDE A SCHOOL BUS",
+     5
+    ],
+    [
+     "THROUGH CANADA.",
+     2
+    ],
+    [
+     "4 CROSSINGS A DAY.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "water",
+   "say": "The tap water? Canadian, under a deal from nineteen eighty-seven.",
+   "kind": "fact",
+   "claims": [
+    "c_utilities"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "THE TAP WATER?",
+     3
+    ],
+    [
+     "CANADIAN,",
+     1
+    ],
+    [
+     "UNDER A DEAL",
+     3
+    ],
+    [
+     "FROM 1987.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "shut",
+   "say": "In twenty twenty, the pandemic shut the border, and the Canadian shoppers vanished.",
+   "kind": "fact",
+   "claims": [
+    "c_covid",
+    "c_customers"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 2020,",
+     3
+    ],
+    [
+     "THE PANDEMIC",
+     2
+    ],
+    [
+     "SHUT THE BORDER,",
+     3
+    ],
+    [
+     "AND THE CANADIAN",
+     3
+    ],
+    [
+     "SHOPPERS VANISHED.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "lost",
+   "say": "The town lost over eighty percent of its business.",
+   "kind": "fact",
+   "claims": [
+    "c_covid"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THE TOWN LOST",
+     3
+    ],
+    [
+     "OVER 80 PERCENT",
+     3
+    ],
+    [
+     "OF ITS BUSINESS.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "grocery",
+   "say": "The grocery that served five thousand people a day? About fifty.",
+   "kind": "fact",
+   "claims": [
+    "c_grocery"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "THE GROCERY",
+     2
+    ],
+    [
+     "THAT SERVED",
+     2
+    ],
+    [
+     "5,000 PEOPLE A DAY?",
+     5
+    ],
+    [
+     "ABOUT 50.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "gas",
+   "say": "Five gas stations. Fewer than a thousand people.",
+   "kind": "joke",
+   "claims": [
+    "c_gas"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "5 GAS STATIONS.",
+     3
+    ],
+    [
+     "FEWER THAN",
+     2
+    ],
+    [
+     "1,000 PEOPLE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "trade",
+   "say": "In twenty twenty-five, a trade war. One restaurant owner said February fell fifty-five percent.",
+   "kind": "fact",
+   "claims": [
+    "c_tariff2025"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "IN 2025,",
+     3
+    ],
+    [
+     "A TRADE WAR.",
+     3
+    ],
+    [
+     "ONE RESTAURANT OWNER",
+     3
+    ],
+    [
+     "SAID FEBRUARY FELL",
+     3
+    ],
+    [
+     "55 PERCENT.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "loopback",
+   "say": "All because of one straight line. Which is why",
+   "kind": "callback",
+   "claims": [
+    "c_treaty"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "ALL BECAUSE OF",
+     3
+    ],
+    [
+     "ONE STRAIGHT LINE.",
+     3
+    ],
+    [
+     "WHICH IS WHY…",
+     3
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "loopback",
+  "connects_to": "hook",
+  "how": "The last line ends on 'Which is why' and the replay starts 'This American town has one road out.' The last frame is the opening diorama, so picture and sentence both loop."
+ }
+}

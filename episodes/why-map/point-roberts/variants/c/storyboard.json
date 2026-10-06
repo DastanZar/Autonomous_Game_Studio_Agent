@@ -1,0 +1,327 @@
+{
+ "episode": "point-roberts",
+ "flagship": "Methodology test, version C (2026-10-06): same script and voice, different render method.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "hook/road",
+     "do": "highlight"
+    },
+    {
+     "at": "hook/canada",
+     "do": "reveal",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_who",
+   "type": "custom",
+   "start": "who.start",
+   "params": {
+    "fn": "who",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "region": [
+     -123.25,
+     48.9,
+     -122.65,
+     49.15
+    ],
+    "coast": "osm",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "who/twelve",
+     "do": "count_start"
+    },
+    {
+     "at": "who/five",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_treaty",
+   "type": "custom",
+   "start": "treaty.start",
+   "params": {
+    "fn": "treaty",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "region": [
+     -131,
+     41,
+     -111,
+     56
+    ],
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "treaty/ruler",
+     "do": "draw",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "treaty/fortyninth",
+     "do": "highlight",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_coast",
+   "type": "custom",
+   "start": "coast.start",
+   "params": {
+    "fn": "coast",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "region": [
+     -131,
+     41,
+     -111,
+     56
+    ],
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "coast/coast",
+     "do": "emphasize"
+    }
+   ]
+  },
+  {
+   "id": "s_survey",
+   "type": "custom",
+   "start": "survey.start",
+   "params": {
+    "fn": "survey",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "region": [
+     -123.25,
+     48.9,
+     -122.65,
+     49.15
+    ],
+    "coast": "osm",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "survey/cut",
+     "do": "highlight",
+     "sfx": "stamp"
+    },
+    {
+     "at": "survey/peninsula",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_drive",
+   "type": "custom",
+   "start": "drive.start",
+   "params": {
+    "fn": "drive",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "region": [
+     -123.25,
+     48.9,
+     -122.65,
+     49.15
+    ],
+    "coast": "osm",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "drive/cross",
+     "do": "draw"
+    },
+    {
+     "at": "drive/twice",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_kids",
+   "type": "custom",
+   "start": "kids.start",
+   "params": {
+    "fn": "kids",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "kids/four",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_water",
+   "type": "custom",
+   "start": "water.start",
+   "params": {
+    "fn": "water",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "water/canadian",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "water/nineteen",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_shut",
+   "type": "custom",
+   "start": "shut.start",
+   "params": {
+    "fn": "shut",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "shut/shut",
+     "do": "verdict",
+     "sfx": "stamp"
+    },
+    {
+     "at": "shut/vanished",
+     "do": "reveal"
+    }
+   ]
+  },
+  {
+   "id": "s_lost",
+   "type": "custom",
+   "start": "lost.start",
+   "params": {
+    "fn": "lost",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "label": "Border Policy Research Institute estimate",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "lost/eighty",
+     "do": "count_start"
+    }
+   ]
+  },
+  {
+   "id": "s_grocery",
+   "type": "custom",
+   "start": "grocery.start",
+   "params": {
+    "fn": "grocery",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "grocery/five",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "grocery/about",
+     "do": "count_stop"
+    }
+   ]
+  },
+  {
+   "id": "s_gas",
+   "type": "custom",
+   "start": "gas.start",
+   "params": {
+    "fn": "gas",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "gas/five",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "gas/fewer",
+     "do": "emphasize"
+    }
+   ]
+  },
+  {
+   "id": "s_trade",
+   "type": "custom",
+   "start": "trade.start",
+   "params": {
+    "fn": "trade",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "label": "one business owner's reported figure",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "trade/trade",
+     "do": "reveal",
+     "sfx": "stamp"
+    },
+    {
+     "at": "trade/fiftyfive",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_loop",
+   "type": "custom",
+   "start": "loopback.start",
+   "params": {
+    "fn": "loop",
+    "why": "Flagship rebuild (v2): a persistent paper diorama world with characters and props; no catalog type draws it yet.",
+    "region": [
+     -131,
+     41,
+     -111,
+     56
+    ],
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "loopback/line",
+     "do": "highlight"
+    }
+   ]
+  }
+ ],
+ "theme": "data-flags"
+}

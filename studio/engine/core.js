@@ -297,7 +297,7 @@ function buildTextures() {
 }
 
 // ---------- transitions ----------
-const FLAT = ["flat-cast", "data-flags"].includes(EP.look.theme);   // flat themes: hard cuts, no paper texture or film grain
+const FLAT = ["flat-cast", "data-flags"].includes(EP.storyboard.theme || EP.look.theme);   // a storyboard may override the bible's theme   // flat themes: hard cuts, no paper texture or film grain
 const TR = 0.3;
 function tornEdge(x) {
   ctx.moveTo(x, -10);

@@ -1,0 +1,179 @@
+{
+ "topic": "Point Roberts, Washington: the US town you can only drive to through Canada",
+ "sources": [
+  {
+   "id": "wiki",
+   "title": "Point Roberts, Washington",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Point_Roberts,_Washington",
+   "type": "reference",
+   "accessed": "2026-09-28"
+  },
+  {
+   "id": "nasa",
+   "title": "Point Roberts",
+   "publisher": "NASA Earth Observatory",
+   "url": "https://science.nasa.gov/earth/earth-observatory/point-roberts-148367/",
+   "type": "official",
+   "accessed": "2026-09-28"
+  },
+  {
+   "id": "ap",
+   "title": "Caught in the middle, this US oddity at the border is grappling with Trump's trade war with Canada",
+   "publisher": "Associated Press (via Yahoo News)",
+   "url": "https://www.yahoo.com/news/caught-middle-quaint-us-exclave-012748560.html",
+   "type": "journalism",
+   "accessed": "2026-09-28",
+   "note": "Published 17 March 2025; the most recent on-the-ground reporting found on the town's cross-border economics."
+  },
+  {
+   "id": "cbc",
+   "title": "The birth of a ghost town: Point Roberts has lost 80% of its business, hundreds of its residents",
+   "publisher": "CBC News",
+   "url": "https://www.cbc.ca/news/canada/british-columbia/point-roberts-covid-1.5740806",
+   "type": "journalism",
+   "accessed": "2026-10-06",
+   "note": "Published 27 September 2020; cites the Border Policy Research Institute at Western Washington University."
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_treaty",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "nasa"
+   ],
+   "text": "An 1846 treaty (the Treaty of Oregon) set the US-Canada border at the 49th parallel without the negotiators realizing the effect; only later, when the Boundary Commission surveyed the line, did anyone notice it would cut off the tip of a peninsula as an isolated piece of the United States.",
+   "quote": "The acceptance of the 49th parallel as the international boundary was concluded without precise knowledge of its effects. Later, as the Boundary Commission surveyed the line, the British government realized the peninsula of Point Roberts would be an isolated part of the United States. (Wikipedia); Point Roberts dangling below the 49th parallel—the line of latitude that was established in 1846 as the political boundary between the northwestern United States and Canada. (NASA)"
+  },
+  {
+   "id": "c_exclave",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nasa"
+   ],
+   "text": "Point Roberts is a US exclave: a small piece of US territory, about 5 square miles (13 square kilometers), completely cut off by land from the rest of Washington State by British Columbia, Canada.",
+   "quote": "Point Roberts is what's known as an exclave—part of a territory that is geographically separated from its main part by another territory. In this case, the 5-square-miles (13-square-kilometers) of U.S. territory that constitutes Point Roberts is separated from the rest of Washington by British Columbia, Canada."
+  },
+  {
+   "id": "c_access",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "nasa"
+   ],
+   "text": "With a population of about 1,191 (2020 census), Point Roberts can only be reached from the rest of the United States by land via a roughly 25-mile drive through Canada, crossing the border twice; the only way in without touching Canada is by boat or private plane.",
+   "quote": "The area, which had a population of 1,191 at the 2020 census, is reached from the rest of the United States by traveling 25 mi (40 km) through Canada, or without passing through Canada by boat or private airplane. (Wikipedia); To drive there from mainland Washington, you must cross an international border twice. (NASA)"
+  },
+  {
+   "id": "c_school",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "From fourth grade on, Point Roberts children commute to school in Blaine, Washington by crossing the international border four times a day.",
+   "quote": "From 4th grade onward, American children must take a 40-minute ride through British Columbia, crossing back into the United States at Blaine, Washington. Students therefore cross the US–Canada border four times, two on the trip to Blaine and two on the trip back."
+  },
+  {
+   "id": "c_covid",
+   "key": false,
+   "status": "estimate",
+   "label": "Border Policy Research Institute estimate",
+   "sources": [
+    "cbc",
+    "wiki"
+   ],
+   "text": "During the 2020 COVID-19 border closure, Point Roberts lost more than 80 percent of its business, all of it from Canadians, according to the Border Policy Research Institute at Western Washington University.",
+   "quote": "having lost more than 80 per cent of its business, all from Canadians, according to the Border Policy Research Institute at Western Washington University"
+  },
+  {
+   "id": "c_utilities",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "Point Roberts buys its drinking water from Canada under a 1987 agreement with the Greater Vancouver Water District.",
+   "quote": "An agreement signed on August 28, 1987, requires the Point Roberts Water District to purchase raw water on an annual basis from the Greater Vancouver Water District."
+  },
+  {
+   "id": "c_name",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "Point Roberts is named after Henry Roberts, a friend of the explorer George Vancouver who had originally been given command of Vancouver's own expedition.",
+   "quote": "Point Roberts acquired its present name from George Vancouver, who named it after his friend Henry Roberts, who had originally been given command of the expedition."
+  },
+  {
+   "id": "c_tariff2025",
+   "key": false,
+   "status": "estimate",
+   "label": "one business owner's reported figure",
+   "sources": [
+    "ap"
+   ],
+   "text": "US-Canada trade tension in early 2025 hit Point Roberts business hard; one longtime restaurant owner reported business down 55 percent in February compared with the year before.",
+   "quote": "business was down 55% in February compared with last year."
+  },
+  {
+   "id": "c_customers",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "cbc"
+   ],
+   "text": "In a normal year the town's customers are largely British Columbians: tourists, and bargain hunters filling up on gas and picking up packages at parcel shops.",
+   "quote": "In a normal year, Point Roberts is a bustling place during the summer season, packed with B.C. tourists ready to spend their money on local businesses, B.C. bargain hunters filling up on gas and picking up packages at the local parcel shops"
+  },
+  {
+   "id": "c_grocery",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "cbc"
+   ],
+   "text": "The town's one grocery store served up to 5,000 customers a day at its peak; during the 2020 closure about 50 people a day shopped there.",
+   "quote": "At its peak, it would serve 5,000 customers a day. Now, about 50 people shop there daily."
+  },
+  {
+   "id": "c_gas",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "cbc"
+   ],
+   "text": "During the 2020 closure the town had five gas stations serving fewer than 1,000 people.",
+   "quote": "Right now, there are five gas stations to serve fewer than 1,000 people"
+  },
+  {
+   "id": "c_season",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "cbc"
+   ],
+   "text": "On-season the town hosts up to 6,000 people; off-season about 1,250.",
+   "quote": "On-season, Point Roberts hosts up to 6,000 people, which drops to about 1,250 in the off-season."
+  }
+ ],
+ "myths": [
+  {
+   "myth": "The border was deliberately drawn to create this oddity, or Point Roberts is secretly administered by Canada.",
+   "truth": "It was an unintended consequence of a straight-line treaty: negotiators didn't realize the 49th parallel would cut off the peninsula until the Boundary Commission surveyed it afterward, and Point Roberts has been US territory, policed and taxed as such, ever since.",
+   "sources": [
+    "wiki"
+   ]
+  }
+ ],
+ "open_questions": [
+  "No current (2026) population or business-recovery figure was found beyond the March 2025 AP report; the script should not state a precise present-day figure for business conditions.",
+  "Whether the 1987 water-purchase agreement or any power-supply arrangement has changed since is unconfirmed for the present day; keep any utilities claim in the past tense of when it was reported."
+ ]
+}

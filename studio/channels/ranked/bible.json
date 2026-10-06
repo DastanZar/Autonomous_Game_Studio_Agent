@@ -40,11 +40,11 @@
   "name": "Felix (Fish Audio library, Australian male)",
   "max_wer": 0.08,
   "fallback": {
-   "engine": "piper",
-   "id": "en_US-ryan-high",
-   "length_scale": 0.9
+   "engine": "kokoro",
+   "id": "bm_george",
+   "speed": 1.05
   },
-  "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash."
+  "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash. User picked Kokoro George (bm_george) on 2026-10-06 as the voice while there is no Fish key."
  },
  "look": {
   "theme": "data-flags",
@@ -75,7 +75,7 @@
    }
   },
   "notes": "Flags from a public-domain flag set, redrawn in code. Every chart shows its data source on screen.",
-  "direction": "A \u00b7 Flag Badges (user-approved 2026-09-29): bar chart on off-white, round flag badges with faces (8 moods) riding bar tips; the Broadcast versus card is reused for the Country vs country series. Reference: studio/stylelab (rk_badge_*, rk_broadcast_versus)"
+  "direction": "A · Flag Badges (user-approved 2026-09-29): bar chart on off-white, round flag badges with faces (8 moods) riding bar tips; the Broadcast versus card is reused for the Country vs country series. Reference: studio/stylelab (rk_badge_*, rk_broadcast_versus)"
  },
  "cast": [
   {
@@ -267,7 +267,18 @@
      "duration": 60,
      "seed": 34
     }
-   ]
+   ],
+   "current": "countdown",
+   "rotation": {
+    "policy": "one track per channel until the analytics stage has 5 uploads with it; then try the next track for 5 uploads and keep whichever has the better average view duration (YouTube Analytics averageViewPercentage). Record each switch in docs/DECISIONS.md.",
+    "order": [
+     "countdown",
+     "scoreboard",
+     "tally",
+     "finale"
+    ],
+    "started": "2026-10-06"
+   }
   }
  },
  "handle": "@LeaderFlags"

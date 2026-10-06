@@ -45,6 +45,8 @@ async function openPage(browser) {
   page.on("pageerror", e => errors.push(e.message));
   await page.addInitScript(`window.EP=${JSON.stringify(EP)};`);
   await page.goto("file://" + path.join(HERE, "index.html"));
+  const vendor = path.join(EPD, "vendor");                 // third-party libraries an episode needs (e.g. three.min.js), loaded first
+  if (fs.existsSync(vendor)) for (const f of fs.readdirSync(vendor).filter(f => f.endsWith(".js")).sort()) await page.addScriptTag({ path: path.join(vendor, f) });
   if (fs.existsSync(customJs)) await page.addScriptTag({ path: customJs });
   await page.evaluate(async () => { await Promise.all(["98px Anton", "40px Elite", "92px Serif"].map(f => document.fonts.load(f))); });
   if (errors.length) { console.error("ENGINE ERROR:", errors.join("\n")); process.exit(1); }
@@ -56,7 +58,9 @@ const grab = (page, t, type) => page.evaluate(([t, type]) => {
   return document.getElementById("c").toDataURL(type === "png" ? "image/png" : "image/jpeg", 0.94).split(",")[1];
 }, [t, type]);
 
-const browser = await chromium.launch({ args: ["--disable-gpu"] });
+// WebGL runs on SwiftShader (CPU), so 3D scenes render the same on any machine
+// (the 2D canvas stays on the CPU rasteriser: through SwiftShader it is ~50x slower)
+const browser = await chromium.launch({ args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--disable-accelerated-2d-canvas"] });
 const first = await openPage(browser);
 fs.mkdirSync(BUILD, { recursive: true });
 const writeReports = async () => {
@@ -79,11 +83,17 @@ if (mode === "sheet" || mode === "frames") {
   const pages = [first, ...await Promise.all(Array.from({ length: workers - 1 }, () => openPage(browser)))];
   let next = 0, done = 0; const t0 = Date.now();
   await Promise.all(pages.map(async page => {
+    // each worker takes runs of BLOCK consecutive frames, so a scene that caches work between frames (a 3D world
+    // on twos, a scan) can reuse it
+    const BLOCK = 12;
     while (next < n) {
-      const i = next++, out = path.join(dir, String(i).padStart(5, "0") + ".jpg");
-      if (fs.existsSync(out)) { done++; continue; }
-      fs.writeFileSync(out, Buffer.from(await grab(page, i / FPS, "jpg"), "base64"));
-      if (++done % 200 === 0) console.log(`${done}/${n}  ${((Date.now() - t0) / 1000).toFixed(0)}s`);
+      const i0 = next; next += BLOCK;
+      for (let i = i0; i < Math.min(n, i0 + BLOCK); i++) {
+        const out = path.join(dir, String(i).padStart(5, "0") + ".jpg");
+        if (fs.existsSync(out)) { done++; continue; }
+        fs.writeFileSync(out, Buffer.from(await grab(page, i / FPS, "jpg"), "base64"));
+        if (++done % 200 === 0) console.log(`${done}/${n}  ${((Date.now() - t0) / 1000).toFixed(0)}s`);
+      }
     }
   }));
   console.log(`rendered ${n} frames in ${((Date.now() - t0) / 1000).toFixed(0)}s`);

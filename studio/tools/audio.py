@@ -4,8 +4,9 @@
 
 Music, in order of preference:
   1. the channel's music library, studio/assets/music/<channel>/manifest.json, built by
-     studio/tools/music_gen.py (ACE-Step 1.5, MIT). The track is chosen from the episode slug unless
-     --music names one. Tracks are looped with a crossfade if the episode is longer.
+     studio/tools/music_gen.py (ACE-Step 1.5, MIT). The bible's audio.music.current track is used (one
+     track per channel, rotated on analytics, see audio.music.rotation); else one is chosen from the episode
+     slug; --music overrides both. Tracks are looped with a crossfade if the episode is longer.
   2. a code-synthesised underscore: always available, deterministic, no licence questions.
 SFX come from build/cues.json (the render engine). Cue types listed in studio/assets/sfx/manifest.json use
 recorded or generated files (Kenney CC0, Stable Audio Open); a few more are synthesised here; anything else
@@ -122,6 +123,9 @@ def library_track():
         return None
     man = json.load(open(man_p))
     tracks = [t for t in man["tracks"] if t.get("approved")]
+    cur = (acfg.get("music") or {}).get("current")      # one track in use per channel; analytics decides rotation
+    if cur and any(t["id"] == cur for t in man["tracks"]):
+        tracks = [t for t in man["tracks"] if t["id"] == cur]
     if args.music:
         tracks = [t for t in man["tracks"] if t["id"] == args.music]
     if not tracks:

@@ -47,11 +47,11 @@
   "name": "Felix (Fish Audio library, Australian male)",
   "max_wer": 0.08,
   "fallback": {
-   "engine": "piper",
-   "id": "en_US-ryan-high",
-   "length_scale": 0.9
+   "engine": "kokoro",
+   "id": "bm_george",
+   "speed": 1.05
   },
-  "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash. Narrator is Felix; each cast member gets its own voice in 'cast[].voice' once chosen. Launch format: Felix narrates every sourced fact; cast lines are typeset speech bubbles (no second voice). Revisit a voiced cast after ~20 episodes using retention data."
+  "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash. Narrator is Felix; each cast member gets its own voice in 'cast[].voice' once chosen. Launch format: Felix narrates every sourced fact; cast lines are typeset speech bubbles (no second voice). Revisit a voiced cast after ~20 episodes using retention data. User picked Kokoro George (bm_george) on 2026-10-06 as the voice while there is no Fish key."
  },
  "look": {
   "theme": "flat-cast",
@@ -82,7 +82,7 @@
    }
   },
   "notes": "Character designs are original. No real people, no lookalikes of other channels' characters.",
-  "direction": "A \u00b7 Flat Cast (user-approved 2026-09-29): flat vector, 8 px rounded ink outlines, crescent shade + highlight, big cartoon eyes, rubber-hose limbs. Reference: studio/stylelab (bc_flat_*), docs/design/body-cast-ranked-directions.md",
+  "direction": "A · Flat Cast (user-approved 2026-09-29): flat vector, 8 px rounded ink outlines, crescent shade + highlight, big cartoon eyes, rubber-hose limbs. Reference: studio/stylelab (bc_flat_*), docs/design/body-cast-ranked-directions.md",
   "sets": {
    "library": {
     "bloodstream": "heart, blood, circulation, oxygen",
@@ -340,7 +340,18 @@
      "duration": 60,
      "seed": 24
     }
-   ]
+   ],
+   "current": "inside",
+   "rotation": {
+    "policy": "one track per channel until the analytics stage has 5 uploads with it; then try the next track for 5 uploads and keep whichever has the better average view duration (YouTube Analytics averageViewPercentage). Record each switch in docs/DECISIONS.md.",
+    "order": [
+     "inside",
+     "lab",
+     "heartbeat",
+     "showdown"
+    ],
+    "started": "2026-10-06"
+   }
   }
  },
  "handle": "@GutGang"

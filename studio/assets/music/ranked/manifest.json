@@ -19,7 +19,9 @@
     "ok": true
    },
    "sha1": "512da9ac5d72",
-   "approved": false
+   "approved": true,
+   "approved_by": "user (2026-10-06: use one track, measure, rotate on analytics); track picked by the strategy model, not yet heard",
+   "approved_at": "2026-10-06"
   },
   {
    "id": "finale",

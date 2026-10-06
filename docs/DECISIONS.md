@@ -15,10 +15,8 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | # | Decision | Options / recommendation | Detail |
 |---|---|---|---|
-| 0 | **Watch Point Roberts v2 on the dashboard** and say what still falls short | It is the new standard for all three channels; everything after it is built this way | `studio/review_queue.json` |
-| 1 | Listen to the 8 new music tracks (4 body-cast, 4 ranked) and approve or reject each | Every track passed the automatic checks; only your ears can approve them | `studio/assets/music/{body-cast,ranked}/` |
-| 3 | Keep Felix as the narrator voice for all channels? | Alternatives are in `videos/voice-test/` | why-map bible |
-| 4 | Listen to `docs/research/voice-samples/` and pick a free fallback voice (Piper, or Kokoro bm_george / am_adam) | Kokoro looks better on the numbers; unverified by ear | `docs/research/voice-kokoro-vs-piper-2026-10.md` |
+| 0 | **Watch the three Point Roberts methods (A, B, C) on the dashboard** and pick one, or parts of each | The answer sets how every future video is made | `studio/review_queue.json`, methodology note |
+| 1 | (Settled 2026-10-06) Music: one track per niche, rotated on analytics; no per-track approval needed | `inside` (Gut Gang), `countdown` (Leader Flags) | bibles `audio.music` |
 
 ## Blocked (needs something from outside this container)
 
@@ -33,6 +31,12 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-10-06 | **Three picture methods tested on one Short:** A art-directed paper (Emu War craft as rules), B 3D paper miniature (Three.js inside our engine), C kinetic infographic. Same script, voice, facts and music. The user picks by watching; my bet is a hybrid (A characters, B map flights, C big numbers). | The user: "it's more about nailing our methodology than a particular content piece" | `docs/research/methodology-3-versions-2026-10.md`, `episodes/why-map/point-roberts/variants/` |
+| 2026-10-06 | **Why v2 lacked finesse:** art direction, not quantity. It had a dozen competing colours, many small boxy objects and 10-line assets. The Emu War has 4–5 tones, one hero per beat, organic béziers, 60–100-line characters and designed paper props. These are now the rules of version A. | Frame-by-frame comparison | methodology note |
+| 2026-10-06 | **Voice: Kokoro George (`bm_george`) on all three channels** while there is no Fish key. User's pick after listening on the dashboard. | User: "george does look like the better voice" | all three bibles `voice.fallback` |
+| 2026-10-06 | **Our engine over HyperFrames.** The bake-off is closed and the Gemini C2 run is not needed. | User: "our engine render looked better than hyperframes" | review queue |
+| 2026-10-06 | **Music: one track per niche, rotated on analytics.** Gut Gang starts on `inside`, Leader Flags on `countdown`. After 5 uploads, try the next track for 5 and keep whichever has the better average view percentage. `audio.py` reads `audio.music.current`. The tracks were picked by the strategy model and nobody has heard them yet. | User: "lets use one, see its performance and rotate based on analytical data" | body-cast and ranked bibles `audio.music`, manifests |
+| 2026-10-06 | **Engine:** WebGL via SwiftShader with the 2D canvas kept on the CPU (otherwise about 50× slower); episode `vendor/*.js` loads before `scenes.js`; render workers take 12-frame runs; storyboard `theme` override. | Needed for version B without slowing everything else | `studio/engine/render.mjs`, `core.js` |
 | 2026-10-06 | **Point Roberts is rebuilt as v2, the new house standard.** The user rejected both v1 and the HyperFrames bake-off ("both terrible... not as rich as the emu war video") and set the Emu War as the floor, not the ceiling, with no duration limit. v2 is 60 s, 14 bespoke scenes in one drawn world, the whole canvas used. v1 and the bake-off are kept beside it for comparison. | A catalogue of cards cannot carry a story; the Emu War works because it has a world, characters and props that hold the facts | `episodes/why-map/point-roberts/README.md` |
 | 2026-10-06 | **The quality bar is now measured, and v2 is the first video to pass it.** `studio/tools/frozen.py` samples at 10 fps and counts near-still frames: v2 0.40 s per 30 s and a 0.3 s longest hold, against the bar of 1 s and 0.6 s. Emu War 1.44 s, v1 2.10 s, HyperFrames 3.33 s. | The motion kit's measurement was a table in a research note; now it is a tool any agent can run | `studio/tools/frozen.py`, episode README |
 | 2026-10-06 | **Real coastlines for town-scale maps:** `geo.py` gained `coast: "osm"`, which polygonizes OpenStreetMap coastline ways plus the admin_level=2 border relation into land and keeps each piece's Natural Earth country. Cached; ODbL, credited. | Point Roberts is a 6-point blob in Natural Earth 1:10m, so every close map was a lie | `studio/tools/geo.py` |

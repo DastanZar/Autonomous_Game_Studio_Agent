@@ -436,6 +436,54 @@ You can even go beyond Emu war, thats the minimum to hit, not maximum
 - **Delivered:** dashboard review item `point-roberts-v2` (v2 with v1 and C beneath it). The bake-off item it replaces was removed. README with fact table, SRT, thumbnail, package.json.
 - **Not verified:** nobody has listened. Claude can't hear audio; checked only by transcription and levels. The voice is still the free draft (OpenRouter key rotation pending).
 
+_Source: docs/log/2026-09-28-studio-chat.md_
+
+### 🧑 User · 2026-10-06 UTC
+
+dont we have a chennel for posting content like the emu war one?
+george does look like the better voice out of the options
+our engine render looked better than hyperframes
+for the music tracks for the the other 2 niche's - lets use one, see its performance and rotate based on analytical data
+the emu war had a certain fineesee thats lacking form this, these look like amateru drawing cutouts, that looked like well drawn, proper curves, coliurs, animations, something is missing if you can go through and re think harder as to what more we can do, try a bunch of different things of rendering the video, different animations, try your best, search the web look for help from others but try better, give me your 3 best versions of this video and do try something different in the 3, its more about nailing our methodology than a parcticular content piece
+
+#### Claude · record
+
+- **Decisions recorded:**
+  - Kokoro George on all three channels.
+  - Our engine over HyperFrames; the bake-off and the Gemini C2 run are closed.
+  - One music track per niche (`inside` for Gut Gang, `countdown` for Leader Flags), rotated on analytics after 5 uploads each. `audio.py` reads `audio.music.current`; picked by the strategy model, not yet heard.
+  - The voice, music and bake-off review items are closed.
+- **Diagnosis** (Emu War vs v2, frame by frame): v2's gap is art direction, not quantity.
+  - A dozen competing colours, many small boxy 10-line objects.
+  - The Emu War has 4–5 tones, one hero per beat, bézier shapes, 60–100-line characters and designed paper props.
+- **Web research** (Kurzgesagt style, paper-cutout art direction, three.js dioramas): general guidance only. Rounded shapes, a limited and deliberate palette, directional light and shadow so flat layers read as dimensional, joints for characters.
+- **Built three versions** of the same Short (same script, voice, facts and music) in `episodes/why-map/point-roberts/variants/{a,b,c}`:
+  - **A, art-directed paper:**
+    - lit paper pieces (rim light, core shadow, contact shadow) and one PNW palette;
+    - an original recurring character, the local (knit cap, beard, buffalo-check jacket), plus 1850s surveyors;
+    - designed props: census card, passport stamps, rolling odometer, punched bus pass, water agreement, ledger, receipt, chalkboard;
+    - spring and anticipation motion.
+  - **B, 3D paper miniature** (Three.js r159 on SwiftShader inside our engine):
+    - OSM coastline extruded into paper slabs, nested in the Natural Earth continent;
+    - instanced paper trees and houses, low sun with soft shadows, tilt-shift blur;
+    - one continuous camera from street level to the 1846 continent and back;
+    - the 3D world on twos (12 fps) like stop-motion.
+  - **C, kinetic infographic:** night map, glowing lines, a continuous zoom flight (OSM close in, Natural Earth far out), letters rising out of a mask, one-dot-per-person unit charts. No paper.
+- **Engine changes:**
+  - Episode `vendor/*.js` loads before `scenes.js`.
+  - WebGL runs through SwiftShader. The first attempt made all 2D rendering about 50× slower (v2 frames went from about 0.04 s to about 2 s); fixed with `--disable-accelerated-2d-canvas`.
+  - Render workers take 12-frame runs.
+  - A storyboard can set `theme`.
+- **Failures along the way:**
+  - A's local first had his knees at hip height, so he floated; fixed.
+  - `tone()` returned rgb() that couldn't be toned again, which made some trees black; fixed.
+  - C's kinetic type clipped its last letters (letter spacing counted twice); fixed.
+  - B's toy-scale props blocked the close shots; rescaled and relocated, still B's weakness.
+  - B and C endings didn't match their first frame (gas stations left visible, car missing); fixed and the affected frames re-rendered.
+  - `pkill -f` matched my own shell twice; switched to killing by PID.
+- **Write-up:** `docs/research/methodology-3-versions-2026-10.md`. Dashboard review item `point-roberts-3-methods` with A, B, C and v2.
+- **Answer to the channel question:** Border Quirks (why-map) is the Emu War channel. Its "The time a country…" series is exactly that format.
+
 
 ## Review rounds (review.json)
 

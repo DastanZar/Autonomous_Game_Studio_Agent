@@ -78,6 +78,10 @@
    "type": "string",
    "minLength": 20,
    "description": "Why this episode is hand-built (custom scenes may exceed 20% of runtime). Strategy-model use only."
+  },
+  "theme": {
+   "type": "string",
+   "description": "Overrides the bible's look.theme for this episode (e.g. 'data-flags' for a flat, texture-free render)."
   }
  }
 }
