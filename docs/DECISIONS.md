@@ -31,6 +31,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-10-06 | **Bake-off:** the same Point Roberts script and voice, rendered as **A** our current engine, **B** our engine plus the motion kit's grammar and quality bar plus style-catalogue techniques, and **C** HyperFrames built by a cheap agent with its own skills. Compared on frozen time, the critic verdict and the user's eye. **Kokoro vs Piper** voice test in parallel. OpenEdit isn't in the bake-off: it has no motion library, so it would be a weaker version of C. **The style catalogue may be used freely:** the user reports the creator declared it open and free on X. The repo itself has no LICENSE file (checked at commit 2026-09-27); save the creator's post link here when we have it. | Test against the cutting edge by output, not by reading | `episodes/why-map/point-roberts/` |
 | 2026-10-06 | **Tools review:**
 - adopt motion-video-kit's critic loop and measured quality bar;
 - port motion rules from it and HyperFrames into the playbooks and gates;

@@ -1938,3 +1938,19 @@ can you read @Roundtablespace's tweet on 30 sept 2026 at 13:45?
 - Measured frozen time on our 3 videos: all miss the kit's bar.
 - Wrote docs/research/tools-review-2026-10.md and saved both full reports.
 - 6 backlog tasks: critic-loop, quality-bar-gate, motion-grammar, tts-kokoro, audio-ducking-beats, engine-techniques. DECISIONS row added.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+I want to look at the dashboard, and when shall we start publishing content? [...] for the style catalog, the 20 animation styles, we have complete license to use them. The creator had declared it as open use and free to use for everyone on Twitter. [...] do you think that is it different to the way we're building now? Is it better? Or should we [...] generate a couple of videos [...] the way we're doing it right now, and then maybe generate them using [...] open edit and hyperframes and [...] the 20 animation styles and try and see if we can sprinkle in some stuff here and there. Should we maybe try that?
+
+#### Claude · record
+
+- Answered: the kit is the same idea as ours (code-built, deterministic, ffmpeg-measured) aimed at business commercials. Its review discipline is the part we lack.
+- Started the bake-off:
+  - C, HyperFrames, built by a Sonnet worker following HyperFrames' own skills;
+  - the Kokoro vs Piper voice test, by a Sonnet worker;
+  - B, our engine plus the kit and style techniques, to be built by Opus.
+- Recorded the style-catalogue permission, per the user. The repo has no LICENSE file; asked for the creator's post link.
+- Publishing plan given: first upload once the voice is settled.
