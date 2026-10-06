@@ -1986,3 +1986,9 @@ im unabel to preview the audios inside claude or in github, whenever you want me
 - The music .ogg files are converted to 128k mp3 previews in docs/review/music/ so they play on iPhone and Safari.
 - dashboard.py writes `docs/site-media.txt`, and the Pages workflow copies those files into the site.
 - AGENTS.md rule: anything for the user to review goes in the review queue, never chat or GitHub.
+
+#### Claude · record (vault incident, 2026-10-06)
+
+- **What happened:** user commit 18a5b52 added `OPEN_ROUTER_KEY` to studio/vault.enc.json as **plain text** with a missing comma. That broke the JSON (and so the dashboard build), and it is the cause of the GitHub secret-scanning alert.
+- **Fixed:** removed the plain-text entry and repaired the JSON; the value was never printed. The key stays in git history, so it must be rotated.
+- **Follow-up:** added a review-queue action with the steps (revoke, then `vault.py set OPENROUTER_API_KEY`, then upload). The tools expect the name OPENROUTER_API_KEY.

@@ -1,40 +1,109 @@
 {
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
-  {"id": "voice-pick", "status": "open", "kind": "audio",
+  {
+   "id": "openrouter-rotate",
+   "status": "open",
+   "kind": "image",
+   "title": "Action: replace the OpenRouter key (the old one was exposed)",
+   "question": "The key was pasted into the vault file as plain text in a public repo (commit 18a5b52), so treat it as public. 1) openrouter.ai \u2192 Keys \u2192 delete that key, create a new one. 2) On your laptop: $env:STUDIO_VAULT_KEY = \"<vault key>\"; \"<new key>\" | python studio\\tools\\vault.py set OPENROUTER_API_KEY  3) Upload studio\\vault.enc.json to GitHub (studio folder). Never paste a key directly into the file.",
+   "files": []
+  },
+  {
+   "id": "voice-pick",
+   "status": "open",
+   "kind": "audio",
    "title": "Pick the narration voice (free Kokoro voices vs the current stand-in)",
    "question": "Which voice should narrate all three channels until the Fish key is in the vault? Reply with the name.",
    "files": [
-    ["George, British, Kokoro (best on the numbers)", "docs/research/voice-samples/k_bm_george.mp3"],
-    ["Adam, American, Kokoro", "docs/research/voice-samples/k_am_adam.mp3"],
-    ["Michael, American, Kokoro", "docs/research/voice-samples/k_am_michael.mp3"],
-    ["Lewis, British, Kokoro", "docs/research/voice-samples/k_bm_lewis.mp3"],
-    ["Ryan, Piper (current stand-in)", "docs/research/voice-samples/piper_ryan.mp3"]
-   ]},
-  {"id": "bakeoff-ac", "status": "open", "kind": "video",
+    [
+     "George, British, Kokoro (best on the numbers)",
+     "docs/research/voice-samples/k_bm_george.mp3"
+    ],
+    [
+     "Adam, American, Kokoro",
+     "docs/research/voice-samples/k_am_adam.mp3"
+    ],
+    [
+     "Michael, American, Kokoro",
+     "docs/research/voice-samples/k_am_michael.mp3"
+    ],
+    [
+     "Lewis, British, Kokoro",
+     "docs/research/voice-samples/k_bm_lewis.mp3"
+    ],
+    [
+     "Ryan, Piper (current stand-in)",
+     "docs/research/voice-samples/piper_ryan.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "bakeoff-ac",
+   "status": "open",
+   "kind": "video",
    "title": "Bake-off: Point Roberts, our engine (A) vs HyperFrames (C)",
    "question": "Same script, voice and music. Which feels more watchable, and what do you like in each? Version B (our engine plus C's bold scale) comes next.",
    "files": [
-    ["A: our engine", "episodes/why-map/point-roberts/out/point-roberts.mp4"],
-    ["C: HyperFrames", "episodes/why-map/point-roberts/out/bakeoff-hyperframes.mp4"]
-   ]},
-  {"id": "music-body-cast", "status": "open", "kind": "audio",
+    [
+     "A: our engine",
+     "episodes/why-map/point-roberts/out/point-roberts.mp4"
+    ],
+    [
+     "C: HyperFrames",
+     "episodes/why-map/point-roberts/out/bakeoff-hyperframes.mp4"
+    ]
+   ]
+  },
+  {
+   "id": "music-body-cast",
+   "status": "open",
+   "kind": "audio",
    "title": "Approve The Gut Gang music (4 tracks)",
    "question": "Approve or reject each track. Reply e.g. 'approve lab, inside; reject showdown'.",
    "files": [
-    ["lab", "docs/review/music/body-cast-lab.mp3"],
-    ["inside", "docs/review/music/body-cast-inside.mp3"],
-    ["heartbeat", "docs/review/music/body-cast-heartbeat.mp3"],
-    ["showdown", "docs/review/music/body-cast-showdown.mp3"]
-   ]},
-  {"id": "music-ranked", "status": "open", "kind": "audio",
+    [
+     "lab",
+     "docs/review/music/body-cast-lab.mp3"
+    ],
+    [
+     "inside",
+     "docs/review/music/body-cast-inside.mp3"
+    ],
+    [
+     "heartbeat",
+     "docs/review/music/body-cast-heartbeat.mp3"
+    ],
+    [
+     "showdown",
+     "docs/review/music/body-cast-showdown.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "music-ranked",
+   "status": "open",
+   "kind": "audio",
    "title": "Approve LeaderFlags music (4 tracks)",
    "question": "Approve or reject each track.",
    "files": [
-    ["scoreboard", "docs/review/music/ranked-scoreboard.mp3"],
-    ["tally", "docs/review/music/ranked-tally.mp3"],
-    ["countdown", "docs/review/music/ranked-countdown.mp3"],
-    ["finale", "docs/review/music/ranked-finale.mp3"]
-   ]}
+    [
+     "scoreboard",
+     "docs/review/music/ranked-scoreboard.mp3"
+    ],
+    [
+     "tally",
+     "docs/review/music/ranked-tally.mp3"
+    ],
+    [
+     "countdown",
+     "docs/review/music/ranked-countdown.mp3"
+    ],
+    [
+     "finale",
+     "docs/review/music/ranked-finale.mp3"
+    ]
+   ]
+  }
  ]
 }
