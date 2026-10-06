@@ -1881,3 +1881,18 @@ what is this other other chat and other machine excuse, everything is inside thi
   - a Chat logs section on the dashboard;
   - an AGENTS.md rule: push to main, commit media, log every chat, keys in the vault.
 - Tried to reach the earlier MAREA session so it could push its Keys to the Internet master and chat log. It is not reachable from here (no listed agents), so nothing was sent.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+okay let the video go, can we atleast moving forward, have all the information we discussed about each video, just the chat contents, save all that atleast?
+
+#### Claude · record
+
+- Built `studio/tools/notes.py`, which writes a NOTES.md per video folder (3 why-map episodes, Emu War, Keys to the Internet). Each file has:
+  - a hand-written Notes section that is kept across rebuilds;
+  - every chat message mentioning the video, with the user message that prompted it;
+  - the review rounds and trial-report excerpts.
+- The dashboard build regenerates the files, and every Media library card links to "discussion". AGENTS.md has the rule.
+- Limit: chats from other sessions are included only if those sessions wrote to docs/log (now required). The earlier MAREA and Sonnet trial transcripts are not readable from here; what survives of them is in TRIAL-REPORT.md, review.json and what was pasted into this chat.

@@ -120,7 +120,9 @@ def build(root):
              f"<div class=tile><b>{len(all_episodes())}</b><span>episodes in the pipeline</span></div></div>")
 
     # media library: every finished or partial output, playable on the site (files are copied to _site/media/ by the workflow)
-    import glob
+    import glob, sys as _sys
+    _sys.path.insert(0, os.path.join(studio_dir, "tools"))
+    import notes; notes.build_all()   # per-video discussion files, rebuilt from the chat logs
     GH = "https://github.com/DastanZar/Autonomous_Game_Studio_Agent/blob/main/"
     def media_card(folder, title, channel, script_paras):
         out = os.path.join(root, folder, "out")
@@ -136,7 +138,7 @@ def build(root):
         else:
             player = "<p class=sub>No video or thumbnail yet.</p>"
         script = "".join(f"<p>{e(x)}</p>" for x in script_paras) or "<p class=sub>no script file</p>"
-        links = " · ".join([f"<a href='{GH}{folder}'>folder</a>"] + [f"<a href='{rel(x)}'>{e(os.path.basename(x))}</a>" for x in vids + srts])
+        links = " · ".join([f"<a href='{GH}{folder}/NOTES.md'><b>discussion</b></a>", f"<a href='{GH}{folder}'>folder</a>"] + [f"<a href='{rel(x)}'>{e(os.path.basename(x))}</a>" for x in vids + srts])
         return (f"<section class='card media'><h3>{e(title)}</h3><p class=sub>{e(channel)}</p>{player}"
                 f"<details><summary>Script</summary>{script}</details><p class=sub>{links}</p></section>")
     cards = []

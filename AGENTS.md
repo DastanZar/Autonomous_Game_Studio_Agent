@@ -23,6 +23,8 @@ Every session runs on its own temporary machine. Anything not pushed to `main` i
   The dashboard's Media library plays it from there.
 - **Your conversation:** append each turn to `docs/log/<YYYY-MM-DD>-<short-topic>.md`. Write the user's words verbatim
   (secrets removed), then what you did, decided, found or failed at. The dashboard lists every log.
+- **Per-video discussion:** every video folder has a `NOTES.md`. Running `python3 studio/studio.py dashboard` rebuilds it
+  from the chat logs. Write lasting decisions about a video by hand in its **Notes** section; that part is kept.
 - **Keys** go in the vault (below), never only in one machine's settings or files.
 
 ## Keys and secrets (one password, nothing else)
