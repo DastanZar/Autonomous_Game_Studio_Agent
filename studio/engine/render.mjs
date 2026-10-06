@@ -45,10 +45,14 @@ async function openPage(browser) {
   page.on("pageerror", e => errors.push(e.message));
   await page.addInitScript(`window.EP=${JSON.stringify(EP)};`);
   await page.goto("file://" + path.join(HERE, "index.html"));
+  // shared kits named in storyboard.kits (studio/engine/kits/<name>.js); "flight" also needs Three.js (MIT, vendored)
+  const kits = EP.storyboard.kits || [];
+  if (kits.includes("flight")) await page.addScriptTag({ path: path.join(HERE, "vendor", "three.min.js") });
+  for (const k of kits) await page.addScriptTag({ path: path.join(HERE, "kits", k + ".js") });
   const vendor = path.join(EPD, "vendor");                 // third-party libraries an episode needs (e.g. three.min.js), loaded first
   if (fs.existsSync(vendor)) for (const f of fs.readdirSync(vendor).filter(f => f.endsWith(".js")).sort()) await page.addScriptTag({ path: path.join(vendor, f) });
   if (fs.existsSync(customJs)) await page.addScriptTag({ path: customJs });
-  await page.evaluate(async () => { await Promise.all(["98px Anton", "40px Elite", "92px Serif"].map(f => document.fonts.load(f))); });
+  await page.evaluate(async () => { await Promise.all(["98px Anton", "40px Elite", "92px Serif"].map(f => document.fonts.load(f))); await Promise.all(window.PRELOAD || []); });
   if (errors.length) { console.error("ENGINE ERROR:", errors.join("\n")); process.exit(1); }
   await page.evaluate(() => window.render(0));
   return page;
@@ -60,7 +64,7 @@ const grab = (page, t, type) => page.evaluate(([t, type]) => {
 
 // WebGL runs on SwiftShader (CPU), so 3D scenes render the same on any machine
 // (the 2D canvas stays on the CPU rasteriser: through SwiftShader it is ~50x slower)
-const browser = await chromium.launch({ args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--disable-accelerated-2d-canvas"] });
+const browser = await chromium.launch({ args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--disable-accelerated-2d-canvas", "--allow-file-access-from-files"] });
 const first = await openPage(browser);
 fs.mkdirSync(BUILD, { recursive: true });
 const writeReports = async () => {

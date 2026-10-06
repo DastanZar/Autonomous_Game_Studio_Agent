@@ -1,0 +1,270 @@
+{
+ "episode": "pig-war",
+ "kits": [
+  "paper",
+  "kinetic",
+  "flight",
+  "flagart"
+ ],
+ "flags": [
+  "US",
+  "GB"
+ ],
+ "flagship": "House method (user 2026-10-06): A's characters and paper props, B's 3D map flights for the geography beats, C's moving type for the one big number.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "hook/war",
+     "do": "highlight"
+    },
+    {
+     "at": "hook/pig",
+     "do": "reveal",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_treaty",
+   "type": "custom",
+   "start": "treaty.start",
+   "params": {
+    "fn": "treaty",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -128.5,
+     44.5,
+     -114.0,
+     52.5
+    ]
+   },
+   "events": [
+    {
+     "at": "treaty/border",
+     "do": "draw",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_two",
+   "type": "custom",
+   "start": "two.start",
+   "params": {
+    "fn": "two",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -123.35,
+     48.35,
+     -122.65,
+     48.8
+    ],
+    "coast": "osm",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "two/two",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "two/both",
+     "do": "highlight"
+    }
+   ]
+  },
+  {
+   "id": "s_pig",
+   "type": "custom",
+   "start": "pig.start",
+   "params": {
+    "fn": "pig",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "pig/pig",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "pig/shot",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_money",
+   "type": "custom",
+   "start": "money.start",
+   "params": {
+    "fn": "money",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "money/ten",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "money/hundred",
+     "do": "reveal",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_army",
+   "type": "custom",
+   "start": "army.start",
+   "params": {
+    "fn": "army",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "army/arrest",
+     "do": "emphasize",
+     "sfx": "stamp"
+    },
+    {
+     "at": "army/sixtyfour",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_ships",
+   "type": "custom",
+   "start": "ships.start",
+   "params": {
+    "fn": "ships",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "ships/warships",
+     "do": "reveal",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_forces",
+   "type": "custom",
+   "start": "forces.start",
+   "params": {
+    "fn": "forces",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "label": "Wikipedia's summary figure"
+   },
+   "events": [
+    {
+     "at": "forces/four",
+     "do": "count_start",
+     "sfx": "pop"
+    },
+    {
+     "at": "forces/five",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_admiral",
+   "type": "custom",
+   "start": "admiral.start",
+   "params": {
+    "fn": "admiral",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "admiral/refused",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_stay",
+   "type": "custom",
+   "start": "stay.start",
+   "params": {
+    "fn": "stay",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -123.35,
+     48.35,
+     -122.65,
+     48.8
+    ],
+    "coast": "osm"
+   },
+   "events": [
+    {
+     "at": "stay/twelve",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_kaiser",
+   "type": "custom",
+   "start": "kaiser.start",
+   "params": {
+    "fn": "kaiser",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -123.35,
+     48.35,
+     -122.65,
+     48.8
+    ],
+    "coast": "osm"
+   },
+   "events": [
+    {
+     "at": "kaiser/settled",
+     "do": "verdict",
+     "sfx": "stamp"
+    },
+    {
+     "at": "kaiser/america",
+     "do": "highlight",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start",
+   "params": {
+    "fn": "toll",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "toll/one",
+     "do": "reveal",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ]
+}

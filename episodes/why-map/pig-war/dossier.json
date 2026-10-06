@@ -1,0 +1,166 @@
+{
+ "topic": "The Pig War (1859): the US and Britain nearly went to war over a pig",
+ "sources": [
+  {
+   "id": "nps",
+   "title": "The Pig War",
+   "publisher": "U.S. National Park Service, San Juan Island National Historical Park",
+   "url": "https://www.nps.gov/sajh/learn/historyculture/the-pig-war.htm",
+   "type": "official",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "wiki",
+   "title": "Pig War (1859)",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Pig_War_(1859)",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_treaty",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "The June 1846 Treaty of Oregon set the boundary on the 49th parallel to 'the middle of the channel which separates the continent from Vancouver's Island', then south through the channel.",
+   "quote": "In June 1846, the Treaty of Oregon was signed in Washington, D.C., setting the boundary on the 49"
+  },
+  {
+   "id": "c_channels",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "The 'channel' was actually two channels, Haro Strait and Rosario Strait, with the San Juan Islands between them; both sides claimed the islands.",
+   "quote": "The \"channel\" described in the treaty was actually two channels: the Haro Strait , nearest Vancouver Island, and the Rosario Strait , nearer the mainland. The San Juan Islands lay between, and both sides claimed the entire island group."
+  },
+  {
+   "id": "c_shot",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "On June 15, 1859, American Lyman Cutlar shot and killed a Hudson's Bay Company pig rooting in his garden.",
+   "quote": "The crisis came on June 15, 1859, when Lyman Cutlar , an American, shot and killed a company pig rooting in his garden."
+  },
+  {
+   "id": "c_money",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "Cutlar offered $10 for the pig; its owner, Charles Griffin, demanded $100.",
+   "quote": "Cutlar offered $10 ( equivalent to $360 in 2025 ) to Griffin to compensate for the pig, but Griffin was unsatisfied with this offer and demanded $100"
+  },
+  {
+   "id": "c_arrest",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "When British authorities threatened to arrest Cutlar and evict Americans, settlers sought US military protection; Capt. George Pickett's 64-man unit landed on July 27.",
+   "quote": "When British authorities threatened to arrest Cutlar and evict all Americans from the island as trespassers, a delegation sought military protection"
+  },
+  {
+   "id": "c_pickett",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "Pickett's 64-man unit landed on July 27.",
+   "quote": "Pickett's 64-man unit landed on July 27"
+  },
+  {
+   "id": "c_warships",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "Britain sent the 31-gun frigate HMS Tribune, soon joined by two more warships.",
+   "quote": "He ordered Captain Geoffrey Phipps Hornby, RN, commanding the 31-gun steam frigate HMS Tribune , to dislodge Pickett, but to avoid an armed clash if possible. Hornby was soon joined by two more warships"
+  },
+  {
+   "id": "c_forces",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "By August 31, 461 Americans were encamped on the island, protected by 14 field cannons.",
+   "quote": "By August 31, 461 Americans were encamped in the woods just north of Belle Vue Sheep Farm, protected by 14 field cannons."
+  },
+  {
+   "id": "c_british",
+   "key": false,
+   "status": "estimate",
+   "sources": [
+    "wiki"
+   ],
+   "text": "British strength is summarised as 2,140 combatants and 5 warships mounting 70 cannons.",
+   "quote": "2,140 combatants; 5 warships mounting 70 cannons",
+   "label": "Wikipedia's summary figure"
+  },
+  {
+   "id": "c_baynes",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "Rear Admiral Baynes advised that he would not 'involve two great nations in a war over a squabble about a pig.'",
+   "quote": "he would not \"involve two great nations in a war over a squabble about a pig.\""
+  },
+  {
+   "id": "c_occupation",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "San Juan Island remained under joint military occupation for the next 12 years.",
+   "quote": "San Juan Island remained under joint military occupation for the next 12 years."
+  },
+  {
+   "id": "c_kaiser",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "In 1871 the question went to Kaiser Wilhelm I; on October 21, 1872 the commission, through the kaiser, ruled for the United States, with the boundary through Haro Strait.",
+   "quote": "On October 21, 1872, the commission, through the kaiser, ruled in favor of the United States, establishing the boundary line through Haro Strait."
+  },
+  {
+   "id": "c_casualty",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nps"
+   ],
+   "text": "The only casualty of the 'war' was a pig.",
+   "quote": "the \"war\" in which the only casualty was a pig"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Cutlar told Griffin 'It was eating my potatoes' and Griffin replied about keeping potatoes out of his pig.",
+   "truth": "Wikipedia calls this exchange likely apocryphal; it is not used.",
+   "sources": [
+    "wiki"
+   ]
+  }
+ ],
+ "open_questions": [
+  "British force totals vary by date and source; the British total is shown with its label."
+ ]
+}

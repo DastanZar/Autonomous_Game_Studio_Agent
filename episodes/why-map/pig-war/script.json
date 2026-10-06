@@ -1,0 +1,335 @@
+{
+ "channel": "why-map",
+ "episode": "pig-war",
+ "series": "the_time",
+ "working_title": "America and Britain nearly went to war over a pig",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "In eighteen fifty-nine, America and Britain nearly went to war. Over a pig.",
+   "kind": "hook",
+   "claims": [
+    "c_shot",
+    "c_casualty"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "IN 1859,",
+     3
+    ],
+    [
+     "AMERICA AND BRITAIN",
+     3
+    ],
+    [
+     "NEARLY WENT TO WAR.",
+     4
+    ],
+    [
+     "OVER A PIG.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "treaty",
+   "say": "Their eighteen forty-six treaty put the border down the middle of the channel.",
+   "kind": "fact",
+   "claims": [
+    "c_treaty"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THEIR 1846 TREATY",
+     4
+    ],
+    [
+     "PUT THE BORDER",
+     3
+    ],
+    [
+     "DOWN THE MIDDLE",
+     3
+    ],
+    [
+     "OF THE CHANNEL.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "two",
+   "say": "There were two channels. Both countries claimed the islands in between.",
+   "kind": "joke",
+   "claims": [
+    "c_channels"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "THERE WERE",
+     2
+    ],
+    [
+     "TWO CHANNELS.",
+     2
+    ],
+    [
+     "BOTH COUNTRIES CLAIMED",
+     3
+    ],
+    [
+     "THE ISLANDS IN BETWEEN.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "pig",
+   "say": "On San Juan Island, an American farmer found a British company's pig in his garden. He shot it.",
+   "kind": "fact",
+   "claims": [
+    "c_shot"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "ON SAN JUAN ISLAND,",
+     4
+    ],
+    [
+     "AN AMERICAN FARMER",
+     3
+    ],
+    [
+     "FOUND A BRITISH",
+     3
+    ],
+    [
+     "COMPANY'S PIG",
+     2
+    ],
+    [
+     "IN HIS GARDEN.",
+     3
+    ],
+    [
+     "HE SHOT IT.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "money",
+   "say": "He offered ten dollars. The owner wanted a hundred dollars.",
+   "kind": "joke",
+   "claims": [
+    "c_money"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "HE OFFERED $10.",
+     4
+    ],
+    [
+     "THE OWNER",
+     2
+    ],
+    [
+     "WANTED $100.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "army",
+   "say": "Britain threatened to arrest him. So the US Army landed sixty-four soldiers.",
+   "kind": "fact",
+   "claims": [
+    "c_arrest",
+    "c_pickett"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BRITAIN THREATENED",
+     2
+    ],
+    [
+     "TO ARREST HIM.",
+     3
+    ],
+    [
+     "SO THE US ARMY",
+     4
+    ],
+    [
+     "LANDED 64 SOLDIERS.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "ships",
+   "say": "Britain sent warships.",
+   "kind": "fact",
+   "claims": [
+    "c_warships"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BRITAIN SENT",
+     2
+    ],
+    [
+     "WARSHIPS.",
+     1
+    ]
+   ]
+  },
+  {
+   "id": "forces",
+   "say": "Within weeks, four hundred sixty-one Americans faced five British warships.",
+   "kind": "fact",
+   "claims": [
+    "c_forces",
+    "c_british"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "WITHIN WEEKS,",
+     2
+    ],
+    [
+     "461 AMERICANS",
+     4
+    ],
+    [
+     "FACED FIVE",
+     2
+    ],
+    [
+     "BRITISH WARSHIPS.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "admiral",
+   "say": "Then the British admiral refused to start a war over a squabble about a pig.",
+   "kind": "quote",
+   "claims": [
+    "c_baynes"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "THEN THE BRITISH ADMIRAL",
+     4
+    ],
+    [
+     "REFUSED TO START A WAR",
+     5
+    ],
+    [
+     "OVER A SQUABBLE",
+     3
+    ],
+    [
+     "ABOUT A PIG.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "stay",
+   "say": "So both armies just stayed. For twelve years.",
+   "kind": "fact",
+   "claims": [
+    "c_occupation"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "SO BOTH ARMIES",
+     3
+    ],
+    [
+     "JUST STAYED.",
+     2
+    ],
+    [
+     "FOR 12 YEARS.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "kaiser",
+   "say": "In eighteen seventy-two, the German Kaiser settled it. America got the islands.",
+   "kind": "fact",
+   "claims": [
+    "c_kaiser"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 1872,",
+     3
+    ],
+    [
+     "THE GERMAN KAISER",
+     3
+    ],
+    [
+     "SETTLED IT.",
+     2
+    ],
+    [
+     "AMERICA GOT",
+     2
+    ],
+    [
+     "THE ISLANDS.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "Total casualties of the war: one pig.",
+   "kind": "callback",
+   "claims": [
+    "c_casualty"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "TOTAL CASUALTIES",
+     2
+    ],
+    [
+     "OF THE WAR:",
+     3
+    ],
+    [
+     "ONE PIG.",
+     2
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on the pig the hook named; the last frame is the empty garden the first frame shows the pig in."
+ }
+}

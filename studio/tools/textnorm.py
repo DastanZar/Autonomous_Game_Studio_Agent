@@ -38,12 +38,17 @@ def ordinal(n):
 def words(s):
     """Lowercase words, digits spelled out, hyphens split, punctuation and 'and' removed."""
     s = s.lower().replace("%", " percent")
+    s = re.sub(r"\$\s?(\d[\d,]*(?:\.\d+)?)\s*(million|billion|trillion)?", lambda m: " " + m.group(1) + " " + (m.group(2) + " " if m.group(2) else "") + "dollars ", s)   # '$10' -> '10 dollars' 
     s = re.sub(r"(?<=\d)(?: ?, ?|[ .\u00a0\u202f])(?=\d{3}\b)", ",", s)    # Whisper word tokens '5, 000' / '5.000' -> '5,000'
     s = re.sub(r"\b(\d+)(?:st|nd|rd|th)\b", lambda m: ordinal(int(m.group(1))), s)   # '49th' -> 'forty ninth'
     out, prev = [], ""
-    for tok in re.findall(r"[a-z']+|\d[\d,]*", s):
+    for tok in re.findall(r"[a-z']+|\d[\d,]*(?:\.\d+)?", s):
         if tok[0].isdigit():
             tok = tok.rstrip(",")
+            if "." in tok:                                   # 7.2 -> seven point two
+                whole, dec = tok.split(".")
+                out += spell(int(whole.replace(",", "") or 0)).split() + ["point"] + [ONES[int(ch)] for ch in dec]
+                prev = tok; continue
             n = int(tok.replace(",", ""))
             yearish = "," not in tok and 1100 <= n <= 2099
             hundreds = 1100 <= n < 10000 and n % 100 == 0 and n % 1000   # 1,200 is said 'twelve hundred'

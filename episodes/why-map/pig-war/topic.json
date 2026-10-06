@@ -1,0 +1,27 @@
+{
+ "slug": "pig-war",
+ "channel": "why-map",
+ "series": "the_time",
+ "hook": "In 1859, America and Britain almost went to war over a pig.",
+ "twist": "The same 1846 treaty that stranded Point Roberts also said the border ran down 'the middle of the channel', but there were two channels. A farmer shot a Hudson's Bay Company pig, the US Army landed, Britain sent warships, and the standoff ended 12 years later with a German Kaiser's ruling. The only casualty was the pig.",
+ "angle": "A sequel to Point Roberts: same treaty, same border, a funnier disaster. Character comedy (farmer, pig, soldiers, a refusing admiral) on a real 3D map of the two channels.",
+ "why_now": "Evergreen; the scout found it among the strongest history-comedy topics (top Short 14.5M, median of top 25 0.85M since mid-2024).",
+ "candidate_sources": [
+  "https://www.nps.gov/sajh/learn/historyculture/the-pig-war.htm",
+  "https://en.wikipedia.org/wiki/Pig_War_(1859)"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 2,
+  "series_fit": 5
+ },
+ "risks": [
+  "The 'potatoes' exchange is described by Wikipedia as likely apocryphal: do not use it.",
+  "Force sizes differ by date; quote NPS for the 461 Americans (Aug 31) and label the British total as Wikipedia's summary figure."
+ ],
+ "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
+ "approved_at": "2026-10-06"
+}

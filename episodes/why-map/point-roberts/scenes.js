@@ -1,1084 +1,1113 @@
-// Point Roberts v2: a bespoke paper diorama. Loaded after the engine (core.js, props.js, scenes/*.js), so it
-// uses the engine's helpers (cut, smooth, stroke2, text, tag, stamp, rnd, prog, eout, back, cue, P, W, H...).
-// Every frame is a pure function of t. Every map shape comes from build/geo.json (Natural Earth + OSM coastline).
+// Point Roberts, version A: ART-DIRECTED PAPER.
+// Method (the Emu War's craft, made explicit):
+//   1. one palette for the whole film, 4-5 tones per beat, one accent (red = the border / Canada);
+//   2. one hero per beat at 50-80% of the frame, everything else quieter (aerial perspective);
+//   3. every asset is an illustration: bezier silhouettes, a light from the top-left (rim light + core shadow
+//      on every paper piece), contact shadows, anatomy for characters;
+//   4. a recurring character (an original Point Roberts local) carries the story;
+//   5. data lives on designed paper props (census card, passport, water bill, receipt), like the telegram;
+//   6. animation principles: anticipation, overshoot, follow-through, secondary motion, a moving camera.
 "use strict";
 window.CUSTOM = window.CUSTOM || {};
 const CU = window.CUSTOM;
-const at = c => cue(c);                                   // "para/word#n" -> seconds
-const sinceAt = (t, c) => t - cue(c);
-const pp = (t, a, d) => clamp((t - a) / d);               // progress over d seconds from a
+const at = c => cue(c);
+const pp = (t, a, d) => clamp((t - a) / d);
 const ease2 = k => k * k * (3 - 2 * k);
+const spring = (k, f = 4.5, d = 5) => k <= 0 ? 0 : k >= 1 ? 1 : 1 - Math.exp(-d * k) * Math.cos(f * Math.PI * k);   // overshoot then settle
 
-// ---------- palette for this world ----------
-const C = {
-  sky: "#f3e3c3", sky2: "#e9cf9f", sun: "#f4cf6b", cloud: "#fbf3e2",
-  mtn: "#8fa3a6", mtn2: "#7a9093", snow: "#f4efe4", sea: "#a9c7c2", sea2: "#95b7b2",
-  grass: "#9fb36c", grass2: "#86a05a", soil: "#b98d5c", soil2: "#9c7246", road: "#6b665e", road2: "#59544d",
-  pine: "#4f7350", pine2: "#3f5f41", wood: "#8a5a3a", wood2: "#744a2f", wood3: "#a06b45",
-  us: "#e08a3c", ca: "#ecd9ae", caR: "#d52b1e", usR: "#b8322a", usB: "#2f3f6e", white: "#fff8ea",
-  parch: "#ead7ab", parch2: "#dcc290", brick: "#b5674a", steel: "#7b7d7a",
+// ---------- the palette (Pacific Northwest, autumn) ----------
+const A = {
+  ink: "#2b2320", paper: "#efe4cc", cream: "#f7efdf",
+  sky: "#ecdcbd", sky2: "#e2c79c", sun: "#f1c35c",
+  mtnFar: "#a9b3ad", mtnMid: "#8a9a97", snow: "#f3ede0",
+  sea: "#93b4ae", sea2: "#7fa29c", seaHi: "#c4d9d2",
+  land: "#d9c08f", land2: "#c9aa75", moss: "#7d8a52", moss2: "#65733f", pine: "#4f6142", pine2: "#3e4f35",
+  road: "#6e6a61", road2: "#5b574f", wood: "#8a6142", wood2: "#6f4c33",
+  red: "#b8432c", red2: "#93321f", us: "#d98a3d", navy: "#2f3f5c", mustard: "#d9a441",
+  sage: "#6f8f86", sage2: "#58766e", denim: "#4a5a70", skin: "#e6c09a", skin2: "#cfa47c", beard: "#6b4a32",
+};
+const tone = (hex, k) => {        // lighten (k>0) or darken (k<0); always returns #rrggbb so tones can be toned again
+  const n = parseInt(hex.slice(1), 16), f = v => Math.round(clamp(k < 0 ? v * (1 + k) : v + (255 - v) * k, 0, 255));
+  return "#" + [n >> 16, (n >> 8) & 255, n & 255].map(v => f(v).toString(16).padStart(2, "0")).join("");
 };
 
-// ---------- flags (typeset in code; waving = drawn in vertical slices) ----------
-const FLAGIMG = {};
+// ---------- the lit paper piece: fill, rim light (top-left), core shadow (bottom-right), ink ----------
+function piece(path, col, o = {}) {
+  ctx.save();
+  if (o.alpha != null) ctx.globalAlpha *= o.alpha;
+  if (o.shadow !== false) { ctx.shadowColor = o.sc || "rgba(40,25,12,0.30)"; ctx.shadowOffsetX = o.sx ?? 5; ctx.shadowOffsetY = o.sy ?? 8; ctx.shadowBlur = o.sb ?? 7; }
+  ctx.beginPath(); path(); ctx.fillStyle = col; ctx.fill(o.rule || "nonzero");
+  ctx.shadowColor = "transparent";
+  if (o.light !== false) {
+    const w = o.rim ?? 7;
+    ctx.save(); ctx.beginPath(); path(); ctx.clip(o.rule || "nonzero");
+    ctx.lineJoin = "round";
+    ctx.save(); ctx.translate(w * 0.5, w * 0.6); ctx.beginPath(); path(); ctx.strokeStyle = tone(col, 0.22); ctx.lineWidth = w; ctx.stroke(); ctx.restore();
+    ctx.save(); ctx.translate(-w * 0.6, -w * 0.8); ctx.beginPath(); path(); ctx.strokeStyle = tone(col, -0.16); ctx.lineWidth = w * 1.6; ctx.stroke(); ctx.restore();
+    ctx.restore();
+  }
+  if (o.lw !== 0) { ctx.beginPath(); path(); ctx.lineWidth = o.lw ?? 4; ctx.strokeStyle = o.ink || A.ink; ctx.lineJoin = "round"; ctx.lineCap = "round"; ctx.stroke(); }
+  ctx.restore();
+}
+const footShadow = (x, y, w, a = 0.22) => { ctx.save(); ctx.fillStyle = `rgba(40,25,12,${a})`; ctx.beginPath(); ctx.ellipse(x, y, w, w * 0.16, 0, 0, 7); ctx.fill(); ctx.restore(); };
+function blob(cx, cy, rx, ry, n, seed, jag = 0.08) { const pts = []; for (let i = 0; i < n; i++) { const a = i / n * 6.283; const r = 1 + (rnd(seed, i) - 0.5) * jag * 2; pts.push([cx + Math.cos(a) * rx * r, cy + Math.sin(a) * ry * r]); } return () => smooth(pts); }
+
+// ---------- flags (typeset in code), waving in slices ----------
+const FIMG = {};
 function mapleLeaf(g, cx, cy, s) {
   const L = [[0,-1],[.12,-.78],[.3,-.86],[.22,-.42],[.46,-.64],[.54,-.5],[.78,-.58],[.68,-.32],[.84,-.24],[.48,.04],[.55,.18],[.08,.12],[.07,.55],[-.07,.55],[-.08,.12],[-.55,.18],[-.48,.04],[-.84,-.24],[-.68,-.32],[-.78,-.58],[-.54,-.5],[-.46,-.64],[-.22,-.42],[-.3,-.86],[-.12,-.78]];
   g.beginPath(); L.forEach(([x, y], i) => i ? g.lineTo(cx + x * s, cy + y * s) : g.moveTo(cx + x * s, cy + y * s)); g.closePath();
 }
-function flagImage(kind) {
-  if (FLAGIMG[kind]) return FLAGIMG[kind];
-  const c = document.createElement("canvas"), w = 380, h = 200; c.width = w; c.height = h;
-  const g = c.getContext("2d");
+function flagImg(kind) {
+  if (FIMG[kind]) return FIMG[kind];
+  const c = document.createElement("canvas"), w = 380, h = 200; c.width = w; c.height = h; const g = c.getContext("2d");
   if (kind === "US") {
-    for (let i = 0; i < 13; i++) { g.fillStyle = i % 2 ? C.white : C.usR; g.fillRect(0, i * h / 13, w, h / 13 + 1); }
-    g.fillStyle = C.usB; g.fillRect(0, 0, w * 0.4, h * 7 / 13);
-    g.fillStyle = C.white;
+    for (let i = 0; i < 13; i++) { g.fillStyle = i % 2 ? A.cream : A.red; g.fillRect(0, i * h / 13, w, h / 13 + 1); }
+    g.fillStyle = A.navy; g.fillRect(0, 0, w * 0.4, h * 7 / 13); g.fillStyle = A.cream;
     for (let r = 0; r < 9; r++) for (let k = 0; k < (r % 2 ? 5 : 6); k++) { g.beginPath(); g.arc(12 + k * 25 + (r % 2 ? 12 : 0), 9 + r * 11.5, 3.4, 0, 7); g.fill(); }
   } else {
-    g.fillStyle = C.caR; g.fillRect(0, 0, w, h); g.fillStyle = C.white; g.fillRect(w / 4, 0, w / 2, h);
-    g.fillStyle = C.caR; mapleLeaf(g, w / 2, h * 0.52, h * 0.4); g.fill();
-    g.fillRect(w / 2 - 4, h * 0.6, 8, h * 0.2);
+    g.fillStyle = A.red; g.fillRect(0, 0, w, h); g.fillStyle = A.cream; g.fillRect(w / 4, 0, w / 2, h);
+    g.fillStyle = A.red; mapleLeaf(g, w / 2, h * 0.52, h * 0.4); g.fill(); g.fillRect(w / 2 - 4, h * 0.6, 8, h * 0.2);
   }
-  return (FLAGIMG[kind] = c);
+  return (FIMG[kind] = c);
 }
-// a waving flag whose hoist is at (x, y); w wide; amp in px
-function wavyFlag(kind, x, y, w, o = {}) {
-  const img = flagImage(kind), h = w * img.height / img.width, N = 24, amp = o.amp ?? w * 0.05, ph = o.ph || 0;
-  ctx.save();
-  ctx.shadowColor = "rgba(45,28,16,0.3)"; ctx.shadowOffsetX = 4; ctx.shadowOffsetY = 6; ctx.shadowBlur = 5;
-  for (let i = 0; i < N; i++) {
-    const u = i / N, dy = Math.sin(u * 5 - T * 6 + ph) * amp * u;
-    const shade = 0.88 + 0.12 * Math.cos(u * 5 - T * 6 + ph);
-    ctx.drawImage(img, img.width * u, 0, img.width / N + 1, img.height, x + w * u, y + dy, w / N + 1, h);
-    if (i === 0) ctx.shadowColor = "transparent";
-    if (shade < 1) { ctx.fillStyle = `rgba(30,20,10,${(1 - shade) * 0.6})`; ctx.fillRect(x + w * u, y + dy, w / N + 1, h); }
-  }
-  ctx.restore();
-  ctx.save(); ctx.strokeStyle = P.ink; ctx.lineWidth = 3; ctx.lineJoin = "round";
-  ctx.beginPath();
-  for (let i = 0; i <= N; i++) { const u = i / N; ctx.lineTo(x + w * u, y + Math.sin(u * 5 - T * 6 + ph) * amp * u); }
-  for (let i = N; i >= 0; i--) { const u = i / N; ctx.lineTo(x + w * u, y + h + Math.sin(u * 5 - T * 6 + ph) * amp * u); }
-  ctx.closePath(); ctx.stroke(); ctx.restore();
+function flag(kind, x, y, w, ph = 0, amp) {
+  const img = flagImg(kind), h = w * img.height / img.width, N = 26; amp = amp ?? w * 0.06;
+  const dy = u => Math.sin(u * 5.5 - T * 5.5 + ph) * amp * u;
+  ctx.save(); ctx.shadowColor = "rgba(40,25,12,0.28)"; ctx.shadowOffsetX = 5; ctx.shadowOffsetY = 7; ctx.shadowBlur = 6;
+  ctx.beginPath(); for (let i = 0; i <= N; i++) ctx.lineTo(x + w * i / N, y + dy(i / N)); for (let i = N; i >= 0; i--) ctx.lineTo(x + w * i / N, y + h + dy(i / N)); ctx.closePath(); ctx.fillStyle = "#000"; ctx.fill(); ctx.restore();
+  for (let i = 0; i < N; i++) { const u = i / N; ctx.drawImage(img, img.width * u, 0, img.width / N + 1, img.height, x + w * u, y + dy(u), w / N + 1, h); const l = Math.cos(u * 5.5 - T * 5.5 + ph); ctx.fillStyle = l > 0 ? `rgba(255,250,235,${l * 0.18})` : `rgba(30,20,10,${-l * 0.22})`; ctx.fillRect(x + w * u, y + dy(u), w / N + 1, h); }
+  ctx.save(); ctx.strokeStyle = A.ink; ctx.lineWidth = 3; ctx.lineJoin = "round"; ctx.beginPath(); for (let i = 0; i <= N; i++) ctx.lineTo(x + w * i / N, y + dy(i / N)); for (let i = N; i >= 0; i--) ctx.lineTo(x + w * i / N, y + h + dy(i / N)); ctx.closePath(); ctx.stroke(); ctx.restore();
 }
-function flagpole(kind, x, gy, hgt, w, o = {}) {
-  cut(() => ctx.rect(x - 5, gy - hgt, 10, hgt), "#d9d4c8", { lw: 3 });
-  cut(() => ctx.arc(x, gy - hgt - 6, 9, 0, 7), P.yellow, { lw: 3 });
-  if ((o.k ?? 1) > 0) { ctx.save(); ctx.translate(x + 4, gy - hgt + 4); ctx.scale(o.k ?? 1, o.k ?? 1); wavyFlag(kind, 0, 0, w, o); ctx.restore(); }
-}
-function flatFlag(kind, x, y, w) {   // small, unwaving (stickers, map pins)
-  const img = flagImage(kind), h = w * img.height / img.width;
-  ctx.drawImage(img, x, y, w, h); ctx.strokeStyle = P.ink; ctx.lineWidth = 2; ctx.strokeRect(x, y, w, h);
+function pole(kind, x, gy, h, w, ph) {
+  piece(() => ctx.roundRect(x - 6, gy - h, 12, h, 4), "#d8d1c2", { lw: 3, rim: 4 });
+  piece(() => ctx.arc(x, gy - h - 7, 10, 0, 7), A.mustard, { lw: 3, rim: 4 });
+  flag(kind, x + 5, gy - h + 4, w, ph);
 }
 
-// ---------- side-view world ----------
-const GY = 1110;                                          // ground line of the side-view diorama
-function skyBG(o = {}) {
-  const g = ctx.createLinearGradient(0, 0, 0, GY);
-  g.addColorStop(0, o.top || C.sky2); g.addColorStop(1, o.bot || C.sky);
+// ---------- the world (side view): layered, with aerial perspective ----------
+const GY = 1120;
+function sky(o = {}) {
+  const g = ctx.createLinearGradient(0, 0, 0, GY); g.addColorStop(0, o.top || A.sky2); g.addColorStop(1, o.bot || A.sky);
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  const sx = o.sunX ?? 830, sy = o.sunY ?? 430;
+  const sx = o.sunX ?? 820, sy = o.sunY ?? 430;
   if (o.sun !== false) {
-    withAlpha(0.35, () => cut(() => ctx.arc(sx, sy, 150, 0, 7), "#f7dc90", { lw: 0, shadow: false }));
-    cut(() => ctx.arc(sx, sy, 92, 0, 7), C.sun, { lw: 4, sx: 4, sy: 5 });
+    const rg = ctx.createRadialGradient(sx, sy, 60, sx, sy, 300); rg.addColorStop(0, "rgba(250,225,150,0.55)"); rg.addColorStop(1, "rgba(250,225,150,0)");
+    ctx.fillStyle = rg; ctx.fillRect(0, 0, W, H);
+    piece(() => ctx.arc(sx, sy, 88, 0, 7), A.sun, { lw: 4, rim: 10 });
   }
-  for (let i = 0; i < 5; i++) {                           // clouds drift slowly
-    const span = W + 500, cx = ((rnd(i, 61) * span + T * (14 + 10 * rnd(i, 62)) + (o.scroll || 0) * 0.05) % span) - 250;
-    cloud(cx, 260 + rnd(i, 63) * 330, 0.7 + rnd(i, 64) * 0.6, i);
+  for (let i = 0; i < 4; i++) {
+    const span = W + 600, cx = ((rnd(i, 61) * span + T * (10 + 8 * rnd(i, 62)) - (o.scroll || 0) * 0.04) % span + span) % span - 300, cy = 250 + rnd(i, 63) * 300, s = 0.7 + rnd(i, 64) * 0.5;
+    piece(blob(cx, cy, 150 * s, 44 * s, 16, i, 0.12), A.cream, { lw: 3, rim: 6, sx: 3, sy: 6, alpha: 0.95 });
   }
 }
-function cloud(x, y, s, id) {
-  const pts = [];
-  for (let j = 0; j < 14; j++) { const a = j / 14 * 6.283, r = (j % 2 ? 0.78 : 1) * (60 + rnd(id, j, 5) * 22); pts.push([x + Math.cos(a) * r * 1.9 * s, y + Math.sin(a) * r * 0.62 * s]); }
-  cut(() => smooth(pts), C.cloud, { lw: 3, sx: 3, sy: 5, sb: 6 });
+function ridge(base, amp, col, par, seed, scroll, snow) {
+  const off = scroll * par, pts = [];
+  for (let x = -80; x <= W + 80; x += 24) { const u = (x + off) / 300; const k = Math.floor(u), f = u - k; const h = lerp(rnd(k, seed), rnd(k + 1, seed), ease2(f)); pts.push([x, base - amp * (0.35 + 0.65 * h) * (0.85 + 0.15 * Math.sin(u * 7 + seed))]); }
+  const path = () => { ctx.moveTo(-80, GY + 40); pts.forEach(p => ctx.lineTo(...p)); ctx.lineTo(W + 80, GY + 40); ctx.closePath(); };
+  piece(path, col, { lw: 3.5, rim: 8, shadow: false });
+  if (snow) { ctx.save(); ctx.beginPath(); path(); ctx.clip(); ctx.fillStyle = A.snow; ctx.beginPath(); ctx.moveTo(-80, base - amp * 0.72); for (let x = -80; x <= W + 80; x += 24) ctx.lineTo(x, base - amp * (0.72 + 0.06 * Math.sin(x * 0.05 + seed))); ctx.lineTo(W + 80, -10); ctx.lineTo(-80, -10); ctx.closePath(); ctx.fill(); ctx.restore(); }
 }
-// North Shore-style mountains across the bay, then the water
-function mountains(scroll = 0, o = {}) {
-  const ridge = (base, amp, col, par, seed, snow) => {
-    const off = scroll * par;
-    const pts = [];
-    for (let x = -60; x <= W + 60; x += 30) {
-      const u = (x + off) / 260, k = Math.floor(u), f = u - k;
-      const a = rnd(k, seed), b = rnd(k + 1, seed);
-      const pk = lerp(a, b, ease2(f)) * 0.7 + 0.3 * Math.abs(Math.sin(u * 2.3 + seed));
-      pts.push([x, base - amp * pk]);
+function haze(y0, y1, a = 0.35) { const g = ctx.createLinearGradient(0, y0, 0, y1); g.addColorStop(0, `rgba(236,220,189,${a})`); g.addColorStop(1, "rgba(236,220,189,0)"); ctx.fillStyle = g; ctx.fillRect(0, y0, W, y1 - y0); }
+function water(y0, y1, scroll = 0) {
+  piece(() => ctx.rect(-20, y0, W + 40, y1 - y0), A.sea, { lw: 3.5, rim: 8, shadow: false });
+  ctx.save(); ctx.strokeStyle = "rgba(255,250,235,0.55)"; ctx.lineWidth = 3; ctx.lineCap = "round";
+  for (let i = 0; i < 26; i++) { const x = ((rnd(i, 71) * (W + 200) - scroll * 0.25 + T * 18) % (W + 200) + W + 200) % (W + 200) - 100, y = y0 + 12 + rnd(i, 72) * (y1 - y0 - 24), l = 14 + rnd(i, 73) * 26, a = 0.5 + 0.5 * Math.sin(T * 2 + i); ctx.globalAlpha = a; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + l, y); ctx.stroke(); }
+  ctx.restore();
+}
+function pine(x, gy, s, id, col = A.pine, far = 1) {
+  ctx.save(); ctx.translate(x, gy); ctx.scale(s, s); ctx.rotate(Math.sin(T * 1.2 + id) * 0.012);
+  piece(() => ctx.roundRect(-8, -36, 16, 40, 3), A.wood2, { lw: 3, rim: 3, sx: 3, sy: 4 });
+  const tiers = [[78, -30, -120], [62, -86, -170], [44, -138, -214], [28, -184, -250]];
+  tiers.forEach(([w, y, top], i) => piece(() => { ctx.moveTo(-w, y); ctx.quadraticCurveTo(-w * 0.45, y - 10, -w * 0.2, (y + top) / 2 + 4); ctx.lineTo(0, top); ctx.lineTo(w * 0.2, (y + top) / 2 + 4); ctx.quadraticCurveTo(w * 0.45, y - 10, w, y); ctx.quadraticCurveTo(0, y + 12, -w, y); ctx.closePath(); }, i % 2 ? tone(col, -0.1) : col, { lw: 3.5 * far, rim: 6, sx: 3 * far, sy: 5 * far, ink: far < 1 ? "#4a4436" : A.ink }));
+  ctx.restore();
+}
+function grass(y0, y1, scroll, col = A.moss) {
+  piece(() => { ctx.moveTo(-20, H + 20); ctx.lineTo(-20, y0); for (let x = 0; x <= W + 40; x += 40) ctx.lineTo(x, y0 + Math.sin((x + scroll) * 0.009) * 8); ctx.lineTo(W + 20, H + 20); ctx.closePath(); }, col, { lw: 4.5, rim: 10, shadow: false });
+  ctx.fillStyle = tone(col, -0.18);
+  for (let i = 0; i < 90; i++) { const span = W + 100, x = ((rnd(i, 81) * span - scroll * (1 + rnd(i, 84) * 0.5)) % span + span) % span - 50, y = y0 + 30 + rnd(i, 82) * (y1 - y0 - 30), s = 0.6 + rnd(i, 83) * 0.8;
+    ctx.beginPath(); ctx.moveTo(x - 9 * s, y); ctx.quadraticCurveTo(x - 6 * s, y - 14 * s, x - 3 * s, y - 20 * s); ctx.quadraticCurveTo(x - 1 * s, y - 8 * s, x, y - 3 * s); ctx.quadraticCurveTo(x + 3 * s, y - 16 * s, x + 7 * s, y - 22 * s); ctx.quadraticCurveTo(x + 6 * s, y - 8 * s, x + 9 * s, y); ctx.closePath(); ctx.fill(); }
+}
+function road(y0, y1, scroll = 0) {
+  piece(() => ctx.rect(-20, y0, W + 40, y1 - y0), A.road, { lw: 4, rim: 6, sx: 0, sy: 5 });
+  ctx.fillStyle = "rgba(255,240,200,0.06)"; for (let i = 0; i < 60; i++) ctx.fillRect(((rnd(i, 91) * W - scroll) % W + W) % W, y0 + rnd(i, 92) * (y1 - y0), 3, 3);
+  const dash = 80, off = ((scroll % (dash * 2)) + dash * 2) % (dash * 2);
+  ctx.fillStyle = A.mustard; for (let x = -dash * 2 - off; x < W + dash; x += dash * 2) ctx.fillRect(x, (y0 + y1) / 2 - 5, dash, 10);
+  piece(() => ctx.rect(-20, y1, W + 40, 18), "#a19a8b", { lw: 3, rim: 3, shadow: false });
+}
+
+// ---------- characters ----------
+// The local: an original Point Roberts resident (knit cap, beard, buffalo-check jacket). Feet at origin, ~330 tall,
+// facing +x. o: x, gy, s, dir, walk (phase) | null, look (-1..1), brow (-1 worried .. 1 flat/annoyed), blink seed,
+// arm ("wave" | "hold" | null), carry (fn drawn in the right hand), sit (only head and shoulders, for vehicles)
+function local(o) {
+  const s = o.s || 1, ph = o.walk;
+  ctx.save(); ctx.translate(o.x, o.gy); ctx.scale(s * (o.dir || 1), s); boil(o.id || 3, 0.6 / s);
+  const sw = ph == null ? 0 : Math.sin(ph), bob = ph == null ? Math.sin(T * 2.2 + (o.id || 0)) * 1.5 : -Math.abs(Math.cos(ph)) * 7;
+  if (!o.sit) {
+    footShadow(0, 2, 70);
+    ctx.translate(0, bob);
+    // legs: hip -> knee -> foot, the knee bends on the forward swing
+    for (const side of [1, -1]) {
+      const a = sw * 0.42 * side, bend = ph == null ? 0 : Math.max(0, Math.sin(ph + (side > 0 ? 0 : Math.PI) + 0.9)) * 0.7;
+      const hip = [side * 5, -130], knee = [hip[0] + Math.sin(a) * 64, hip[1] + Math.cos(a) * 64];
+      const foot = [knee[0] + Math.sin(a - bend) * 64, knee[1] + Math.cos(a - bend) * 64];
+      stroke2(() => { ctx.moveTo(...hip); ctx.lineTo(...knee); ctx.lineTo(...foot); }, side > 0 ? A.denim : tone(A.denim, -0.12), 26, 34);
+      piece(() => ctx.roundRect(foot[0] - 16, foot[1] - 12, 44, 20, [8, 12, 4, 4]), A.wood2, { lw: 3.5, rim: 4, shadow: false });
     }
-    cut(() => { ctx.moveTo(-60, GY); pts.forEach(p => ctx.lineTo(...p)); ctx.lineTo(W + 60, GY); ctx.closePath(); }, col, { lw: 4, sx: 3, sy: 4 });
-    if (snow) {
-      ctx.save(); ctx.beginPath(); ctx.moveTo(-60, GY); pts.forEach(p => ctx.lineTo(...p)); ctx.lineTo(W + 60, GY); ctx.closePath(); ctx.clip();
-      ctx.fillStyle = C.snow; ctx.beginPath(); ctx.moveTo(-60, base - amp * 0.62);
-      for (let x = -60; x <= W + 60; x += 30) ctx.lineTo(x, base - amp * (0.62 + 0.05 * Math.sin(x * 0.07 + seed)));
-      ctx.lineTo(W + 60, -10); ctx.lineTo(-60, -10); ctx.closePath(); ctx.fill(); ctx.restore();
-    }
+  } else ctx.translate(0, bob);
+  // torso: a buffalo-check jacket
+  const torso = () => { ctx.moveTo(-40, -240); ctx.quadraticCurveTo(-48, -170, -42, -118); ctx.quadraticCurveTo(0, -108, 42, -118); ctx.quadraticCurveTo(50, -170, 40, -240); ctx.quadraticCurveTo(0, -256, -40, -240); ctx.closePath(); };
+  piece(torso, A.red, { lw: 4.5, rim: 9 });
+  ctx.save(); ctx.beginPath(); torso(); ctx.clip(); ctx.fillStyle = "rgba(43,35,32,0.42)";
+  for (let gx = -60; gx < 60; gx += 28) ctx.fillRect(gx, -260, 14, 160); for (let gy = -260; gy < -100; gy += 28) ctx.fillRect(-60, gy, 120, 14); ctx.restore();
+  ctx.save(); ctx.beginPath(); torso(); ctx.lineWidth = 4.5; ctx.strokeStyle = A.ink; ctx.stroke(); ctx.restore();
+  // arms: shoulder -> elbow -> mitten
+  const arm = (side, ang, el) => {
+    const sh = [side > 0 ? 16 : -12, -226], elb = [sh[0] + Math.sin(ang) * 52, sh[1] + Math.cos(ang) * 52], hand = [elb[0] + Math.sin(ang + el) * 50, elb[1] + Math.cos(ang + el) * 50];
+    stroke2(() => { ctx.moveTo(...sh); ctx.lineTo(...elb); ctx.lineTo(...hand); }, side > 0 ? A.red : A.red2, 22, 30);
+    piece(() => ctx.arc(hand[0], hand[1], 14, 0, 7), A.skin, { lw: 3.5, rim: 4, shadow: false });
+    return hand;
   };
-  ridge(o.base ?? 900, 330, C.mtn, 0.08, 7, true);
-  ridge((o.base ?? 900) + 50, 190, C.mtn2, 0.14, 11, false);
-}
-function waterBand(y0, y1, scroll = 0) {
-  ctx.fillStyle = C.sea; ctx.fillRect(-10, y0, W + 20, y1 - y0);
-  ctx.strokeStyle = "rgba(255,255,255,0.45)"; ctx.lineWidth = 3; ctx.lineCap = "round";
-  for (let r = 0; r < 4; r++) for (let i = 0; i < 9; i++) {
-    const x = ((i * 140 + r * 60 + T * 22 - scroll * 0.2) % (W + 140)) - 70, y = y0 + 14 + r * ((y1 - y0 - 20) / 4);
-    ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + 15, y - 6, x + 30, y); ctx.stroke();
-  }
-}
-function groundBand(y = GY, scroll = 0, o = {}) {
-  cut(() => { ctx.moveTo(-20, H + 20); ctx.lineTo(-20, y); for (let x = 0; x <= W + 40; x += 40) ctx.lineTo(x, y + Math.sin((x + scroll) * 0.011) * 7); ctx.lineTo(W + 20, H + 20); ctx.closePath(); }, o.col || C.grass, { lw: 5 });
-  ctx.fillStyle = C.grass2;
-  for (let i = 0; i < 70; i++) {                         // grass tufts, scrolling
-    const span = W + 100, x = ((rnd(i, 71) * span - scroll) % span + span) % span - 50, yy = y + 40 + rnd(i, 72) * (H - y - 60);
-    ctx.beginPath(); ctx.moveTo(x - 8, yy); ctx.lineTo(x - 2, yy - 16); ctx.lineTo(x + 1, yy - 2); ctx.lineTo(x + 6, yy - 13); ctx.lineTo(x + 9, yy); ctx.closePath(); ctx.fill();
-  }
-}
-function roadBand(y0, y1, scroll = 0, o = {}) {
-  cut(() => ctx.rect(-20, y0, W + 40, y1 - y0), C.road, { lw: 5, sy: 4 });
-  ctx.fillStyle = P.yellow;
-  const dash = 90, off = ((scroll % (dash * 2)) + dash * 2) % (dash * 2);
-  if (o.lines !== false) for (let x = -dash * 2 - off; x < W + dash; x += dash * 2) ctx.fillRect(x, (y0 + y1) / 2 - 5, dash, 10);
-}
-function pine(x, gy, s, id) {
-  ctx.save(); ctx.translate(x, gy); ctx.scale(s, s); ctx.rotate(Math.sin(T * 1.3 + id) * 0.012);
-  cut(() => ctx.rect(-9, -40, 18, 40), C.wood2, { lw: 3 });
-  for (let i = 0; i < 3; i++) {
-    const w = 70 - i * 16, y = -40 - i * 52;
-    cut(() => { ctx.moveTo(-w, y); ctx.lineTo(0, y - 92); ctx.lineTo(w, y); ctx.closePath(); }, i % 2 ? C.pine2 : C.pine, { lw: 3.5, sx: 3, sy: 4 });
-  }
+  const wave = o.arm === "wave" ? Math.sin(T * 10) * 0.35 : 0;
+  arm(-1, sw * 0.5 + 0.05, 0.35);
+  const hand = o.arm === "wave" ? arm(1, Math.PI - 0.5 + wave, 0.5) : o.arm === "hold" ? arm(1, 0.9, 1.0) : arm(1, -sw * 0.5 + 0.05, 0.35);
+  if (o.carry) { ctx.save(); ctx.translate(...hand); o.carry(); ctx.restore(); }
+  // head
+  ctx.save(); ctx.translate(6, -282); ctx.rotate((o.tilt || 0) + Math.sin(T * 1.7 + (o.id || 0)) * 0.02);
+  piece(() => { ctx.ellipse(0, 0, 40, 44, 0, 0, 7); }, A.skin, { lw: 4, rim: 7 });
+  piece(() => ctx.ellipse(-30, 4, 9, 13, 0, 0, 7), A.skin2, { lw: 3, rim: 3, shadow: false });                  // ear
+  piece(() => { ctx.moveTo(-34, 4); ctx.quadraticCurveTo(-36, 50, 2, 56); ctx.quadraticCurveTo(40, 52, 40, 8); ctx.quadraticCurveTo(26, 20, 8, 20); ctx.quadraticCurveTo(-14, 22, -34, 4); ctx.closePath(); }, A.beard, { lw: 4, rim: 5, shadow: false });
+  piece(() => ctx.ellipse(36, -2, 9, 11, 0.3, 0, 7), A.skin2, { lw: 3, rim: 3, shadow: false });                // nose
+  const bl = o.blink != null ? (((T + o.blink) % 3.7) < 0.12) : false, lx = (o.look || 0) * 4;
+  if (bl) line(10, -6, 26, -6, A.ink, 3.5);
+  else { piece(() => ctx.ellipse(18, -6, 8, 10, 0, 0, 7), A.cream, { lw: 3, light: false, shadow: false }); ctx.fillStyle = A.ink; ctx.beginPath(); ctx.arc(20 + lx, -5, 4.2, 0, 7); ctx.fill(); }
+  const br = o.brow || 0; line(8, -22 + br * 2, 30, -22 - br * 4 + (br < 0 ? 6 : 0), A.ink, 4.5);
+  line(16, 34, 30, 33 + (o.mouth === "o" ? 0 : 0), A.cream, 3);
+  // knit cap with a fold and a pom
+  piece(() => { ctx.moveTo(-42, -12); ctx.quadraticCurveTo(-46, -64, 0, -70); ctx.quadraticCurveTo(46, -64, 42, -12); ctx.closePath(); }, A.mustard, { lw: 4, rim: 6, shadow: false });
+  piece(() => ctx.roundRect(-46, -26, 92, 22, 8), tone(A.mustard, -0.1), { lw: 4, rim: 4, shadow: false });
+  ctx.save(); ctx.strokeStyle = "rgba(43,35,32,0.25)"; ctx.lineWidth = 2.5; for (let k = -30; k <= 30; k += 12) { ctx.beginPath(); ctx.moveTo(k, -26); ctx.lineTo(k * 0.8, -62); ctx.stroke(); } ctx.restore();
+  piece(() => ctx.arc(-4 + Math.sin(T * 6) * (ph == null ? 0.5 : 3), -78, 14, 0, 7), A.cream, { lw: 3.5, rim: 4, shadow: false });
+  ctx.restore();
   ctx.restore();
 }
-function house(x, gy, s, col, roof, id, o = {}) {
-  ctx.save(); ctx.translate(x, gy); ctx.scale(s, s); boil(id, 0.5);
-  cut(() => ctx.rect(-80, -120, 160, 120), col, { lw: 4 });
-  cut(() => { ctx.moveTo(-98, -118); ctx.lineTo(0, -196); ctx.lineTo(98, -118); ctx.closePath(); }, roof, { lw: 4 });
-  const lit = o.lit ?? 1;
-  for (const wx of [-48, 22]) cut(() => ctx.rect(wx, -92, 30, 30), lit > 0.5 ? "#f8de8a" : "#5b6168", { lw: 3, shadow: false });
-  cut(() => ctx.rect(-12, -58, 26, 58), C.wood2, { lw: 3, shadow: false });
+// a school kid (smaller, backpack), reusing the same construction language
+function kidHead(x, y, s, id, look = 0) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.rotate(Math.sin(T * 6 + id) * 0.05);
+  const skin = [A.skin, "#c99a72", "#8d5f3e", "#e3b48c"][id % 4];
+  piece(() => ctx.ellipse(0, 0, 24, 26, 0, 0, 7), skin, { lw: 3, rim: 4, shadow: false });
+  piece(() => { ctx.moveTo(-25, -2); ctx.quadraticCurveTo(-24, -32, 2, -30); ctx.quadraticCurveTo(26, -28, 25, -4); ctx.quadraticCurveTo(10, -16, -25, -2); ctx.closePath(); }, ["#3b2a20", "#6b4a32", "#2b2320", "#a8743a"][id % 4], { lw: 3, rim: 3, shadow: false });
+  ctx.fillStyle = A.ink; ctx.beginPath(); ctx.arc(8 + look * 3, 0, 3.2, 0, 7); ctx.arc(-6 + look * 3, 0, 3.2, 0, 7); ctx.fill();
+  ctx.beginPath(); ctx.arc(1, 10, 6, 0.2, 2.9); ctx.strokeStyle = A.ink; ctx.lineWidth = 2.5; ctx.stroke();
   ctx.restore();
 }
-// side-view car facing +x; o: x, gy, s, col, spin, flag ("US"|"CA" plate sticker), dir
-function car(o) {
-  ctx.save(); ctx.translate(o.x, o.gy); ctx.scale((o.s || 1) * (o.dir || 1), o.s || 1); boil(o.id || 5, 0.5);
-  const bob = Math.abs(Math.sin((o.ph ?? T) * 14)) * 3 * (o.moving === false ? 0 : 1);
-  ctx.translate(0, -bob);
-  cut(() => { ctx.moveTo(-120, -30); ctx.lineTo(-120, -66); ctx.quadraticCurveTo(-112, -78, -90, -80); ctx.lineTo(-62, -80); ctx.lineTo(-34, -120); ctx.lineTo(46, -120); ctx.lineTo(80, -82); ctx.lineTo(112, -76); ctx.quadraticCurveTo(126, -70, 126, -46); ctx.lineTo(126, -30); ctx.closePath(); }, o.col || P.red, { lw: 4 });
-  cut(() => { ctx.moveTo(-52, -84); ctx.lineTo(-28, -112); ctx.lineTo(4, -112); ctx.lineTo(4, -84); ctx.closePath(); }, "#cfe0de", { lw: 3, shadow: false });
-  cut(() => { ctx.moveTo(14, -84); ctx.lineTo(14, -112); ctx.lineTo(42, -112); ctx.lineTo(66, -84); ctx.closePath(); }, "#cfe0de", { lw: 3, shadow: false });
-  cut(() => ctx.rect(112, -66, 12, 10), "#f6e3a0", { lw: 2, shadow: false });
-  if (o.flag) flatFlag(o.flag, -108, -66, 38);
-  if (o.box) { cut(() => ctx.rect(-40, -150, 70, 32), "#c79a5e", { lw: 3 }); line(-5, -150, -5, -118, P.ink, 2); }
+// an 1850s surveyor: frock coat, top hat, a chain over the shoulder; feet at origin, ~300 tall
+function surveyor(o) {
+  const s = o.s || 1, ph = o.walk;
+  ctx.save(); ctx.translate(o.x, o.gy); ctx.scale(s * (o.dir || 1), s); boil(o.id || 9, 0.6 / s);
+  const sw = ph == null ? 0 : Math.sin(ph); footShadow(0, 2, 60);
+  ctx.translate(0, ph == null ? 0 : -Math.abs(Math.cos(ph)) * 6);
+  for (const side of [1, -1]) { ctx.save(); ctx.translate(side * 8, -120); ctx.rotate(sw * 0.4 * side); piece(() => ctx.roundRect(-10, 0, 20, 112, 6), "#3a3530", { lw: 3.5, rim: 4, shadow: false }); piece(() => ctx.roundRect(-12, 104, 34, 16, 6), A.ink, { lw: 3, light: false, shadow: false }); ctx.restore(); }
+  piece(() => { ctx.moveTo(-36, -232); ctx.quadraticCurveTo(-44, -150, -46, -96); ctx.lineTo(44, -96); ctx.quadraticCurveTo(42, -150, 36, -232); ctx.quadraticCurveTo(0, -246, -36, -232); ctx.closePath(); }, o.col || "#4a5560", { lw: 4.5, rim: 8 });
+  stroke2(() => { ctx.moveTo(30, -220); ctx.lineTo(48 + sw * 10, -160); ctx.lineTo(56 + sw * 14, -112); }, o.col || "#4a5560", 18, 26);
+  piece(() => ctx.arc(56 + sw * 14, -108, 11, 0, 7), A.skin, { lw: 3, rim: 3, shadow: false });
+  ctx.save(); ctx.translate(4, -272);
+  piece(() => ctx.ellipse(0, 0, 32, 36, 0, 0, 7), A.skin, { lw: 4, rim: 6 });
+  piece(() => { ctx.moveTo(-28, 6); ctx.quadraticCurveTo(-30, 44, 4, 46); ctx.quadraticCurveTo(34, 42, 32, 8); ctx.quadraticCurveTo(10, 22, -28, 6); ctx.closePath(); }, o.beard || "#8a8070", { lw: 3.5, rim: 4, shadow: false });
+  ctx.fillStyle = A.ink; ctx.beginPath(); ctx.arc(16 + (o.look || 0) * 3, -6, 4, 0, 7); ctx.fill(); line(6, -20 + (o.brow || 0) * 3, 26, -22 - (o.brow || 0) * 3, A.ink, 4);
+  piece(() => ctx.roundRect(-30, -40, 60, 10, 4), A.ink, { lw: 3, light: false, shadow: false });
+  piece(() => ctx.roundRect(-22, -96, 44, 60, 4), "#2b2724", { lw: 3.5, rim: 4, shadow: false });
   ctx.restore();
-  for (const wx of [-72, 80]) {                           // wheels stay on the ground and spin
-    ctx.save(); ctx.translate(o.x + wx * (o.s || 1) * (o.dir || 1), o.gy - 26 * (o.s || 1)); ctx.scale(o.s || 1, o.s || 1);
-    cut(() => ctx.arc(0, 0, 26, 0, 7), "#2f2a25", { lw: 3 });
-    ctx.rotate(o.spin || 0); cut(() => ctx.arc(0, 0, 11, 0, 7), "#9a968a", { lw: 2, shadow: false });
-    ctx.strokeStyle = P.ink; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-11, 0); ctx.lineTo(11, 0); ctx.stroke();
-    ctx.restore();
-  }
-}
-// top-down car for maps; heading a (radians), s scale
-function carTop(x, y, a, s, col) {
-  ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.scale(s, s);
-  cut(() => ctx.roundRect(-30, -16, 60, 32, 9), col || P.red, { lw: 3, sx: 3, sy: 4 });
-  cut(() => ctx.roundRect(4, -12, 14, 24, 4), "#cfe0de", { lw: 2, shadow: false });
-  cut(() => ctx.roundRect(-22, -12, 10, 24, 3), "#cfe0de", { lw: 2, shadow: false });
-  ctx.restore();
-}
-// border booth: canopy + hut; flag pole; barrier arm (open 0..1)
-function booth(x, gy, s, kind, open, o = {}) {
-  ctx.save(); ctx.translate(x, gy); ctx.scale(s, s); boil(o.id || 33, 0.4);
-  cut(() => ctx.rect(-140, -270, 280, 34), kind === "CA" ? C.caR : C.usB, { lw: 4 });
-  text(kind === "CA" ? "CANADA" : "UNITED STATES", 0, -243, { size: kind === "CA" ? 30 : 24, color: C.white, ls: 3 });
-  for (const px of [-120, 112]) cut(() => ctx.rect(px, -236, 10, 236), "#cfc8b8", { lw: 3 });
-  cut(() => ctx.rect(-64, -170, 104, 170), "#e9e2d2", { lw: 4 });
-  cut(() => ctx.rect(-48, -150, 72, 54), "#cfe0de", { lw: 3, shadow: false });
-  if (o.officer) {                                        // a generic officer's head in the window
-    cut(() => ctx.arc(-12, -114, 16, 0, 7), P.skin, { lw: 3, shadow: false });
-    cut(() => ctx.rect(-30, -136, 36, 9), kind === "CA" ? "#1d2b4a" : "#2c3b2a", { lw: 2, shadow: false });
-  }
-  ctx.restore();
-  // barrier arm across the road: pivot beside the hut, the arm points toward oncoming traffic (armDir -1 = left)
-  const dirA = o.armDir || -1, px = x + dirA * 90 * s, py = o.armY ?? gy - 60 * s;
-  ctx.save(); ctx.translate(px, py); ctx.scale(s * dirA, s); ctx.rotate(-open * 1.35 * dirA);
-  cut(() => ctx.rect(0, -9, 250, 18), C.white, { lw: 3 });
-  ctx.fillStyle = C.caR; for (let i = 0; i < 5; i++) ctx.fillRect(14 + i * 50, -9, 24, 18);
-  ctx.strokeStyle = P.ink; ctx.lineWidth = 3; ctx.strokeRect(0, -9, 250, 18);
-  ctx.restore();
-  cut(() => ctx.rect(px - 7 * s, py, 14 * s, (gy - py) + 80 * s), "#5e5a52", { lw: 3 });
-  cut(() => ctx.arc(px, py, 12 * s, 0, 7), "#5e5a52", { lw: 3 });
-}
-function roadSign(x, y, lines, o = {}) {
-  const size = o.size || 40, w = Math.max(...lines.map(l => measure(l, size))) + 50, h = lines.length * size * 1.15 + 34;
-  ctx.save(); ctx.translate(x, y); ctx.rotate(o.rot || 0);
-  if (o.post !== false) { cut(() => ctx.rect(-6, h / 2, 12, o.post || 160), "#9c978b", { lw: 3 }); }
-  cut(() => ctx.roundRect(-w / 2, -h / 2, w, h, 12), o.bg || "#2f6b4a", { lw: 4 });
-  ctx.strokeStyle = C.white; ctx.lineWidth = 3; ctx.strokeRect(-w / 2 + 8, -h / 2 + 8, w - 16, h - 16);
-  lines.forEach((l, i) => text(l, 0, -h / 2 + 17 + size * (i + 0.95), { size, color: o.color || C.white }));
-  ctx.restore();
-}
-// a little paper person; o: x, gy, s, col, walk (phase or null), dir, arms ("up"|"carry"), hat
-function person(o) {
-  const s = o.s || 1, id = o.id || 1, ph = o.walk;
-  ctx.save(); ctx.translate(o.x, o.gy); ctx.scale(s * (o.dir || 1), s);
-  const sw = ph == null ? 0 : Math.sin(ph) * 0.45, bob = ph == null ? 0 : Math.abs(Math.cos(ph)) * 4;
-  ctx.translate(0, -bob);
-  for (const k of [-1, 1]) { ctx.save(); ctx.translate(k * 9, -58); ctx.rotate(sw * k); cut(() => ctx.roundRect(-6, 0, 12, 58, 5), "#3c3a40", { lw: 3, shadow: false }); ctx.restore(); }
-  cut(() => ctx.roundRect(-24, -128, 48, 76, 14), o.col || ["#c8452d", "#2f4858", "#6d9a5b", "#e08a3c", "#7b5a8a"][id % 5], { lw: 3.5 });
-  const armA = o.arms === "up" ? -2.6 : o.arms === "carry" ? -1.2 : sw * 0.8;
-  for (const k of [-1, 1]) { ctx.save(); ctx.translate(k * 22, -120); ctx.rotate(k === 1 ? armA : -armA * (o.arms ? 1 : 1)); cut(() => ctx.roundRect(-5, 0, 10, 52, 5), o.col2 || P.skin, { lw: 2.5, shadow: false }); ctx.restore(); }
-  cut(() => ctx.arc(0, -150, 22, 0, 7), P.skin, { lw: 3.5 });
-  ctx.fillStyle = P.ink; ctx.beginPath(); ctx.arc(7, -153, 3, 0, 7); ctx.fill();
-  if (o.hat === "top") { cut(() => ctx.rect(-20, -206, 40, 40), "#2b2320", { lw: 2 }); cut(() => ctx.rect(-30, -170, 60, 8), "#2b2320", { lw: 2 }); }
-  else if (o.hat === "cap") cut(() => { ctx.arc(0, -158, 22, Math.PI, 0); ctx.lineTo(34, -158); ctx.closePath(); }, o.hatCol || C.usB, { lw: 3 });
-  if (o.arms === "carry") cut(() => ctx.rect(18, -128, 56, 44), "#c79a5e", { lw: 3 });
-  ctx.restore();
-}
-// the near foreground: fills the frame below the road (under the captions and platform UI) with depth
-function foreground(scroll = 0, o = {}) {
-  const y0 = o.y ?? GY + 200;
-  cut(() => ctx.rect(-20, y0, W + 40, 46), "#d8d2c2", { lw: 4, sy: 4 });               // curb + sidewalk
-  ctx.strokeStyle = "rgba(43,35,32,0.25)"; ctx.lineWidth = 3;
-  for (let x = -((scroll * 1.1) % 120); x < W; x += 120) { ctx.beginPath(); ctx.moveTo(x, y0 + 4); ctx.lineTo(x, y0 + 44); ctx.stroke(); }
-  // fence
-  const fy = y0 + 210, fs = scroll * 1.3, sp = 110;
-  if (o.fence !== false) {
-    cut(() => ctx.rect(-20, fy - 120, W + 40, 18), C.wood3, { lw: 3 }); cut(() => ctx.rect(-20, fy - 60, W + 40, 18), C.wood3, { lw: 3 });
-    for (let x = -((fs % sp) + sp) % sp; x < W + sp; x += sp) cut(() => { ctx.moveTo(x - 14, fy); ctx.lineTo(x - 14, fy - 150); ctx.lineTo(x, fy - 170); ctx.lineTo(x + 14, fy - 150); ctx.lineTo(x + 14, fy); ctx.closePath(); }, "#c49a6a", { lw: 3 });
-  }
-  // near bushes and flowers, faster parallax
-  for (let i = 0; i < 9; i++) {
-    const span = W + 400, bx = ((rnd(i, 151) * span - scroll * 1.7) % span + span) % span - 200, by = fy + 120 + rnd(i, 152) * 330, r = 60 + rnd(i, 153) * 60;
-    const pts = []; for (let j = 0; j < 11; j++) { const a = Math.PI + j / 10 * Math.PI; pts.push([bx + Math.cos(a) * r * 1.4, by + Math.sin(a) * r * (j % 2 ? 0.86 : 1.08)]); }
-    pts.push([bx + r * 1.4, by + 30], [bx - r * 1.4, by + 30]);
-    cut(() => smooth(pts), i % 2 ? C.pine : C.grass2, { lw: 4, sx: 6, sy: 9 });
-    for (let k = 0; k < 4; k++) cut(() => ctx.arc(bx + (rnd(i, k, 154) - 0.5) * r * 2, by - r * 0.5 + rnd(i, k, 155) * r * 0.6, 9, 0, 7), [P.yellow, C.white, "#e07a8a"][(i + k) % 3], { lw: 2, shadow: false });
-  }
-  if (o.items) o.items(fy);
-  if (o.pines) { pine(-70 - (scroll * 2.2) % 40, H + 30, 3.2, 901); pine(W + 80, H + 60, 2.9, 902); }
-}
-function puffC(x, y, r, a, col = "#efe6d4") {
-  if (a <= 0) return;
-  withAlpha(a, () => { const pts = []; for (let i = 0; i < 10; i++) { const an = i / 10 * 6.283, rr = r * (i % 2 ? 0.78 : 1.05); pts.push([x + Math.cos(an) * rr, y + Math.sin(an) * rr * 0.82]); } cut(() => smooth(pts), col, { lw: 3, sx: 3, sy: 4 }); });
-}
-// a paper label that pops in at time a (seconds)
-function popTag(str, x, y, t, a, o = {}) {
-  const k = back(pp(t, a, 0.3));
-  if (t < a) return;
-  ctx.save(); ctx.translate(x, y); ctx.scale(k, k); tag(str, 0, 0, Object.assign({ size: 40 }, o)); ctx.restore();
-}
-// big counter number on a paper card
-function counterCard(str, x, y, sub, o = {}) {
-  const size = o.size || 120, w = Math.max(measure(str, size), sub ? measure(sub, 34, "Elite") : 0) + 70, h = size * 1.05 + (sub ? 60 : 30);
-  ctx.save(); ctx.translate(x, y); ctx.rotate(o.rot ?? -0.02);
-  cut(() => ctx.rect(-w / 2, -h / 2, w, h), o.bg || P.card, { lw: 4 });
-  text(str, 0, -h / 2 + size * 0.98, { size, color: o.color || P.ink });
-  if (sub) text(sub, 0, h / 2 - 22, { size: 34, font: "Elite" });
   ctx.restore();
 }
 
-// ---------- top-down maps from build/geo.json ----------
-// cam: {lon, lat, s (px per degree latitude), cx, cy}; every point goes through mp()
-function mapProj(cam) {
-  const k = Math.cos(cam.lat * Math.PI / 180);
-  return (lon, lat) => [cam.cx + (lon - cam.lon) * k * cam.s, cam.cy - (lat - cam.lat) * cam.s];
-}
-function seaBG(col = C.sea, drift = 1) {
-  ctx.fillStyle = col; ctx.fillRect(0, 0, W, H);
-  ctx.strokeStyle = "rgba(255,255,255,0.20)"; ctx.lineWidth = 3;
-  for (let y = -40; y < H + 40; y += 34) { const o = Math.sin(y * 0.05 + T * 0.8 * drift) * 10; ctx.beginPath(); ctx.moveTo(0, y + o); ctx.lineTo(W, y + 12 + o); ctx.stroke(); }
-}
-function ringsPath(polys, mp) {
-  for (const poly of polys) for (const ring of poly) { ring.forEach(([lo, la], j) => { const p = mp(lo, la); j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); ctx.closePath(); }
-}
-// draw the land layers of a geo scene; fills: {US: col, CA: col} or a function (iso) -> col
-function drawLand(geoId, mp, fills, o = {}) {
-  const g = GEO[geoId];
-  if (!g) { warn(`point-roberts: no geometry for ${geoId}; run studio/tools/geo.py`); return; }
-  for (const L of g.layers) {
-    const f = typeof fills === "function" ? fills(L.iso) : (fills[L.iso] || C.ca);
-    cut(() => ringsPath(L.polys, mp), f, { lw: o.lw ?? 4, rule: "evenodd", sx: o.sx ?? 6, sy: o.sy ?? 9, sb: 8 });
-  }
-}
-// clip to one country's land (for tinting / filling a piece)
-function clipLand(geoId, mp, iso, draw) {
-  const g = GEO[geoId]; if (!g) return;
-  ctx.save(); ctx.beginPath();
-  for (const L of g.layers) if (!iso || L.iso === iso) ringsPath(L.polys, mp);
-  ctx.clip("evenodd"); draw(); ctx.restore();
-}
-// Point Roberts = the US land on the peninsula (west of -122.95)
-const PR_BOX = [-123.12, 48.96, -122.99, 49.0021];
-function prPolys(geoId) {
-  const g = GEO[geoId]; if (!g) return [];
-  const us = g.layers.find(L => L.iso === "US"); if (!us) return [];
-  return us.polys.filter(poly => poly[0].some(([lo, la]) => lo < -122.99 && lo > -123.12 && la > 48.95));
-}
-const BORDER_LAT = 49.0021;                               // the line as surveyed (OSM), about 230 m north of 49°00'00"
-function borderLine(mp, lon0, lon1, k = 1, o = {}) {
-  if (k <= 0) return;
-  const a = mp(lon0, BORDER_LAT), b = mp(lerp(lon0, lon1, k), BORDER_LAT);
-  ctx.save(); if (o.dash !== false) ctx.setLineDash([26, 14]);
-  stroke2(() => { ctx.moveTo(...a); ctx.lineTo(...b); }, o.col || P.red, o.w || 8, (o.w || 8) + 6);
-  ctx.restore();
-}
-
-// =====================================================================================================
-// 1. HOOK: the town, its one road, the Canadian booth. Frame 0 is a finished picture; the car is already rolling.
-// Also drawn at negative t by the loop ending, so everything here extrapolates backwards cleanly.
-// =====================================================================================================
-const HOOK_ROAD = [GY + 70, GY + 190];
-function hookWorld(t, camX) {
-  skyBG({ sunX: 860, sunY: 420, scroll: camX });
-  mountains(camX);
-  waterBand(900, GY + 5, camX);
-  groundBand(GY, camX);
-  ctx.save(); ctx.translate(-camX, 0);
-  // the town (world x -700 .. 470): houses, trees, a water tower, the flag
-  for (let i = 0; i < 9; i++) pine(-680 + i * 150 + rnd(i, 3) * 60, GY + 40, 0.75 + rnd(i, 4) * 0.4, i);
-  const HC = [["#e8d2b0", "#9b4a3a"], ["#c9d6c4", "#5a6b7a"], ["#ecd9ae", "#7b5a3a"], ["#d9c2d0", "#7a4a5a"], ["#f1e0c0", "#3f5f41"]];
-  [-560, -330, -110, 100, 300].forEach((x, i) => house(x, GY + 60, 0.95 + rnd(i, 9) * 0.15, HC[i][0], HC[i][1], 40 + i));
-  // water tower
-  cut(() => ctx.rect(-230, GY - 210, 10, 250), "#9c978b", { lw: 3 }); cut(() => ctx.rect(-150, GY - 210, 10, 250), "#9c978b", { lw: 3 });
-  cut(() => ctx.roundRect(-262, GY - 330, 154, 130, 30), "#d8d2c2", { lw: 4 });
-  text("PT. ROBERTS", -185, GY - 255, { size: 30, ls: 1 });
-  flagpole("US", 420, GY + 70, 330, 170, { ph: 0.3 });
-  // the road sign before the border
-  roadSign(640, GY - 150, ["REST OF USA", "→ VIA CANADA"], { size: 34, post: 220 });
-  // booth + welcome sign
-  const open = eio(pp(t, at("hook/through") - 0.25, 0.45));
-  booth(900, GY + 70, 1.15, "CA", open, { officer: true, armY: GY + 95 });
-  flagpole("CA", 1100, GY + 70, 300, 150, { ph: 1.1 });
-  const wk = back(pp(t, at("hook/canada") - 0.05, 0.35));
-  if (wk > 0) { ctx.save(); ctx.translate(1340, GY - 40); ctx.scale(wk, wk); roadSign(0, 0, ["WELCOME TO", "CANADA"], { size: 40, bg: C.caR, post: 160 }); ctx.restore(); }
-  for (let i = 0; i < 6; i++) pine(1560 + i * 150 + rnd(i, 13) * 50, GY + 40, 0.8 + rnd(i, 14) * 0.5, 20 + i);
-  ctx.restore();
-  roadBand(HOOK_ROAD[0], HOOK_ROAD[1], camX);
-  foreground(camX, { pines: true, items: fy => {
-    const mx = 330 - camX * 1.3;                          // a mailbox on the US side
-    cut(() => ctx.rect(mx - 8, fy - 40, 16, 150), C.wood2, { lw: 3 });
-    cut(() => ctx.roundRect(mx - 60, fy - 110, 120, 74, [36, 36, 6, 6]), C.usB, { lw: 4 });
-    cut(() => ctx.rect(mx + 50, fy - 150, 10, 60), P.red, { lw: 2 });
-  } });
-}
-function hookCarX(t) {                                     // world x of the car: rolls, waits for the arm, goes
-  const tArm = at("hook/through");
-  if (t < tArm - 0.6) return 300 + 150 * t;
-  const xs = 300 + 150 * (tArm - 0.6);
-  if (t < tArm + 0.2) return xs + 70 * eout(pp(t, tArm - 0.6, 0.8));
-  return xs + 70 + 260 * Math.pow(t - tArm - 0.2, 1.35);
-}
-const hookCam = t => 60 + 85 * t + 120 * eio(pp(t, at("hook/goes"), 1.4));
-CU.hook = (t, S) => {
-  const camX = hookCam(t), cx = hookCarX(t);
-  hookWorld(t, camX);
-  car({ x: cx - camX, gy: HOOK_ROAD[0] + 90, s: 1.3, col: P.red, flag: "US", spin: cx / 26, ph: t, id: 7 });
-  // overlays: where we are, and how many roads out
-  popTag("POINT ROBERTS, WASHINGTON · USA", W / 2, 300, t, -99, { size: 38 });
-  const rk = back(pp(t, at("hook/road") - 0.05, 0.35));
-  if (rk > 0) { ctx.save(); ctx.translate(890, 455); ctx.scale(rk, rk); counterCard("1", 0, 0, "ROAD OUT", { size: 110, rot: 0.04 }); ctx.restore(); }
-};
-
-// =====================================================================================================
-// 2. WHO: the real coastline from above; 1,191 people (2020 census) on five square miles
-// =====================================================================================================
-const PR_C = [-123.062, 48.986];
-function prPath(geoId, mp) { const p = new Path2D(); for (const poly of prPolys(geoId)) for (const ring of poly) { ring.forEach(([lo, la], j) => { const q = mp(lo, la); j ? p.lineTo(q[0], q[1]) : p.moveTo(q[0], q[1]); }); p.closePath(); } return p; }
-function topHouse(x, y, s, a, col) { ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.scale(s, s); cut(() => ctx.rect(-14, -10, 28, 20), col, { lw: 2.5, sx: 2, sy: 3, sb: 2 }); ctx.strokeStyle = P.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-14, 0); ctx.lineTo(14, 0); ctx.stroke(); ctx.restore(); }
-function prMap(t, S, cam, o = {}) {
-  const mp = mapProj(cam);
-  seaBG();
-  drawLand(S.id, mp, { US: C.us, CA: C.ca });
-  // Canadian side: a few fields and the road north, so the land isn't empty
-  clipLand(S.id, mp, "CA", () => {
-    ctx.strokeStyle = "rgba(120,95,60,0.18)"; ctx.lineWidth = 2;
-    for (let i = -30; i < 60; i++) { const a = mp(-123.4 + i * 0.012, 49.0), b = mp(-123.4 + i * 0.012 + 0.03, 49.3); ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke(); }
+// ---------- vehicles ----------
+// the local's car: a sage station wagon, facing +x; wheels at gy. o: x, gy, s, spin, squat (anticipation), driver
+function wagon(o) {
+  const s = o.s || 1;
+  footShadow(o.x + 10 * s, o.gy + 2, 150 * s, 0.25);
+  ctx.save(); ctx.translate(o.x, o.gy); ctx.scale(s * (o.dir || 1), s); boil(o.id || 5, 0.4 / s);
+  const sq = o.squat || 0, bob = o.moving === false ? 0 : Math.sin((o.ph ?? T) * 17) * 1.6;
+  ctx.save(); ctx.translate(0, -bob + sq * 6); ctx.rotate(-sq * 0.035);
+  const body = () => { ctx.moveTo(-170, -42); ctx.quadraticCurveTo(-176, -96, -150, -104); ctx.lineTo(-120, -106); ctx.lineTo(-104, -168); ctx.quadraticCurveTo(-100, -176, -88, -176); ctx.lineTo(40, -176); ctx.quadraticCurveTo(56, -176, 66, -164); ctx.lineTo(104, -112); ctx.quadraticCurveTo(168, -106, 176, -84); ctx.quadraticCurveTo(182, -58, 176, -42); ctx.closePath(); };
+  piece(body, A.sage, { lw: 4.5, rim: 10 });
+  piece(() => { ctx.moveTo(-160, -86); ctx.lineTo(170, -86); ctx.lineTo(172, -74); ctx.lineTo(-162, -74); ctx.closePath(); }, A.cream, { lw: 2.5, rim: 2, shadow: false });     // wood-grain stripe
+  const win = (x0, x1, x2, x3) => () => { ctx.moveTo(x0, -110); ctx.lineTo(x1, -164); ctx.lineTo(x2, -164); ctx.lineTo(x3, -110); ctx.closePath(); };
+  [win(-102, -90, -34, -34), win(-24, -24, 34, 34), win(44, 44, 56, 92)].forEach(w => {
+    piece(w, "#bfd3cf", { lw: 3, rim: 4, shadow: false });
+    ctx.save(); ctx.beginPath(); w(); ctx.clip(); ctx.strokeStyle = "rgba(255,255,255,0.5)"; ctx.lineWidth = 9; ctx.beginPath(); ctx.moveTo(-120, -110); ctx.lineTo(-60, -170); ctx.moveTo(0, -110); ctx.lineTo(60, -170); ctx.stroke(); ctx.restore();
   });
-  borderLine(mp, -123.2, -122.6, 1, { dash: true });
-  return mp;
-}
-CU.who = (t, S) => {
-  const z = lerp(19000, 15500, eio(pp(t, S.t0, S.t1 - S.t0 + 0.4)));
-  const cam = { lon: PR_C[0] + 0.004, lat: PR_C[1] + 0.006, s: z, cx: W / 2, cy: 820 };
-  const mp = prMap(t, S, cam);
-  const path = prPath(S.id, mp);
-  // houses on the US side only, in a seeded scatter
-  for (let i = 0; i < 70; i++) {
-    const lo = lerp(-123.088, -123.034, rnd(i, 81)), la = lerp(48.972, 49.0, rnd(i, 82));
-    const [x, y] = mp(lo, la);
-    if (ctx.isPointInPath(path, x, y)) topHouse(x, y, 0.8, (rnd(i, 83) - 0.5) * 0.6, ["#efe4cc", "#d9c2a0", "#f3d6b6"][i % 3]);
-  }
-  // one paper person per ten residents, popping in on "twelve"
-  const t1 = at("who/twelve");
-  let shown = 0;
-  for (let i = 0; i < 360 && shown < 119; i++) {
-    const lo = lerp(-123.09, -123.032, rnd(i, 91)), la = lerp(48.969, 49.0, rnd(i, 92));
-    const [x, y] = mp(lo, la);
-    if (!ctx.isPointInPath(path, x, y)) continue;
-    const k = back(pp(t, t1 + shown * 0.006, 0.25)); shown++;
-    if (k <= 0) continue;
-    ctx.save(); ctx.translate(x, y); ctx.scale(k * 0.9, k * 0.9);
-    cut(() => ctx.arc(0, -16, 6, 0, 7), P.skin, { lw: 2, shadow: false });
-    cut(() => ctx.roundRect(-6, -10, 12, 16, 4), ["#c8452d", "#2f4858", "#6d9a5b", "#7b5a8a"][i % 4], { lw: 2, sx: 2, sy: 2, sb: 1 });
+  if (o.driver !== false) { ctx.save(); ctx.beginPath(); win(44, 44, 56, 92)(); win(-24, -24, 34, 34)(); ctx.clip(); local({ x: 26, gy: 76, s: 0.75, sit: true, blink: 1.3, look: o.look ?? 1, brow: o.brow, id: 3 }); ctx.restore(); }
+  piece(() => ctx.roundRect(166, -70, 18, 14, 4), "#f6dc8a", { lw: 2.5, rim: 3, shadow: false });
+  piece(() => ctx.roundRect(-182, -56, 30, 12, 4), "#c9c4b6", { lw: 2.5, rim: 2, shadow: false });
+  piece(() => ctx.roundRect(160, -50, 30, 12, 4), "#c9c4b6", { lw: 2.5, rim: 2, shadow: false });
+  if (o.plate) { piece(() => ctx.rect(-176, -72, 34, 20), A.cream, { lw: 2, light: false, shadow: false }); text("WA", -159, -57, { size: 14 }); }
+  // antenna with follow-through
+  const wob = Math.sin(T * 9) * 0.06 + (o.accel || 0) * 0.35;
+  ctx.save(); ctx.translate(-88, -176); ctx.rotate(-0.2 - wob); line(0, 0, 0, -70, A.ink, 3); ctx.restore();
+  for (const wx of [-108, 112]) piece(() => { ctx.moveTo(wx - 58, -40); ctx.quadraticCurveTo(wx, -96, wx + 58, -40); ctx.closePath(); }, A.sage2, { lw: 3.5, rim: 3, shadow: false });
+  ctx.restore();
+  for (const wx of [-108, 112]) {
+    ctx.save(); ctx.translate(wx, -32);
+    piece(() => ctx.arc(0, 0, 34, 0, 7), "#2f2a25", { lw: 3.5, rim: 5, shadow: false });
+    piece(() => ctx.arc(0, 0, 18, 0, 7), "#c9c4b6", { lw: 3, rim: 3, shadow: false });
+    ctx.rotate(o.spin || 0); ctx.strokeStyle = A.ink; ctx.lineWidth = 3; for (let i = 0; i < 3; i++) { ctx.rotate(Math.PI / 3); ctx.beginPath(); ctx.moveTo(-14, 0); ctx.lineTo(14, 0); ctx.stroke(); }
     ctx.restore();
   }
-  text("CANADA", W / 2, 560, { size: 120, color: "rgba(43,35,32,0.55)", ls: 18 });
-  const nb = mp(-122.995, BORDER_LAT); tag("49°N", Math.min(W - 120, nb[0]), nb[1] - 44, { size: 34, bg: P.card, rot: 0.03 });
-  const n = Math.round(1191 * eout(pp(t, t1, 0.9)));
-  if (t > t1 - 0.05) counterCard(fmt(n), 280, 330, "PEOPLE · 2020 CENSUS", { size: 96 });
-  const t5 = at("who/five");
-  if (t > t5 - 0.05) {
-    // outline traces the town; the area card lands
-    ctx.save(); ctx.setLineDash([2200, 2200]); ctx.lineDashOffset = 2200 * (1 - eout(pp(t, t5, 0.7)));
-    ctx.strokeStyle = P.yellow; ctx.lineWidth = 9; ctx.stroke(path); ctx.restore();
-    const k = back(pp(t, t5, 0.3)); ctx.save(); ctx.translate(800, 330); ctx.scale(k, k); counterCard("5", 0, 0, "SQUARE MILES", { size: 96, rot: 0.03 }); ctx.restore();
+  ctx.restore();
+}
+function exhaust(x, y, t, n = 5, col = "#e6dccb") {
+  for (let i = 0; i < n; i++) { const a = ((t * 1.6 + i / n) % 1); ctx.save(); ctx.globalAlpha = (1 - a) * 0.8; piece(blob(x - a * 140, y - a * 60, 14 + a * 34, 12 + a * 26, 10, i, 0.15), col, { lw: 2.5, rim: 4, shadow: false }); ctx.restore(); }
+}
+// Canadian border booth, the barrier pivots on its post; open 0..1 with a spring overshoot. Traffic comes from the left.
+function borderBooth(x, gy, s, open, o = {}) {
+  ctx.save(); ctx.translate(x, gy); ctx.scale(s, s); boil(o.id || 33, 0.3);
+  footShadow(0, 4, 210, 0.2);
+  // canopy
+  for (const px of [-170, 170]) piece(() => ctx.roundRect(px - 9, -300, 18, 300, 4), "#ddd6c6", { lw: 3.5, rim: 4 });
+  piece(() => { ctx.moveTo(-220, -300); ctx.quadraticCurveTo(0, -350, 220, -300); ctx.lineTo(220, -262); ctx.quadraticCurveTo(0, -306, -220, -262); ctx.closePath(); }, A.cream, { lw: 4.5, rim: 8 });
+  piece(() => { ctx.moveTo(-220, -276); ctx.quadraticCurveTo(0, -320, 220, -276); ctx.lineTo(220, -262); ctx.quadraticCurveTo(0, -306, -220, -262); ctx.closePath(); }, A.red, { lw: 3, rim: 3, shadow: false });
+  ctx.save(); ctx.translate(0, -322); ctx.fillStyle = A.red; mapleLeaf(ctx, 0, 0, 22); ctx.fill(); ctx.restore();
+  text(o.label || "CANADA", 0, -270, { size: 26, color: A.cream, ls: 6 });
+  // kiosk
+  piece(() => ctx.roundRect(-70, -200, 140, 200, [10, 10, 0, 0]), "#e8e1d1", { lw: 4, rim: 6 });
+  piece(() => ctx.roundRect(-54, -184, 108, 76, 6), "#bfd3cf", { lw: 3, rim: 4, shadow: false });
+  if (o.officer !== false) { ctx.save(); ctx.beginPath(); ctx.roundRect(-54, -184, 108, 76, 6); ctx.clip();
+    piece(() => ctx.ellipse(-8, -112, 34, 26, 0, Math.PI, 0), o.uniform || "#1f2b44", { lw: 3, rim: 3, shadow: false });
+    piece(() => ctx.arc(-8, -142, 18, 0, 7), A.skin, { lw: 3, rim: 3, shadow: false });
+    piece(() => { ctx.moveTo(-28, -152); ctx.quadraticCurveTo(-8, -170, 14, -152); ctx.lineTo(20, -150); ctx.lineTo(-30, -150); ctx.closePath(); }, o.uniform || "#1f2b44", { lw: 2.5, rim: 2, shadow: false });
+    ctx.fillStyle = A.ink; ctx.beginPath(); ctx.arc(-14 + (o.look || -1) * 3, -142, 2.6, 0, 7); ctx.arc(-2 + (o.look || -1) * 3, -142, 2.6, 0, 7); ctx.fill(); ctx.restore(); }
+  ctx.restore();
+  // barrier on its own post, left of the kiosk
+  const px = x - 150 * s, py = gy - 70 * s;
+  ctx.save(); ctx.translate(px, py); ctx.scale(-s, s); ctx.rotate(-open * 1.4);
+  piece(() => ctx.roundRect(0, -11, 300, 22, 10), A.cream, { lw: 3.5, rim: 4 });
+  ctx.save(); ctx.beginPath(); ctx.roundRect(0, -11, 300, 22, 10); ctx.clip(); ctx.fillStyle = A.red; for (let i = 0; i < 6; i++) ctx.fillRect(20 + i * 48, -11, 22, 22); ctx.restore();
+  ctx.beginPath(); ctx.roundRect(0, -11, 300, 22, 10); ctx.lineWidth = 3.5; ctx.strokeStyle = A.ink; ctx.stroke();
+  ctx.restore();
+  piece(() => ctx.roundRect(px - 16 * s, py - 10 * s, 32 * s, 80 * s, 6), "#5e5a52", { lw: 3.5, rim: 4 });
+}
+// a school bus, facing +x (dir flips)
+function schoolBus(x, gy, s, dir, ph, o = {}) {
+  footShadow(x, gy + 2, 260 * s, 0.25);
+  ctx.save(); ctx.translate(x, gy); ctx.scale(s * dir, s); boil(88, 0.4 / s);
+  ctx.translate(0, Math.sin(ph * 15) * 1.8);
+  const body = () => { ctx.moveTo(-260, -46); ctx.lineTo(-262, -210); ctx.quadraticCurveTo(-260, -230, -236, -232); ctx.lineTo(170, -232); ctx.quadraticCurveTo(190, -230, 194, -210); ctx.lineTo(198, -150); ctx.quadraticCurveTo(262, -146, 270, -110); ctx.lineTo(272, -46); ctx.closePath(); };
+  piece(body, "#e9b23a", { lw: 4.5, rim: 10 });
+  piece(() => ctx.rect(-262, -122, 534, 12), A.ink, { lw: 0, light: false, shadow: false });
+  piece(() => ctx.rect(-262, -96, 534, 8), A.ink, { lw: 0, light: false, shadow: false });
+  for (let i = 0; i < 6; i++) {
+    const wx = -236 + i * 66;
+    piece(() => ctx.roundRect(wx, -212, 52, 66, 6), "#bfd3cf", { lw: 3, rim: 4, shadow: false });
+    ctx.save(); ctx.beginPath(); ctx.roundRect(wx, -212, 52, 66, 6); ctx.clip(); kidHead(wx + 26, -160 + Math.sin(ph * 9 + i * 1.3) * 3, 0.9, i + (o.seed || 0), dir); ctx.restore();
   }
-  tag("1 tiny person = 10 residents", W / 2, 1180, { size: 30, bg: P.card });
+  piece(() => ctx.roundRect(176, -212, 40, 60, 6), "#bfd3cf", { lw: 3, rim: 3, shadow: false });
+  ctx.save(); ctx.scale(dir, 1); text("SCHOOL BUS", dir > 0 ? -40 : 40, -66, { size: 30, color: A.ink, ls: 4 }); ctx.restore();
+  piece(() => ctx.roundRect(262, -96, 16, 16, 3), "#f6dc8a", { lw: 2.5, rim: 2, shadow: false });
+  ctx.restore();
+  for (const wx of [-170, 190]) { ctx.save(); ctx.translate(x + wx * s * dir, gy - 32 * s); ctx.scale(s, s); piece(() => ctx.arc(0, 0, 36, 0, 7), "#2f2a25", { lw: 3.5, rim: 5, shadow: false }); piece(() => ctx.arc(0, 0, 17, 0, 7), "#c9c4b6", { lw: 3, rim: 3, shadow: false }); ctx.rotate(ph * 22 * dir); line(-14, 0, 14, 0, A.ink, 3); ctx.restore(); }
+}
+
+// ---------- designed paper props for the numbers (the telegram's descendants) ----------
+function card(x, y, w, h, rot, k, draw, o = {}) {
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(x, y + (1 - k) * 80); ctx.rotate(rot + (1 - k) * 0.12); ctx.scale(lerp(0.85, 1, k), lerp(0.85, 1, k)); ctx.globalAlpha *= clamp(k * 3);
+  piece(() => ctx.rect(-w / 2, -h / 2, w, h), o.bg || A.cream, { lw: 4, rim: 6, sx: 10, sy: 16, sb: 18 });
+  if (o.tape !== false) { ctx.save(); ctx.translate(0, -h / 2); ctx.rotate(-0.04); ctx.fillStyle = "rgba(230,215,170,0.85)"; ctx.fillRect(-60, -16, 120, 32); ctx.restore(); }
+  draw(w, h);
+  ctx.restore();
+}
+const typed = (str, k) => str.slice(0, Math.round(str.length * clamp(k)));
+function rule(x0, x1, y) { line(x0, y, x1, y, "rgba(43,35,32,0.45)", 2); }
+
+// =====================================================================================================
+// shared overlays
+// =====================================================================================================
+function brandTag() { ctx.save(); ctx.translate(40, 248); piece(() => ctx.rect(0, -22, 236, 44), A.ink, { lw: 0, light: false, sx: 3, sy: 4 }); text("BORDER QUIRKS", 118, 10, { size: 26, font: "Elite", color: A.cream, ls: 2 }); ctx.restore(); }
+function woodSign(x, y, lines, k, o = {}) {
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(x, y); ctx.rotate((o.rot || 0) + (1 - k) * 0.3); ctx.scale(k, k);
+  for (const px of [-o.w / 2 + 40, o.w / 2 - 40]) piece(() => ctx.roundRect(px - 10, 0, 20, o.post || 200, 4), A.wood2, { lw: 3.5, rim: 4 });
+  const h = lines.length * 54 + 40;
+  piece(() => ctx.roundRect(-o.w / 2, -h, o.w, h, 10), A.wood, { lw: 4.5, rim: 8 });
+  ctx.save(); ctx.strokeStyle = "rgba(43,35,32,0.18)"; ctx.lineWidth = 2; for (let i = 1; i < 5; i++) { ctx.beginPath(); ctx.moveTo(-o.w / 2 + 10, -h + i * h / 5); ctx.quadraticCurveTo(0, -h + i * h / 5 + 6, o.w / 2 - 10, -h + i * h / 5); ctx.stroke(); } ctx.restore();
+  lines.forEach(([str, size, col], i) => text(str, 0, -h + 58 + i * 54, { size, color: col || A.cream, font: o.font || "Anton", ls: 2 }));
+  ctx.restore();
+}
+
+// =====================================================================================================
+// 1. HOOK: the local drives the town's one road out; the Canadian booth ahead. Frame 0 is finished.
+// =====================================================================================================
+const HOOK_Y = 1150;                                       // the road's wheel line
+function hookCarX(t) { const ta = at("hook/through"); if (t < ta - 0.7) return 330 + 130 * t; const xs = 330 + 130 * (ta - 0.7); if (t < ta + 0.15) return xs + 80 * eout(pp(t, ta - 0.7, 0.85)); return xs + 80 + 300 * Math.pow(t - ta - 0.15, 1.4); }
+const hookCam = t => 40 + 80 * t + 160 * eio(pp(t, at("hook/goes"), 1.3));
+function hookWorld(t, cam) {
+  sky({ sunX: 860, sunY: 420, scroll: cam });
+  ridge(880, 360, A.mtnFar, 0.05, 7, cam, true); haze(560, 900, 0.45);
+  ridge(930, 200, A.mtnMid, 0.1, 11, cam, false); haze(780, 960, 0.35);
+  water(905, 1010, cam);
+  grass(1000, 1060, cam * 0.6, A.moss);
+  ctx.save(); ctx.translate(-cam * 0.6, 0);                // the far shore of the road: trees and the town
+  for (let i = 0; i < 12; i++) pine(-300 + i * 170 + rnd(i, 3) * 70, 1050, 0.55 + rnd(i, 4) * 0.25, i, tone(A.moss, -0.05), 0.55);
+  woodSign(560, 930, [["POINT ROBERTS", 40], ["WASHINGTON · USA", 26, A.mustard]], 1, { w: 360, post: 140 });
+  ctx.restore();
+  ctx.save(); ctx.translate(-cam, 0);
+  pole("US", 150, 1070, 300, 150, 0.2);
+  borderBooth(1180, 1078, 0.92, spring(pp(t, at("hook/through") - 0.45, 0.9)), { look: -1 });
+  pole("CA", 1470, 1070, 290, 140, 1.4);
+  ctx.restore();
+  road(1070, 1200, cam);
+}
+// the near ground: one lit plane that darkens toward the viewer, a few tufts, flowers and stones; no clutter
+function nearGround(y0, scroll, col = A.moss) {
+  piece(() => { ctx.moveTo(-20, H + 20); ctx.lineTo(-20, y0); for (let x = 0; x <= W + 40; x += 40) ctx.lineTo(x, y0 + Math.sin((x + scroll) * 0.007) * 6); ctx.lineTo(W + 20, H + 20); ctx.closePath(); }, col, { lw: 4.5, rim: 10, shadow: false });
+  const g = ctx.createLinearGradient(0, y0, 0, H); g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(40,30,15,0.28)"); ctx.fillStyle = g; ctx.fillRect(0, y0 + 10, W, H - y0);
+  for (let i = 0; i < 26; i++) {
+    const span = W + 200, x = ((rnd(i, 101) * span - scroll * 1.4) % span + span) % span - 100, y = y0 + 80 + rnd(i, 102) * (H - y0 - 120), s = 0.7 + (y - y0) / (H - y0) * 1.3;
+    if (i % 5 === 0) piece(blob(x, y, 30 * s, 16 * s, 9, i, 0.2), "#b9ad93", { lw: 3, rim: 4, sx: 3, sy: 4 });
+    else { ctx.fillStyle = tone(col, -0.22); for (let k = -1; k <= 1; k++) { ctx.beginPath(); ctx.moveTo(x + k * 9 * s - 4 * s, y); ctx.quadraticCurveTo(x + k * 12 * s, y - 26 * s, x + k * 16 * s, y - 34 * s); ctx.quadraticCurveTo(x + k * 9 * s + 2 * s, y - 14 * s, x + k * 9 * s + 4 * s, y); ctx.fill(); }
+      if (i % 3 === 0) piece(() => ctx.arc(x + 6 * s, y - 30 * s, 6 * s, 0, 7), [A.cream, A.mustard, "#d98a8a"][i % 3], { lw: 2, rim: 2, shadow: false }); }
+  }
+}
+function splitRail(y, scroll, col = A.wood) {        // a split-rail fence in the near ground, faster parallax
+  const sp = 260, off = ((scroll % sp) + sp) % sp;
+  for (let x = -sp - off; x < W + sp; x += sp) {
+    piece(() => { ctx.moveTo(x - 10, y); ctx.lineTo(x - 8, y - 150); ctx.lineTo(x + 10, y - 156); ctx.lineTo(x + 12, y); ctx.closePath(); }, col, { lw: 3.5, rim: 5 });
+    for (const ry of [-118, -64]) piece(() => { ctx.moveTo(x, y + ry); ctx.quadraticCurveTo(x + sp / 2, y + ry + 8, x + sp, y + ry - 4); ctx.lineTo(x + sp, y + ry + 14); ctx.quadraticCurveTo(x + sp / 2, y + ry + 24, x, y + ry + 16); ctx.closePath(); }, tone(col, 0.08), { lw: 3.5, rim: 5 });
+  }
+}
+function hookFore(t, cam) { nearGround(1218, cam * 1.6); splitRail(1560, cam * 1.9); }
+const HOOK_Z = 1.32;
+CU.hook = (t, S) => {
+  const cam = hookCam(t), cx = hookCarX(t);
+  ctx.save(); ctx.translate(W * 0.42, HOOK_Y); ctx.scale(HOOK_Z, HOOK_Z); ctx.translate(-W * 0.42, -HOOK_Y);
+  hookWorld(t, cam);
+  const ta = at("hook/through"), sq = t > ta - 0.05 && t < ta + 0.35 ? Math.sin(pp(t, ta - 0.05, 0.4) * Math.PI) : 0;
+  exhaust(cx - cam - 190, HOOK_Y - 50, t, 5);
+  wagon({ x: cx - cam, gy: HOOK_Y, s: 1.18, spin: cx / 34, ph: t, squat: sq, accel: sq, plate: true, brow: t > at("hook/canada") ? 0.6 : 0 });
+  hookFore(t, cam);
+  ctx.restore();
+  brandTag();
+  const rk = spring(pp(t, at("hook/road") - 0.05, 0.6));
+  card(800, 470, 330, 220, 0.04, rk, (w, h) => {
+    text("ROADS OUT", 0, -40, { size: 34, font: "Elite" }); rule(-120, 120, -20);
+    text("1", 0, 80, { size: 130, color: A.red });
+  });
 };
 
 // =====================================================================================================
-// 3. TREATY: a desk in 1846; the real coastline on parchment; a ruler; a quill draws the 49th parallel
+// maps (top-down), restyled: sea with depth bands along the coast, lit land, a quiet graticule
+// =====================================================================================================
+const PR_C = [-123.062, 48.986], BORDER_LAT = 49.0021;
+function mapProj(cam) { const k = Math.cos(cam.lat * Math.PI / 180); return (lon, lat) => [cam.cx + (lon - cam.lon) * k * cam.s, cam.cy - (lat - cam.lat) * cam.s]; }
+function ringsPath(polys, mp) { for (const poly of polys) for (const ring of poly) { ring.forEach(([lo, la], j) => { const p = mp(lo, la); j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }); ctx.closePath(); } }
+const isPR = poly => poly[0].some(([lo, la]) => lo < -122.99 && lo > -123.12 && la > 48.95);
+function prPolys(id) { const g = GEO[id]; const us = g && g.layers.find(L => L.iso === "US"); return us ? us.polys.filter(isPR) : []; }
+function seaFlat(col = A.sea) {
+  ctx.fillStyle = col; ctx.fillRect(0, 0, W, H);
+  ctx.save(); ctx.strokeStyle = "rgba(255,250,235,0.16)"; ctx.lineWidth = 2;
+  for (let y = -40; y < H + 40; y += 30) { ctx.beginPath(); for (let x = 0; x <= W; x += 40) ctx.lineTo(x, y + Math.sin(x * 0.012 + y * 0.03 + T * 0.9) * 5); ctx.stroke(); }
+  ctx.restore();
+}
+// coast bands: the shallows drawn as soft rings outside the land, before the land itself
+function mapLand(id, mp, fill, o = {}) {
+  const g = GEO[id]; if (!g) { warn("no geometry for " + id); return; }
+  const all = () => { for (const L of g.layers) ringsPath(L.polys, mp); };
+  ctx.save(); ctx.lineJoin = "round";
+  [[44, 0.10], [28, 0.14], [14, 0.22]].forEach(([w, a]) => { ctx.beginPath(); all(); ctx.strokeStyle = `rgba(214,232,224,${a})`; ctx.lineWidth = w; ctx.stroke(); });
+  ctx.restore();
+  for (const L of g.layers) {
+    const polys = o.skipPR && L.iso === "US" ? L.polys.filter(p => !isPR(p)) : L.polys;
+    piece(() => ringsPath(polys, mp), typeof fill === "function" ? fill(L.iso) : fill[L.iso] || A.land, { rule: "evenodd", lw: o.lw ?? 3.5, rim: o.rim ?? 9, sx: 5, sy: 8, sb: 9 });
+  }
+}
+function borderOnMap(mp, lon0, lon1, k = 1, o = {}) {
+  if (k <= 0) return; const a = mp(lon0, BORDER_LAT), b = mp(lerp(lon0, lon1, k), BORDER_LAT);
+  ctx.save(); if (o.dash !== false) ctx.setLineDash([22, 12]); stroke2(() => { ctx.moveTo(...a); ctx.lineTo(...b); }, A.red, o.w || 7, (o.w || 7) + 6); ctx.restore();
+}
+function mapLabel(str, x, y, size = 64, a = 0.55) { text(str, x, y, { size, color: `rgba(43,35,32,${a})`, ls: size * 0.18 }); }
+function houseTop(x, y, s, a, col) { ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.scale(s, s); piece(() => ctx.rect(-14, -11, 28, 22), col, { lw: 2.5, rim: 4, sx: 2, sy: 3, sb: 2 }); line(-14, 0, 14, 0, "rgba(43,35,32,0.6)", 2); ctx.restore(); }
+function treeTop(x, y, s, id) { piece(blob(x, y, 12 * s, 12 * s, 8, id, 0.25), (id % 2 ? A.pine : A.moss2), { lw: 2, rim: 3, sx: 2, sy: 3, sb: 2 }); }
+
+// =====================================================================================================
+// 2. WHO: the real coastline; the town's houses and woods; a census card fills in
+// =====================================================================================================
+CU.who = (t, S) => {
+  const z = lerp(14000, 12000, eio(pp(t, S.t0, S.t1 - S.t0 + 0.6)));
+  const cam = { lon: PR_C[0] + 0.002, lat: PR_C[1] + 0.002, s: z, cx: W / 2, cy: 840 };
+  const mp = mapProj(cam);
+  seaFlat();
+  mapLand(S.id, mp, { US: A.us, CA: A.land });
+  const path = new Path2D(); for (const poly of prPolys(S.id)) for (const ring of poly) { ring.forEach(([lo, la], j) => { const q = mp(lo, la); j ? path.lineTo(q[0], q[1]) : path.moveTo(q[0], q[1]); }); path.closePath(); }
+  // the town drawn in: woods first, then houses, spreading from the border crossing
+  const t1 = at("who/twelve");
+  for (let i = 0; i < 260; i++) {
+    const lo = lerp(-123.092, -123.03, rnd(i, 81)), la = lerp(48.968, 49.001, rnd(i, 82)), [x, y] = mp(lo, la);
+    if (!ctx.isPointInPath(path, x, y)) continue;
+    const d = Math.hypot(lo + 123.063, la - 49.0) * 60, k = back(pp(t, t1 - 0.2 + d * 0.5, 0.3));
+    if (k <= 0) continue;
+    if (i % 3) treeTop(x, y, k, i); else houseTop(x, y, k * 0.9, (rnd(i, 83) - 0.5) * 0.5, [A.cream, "#e5cfa9", "#d9b59a"][i % 3]);
+  }
+  mapLabel("CANADA", 300, 560, 96);
+  const nb = mp(-123.0, BORDER_LAT); borderOnMap(mp, -123.25, -122.6, 1);
+  tag("49°N", Math.min(W - 130, nb[0] + 120), nb[1] - 40, { size: 30, rot: 0.03 });
+  // the census card, typed as it lands
+  const ck = spring(pp(t, t1 - 0.15, 0.6)), tp = pp(t, t1, 1.2), t5 = at("who/five");
+  card(770, 380, 420, 300, 0.03, ck, (w, h) => {
+    text("U.S. CENSUS · 2020", 0, -h / 2 + 52, { size: 30, font: "Elite" }); rule(-170, 170, -h / 2 + 70);
+    text("POINT ROBERTS, WA", 0, -h / 2 + 110, { size: 26, font: "Elite" });
+    text("POPULATION", -175, 10, { size: 26, font: "Elite", align: "left" });
+    text(fmt(Math.round(1191 * eout(tp))), 175, 14, { size: 54, align: "right", color: A.red });
+    text("AREA", -175, 96, { size: 26, font: "Elite", align: "left" });
+    if (t > t5) text(typed("≈ 5 SQ MI", pp(t, t5, 0.4)), 175, 98, { size: 44, align: "right", color: A.red });
+  });
+  if (t > t5) { ctx.save(); ctx.setLineDash([2400, 2400]); ctx.lineDashOffset = 2400 * (1 - eout(pp(t, t5, 0.8))); ctx.strokeStyle = A.mustard; ctx.lineWidth = 8; ctx.stroke(path); ctx.restore(); }
+  brandTag();
+};
+
+// =====================================================================================================
+// 3. TREATY: 1846, a desk; the real coastline on parchment; Britain holds the ruler, America draws the line
 // =====================================================================================================
 const NW_CAM = { lon: -121.6, lat: 48.6, s: 96, cx: W / 2, cy: 720 };
-const LINE_E = -114.2, LINE_W = -124.4;                    // where the drawn line runs (east edge to the strait)
-function deskBG() {
-  ctx.fillStyle = C.wood; ctx.fillRect(0, 0, W, H);
-  for (let i = 0; i < 9; i++) {                           // planks
-    const y = i * 230 - 40;
-    ctx.fillStyle = i % 2 ? C.wood2 : C.wood; ctx.fillRect(0, y, W, 226);
-    ctx.strokeStyle = "rgba(40,20,10,0.35)"; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
-    ctx.strokeStyle = "rgba(255,230,190,0.08)"; ctx.lineWidth = 2;
-    for (let k = 0; k < 6; k++) { ctx.beginPath(); ctx.moveTo(0, y + 30 + k * 34); for (let x = 0; x <= W; x += 60) ctx.lineTo(x, y + 30 + k * 34 + Math.sin(x * 0.01 + i + k) * 6); ctx.stroke(); }
-  }
+const LINE_E = -114.2, LINE_W = -124.4;
+function desk() {
+  ctx.fillStyle = A.wood; ctx.fillRect(0, 0, W, H);
+  for (let i = 0; i < 9; i++) { const y = i * 230 - 40; ctx.fillStyle = i % 2 ? A.wood2 : A.wood; ctx.fillRect(0, y, W, 226);
+    ctx.strokeStyle = "rgba(255,230,190,0.07)"; ctx.lineWidth = 2; for (let k = 0; k < 7; k++) { ctx.beginPath(); ctx.moveTo(0, y + 22 + k * 30); for (let x = 0; x <= W; x += 60) ctx.lineTo(x, y + 22 + k * 30 + Math.sin(x * 0.009 + i * 2 + k) * 7); ctx.stroke(); }
+    ctx.strokeStyle = "rgba(30,15,5,0.4)"; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+  const v = ctx.createRadialGradient(W / 2, 760, 300, W / 2, 760, 1100); v.addColorStop(0, "rgba(0,0,0,0)"); v.addColorStop(1, "rgba(20,10,0,0.45)"); ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
 }
 function parchment(draw) {
   ctx.save(); ctx.translate(W / 2, 735); ctx.rotate(-0.018); ctx.translate(-W / 2, -735);
-  const pts = []; const x0 = 50, y0 = 250, x1 = W - 50, y1 = 1215;
-  for (let i = 0; i <= 12; i++) pts.push([lerp(x0, x1, i / 12), y0 + (rnd(i, 51) - 0.5) * 10]);
-  for (let i = 0; i <= 12; i++) pts.push([x1 + (rnd(i, 52) - 0.5) * 10, lerp(y0, y1, i / 12)]);
-  for (let i = 12; i >= 0; i--) pts.push([lerp(x0, x1, i / 12), y1 + (rnd(i, 53) - 0.5) * 10]);
-  for (let i = 12; i >= 0; i--) pts.push([x0 + (rnd(i, 54) - 0.5) * 10, lerp(y0, y1, i / 12)]);
+  const pts = [], x0 = 50, y0 = 250, x1 = W - 50, y1 = 1215, n = 16;
+  for (let i = 0; i <= n; i++) pts.push([lerp(x0, x1, i / n), y0 + (rnd(i, 51) - 0.5) * 12]);
+  for (let i = 0; i <= n; i++) pts.push([x1 + (rnd(i, 52) - 0.5) * 12, lerp(y0, y1, i / n)]);
+  for (let i = n; i >= 0; i--) pts.push([lerp(x0, x1, i / n), y1 + (rnd(i, 53) - 0.5) * 12]);
+  for (let i = n; i >= 0; i--) pts.push([x0 + (rnd(i, 54) - 0.5) * 12, lerp(y0, y1, i / n)]);
   const edge = () => { pts.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.closePath(); };
-  cut(edge, C.parch, { lw: 4, sx: 10, sy: 14, sb: 16 });
-  ctx.save(); ctx.beginPath(); edge(); ctx.clip();
-  const g = ctx.createRadialGradient(W / 2, 735, 200, W / 2, 735, 700); g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(120,80,30,0.28)");
-  draw();
-  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  ctx.restore();
-  ctx.restore();
+  piece(edge, "#ead7ab", { lw: 3, rim: 14, sx: 12, sy: 18, sb: 22 });
+  ctx.save(); ctx.beginPath(); edge(); ctx.clip(); draw();
+  const g = ctx.createRadialGradient(W / 2, 735, 220, W / 2, 735, 720); g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(120,80,30,0.32)"); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  ctx.restore(); ctx.restore();
 }
-function nwMap(t, S, mp, lineK, tint) {
-  ctx.fillStyle = "#cdd6c0"; ctx.fillRect(0, 0, W, H);   // old-map sea
-  ctx.strokeStyle = "rgba(60,80,70,0.18)"; ctx.lineWidth = 2;
-  for (let i = 0; i < 40; i++) { ctx.beginPath(); const y = 260 + i * 26; ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
-  // land as one piece of paper: no border yet (both countries in one colour)
-  drawLand(S.id, mp, () => "#e2c98f", { lw: 3, sx: 3, sy: 4 });
-  // the chart's own furniture: title, compass rose, scale bar
-  ctx.save(); ctx.globalAlpha = 0.72;
-  text("OREGON COUNTRY", 700, 360, { size: 52, font: "Serif", color: "#6b4a28", ls: 2 });
-  line(540, 386, 860, 386, "rgba(107,74,40,0.7)", 3);
-  ctx.translate(840, 1040);
-  cut(() => { for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4, r = i % 2 ? 34 : 78; i ? ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r) : ctx.moveTo(r, 0); } ctx.closePath(); }, "#d9bc84", { lw: 3, shadow: false });
-  cut(() => { ctx.moveTo(0, -84); ctx.lineTo(22, -18); ctx.lineTo(-22, -18); ctx.closePath(); }, "#8a2a1e", { lw: 2.5, shadow: false });
-  text("N", 0, -98, { size: 30, color: "#6b4a28" });
-  ctx.restore();
-  ctx.save(); ctx.globalAlpha = 0.6; ctx.translate(230, 1060);
-  for (let i = 0; i < 4; i++) { ctx.fillStyle = i % 2 ? "#6b4a28" : "#e7d3a6"; ctx.fillRect(i * 40, 0, 40, 14); }
-  ctx.strokeStyle = "#6b4a28"; ctx.lineWidth = 2; ctx.strokeRect(0, 0, 160, 14);
-  text("200 MILES", 80, 46, { size: 24, font: "Elite", color: "#6b4a28" });
-  ctx.restore();
-  // graticule
-  ctx.save(); ctx.strokeStyle = "rgba(90,60,30,0.25)"; ctx.lineWidth = 2; ctx.setLineDash([6, 8]);
-  for (let la = 45; la <= 52; la++) { const a = mp(-129, la), b = mp(-113, la); ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke(); }
-  for (let lo = -128; lo <= -114; lo += 2) { const a = mp(lo, 44), b = mp(lo, 53); ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke(); }
-  ctx.restore();
-  if (tint > 0) clipLand(S.id, mp, null, () => {
-    const y = mp(0, 49)[1];
-    ctx.fillStyle = `rgba(200,69,45,${0.32 * tint})`; ctx.fillRect(0, 0, W, y);
-    ctx.fillStyle = `rgba(47,72,120,${0.30 * tint})`; ctx.fillRect(0, y, W, H);
-  });
-  if (lineK > 0) {
-    const a = mp(LINE_E, 49), b = mp(lerp(LINE_E, LINE_W, lineK), 49);
-    stroke2(() => { ctx.moveTo(...a); ctx.lineTo(...b); }, P.red, 7, 12);
-  }
+function oldMap(mp, lineK, tint) {
+  ctx.fillStyle = "#cfd6bf"; ctx.fillRect(0, 0, W, H);
+  ctx.save(); ctx.strokeStyle = "rgba(60,80,70,0.16)"; ctx.lineWidth = 2; for (let i = 0; i < 40; i++) { const y = 262 + i * 24; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); } ctx.restore();
+  const g = GEO.s_treaty, all = () => { for (const L of g.layers) ringsPath(L.polys, mp); };
+  ctx.save(); [[18, 0.12], [8, 0.2]].forEach(([w, a]) => { ctx.beginPath(); all(); ctx.strokeStyle = `rgba(90,70,40,${a})`; ctx.lineWidth = w; ctx.stroke(); }); ctx.restore();
+  piece(all, "#e2c98f", { rule: "evenodd", lw: 2.5, rim: 6, sx: 2, sy: 3, sb: 3, ink: "#5a4430" });
+  // relief: hachured ranges (the Cascades and the Rockies), drawn as little paper peaks
+  for (let i = 0; i < 60; i++) { const lo = i < 30 ? lerp(-122.2, -120.9, rnd(i, 1)) : lerp(-117.5, -115.0, rnd(i, 2)), la = lerp(45.4, 52, rnd(i, 3)); const [x, y] = mp(lo, la); ctx.save(); ctx.strokeStyle = "rgba(90,60,30,0.45)"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - 9, y + 5); ctx.lineTo(x, y - 8); ctx.lineTo(x + 9, y + 5); ctx.stroke(); ctx.restore(); }
+  ctx.save(); ctx.globalAlpha = 0.7; text("OREGON COUNTRY", 700, 360, { size: 52, font: "Serif", color: "#6b4a28", ls: 2 }); line(540, 386, 860, 386, "rgba(107,74,40,0.7)", 3);
+  ctx.translate(850, 1050); piece(() => { for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4, r = i % 2 ? 30 : 74; i ? ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r) : ctx.moveTo(r, 0); } ctx.closePath(); }, "#d9bc84", { lw: 2.5, rim: 4, shadow: false, ink: "#6b4a28" });
+  piece(() => { ctx.moveTo(0, -80); ctx.lineTo(20, -16); ctx.lineTo(-20, -16); ctx.closePath(); }, A.red2, { lw: 2, light: false, shadow: false }); text("N", 0, -92, { size: 28, color: "#6b4a28" }); ctx.restore();
+  if (tint > 0) { ctx.save(); ctx.beginPath(); all(); ctx.clip("evenodd"); const y = mp(0, 49)[1]; ctx.fillStyle = `rgba(184,67,44,${0.30 * tint})`; ctx.fillRect(0, 0, W, y); ctx.fillStyle = `rgba(47,63,92,${0.26 * tint})`; ctx.fillRect(0, y, W, H); ctx.restore(); }
+  if (lineK > 0) { const a = mp(LINE_E, 49), b = mp(lerp(LINE_E, LINE_W, lineK), 49); ctx.save(); ctx.strokeStyle = "#5a1f12"; ctx.lineWidth = 7; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke(); ctx.restore(); }
 }
-function hand(x, y, a, sleeve, cuff, s = 1) {               // a paper hand + sleeve reaching from off-frame
+// a hand with a cuffed sleeve reaching in from off-frame (+x is toward the fingertips)
+function hand(x, y, a, sleeve, cuff, s = 1, o = {}) {
   ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.scale(s, s);
-  cut(() => ctx.roundRect(-520, -58, 480, 116, 24), sleeve, { lw: 4, sx: 8, sy: 12, sb: 12 });
-  cut(() => ctx.roundRect(-70, -64, 60, 128, 12), cuff, { lw: 4 });
-  cut(() => { ctx.moveTo(-14, -46); ctx.quadraticCurveTo(60, -62, 96, -30); ctx.quadraticCurveTo(118, -10, 96, 14); ctx.lineTo(70, 44); ctx.quadraticCurveTo(20, 60, -14, 46); ctx.closePath(); }, P.skin, { lw: 4 });
-  ctx.strokeStyle = P.ink; ctx.lineWidth = 3;
-  for (const yy of [-22, -2, 18]) { ctx.beginPath(); ctx.moveTo(50, yy); ctx.lineTo(88, yy - 4); ctx.stroke(); }
+  piece(() => { ctx.moveTo(-640, -66); ctx.quadraticCurveTo(-300, -80, -70, -62); ctx.lineTo(-70, 62); ctx.quadraticCurveTo(-300, 80, -640, 66); ctx.closePath(); }, sleeve, { lw: 4.5, rim: 14, sx: 10, sy: 16, sb: 16 });
+  ctx.save(); ctx.strokeStyle = "rgba(20,10,5,0.25)"; ctx.lineWidth = 4; for (const k of [-300, -200]) { ctx.beginPath(); ctx.moveTo(k, -60); ctx.quadraticCurveTo(k + 30, 0, k, 60); ctx.stroke(); } ctx.restore();
+  piece(() => ctx.roundRect(-84, -72, 70, 144, 14), cuff, { lw: 4, rim: 6 });
+  if (o.lace) { ctx.save(); ctx.fillStyle = A.cream; for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.arc(-14, -60 + i * 24, 13, 0, 7); ctx.fill(); ctx.strokeStyle = A.ink; ctx.lineWidth = 2.5; ctx.stroke(); } ctx.restore(); }
+  piece(() => { ctx.moveTo(-18, -50); ctx.bezierCurveTo(30, -70, 80, -64, 104, -36); ctx.bezierCurveTo(122, -16, 116, 12, 98, 22); ctx.lineTo(70, 50); ctx.bezierCurveTo(30, 66, -4, 60, -18, 50); ctx.closePath(); }, A.skin, { lw: 4, rim: 8 });
+  piece(() => { ctx.moveTo(10, 36); ctx.quadraticCurveTo(50, 64, 92, 58); ctx.quadraticCurveTo(102, 50, 90, 40); ctx.quadraticCurveTo(54, 40, 26, 22); ctx.closePath(); }, A.skin2, { lw: 3.5, rim: 4, shadow: false });   // thumb
+  ctx.save(); ctx.strokeStyle = "rgba(43,35,32,0.55)"; ctx.lineWidth = 3; for (const yy of [-24, -4, 14]) { ctx.beginPath(); ctx.moveTo(58, yy); ctx.quadraticCurveTo(80, yy - 3, 98, yy - 6); ctx.stroke(); } ctx.restore();
   ctx.restore();
 }
 function ruler(x0, x1, y, k, rot) {
-  if (k <= 0) return;
-  ctx.save(); ctx.translate((x0 + x1) / 2, y - (1 - eout(k)) * 260); ctx.rotate(rot * (1 - eout(k)));
-  const w = x1 - x0;
-  cut(() => ctx.rect(-w / 2, -4, w, 44), "#d7b26a", { lw: 4, sx: 8, sy: 14, sb: 12 });
-  ctx.strokeStyle = P.ink; ctx.lineWidth = 2;
-  for (let i = 0; i <= 60; i++) { const xx = -w / 2 + 10 + i * (w - 20) / 60; ctx.beginPath(); ctx.moveTo(xx, -4); ctx.lineTo(xx, i % 5 ? 8 : 18); ctx.stroke(); }
+  if (k <= 0) return; ctx.save(); ctx.translate((x0 + x1) / 2, y - (1 - eout(k)) * 300); ctx.rotate(rot * (1 - spring(k)));
+  const w = x1 - x0; piece(() => ctx.roundRect(-w / 2, -6, w, 50, 6), "#d7b26a", { lw: 4, rim: 8, sx: 10, sy: 16, sb: 14 });
+  ctx.strokeStyle = "rgba(43,35,32,0.8)"; ctx.lineWidth = 2; for (let i = 0; i <= 80; i++) { const xx = -w / 2 + 12 + i * (w - 24) / 80; ctx.beginPath(); ctx.moveTo(xx, -6); ctx.lineTo(xx, i % 10 ? (i % 5 ? 6 : 14) : 22); ctx.stroke(); }
   ctx.restore();
 }
 function quill(x, y, a) {
   ctx.save(); ctx.translate(x, y); ctx.rotate(a);
-  cut(() => { ctx.moveTo(0, 0); ctx.quadraticCurveTo(40, -120, 150, -300); ctx.quadraticCurveTo(70, -150, 0, 0); ctx.closePath(); }, "#f3ead7", { lw: 3, sx: 6, sy: 10 });
-  line(0, 0, 120, -250, P.ink, 3);
+  piece(() => { ctx.moveTo(0, 0); ctx.bezierCurveTo(30, -110, 110, -260, 210, -380); ctx.bezierCurveTo(130, -250, 70, -120, 0, 0); ctx.closePath(); }, "#f3ead7", { lw: 3, rim: 6, sx: 8, sy: 12 });
+  ctx.save(); ctx.strokeStyle = "rgba(43,35,32,0.35)"; ctx.lineWidth = 2; for (let i = 1; i < 14; i++) { const u = i / 14; ctx.beginPath(); ctx.moveTo(u * 150, -u * 300); ctx.lineTo(u * 150 + 28 * (1 - u * 0.5), -u * 300 + 6); ctx.stroke(); } ctx.restore();
+  line(0, 0, 175, -340, "rgba(43,35,32,0.7)", 3); piece(() => { ctx.moveTo(-4, 4); ctx.lineTo(10, -22); ctx.lineTo(20, -18); ctx.closePath(); }, "#3a3530", { lw: 2, light: false, shadow: false });
   ctx.restore();
 }
 function candle(x, y) {
-  cut(() => ctx.ellipse(x, y + 10, 70, 22, 0, 0, 7), "#b9a27a", { lw: 3 });
-  cut(() => ctx.rect(x - 24, y - 120, 48, 130), "#f5ecd8", { lw: 3 });
-  const f = 1 + 0.12 * Math.sin(T * 23) + 0.08 * Math.sin(T * 37);
-  withAlpha(0.35, () => cut(() => ctx.arc(x, y - 150, 60 * f, 0, 7), "#ffe2a0", { lw: 0, shadow: false }));
-  cut(() => { ctx.moveTo(x, y - 190 * f + 70); ctx.quadraticCurveTo(x + 18, y - 140, x, y - 122); ctx.quadraticCurveTo(x - 18, y - 140, x, y - 190 * f + 70); ctx.closePath(); }, "#f7b84a", { lw: 3, shadow: false });
+  piece(() => ctx.ellipse(x, y + 12, 80, 24, 0, 0, 7), "#b9a27a", { lw: 3.5, rim: 6 });
+  piece(() => ctx.roundRect(x - 26, y - 130, 52, 142, 6), "#f5ecd8", { lw: 3.5, rim: 8 });
+  const f = 1 + 0.10 * Math.sin(T * 23) + 0.07 * Math.sin(T * 37);
+  const rg = ctx.createRadialGradient(x, y - 170, 10, x, y - 170, 200); rg.addColorStop(0, "rgba(255,226,160,0.55)"); rg.addColorStop(1, "rgba(255,226,160,0)"); ctx.fillStyle = rg; ctx.fillRect(x - 220, y - 390, 440, 440);
+  piece(() => { ctx.moveTo(x, y - 200 * f + 60); ctx.quadraticCurveTo(x + 20, y - 150, x, y - 132); ctx.quadraticCurveTo(x - 20, y - 150, x, y - 200 * f + 60); ctx.closePath(); }, "#f7b84a", { lw: 2.5, rim: 4, shadow: false });
 }
-function treatyDesk(t, S, o = {}) {
-  deskBG();
-  candle(130, 250);
-  const mp = mapProj(NW_CAM);
-  const tL0 = at("treaty/the") - 0.05, tL1 = at("treaty/parallel") + 0.5;
-  const lineK = o.lineK ?? eio(pp(t, tL0, tL1 - tL0));
-  const tint = o.tint ?? eout(pp(t, at("treaty/parallel") + 0.3, 0.5));
-  parchment(() => nwMap(t, S, mp, lineK, tint));
-  // inkwell
-  cut(() => ctx.roundRect(880, 1235, 120, 90, 18), "#2b2f3a", { lw: 4 });
-  // the rest of the desk: letters, a wax seal, a pocket watch, a sealing stick
-  [[150, 1560, -0.15], [330, 1640, 0.1], [520, 1580, -0.05]].forEach(([x, y, r], i) => { ctx.save(); ctx.translate(x, y); ctx.rotate(r); cut(() => ctx.rect(-130, -90, 260, 180), i % 2 ? "#efe2c2" : C.parch, { lw: 3, sx: 6, sy: 9 }); ctx.fillStyle = "rgba(43,35,32,0.35)"; for (let k = 0; k < 5; k++) ctx.fillRect(-100, -55 + k * 26, 200 - (k === 4 ? 80 : 0), 6); ctx.restore(); });
-  cut(() => ctx.arc(330, 1700, 46, 0, 7), "#8a2a1e", { lw: 4 });
-  cut(() => ctx.arc(820, 1600, 90, 0, 7), "#c9a043", { lw: 5 }); cut(() => ctx.arc(820, 1600, 72, 0, 7), "#f6efe0", { lw: 3, shadow: false });
-  { const a1 = T * 0.6, a2 = T * 7; line(820, 1600, 820 + Math.cos(a1) * 40, 1600 + Math.sin(a1) * 40, P.ink, 5); line(820, 1600, 820 + Math.cos(a2) * 60, 1600 + Math.sin(a2) * 60, P.ink, 3); }
-  stroke2(() => { ctx.moveTo(600, 1820); ctx.lineTo(1000, 1760); }, "#b23a2a", 22, 28);
-  // labels and the ruler
-  const ry = mp(0, 49)[1] - 44;
-  const rk = pp(t, at("treaty/ruler") - 0.15, 0.45);
-  ruler(70, W - 70, ry, o.rulerK ?? rk, -0.12);
-  const k1 = back(pp(t, at("treaty/britain") - 0.05, 0.3)), k2 = back(pp(t, at("treaty/america") - 0.05, 0.3));
-  if (k1 > 0 && !o.noLabels) { ctx.save(); ctx.translate(560, 470); ctx.scale(k1, k1); tag("BRITAIN", 0, 0, { size: 46, rot: -0.03 }); ctx.restore(); }
-  if (k2 > 0 && !o.noLabels) { ctx.save(); ctx.translate(600, 960); ctx.scale(k2, k2); tag("UNITED STATES", 0, 0, { size: 46, rot: 0.02 }); ctx.restore(); }
-  // the hands: Britain holds the ruler from the left, America draws from the right
-  const hb = eout(pp(t, at("treaty/britain") - 0.2, 0.5)), ha = eout(pp(t, at("treaty/america") - 0.2, 0.5));
-  if (hb > 0) hand(lerp(-200, 210, hb), ry + 20 + Math.sin(T * 3) * 3, 0.05, "#b23a2a", "#f3ead7", 0.9);
-  const px = mp(lerp(LINE_E, LINE_W, lineK), 49);
-  if (ha > 0) {
-    const hx = lineK > 0 ? px[0] + 40 : lerp(W + 400, 900, ha), hy = lineK > 0 ? px[1] + 70 : ry + 120;
-    quill(hx - 40, hy - 70, -0.25);
-    ctx.save(); ctx.translate(hx + 330, hy + 40); ctx.scale(-1, 1); hand(0, 0, 0.12, "#2f3f6e", "#e8d6a8", 0.9); ctx.restore();
+function treatyDesk(t, o = {}) {
+  desk(); candle(130, 250);
+  const mp = mapProj(NW_CAM), tL0 = at("treaty/the") - 0.05, tL1 = at("treaty/parallel") + 0.5;
+  const lineK = o.lineK ?? eio(pp(t, tL0, tL1 - tL0)), tint = o.tint ?? eout(pp(t, at("treaty/parallel") + 0.3, 0.5));
+  parchment(() => oldMap(mp, lineK, tint));
+  piece(() => ctx.roundRect(870, 1250, 130, 96, 20), "#2b2f3a", { lw: 4, rim: 6 });                       // inkwell
+  piece(() => ctx.arc(250, 1560, 64, 0, 7), A.red2, { lw: 4, rim: 10 });                                  // wax seal
+  ctx.save(); ctx.translate(250, 1560); ctx.rotate(0.2); text("1846", 0, 14, { size: 40, color: "#e7b0a0" }); ctx.restore();
+  const ry = mp(0, 49)[1] - 50, rk = o.rulerK ?? pp(t, at("treaty/ruler") - 0.2, 0.6);
+  ruler(70, W - 70, ry, rk, -0.14);
+  if (!o.noLabels) {
+    const k1 = spring(pp(t, at("treaty/britain") - 0.05, 0.6)), k2 = spring(pp(t, at("treaty/america") - 0.05, 0.6));
+    if (k1 > 0) { ctx.save(); ctx.translate(560, 470); ctx.scale(k1, k1); tag("BRITAIN", 0, 0, { size: 46, rot: -0.03 }); ctx.restore(); }
+    if (k2 > 0) { ctx.save(); ctx.translate(600, 960); ctx.scale(k2, k2); tag("UNITED STATES", 0, 0, { size: 46, rot: 0.02 }); ctx.restore(); }
+    const k49 = spring(pp(t, at("treaty/fortyninth") - 0.05, 0.6)); if (k49 > 0) { const q = mp(-116.2, 49); ctx.save(); ctx.translate(q[0], q[1] + 80); ctx.scale(k49, k49); tag("49°N", 0, 0, { size: 44, bg: A.mustard }); ctx.restore(); }
   }
-  stamp("1846", 230, 1130, t - at("treaty/eighteen"), { size: 110, rot: -0.12, color: "#8a2a1e" });
-  const k49 = back(pp(t, at("treaty/fortyninth") - 0.05, 0.3));
-  if (k49 > 0 && !o.noLabels) { const q = mp(-116.2, 49); ctx.save(); ctx.translate(q[0], q[1] + 70); ctx.scale(k49, k49); tag("49°N", 0, 0, { size: 44, bg: P.yellow }); ctx.restore(); }
+  const hb = eout(pp(t, at("treaty/britain") - 0.25, 0.6)), ha = eout(pp(t, at("treaty/america") - 0.25, 0.6));
+  if (hb > 0 || o.hands) hand(lerp(-260, 200, o.hands ? 1 : hb), ry + 24 + Math.sin(T * 3) * 2, 0.04, "#a8392b", A.cream, 0.85, { lace: true });
+  const px = mp(lerp(LINE_E, LINE_W, lineK), 49);
+  if (ha > 0 || o.hands) { const hx = lineK > 0 ? px[0] + 30 : lerp(W + 500, 900, ha), hy = lineK > 0 ? px[1] + 80 : ry + 140;
+    quill(hx - 30, hy - 74, -0.15); ctx.save(); ctx.translate(hx + 320, hy + 30); ctx.scale(-1, 1); hand(0, 0, 0.1, A.navy, "#e8d6a8", 0.85); ctx.restore(); }
+  if (!o.noLabels) stamp("1846", 240, 1130, t - at("treaty/eighteen"), { size: 110, rot: -0.12, color: A.red2 });
   return mp;
 }
-CU.treaty = (t, S) => { treatyDesk(t, S); };
+CU.treaty = (t, S) => { treatyDesk(t); };
 
 // =====================================================================================================
-// 4. COAST: the deal gets signed; the camera dives to the coast; the lens shows what the line did
+// 4. COAST: the deal is signed; the camera dives to the coast; a lens shows what the line actually did
 // =====================================================================================================
 CU.coast = (t, S) => {
-  const mpD = mapProj(NW_CAM), focus = mpD(-123.06, 49.0);
-  const z = 1 + 2.4 * eio(pp(t, S.t0 + 0.15, 1.0));
-  ctx.save(); ctx.translate(W / 2, 700); ctx.scale(z, z); ctx.translate(-focus[0], -focus[1]);
-  treatyDesk(t, SC.find(x => x.id === "s_treaty"), { lineK: 1, tint: 1, rulerK: 1, noLabels: true });
-  ctx.restore();
-  stamp("SIGNED", 760, 400, t - at("coast/nobody"), { size: 120, rot: 0.12, color: "#8a2a1e" });
-  // magnifying glass with the real coastline (OSM) inside
+  const focus = mapProj(NW_CAM)(-123.06, 49.0), z = 1 + 2.4 * eio(pp(t, S.t0 + 0.1, 1.0));
+  ctx.save(); ctx.translate(W / 2, 700); ctx.scale(z, z); ctx.translate(-focus[0], -focus[1]); treatyDesk(t, { lineK: 1, tint: 1, rulerK: 1, noLabels: true }); ctx.restore();
+  stamp("SIGNED", 760, 400, t - at("coast/nobody"), { size: 120, rot: 0.12, color: A.red2 });
   const lk = eout(pp(t, at("coast/the") - 0.1, 0.45));
   if (lk > 0) {
-    const cx = lerp(W + 400, 540, lk), cy = 760, r = 330;
+    const cx = lerp(W + 420, 540, lk), cy = 780, r = 330;
     ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r, 0, 7); ctx.clip();
-    const cam = { lon: -123.03, lat: 49.01, s: 9000, cx, cy };
-    const mp = mapProj(cam);
-    seaBG("#b7d0ca");
-    drawLand("s_survey", mp, () => "#e2c98f", { lw: 3 });
-    const a = mp(-122.9, BORDER_LAT), b = mp(-123.2, BORDER_LAT);
-    stroke2(() => { ctx.moveTo(...a); ctx.lineTo(...b); }, P.red, 8, 14);
+    const mp = mapProj({ lon: -123.03, lat: 49.012, s: 9000, cx, cy }); seaFlat("#bcd2ca"); mapLand("s_survey", mp, () => "#e2c98f", { lw: 3 });
+    ctx.save(); ctx.strokeStyle = "#5a1f12"; ctx.lineWidth = 8; ctx.lineCap = "round"; const a = mp(-122.9, BORDER_LAT), b = mp(-123.2, BORDER_LAT); ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke(); ctx.restore();
+    const rg = ctx.createRadialGradient(cx - r * 0.3, cy - r * 0.4, 20, cx, cy, r); rg.addColorStop(0, "rgba(255,255,255,0.18)"); rg.addColorStop(1, "rgba(0,0,0,0.12)"); ctx.fillStyle = rg; ctx.fillRect(cx - r, cy - r, 2 * r, 2 * r);
     ctx.restore();
     ctx.save(); ctx.translate(cx, cy);
-    stroke2(() => { ctx.moveTo(r * 0.72, r * 0.72); ctx.lineTo(r * 1.35, r * 1.35); }, C.wood2, 44, 54);
-    ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.lineWidth = 34; ctx.strokeStyle = P.ink; ctx.stroke(); ctx.lineWidth = 22; ctx.strokeStyle = "#c9a043"; ctx.stroke();
-    withAlpha(0.18, () => { ctx.beginPath(); ctx.arc(-r * 0.35, -r * 0.4, r * 0.3, 0, 7); ctx.fillStyle = "#fff"; ctx.fill(); });
+    piece(() => { ctx.moveTo(r * 0.66, r * 0.78); ctx.lineTo(r * 1.38, r * 1.5); ctx.lineTo(r * 1.5, r * 1.38); ctx.lineTo(r * 0.78, r * 0.66); ctx.closePath(); }, A.wood2, { lw: 4, rim: 8 });
+    ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.lineWidth = 40; ctx.strokeStyle = A.ink; ctx.stroke(); ctx.lineWidth = 28; ctx.strokeStyle = "#c9a043"; ctx.stroke();
+    ctx.beginPath(); ctx.arc(0, 0, r - 4, Math.PI * 1.05, Math.PI * 1.45); ctx.lineWidth = 8; ctx.strokeStyle = "#f3dc94"; ctx.stroke();
     ctx.restore();
-    const qk = back(pp(t, at("coast/coast") + 0.05, 0.3));
-    if (qk > 0) { ctx.save(); ctx.translate(cx + 40, cy + 120); ctx.scale(qk, qk); text("?", 0, 0, { size: 170, color: P.red, stroke: 14 }); ctx.restore(); }
+    const qk = spring(pp(t, at("coast/coast") + 0.05, 0.6)); if (qk > 0) { ctx.save(); ctx.translate(cx + 30, cy + 150); ctx.scale(qk, qk); text("?", 0, 0, { size: 180, color: A.red, stroke: 16 }); ctx.restore(); }
   }
 };
 
 // =====================================================================================================
-// 5. SURVEY: surveyors walk the line across the real peninsula; the tip comes loose and turns American
+// 5. SURVEY: two surveyors on the beach with a theodolite, the line of stakes; a map card shows the tip coming loose
 // =====================================================================================================
-function surveyor(x, y, s, ph, id, hat) { person({ x, gy: y, s, walk: ph, id, hat, col: id % 2 ? "#5a4636" : "#2f4858" }); }
-CU.survey = (t, S) => {
-  const cam = { lon: -123.055, lat: 49.004, s: lerp(9800, 10800, pp(t, S.t0, 3.6)), cx: W / 2, cy: 760 };
-  const mp = mapProj(cam);
-  seaBG();
-  const tc = at("survey/cut"), lift = eout(pp(t, tc, 0.5));
-  // Canada first, then Point Roberts on top, lifted like a cut piece of paper
-  const g = GEO[S.id];
-  for (const L of g.layers) {
-    const isPR = poly => poly[0].some(([lo, la]) => lo < -122.99 && lo > -123.12 && la > 48.95);
-    const rest = L.iso === "US" ? L.polys.filter(p => !isPR(p)) : L.polys;
-    cut(() => ringsPath(rest, mp), L.iso === "US" ? C.us : C.ca, { lw: 4, rule: "evenodd" });
-  }
-  // the tip: Canadian colour until the cut, then American; it lifts on the cut
-  const tip = prPolys(S.id);
-  ctx.save(); ctx.translate(0, -16 * lift);
-  const col = lift > 0 ? C.us : C.ca;
-  cut(() => ringsPath(tip, mp), col, { lw: 4, rule: "evenodd", sx: 6 + 10 * lift, sy: 9 + 16 * lift, sb: 8 + 12 * lift });
+function theodolite(x, gy, s) {
+  ctx.save(); ctx.translate(x, gy); ctx.scale(s, s);
+  for (const a of [-0.32, 0.05, 0.36]) { ctx.save(); ctx.rotate(a); piece(() => ctx.roundRect(-5, -230, 10, 230, 3), A.wood, { lw: 3, rim: 3 }); ctx.restore(); }
+  piece(() => ctx.roundRect(-34, -270, 68, 40, 8), "#9a8a5a", { lw: 3.5, rim: 5 });
+  piece(() => ctx.roundRect(-10, -296, 90, 24, 8), "#c9a043", { lw: 3.5, rim: 4 }); piece(() => ctx.arc(80, -284, 13, 0, 7), "#3a3530", { lw: 3, rim: 3, shadow: false });
   ctx.restore();
-  // the line drawn behind the surveyors, east to west
-  const walk = eio(pp(t, S.t0 - 0.2, tc - S.t0 + 0.2));
-  const lonS = lerp(-122.99, -123.105, walk);
-  borderLine(mp, -122.95, lonS, 1, { dash: false, w: 7 });
-  // stakes every so often
-  for (let lo = -123.0; lo > lonS; lo -= 0.008) { const p = mp(lo, BORDER_LAT); cut(() => ctx.rect(p[0] - 4, p[1] - 30, 8, 30), C.white, { lw: 2.5, sx: 2, sy: 3 }); }
-  const sp = mp(lonS, BORDER_LAT), walking = t < tc;
-  surveyor(sp[0] + 30, sp[1] + 6, 0.75, walking ? t * 9 : null, 1, "top");
-  surveyor(sp[0] + 140, sp[1] + 6, 0.75, walking ? t * 9 + 2 : null, 2, "top");
-  // the chain between them
-  ctx.save(); ctx.strokeStyle = "#5e5a52"; ctx.lineWidth = 3; ctx.setLineDash([6, 4]); ctx.beginPath(); ctx.moveTo(sp[0] + 40, sp[1] - 40); ctx.quadraticCurveTo(sp[0] + 70, sp[1] - 20, sp[0] + 100, sp[1] - 40); ctx.stroke(); ctx.restore();
-  // scissors snip along the line at the cut
-  const sk = pp(t, tc - 0.15, 0.6);
-  if (sk > 0 && sk < 1) {
-    const q = mp(lerp(-123.035, -123.1, sk), BORDER_LAT);
-    ctx.save(); ctx.translate(q[0], q[1]); ctx.rotate(Math.PI);
-    const o = 0.35 * Math.abs(Math.sin(t * 30));
-    for (const k of [-1, 1]) { ctx.save(); ctx.rotate(k * o); cut(() => { ctx.ellipse(-60, k * 16, 26, 14, 0, 0, 7); }, P.red, { lw: 3 }); cut(() => { ctx.moveTo(-40, k * 6); ctx.lineTo(60, 0); ctx.lineTo(-40, -k * 2); ctx.closePath(); }, "#c9ccd0", { lw: 3 }); ctx.restore(); }
+}
+CU.survey = (t, S) => {
+  const tc = at("survey/cut"), tp = at("survey/peninsula");
+  sky({ sunX: 180, sunY: 380, top: "#e4cfa8" });
+  ridge(900, 260, A.mtnFar, 0, 7, 0, true); haze(600, 960, 0.45);
+  water(860, 1090, 0);
+  // the beach and a grassy bank
+  piece(() => { ctx.moveTo(-20, H); ctx.lineTo(-20, 1060); ctx.quadraticCurveTo(400, 1030, W + 20, 1080); ctx.lineTo(W + 20, H); ctx.closePath(); }, "#d8c49a", { lw: 4, rim: 10, sx: 0, sy: -3 });
+  nearGround(1290, 0, A.moss);
+  // the line of stakes running off toward the water, and the chain between the surveyors
+  const walk = eio(pp(t, S.t0 - 0.2, tc - S.t0 + 0.1));
+  for (let i = 0; i < 9; i++) { const k = pp(walk, i / 9, 0.12); if (k <= 0) continue; const x = 1000 - i * 115, y = 1150 + i * 4; piece(() => { ctx.moveTo(x - 7, y); ctx.lineTo(x - 5, y - 60 * k); ctx.lineTo(x, y - 70 * k); ctx.lineTo(x + 5, y - 60 * k); ctx.lineTo(x + 7, y); ctx.closePath(); }, A.cream, { lw: 3, rim: 3 }); if (k > 0.8) piece(() => ctx.rect(x - 7, y - 66, 14, 12), A.red, { lw: 2, light: false, shadow: false }); }
+  const sx = lerp(1150, 250, walk), walking = t < tc - 0.1;
+  theodolite(sx - 120, 1190, 1.0);
+  surveyor({ x: sx, gy: 1210, s: 1.35, walk: walking ? t * 7 : null, dir: -1, id: 11, look: t > tc ? 1 : 0, brow: t > tc + 0.5 ? -1 : 0 });
+  surveyor({ x: sx + 260, gy: 1225, s: 1.3, walk: walking ? t * 7 + 2 : null, dir: -1, id: 12, col: "#5a4a3a", beard: "#5a4636", look: t > tc ? 1 : 0, brow: t > tc + 0.5 ? -1 : 0 });
+  ctx.save(); ctx.strokeStyle = "#6a6458"; ctx.lineWidth = 4; ctx.setLineDash([8, 5]); ctx.beginPath(); ctx.moveTo(sx + 40, 1090); ctx.quadraticCurveTo(sx + 115, 1150, sx + 190, 1085); ctx.stroke(); ctx.restore();
+  // the map card: the real tip below the line, lifting off and turning American
+  const mk = spring(pp(t, S.t0 + 0.1, 0.6));
+  card(540, 470, 820, 400, 0.02, mk, (w, h) => {
+    ctx.save(); ctx.beginPath(); ctx.rect(-w / 2 + 20, -h / 2 + 20, w - 40, h - 40); ctx.clip();
+    const mp = mapProj({ lon: -123.06, lat: 49.0, s: 10500, cx: 0, cy: -20 });
+    ctx.fillStyle = A.sea; ctx.fillRect(-w / 2, -h / 2, w, h);
+    const g = GEO[S.id], lift = eout(pp(t, tc, 0.5));
+    for (const L of g.layers) piece(() => ringsPath(L.iso === "US" ? L.polys.filter(p => !isPR(p)) : L.polys, mp), L.iso === "US" ? A.us : A.land, { rule: "evenodd", lw: 3, rim: 7 });
+    ctx.save(); ctx.translate(0, -18 * lift); ctx.rotate(-0.02 * lift); piece(() => ringsPath(prPolys(S.id), mp), lift > 0 ? A.us : A.land, { rule: "evenodd", lw: 3.5, rim: 8, sx: 6 + 12 * lift, sy: 9 + 18 * lift, sb: 8 + 14 * lift }); ctx.restore();
+    const a = mp(-122.9, BORDER_LAT), b = mp(lerp(-122.9, -123.2, walk), BORDER_LAT); ctx.save(); ctx.setLineDash([20, 10]); stroke2(() => { ctx.moveTo(...a); ctx.lineTo(...b); }, A.red, 6, 12); ctx.restore();
+    if (t > tc + 0.15) { const k = spring(pp(t, tc + 0.15, 0.6)), q = mp(-123.062, 48.984); ctx.save(); ctx.translate(q[0], q[1]); ctx.scale(k, k); text("USA", 0, 26, { size: 76, color: A.cream, stroke: 12 }); ctx.restore(); }
+    mapLabel("CANADA", -180, -h / 2 + 100, 60, 0.5);
     ctx.restore();
-  }
-  text("CANADA", W / 2, 420, { size: 110, color: "rgba(43,35,32,0.5)", ls: 16 });
-  const tp = at("survey/peninsula");
-  if (t > tc + 0.2) { const k = back(pp(t, tc + 0.2, 0.3)); const q = mp(-123.062, 48.982); ctx.save(); ctx.translate(q[0], q[1]); ctx.scale(k, k); text("USA", 0, 30, { size: 90, color: C.white, stroke: 12 }); ctx.restore(); }
-  popTag("POINT ROBERTS", W / 2, 1150, t, tp - 0.1, { size: 46, bg: P.yellow });
-  // the surveyors' reaction
-  if (t > tc + 0.6) { const k = back(pp(t, tc + 0.6, 0.3)); ctx.save(); ctx.translate(sp[0] + 70, sp[1] - 170); ctx.scale(k, k); cut(() => ctx.ellipse(0, 0, 54, 44, 0, 0, 7), C.white, { lw: 3 }); text("?!", 0, 22, { size: 64, color: P.red }); ctx.restore(); }
-  popTag("BOUNDARY SURVEY", W / 2, 300, t, -99, { size: 34 });
+  });
+  popLabel("POINT ROBERTS", 760, 640, t, tp - 0.1);
+  if (t > tc + 0.55) { const k = spring(pp(t, tc + 0.55, 0.6)); ctx.save(); ctx.translate(sx + 30, 780); ctx.scale(k, k); piece(blob(0, 0, 60, 46, 12, 5, 0.06), A.cream, { lw: 3.5, rim: 5 }); text("?!", 0, 22, { size: 62, color: A.red }); ctx.restore(); }
+  brandTag();
 };
+function popLabel(str, x, y, t, a, o = {}) { const k = spring(pp(t, a, 0.6)); if (k <= 0) return; ctx.save(); ctx.translate(x, y); ctx.scale(k, k); tag(str, 0, 0, Object.assign({ size: 42, bg: A.mustard }, o)); ctx.restore(); }
 
 // =====================================================================================================
-// 6. DRIVE: the only drive to the rest of the US, on the real map: two borders, about 25 miles of Canada
+// 6. DRIVE: the wagon from above on the real roads; a passport takes two stamps; the odometer rolls to 25
 // =====================================================================================================
 const ROUTE = [[-123.055, 48.985], [-123.0632, 49.0021], [-123.066, 49.03], [-123.06, 49.06], [-123.0, 49.08], [-122.93, 49.095], [-122.89, 49.103], [-122.84, 49.08], [-122.80, 49.04], [-122.765, 49.015], [-122.757, 49.0021], [-122.75, 48.99]];
-function routeAt(pts, k) {                                 // point and heading at fraction k of the path length
-  const seg = []; let tot = 0;
-  for (let i = 1; i < pts.length; i++) { const l = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(l); tot += l; }
-  let d = clamp(k) * tot;
-  for (let i = 0; i < seg.length; i++) { if (d <= seg[i] || i === seg.length - 1) { const u = seg[i] ? d / seg[i] : 0; const a = pts[i], b = pts[i + 1]; return { x: lerp(a[0], b[0], u), y: lerp(a[1], b[1], u), a: Math.atan2(b[1] - a[1], b[0] - a[0]), i, u }; } d -= seg[i]; }
-}
-function passport(x, y, n, since) {
-  if (since <= 0) return;
-  const k = back(clamp(since / 0.3));
-  ctx.save(); ctx.translate(x, y); ctx.scale(k, k); ctx.rotate(-0.06);
-  cut(() => ctx.roundRect(-110, -78, 220, 156, 12), "#1f3a5f", { lw: 4 });
-  text("PASSPORT", 0, -30, { size: 34, color: "#e8c46a", ls: 2 });
+function along(R, k) { const L = R.slice(1).map((p, i) => Math.hypot(p[0] - R[i][0], p[1] - R[i][1])), tot = L.reduce((a, b) => a + b, 0); let d = clamp(k) * tot; for (let i = 0; i < L.length; i++) { if (d <= L[i] || i === L.length - 1) { const u = L[i] ? d / L[i] : 0, a = R[i], b = R[i + 1]; return { x: lerp(a[0], b[0], u), y: lerp(a[1], b[1], u), a: Math.atan2(b[1] - a[1], b[0] - a[0]), frac: n => L.slice(0, n).reduce((x, y) => x + y, 0) / tot }; } d -= L[i]; } }
+function wagonTop(x, y, a, s) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.scale(s, s);
+  piece(() => ctx.roundRect(-44, -22, 88, 44, 14), A.sage, { lw: 3.5, rim: 6, sx: 4, sy: 6 });
+  piece(() => ctx.roundRect(-30, -17, 50, 34, 8), "#bfd3cf", { lw: 2.5, rim: 3, shadow: false });
+  piece(() => ctx.roundRect(-26, -13, 40, 26, 5), A.sage2, { lw: 2.5, rim: 3, shadow: false });
+  ctx.strokeStyle = A.ink; ctx.lineWidth = 2.5; for (const yy of [-8, 0, 8]) { ctx.beginPath(); ctx.moveTo(-22, yy); ctx.lineTo(8, yy); ctx.stroke(); }
   ctx.restore();
-  stamp(n === 1 ? "CROSSING 1" : "CROSSING 2", x, y + 30, since - 0.15, { size: 46, rot: -0.12, color: n === 1 ? C.caR : P.red });
+}
+function odometer(x, y, value, k) {
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(x, y); ctx.scale(k, k);
+  piece(() => ctx.roundRect(-190, -90, 380, 180, 30), "#2f2b28", { lw: 4, rim: 10, sx: 8, sy: 12 });
+  text("MILES IN CANADA", 0, -48, { size: 28, font: "Elite", color: A.cream });
+  const digits = 3, cw = 72;
+  for (let i = 0; i < digits; i++) {
+    const place = Math.pow(10, digits - 1 - i), v = value / place, d = Math.floor(v) % 10, f = i === digits - 1 ? v - Math.floor(v) : (v % 1 > 0.92 ? (v % 1 - 0.92) / 0.08 : 0);
+    const cx = -cw + i * cw;
+    ctx.save(); ctx.beginPath(); ctx.roundRect(cx - 30, -24, 60, 88, 8); ctx.clip();
+    ctx.fillStyle = A.cream; ctx.fillRect(cx - 30, -24, 60, 88);
+    for (const [dd, oy] of [[d, -f * 80], [(d + 1) % 10, 80 - f * 80]]) text(String(dd), cx, 46 + oy, { size: 66, color: A.ink });
+    const g = ctx.createLinearGradient(0, -24, 0, 64); g.addColorStop(0, "rgba(0,0,0,0.35)"); g.addColorStop(0.3, "rgba(0,0,0,0)"); g.addColorStop(0.7, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(0,0,0,0.35)"); ctx.fillStyle = g; ctx.fillRect(cx - 30, -24, 60, 88);
+    ctx.restore(); ctx.beginPath(); ctx.roundRect(cx - 30, -24, 60, 88, 8); ctx.lineWidth = 3; ctx.strokeStyle = A.ink; ctx.stroke();
+  }
+  ctx.restore();
+}
+function passportCard(x, y, t, t1, t2) {
+  const k = spring(pp(t, t1 - 0.25, 0.6));
+  card(x, y, 400, 300, -0.04, k, (w, h) => {
+    piece(() => ctx.rect(-w / 2 + 14, -h / 2 + 14, w - 28, h - 28), "#e6dcc4", { lw: 2, light: false, shadow: false });
+    text("PASSPORT · ENTRIES", 0, -h / 2 + 50, { size: 26, font: "Elite" }); rule(-160, 160, -h / 2 + 66);
+    stamp("CANADA", -80, 30, t - t1, { size: 44, rot: -0.18, color: A.red, maxW: 220 });
+    stamp("U.S.A.", 90, 50, t - t2, { size: 44, rot: 0.12, color: A.navy, maxW: 220 });
+  }, { bg: "#efe5cc" });
 }
 CU.drive = (t, S) => {
-  const cam = { lon: -122.925, lat: 49.04, s: 4300, cx: W / 2, cy: 760 };
-  const mp = mapProj(cam);
-  seaBG();
-  drawLand(S.id, mp, { US: C.us, CA: C.ca });
-  borderLine(mp, -123.3, -122.6, 1, { dash: true, w: 6 });
-  // the route through Canada (screen space), drawn as the car goes
-  const t1 = at("drive/cross"), t2 = at("drive/twice");
-  const k = lerp(0.04, 0.985, eio(pp(t, S.t0 - 0.1, t2 - S.t0 + 0.15)));
-  const R = ROUTE.map(p => mp(...p));
-  const L = R.map((p, i) => i ? Math.hypot(p[0] - R[i - 1][0], p[1] - R[i - 1][1]) : 0).reduce((a, b) => a + b, 0);
-  ctx.save(); ctx.setLineDash([L * k, L * 2]);
-  stroke2(() => { R.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); }, P.yellow, 10, 18);
-  ctx.restore();
-  // booths at the two crossings
-  for (const [lo, la] of [ROUTE[1], ROUTE[10]]) { const q = mp(lo, la); cut(() => ctx.rect(q[0] - 22, q[1] - 22, 44, 44), C.white, { lw: 3 }); flatFlag("CA", q[0] - 16, q[1] - 12, 32); }
-  const c = routeAt(R, k);
-  carTop(c.x, c.y, c.a, 1.0, P.red);
-  // miles in Canada, counted between the crossings
-  const lens = R.slice(1).map((p, i) => Math.hypot(p[0] - R[i][0], p[1] - R[i][1])), tot = lens.reduce((a, b) => a + b, 0);
-  const upto = n => lens.slice(0, n).reduce((a, b) => a + b, 0) / tot;      // fraction of the path at waypoint n
-  const inCanada = clamp((k - upto(1)) / (upto(10) - upto(1)));             // between crossing 1 and crossing 2
-  const miles = Math.round(25 * inCanada);
-  text("CANADA", W / 2, 360, { size: 110, color: "rgba(43,35,32,0.5)", ls: 16 });
-  const p0 = mp(-123.062, 48.975); tag("POINT ROBERTS", p0[0] + 10, p0[1] + 80, { size: 32 });
-  const pb = mp(-122.74, 48.975); tag("BLAINE, WA", pb[0] - 60, pb[1] + 70, { size: 32 });
-  counterCard(`${miles} MI`, 800, 1090, "OF CANADA", { size: 80, rot: 0.03 });
-  passport(240, 600, 1, t - t1);
-  passport(240, 600, 2, t - t2);
-  popTag("REST OF THE USA ↓", 800, 960, t, t2 + 0.2, { size: 32, bg: P.yellow });
+  const cam = { lon: -122.93, lat: 49.045, s: 4300, cx: W / 2, cy: 760 }, mp = mapProj(cam);
+  seaFlat(); mapLand(S.id, mp, { US: A.us, CA: A.land });
+  borderOnMap(mp, -123.3, -122.6, 1, { w: 6 });
+  const t1 = at("drive/cross"), t2 = at("drive/twice"), k = lerp(0.03, 0.985, eio(pp(t, S.t0 - 0.1, t2 - S.t0 + 0.15)));
+  const R = ROUTE.map(p => mp(...p)), c = along(R, k), Ltot = R.slice(1).reduce((a, p, i) => a + Math.hypot(p[0] - R[i][0], p[1] - R[i][1]), 0);
+  ctx.save(); ctx.setLineDash([Ltot * k, Ltot * 2]); stroke2(() => { R.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); }, A.mustard, 12, 20); ctx.restore();
+  for (const p of [ROUTE[1], ROUTE[10]]) { const q = mp(...p); piece(() => ctx.roundRect(q[0] - 24, q[1] - 24, 48, 48, 8), A.cream, { lw: 3, rim: 4 }); ctx.save(); ctx.fillStyle = A.red; mapleLeaf(ctx, q[0], q[1] + 2, 15); ctx.fill(); ctx.restore(); }
+  wagonTop(c.x, c.y, c.a, 0.9);
+  mapLabel("CANADA", W / 2, 360, 104);
+  const p0 = mp(-123.062, 48.975); tag("POINT ROBERTS", p0[0] + 20, p0[1] + 80, { size: 30 });
+  const pb = mp(-122.74, 48.975); tag("BLAINE, WA", pb[0] - 60, pb[1] + 74, { size: 30 });
+  const inC = clamp((k - c.frac(1)) / (c.frac(10) - c.frac(1)));
+  odometer(770, 1080, 25 * inC, spring(pp(t, S.t0 + 0.2, 0.6)));
+  passportCard(260, 1060, t, t1, t2);
+  brandTag();
 };
 
 // =====================================================================================================
-// 7. KIDS: the school bus: out through Canada and back, four crossings, sun across the sky
+// 7. KIDS: the school bus out through Canada and back; the sun crosses the sky; a bus pass gets punched 4 times
 // =====================================================================================================
-function bus(x, gy, s, dir, ph, id) {
-  ctx.save(); ctx.translate(x, gy); ctx.scale(s * dir, s); boil(id, 0.5);
-  ctx.translate(0, -Math.abs(Math.sin(ph * 12)) * 3);
-  cut(() => ctx.roundRect(-230, -190, 440, 150, 18), P.yellow, { lw: 4 });
-  cut(() => { ctx.moveTo(210, -150); ctx.lineTo(268, -140); ctx.quadraticCurveTo(280, -132, 280, -100); ctx.lineTo(280, -40); ctx.lineTo(210, -40); ctx.closePath(); }, P.yellow, { lw: 4 });
-  ctx.fillStyle = P.ink; ctx.fillRect(-230, -92, 510, 10);
-  for (let i = 0; i < 5; i++) {
-    const wx = -205 + i * 80;
-    cut(() => ctx.rect(wx, -172, 60, 52), "#cfe0de", { lw: 3, shadow: false });
-    const bob = Math.sin(ph * 8 + i * 1.7) * 3;
-    cut(() => ctx.arc(wx + 30, -136 + bob, 15, 0, 7), [P.skin, "#c99a72", "#8d5f3e", P.skin, "#e3b48c"][i], { lw: 2.5, shadow: false });
-    ctx.fillStyle = P.ink; ctx.beginPath(); ctx.arc(wx + 35, -139 + bob, 2.4, 0, 7); ctx.fill();
-  }
-  ctx.save(); ctx.scale(dir, 1); text("SCHOOL BUS", dir > 0 ? -10 : 10, -52, { size: 30, color: P.ink, ls: 3 }); ctx.restore();
+function schoolhouse(x, gy, s) {
+  ctx.save(); ctx.translate(x, gy); ctx.scale(s, s);
+  footShadow(0, 4, 220);
+  piece(() => ctx.rect(-180, -230, 360, 230), "#b5674a", { lw: 4.5, rim: 10 });
+  piece(() => { ctx.moveTo(-205, -226); ctx.lineTo(0, -330); ctx.lineTo(205, -226); ctx.closePath(); }, "#7b3a2a", { lw: 4.5, rim: 8 });
+  piece(() => ctx.rect(-40, -400, 80, 90), A.cream, { lw: 4, rim: 6 }); piece(() => { ctx.moveTo(-54, -398); ctx.lineTo(0, -446); ctx.lineTo(54, -398); ctx.closePath(); }, "#7b3a2a", { lw: 4, rim: 5 });
+  piece(() => ctx.arc(0, -356, 18, 0, 7), A.mustard, { lw: 3, rim: 4, shadow: false });
+  for (const wx of [-140, -70, 40, 110]) piece(() => ctx.rect(wx, -190, 46, 60), "#f3dc94", { lw: 3, rim: 3, shadow: false });
+  piece(() => ctx.roundRect(-30, -110, 60, 110, [30, 30, 0, 0]), A.wood2, { lw: 3.5, rim: 4, shadow: false });
+  text("SCHOOL", 0, -260, { size: 30, color: A.cream, ls: 4 });
   ctx.restore();
-  for (const wx of [-150, 170]) { ctx.save(); ctx.translate(x + wx * s * dir, gy - 30 * s); ctx.scale(s, s); cut(() => ctx.arc(0, 0, 32, 0, 7), "#2f2a25", { lw: 3 }); ctx.rotate(ph * 20 * dir); cut(() => ctx.arc(0, 0, 13, 0, 7), "#9a968a", { lw: 2, shadow: false }); ctx.fillStyle = P.ink; ctx.fillRect(-13, -2, 26, 4); ctx.restore(); }
+}
+function busPass(x, y, t, times, k) {
+  card(x, y, 600, 210, -0.02, k, (w, h) => {
+    piece(() => ctx.rect(-w / 2, -h / 2, 120, h), A.mustard, { lw: 0, light: false, shadow: false });
+    ctx.save(); ctx.translate(-w / 2 + 60, 0); ctx.rotate(-Math.PI / 2); text("BUS PASS", 0, 12, { size: 34, color: A.ink, ls: 4 }); ctx.restore();
+    text("BORDER CROSSINGS · ONE SCHOOL DAY", 60, -h / 2 + 44, { size: 22, font: "Elite" });
+    for (let i = 0; i < 4; i++) {
+      const cx = -110 + i * 120, cy = 20, since = t - times[i];
+      ctx.save(); ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.arc(cx, cy, 36, 0, 7); ctx.strokeStyle = "rgba(43,35,32,0.5)"; ctx.lineWidth = 2.5; ctx.stroke(); ctx.restore();
+      text(String(i + 1), cx, cy + 80, { size: 26, font: "Elite" });
+      if (since > 0) { const kk = spring(clamp(since / 0.35)); ctx.save(); ctx.translate(cx, cy); ctx.scale(kk, kk); ctx.fillStyle = A.wood2; ctx.beginPath(); ctx.arc(0, 0, 30, 0, 7); ctx.fill(); ctx.fillStyle = "rgba(0,0,0,0.35)"; ctx.beginPath(); ctx.arc(-3, -3, 30, 0, 7); ctx.fill(); ctx.restore(); }
+    }
+  });
 }
 CU.kids = (t, S) => {
-  const u = pp(t, S.t0, S.t1 - S.t0);
-  const sunA = lerp(Math.PI * 0.95, Math.PI * 0.05, u);
-  skyBG({ sunX: 540 + Math.cos(sunA) * 470, sunY: 760 - Math.sin(sunA) * 430, top: u > 0.75 ? "#e8b98f" : C.sky2 });
-  mountains(0);
-  waterBand(900, GY + 5);
-  groundBand(GY);
-  // zones: Point Roberts | Canada | Blaine
-  house(95, GY + 60, 0.7, "#e8d2b0", "#9b4a3a", 61);
-  flagpole("US", 180, GY + 60, 220, 110);
-  for (let i = 0; i < 4; i++) pine(390 + i * 95, GY + 40, 0.65 + rnd(i, 66) * 0.25, 70 + i);
-  // the school
-  cut(() => ctx.rect(860, GY - 150, 200, 210), C.brick, { lw: 4 });
-  cut(() => { ctx.moveTo(845, GY - 148); ctx.lineTo(960, GY - 220); ctx.lineTo(1075, GY - 148); ctx.closePath(); }, "#7b3a2a", { lw: 4 });
-  text("SCHOOL", 960, GY - 95, { size: 38, color: C.white });
-  flagpole("US", 1040, GY - 150, 120, 70);
-  const B1 = 270, B2 = 790;
-  roadBand(GY + 80, GY + 200, 0, { lines: false });
-  foreground(0, { items: fy => { cut(() => ctx.roundRect(150, fy + 40, 120, 140, 24), P.red, { lw: 4 }); cut(() => ctx.roundRect(170, fy + 70, 80, 50, 10), "#a8382a", { lw: 3 }); cut(() => ctx.roundRect(820, fy + 90, 130, 90, 10), P.navy, { lw: 4 }); text("LUNCH", 885, fy + 148, { size: 30, color: C.white }); } });
-  // the bus: out (crossings 1, 2), back (3, 4)
-  const tOut0 = S.t0 + 0.05, tOut1 = at("kids/four") - 0.45, tBack0 = tOut1 + 0.15, tBack1 = at("kids/day") - 0.1;
-  let bx, dir;
-  if (t < tBack0) { bx = lerp(60, 1000, eio(pp(t, tOut0, tOut1 - tOut0))); dir = 1; }
-  else { bx = lerp(1000, 60, eio(pp(t, tBack0, tBack1 - tBack0))); dir = -1; }
-  const passes = [];
-  if (t >= tOut0) { const xs = [B1, B2]; xs.forEach(b => { if (bx > b + 40 || t >= tBack0) passes.push(1); }); }
-  if (t >= tBack0) { [B2, B1].forEach(b => { if (bx < b - 40) passes.push(1); }); }
-  const n = passes.length;
-  booth(B1, GY + 80, 0.55, "CA", n >= 1 && n < 3 ? 1 : (Math.abs(bx - B1) < 260 ? 1 : 0), { armY: GY + 120 });
-  booth(B2, GY + 80, 0.55, "US", Math.abs(bx - B2) < 260 ? 1 : 0, { armY: GY + 120 });
-  bus(bx, GY + 195, 0.78, dir, t, 88);
-  // tally
-  for (let i = 0; i < 4; i++) {
-    const x = 210 + i * 220, y = 520, on = i < n;
-    cut(() => ctx.roundRect(x - 90, y - 70, 180, 140, 14), on ? P.card : "rgba(248,241,226,0.55)", { lw: 4 });
-    if (on) { const since = t - (S.t0 + 0.1); stamp(String(i + 1), x, y, 1, { size: 100, rot: -0.08 + i * 0.05, color: i % 2 ? P.red : C.caR }); }
-  }
-  popTag("BORDER CROSSINGS, EVERY SCHOOL DAY", W / 2, 360, t, -99, { size: 34 });
-  popTag("FROM 4TH GRADE · TO BLAINE, WA", W / 2, 690, t, S.t0 + 0.4, { size: 32, bg: P.yellow });
+  const u = pp(t, S.t0, S.t1 - S.t0), sunA = lerp(Math.PI * 0.92, Math.PI * 0.08, u);
+  ctx.save(); ctx.translate(W / 2, 1150); ctx.scale(1.06, 1.06); ctx.translate(-W / 2, -1150);
+  sky({ sunX: 540 + Math.cos(sunA) * 470, sunY: 800 - Math.sin(sunA) * 420, top: u > 0.7 ? lerp(0, 1, 1) && "#e3b98e" : A.sky2 });
+  ridge(900, 300, A.mtnFar, 0, 7, 0, true); haze(600, 960, 0.4);
+  water(905, 1010, 0); grass(1000, 1060, 0, A.moss);
+  pole("US", 120, 1070, 230, 110, 0.4);
+  for (let i = 0; i < 5; i++) pine(330 + i * 90 + rnd(i, 66) * 30, 1052, 0.5 + rnd(i, 67) * 0.2, 70 + i, tone(A.moss, -0.05), 0.55);
+  schoolhouse(930, 1070, 0.62);
+  const B1 = 260, B2 = 760;
+  const tOut0 = S.t0 + 0.05, tOut1 = at("kids/four") - 0.4, tBack0 = tOut1 + 0.12, tBack1 = at("kids/day") - 0.05;
+  const bx = t < tBack0 ? lerp(40, 1020, eio(pp(t, tOut0, tOut1 - tOut0))) : lerp(1020, 40, eio(pp(t, tBack0, tBack1 - tBack0))), dir = t < tBack0 ? 1 : -1;
+  // crossing times, found once by scanning the motion (deterministic)
+  if (!S.cross) { S.cross = []; let prev = null; for (let tt = S.t0; tt < S.t1; tt += 1 / 240) { const x = tt < tBack0 ? lerp(40, 1020, eio(pp(tt, tOut0, tOut1 - tOut0))) : lerp(1020, 40, eio(pp(tt, tBack0, tBack1 - tBack0))); if (prev != null) for (const b of [B1, B2]) if ((prev - b) * (x - b) < 0) S.cross.push(tt); prev = x; } while (S.cross.length < 4) S.cross.push(1e9); }
+  const near = b => clamp(1 - (Math.abs(bx - b) - 160) / 140);
+  borderBooth(B1, 1078, 0.5, spring(near(B1)), { officer: true });
+  borderBooth(B2, 1078, 0.5, spring(near(B2)), { label: "USA", uniform: "#2c3b2a" });
+  road(1070, 1200, 0);
+  schoolBus(bx, 1170, 0.62, dir, t, { seed: 3 });
+  nearGround(1218, 0); splitRail(1560, 0);
+  ctx.restore();
+  busPass(W / 2, 470, t, S.cross, spring(pp(t, S.t0 + 0.1, 0.6)));
+  popLabel("FROM 4TH GRADE · TO BLAINE, WA", W / 2, 640, t, S.t0 + 0.5, { size: 28 });
+  brandTag();
 };
 
 // =====================================================================================================
-// 8. WATER: cutaway: a Point Roberts kitchen tap fed by a pipe from a Canadian reservoir (1987 agreement)
+// 8. WATER: a cutaway: the local fills a glass at his tap; the pipe runs under the border from a Canadian reservoir
 // =====================================================================================================
 CU.water = (t, S) => {
-  const SY = 760;                                          // the ground surface in this cutaway
-  skyBG({ sunX: 180, sunY: 360 });
-  // Canadian mountains + reservoir on the right
-  ctx.save(); ctx.translate(0, SY - GY); mountains(0, { base: 900 }); ctx.restore();
-  cut(() => ctx.ellipse(880, SY - 6, 210, 34, 0, 0, 7), "#7fb0b5", { lw: 4 });
-  // soil, layered, to the bottom of the frame
-  cut(() => ctx.rect(-10, SY, W + 20, H - SY + 10), C.soil, { lw: 5 });
-  for (let i = 0; i < 4; i++) { ctx.fillStyle = i % 2 ? C.soil2 : "#a87c50"; ctx.beginPath(); ctx.moveTo(0, SY + 260 + i * 240); for (let x = 0; x <= W; x += 60) ctx.lineTo(x, SY + 260 + i * 240 + Math.sin(x * 0.01 + i) * 18); ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill(); }
-  for (let i = 0; i < 40; i++) cut(() => ctx.ellipse(rnd(i, 101) * W, SY + 60 + rnd(i, 102) * (H - SY - 80), 10 + rnd(i, 103) * 16, 7 + rnd(i, 104) * 10, rnd(i, 105), 0, 7), "#c9b08a", { lw: 2, shadow: false });
-  cut(() => ctx.rect(-10, SY - 14, W + 20, 26), C.grass, { lw: 4 });
-  // the border post on the surface
-  cut(() => ctx.rect(552, SY - 170, 16, 170), "#d9d4c8", { lw: 3 });
-  flatFlag("US", 470, SY - 165, 76); flatFlag("CA", 574, SY - 165, 76);
-  line(560, SY + 12, 560, H, "rgba(200,69,45,0.6)", 6, [24, 16]);
-  text("USA", 300, SY + 100, { size: 54, color: "rgba(43,35,32,0.5)", ls: 8 }); text("CANADA", 820, SY + 100, { size: 54, color: "rgba(43,35,32,0.5)", ls: 8 });
-  // the pipe: reservoir -> down -> west under the border -> up into the house
-  const PIPE = [[880, SY + 10], [880, 1010], [210, 1010], [210, 560]];
-  stroke2(() => { PIPE.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); }, "#8b9aa0", 34, 44);
-  ctx.save(); ctx.setLineDash([22, 30]); ctx.lineDashOffset = T * 160;      // water moving west
-  ctx.beginPath(); PIPE.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.strokeStyle = "#5fa8d3"; ctx.lineWidth = 14; ctx.lineCap = "round"; ctx.stroke(); ctx.restore();
-  // the house, cut open: kitchen with a tap and a filling glass
-  cut(() => ctx.rect(60, 420, 340, SY - 420), "#efe0c4", { lw: 5 });
-  cut(() => { ctx.moveTo(30, 424); ctx.lineTo(230, 280); ctx.lineTo(430, 424); ctx.closePath(); }, "#9b4a3a", { lw: 5 });
-  cut(() => ctx.rect(90, 600, 280, 30), C.wood3, { lw: 3 });                 // counter
-  stroke2(() => { ctx.moveTo(210, 560); ctx.lineTo(210, 500); ctx.lineTo(262, 500); ctx.lineTo(262, 520); }, "#b8bcc0", 12, 18);
-  const fill = pp(t, S.t0 + 0.2, 3.6);
-  for (let i = 0; i < 3; i++) { const y = 528 + ((T * 3 + i / 3) % 1) * 40; cut(() => ctx.ellipse(262, y, 5, 8, 0, 0, 7), "#5fa8d3", { lw: 2, shadow: false }); }
-  ctx.save(); ctx.beginPath(); ctx.moveTo(236, 548); ctx.lineTo(288, 548); ctx.lineTo(282, 600); ctx.lineTo(242, 600); ctx.closePath(); ctx.clip();
-  ctx.fillStyle = "#8cc6e6"; ctx.fillRect(230, 600 - 52 * fill, 70, 60); ctx.restore();
-  ctx.save(); ctx.strokeStyle = P.ink; ctx.lineWidth = 3.5; ctx.beginPath(); ctx.moveTo(236, 548); ctx.lineTo(242, 600); ctx.lineTo(282, 600); ctx.lineTo(288, 548); ctx.stroke(); ctx.restore();
-  flagpole("US", 420, SY - 10, 260, 120);
-  popTag("POINT ROBERTS KITCHEN", 230, 240, t, -99, { size: 30 });
-  popTag("GREATER VANCOUVER WATER DISTRICT", 760, 640, t, at("water/canadian") - 0.05, { size: 28, bg: P.card });
-  const ck = back(pp(t, at("water/canadian") - 0.05, 0.3));
-  if (ck > 0) { ctx.save(); ctx.translate(560, 1080); ctx.scale(ck, ck); arrow(160, 0, -160, 0, 1, "#2f6b8f", 10); ctx.restore(); }
-  // the agreement
-  const dk = eout(pp(t, at("water/under") - 0.1, 0.5));
-  if (dk > 0) {
-    ctx.save(); ctx.translate(lerp(W + 300, 770, dk), 330); ctx.rotate(0.05);
-    cut(() => ctx.rect(-190, -120, 380, 240), P.card, { lw: 4 });
-    text("WATER AGREEMENT", 0, -62, { size: 40 });
-    ctx.fillStyle = "rgba(43,35,32,0.35)"; for (let i = 0; i < 4; i++) ctx.fillRect(-150, -36 + i * 24, 300 - (i === 3 ? 120 : 0), 8);
-    const sg = pp(t, at("water/deal"), 0.8);
-    ctx.save(); ctx.strokeStyle = "#1f3a7a"; ctx.lineWidth = 4; ctx.beginPath();
-    for (let i = 0; i <= 40 * sg; i++) { const x = -140 + i * 5, y = 82 + Math.sin(i * 0.9) * 12 - i * 0.3; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
-    ctx.stroke(); ctx.restore();
-    ctx.restore();
-  }
-  stamp("1987", 880, 400, t - at("water/eightyseven") + 0.1, { size: 90, rot: -0.15 });
+  const SY = 820;
+  sky({ sunX: 200, sunY: 380 });
+  ctx.save(); ctx.translate(0, SY - GY); ridge(900, 300, A.mtnFar, 0, 7, 0, true); haze(600, 960, 0.4); ridge(950, 160, A.mtnMid, 0, 11, 0, false); ctx.restore();
+  piece(blob(870, SY - 4, 200, 30, 18, 4, 0.04), "#7fa8ad", { lw: 4, rim: 6 });
+  piece(() => ctx.rect(-10, SY, W + 20, H - SY + 10), "#b98d5c", { lw: 5, rim: 12 });
+  for (let i = 0; i < 4; i++) { ctx.fillStyle = i % 2 ? "#9c7246" : "#a87c50"; ctx.beginPath(); ctx.moveTo(0, SY + 240 + i * 230); for (let x = 0; x <= W; x += 60) ctx.lineTo(x, SY + 240 + i * 230 + Math.sin(x * 0.01 + i) * 16); ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill(); }
+  for (let i = 0; i < 34; i++) piece(blob(rnd(i, 101) * W, SY + 60 + rnd(i, 102) * (H - SY - 80), 10 + rnd(i, 103) * 18, 7 + rnd(i, 104) * 11, 9, i, 0.2), "#c9b08a", { lw: 2, rim: 3, shadow: false });
+  piece(() => ctx.rect(-10, SY - 16, W + 20, 28), A.moss, { lw: 4, rim: 5 });
+  piece(() => ctx.roundRect(552, SY - 190, 16, 190, 4), "#d8d1c2", { lw: 3, rim: 3 });
+  flag("US", 470, SY - 182, 76, 0, 3); flag("CA", 572, SY - 182, 76, 1, 3);
+  line(560, SY + 14, 560, H, "rgba(184,67,44,0.6)", 6, [24, 16]);
+  mapLabel("USA", 290, SY + 110, 54, 0.5); mapLabel("CANADA", 830, SY + 110, 54, 0.5);
+  const PIPE = [[870, SY + 14], [870, 1040], [210, 1040], [210, 640]];
+  stroke2(() => { PIPE.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); }, "#8b9aa0", 36, 46);
+  ctx.save(); ctx.strokeStyle = "rgba(255,255,255,0.35)"; ctx.lineWidth = 6; ctx.beginPath(); PIPE.forEach((p, i) => i ? ctx.lineTo(p[0] - 8, p[1] - 8) : ctx.moveTo(p[0] - 8, p[1] - 8)); ctx.stroke(); ctx.restore();
+  ctx.save(); ctx.setLineDash([22, 30]); ctx.lineDashOffset = T * 170; ctx.beginPath(); PIPE.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.strokeStyle = "#5fa8d3"; ctx.lineWidth = 14; ctx.lineCap = "round"; ctx.stroke(); ctx.restore();
+  // the house, cut open
+  piece(() => ctx.rect(30, 420, 400, SY - 420), "#efe0c4", { lw: 5, rim: 12 });
+  piece(() => { ctx.moveTo(0, 424); ctx.lineTo(230, 270); ctx.lineTo(460, 424); ctx.closePath(); }, "#9b4a3a", { lw: 5, rim: 10 });
+  piece(() => ctx.rect(60, 650, 340, 30), A.wood, { lw: 3.5, rim: 5 });
+  stroke2(() => { ctx.moveTo(210, 640); ctx.lineTo(210, 560); ctx.lineTo(276, 560); ctx.lineTo(276, 584); }, "#b8bcc0", 12, 18);
+  const fill = pp(t, S.t0 + 0.2, 3.4);
+  for (let i = 0; i < 3; i++) { const y = 592 + ((T * 3 + i / 3) % 1) * 34; piece(() => ctx.ellipse(276, y, 5, 8, 0, 0, 7), "#5fa8d3", { lw: 2, light: false, shadow: false }); }
+  // the local holds the glass under the tap
+  local({ x: 340, gy: SY - 10, s: 0.62, dir: -1, arm: "hold", look: 1, blink: 2.1, brow: t > at("water/canadian") ? 0.7 : 0, id: 3, carry: () => {
+    ctx.save(); ctx.rotate(0); const gx = -10, gy = -30;
+    ctx.beginPath(); ctx.moveTo(gx - 26, gy - 40); ctx.lineTo(gx + 26, gy - 40); ctx.lineTo(gx + 20, gy + 30); ctx.lineTo(gx - 20, gy + 30); ctx.closePath(); ctx.save(); ctx.clip(); ctx.fillStyle = "#8cc6e6"; ctx.fillRect(gx - 30, gy + 30 - 70 * fill, 60, 80); ctx.restore();
+    ctx.fillStyle = "rgba(255,255,255,0.25)"; ctx.fill(); ctx.lineWidth = 3.5; ctx.strokeStyle = A.ink; ctx.stroke(); ctx.restore(); } });
+  pole("US", 440, SY - 12, 270, 120, 0.3);
+  const ck = spring(pp(t, at("water/canadian") - 0.05, 0.6));
+  if (ck > 0) { ctx.save(); ctx.translate(560, 1110); ctx.scale(ck, ck); arrow(170, 0, -170, 0, 1, "#2f6b8f", 10); ctx.restore(); popLabel("FROM CANADA", 560, 1180, t, at("water/canadian") - 0.05, { size: 30, bg: A.cream }); }
+  const dk = spring(pp(t, at("water/under") - 0.15, 0.6));
+  card(770, 380, 440, 300, 0.04, dk, (w, h) => {
+    text("WATER SUPPLY AGREEMENT", 0, -h / 2 + 52, { size: 26, font: "Elite" }); rule(-180, 180, -h / 2 + 68);
+    text("Greater Vancouver Water District", 0, -h / 2 + 108, { size: 22, font: "Elite" });
+    text("→ Point Roberts Water District", 0, -h / 2 + 140, { size: 22, font: "Elite" });
+    const sg = pp(t, at("water/deal"), 0.8); ctx.save(); ctx.strokeStyle = "#1f3a7a"; ctx.lineWidth = 4; ctx.beginPath(); for (let i = 0; i <= 40 * sg; i++) { const x = -150 + i * 5, y = 70 + Math.sin(i * 0.9) * 12 - i * 0.3; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); ctx.restore();
+    rule(-160, 40, 92);
+    stamp("1987", 110, 60, t - at("water/eightyseven") + 0.1, { size: 70, rot: -0.15, color: A.red, maxW: 220 });
+  });
+  brandTag();
 };
 
 // =====================================================================================================
-// 9. SHUT: Canadians queue for gas and parcels; 2020: the arm drops; the cars back away and vanish
+// 9. SHUT: Canadians queue for gas and parcels; 2020: the barrier slams; the cars back off and vanish
 // =====================================================================================================
-const SHOP_X = 260;
-function parcelShop(x, gy) {
-  cut(() => ctx.rect(x - 150, gy - 250, 300, 250), "#e9d8b8", { lw: 4 });
-  cut(() => ctx.rect(x - 170, gy - 300, 340, 60), "#2f4858", { lw: 4 });
-  text("PARCELS", x, gy - 255, { size: 44, color: C.white, ls: 4 });
-  cut(() => ctx.rect(x - 110, gy - 210, 220, 120), "#cfe0de", { lw: 3, shadow: false });
-}
-function box(x, y, s, id) { ctx.save(); ctx.translate(x, y); ctx.rotate((rnd(id, 7) - 0.5) * 0.2); ctx.scale(s, s); cut(() => ctx.rect(-36, -60, 72, 60), "#c79a5e", { lw: 3 }); line(0, -60, 0, 0, "rgba(43,35,32,0.5)", 3); ctx.restore(); }
-CU.shut = (t, S) => {
-  skyBG({ sunX: 900, sunY: 380, top: t > at("shut/shut") ? "#d9cdb8" : C.sky2 });
-  mountains(0);
-  waterBand(900, GY + 5);
-  groundBand(GY);
-  parcelShop(SHOP_X, GY + 60);
-  // gas sign
-  cut(() => ctx.rect(48, GY - 360, 12, 300), "#9c978b", { lw: 3 });
-  cut(() => ctx.roundRect(-10, GY - 440, 130, 90, 10), P.red, { lw: 4 }); text("GAS", 55, GY - 378, { size: 52, color: C.white });
-  const tShut = at("shut/shut"), tGo = at("shut/and") - 0.1, tVan = at("shut/vanished");
-  // the US booth: arm swings shut
-  const open = 1 - eout(pp(t, tShut - 0.15, 0.22));
-  booth(650, GY + 70, 0.95, "US", open, { armY: GY + 85, armDir: 1, officer: true });
-  // queue of Canadian cars driving west (dir -1), then reversing east and vanishing
-  for (let i = 0; i < 4; i++) {
-    const base = 860 + i * 290;
-    const roll = Math.min(t, tShut) - S.t0;
-    let x = base - 80 * roll;
-    const back_ = Math.max(0, t - tGo - i * 0.12);
-    x += 520 * back_ * back_;
-    const gone = pp(t, tVan - 0.25 + i * 0.12, 0.2);
-    if (gone < 1) car({ x, gy: GY + 145, s: 0.85, dir: -1, col: ["#2f4858", "#6d9a5b", "#e08a3c", "#7b5a8a"][i], flag: "CA", box: i % 2 === 0, spin: -x / 24, moving: t < tShut || t > tGo, id: 110 + i });
-    if (gone > 0) puffC(x, GY + 80, 70 + 80 * gone, 1 - gone * 0.8);
-  }
-  roadBand(GY + 70, GY + 190, 0);
-  // parcels: picked up before the closure, left piling up after, right in front of us
-  const pile = Math.floor(clamp((t - tShut) / 2.6) * 14);
-  foreground(0, { fence: true, items: fy => {
-    for (let i = 0; i < 4 + pile; i++) { const k = back(pp(t, tShut + (i - 4) * 0.18, 0.25)); if (i >= 4 && k <= 0) continue; box(150 + (i % 6) * 150, fy + 220 - Math.floor(i / 6) * 120, 1.8 * (i < 4 ? 1 : k), i); }
-    if (pile > 2) tag("UNCLAIMED", 540, fy - 40, { size: 40, bg: P.card, rot: -0.04 });
-  } });
-  // the calendar and the stamp
-  const ck = back(pp(t, at("shut/twenty") - 0.05, 0.3));
-  if (ck > 0) { ctx.save(); ctx.translate(210, 380); ctx.scale(ck, ck); ctx.rotate(-0.05); cut(() => ctx.rect(-120, -100, 240, 200), P.card, { lw: 4 }); cut(() => ctx.rect(-120, -100, 240, 54), P.red, { lw: 4 }); text("2020", 0, 70, { size: 96 }); ctx.restore(); }
-  if (t > tShut) {
-    const k = back(pp(t, tShut, 0.3));
-    ctx.save(); ctx.translate(820, GY - 80); ctx.scale(k, k);
-    cut(() => ctx.rect(-130, -70, 260, 110), C.white, { lw: 4 }); text("CLOSED", 0, 10, { size: 70, color: P.red });
-    line(-110, 40, -140, 160, P.ink, 8); line(110, 40, 140, 160, P.ink, 8);
-    ctx.restore();
-  }
-  stamp("BORDER CLOSED", W / 2, 560, t - tShut, { size: 96, rot: -0.08 });
-  if (t > tVan + 0.3) { const x = lerp(W + 80, -120, pp(t, tVan + 0.3, 1.6)); ctx.save(); ctx.translate(x, GY + 130); ctx.rotate(-T * 6); ctx.strokeStyle = "#8a6a3a"; ctx.lineWidth = 4; for (let i = 0; i < 8; i++) { ctx.beginPath(); ctx.arc(0, 0, 18 + i * 4, i, i + 2.4); ctx.stroke(); } ctx.restore(); }
-};
-
-// =====================================================================================================
-// 10. LOST: main street; the business meter drains past 80 percent; four of five shop windows go dark
-// =====================================================================================================
-const SHOPS = [["CAFE", "#c8452d"], ["PARCELS", "#2f4858"], ["GAS", "#e08a3c"], ["MARKET", "#6d9a5b"], ["GIFTS", "#7b5a8a"]];
-function shopFront(x, gy, name, col, lit, id) {
-  ctx.save(); ctx.translate(x, gy); boil(id, 0.4);
-  cut(() => ctx.rect(-98, -330, 196, 330), "#efe0c4", { lw: 4 });
-  cut(() => ctx.rect(-108, -370, 216, 56), col, { lw: 4 });
-  text(name, 0, -328, { size: name.length > 6 ? 34 : 42, color: C.white, ls: 2 });
-  cut(() => ctx.rect(-78, -280, 156, 130), lit ? "#f8de8a" : "#4d545c", { lw: 3, shadow: false });
-  if (lit) { ctx.fillStyle = "rgba(255,240,180,0.35)"; ctx.beginPath(); ctx.moveTo(-78, -150); ctx.lineTo(78, -150); ctx.lineTo(110, 0); ctx.lineTo(-110, 0); ctx.closePath(); ctx.fill(); }
-  cut(() => ctx.rect(-30, -120, 60, 120), C.wood2, { lw: 3, shadow: false });
-  if (!lit) { ctx.save(); ctx.translate(0, -215); ctx.rotate(-0.08); cut(() => ctx.rect(-60, -22, 120, 44), C.white, { lw: 3 }); text("CLOSED", 0, 13, { size: 30, color: P.red }); ctx.restore(); }
+function shopfront(x, gy, w, name, col, o = {}) {
+  ctx.save(); ctx.translate(x, gy); boil(o.id || 120, 0.3);
+  footShadow(0, 4, w * 0.55);
+  piece(() => ctx.rect(-w / 2, -300, w, 300), o.wall || "#efe0c4", { lw: 4.5, rim: 10 });
+  piece(() => ctx.rect(-w / 2 - 12, -340, w + 24, 60), col, { lw: 4.5, rim: 6 });
+  text(name, 0, -297, { size: name.length > 7 ? 30 : 38, color: A.cream, ls: 3 });
+  // striped awning
+  piece(() => { ctx.moveTo(-w / 2 - 6, -276); ctx.lineTo(w / 2 + 6, -276); ctx.lineTo(w / 2 + 18, -220); ctx.lineTo(-w / 2 - 18, -220); ctx.closePath(); }, A.cream, { lw: 3.5, rim: 4 });
+  ctx.save(); ctx.beginPath(); ctx.moveTo(-w / 2 - 6, -276); ctx.lineTo(w / 2 + 6, -276); ctx.lineTo(w / 2 + 18, -220); ctx.lineTo(-w / 2 - 18, -220); ctx.closePath(); ctx.clip(); ctx.fillStyle = col; for (let i = -w; i < w; i += 40) ctx.fillRect(i, -280, 20, 70); ctx.restore();
+  const lit = o.lit ?? 1;
+  piece(() => ctx.rect(-w / 2 + 22, -200, w - 44 - 56, 120), lit > 0.5 ? "#f6d98a" : "#4d545c", { lw: 3.5, rim: 4, shadow: false });
+  if (lit > 0.5) { const g = ctx.createLinearGradient(0, -80, 0, 30); g.addColorStop(0, "rgba(255,236,170,0.4)"); g.addColorStop(1, "rgba(255,236,170,0)"); ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(-w / 2 + 22, -80); ctx.lineTo(w / 2 - 78, -80); ctx.lineTo(w / 2 - 50, 20); ctx.lineTo(-w / 2, 20); ctx.closePath(); ctx.fill(); }
+  piece(() => ctx.rect(w / 2 - 66, -170, 44, 170), A.wood2, { lw: 3.5, rim: 4, shadow: false });
+  if (o.closed) { const sw = Math.sin((T - o.closed) * 7) * Math.exp(-(T - o.closed) * 2.5) * 0.35; ctx.save(); ctx.translate(-18, -200); ctx.rotate(sw); line(-30, 0, 0, -26, A.ink, 2.5); line(30, 0, 0, -26, A.ink, 2.5); piece(() => ctx.rect(-56, 0, 112, 40), A.cream, { lw: 3, rim: 3 }); text("CLOSED", 0, 30, { size: 26, color: A.red }); ctx.restore(); }
   ctx.restore();
 }
-CU.lost = (t, S) => {
-  skyBG({ sunX: 160, sunY: 330, top: "#e3c9a0", bot: "#efdcbc" });
-  mountains(0, { base: 820 });
-  groundBand(GY - 40, 0, { col: "#bfb59a" });
-  const t0 = at("lost/lost"), t1 = at("lost/business") + 0.4;
-  const left = lerp(100, 18, eio(pp(t, t0, t1 - t0)));    // percent of business left
-  SHOPS.forEach(([n, c], i) => shopFront(118 + i * 211, GY + 60, n, c, left > 100 - (i + 1) * 20 + 1 || i === 4, 120 + i));
-  roadBand(GY + 80, GY + 200, 0, { lines: true });
-  foreground(0, { items: fy => { const k = back(pp(t, at("lost/business") - 0.2, 0.3)); if (k > 0) { ctx.save(); ctx.translate(780, fy - 150); ctx.scale(k, k); ctx.rotate(0.05); cut(() => ctx.rect(-150, -60, 300, 120), C.white, { lw: 4 }); text("FOR LEASE", 0, 18, { size: 54, color: P.red }); ctx.restore(); } } });
-  // coins leaving town
-  for (let i = 0; i < 14; i++) {
-    const a = pp(t, t0 + i * 0.16, 0.9);
-    if (a <= 0 || a >= 1) continue;
-    const x = lerp(140 + (i % 5) * 200, W + 80, eout(a)), y = GY - 300 - Math.sin(a * Math.PI) * 260;
-    ctx.save(); ctx.translate(x, y); ctx.scale(Math.abs(Math.cos(T * 9 + i)) * 0.8 + 0.2, 1); cut(() => ctx.arc(0, 0, 26, 0, 7), P.yellow, { lw: 3 }); text("$", 0, 13, { size: 34, color: "#8a6a1a" }); ctx.restore();
+function parcel(x, y, s, id) { ctx.save(); ctx.translate(x, y); ctx.rotate((rnd(id, 7) - 0.5) * 0.16); ctx.scale(s, s); piece(() => ctx.rect(-40, -64, 80, 64), "#c79a5e", { lw: 3.5, rim: 6 }); line(0, -64, 0, 0, "rgba(43,35,32,0.45)", 4); piece(() => ctx.rect(-28, -50, 30, 18), A.cream, { lw: 2, light: false, shadow: false }); ctx.restore(); }
+function carSimple(x, gy, s, dir, col, o = {}) {      // the Canadian visitors' cars: same construction, no driver detail
+  ctx.save(); ctx.translate(x, gy); ctx.scale(s * dir, s);
+  footShadow(0, 2, 150, 0.22);
+  const b = o.moving ? Math.sin(T * 17 + x) * 1.5 : 0; ctx.translate(0, -b);
+  piece(() => { ctx.moveTo(-150, -40); ctx.quadraticCurveTo(-156, -84, -128, -92); ctx.lineTo(-92, -94); ctx.quadraticCurveTo(-70, -150, -30, -152); ctx.lineTo(40, -152); ctx.quadraticCurveTo(70, -150, 92, -96); ctx.quadraticCurveTo(150, -92, 156, -64); ctx.lineTo(158, -40); ctx.closePath(); }, col, { lw: 4, rim: 9 });
+  piece(() => { ctx.moveTo(-70, -98); ctx.quadraticCurveTo(-56, -138, -28, -140); ctx.lineTo(2, -140); ctx.lineTo(2, -98); ctx.closePath(); }, "#bfd3cf", { lw: 3, rim: 3, shadow: false });
+  piece(() => { ctx.moveTo(12, -98); ctx.lineTo(12, -140); ctx.lineTo(40, -140); ctx.quadraticCurveTo(62, -136, 76, -98); ctx.closePath(); }, "#bfd3cf", { lw: 3, rim: 3, shadow: false });
+  ctx.save(); ctx.translate(-120, -66); ctx.fillStyle = A.red; mapleLeaf(ctx, 0, 0, 13); ctx.fill(); ctx.restore();
+  if (o.box) { piece(() => ctx.rect(-50, -184, 90, 34), "#c79a5e", { lw: 3, rim: 4 }); line(-5, -184, -5, -150, "rgba(43,35,32,0.5)", 3); }
+  ctx.restore();
+  for (const wx of [-92, 96]) { ctx.save(); ctx.translate(x + wx * s * dir, gy - 28 * s); ctx.scale(s, s); piece(() => ctx.arc(0, 0, 28, 0, 7), "#2f2a25", { lw: 3, rim: 4, shadow: false }); piece(() => ctx.arc(0, 0, 13, 0, 7), "#c9c4b6", { lw: 2.5, rim: 2, shadow: false }); ctx.rotate(o.spin || 0); line(-11, 0, 11, 0, A.ink, 2.5); ctx.restore(); }
+}
+CU.shut = (t, S) => {
+  const tShut = at("shut/shut"), tGo = at("shut/and") - 0.1, tVan = at("shut/vanished"), grey = pp(t, tShut, 1.2);
+  sky({ sunX: 900, sunY: 360, top: grey > 0 ? "#d6c9b0" : A.sky2 });
+  ridge(900, 300, A.mtnFar, 0, 7, 0, true); haze(600, 960, 0.4 + grey * 0.2);
+  water(905, 1010, 0); grass(1000, 1060, 0, A.moss);
+  shopfront(230, 1072, 330, "PARCELS", A.navy, { id: 121, closed: t > tVan ? tVan : null });
+  // gas sign on a pole
+  piece(() => ctx.roundRect(470, 760, 14, 310, 4), "#9c978b", { lw: 3, rim: 3 }); piece(() => ctx.roundRect(420, 690, 116, 84, 12), A.red, { lw: 4, rim: 6 }); text("GAS", 478, 750, { size: 48, color: A.cream });
+  const open = 1 - eout(pp(t, tShut - 0.12, 0.18)), bounce = t > tShut ? Math.sin((t - tShut - 0.06) * 30) * Math.exp(-(t - tShut) * 7) * 0.12 : 0;
+  borderBooth(820, 1078, 0.8, Math.max(0, open - bounce), { label: "USA", uniform: "#2c3b2a", look: 1 });
+  road(1070, 1200, 0);
+  for (let i = 0; i < 4; i++) {
+    const roll = Math.min(t, tShut) - S.t0, back_ = Math.max(0, t - tGo - i * 0.12);
+    const x = 1040 + i * 300 - 70 * roll + 520 * back_ * back_, gone = pp(t, tVan - 0.25 + i * 0.12, 0.2);
+    if (gone < 1) carSimple(x, 1170, 0.82, -1, [A.navy, A.moss2, A.mustard, "#7b5a8a"][i], { box: i % 2 === 0, moving: t < tShut || t > tGo, spin: -x / 24 });
+    if (gone > 0) piece(blob(x, 1090, 70 + 90 * gone, 50 + 60 * gone, 12, i, 0.12), A.cream, { lw: 3, rim: 5, alpha: 1 - gone });
   }
-  // the meter
-  const mx = 110, my = 360, mw = W - 220, mh = 90;
-  text("TOWN BUSINESS", W / 2, my - 30, { size: 56 });
-  cut(() => ctx.rect(mx, my, mw, mh), "#efe6d4", { lw: 5 });
-  ctx.fillStyle = left > 40 ? P.green : P.red; ctx.fillRect(mx + 6, my + 6, (mw - 12) * left / 100, mh - 12);
-  ctx.strokeStyle = P.ink; ctx.lineWidth = 3; for (let i = 1; i < 5; i++) { ctx.beginPath(); ctx.moveTo(mx + mw * i / 5, my); ctx.lineTo(mx + mw * i / 5, my + 24); ctx.stroke(); }
-  stamp("−80%+", W / 2 + 160, my + 190, t - at("lost/eighty"), { size: 110, rot: -0.1 });
-  popTag(S.p.label || "Border Policy Research Institute estimate", W / 2, my + 300, t, at("lost/percent"), { size: 30, bg: P.card });
+  local({ x: 430, gy: 1180, s: 0.72, look: 1, brow: t > tShut ? -1 : 0, blink: 0.7, id: 3, arm: t < tShut ? "wave" : null });
+  // parcels nobody collects
+  const pile = Math.floor(clamp((t - tShut) / 2.6) * 12);
+  nearGround(1218, 0);
+  for (let i = 0; i < 3 + pile; i++) { const k = i < 3 ? 1 : spring(pp(t, tShut + (i - 3) * 0.2, 0.5)); if (k <= 0) continue; parcel(160 + (i % 6) * 150, 1700 - Math.floor(i / 6) * 120, 1.7 * k, i); }
+  if (pile > 2) popLabel("UNCLAIMED", 540, 1480, t, tShut + 0.8, { size: 36, bg: A.cream });
+  const ck = spring(pp(t, at("shut/twenty") - 0.05, 0.6));
+  card(240, 420, 260, 230, -0.05, ck, (w, h) => { piece(() => ctx.rect(-w / 2, -h / 2, w, 60), A.red, { lw: 0, light: false, shadow: false }); text("MARCH", 0, -h / 2 + 44, { size: 32, color: A.cream, ls: 4 }); text("2020", 0, 70, { size: 96 }); });
+  stamp("BORDER CLOSED", 640, 520, t - tShut, { size: 96, rot: -0.08, color: A.red });
+  brandTag();
 };
 
 // =====================================================================================================
-// 11. GROCERY: five thousand shoppers a day fill the whole frame; then fifty are left
+// 10. LOST: main street; a ledger page drains past 80 percent; four of five windows go dark
 // =====================================================================================================
-const CROWD_ROWS = 40, CROWD_COLS = 25;        // 1,000 figures, one per five shoppers
+const SHOPS = [["CAFE", A.red], ["PARCELS", A.navy], ["GAS", A.mustard], ["MARKET", A.moss2], ["GIFTS", "#7b5a8a"]];
+CU.lost = (t, S) => {
+  const t0 = at("lost/lost"), t1 = at("lost/business") + 0.4, left = lerp(100, 18, eio(pp(t, t0, t1 - t0)));
+  sky({ sunX: 170, sunY: 330, top: "#e2c7a0", bot: "#eddcbd" });
+  ridge(860, 260, A.mtnFar, 0, 7, 0, true); haze(600, 920, 0.45);
+  piece(() => ctx.rect(-20, 1000, W + 40, 80), "#c9bfa6", { lw: 4, rim: 6 });
+  SHOPS.forEach(([n, c], i) => shopfront(108 + i * 216, 1076, 200, n, c, { id: 130 + i, lit: left > 100 - (i + 1) * 20 + 1 || i === 4 ? 1 : 0, closed: left > 100 - (i + 1) * 20 + 1 || i === 4 ? null : t0 + i * 0.5 }));
+  road(1070, 1200, 0);
+  nearGround(1218, 0, "#9a9a6a");
+  local({ x: lerp(-60, 620, pp(t, S.t0, 3.4)), gy: 1186, s: 0.62, walk: t * 6, look: 0, brow: -1, blink: 1.1, id: 3 });
+  const lk = spring(pp(t, S.t0 + 0.05, 0.6));
+  card(W / 2, 470, 760, 330, -0.02, lk, (w, h) => {
+    ctx.save(); ctx.strokeStyle = "rgba(90,120,150,0.25)"; ctx.lineWidth = 2; for (let y = -h / 2 + 70; y < h / 2; y += 34) { ctx.beginPath(); ctx.moveTo(-w / 2 + 20, y); ctx.lineTo(w / 2 - 20, y); ctx.stroke(); } ctx.restore();
+    line(-w / 2 + 90, -h / 2 + 20, -w / 2 + 90, h / 2 - 20, "rgba(184,67,44,0.45)", 2);
+    text("TOWN BUSINESS · 2020", -w / 2 + 110, -h / 2 + 56, { size: 30, font: "Elite", align: "left" });
+    const bw = 520, bx = -w / 2 + 110, by = -10;
+    piece(() => ctx.rect(bx, by, bw, 70), "#efe6d4", { lw: 3.5, light: false, shadow: false });
+    ctx.fillStyle = left > 40 ? A.moss2 : A.red; ctx.fillRect(bx + 5, by + 5, (bw - 10) * left / 100, 60);
+    text(`${Math.round(left)}%`, bx + bw + 14, by + 54, { size: 50, align: "left", color: A.ink });
+    text(S.p.label || "Border Policy Research Institute estimate", -w / 2 + 110, h / 2 - 40, { size: 22, font: "Elite", align: "left", color: "#6b5a48" });
+  });
+  stamp("−80%+", 800, 700, t - at("lost/eighty"), { size: 100, rot: -0.1, color: A.red });
+  brandTag();
+};
+
+// =====================================================================================================
+// 11. GROCERY: a crowd (one figure = five shoppers) fills the lot; a receipt tape counts; then ten figures remain
+// =====================================================================================================
+const CROWD_R = 34, CROWD_C = 30;
 const CROWD = (() => {
   const out = [];
-  for (let r = 0; r < CROWD_ROWS; r++) for (let c = 0; c < CROWD_COLS; c++) {
-    const i = r * CROWD_COLS + c, u = r / CROWD_ROWS;
-    out.push({
-      x: 24 + c * 42 + (r % 2) * 21 + (rnd(i, 131) - 0.5) * 14,
-      y: 690 + Math.pow(u, 1.15) * 1180 + (rnd(i, 132) - 0.5) * 12,
-      s: lerp(0.62, 1.25, u),                   // perspective: nearer rows are bigger
-      d: Math.hypot(c - CROWD_COLS / 2, (CROWD_ROWS - r) * 0.5), keep: false,
-      col: ["#c8452d", "#2f4858", "#6d9a5b", "#e08a3c", "#7b5a8a", "#d9c2a0"][Math.floor(rnd(i, 133) * 6)],
-      skin: ["#e6c09a", "#c99a72", "#8d5f3e", "#e3b48c"][Math.floor(rnd(i, 136) * 4)], v: rnd(i, 134),
-    });
+  for (let r = 0; r < CROWD_R; r++) for (let c = 0; c < CROWD_C; c++) {
+    const i = r * CROWD_C + c, u = r / CROWD_R;
+    out.push({ x: 20 + c * 35 + (r % 2) * 17 + (rnd(i, 131) - 0.5) * 12, y: 760 + Math.pow(u, 1.12) * 1140 + (rnd(i, 132) - 0.5) * 10, s: lerp(0.55, 1.2, u),
+      d: Math.hypot(c - CROWD_C / 2, (CROWD_R - r) * 0.6), keep: false,
+      col: [A.red, A.navy, A.moss2, A.mustard, "#7b5a8a", "#c9b08a"][Math.floor(rnd(i, 133) * 6)], hat: rnd(i, 135) < 0.3, skin: [A.skin, "#c99a72", "#8d5f3e", "#e3b48c"][Math.floor(rnd(i, 136) * 4)], v: rnd(i, 134) });
   }
-  const order = out.map((p, i) => [p.v, i]).sort((a, b) => a[0] - b[0]);
-  order.slice(0, 10).forEach(([, i]) => (out[i].keep = true));    // ten figures left = about fifty shoppers
+  out.sort((a, b) => a.y - b.y);
+  const ord = out.map((p, i) => [p.v, i]).sort((a, b) => a[0] - b[0]); ord.slice(0, 10).forEach(([, i]) => (out[i].keep = true));
   return out;
 })();
+function shopper(p, s, bob) {
+  ctx.save(); ctx.translate(p.x, p.y + bob); ctx.scale(s, s);
+  ctx.fillStyle = "rgba(40,25,12,0.18)"; ctx.beginPath(); ctx.ellipse(0, 3, 16, 5, 0, 0, 7); ctx.fill();
+  ctx.lineCap = "round"; ctx.strokeStyle = A.ink; ctx.lineWidth = 3.4; for (const k of [-1, 1]) { ctx.beginPath(); ctx.moveTo(k * 4, -14); ctx.lineTo(k * 6, 2); ctx.stroke(); }
+  ctx.lineWidth = 2.6; ctx.strokeStyle = A.ink;          // the crowd is drawn cheaply: 1,000 figures, no blur
+  ctx.beginPath(); ctx.roundRect(-10, -42, 20, 30, 8); ctx.fillStyle = p.col; ctx.fill(); ctx.fillStyle = "rgba(255,250,235,0.22)"; ctx.fillRect(-7, -40, 6, 24); ctx.stroke();
+  ctx.beginPath(); ctx.arc(0, -50, 8.5, 0, 7); ctx.fillStyle = p.skin; ctx.fill(); ctx.stroke();
+  if (p.hat) { ctx.beginPath(); ctx.arc(0, -53, 9, Math.PI, 0); ctx.closePath(); ctx.fillStyle = A.mustard; ctx.fill(); ctx.stroke(); }
+  ctx.restore();
+}
+function receipt(x, y, n, k, sub) {
+  if (k <= 0) return; const h = 260;
+  ctx.save(); ctx.translate(x, y - (1 - k) * 200); ctx.rotate(-0.04);
+  piece(() => { ctx.moveTo(-130, -h / 2); for (let i = 0; i <= 13; i++) ctx.lineTo(-130 + i * 20, -h / 2 + (i % 2 ? 10 : 0)); ctx.lineTo(130, h / 2); for (let i = 13; i >= 0; i--) ctx.lineTo(-130 + i * 20, h / 2 + (i % 2 ? 10 : 0)); ctx.closePath(); }, "#fbf6ea", { lw: 3, rim: 5, sx: 8, sy: 12 });
+  text("PT. ROBERTS MARKET", 0, -h / 2 + 50, { size: 24, font: "Elite" }); rule(-100, 100, -h / 2 + 64);
+  text("SHOPPERS / DAY", 0, -h / 2 + 100, { size: 22, font: "Elite" });
+  text(fmt(n), 0, 50, { size: 84, color: A.ink });
+  text(sub, 0, 100, { size: 22, font: "Elite", color: "#6b5a48" });
+  ctx.restore();
+}
 CU.grocery = (t, S) => {
-  paperBG("#d8cdb4");
-  // the store
-  cut(() => ctx.rect(110, 390, 860, 300), "#efe0c4", { lw: 5 });
-  cut(() => ctx.rect(80, 340, 920, 110), P.green, { lw: 5 });
-  text("GROCERY", W / 2, 428, { size: 92, color: C.white, ls: 14 });
-  for (let i = 0; i < 4; i++) cut(() => ctx.rect(150 + i * 200, 480, 150, 110), "#f8de8a", { lw: 3, shadow: false });
-  cut(() => ctx.rect(480, 580, 120, 110), "#cfe0de", { lw: 4 });
   const tIn = at("grocery/five"), tOut = at("grocery/about");
-  const n = t < tOut ? Math.round(5000 * eout(pp(t, tIn - 0.1, 0.8))) : Math.round(lerp(5000, 50, eout(pp(t, tOut, 0.45))));
+  sky({ sunX: 860, sunY: 300, top: "#e6cfa8" });
+  piece(() => ctx.rect(-20, 700, W + 40, H), "#cfc6ae", { lw: 4, rim: 8 });
+  ctx.save(); ctx.strokeStyle = "rgba(250,245,230,0.6)"; ctx.lineWidth = 6; for (let i = 0; i < 9; i++) { const x = 60 + i * 120; ctx.beginPath(); ctx.moveTo(x, 760); ctx.lineTo(x - 40 + i * 10, 1900); ctx.stroke(); } ctx.restore();
+  // the store
+  footShadow(W / 2, 706, 470, 0.2);
+  piece(() => ctx.rect(80, 410, 920, 300), "#efe0c4", { lw: 5, rim: 12 });
+  piece(() => ctx.rect(50, 350, 980, 100), A.moss2, { lw: 5, rim: 8 });
+  text("MARKET", W / 2, 428, { size: 84, color: A.cream, ls: 18 });
+  piece(() => { ctx.moveTo(70, 456); ctx.lineTo(1010, 456); ctx.lineTo(1030, 520); ctx.lineTo(50, 520); ctx.closePath(); }, A.cream, { lw: 3.5, rim: 4 });
+  ctx.save(); ctx.beginPath(); ctx.moveTo(70, 456); ctx.lineTo(1010, 456); ctx.lineTo(1030, 520); ctx.lineTo(50, 520); ctx.closePath(); ctx.clip(); ctx.fillStyle = A.moss2; for (let i = 0; i < 30; i++) ctx.fillRect(40 + i * 70, 450, 35, 80); ctx.restore();
+  for (let i = 0; i < 4; i++) piece(() => ctx.rect(120 + i * 210, 545, 160, 110), "#f6d98a", { lw: 3.5, rim: 4, shadow: false });
+  piece(() => ctx.rect(470, 560, 140, 150), "#bfd3cf", { lw: 4, rim: 5 });
+  const n = t < tOut ? Math.round(5000 * eout(pp(t, tIn - 0.1, 0.9))) : Math.round(lerp(5000, 50, eout(pp(t, tOut, 0.5))));
   for (let i = 0; i < CROWD.length; i++) {
-    const p = CROWD[i];
-    const kIn = pp(t, tIn - 0.1 + p.d / 112 * 0.8, 0.18);
-    if (kIn <= 0) continue;
-    const kOut = p.keep ? 0 : pp(t, tOut + p.v * 0.45, 0.12);
-    if (kOut >= 1) continue;
-    const s = back(kIn) * (1 - kOut) * p.s;
-    const bob = Math.sin(T * 6 + i) * 2.2 * p.s, sw = Math.sin(T * 6 + i) * 0.3;
-    ctx.save(); ctx.translate(p.x, p.y + bob); ctx.scale(s, s);
-    ctx.fillStyle = "rgba(43,35,32,0.18)"; ctx.beginPath(); ctx.ellipse(0, 4, 15, 5, 0, 0, 7); ctx.fill();
-    ctx.strokeStyle = P.ink; ctx.lineWidth = 3.4; ctx.lineCap = "round";
-    for (const kk of [-1, 1]) { ctx.beginPath(); ctx.moveTo(0, -14); ctx.lineTo(kk * 5 + sw * 6 * kk, 2); ctx.stroke(); }
-    cut(() => ctx.roundRect(-9, -40, 18, 28, 7), p.col, { lw: 2.6, sx: 2, sy: 3, sb: 2 });
-    cut(() => ctx.arc(0, -48, 8, 0, 7), p.skin, { lw: 2.4, shadow: false });
-    ctx.restore();
+    const p = CROWD[i], kIn = pp(t, tIn - 0.15 + p.d / 40 * 0.8, 0.22); if (kIn <= 0) continue;
+    const kOut = p.keep ? 0 : pp(t, tOut + p.v * 0.5, 0.14); if (kOut >= 1) continue;
+    shopper(p, spring(kIn) * (1 - kOut) * p.s, Math.sin(T * 6 + i) * 2 * p.s);
   }
-  const k = t < tOut ? 0 : 1;
-  counterCard(fmt(n), 300, 180, k ? "SHOPPERS A DAY · 2020" : "SHOPPERS A DAY · PEAK", { size: 110, rot: -0.03 });
-  tag("1 figure = 5 shoppers", 820, 740, { size: 28, bg: P.card });
-  if (t > tOut + 0.5) { const x = lerp(-80, 420, eout(pp(t, tOut + 0.5, 1.6))); ctx.save(); ctx.translate(x, 1120); line(-30, -40, 30, -40, P.ink, 5); cut(() => ctx.rect(-34, -40, 68, 40), "#c9ccd0", { lw: 3 }); cut(() => ctx.arc(-20, 6, 8, 0, 7), "#2f2a25", { lw: 2 }); cut(() => ctx.arc(20, 6, 8, 0, 7), "#2f2a25", { lw: 2 }); ctx.restore(); }
+  receipt(860, 220 + 140, n, spring(pp(t, tIn - 0.2, 0.6)), t < tOut ? "at its peak" : "2020 closure");
+  if (t > tOut + 0.4) local({ x: lerp(-80, 330, eout(pp(t, tOut + 0.4, 1.6))), gy: 1180, s: 0.7, walk: t * 6, carry: () => { piece(() => ctx.rect(4, -40, 70, 44), "#c9ccd0", { lw: 3, rim: 3 }); }, arm: "hold", brow: -1, blink: 0.4, id: 3 });
+  popLabel("1 figure = 5 shoppers", 230, 660, t, tIn + 0.2, { size: 26, bg: A.cream });
+  brandTag();
 };
 
 // =====================================================================================================
-// 12. GAS: five gas stations pop up in a row; fewer than a thousand people to use them
+// 12. GAS: five stations pop up along the road; the local walks the length of it with a jerry can
 // =====================================================================================================
-function station(x, gy, s, n, id) {
-  ctx.save(); ctx.translate(x, gy); ctx.scale(s, s); boil(id, 0.4);
-  cut(() => ctx.rect(-150, -330, 300, 50), C.white, { lw: 4 }); ctx.fillStyle = P.red; ctx.fillRect(-146, -296, 292, 12);
-  for (const px of [-120, 110]) cut(() => ctx.rect(px, -282, 14, 282), "#d9d4c8", { lw: 3 });
-  for (const px of [-60, 40]) { cut(() => ctx.roundRect(px, -150, 50, 150, 8), P.red, { lw: 3 }); cut(() => ctx.rect(px + 10, -130, 30, 26), "#cfe0de", { lw: 2, shadow: false }); }
-  text("GAS", 0, -296, { size: 34, color: P.ink });
+function station(x, gy, s, id) {
+  ctx.save(); ctx.translate(x, gy); ctx.scale(s, s); boil(id, 0.3);
+  footShadow(0, 4, 170, 0.2);
+  for (const px of [-130, 120]) piece(() => ctx.roundRect(px - 8, -300, 16, 300, 4), "#d8d1c2", { lw: 3.5, rim: 4 });
+  piece(() => { ctx.moveTo(-170, -330); ctx.lineTo(170, -330); ctx.lineTo(180, -290); ctx.lineTo(-180, -290); ctx.closePath(); }, A.cream, { lw: 4, rim: 6 });
+  piece(() => ctx.rect(-176, -302, 352, 12), A.red, { lw: 0, light: false, shadow: false });
+  text("GAS", 0, -300, { size: 30, color: A.ink, ls: 4 });
+  for (const px of [-60, 40]) { piece(() => ctx.roundRect(px - 4, -160, 54, 160, [10, 10, 2, 2]), A.red, { lw: 3.5, rim: 5 }); piece(() => ctx.roundRect(px + 6, -140, 34, 30, 4), "#bfd3cf", { lw: 2.5, rim: 3, shadow: false }); stroke2(() => { ctx.moveTo(px + 50, -100); ctx.quadraticCurveTo(px + 70, -60, px + 56, -30); }, "#3a3530", 4, 8); }
   ctx.restore();
 }
 CU.gas = (t, S) => {
-  skyBG({ sunX: 900, sunY: 470, top: "#e7b98e", bot: "#f0d5ad" });
-  mountains(0, { base: 880 });
-  groundBand(GY - 40, 0, { col: "#c7b98f" });
-  roadBand(GY + 100, GY + 220, 0);
-  foreground(0, { y: GY + 220, fence: false, items: fy => { const x = lerp(W + 100, -150, pp(t, at("gas/fewer"), 2.2)); ctx.save(); ctx.translate(x, fy + 160); ctx.rotate(-T * 5); ctx.strokeStyle = "#8a6a3a"; ctx.lineWidth = 6; for (let i = 0; i < 9; i++) { ctx.beginPath(); ctx.arc(0, 0, 30 + i * 8, i, i + 2.4); ctx.stroke(); } ctx.restore(); } });
+  const pan = lerp(0, 1, eio(pp(t, S.t0, S.t1 - S.t0)));
+  sky({ sunX: 880, sunY: 460, top: "#e6b98d", bot: "#efd4ad" });
+  ridge(880, 260, A.mtnFar, 0.05, 7, pan * 400, true); haze(600, 940, 0.45);
+  water(905, 1010, 0); grass(1000, 1060, pan * 200, "#8d9058");
   const t5 = [at("gas/five"), at("gas/gas"), at("gas/stations"), at("gas/stations") + 0.18, at("gas/stations") + 0.36];
-  for (let i = 0; i < 5; i++) {
-    const k = back(pp(t, t5[i] - 0.05, 0.3));
-    if (k <= 0) continue;
-    const x = 108 + i * 216;
-    ctx.save(); ctx.translate(x, GY + 80); ctx.scale(1, k); station(0, 0, 0.68, i + 1, 140 + i); ctx.restore();
-    popTag(String(i + 1), x, GY - 230, t, t5[i] + 0.05, { size: 40, bg: P.yellow, rot: 0 });
-  }
-  // the one customer
+  for (let i = 0; i < 5; i++) { const k = spring(pp(t, t5[i] - 0.05, 0.55)); if (k <= 0) continue; const x = 108 + i * 216;
+    ctx.save(); ctx.translate(x, 1080); ctx.scale(1, k); station(0, 0, 0.6, 140 + i); ctx.restore();
+    popLabel(String(i + 1), x, 820, t, t5[i] + 0.05, { size: 38, bg: A.mustard, rot: 0 }); }
+  road(1070, 1200, 0);
   const tf = at("gas/fewer");
-  const wx = lerp(-60, 560, pp(t, tf - 0.4, 3.0));
-  person({ x: wx, gy: GY + 150, s: 0.7, walk: t * 8, id: 3 });
-  cut(() => ctx.roundRect(wx + 24, GY + 60, 26, 34, 4), P.red, { lw: 2.5 });
-  const k = back(pp(t, tf - 0.05, 0.35));
-  if (k > 0) { ctx.save(); ctx.translate(W / 2, 470); ctx.scale(k, k); counterCard("< 1,000", 0, 0, "PEOPLE IN TOWN · 2020", { size: 120 }); ctx.restore(); }
-  popTag("THAT'S UNDER 200 PEOPLE PER STATION", W / 2, 680, t, at("gas/people") + 0.15, { size: 30, bg: P.card });
+  local({ x: lerp(-60, 700, pp(t, tf - 0.6, 3.2)), gy: 1186, s: 0.6, walk: t * 6, arm: "hold", brow: 0.6, blink: 0.9, id: 3, carry: () => piece(() => ctx.roundRect(-4, -14, 46, 56, 6), A.red, { lw: 3, rim: 4 }) });
+  nearGround(1218, 0, "#8d9058");
+  const tw = lerp(W + 120, -160, pp(t, tf, 2.4)); ctx.save(); ctx.translate(tw, 1600); ctx.rotate(-T * 5); ctx.strokeStyle = A.wood2; ctx.lineWidth = 6; for (let i = 0; i < 10; i++) { ctx.beginPath(); ctx.arc(0, 0, 30 + i * 8, i, i + 2.4); ctx.stroke(); } ctx.restore();
+  const ck = spring(pp(t, tf - 0.1, 0.6));
+  card(W / 2, 440, 560, 280, 0.02, ck, (w, h) => {
+    text("PEOPLE IN TOWN · 2020", 0, -h / 2 + 52, { size: 28, font: "Elite" }); rule(-220, 220, -h / 2 + 68);
+    text("< 1,000", 0, 60, { size: 116, color: A.red });
+    if (t > at("gas/people") + 0.2) text(typed("that's under 200 per station", pp(t, at("gas/people") + 0.2, 0.7)), 0, h / 2 - 24, { size: 24, font: "Elite", color: "#6b5a48" });
+  });
+  brandTag();
 };
 
 // =====================================================================================================
-// 13. TRADE: 2025: a tug of war over the line, tariff crates; then one diner's February, down 55 percent
+// 13. TRADE: 2025: a tug of war over the line, tariff crates drop; then the diner's February, down 55 percent
 // =====================================================================================================
-function crate(x, y, s, k, txt) { if (k <= 0) return; ctx.save(); ctx.translate(x, y - (1 - eout(k)) * 700); ctx.scale(s, s); cut(() => ctx.rect(-90, -110, 180, 110), C.wood3, { lw: 4 }); line(-90, -55, 90, -55, C.wood2, 5); text(txt, 0, -38, { size: 40, color: P.ink }); ctx.restore(); }
+function crate(x, y, s, k, txt) { if (k <= 0) return; ctx.save(); ctx.translate(x, y - (1 - eout(k)) * 700); ctx.rotate((1 - k) * 0.4); ctx.scale(s, s); footShadow(0, 2, 110, 0.25 * k); piece(() => ctx.rect(-100, -120, 200, 120), A.wood, { lw: 4, rim: 8 }); for (const yy of [-80, -40]) line(-100, yy, 100, yy, A.wood2, 4); text(txt, 0, -44, { size: 38, color: A.ink }); ctx.restore(); }
 CU.trade = (t, S) => {
-  const tB = at("trade/one") - 0.15;
-  const slide = eio(pp(t, tB, 0.35));
+  const tB = at("trade/one") - 0.15, slide = eio(pp(t, tB, 0.4));
   ctx.save(); ctx.translate(-W * slide, 0);
-  // A: tug of war over the border
-  skyBG({ sunX: 540, sunY: 300 });
-  groundBand(GY - 60, 0, { col: "#c9b88a" });
-  line(W / 2, GY - 60, W / 2, H, P.red, 10, [30, 18]);
-  const tug = Math.sin(T * 5) * 18;
-  stroke2(() => { ctx.moveTo(140 + tug, 760); ctx.quadraticCurveTo(W / 2 + tug, 790, W - 140 + tug, 760); }, "#d7b26a", 14, 22);
-  hand(260 + tug, 760, 0.05, C.usB, "#e8d6a8", 0.85);
-  ctx.save(); ctx.translate(W - 260 + tug, 760); ctx.scale(-1, 1); hand(0, 0, 0.05, C.caR, C.white, 0.85); ctx.restore();
-  flatFlag("US", 120, 520, 150); flatFlag("CA", W - 270, 520, 150);
+  sky({ sunX: 540, sunY: 300 }); ridge(900, 260, A.mtnFar, 0, 7, 0, true); haze(600, 960, 0.4);
+  piece(() => ctx.rect(-20, 1000, W + 40, H), "#c9b88a", { lw: 4, rim: 10 });
+  line(W / 2, 1000, W / 2, H, A.red, 10, [30, 18]);
+  const tug = Math.sin(T * 4.5) * 22;
+  stroke2(() => { ctx.moveTo(170 + tug, 760); ctx.quadraticCurveTo(W / 2 + tug, 800, W - 170 + tug, 760); }, "#d7b26a", 16, 24);
+  hand(260 + tug, 760, 0.05, A.navy, "#e8d6a8", 0.75);
+  ctx.save(); ctx.translate(W - 260 + tug, 760); ctx.scale(-1, 1); hand(0, 0, 0.05, A.red, A.cream, 0.75, { lace: false }); ctx.restore();
+  flag("US", 110, 520, 160, 0); flag("CA", W - 270, 520, 160, 1);
   const tt = at("trade/trade");
-  crate(240, GY + 120, 0.95, pp(t, tt - 0.1, 0.35), "TARIFF"); crate(840, GY + 120, 0.95, pp(t, tt + 0.05, 0.35), "TARIFF");
-  crate(300, GY + 10, 0.8, pp(t, tt + 0.25, 0.35), "TARIFF"); crate(780, GY + 10, 0.8, pp(t, tt + 0.35, 0.35), "TARIFF");
-  // trucks stopped nose to nose at the line, engines idling
-  for (let i = 0; i < 3; i++) {
-    const k = eout(pp(t, S.t0 + i * 0.12, 0.7));
-    car({ x: lerp(-260, 330 - i * 300, k), gy: GY + 40, s: 0.8, col: ["#2f4858", "#6d9a5b", "#7b5a8a"][i], flag: "US", box: true, spin: (1 - k) * 9, moving: false, id: 160 + i });
-    car({ x: lerp(W + 260, W - 330 + i * 300, k), gy: GY + 40, s: 0.8, dir: -1, col: ["#c8452d", "#e08a3c", "#2f4858"][i], flag: "CA", box: true, spin: -(1 - k) * 9, moving: false, id: 170 + i });
-  }
-  for (let i = 0; i < 4; i++) { const a = (T * 0.6 + i / 4) % 1; puffC(250 - i * 20, GY - 60 - a * 220, 24 + a * 46, (1 - a) * 0.5, "#cfc6b8"); puffC(W - 250 + i * 20, GY - 60 - a * 220, 24 + a * 46, (1 - a) * 0.5, "#cfc6b8"); }
-  foreground(0, { y: GY + 160, fence: false, items: fy => {
-    crate(220, fy + 230, 1.5, pp(t, tt + 0.45, 0.35), "TARIFF");
-    crate(830, fy + 250, 1.5, pp(t, tt + 0.6, 0.35), "TARIFF");
-  } });
-  const ck = back(pp(t, at("trade/twenty") - 0.05, 0.3));
-  if (ck > 0) { ctx.save(); ctx.translate(W / 2, 360); ctx.scale(ck, ck); cut(() => ctx.rect(-120, -90, 240, 180), P.card, { lw: 4 }); cut(() => ctx.rect(-120, -90, 240, 50), P.red, { lw: 4 }); text("2025", 0, 64, { size: 90 }); ctx.restore(); }
-  stamp("TRADE WAR", W / 2, 620, t - at("trade/war"), { size: 110, rot: -0.07 });
-  // B: the diner and its February
+  [[240, 1200, 1, tt - 0.1], [840, 1200, 1, tt + 0.05], [300, 1080, 0.85, tt + 0.25], [780, 1080, 0.85, tt + 0.35], [200, 1620, 1.4, tt + 0.5], [880, 1640, 1.4, tt + 0.65]].forEach(([x, y, s, a]) => crate(x, y, s, pp(t, a, 0.35), "TARIFF"));
+  const ck = spring(pp(t, at("trade/twenty") - 0.05, 0.6));
+  card(W / 2, 360, 260, 200, 0, ck, (w, h) => { piece(() => ctx.rect(-w / 2, -h / 2, w, 54), A.red, { lw: 0, light: false, shadow: false }); text("2025", 0, 64, { size: 90 }); });
+  stamp("TRADE WAR", W / 2, 640, t - at("trade/war"), { size: 110, rot: -0.07, color: A.red });
+  // B: the diner
   ctx.translate(W, 0);
-  paperBG("#efe4cc");
-  cut(() => ctx.rect(80, 820, 920, 400), "#e7d3b0", { lw: 5 });
-  cut(() => ctx.rect(50, 760, 980, 100), "#2f4858", { lw: 5 });
-  text("DINER", W / 2, 838, { size: 78, color: C.white, ls: 18 });
-  cut(() => ctx.rect(130, 900, 340, 200), "#f8de8a", { lw: 3, shadow: false }); cut(() => ctx.rect(610, 900, 340, 200), "#f8de8a", { lw: 3, shadow: false });
-  person({ x: 300, gy: 1110, s: 0.9, id: 12, col: C.white, hat: null });
-  foreground(0, { y: 1220, fence: false, items: fy => car({ x: 700, gy: fy + 150, s: 1.2, col: "#6d9a5b", flag: "US", moving: false, id: 150 }) });
-  if (t > at("trade/fiftyfive")) { ctx.save(); ctx.translate(318, 935); cut(() => ctx.ellipse(0, 0, 8, 12, 0, 0, 7), "#8cc6e6", { lw: 2 }); ctx.restore(); }
-  // chart: Feb last year vs Feb 2025
-  const bx = 330, by = 680, bw = 170, top = 300;
-  const grow = eout(pp(t, tB + 0.3, 0.6));
-  const drop = eio(pp(t, at("trade/fiftyfive") - 0.1, 0.5));
-  const h1 = (by - top) * grow, h2 = (by - top) * grow * lerp(1, 0.45, drop);
-  cut(() => ctx.rect(bx - bw / 2, by - h1, bw, h1), P.green, { lw: 4 });
-  cut(() => ctx.rect(bx + 260 - bw / 2, by - h2, bw, h2), P.red, { lw: 4 });
-  line(160, by, W - 160, by, P.ink, 5);
-  text("FEB 2024", bx, by + 50, { size: 40 }); text("FEB 2025", bx + 260, by + 50, { size: 40 });
-  stamp("−55%", 800, 420, t - at("trade/fiftyfive"), { size: 120, rot: -0.1 });
-  popTag("one business owner's reported figure", W / 2, 230, t, at("trade/owner"), { size: 30, bg: P.card });
+  sky({ sunX: 900, sunY: 300, top: "#e2c8a0" });
+  piece(() => ctx.rect(-20, 1060, W + 40, H), "#c9bfa6", { lw: 4, rim: 8 });
+  footShadow(W / 2, 1066, 470, 0.2);
+  piece(() => ctx.roundRect(70, 760, 940, 310, [40, 40, 0, 0]), "#d9e2dc", { lw: 5, rim: 12 });
+  piece(() => ctx.rect(70, 960, 940, 22), A.red, { lw: 3, rim: 3, shadow: false });
+  piece(() => ctx.roundRect(260, 640, 560, 110, 20), A.navy, { lw: 5, rim: 8 }); text("DINER", W / 2, 724, { size: 80, color: A.cream, ls: 20 });
+  for (let i = 0; i < 4; i++) piece(() => ctx.roundRect(120 + i * 220, 800, 180, 140, 18), "#f6d98a", { lw: 3.5, rim: 4, shadow: false });
+  // the owner behind the window, unnamed: a generic figure, not a real person
+  ctx.save(); ctx.beginPath(); ctx.roundRect(340, 800, 180, 140, 18); ctx.clip();
+  piece(() => ctx.ellipse(430, 950, 60, 70, 0, Math.PI, 0), A.cream, { lw: 3, rim: 4, shadow: false }); piece(() => ctx.arc(430, 860, 30, 0, 7), A.skin2, { lw: 3, rim: 4, shadow: false });
+  ctx.fillStyle = A.ink; ctx.beginPath(); ctx.arc(420, 856, 3.5, 0, 7); ctx.arc(442, 856, 3.5, 0, 7); ctx.fill(); line(416, 842, 428, 846, A.ink, 3); line(436, 846, 448, 842, A.ink, 3);
   ctx.restore();
+  // a chalkboard of February, last year vs this year
+  const bk = spring(pp(t, tB + 0.25, 0.6));
+  card(W / 2, 380, 760, 420, -0.02, bk, (w, h) => {
+    piece(() => ctx.rect(-w / 2 + 14, -h / 2 + 14, w - 28, h - 28), "#3c4a42", { lw: 3, light: false, shadow: false });
+    text("FEBRUARY SALES", 0, -h / 2 + 64, { size: 40, color: A.cream, ls: 4 });
+    const grow = eout(pp(t, tB + 0.4, 0.6)), drop = eio(pp(t, at("trade/fiftyfive") - 0.1, 0.5)), base = h / 2 - 70, top = -h / 2 + 100;
+    const h1 = (base - top) * grow, h2 = (base - top) * grow * lerp(1, 0.45, drop);
+    piece(() => ctx.rect(-200, base - h1, 140, h1), "#9cc49a", { lw: 3, rim: 4, ink: A.cream, shadow: false });
+    piece(() => ctx.rect(60, base - h2, 140, h2), "#e08a7a", { lw: 3, rim: 4, ink: A.cream, shadow: false });
+    line(-260, base, 260, base, A.cream, 4);
+    text("2024", -130, base + 40, { size: 30, color: A.cream }); text("2025", 130, base + 40, { size: 30, color: A.cream });
+  }, { bg: "#7a5a3c", tape: false });
+  stamp("−55%", 820, 300, t - at("trade/fiftyfive"), { size: 110, rot: -0.1, color: A.red });
+  popLabel("one business owner's reported figure", W / 2, 1150, t, at("trade/owner"), { size: 28, bg: A.cream });
+  ctx.restore();
+  brandTag();
 };
 
 // =====================================================================================================
-// 14. LOOP: back to the desk: one straight line; then a torn wipe to the opening picture (hook at t<=0)
+// 14. LOOP: back on the desk, the line glows; then a torn wipe into the opening picture (hook at t <= 0)
 // =====================================================================================================
 CU.loop = (t, S) => {
-  const tr = SC.find(x => x.id === "s_treaty");
-  const mpD = mapProj(NW_CAM), focus = mpD(-123.06, 49.0);
-  const z = lerp(1.25, 1, eout(pp(t, S.t0, 0.8)));
-  ctx.save(); ctx.translate(W / 2, 735); ctx.scale(z, z); ctx.translate(-W / 2, -735);
-  treatyDesk(t, tr, { lineK: 1, tint: 1, rulerK: 1 });
-  ctx.restore();
-  const pulse = 0.5 + 0.5 * Math.sin((t - at("loopback/line")) * 9);
-  if (t > at("loopback/line") - 0.1) { const a = mpD(LINE_E, 49), b = mpD(LINE_W, 49); ctx.save(); ctx.globalAlpha = 0.5 * pulse; stroke2(() => { ctx.moveTo(a[0], a[1] - 5); ctx.lineTo(b[0], b[1] - 5); }, P.yellow, 20, 22); ctx.restore(); }
-  // torn wipe into the opening scene, which is drawn at the matching negative time
-  const tw = at("loopback/which") - 0.1, end = TL.duration;
-  const k = eio(pp(t, tw, 0.45));
+  const z = lerp(1.25, 1, eout(pp(t, S.t0, 0.9)));
+  ctx.save(); ctx.translate(W / 2, 735); ctx.scale(z, z); ctx.translate(-W / 2, -735); treatyDesk(t, { lineK: 1, tint: 1, rulerK: 1, hands: true, noLabels: true }); ctx.restore();
+  const mp = mapProj(NW_CAM), tl = at("loopback/line");
+  if (t > tl - 0.1) { const a = mp(LINE_E, 49), b = mp(LINE_W, 49), p = 0.5 + 0.5 * Math.sin((t - tl) * 9); ctx.save(); ctx.globalAlpha = 0.55 * p; stroke2(() => { ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); }, A.mustard, 22, 24); ctx.restore(); }
+  const tw = at("loopback/which") - 0.1, k = eio(pp(t, tw, 0.45));
   if (k > 0) {
     const edge = lerp(W + 40, -60, k);
-    ctx.save(); ctx.beginPath(); tornEdge(edge); ctx.clip(); CU.hook(t - end, SC[0]); ctx.restore();
+    ctx.save(); ctx.beginPath(); tornEdge(edge); ctx.clip(); CU.hook(t - TL.duration, SC[0]); ctx.restore();
     ctx.save(); ctx.beginPath(); tornEdge(edge); ctx.shadowColor = "rgba(30,15,5,0.5)"; ctx.shadowBlur = 20; ctx.shadowOffsetX = -8; ctx.strokeStyle = "#fbf5e8"; ctx.lineWidth = 8; ctx.stroke(); ctx.restore();
   }
+};
+
+// =====================================================================================================
+// HYBRID (the house method): the geography beats fly over the real coastline in 3D (flight kit), the one big
+// number uses moving type (kinetic kit). These replace version A's who / drive / lost scenes.
+// =====================================================================================================
+const PRF = makeFlight({
+  origin: [-123.06, 48.99], near: "s_drive", colors: { US: 0xd98a3d, default: 0xe2cfa2 }, sea: 0x93b4ae,
+  trees: { iso: ["CA", "US"], n: 2400, scale: 1.1 },
+  lines: [
+    { pts: [[-123.5, BORDER_LAT], [-122.3, BORDER_LAT]], color: 0xb8432c, width: 0.09, from: at("who.start") - 1, to: at("who.start") - 0.9 },
+    { pts: ROUTE, color: 0xd9a441, width: 0.16, from: at("drive/to") - 0.1, to: at("drive/twice") + 0.1, smooth: 0.3 },
+  ],
+  keys: [
+    [at("who.start"), -123.062, 48.987, 7.5, -12, 42], [at("who.end") + 0.3, -123.06, 48.99, 9.5, 0, 36],
+    [at("drive.start"), -122.95, 49.035, 62, 0, 26], [at("drive.end") + 0.3, -122.91, 49.04, 70, 6, 26],
+  ],
+  update(t, k) {
+    if (!k.props.userData.car) {                       // the local's sage wagon, in miniature, on the route
+      const g = new k.T3.Group(); const b = new k.T3.Mesh(new k.T3.BoxGeometry(0.5, 0.16, 0.24), new k.T3.MeshLambertMaterial({ color: 0x6f8f86 })); b.position.y = 0.12; g.add(b);
+      const c = new k.T3.Mesh(new k.T3.BoxGeometry(0.28, 0.12, 0.2), new k.T3.MeshLambertMaterial({ color: 0xcfe0dc })); c.position.set(-0.03, 0.25, 0); g.add(c);
+      g.traverse(m => { if (m.isMesh) m.castShadow = true; }); k.props.add(g); k.props.userData.car = g;
+    }
+    const car = k.props.userData.car, td = at("drive/to") - 0.1, t2 = at("drive/twice");
+    car.visible = t > td - 0.3 && t < at("kids/kids");
+    const kk = lerp(0.03, 0.985, eio(pp(t, td, t2 - td + 0.2))), P = ROUTE.map(([lo, la]) => k.v3(lo, la, k.TOP)), c = along(P.map(p => [p.x, p.z]), kk);
+    car.position.set(c.x, k.TOP, c.y); car.rotation.y = -c.a; car.scale.setScalar(4.5);
+  },
+});
+CU.who = (t, S) => {
+  PRF.draw(t);
+  const t1 = at("who/twelve"), t5 = at("who/five");
+  flightPin(PRF, "POINT ROBERTS, WA", -123.062, 48.984, t, S.t0 + 0.2, { size: 38, bg: A.mustard });
+  flightPin(PRF, "CANADA", -123.08, 49.03, t, S.t0 + 0.6, { size: 40 });
+  const ck = spring(pp(t, t1 - 0.15, 0.6)), tp = pp(t, t1, 1.2);
+  card(540, 430, 560, 300, 0.02, ck, (w, h) => {
+    text("U.S. CENSUS · 2020", 0, -h / 2 + 52, { size: 30, font: "Elite" }); rule(-230, 230, -h / 2 + 70);
+    text("POPULATION", -230, 6, { size: 28, font: "Elite", align: "left" }); text(fmt(Math.round(1191 * eout(tp))), 230, 14, { size: 64, align: "right", color: A.red });
+    text("AREA", -230, 96, { size: 28, font: "Elite", align: "left" }); if (t > t5) text(typed("≈ 5 SQ MI", pp(t, t5, 0.4)), 230, 100, { size: 52, align: "right", color: A.red });
+  });
+  brandTag();
+};
+CU.drive = (t, S) => {
+  PRF.draw(t);
+  const t1 = at("drive/cross"), t2 = at("drive/twice"), k = lerp(0.03, 0.985, eio(pp(t, S.t0 - 0.1, t2 - S.t0 + 0.15)));
+  flightPin(PRF, "CROSSING 1", -123.0632, 49.0021, t, t1 - 0.1, { size: 32, bg: "#f2c9bd" });
+  flightPin(PRF, "CROSSING 2", -122.757, 49.0021, t, t2 - 0.1, { size: 32, bg: "#f2c9bd" });
+  flightPin(PRF, "BLAINE, WA", -122.75, 48.99, t, t2 + 0.2, { size: 32, up: 120 });
+  const c = along(ROUTE, k), inC = clamp((k - c.frac(1)) / (c.frac(10) - c.frac(1)));
+  odometer(780, 420, 25 * inC, spring(pp(t, S.t0 + 0.2, 0.6)));
+  passportCard(270, 440, t, t1, t2);
+  brandTag();
+};
+CU.lost = (t, S) => {
+  const t0 = at("lost/lost"), te = at("lost/eighty");
+  sky({ sunX: 170, sunY: 330, top: "#e2c7a0", bot: "#eddcbd" });
+  ridge(860, 260, A.mtnFar, 0, 7, 0, true); haze(600, 920, 0.45);
+  piece(() => ctx.rect(-20, 1000, W + 40, 80), "#c9bfa6", { lw: 4, rim: 6 });
+  const left = lerp(100, 18, eio(pp(t, t0, at("lost/business") + 0.4 - t0)));
+  SHOPS.forEach(([n, c], i) => shopfront(108 + i * 216, 1076, 200, n, c, { id: 130 + i, lit: left > 100 - (i + 1) * 20 + 1 || i === 4 ? 1 : 0, closed: left > 100 - (i + 1) * 20 + 1 || i === 4 ? null : t0 + i * 0.5 }));
+  road(1070, 1200, 0); nearGround(1218, 0, "#9a9a6a");
+  // the big number: the street dims, the figure rolls in on paper ink
+  const dim = eout(pp(t, te - 0.4, 0.4)); if (dim > 0) { ctx.fillStyle = `rgba(43,35,32,${0.5 * dim})`; ctx.fillRect(0, 0, W, H); }
+  bigNumber(t, te - 0.3, { value: 80, prefix: "−", suffix: "%+", label: "OF ITS BUSINESS", sub: S.p.label || "Border Policy Research Institute estimate",
+    stroke: 16, size: 280, y: 640, roll: 0.8, colors: { fg: A.cream, accent: A.red, ink: A.ink }, subColor: A.cream });
+  brandTag();
 };
