@@ -1849,3 +1849,20 @@ try and understand what im saying wrt to our final goal, i want an entire conten
   - AGENTS.md (and GEMINI.md) has a "Keys and secrets" section: how to get the one password, list/get/set, and never ask for individual keys;
   - the dashboard shows the vault key names.
 - DECISIONS row added.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+dont you already have the key, you were making videos right? and of all the content we have generated so far which is multiple videos where is it all stored
+
+#### Claude · record
+
+- **No OpenRouter key here** (neither env nor ~/.config). The Emu War and Keys to the Internet videos were voiced in the earlier MAREA session, whose container had the key; it was never stored centrally. The why-map episodes used the free Piper draft voice.
+- **Inventory:**
+  - Emu War MP4 is in git.
+  - Keys to the Internet: only the SRT and thumbnail are in git; the master parts were gitignored and lived in the old container (status unknown).
+  - Point Roberts and Swiss MP4s existed only on this container. Now force-added to git (c5a4e3a).
+  - Baarle has no final MP4.
+- **Creating a GitHub Release** as a media store was blocked (403 for this session type).
+- DECISIONS row: storage rule.
