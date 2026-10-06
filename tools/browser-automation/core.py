@@ -33,6 +33,9 @@ HOW TO WORK
 - Work autonomously on HOW to do the task: navigation, finding settings, filling obvious fields,
   retrying when a site errors. Pick sensible defaults for unimportant details and list them at the end.
 - If a site blocks you (rate limit, error page), retry another way before giving up.
+- Never click through a browser security warning ("Your connection is not private", certificate
+  errors, "Proceed (unsafe)", "Deceptive site ahead"). Stop and report it: it can mean the connection
+  is being intercepted.
 
 WHEN TO INVOLVE THE HUMAN (only these):
 - ask_human: a choice that is the human's to make (which plan or option, how much to spend, names,
@@ -83,10 +86,30 @@ def make_llm(model_id):
     if not key:
         raise RuntimeError(f"no API key: set {CONFIG['key_env']} or save it in the dashboard")
     json_mode = MODELS[model_id]["json_mode"]
+    # About 1 in 7 b.ai requests never answers (measured: 3/20 hung while the rest took 2-3 s), so each
+    # request gets a short timeout and is retried at once, instead of one long wait per hang.
     # Reasoning models spend part of the budget thinking; 4096 (the default) truncated replies in tests.
     return ChatOpenAI(model=model_id, base_url=os.environ.get("LLM_BASE_URL", CONFIG["base_url"]), api_key=key, temperature=0.2,
-                      max_completion_tokens=12000, max_retries=3,
+                      max_completion_tokens=12000, timeout=request_timeout(model_id), max_retries=3,
                       dont_force_structured_output=not json_mode, add_schema_to_system_prompt=not json_mode)
+
+
+def request_timeout(model_id):
+    return float(MODELS[model_id].get("timeout", 20))  # flash models answered in 2-12 s in tests; MiMo Pro thinks longer
+
+
+# A URL (or bare domain) named in the task, so the first tab opens there instead of on a blank page
+# (Browser Use does this itself, but only when no initial action is set, and we always set one).
+_URL = re.compile(r"(?<![@\w.])((?:https?://)?(?:[a-z0-9-]+\.)+(?:com|org|net|io|ai|dev|app|co|in|uk|de|me|tv|gg|so|xyz|edu|gov)"
+                  r"(?:/[^\s<>\"')\]]*)?)", re.I)
+
+
+def start_url(task):
+    m = _URL.search(task or "")
+    if not m:
+        return None
+    url = m.group(1).rstrip(".,;:!?")
+    return url if url.lower().startswith(("http://", "https://")) else "https://" + url
 
 
 # ---------------------------------------------------------------- Chrome connection
@@ -254,7 +277,7 @@ async def visible_tab_hint(browser):
                 params={"expression": "document.visibilityState", "returnByValue": True},
                 session_id=session.session_id)
             if res.get("result", {}).get("value") == "visible":
-                return (f'(Context: you start in a new blank tab. The human\'s visible tab is "{target.title}" '
+                return (f'(Context: you start in a new tab of your own. The human\'s visible tab is "{target.title}" '
                         f'({target.url}, tab_id {target.target_id[-4:]}). Switch to it only if the task says '
                         '"this page", "this tab" or similar; otherwise leave it alone.)')
     except Exception:
@@ -284,7 +307,8 @@ RISKY = re.compile(
     r"send|post|publish|share|tweet|reply|comment|invite|connect|follow|like|endorse|repost|"
     r"delete|remove|erase|destroy|terminate|shut ?down|revoke|reset|wipe|"
     r"transfer|withdraw|refund|cancel (?:my |the )?(?:account|subscription|plan|order)|close (?:my |the )?account|"
-    r"confirm|submit|agree|accept|sign ?up|register|create (?:my |an |your )?account|book|reserve|apply)\b",
+    r"confirm|submit|agree|accept|sign ?up|register|create (?:my |an |your )?account|book|reserve|apply|"
+    r"unsafe|proceed anyway|continue to site|accept the risk)\b",  # browser security warnings: never click through
     re.I)
 YES = ("y", "yes", "approve", "approved", "ok", "go", "go ahead")
 
@@ -591,9 +615,10 @@ def make_agent(task, model_id, fallback_id, browser, human, on_step=None, vision
         sensitive_data=secrets or None, use_vision=vision,
         register_new_step_callback=step_hook,
         # Start in a fresh tab so the human's tabs are never navigated by accident.
-        initial_actions=[{"navigate": {"url": "about:blank", "new_tab": True}}],
+        initial_actions=[{"navigate": {"url": start_url(task) or "about:blank", "new_tab": True}}],
         max_failures=4, step_timeout=6 * 3600,  # a step may wait on the human for a long time
-        llm_timeout=150,  # the default 75 s was too short for flash models on long pages
+        # one step may retry a hung request up to 3 times, each cut off at the per-request timeout
+        llm_timeout=int(request_timeout(model_id) * 4 + 20),
         use_judge=False,  # extra LLM pass that grades the run; it added minutes and failed in tests
         **agent_kwargs,
     )

@@ -314,3 +314,28 @@ also is desktop app the best package? what if i just want to be able to put this
 - **Digests now default to DeepSeek** (`digest_model`).
 - **Seen-memory bug:** the link-based identity in run 1 vs text-based in run 2 made an old post "new". Fixed by keeping both fingerprints. Unit-tested; the live run before the fix found the new post correctly.
 - **Moving PCs:** documented that the zip plus launcher is enough for personal use. `dashboard.ps1` now installs Python 3.12 via winget when missing (parses in PowerShell 7; untested on real Windows). Logins must be redone (Chrome's per-machine encryption); the watchlist folder can be copied.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+[pasted: another agent's analysis of a stalled run on the user's machine. It claimed the culprits were the `about:blank` first step, "network idle" waits on YouTube/GCP/LinkedIn, and screenshot payloads. It listed tools (Stagehand, Jev-Ultrafast, Playwright MCP, Skyvern, Steel, OpenTabs) and quoted unsourced "Reddit" lines. It recommended pre-navigation, tab pre-switching, lower wait timings and CDP ad blocking.]
+
+any weightt to this?
+
+#### Claude · record
+
+- **Checked each claim against code and measurements:**
+  - **about:blank start: valid, worse than stated.** Our `initial_actions` also disabled Browser Use's own URL pre-navigation. Fixed: `start_url(task)` opens a named URL or domain directly.
+  - **Network-idle trap: not valid.** Browser Use's defaults are already 0.25 s minimum and a 0.5 s network-idle cap.
+  - **Blank-tab screenshot payload: not valid.** The debug log shows no screenshot and no DOM build for about:blank (0.00 s).
+- **Found the real stall** while reproducing a YouTube task: the first LLM call hung for the full 150 s timeout, on every model and with JSON mode on or off.
+  - **Direct probes:** 3 of 20 small b.ai requests hung (over 30 s) while the others took 2–3 s; a 2 KB request hung while 19–117 KB ones answered.
+  - **Fix:** a per-request timeout of 20 s (flash) or 60 s (MiMo Pro), retried 3 times by the OpenAI SDK; `llm_timeout` set to timeout×4+20.
+- **Environment:** this container's TLS proxy made Chrome show certificate errors, and the agent clicked "Proceed (unsafe)". Added a policy rule plus `RISKY` words (unsafe, accept the risk, proceed anyway); afterwards the agent stopped and reported instead.
+  - The test then used `--ignore-certificate-errors` (test-only; my first attempt reused an old Chrome without the flag).
+- **Result:** the Veritasium task took 12.3 s and 13.3 s, with 1 AI call each, and returned the correct titles.
+- **Tools list:**
+  - **Jev-Ultrafast exists** (Browser Use + TypeSafe Jev, MIT, 7 s Google Flights in its own small benchmark; no login, HITL or safety). That corrects my earlier dismissal.
+  - The "Reddit" quotes were unsourced and are not relied on.
+  - Ad blocking and tab pre-switching were not adopted. The browser side is about 7 s on YouTube, and blocking risks breaking pages.

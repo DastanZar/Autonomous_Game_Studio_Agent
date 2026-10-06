@@ -127,6 +127,20 @@ prohibits, so the risk isn't zero. Keep the list short and the schedule daily. T
 alternative is the site's own notifications (e.g. LinkedIn's 🔔 on a profile sends you their posts), with
 the agent summarising your notifications or email instead.
 
+## Speed: what actually made it slow (measured Oct 6)
+
+- **Main cause: b.ai hangs.** About 1 request in 7 never comes back (3 of 20 hung, while the rest answered in
+  2–3 s). The agent used to wait up to 150 s per hang. Now each request is cut off after 20 s (60 s for MiMo
+  Pro) and resent automatically.
+- **Blank first tab:** every task started on a blank tab, so the first AI call was spent deciding to open the
+  site. Now a URL or domain named in the task (`youtube.com`, `console.cloud.google.com/…`) opens straight away.
+  This also restores a Browser Use feature that the blank-tab start had switched off.
+- **Result:** "Open youtube.com/@veritasium/videos and list the 5 latest videos" now takes **12–13 s**: one AI
+  call of 5–6 s, and about 7 s for YouTube to load and be read.
+- **Not the cause:** network-idle waits (Browser Use caps them at 0.5 s), and screenshots of blank tabs (none are
+  taken: "Not taking screenshot for empty page"). Ad blocking might trim part of those 7 s, but it can also break
+  pages, so it's left out.
+
 ## Moving to another computer (e.g. work → home)
 
 You don't need an installer for your own machines:
@@ -226,8 +240,11 @@ ABP + Claude Opus 4.6 reached 90.5%.
 | **Cua** | Whole-desktop computer use (driver v0.30, Sep 2026) | Only if tasks leave the browser |
 | **ChatGPT Atlas, Perplexity Comet, Claude in Chrome** | Consumer browser agents | One-offs; locked to their own model |
 
-"Jev" is a model on your b.ai account (`jev-latest`), not a browser tool. It's left out because you didn't
-list it.
+**Correction (Oct 6):** Jev is real and relevant. [Jev-Ultrafast](https://github.com/browser-use/jev-ultrafast)
+is Browser Use's own MIT-licensed agent built on TypeSafe's Jev decision model (`jev-latest` on your b.ai account).
+- **Strengths:** one API call per step, and a 7 s Google Flights search in its own small benchmark.
+- **Why it isn't used here:** it has no login handling, no human-in-the-loop and no approval gate, and it doesn't
+  support frames, pop-ups or nested scrolling. Worth trying later as a fast engine for simple read-only jobs.
 
 ## Verified (cloud container, headless Chromium 141, browser-use 0.13.10, real b.ai models)
 
