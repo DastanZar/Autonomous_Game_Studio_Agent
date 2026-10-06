@@ -119,6 +119,9 @@ def build(root):
              f"<div class=tile><b>{model_open}</b><span>jobs a model can do now</span></div>"
              f"<div class=tile><b>{len(all_episodes())}</b><span>episodes in the pipeline</span></div></div>")
 
+    vp = os.path.join(studio_dir, "vault.enc.json")
+    vnames = sorted(json.load(open(vp)).get("secrets", {})) if os.path.exists(vp) else []
+    vault_html = "".join(f"<span class='chip ok'>{e(n)}</span>" for n in vnames) or "<span class='chip none'>empty</span>"
     page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Studio Control Room</title>
@@ -156,6 +159,7 @@ code{{font-size:13px;background:var(--line);padding:0 4px;border-radius:4px;over
 <p class=sub>✓ passed · pending · ✗ failed · ! stale (an input changed after it passed)</p>
 <h2>Backlog</h2><p class=sub>Open work by who can do it:</p>{bl}
 <h4>Done ({done})</h4><ul>{done_list}</ul>
+<h2>Keys in the vault</h2><p class=sub>Encrypted in <code>studio/vault.enc.json</code>; one password (<code>STUDIO_VAULT_KEY</code>) unlocks all. Values are never shown here.</p><div>{vault_html}</div>
 <h2>Decisions</h2>{dec_html}
 </div>
 </body></html>"""

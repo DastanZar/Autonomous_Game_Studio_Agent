@@ -15,6 +15,23 @@ Nobody will re-explain anything. Everything you need is in this repo:
 
 **Stop** and ask the user only for items whose `who` is `human` or `laptop`.
 
+## Keys and secrets (one password, nothing else)
+
+Every API key the studio uses (YouTube, the voice, anything added later) is in **`studio/vault.enc.json`**, encrypted.
+One password unlocks all of them: the **studio vault key**. You get it in one of two ways:
+- it's already in your environment as `STUDIO_VAULT_KEY` (Claude Code sessions in this environment have it), or
+- the user gives it to you once at the start. Then run `export STUDIO_VAULT_KEY="<it>"` (PowerShell:
+  `$env:STUDIO_VAULT_KEY = "<it>"`) before anything else.
+
+Then:
+- `python3 studio/tools/vault.py list` shows which secrets exist (names only).
+- `python3 studio/tools/vault.py get NAME` gives a value. Tools such as `publish.py` read the vault themselves, so you
+  rarely need this.
+- `printf '%s' "value" | python3 studio/tools/vault.py set NAME` adds or changes one. Then commit `studio/vault.enc.json`.
+
+Never print a secret value into chat, logs or commits. Never commit the vault key. Never ask the user for individual keys:
+everything is in the vault, so ask only for the vault key if you don't have it.
+
 **Never:**
 - fill `approved_by`, `voice_waivers` or music approvals yourself;
 - commit secrets;

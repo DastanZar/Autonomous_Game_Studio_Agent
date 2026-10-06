@@ -1835,3 +1835,17 @@ Read the youtube verification chat, im honestly fed up with the each session req
   - STUDIO_VAULT_KEY is set at the environment level, so every new Claude session already has it;
   - other platforms need it once per platform;
   - Claude sessions are blocked from writing secrets by the safety layer, while the user and non-Claude agents can write.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+try and understand what im saying wrt to our final goal, i want an entire content system that you were already building, you are the higest authority on strategy but you will not be oding all the grunt work, we will have other cheaper ai agents doing a lot of the work, but we cant teach them things like i do to you because they arent smart, so they will have to plug and play in our system and have all the resources there just to execute, so each time i cant be going around giving secrets, we have our dashbaord, we have our github repo, find  a place somehwere where we store all keys and secretes protected by some password that we can give agents to access it
+
+#### Claude · record
+
+- Confirmed the existing vault is exactly this design: all keys encrypted in the repo, one password (the vault key).
+- Made it plug-and-play:
+  - AGENTS.md (and GEMINI.md) has a "Keys and secrets" section: how to get the one password, list/get/set, and never ask for individual keys;
+  - the dashboard shows the vault key names.
+- DECISIONS row added.
