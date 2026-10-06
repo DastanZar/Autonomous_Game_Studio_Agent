@@ -367,3 +367,14 @@ I hit my usage limit while you were working, but it has reset now. Please contin
 - **Added:** `tests/test_offline.py` (9 tests, all pass), AGENTS.md, CHANGELOG.md, CLAUDE.md/GEMINI.md pointers, docs/reviews/2026-10-06-claude.md.
 - **Smoke-tested** the merged app: UI loads, and a mock task ran end to end.
 - **Delivered** the commit as a patch (applies cleanly on 156cbec; no secrets) for the user or the other agent to apply. The studio repo's copy is now marked as history.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+i installed the github app, push it now
+
+#### Claude · record
+
+- Re-checked the repo: there were no new upstream commits since 156cbec. Tests: 9/9 pass.
+- Pushed `d043273` to `DastanZar/browser-agent` `main` (156cbec..d043273) and verified it on the remote. Removed open decision B3.
