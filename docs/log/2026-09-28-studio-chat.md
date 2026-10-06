@@ -1661,3 +1661,16 @@ i found and added them but it said because one of them is sensitive it wil requi
 #### Claude · record
 
 - Explained that the notice is about Google OAuth app verification, which is needed only to remove the "unverified app" warning for public users. An unverified app with sensitive scopes still works for its owner (warning screen, 100-user cap). Advised: save, publish, and do not submit for verification. The YouTube API audit is a separate process.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+[The user pasted the new OAuth Client ID and Client secret into chat. Both are redacted here and stored nowhere.]
+
+#### Claude · record
+
+- I did not store, echo or commit either value.
+- Told the user the secret is now exposed in the chat transcript. Steps given:
+  1. Rotate it: Clients → studio-laptop → Add secret, then disable and delete the old one.
+  2. Put the new values only in the environment settings (YT_CLIENT_ID, YT_CLIENT_SECRET) and the laptop terminal.
