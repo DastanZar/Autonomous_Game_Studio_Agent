@@ -343,3 +343,32 @@ okay let the video go, can we atleast moving forward, have all the information w
   - the review rounds and trial-report excerpts.
 - The dashboard build regenerates the files, and every Media library card links to "discussion". AGENTS.md has the rule.
 - Limit: chats from other sessions are included only if those sessions wrote to docs/log (now required). The earlier MAREA and Sonnet trial transcripts are not readable from here; what survives of them is in TRIAL-REPORT.md, review.json and what was pasted into this chat.
+
+### 🧑 User · 2026-10-06 UTC
+
+I looked at the shots for the us town canada video, those were both terrible both versions, a lot of scenes have either irrelevant things or not mesmerizing enoug, why is the first scene either a flag or an orange circle makes no sense, this isnt as rich as the emu war video, that still is your best output, write a richer storyline, more details, more things happeming on the screen, use the entire canvas, use your abilities to the fullest, there is no duration boundation either, stick to whatever is the best short length for views
+
+### 🧑 User · 2026-10-06 UTC
+
+You can even go beyond Emu war, thats the minimum to hit, not maximum
+
+#### Claude · record (Point Roberts v2)
+
+- **Diagnosis:** v1 and the HyperFrames cut were abstract cards on empty paper. The Emu War works because it has one world, recurring characters, and props that carry each joke and fact.
+- **Research:** added CBC (27 Sep 2020, "The birth of a ghost town") as a source, plus four new claims: customers are mostly British Columbians buying gas and collecting parcels; grocery 5,000 → about 50 shoppers a day; five gas stations for fewer than 1,000 people; season 6,000 vs 1,250. c_covid now cites CBC/BPRI with the label "Border Policy Research Institute estimate". All 12 quotes re-verified.
+- **Script:** 147 words, 14 paragraphs; loops ("Which is why…" → "This American town has one road out"). Voiced with Kokoro bm_george at speed 1.1, 59.8 s, WER 0.00 on every paragraph. The why-map window was widened to 25–62 s ("no duration boundation"; under 60 s kept for Shorts).
+- **Tool fixes along the way:**
+  - textnorm: ordinals, Whisper's split thousands, "twelve hundred", "a thousand". Three false retake flags are gone.
+  - vo.py saves `build/heard.txt`.
+  - geo.py `coast: "osm"`: the real coastline and border from Overpass, with mirror fallback. Natural Earth drew Point Roberts as a 6-point blob.
+  - Custom scenes can take a map region, request a hard cut, and a `flagship` storyboard lifts the 20% custom cap.
+- **Picture:** `scenes.js`, 14 bespoke scenes in one paper world. Hook = the town, its one road, a car waiting at the Canadian barrier. Then: real map with 1,191 residents; 1846 desk with ruler and quill; magnifier on the coast; surveyors snip the peninsula loose; drive with two passport stamps and a 25-mile odometer; school bus crossing four times while the sun crosses the sky; cutaway of the pipe from a Canadian reservoir; border slams shut and cars vanish, parcels pile up; meter drains and four of five shops go dark; 1,000 figures = 5,000 shoppers shrink to 10; five gas stations with one walker and a tumbleweed; tariff tug-of-war and the diner's February; back to the line, then a torn wipe into the opening frame.
+- **Reviews:** 3 rounds logged in review.json.
+  - Builder sheet 1: empty lower 40% in side views, small actors, label clutter while zoomed, passport over the map.
+  - Builder sheet 2: thin trade beat and bare desk.
+  - Critic pass on frames pulled from the encoded MP4: odometer stopped at 21 not 25, the grocery crowd read as noise, a blank half-parchment, the barrier arm swung down instead of up, the welcome sign hidden behind trees.
+  - All fixed and re-rendered.
+- **Measured:** 1080×1920, 24 fps, 59.75 s, −14.1 LUFS, true peak −1.9, final-mix WER 0.00, music 8 dB under the voice. Frozen time 0.40 s per 30 s with a 0.3 s longest hold, against a bar of 1 s and 0.6 s. Emu War measures 1.44 s, v1 2.10 s, HyperFrames 3.33 s. `studio/tools/frozen.py` was added so any agent can measure it.
+- **Gates:** research, script, voice, storyboard, picture, final and package all pass. Publish waits on the user.
+- **Delivered:** dashboard review item `point-roberts-v2` (v2 with v1 and C beneath it). The bake-off item it replaces was removed. README with fact table, SRT, thumbnail, package.json.
+- **Not verified:** nobody has listened. Claude can't hear audio; checked only by transcription and levels. The voice is still the free draft (OpenRouter key rotation pending).
