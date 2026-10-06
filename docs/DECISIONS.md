@@ -31,6 +31,14 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-10-06 | **Tools review:**
+- adopt motion-video-kit's critic loop and measured quality bar;
+- port motion rules from it and HyperFrames into the playbooks and gates;
+- benchmark Kokoro TTS;
+- borrow audio ducking;
+- rewrite style-catalogue techniques from ideas only (it has no licence).
+
+**Not switching renderers** (HyperFrames, OpenEdit). | Our 3 finished videos fail the frozen-time bar (1.4–2.7 s per 30 s vs ≤1 s); the biggest gap is self-graded review. Our catalogue plus gates is what lets cheap agents stay on-brand. | `docs/research/tools-review-2026-10.md`, backlog |
 | 2026-10-06 | **Everything is centralised on main and the dashboard:** a Media library plays every video and shows its thumbnail and script; a Chat logs list covers every session. Every agent must push to main (no side branches), commit finished media, append its chat to `docs/log/`, and keep keys in the vault. | Each session runs on its own temporary machine, so anything not pushed was being stranded | `AGENTS.md`, dashboard |
 | 2026-10-06 | **Where videos live:** finished masters are committed to `episodes/<channel>/<slug>/out/` (each is about 25–30 MB; GitHub allows up to 100 MB per file). Once API publishing runs, the YouTube upload (private or public) is the long-term archive, and `publish.json` holds its link. Intermediate files (`build/`) are never stored and are rebuilt on demand. Creating GitHub Releases as a media store is blocked for this session type. | Renders were only on one container's disk, so other agents couldn't reach them | episode `out/` folders |
 | 2026-10-06 | **One password for all keys:** every API key lives encrypted in `studio/vault.enc.json`, and the studio vault key (`STUDIO_VAULT_KEY`) is the only thing any agent ever needs. Agents get it from their platform's settings or from the user once, and must never ask for individual keys. The dashboard lists the vault's key names (never values). | Cheaper agents must plug in without being taught or handed secrets one by one | `AGENTS.md` (Keys and secrets), `studio/tools/vault.py` |

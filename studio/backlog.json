@@ -152,6 +152,48 @@
    "status": "todo",
    "who": "model",
    "detail": "2026-10-06: publish.py check passes for all 3 channels. Still to do: upload one finished why-map episode privately and ask the user to confirm in YouTube Studio. Blocked until an episode reaches 'package': build/ is not in git, so voice/picture/final must be rebuilt, and Fish TTS needs OPENROUTER_API_KEY (in the vault or the environment)."
+  },
+  {
+   "id": "critic-loop",
+   "title": "Independent critic in the picture stage (builder \u2260 judge) + round ledger",
+   "status": "todo",
+   "who": "model",
+   "detail": "Adapt motion-video-kit critic prompts (MIT) to 9:16 Shorts; sop/06 + picture gate require review rounds written by a different agent, FIXED/PARTLY/STILL PRESENT verification, SHIP verdict. docs/research/tools-review-2026-10.md item 1."
+  },
+  {
+   "id": "quality-bar-gate",
+   "title": "Measured quality bar in the final gate: frozen time, frame-0, contrast, loudness range, safe zones",
+   "status": "todo",
+   "who": "model",
+   "detail": "Frozen time on a grain-free check render (\u22641 s per 30 s, no hold >0.6 s except the loop end); frame 0 finished; settled text \u22654.5:1; LRA \u22653 LU energetic. Baseline: Emu 1.4 s/30 s, Point Roberts 2.1, Swiss 2.7. docs/research/tools-review-2026-10.md item 2."
+  },
+  {
+   "id": "motion-grammar",
+   "title": "Motion grammar into sop/05 + engine checks (ease variety, exits faster, persistent actor, no t=0 start, 60\u201385% fill)",
+   "status": "todo",
+   "who": "model",
+   "detail": "docs/research/tools-review-2026-10.md item 3; sources: motion-video-kit references/motion-grammar.md, hyperframes skills/hyperframes-creative/references/motion-principles.md."
+  },
+  {
+   "id": "tts-kokoro",
+   "title": "Benchmark Kokoro TTS (free, local) vs Piper on WER + naturalness; adopt if better",
+   "status": "todo",
+   "who": "model",
+   "detail": "docs/research/tools-review-2026-10.md item 4. Use studio/tools/vo.py's WER scoring; the human listens before switching."
+  },
+  {
+   "id": "audio-ducking-beats",
+   "title": "Voice-band carve ducking, scene cuts on beats, music-only export",
+   "status": "todo",
+   "who": "model",
+   "detail": "docs/research/tools-review-2026-10.md item 5."
+  },
+  {
+   "id": "engine-techniques",
+   "title": "Rewrite (ideas only) paper rim-light, clay shading, odometer, letter rise, arc-length draw-on, spring easing, linocut stamp",
+   "status": "todo",
+   "who": "model",
+   "detail": "docs/research/tools-review-2026-10.md item 6. The style catalogue has NO licence: never copy its code."
   }
  ]
 }
