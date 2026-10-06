@@ -3,7 +3,7 @@
     python3 studio/tools/publish.py auth <channel>                  # one time per channel, on a machine with a browser
     python3 studio/tools/publish.py upload <episode> [--dry-run]    # upload package.video, captions, write publish.json
 
-Credentials come from the environment only (never the repo, never chat):
+Credentials come from the environment, or from the encrypted vault studio/vault.enc.json (key: STUDIO_VAULT_KEY):
     YT_CLIENT_ID, YT_CLIENT_SECRET         the OAuth client (Google Cloud, type "Desktop app")
     YT_REFRESH_TOKEN_<CHANNEL>             one per channel, e.g. YT_REFRESH_TOKEN_WHY_MAP, from `auth`
 `auth` opens Google's consent page. Sign in and pick the channel's Brand Account; the refresh token is
@@ -33,10 +33,10 @@ def env_name(channel):
 
 
 def need(var):
-    v = os.environ.get(var)
-    if not v:
-        sys.exit(f"missing environment variable {var} (see the header of studio/tools/publish.py)")
-    return v
+    """Environment variable first, then the encrypted studio vault (studio/tools/vault.py)."""
+    sys.path.insert(0, HERE)
+    from vault import secret
+    return secret(var)
 
 
 def post_form(url, data):

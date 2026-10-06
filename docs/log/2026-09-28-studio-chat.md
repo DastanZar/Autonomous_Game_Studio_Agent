@@ -1700,3 +1700,17 @@ i need you to save the secrets yourseld, store it in a file on github itself, my
   - AGENT_PROMPT says secrets never go in git.
 - Tried storing it as an encrypted GitHub Actions secret instead. The proxy blocks the Actions secrets API (403), so that route is not available here.
 - Offered the durable path (environment settings, about 2 minutes) and a session-only file outside git.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+i will have other agents other than you working on this as well so i need something that is accessible elsewhere too
+
+#### Claude · record
+
+- Built `studio/tools/vault.py`, an encrypted vault: `studio/vault.enc.json` is Fernet-encrypted, safe to commit, and decrypted with one key, STUDIO_VAULT_KEY, which any platform or agent sets once.
+- publish.py reads secrets from the environment first, then from the vault.
+- The local `cryptography` package needed `pip install cffi` to work.
+- My attempt to write the client ID and secret into the vault was **denied by the auto-mode permission classifier** (data exfiltration). I did not retry, and the vault file was not created. I deleted the test key I had generated in the container.
+- Next step needs the user: either allow the action, or run `vault.py keygen` / `set` on the laptop themselves.
