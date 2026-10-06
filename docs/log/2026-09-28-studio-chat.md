@@ -2083,3 +2083,22 @@ the emu war had a certain fineesee thats lacking form this, these look like amat
   - `pkill -f` matched my own shell twice; switched to killing by PID.
 - **Write-up:** `docs/research/methodology-3-versions-2026-10.md`. Dashboard review item `point-roberts-3-methods` with A, B, C and v2.
 - **Answer to the channel question:** Border Quirks (why-map) is the Emu War channel. Its "The time a country…" series is exactly that format.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+the A,B,C arent added to the studio dashboard and i cant find them in github, where do i watch them?
+
+#### Claude · record
+
+- **What happened:** the files were on main (`episodes/why-map/point-roberts/variants/{a,b,c}/out/point-roberts.mp4`), and the review item was in the queue. But the Pages deploy hadn't finished.
+  - The first two runs were cancelled by newer pushes, which the workflow's `cancel-in-progress` does.
+  - The third run sat in `actions/checkout` for about 13 minutes, because the repo now carries about 620 MB of video.
+  - The live site was still the older build when the user looked.
+- **Done:**
+  - Sent 540p previews (7–9 MB each) straight to chat.
+  - Waited for the deploy, which succeeded at 20:13 UTC, and checked that the live site shows "Three methods, one Short" and serves all three files.
+  - The review item now plays the previews, which load fast on a phone. The masters stay in the Media library.
+  - The workflow now finds media in nested `out/` folders with `find`, rather than a fixed 2-level glob.
+- **Still to watch:** site size, about 620 MB of media and growing. GitHub Pages' soft limit is 1 GB, so rejected masters will need retiring from the site soon.

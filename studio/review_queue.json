@@ -6,23 +6,19 @@
    "status": "open",
    "kind": "video",
    "title": "Three methods, one Short: which way do we make videos?",
-   "question": "Same script, voice, facts and music, three different ways of making the picture. A = art-directed paper (the Emu War's craft made into rules: one palette, one hero per beat, every object a lit illustration, a recurring local character, designed paper props for every number). B = a 3D paper miniature (the real coastline in relief with real shadows, one continuous camera from street level to the 1846 continent). C = kinetic infographic (night map, glowing lines, big moving type, one dot per person). Tell me which one, or which parts of each. My bet is A's characters + B's map flights + C's big numbers. Full write-up: docs/research/methodology-3-versions-2026-10.md",
+   "question": "Same script, voice, facts and music, three different ways of making the picture. A = art-directed paper (the Emu War's craft made into rules: one palette, one hero per beat, every object a lit illustration, a recurring local character, designed paper props for every number). B = a 3D paper miniature (the real coastline in relief with real shadows, one continuous camera from street level to the 1846 continent). C = kinetic infographic (night map, glowing lines, big moving type, one dot per person). Tell me which one, or which parts of each. My bet is A's characters + B's map flights + C's big numbers. Full write-up: docs/research/methodology-3-versions-2026-10.md (These players are 540p previews so they load fast on a phone; the 1080p masters are in the Media library and in each variants/<a|b|c>/out/ folder.)",
    "files": [
     [
      "A: art-directed paper",
-     "episodes/why-map/point-roberts/variants/a/out/point-roberts.mp4"
+     "episodes/why-map/point-roberts/variants/a/out/preview-a.mp4"
     ],
     [
      "B: 3D paper miniature",
-     "episodes/why-map/point-roberts/variants/b/out/point-roberts.mp4"
+     "episodes/why-map/point-roberts/variants/b/out/preview-b.mp4"
     ],
     [
      "C: kinetic infographic",
-     "episodes/why-map/point-roberts/variants/c/out/point-roberts.mp4"
-    ],
-    [
-     "v2 (for comparison)",
-     "episodes/why-map/point-roberts/out/point-roberts.mp4"
+     "episodes/why-map/point-roberts/variants/c/out/preview-c.mp4"
     ]
    ]
   },
