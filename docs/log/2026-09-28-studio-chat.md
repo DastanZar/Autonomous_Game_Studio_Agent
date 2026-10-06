@@ -1630,3 +1630,14 @@ im in part d of the setup, and seeing this inside audience - To publish your app
 
 - Added `docs/site/privacy.html`, a factual privacy policy for the internal uploader (scopes, token storage, no third-party data, revocation link). The Pages workflow now publishes `docs/site/*.html` next to the dashboard.
 - Setup guide step D1b covers the Branding fields: home page and privacy URLs on dastanzar.github.io, the authorized domain, and developer contact. No logo, because a logo triggers brand verification.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+can i understand why we gave this github link, how is it pertinent, and will this link be active always and does all this affect channel performance
+
+#### Claude · record
+
+- Explained the purpose of the GitHub Pages link: Google requires a home page and a privacy policy for the sign-in screen.
+- Explained how long it stays live, and that it has no effect on channel performance.
