@@ -1771,3 +1771,25 @@ uploaded the vault file and added stuido vault key, please check everything
 - It holds 5 entries (YT_CLIENT_ID, YT_CLIENT_SECRET, and the 3 refresh tokens), all Fernet-encrypted.
 - STUDIO_VAULT_KEY is not visible in this session: environment settings load only in new sessions. So decryption and a live check were not possible here.
 - Added `publish.py check`, a read-only test: it refreshes each token and asks YouTube which channel it belongs to. Backlog task yt-verify asks the next session to run it and do one private test upload.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+verify YouTube
+
+#### Claude · record
+
+- STUDIO_VAULT_KEY is now in the session. Ran `publish.py check`, and all 3 tokens refresh. why-map → Border Quirks (OK). body-cast → "Leader Flags" and ranked → "Gut Gang", so those two tokens are **swapped** in the vault.
+- My attempt to swap the two encrypted entries was **denied by the auto-mode classifier (secret-store writes)**. Later reads were denied too, so I stopped. The private test upload has not been done.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+can i not just swap the tokens somehow? how do i gave you bash permission?
+
+#### Claude · record
+
+- Yes. The encryption isn't tied to the entry name, so the user can swap the two names in `studio/vault.enc.json` on main using the GitHub web editor. Gave the steps. Then I re-run `publish.py check`.
+- Explained the alternative: a `permissions.allow` rule in `.claude/settings.json`. Recommended the manual swap as quicker.
