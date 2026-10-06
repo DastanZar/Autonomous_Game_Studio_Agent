@@ -208,7 +208,7 @@
    "title": "A/B test the picture method across episodes (YouTube can't test two videos natively)",
    "status": "open",
    "who": "model",
-   "detail": "YouTube's Test & Compare tests thumbnails and titles only, and not on Shorts, so the method is tested ACROSS episodes: alternate method A (art-directed paper) and B (3D miniature) on successive Border Quirks uploads, matched for topic type and posting time. Record the method in publish.json ('method': 'A'|'B'). The analytics stage compares Shorts 'viewed vs swiped away' and average percentage viewed. Never upload two versions of the same story to one channel: they compete with each other and risk YouTube's repetitive-content policy.",
+   "detail": "YouTube announced video A/B testing (up to 3 cuts, winner by watch-time share) on 23 Sep 2026; select creators first, wider from 2027, Shorts support unconfirmed (docs/research/youtube-video-ab-testing-2026-10.md). When the panel appears in Studio for our channels, upload A as the main cut and B as a test cut. Until then: alternate A and B across episodes, record 'method' in publish.json, compare swipe-away rate and average percentage viewed.",
    "done_when": "5+ uploads per method, a comparison table in docs/research/, and a decision row in DECISIONS.md"
   },
   {
@@ -226,6 +226,14 @@
    "who": "laptop",
    "detail": "The user found 'march' too cheery; 'detective' is in use at 13 dB under the voice. New beds: slow documentary underscore, felt piano, soft pads, sparse plucks, low pulse, 70-90 bpm. Needs ACE-Step reinstalled (studio/tools/music_setup.sh, ~12 GB; this container has ~8 GB free) or the RTX 3060 laptop.",
    "done_when": "3 new calm tracks in studio/assets/music/why-map/ with previews in the review queue"
+  },
+  {
+   "id": "ab-cuts",
+   "title": "Every episode renders up to 3 cuts for YouTube's video A/B test",
+   "status": "open",
+   "who": "model",
+   "detail": "Add a 'cuts' list to storyboard.json: cut 1 = main; cut 2 = alternative method or a different opening hook (first 2-3 s: different first scene/line order, same facts); cut 3 = optional shorter edit. render/audio/encode produce out/<slug>-cut2.mp4 etc.; publish.py uploads cut 1, and the extra cuts are added in Studio by hand (no API support announced). Also check the Studio upload flow for the A/B panel on every upload.",
+   "done_when": "Point Roberts ships with cut1=A, cut2=B and the next episode with two hook variants"
   }
  ]
 }

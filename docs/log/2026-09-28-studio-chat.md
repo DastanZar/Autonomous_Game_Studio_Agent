@@ -2124,3 +2124,23 @@ one thing i definietely want fixing, changing of background music, lowering its 
   - A and B remixed: A WER 0.007, −14.2 LUFS; B WER 0.0, −14.1 LUFS. Previews rebuilt.
   - Music-only previews of detective, caper, spy and march are in the review queue so the user can pick by ear.
 - **Not done:** new darker tracks. ACE-Step isn't installed in this container (the model cache is gone) and a reinstall needs about 12 GB against about 8 GB free. Backlog `music-calm` (laptop GPU or a reinstall).
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+Yes the music is much better, youtube released new updates to the app for creators including trying multiple videos, i even saw a marques brownlee video on it, your research is poor
+
+#### Claude · record
+
+- **The user was right.** At Made on YouTube (23 Sep 2026), YouTube announced video A/B testing: up to 3 cuts, "which holds audience attention best" / "which hook performs best".
+  - Secondary reports: winner by watch-time share; select creators first, wider from 2027.
+  - Shorts support is reported inconsistently (80.lv and Gigazine say yes, KDCC says long-form only).
+  - MKBHD called it "possibly their worst idea yet": viewer transparency, comment timestamps, how different the cuts may be.
+- **Cause of the miss:** I searched the 2024 feature name ("Test & Compare") and not the 2026 event. New rule, written in the research note: for platform questions, search the latest event and news first.
+- **Updated plan:**
+  - A is the main cut and B the test cut once Studio offers the feature to our channels; check on every upload.
+  - New backlog `ab-cuts`: storyboard `cuts`, up to 3 rendered cuts per episode (method or hook variants), uploaded by hand in Studio because no API support has been announced.
+  - `method-test` continues until then.
+- **Music approved by the user:** detective at 13 dB under the voice. Manifest marked approved by the user; review item closed.
+- Research note: `docs/research/youtube-video-ab-testing-2026-10.md`.

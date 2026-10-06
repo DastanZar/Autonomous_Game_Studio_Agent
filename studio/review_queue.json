@@ -5,8 +5,8 @@
    "id": "point-roberts-3-methods",
    "status": "open",
    "kind": "video",
-   "title": "Point Roberts A and B, remixed: calmer music, quieter",
-   "question": "You liked A and B. Both now use the calm 'detective' track instead of the marching band, mixed 13 dB under the voice (was 8). Does the music sit right now? Then: which one goes out first (my pick: A for this story)?",
+   "title": "Point Roberts A and B (new calm mix): which is the main cut?",
+   "question": "Music settled (detective, 13 dB under). Which goes out as the main cut? My pick: A. B becomes the second cut for YouTube's new video A/B test once Studio offers it to our channels (see docs/research/youtube-video-ab-testing-2026-10.md).",
    "files": [
     [
      "A: art-directed paper (new mix)",
@@ -19,31 +19,6 @@
     [
      "C: kinetic infographic (old mix, parked as a recipe for other niches)",
      "episodes/why-map/point-roberts/variants/c/out/preview-c.mp4"
-    ]
-   ]
-  },
-  {
-   "id": "music-why-map",
-   "status": "open",
-   "kind": "audio",
-   "title": "Border Quirks music: pick the bed (music only, 45 s each)",
-   "question": "The videos now use 'detective'. If it still feels wrong, pick another, or say 'none' and I will generate new, darker tracks (needs the music model reinstalled, or your laptop's GPU). 'march' is the one you said felt too cheery; it is retired.",
-   "files": [
-    [
-     "detective: understated jazz, upright bass, vibraphone (now in use)",
-     "docs/review/music/why-map-detective.mp3"
-    ],
-    [
-     "caper: pizzicato strings, brushed drums (lighter)",
-     "docs/review/music/why-map-caper.mp3"
-    ],
-    [
-     "spy: muted trumpet, bass clarinet, mischievous",
-     "docs/review/music/why-map-spy.mp3"
-    ],
-    [
-     "march: the old one, for comparison (retired)",
-     "docs/review/music/why-map-march.mp3"
     ]
    ]
   },
