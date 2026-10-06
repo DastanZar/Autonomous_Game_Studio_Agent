@@ -1674,3 +1674,13 @@ i found and added them but it said because one of them is sensitive it wil requi
 - Told the user the secret is now exposed in the chat transcript. Steps given:
   1. Rotate it: Clients → studio-laptop → Add secret, then disable and delete the old one.
   2. Put the new values only in the environment settings (YT_CLIENT_ID, YT_CLIENT_SECRET) and the laptop terminal.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+its not exposed, please re-use the same secret
+
+#### Claude · record
+
+- The user decided to keep the existing client secret, which is their call. I still did not store it anywhere. It goes into the environment settings and the laptop terminal only.
