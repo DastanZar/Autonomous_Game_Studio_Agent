@@ -1866,3 +1866,18 @@ dont you already have the key, you were making videos right? and of all the cont
   - Baarle has no final MP4.
 - **Creating a GitHub Release** as a media store was blocked (403 for this session type).
 - DECISIONS row: storage rule.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+what is this other other chat and other machine excuse, everything is inside this claude account right? why cant we have all the multimedia data, thumbnails videos scripts everything centralised via our dashboard and going forward have all the chats centralised too so we dont have this information cut off anywwher
+
+#### Claude · record
+
+- **Explained:** each session runs on its own temporary machine. The account keeps the chat, but not that machine's files.
+- **Built:**
+  - a dashboard Media library: a video player, thumbnail and script per episode, plus the pilots. The workflow copies `out/` media into the Pages site;
+  - a Chat logs section on the dashboard;
+  - an AGENTS.md rule: push to main, commit media, log every chat, keys in the vault.
+- Asked the earlier MAREA session to push its Keys to the Internet master, its key into the vault, and its chat log, if they still exist.

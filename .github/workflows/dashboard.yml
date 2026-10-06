@@ -23,6 +23,7 @@ jobs:
       - run: pip install jsonschema
       - run: python3 studio/studio.py dashboard
       - run: mkdir -p _site && cp docs/dashboard.html _site/index.html && cp docs/site/*.html _site/
+      - run: for f in episodes/*/*/out/* shorts/*/out/* videos/*/out/*; do if [ -f "$f" ]; then mkdir -p "_site/media/$(dirname "$f")"; cp "$f" "_site/media/$f"; fi; done; du -sh _site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

@@ -15,6 +15,16 @@ Nobody will re-explain anything. Everything you need is in this repo:
 
 **Stop** and ask the user only for items whose `who` is `human` or `laptop`.
 
+## Nothing lives only in one chat
+
+Every session runs on its own temporary machine. Anything not pushed to `main` is lost when that machine is recycled.
+- **Push to `main`.** Never leave work on a side branch. If your platform made a branch, merge it into main before you stop.
+- **Finished media** (video, thumbnail, SRT) goes in the episode's `out/` folder and gets committed (`git add -f` for the .mp4).
+  The dashboard's Media library plays it from there.
+- **Your conversation:** append each turn to `docs/log/<YYYY-MM-DD>-<short-topic>.md`. Write the user's words verbatim
+  (secrets removed), then what you did, decided, found or failed at. The dashboard lists every log.
+- **Keys** go in the vault (below), never only in one machine's settings or files.
+
 ## Keys and secrets (one password, nothing else)
 
 Every API key the studio uses (YouTube, the voice, anything added later) is in **`studio/vault.enc.json`**, encrypted.
