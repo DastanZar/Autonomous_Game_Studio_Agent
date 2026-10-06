@@ -1651,3 +1651,13 @@ only seeing youtube data api v3 scopes nothing about the ones you said, and got 
 #### Claude · record
 
 - Explained that every row in the picker is labelled "YouTube Data API v3"; the scope name is in the Scope column, and adding a scope by hand needs the full URL. Made D3 optional, since publish.py requests the scopes at sign-in. Guide updated.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+i found and added them but it said because one of them is sensitive it wil require some verification
+
+#### Claude · record
+
+- Explained that the notice is about Google OAuth app verification, which is needed only to remove the "unverified app" warning for public users. An unverified app with sensitive scopes still works for its owner (warning screen, 100-user cap). Advised: save, publish, and do not submit for verification. The YouTube API audit is a separate process.
