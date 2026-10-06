@@ -1960,3 +1960,16 @@ I want to look at the dashboard, and when shall we start publishing content? [..
 - **Kokoro test merged.** Picks: bm_george at 0.98 (British) or am_adam at 0.82 (American). WER 0 for both. The vo.py `--engine kokoro` option was added; the default is unchanged. Voice samples were sent to the user. Removed 12 scratch per-paragraph mp3s from the commit.
 - **Bake-off C (HyperFrames) merged.** Frozen 4.6 s vs A 2.9 s. Better composition and scale than A, weaker craft and more overlaps. REPORT.md written by Opus, because the worker's Write tool was refused.
 - **Freed disk:** removed the Stable Audio Open cache (9.5 GB, re-downloadable) and the pip cache. Free space went from 1 GB to 11 GB.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+How could you be doing option C, when that requires a cheaper agent, shouldnt we be passing it off to gemini?
+I will listen to kokoro when you are done
+I have added the openrouter key to vault.enc.json but i still got an alert from github, but that should be the case right because its protected via a key that you need to view it?
+
+#### Claude · record
+
+- **C:** it was built by a Sonnet worker following HyperFrames' own skills; Opus only gave the brief. A Gemini run is a fair extra test of both the tool and platform-neutrality. Wrote `docs/setup/gemini-bakeoff-prompt.md` (C2).
+- **Vault check:** on main and every branch, the vault holds only the 5 YouTube entries, all encrypted. No commit adds OPENROUTER_API_KEY. `git log -S "sk-or-"` across all branches finds nothing, so no plain-text key is in history. All 43 dashboard workflow runs succeeded. Asked the user what the alert said.
