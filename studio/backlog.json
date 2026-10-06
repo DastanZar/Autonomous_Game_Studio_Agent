@@ -202,6 +202,30 @@
    "who": "model",
    "detail": "episodes/why-map/point-roberts/scenes.js is the new standard. Lift its reusable parts into studio/engine so cheaper agents can use them without writing code: a side-view world (sky, mountains, water, ground, road, near foreground with fence, bushes and edge pines), vehicles (car, top-down car, bus), border booth with barrier, waving flags (US, CA, then any flag from flags.js), people, a crowd-count scene (N figures that thin out), a map with a moving vehicle along a route and an odometer, a cutaway (pipe under a border), a shopfront row whose windows go dark, a desk-and-parchment history beat. Each becomes a catalog type with params and word cues.",
    "done_when": "A new why-map episode can reach the Point Roberts v2 frozen-time bar (<=1 s per 30 s, hold <=0.6 s) using catalog types only, with custom scenes under 20%."
+  },
+  {
+   "id": "method-test",
+   "title": "A/B test the picture method across episodes (YouTube can't test two videos natively)",
+   "status": "open",
+   "who": "model",
+   "detail": "YouTube's Test & Compare tests thumbnails and titles only, and not on Shorts, so the method is tested ACROSS episodes: alternate method A (art-directed paper) and B (3D miniature) on successive Border Quirks uploads, matched for topic type and posting time. Record the method in publish.json ('method': 'A'|'B'). The analytics stage compares Shorts 'viewed vs swiped away' and average percentage viewed. Never upload two versions of the same story to one channel: they compete with each other and risk YouTube's repetitive-content policy.",
+   "done_when": "5+ uploads per method, a comparison table in docs/research/, and a decision row in DECISIONS.md"
+  },
+  {
+   "id": "c-recipe-ranked",
+   "title": "Adapt the kinetic-infographic method (version C) as a recipe for Leader Flags",
+   "status": "open",
+   "who": "model",
+   "detail": "The user liked C's potential for other niches. Port its kinetic type, unit charts and glowing map lines into catalogue types for the ranked channel; fix C's weakness (it holds still between beats: 12.4 s still per 30 s on the fair measure) with continuous camera drift and particles.",
+   "done_when": "A ranked fixture renders with the C look from catalogue types only"
+  },
+  {
+   "id": "music-calm",
+   "title": "Generate calmer/darker music beds for Border Quirks",
+   "status": "open",
+   "who": "laptop",
+   "detail": "The user found 'march' too cheery; 'detective' is in use at 13 dB under the voice. New beds: slow documentary underscore, felt piano, soft pads, sparse plucks, low pulse, 70-90 bpm. Needs ACE-Step reinstalled (studio/tools/music_setup.sh, ~12 GB; this container has ~8 GB free) or the RTX 3060 laptop.",
+   "done_when": "3 new calm tracks in studio/assets/music/why-map/ with previews in the review queue"
   }
  ]
 }

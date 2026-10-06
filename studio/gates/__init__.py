@@ -318,7 +318,9 @@ def gate_final(ctx):
     audio_checks = [ok(legacy or ar is not None, "music and SFX mixed (build/audio_report.json from studio/tools/audio.py)")]
     if ar is not None:
         audio_checks += [
-            ok(6 <= ar["music_under_voice_db"] <= 12, f"music sits {ar['music_under_voice_db']} dB under the voice (6-12)"),
+            # the bible sets the target (why-map: 13 dB, the user found 8 too loud); the mix must land within 1.5 dB of it
+            ok(abs(ar["music_under_voice_db"] - ctx["bible"].get("audio", {}).get("music_under_voice_db", 8)) <= 1.5 and 6 <= ar["music_under_voice_db"] <= 16,
+               f"music sits {ar['music_under_voice_db']} dB under the voice (bible target {ctx['bible'].get('audio', {}).get('music_under_voice_db', 8)} ±1.5)"),
             ok(not ar["sfx_unknown"], f"every sound cue has a sound{': missing ' + ', '.join(sorted(set(ar['sfx_unknown']))) if ar['sfx_unknown'] else ''}")]
     return audio_checks + [
         ok(cur and cur == r.get("video_sha"), "report describes the current video file"),

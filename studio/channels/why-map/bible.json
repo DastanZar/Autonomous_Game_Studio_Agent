@@ -281,7 +281,7 @@
   "map_history scene type (animated border changes between dated snapshots) must be built in the engine before the first how_did episode"
  ],
  "audio": {
-  "music_under_voice_db": 8,
+  "music_under_voice_db": 13,
   "duck_db": 6,
   "button": true,
   "music": {
@@ -315,7 +315,20 @@
      "duration": 60,
      "seed": 14
     }
-   ]
+   ],
+   "current": "detective",
+   "rotation": {
+    "policy": "one track per channel until analytics has 5 uploads with it; then try the next for 5 and keep the better average view percentage. Calm tracks only (user 2026-10-06: march felt too cheery).",
+    "order": [
+     "detective",
+     "caper",
+     "spy"
+    ],
+    "retired": [
+     "march"
+    ],
+    "started": "2026-10-06"
+   }
   }
  },
  "handle": "@BorderQuirks"

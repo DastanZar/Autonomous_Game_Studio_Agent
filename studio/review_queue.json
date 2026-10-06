@@ -5,20 +5,45 @@
    "id": "point-roberts-3-methods",
    "status": "open",
    "kind": "video",
-   "title": "Three methods, one Short: which way do we make videos?",
-   "question": "Same script, voice, facts and music, three different ways of making the picture. A = art-directed paper (the Emu War's craft made into rules: one palette, one hero per beat, every object a lit illustration, a recurring local character, designed paper props for every number). B = a 3D paper miniature (the real coastline in relief with real shadows, one continuous camera from street level to the 1846 continent). C = kinetic infographic (night map, glowing lines, big moving type, one dot per person). Tell me which one, or which parts of each. My bet is A's characters + B's map flights + C's big numbers. Full write-up: docs/research/methodology-3-versions-2026-10.md (These players are 540p previews so they load fast on a phone; the 1080p masters are in the Media library and in each variants/<a|b|c>/out/ folder.)",
+   "title": "Point Roberts A and B, remixed: calmer music, quieter",
+   "question": "You liked A and B. Both now use the calm 'detective' track instead of the marching band, mixed 13 dB under the voice (was 8). Does the music sit right now? Then: which one goes out first (my pick: A for this story)?",
    "files": [
     [
-     "A: art-directed paper",
+     "A: art-directed paper (new mix)",
      "episodes/why-map/point-roberts/variants/a/out/preview-a.mp4"
     ],
     [
-     "B: 3D paper miniature",
+     "B: 3D paper miniature (new mix)",
      "episodes/why-map/point-roberts/variants/b/out/preview-b.mp4"
     ],
     [
-     "C: kinetic infographic",
+     "C: kinetic infographic (old mix, parked as a recipe for other niches)",
      "episodes/why-map/point-roberts/variants/c/out/preview-c.mp4"
+    ]
+   ]
+  },
+  {
+   "id": "music-why-map",
+   "status": "open",
+   "kind": "audio",
+   "title": "Border Quirks music: pick the bed (music only, 45 s each)",
+   "question": "The videos now use 'detective'. If it still feels wrong, pick another, or say 'none' and I will generate new, darker tracks (needs the music model reinstalled, or your laptop's GPU). 'march' is the one you said felt too cheery; it is retired.",
+   "files": [
+    [
+     "detective: understated jazz, upright bass, vibraphone (now in use)",
+     "docs/review/music/why-map-detective.mp3"
+    ],
+    [
+     "caper: pizzicato strings, brushed drums (lighter)",
+     "docs/review/music/why-map-caper.mp3"
+    ],
+    [
+     "spy: muted trumpet, bass clarinet, mischievous",
+     "docs/review/music/why-map-spy.mp3"
+    ],
+    [
+     "march: the old one, for comparison (retired)",
+     "docs/review/music/why-map-march.mp3"
     ]
    ]
   },

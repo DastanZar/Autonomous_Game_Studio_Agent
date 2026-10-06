@@ -2102,3 +2102,25 @@ the A,B,C arent added to the studio dashboard and i cant find them in github, wh
   - The review item now plays the previews, which load fast on a phone. The masters stay in the Media library.
   - The workflow now finds media in nested `out/` folders with `find`, rather than a fixed 2-level glob.
 - **Still to watch:** site size, about 620 MB of media and growing. GitHub Pages' soft limit is 1 GB, so rejected masters will need retiring from the site soon.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+Youtube recently released some new updates right, if im not wrong it has some A/B testing option, can we upload multiple versions of our same videos? i liked A & B, C not so much for thi suse case but it has potential as a recipie in other niche's
+one thing i definietely want fixing, changing of background music, lowering its volumne, doesnt it feel too cheery?
+
+#### Claude · record
+
+- **YouTube A/B testing (web check):** "Test & Compare" (June 2024) tests up to 3 thumbnails, and titles were added later.
+  - Sources say it doesn't work on Shorts and has no option to test two different videos.
+  - Third-party tools for Shorts only rotate titles and thumbnails.
+  - Recommendation: test the method across episodes (alternate A and B, tag the method in publish.json, compare swipe-away rate and average percentage viewed after 5+ each). Don't upload the same story twice to one channel. Backlog `method-test`.
+- **C:** parked as a recipe for Leader Flags (backlog `c-recipe-ranked`).
+- **Music:**
+  - The cheery track was `march` (marching band parody, 112 bpm), picked by slug hash. Retired.
+  - why-map now uses `detective` (understated jazz) at 13 dB under the voice, up from 8.
+  - The gate now checks the mix against the bible's target ±1.5 dB.
+  - A and B remixed: A WER 0.007, −14.2 LUFS; B WER 0.0, −14.1 LUFS. Previews rebuilt.
+  - Music-only previews of detective, caper, spy and march are in the review queue so the user can pick by ear.
+- **Not done:** new darker tracks. ACE-Step isn't installed in this container (the model cache is gone) and a reinstall needs about 12 GB against about 8 GB free. Backlog `music-calm` (laptop GPU or a reinstall).
