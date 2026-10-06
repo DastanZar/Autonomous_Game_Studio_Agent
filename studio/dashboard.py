@@ -161,6 +161,26 @@ def build(root):
     logs = sorted(glob.glob(os.path.join(root, "docs", "log", "*.md")))
     logs_html = "".join(f"<li><a href='{GH}{os.path.relpath(l, root)}'>{e(os.path.basename(l))}</a></li>" for l in logs) or "<li>none</li>"
 
+    # review queue: what the user should watch / listen to, with players (files copied to the site by the workflow)
+    rq_p = os.path.join(studio_dir, "review_queue.json")
+    rq = [i for i in (json.load(open(rq_p))["items"] if os.path.exists(rq_p) else []) if i.get("status", "open") == "open"]
+    media_list = set()
+    def player(kind, path):
+        media_list.add(path)
+        src = "media/" + path
+        if kind == "audio":
+            return f"<audio controls preload='none' src='{src}'></audio>"
+        if kind == "video":
+            return f"<video controls preload='none' playsinline src='{src}'></video>"
+        return f"<img alt='' src='{src}'>"
+    rq_html = ""
+    for it in rq:
+        rows = "".join(f"<div class='rq-file'><b>{e(lab)}</b>{player(it['kind'], path)}</div>" for lab, path in it["files"])
+        cls = "rq-grid" if it["kind"] == "video" else "rq-list"
+        rq_html += (f"<section class='card rq'><h3>{e(it['title'])}</h3><p>{e(it['question'])}</p>"
+                    f"<div class='{cls}'>{rows}</div></section>")
+    rq_html = rq_html or "<p class=sub>Nothing to review right now.</p>"
+
     vp = os.path.join(studio_dir, "vault.enc.json")
     vnames = sorted(json.load(open(vp)).get("secrets", {})) if os.path.exists(vp) else []
     vault_html = "".join(f"<span class='chip ok'>{e(n)}</span>" for n in vnames) or "<span class='chip none'>empty</span>"
@@ -190,12 +210,13 @@ h3{{margin:0;font-size:18px}}h4{{margin:1em 0 .3em;font-size:13px;letter-spacing
 .ok{{color:var(--ok)}}.wait{{color:var(--wait)}}.bad{{color:var(--bad)}}.stale{{color:var(--stale)}}.none{{color:var(--mut)}}
 .scroll{{overflow-x:auto}}table{{border-collapse:collapse;width:100%;font-size:14px}}td,th{{border-bottom:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}}
 td.st{{text-align:center;font-weight:700}}td.name{{white-space:nowrap}}th.rot{{height:78px;vertical-align:bottom;padding:0 2px}}th.rot span{{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:600;font-size:12px}}
-video,.media img{{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;background:#000;border-radius:6px;display:block}}details{{margin:.4em 0}}summary{{cursor:pointer;font-weight:600}}.media p{{margin:.3em 0}}
+video,.media img{{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;background:#000;border-radius:6px;display:block}}details{{margin:.4em 0}}.rq{{margin-bottom:12px}}.rq-list .rq-file{{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:6px 0;border-bottom:1px solid var(--line)}}.rq-list audio{{width:min(100%,420px)}}.rq-grid{{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}.rq-grid .rq-file{{min-width:0}}.rq-grid video{{max-height:70vh}}summary{{cursor:pointer;font-weight:600}}.media p{{margin:.3em 0}}
 code{{font-size:13px;background:var(--line);padding:0 4px;border-radius:4px;overflow-wrap:anywhere}}ul{{padding-left:20px;margin:.3em 0}}
 </style></head><body>
 <div class=wrap>
 <h1>Studio <em>Control Room</em></h1><p class=sub>Three Shorts channels · updated {stamp} · rebuilt automatically on every push to <code>main</code></p>
 {tiles}
+<h2>Watch &amp; listen</h2><p class=sub>Everything waiting for your eyes or ears, playable right here. Reply in chat with your pick.</p>{rq_html}
 <h2>Needs you</h2><div class=you><ul>{you or '<li>Nothing is waiting on you.</li>'}</ul></div>
 <h2>Channels</h2><div class=grid>{ch_html}</div>
 <h2>Episodes</h2><div class=scroll><table><tr><th>episode</th>{head}</tr>{ep_rows}</table></div>
@@ -208,6 +229,7 @@ code{{font-size:13px;background:var(--line);padding:0 4px;border-radius:4px;over
 <h2>Decisions</h2>{dec_html}
 </div>
 </body></html>"""
+    open(os.path.join(root, "docs", "site-media.txt"), "w").write("".join(p + "\n" for p in sorted(media_list)))
     out = os.path.join(root, "docs", "dashboard.html")
     open(out, "w").write(page)
     return os.path.relpath(out, root)

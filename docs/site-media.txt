@@ -1,0 +1,15 @@
+docs/research/voice-samples/k_am_adam.mp3
+docs/research/voice-samples/k_am_michael.mp3
+docs/research/voice-samples/k_bm_george.mp3
+docs/research/voice-samples/k_bm_lewis.mp3
+docs/research/voice-samples/piper_ryan.mp3
+docs/review/music/body-cast-heartbeat.mp3
+docs/review/music/body-cast-inside.mp3
+docs/review/music/body-cast-lab.mp3
+docs/review/music/body-cast-showdown.mp3
+docs/review/music/ranked-countdown.mp3
+docs/review/music/ranked-finale.mp3
+docs/review/music/ranked-scoreboard.mp3
+docs/review/music/ranked-tally.mp3
+episodes/why-map/point-roberts/out/bakeoff-hyperframes.mp4
+episodes/why-map/point-roberts/out/point-roberts.mp4

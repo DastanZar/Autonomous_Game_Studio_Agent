@@ -1973,3 +1973,16 @@ I have added the openrouter key to vault.enc.json but i still got an alert from 
 
 - **C:** it was built by a Sonnet worker following HyperFrames' own skills; Opus only gave the brief. A Gemini run is a fair extra test of both the tool and platform-neutrality. Wrote `docs/setup/gemini-bakeoff-prompt.md` (C2).
 - **Vault check:** on main and every branch, the vault holds only the 5 YouTube entries, all encrypted. No commit adds OPENROUTER_API_KEY. `git log -S "sk-or-"` across all branches finds nothing, so no plain-text key is in history. All 43 dashboard workflow runs succeeded. Asked the user what the alert said.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+im unabel to preview the audios inside claude or in github, whenever you want me preview/checking anything just add it neatly and properly to the dashbaord its much easier
+
+#### Claude · record
+
+- Added `studio/review_queue.json` and a "Watch & listen" section at the top of the dashboard, with players for: the voice pick (5 samples), bake-off A vs C (2 videos), and the music approvals (4 + 4 tracks).
+- The music .ogg files are converted to 128k mp3 previews in docs/review/music/ so they play on iPhone and Safari.
+- dashboard.py writes `docs/site-media.txt`, and the Pages workflow copies those files into the site.
+- AGENTS.md rule: anything for the user to review goes in the review queue, never chat or GitHub.

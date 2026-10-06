@@ -29,6 +29,8 @@ Every session runs on its own temporary machine. Anything not pushed to `main` i
   (secrets removed), then what you did, decided, found or failed at. The dashboard lists every log.
 - **Per-video discussion:** every video folder has a `NOTES.md`. Running `python3 studio/studio.py dashboard` rebuilds it
   from the chat logs. Write lasting decisions about a video by hand in its **Notes** section; that part is kept.
+- **Anything the user must watch, hear or decide** goes in `studio/review_queue.json`. The dashboard shows it first,
+  with players. Never ask the user to open files in chat or on GitHub.
 - **Keys** go in the vault (below), never only in one machine's settings or files.
 
 ## Keys and secrets (one password, nothing else)
