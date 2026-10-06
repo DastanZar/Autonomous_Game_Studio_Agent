@@ -30,7 +30,9 @@ Do this once per channel. Names were decided on 2026-10-05 (docs/DECISIONS.md).
       2. **The Gut Gang**, handle `@GutGang`
       3. **LeaderFlags**, handle `@LeaderFlags`
       Set the handle at creation if offered, or later in **YouTube Studio → Customisation → Basic info → Handle**.
-- [ ] B4. Repeat B2–B3 for the other two.
+- [ ] B4. Repeat B2–B3 for the other two. **After the first channel exists the button moves.** Open
+      **youtube.com/channel_switcher** directly, in a desktop browser (the phone app can't create extra channels),
+      and click **+ Create a channel**. You don't need another Gmail.
 - [ ] B5. For each channel, switch to it (**profile picture → Switch account → pick the channel**), open
       **studio.youtube.com**, then **Settings (bottom left) → Channel → Feature eligibility** → under
       *Intermediate features* click **Verify phone number**.

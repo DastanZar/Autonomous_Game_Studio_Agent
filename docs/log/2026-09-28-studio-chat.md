@@ -1608,3 +1608,14 @@ AtlasOddity
   - LeaderFlags: no channel-name collision.
   - Gut Gang: tiny same-name channels exist ("gut gang", "GuT GaNg"), but @GutGang is free. Kept, and told the user.
 - Bible, backlog, DECISIONS, setup guide and dashboard are updated.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+i created border quirks, it was the first channel on the id because i was seeing a create channel button, but now i cant find where do i create 2 more channels, do i need two more gmail ids?
+
+#### Claude · record
+
+- Border Quirks has been created by the user. It's the account's first channel, so it's a personal channel rather than a Brand Account, which is fine.
+- **Answer:** no extra Gmail. Open youtube.com/channel_switcher in a desktop browser → "+ Create a channel". Added this to setup guide step B4.
