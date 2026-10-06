@@ -1748,3 +1748,13 @@ im confused, all 3 channels are setup, i have the tokens for all 3, i have the t
 #### Claude · record
 
 - Simplified to one step: put the 5 values directly into the environment settings. The vault is optional, only for non-Claude platforms later.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+if i do this, its all inside claude not accesible externally, how many times do i have to repeat the project is not just claude use
+
+#### Claude · record
+
+- Acknowledged. Platform-neutral path: the encrypted vault in the repo, filled on the laptop and uploaded through the GitHub web UI. Every platform, Claude included, then needs only STUDIO_VAULT_KEY. No secret store avoids at least one value per platform.
