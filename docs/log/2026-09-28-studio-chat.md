@@ -1758,3 +1758,16 @@ if i do this, its all inside claude not accesible externally, how many times do 
 #### Claude · record
 
 - Acknowledged. Platform-neutral path: the encrypted vault in the repo, filled on the laptop and uploaded through the GitHub web UI. Every platform, Claude included, then needs only STUDIO_VAULT_KEY. No secret store avoids at least one value per platform.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+uploaded the vault file and added stuido vault key, please check everything
+
+#### Claude · record
+
+- The vault was uploaded to the repo root (commit 23d3836). I moved it to `studio/vault.enc.json`.
+- It holds 5 entries (YT_CLIENT_ID, YT_CLIENT_SECRET, and the 3 refresh tokens), all Fernet-encrypted.
+- STUDIO_VAULT_KEY is not visible in this session: environment settings load only in new sessions. So decryption and a live check were not possible here.
+- Added `publish.py check`, a read-only test: it refreshes each token and asks YouTube which channel it belongs to. Backlog task yt-verify asks the next session to run it and do one private test upload.

@@ -119,16 +119,18 @@
   {
    "id": "yt-channels",
    "title": "Create the studio Gmail and 3 Brand Account channels",
-   "status": "blocked",
+   "status": "done",
    "who": "human",
-   "detail": "docs/setup/youtube.md step 1."
+   "detail": "docs/setup/youtube.md step 1.",
+   "note": "Border Quirks, The Gut Gang, LeaderFlags created (2026-10-06)"
   },
   {
    "id": "yt-api",
    "title": "Google Cloud project + OAuth client; refresh token per channel as environment secrets",
-   "status": "blocked",
+   "status": "done",
    "who": "human",
-   "detail": "docs/setup/youtube.md step 2. Never paste secrets in chat."
+   "detail": "docs/setup/youtube.md step 2. Never paste secrets in chat.",
+   "note": "OAuth client + 3 refresh tokens in studio/vault.enc.json (encrypted); verify with publish.py check in a session that has STUDIO_VAULT_KEY"
   },
   {
    "id": "yt-audit",
@@ -143,6 +145,13 @@
    "status": "todo",
    "who": "model",
    "detail": "Render with the engine/stylelab at YouTube's sizes (banner 2560x1440 with a 1546x423 safe area; avatar 800x800). Opus reviews. Needs final channel names first."
+  },
+  {
+   "id": "yt-verify",
+   "title": "Verify YouTube connection: publish.py check, then one private test upload",
+   "status": "todo",
+   "who": "model",
+   "detail": "Needs STUDIO_VAULT_KEY in the session's environment. Run python3 studio/tools/publish.py check (read-only). If all OK, upload one finished why-map episode privately to Border Quirks and ask the user to confirm in YouTube Studio."
   }
  ]
 }

@@ -2,6 +2,7 @@
 
     python3 studio/tools/publish.py auth <channel>                  # one time per channel, on a machine with a browser
     python3 studio/tools/publish.py upload <episode> [--dry-run]    # upload package.video, captions, write publish.json
+    python3 studio/tools/publish.py check                           # read-only: each channel's token works and points at the right channel
 
 Credentials come from the environment, or from the encrypted vault studio/vault.enc.json (key: STUDIO_VAULT_KEY):
     YT_CLIENT_ID, YT_CLIENT_SECRET         the OAuth client (Google Cloud, type "Desktop app")
@@ -151,10 +152,35 @@ def cmd_upload(ref, dry):
     print("wrote publish.json; pin the comment by hand:", pkg.get("pinned_comment", "(none)"))
 
 
+def cmd_check():
+    """Refresh each channel's token and ask YouTube which channel it belongs to. Prints no secrets."""
+    ok = True
+    for ch in sorted(os.listdir(os.path.join(ROOT, "studio", "channels"))):
+        want = json.load(open(os.path.join(ROOT, "studio", "channels", ch, "bible.json"))).get("name")
+        try:
+            tok = access_token(ch)
+            req = urllib.request.Request("https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true",
+                                         headers={"Authorization": f"Bearer {tok}"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                items = json.load(r).get("items", [])
+            got = [i["snippet"]["title"] for i in items]
+            good = want in got
+            ok &= good
+            print(f"{'OK  ' if good else 'BAD '} {ch:10} token works; YouTube says channel {got}, bible says '{want}'")
+        except SystemExit as e:
+            ok = False; print(f"BAD  {ch:10} {e}")
+        except Exception as e:
+            ok = False; print(f"BAD  {ch:10} {type(e).__name__}: {getattr(e, 'code', '')} {getattr(e, 'reason', e)}")
+    sys.exit(0 if ok else 1)
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     a = sub.add_parser("auth"); a.add_argument("channel")
     u = sub.add_parser("upload"); u.add_argument("episode"); u.add_argument("--dry-run", action="store_true")
+    sub.add_parser("check")
     args = ap.parse_args()
-    cmd_auth(args.channel) if args.cmd == "auth" else cmd_upload(args.episode, args.dry_run)
+    if args.cmd == "auth": cmd_auth(args.channel)
+    elif args.cmd == "check": cmd_check()
+    else: cmd_upload(args.episode, args.dry_run)
