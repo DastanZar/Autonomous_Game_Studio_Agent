@@ -1,3 +1,7 @@
+> **Moved (2026-10-06):** the browser agent now lives in its own repo,
+> [DastanZar/browser-agent](https://github.com/DastanZar/browser-agent), shared with a second agent. Make changes there,
+> following its `AGENTS.md`. This folder is kept as history only.
+
 # Browser Agent: give it any task, and it asks you only when a human must
 
 A general-purpose browser agent with a **dashboard**. You type a task; it works in **your own Chrome, with your
