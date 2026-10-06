@@ -23,6 +23,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 - **Fish voice:** there is no OpenRouter key in the container, so every episode so far uses the Piper
   draft voice. To unblock, add `OPENROUTER_API_KEY` as an environment secret.
+- **YouTube test upload:** the connection is verified, but no episode has a built video in this container. `build/` isn't in git, and a rebuild needs the voice key above. Next step: rebuild one why-map episode, then upload it privately.
 - **Stable Audio Open SFX:** too slow on this CPU (678 s per 1.5 s clip). Run `studio/tools/sfx_gen.py`
   on your RTX 3060 laptop.
 
@@ -30,6 +31,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-10-06 | Bible names now match the live YouTube channels: body-cast is **Gut Gang** (was "The Gut Gang"), ranked is **Leader Flags** (was "LeaderFlags"). `publish.py check` passes for all 3 channels after the user fixed the swapped body-cast/ranked tokens. | YouTube is what viewers see; the check compares the bible name to the channel the token belongs to | `studio/channels/*/bible.json` (`name`), `docs/site/privacy.html`, `docs/setup/youtube.md` |
 | 2026-10-05 | why-map renamed to **Border Quirks** (@BorderQuirks). YouTube refused @AtlasOddity, and a channel already called "Atlas Oddity" exists (@TheAtlasOddity); my first check only looked at the handle. Name checks now cover both the handle and a channel-name search. Both the border-oddities series and the how-did history series are about how borders came to be. | The handle was unavailable when you created the channel | `studio/channels/why-map/bible.json` |
 | 2026-10-05 | **Channel names, with the handle matching the name:** why-map is **Atlas Oddity** (@AtlasOddity), body-cast is **The Gut Gang** (@GutGang), ranked is **LeaderFlags** (@LeaderFlags). The criteria were: short, easy to say and spell, signals the niche, and not already taken. Rejected because the name or handle already existed: WhyTheMap, Organ Squad, FlagRank(s), Map Riddle, Odd Atlas, Mapsplained, Rankistan, Flag League. | You delegated the choice; Shorts show the @handle under every video | `studio/channels/*/bible.json` (`name`, `handle`) |
 | 2026-09-30 | **YouTube:** one new studio Gmail owns all 3 channels as Brand Accounts, not 3 Gmails. Uploads go through `studio/tools/publish.py` (Data API v3; OAuth tokens as environment secrets). Weeks 1–2 are published by hand; apply for the API audit on day 1, because unverified projects' uploads are locked to private. | One login, separate channels; Google's audit rule | `docs/setup/youtube.md` |

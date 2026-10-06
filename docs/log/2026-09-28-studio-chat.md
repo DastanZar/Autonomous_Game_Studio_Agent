@@ -1771,3 +1771,48 @@ uploaded the vault file and added stuido vault key, please check everything
 - It holds 5 entries (YT_CLIENT_ID, YT_CLIENT_SECRET, and the 3 refresh tokens), all Fernet-encrypted.
 - STUDIO_VAULT_KEY is not visible in this session: environment settings load only in new sessions. So decryption and a live check were not possible here.
 - Added `publish.py check`, a read-only test: it refreshes each token and asks YouTube which channel it belongs to. Backlog task yt-verify asks the next session to run it and do one private test upload.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+verify YouTube
+
+#### Claude · record
+
+- STUDIO_VAULT_KEY is now in the session. Ran `publish.py check`, and all 3 tokens refresh. why-map → Border Quirks (OK). body-cast → "Leader Flags" and ranked → "Gut Gang", so those two tokens are **swapped** in the vault.
+- My attempt to swap the two encrypted entries was **denied by the auto-mode classifier (secret-store writes)**. Later reads were denied too, so I stopped. The private test upload has not been done.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+can i not just swap the tokens somehow? how do i gave you bash permission?
+
+#### Claude · record
+
+- Yes. The encryption isn't tied to the entry name, so the user can swap the two names in `studio/vault.enc.json` on main using the GitHub web editor. Gave the steps. Then I re-run `publish.py check`.
+- Explained the alternative: a `permissions.allow` rule in `.claude/settings.json`. Recommended the manual swap as quicker.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+i cant find the vault.enc.json file in the repo now
+
+#### Claude · record
+
+- The file is at `studio/vault.enc.json` on main (moved there from the repo root). Gave the direct edit link.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+i fixed the secrets issue myself, check the pipeline
+
+#### Claude · record
+
+- Merged main (user commit d53c0e0). `publish.py check`: all 3 tokens now point at the right channels. The live names are "Gut Gang" and "Leader Flags", so I updated the bible `name`s, privacy.html and the setup doc to match. The check is now OK ×3.
+- `studio.py selftest`: OK. All 3 bibles are valid.
+- Episodes: all 3 why-map episodes show voice/storyboard/picture as STALE because `build/` is not in git, so it is missing in a fresh container. None has reached package, so there is nothing to test-upload yet.
+- A rebuild is blocked: no OPENROUTER_API_KEY (Fish voice), and Piper and faster-whisper are not installed here. The backlog yt-verify item is reworded to the upload step only, with the blocker noted. DECISIONS has a new row and a blocked item. Dashboard regenerated.

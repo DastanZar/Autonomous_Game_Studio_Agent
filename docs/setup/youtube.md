@@ -27,8 +27,8 @@ Do this once per channel. Names were decided on 2026-10-05 (docs/DECISIONS.md).
       **Add or manage your channel(s)** → **Create a channel**.
 - [ ] B3. Type the channel name → tick the box → **Create**. The three channels are:
       1. **Border Quirks**, handle `@BorderQuirks`
-      2. **The Gut Gang**, handle `@GutGang`
-      3. **LeaderFlags**, handle `@LeaderFlags`
+      2. **Gut Gang**, handle `@GutGang`
+      3. **Leader Flags**, handle `@LeaderFlags`
       Set the handle at creation if offered, or later in **YouTube Studio → Customisation → Basic info → Handle**.
 - [ ] B4. Repeat B2–B3 for the other two. **After the first channel exists the button moves.** Open
       **youtube.com/channel_switcher** directly, in a desktop browser (the phone app can't create extra channels),
@@ -98,8 +98,8 @@ get it from **python.org/downloads** and tick *Add python.exe to PATH* during in
       4. The terminal prints a long token.
 - [ ] F4. Add that token in the environment settings (as in E1) as **`YT_REFRESH_TOKEN_WHY_MAP`**.
 - [ ] F5. Repeat F3–F4 for the other two channels:
-      - `python publish.py auth body-cast` → pick *The Gut Gang* → save as **`YT_REFRESH_TOKEN_BODY_CAST`**
-      - `python publish.py auth ranked` → pick *LeaderFlags* → save as **`YT_REFRESH_TOKEN_RANKED`**
+      - `python publish.py auth body-cast` → pick *Gut Gang* → save as **`YT_REFRESH_TOKEN_BODY_CAST`**
+      - `python publish.py auth ranked` → pick *Leader Flags* → save as **`YT_REFRESH_TOKEN_RANKED`**
 - [ ] F6. Close PowerShell. You can delete the downloaded JSON once all three are saved, or keep it somewhere private.
 
 ## Part G: test (Claude does this; you just say "go")

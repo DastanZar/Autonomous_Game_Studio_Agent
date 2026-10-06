@@ -148,10 +148,10 @@
   },
   {
    "id": "yt-verify",
-   "title": "Verify YouTube connection: publish.py check, then one private test upload",
+   "title": "Private test upload to Border Quirks (connection already verified)",
    "status": "todo",
    "who": "model",
-   "detail": "Needs STUDIO_VAULT_KEY in the session's environment. Run python3 studio/tools/publish.py check (read-only). If all OK, upload one finished why-map episode privately to Border Quirks and ask the user to confirm in YouTube Studio."
+   "detail": "2026-10-06: publish.py check passes for all 3 channels. Still to do: upload one finished why-map episode privately and ask the user to confirm in YouTube Studio. Blocked until an episode reaches 'package': build/ is not in git, so voice/picture/final must be rebuilt, and Fish TTS needs OPENROUTER_API_KEY (in the vault or the environment)."
   }
  ]
 }
