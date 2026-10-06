@@ -1954,3 +1954,9 @@ I want to look at the dashboard, and when shall we start publishing content? [..
   - B, our engine plus the kit and style techniques, to be built by Opus.
 - Recorded the style-catalogue permission, per the user. The repo has no LICENSE file; asked for the creator's post link.
 - Publishing plan given: first upload once the voice is settled.
+
+#### Claude · record (bake-off results, 2026-10-06)
+
+- **Kokoro test merged.** Picks: bm_george at 0.98 (British) or am_adam at 0.82 (American). WER 0 for both. The vo.py `--engine kokoro` option was added; the default is unchanged. Voice samples were sent to the user. Removed 12 scratch per-paragraph mp3s from the commit.
+- **Bake-off C (HyperFrames) merged.** Frozen 4.6 s vs A 2.9 s. Better composition and scale than A, weaker craft and more overlaps. REPORT.md written by Opus, because the worker's Write tool was refused.
+- **Freed disk:** removed the Stable Audio Open cache (9.5 GB, re-downloadable) and the pip cache. Free space went from 1 GB to 11 GB.
