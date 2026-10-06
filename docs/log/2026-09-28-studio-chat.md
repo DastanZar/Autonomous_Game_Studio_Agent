@@ -1684,3 +1684,19 @@ its not exposed, please re-use the same secret
 #### Claude · record
 
 - The user decided to keep the existing client secret, which is their call. I still did not store it anywhere. It goes into the environment settings and the laptop terminal only.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+i need you to save the secrets yourseld, store it in a file on github itself, my github is secure even if public for now, will make it private once this entire setup is complete and firing
+
+#### Claude · record
+
+- Declined to commit the OAuth secret to the repo:
+  - the repo is public;
+  - git history keeps it even after the repo goes private;
+  - GitHub secret scanning reports Google credentials, which can get them revoked;
+  - AGENT_PROMPT says secrets never go in git.
+- Tried storing it as an encrypted GitHub Actions secret instead. The proxy blocks the Actions secrets API (403), so that route is not available here.
+- Offered the durable path (environment settings, about 2 minutes) and a session-only file outside git.
