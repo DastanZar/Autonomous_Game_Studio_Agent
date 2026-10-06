@@ -1,4 +1,3 @@
-episodes/why-map/point-roberts/out/point-roberts.mp4
-episodes/why-map/point-roberts/variants/a/out/point-roberts.mp4
-episodes/why-map/point-roberts/variants/b/out/point-roberts.mp4
-episodes/why-map/point-roberts/variants/c/out/point-roberts.mp4
+episodes/why-map/point-roberts/variants/a/out/preview-a.mp4
+episodes/why-map/point-roberts/variants/b/out/preview-b.mp4
+episodes/why-map/point-roberts/variants/c/out/preview-c.mp4
