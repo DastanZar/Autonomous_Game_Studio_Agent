@@ -1,0 +1,4007 @@
+{
+ "duration": 340.151,
+ "paras": [
+  {
+   "id": "cold",
+   "start": 0.6,
+   "end": 21.286,
+   "wer": 0.068,
+   "heard": "four times a year. A handful of strangers travel to one of two very boring looking buildings. One is in Culpeper, Virginia. The other is in El Segundo, California. They type in a pin, they swipe a smart card, they scan their hand, and then their eye. They open a safe. And inside that safe are the keys to the internet.",
+   "words": [
+    {
+     "w": "Four",
+     "t": 0.6
+    },
+    {
+     "w": "times",
+     "t": 0.86
+    },
+    {
+     "w": "a",
+     "t": 1.14
+    },
+    {
+     "w": "year,",
+     "t": 1.34
+    },
+    {
+     "w": "a",
+     "t": 2.08
+    },
+    {
+     "w": "handful",
+     "t": 2.14
+    },
+    {
+     "w": "of",
+     "t": 2.42
+    },
+    {
+     "w": "strangers",
+     "t": 2.62
+    },
+    {
+     "w": "travel",
+     "t": 3.08
+    },
+    {
+     "w": "to",
+     "t": 3.56
+    },
+    {
+     "w": "one",
+     "t": 3.88
+    },
+    {
+     "w": "of",
+     "t": 4.08
+    },
+    {
+     "w": "two",
+     "t": 4.22
+    },
+    {
+     "w": "very",
+     "t": 4.5
+    },
+    {
+     "w": "boring-looking",
+     "t": 4.755
+    },
+    {
+     "w": "buildings.",
+     "t": 5.52
+    },
+    {
+     "w": "One",
+     "t": 6.68
+    },
+    {
+     "w": "is",
+     "t": 6.98
+    },
+    {
+     "w": "in",
+     "t": 7.22
+    },
+    {
+     "w": "Culpeper,",
+     "t": 7.44
+    },
+    {
+     "w": "Virginia.",
+     "t": 8.04
+    },
+    {
+     "w": "The",
+     "t": 8.98
+    },
+    {
+     "w": "other",
+     "t": 9.16
+    },
+    {
+     "w": "is",
+     "t": 9.4
+    },
+    {
+     "w": "in",
+     "t": 9.68
+    },
+    {
+     "w": "El",
+     "t": 9.9
+    },
+    {
+     "w": "Segundo,",
+     "t": 10.18
+    },
+    {
+     "w": "California.",
+     "t": 10.78
+    },
+    {
+     "w": "They",
+     "t": 11.96
+    },
+    {
+     "w": "type",
+     "t": 12.16
+    },
+    {
+     "w": "in",
+     "t": 12.44
+    },
+    {
+     "w": "a",
+     "t": 12.62
+    },
+    {
+     "w": "PIN.",
+     "t": 12.76
+    },
+    {
+     "w": "They",
+     "t": 13.52
+    },
+    {
+     "w": "swipe",
+     "t": 13.62
+    },
+    {
+     "w": "a",
+     "t": 13.92
+    },
+    {
+     "w": "smartcard.",
+     "t": 14.083
+    },
+    {
+     "w": "They",
+     "t": 14.98
+    },
+    {
+     "w": "scan",
+     "t": 15.16
+    },
+    {
+     "w": "their",
+     "t": 15.44
+    },
+    {
+     "w": "hand,",
+     "t": 15.64
+    },
+    {
+     "w": "and",
+     "t": 16.2
+    },
+    {
+     "w": "then",
+     "t": 16.36
+    },
+    {
+     "w": "their",
+     "t": 16.48
+    },
+    {
+     "w": "eye.",
+     "t": 16.7
+    },
+    {
+     "w": "They",
+     "t": 17.26
+    },
+    {
+     "w": "open",
+     "t": 17.4
+    },
+    {
+     "w": "a",
+     "t": 17.66
+    },
+    {
+     "w": "safe.",
+     "t": 17.84
+    },
+    {
+     "w": "And",
+     "t": 18.66
+    },
+    {
+     "w": "inside",
+     "t": 18.82
+    },
+    {
+     "w": "that",
+     "t": 19.22
+    },
+    {
+     "w": "safe",
+     "t": 19.46
+    },
+    {
+     "w": "are",
+     "t": 19.8
+    },
+    {
+     "w": "the",
+     "t": 20.08
+    },
+    {
+     "w": "keys",
+     "t": 20.2
+    },
+    {
+     "w": "to",
+     "t": 20.42
+    },
+    {
+     "w": "the",
+     "t": 20.68
+    },
+    {
+     "w": "internet.",
+     "t": 20.84
+    }
+   ]
+  },
+  {
+   "id": "sortof",
+   "start": 21.836,
+   "end": 28.932,
+   "wer": 0.0,
+   "heard": "sort of. And in two weeks, for only the second time in history, they're changing the locks.",
+   "words": [
+    {
+     "w": "Sort",
+     "t": 21.836
+    },
+    {
+     "w": "of.",
+     "t": 22.116
+    },
+    {
+     "w": "And",
+     "t": 23.176
+    },
+    {
+     "w": "in",
+     "t": 23.396
+    },
+    {
+     "w": "two",
+     "t": 24.036
+    },
+    {
+     "w": "weeks,",
+     "t": 24.296
+    },
+    {
+     "w": "for",
+     "t": 25.516
+    },
+    {
+     "w": "only",
+     "t": 25.776
+    },
+    {
+     "w": "the",
+     "t": 26.036
+    },
+    {
+     "w": "second",
+     "t": 26.236
+    },
+    {
+     "w": "time",
+     "t": 26.396
+    },
+    {
+     "w": "in",
+     "t": 26.676
+    },
+    {
+     "w": "history,",
+     "t": 26.816
+    },
+    {
+     "w": "they're",
+     "t": 27.696
+    },
+    {
+     "w": "changing",
+     "t": 28.036
+    },
+    {
+     "w": "the",
+     "t": 28.256
+    },
+    {
+     "w": "locks.",
+     "t": 28.476
+    }
+   ]
+  },
+  {
+   "id": "myth",
+   "start": 30.032,
+   "end": 47.462,
+   "wer": 0.0,
+   "heard": "You might have seen the headlines, meet the seven people who hold the keys to the internet. It's a fantastic headline. It is also according to the people who actually hold the keys wrong. So let's figure out what these keys really do, who has them and what happens if someone loses one.",
+   "words": [
+    {
+     "w": "You",
+     "t": 30.032
+    },
+    {
+     "w": "might",
+     "t": 30.172
+    },
+    {
+     "w": "have",
+     "t": 30.312
+    },
+    {
+     "w": "seen",
+     "t": 30.472
+    },
+    {
+     "w": "the",
+     "t": 30.632
+    },
+    {
+     "w": "headlines.",
+     "t": 30.792
+    },
+    {
+     "w": "Meet",
+     "t": 31.972
+    },
+    {
+     "w": "the",
+     "t": 32.232
+    },
+    {
+     "w": "seven",
+     "t": 32.432
+    },
+    {
+     "w": "people",
+     "t": 32.692
+    },
+    {
+     "w": "who",
+     "t": 33.092
+    },
+    {
+     "w": "hold",
+     "t": 33.612
+    },
+    {
+     "w": "the",
+     "t": 33.892
+    },
+    {
+     "w": "keys",
+     "t": 34.092
+    },
+    {
+     "w": "to",
+     "t": 34.272
+    },
+    {
+     "w": "the",
+     "t": 34.532
+    },
+    {
+     "w": "internet.",
+     "t": 34.672
+    },
+    {
+     "w": "It's",
+     "t": 35.492
+    },
+    {
+     "w": "a",
+     "t": 35.692
+    },
+    {
+     "w": "fantastic",
+     "t": 35.812
+    },
+    {
+     "w": "headline.",
+     "t": 36.252
+    },
+    {
+     "w": "It",
+     "t": 37.372
+    },
+    {
+     "w": "is",
+     "t": 37.452
+    },
+    {
+     "w": "also,",
+     "t": 37.592
+    },
+    {
+     "w": "according",
+     "t": 38.032
+    },
+    {
+     "w": "to",
+     "t": 38.712
+    },
+    {
+     "w": "the",
+     "t": 39.012
+    },
+    {
+     "w": "people",
+     "t": 39.112
+    },
+    {
+     "w": "who",
+     "t": 39.332
+    },
+    {
+     "w": "actually",
+     "t": 39.552
+    },
+    {
+     "w": "hold",
+     "t": 39.892
+    },
+    {
+     "w": "the",
+     "t": 40.152
+    },
+    {
+     "w": "keys,",
+     "t": 40.292
+    },
+    {
+     "w": "wrong.",
+     "t": 40.612
+    },
+    {
+     "w": "So",
+     "t": 41.832
+    },
+    {
+     "w": "let's",
+     "t": 42.052
+    },
+    {
+     "w": "figure",
+     "t": 42.292
+    },
+    {
+     "w": "out",
+     "t": 42.452
+    },
+    {
+     "w": "what",
+     "t": 42.712
+    },
+    {
+     "w": "these",
+     "t": 42.912
+    },
+    {
+     "w": "keys",
+     "t": 43.172
+    },
+    {
+     "w": "really",
+     "t": 43.392
+    },
+    {
+     "w": "do,",
+     "t": 43.672
+    },
+    {
+     "w": "who",
+     "t": 44.132
+    },
+    {
+     "w": "has",
+     "t": 44.532
+    },
+    {
+     "w": "them,",
+     "t": 44.772
+    },
+    {
+     "w": "and",
+     "t": 45.052
+    },
+    {
+     "w": "what",
+     "t": 45.552
+    },
+    {
+     "w": "happens",
+     "t": 45.752
+    },
+    {
+     "w": "if",
+     "t": 46.092
+    },
+    {
+     "w": "someone",
+     "t": 46.412
+    },
+    {
+     "w": "loses",
+     "t": 46.712
+    },
+    {
+     "w": "one.",
+     "t": 47.012
+    }
+   ]
+  },
+  {
+   "id": "dns",
+   "start": 48.012,
+   "end": 67.294,
+   "wer": 0.018,
+   "heard": "Every time you visit a website, your computer has to ask where that website lives. A name like Wikipedia .org means nothing to a computer. It needs a number, an IP address. The system that translates one into the other is called the Domain Name System, or DNS. It's basically the internet's phone book.",
+   "words": [
+    {
+     "w": "Every",
+     "t": 48.012
+    },
+    {
+     "w": "time",
+     "t": 48.272
+    },
+    {
+     "w": "you",
+     "t": 48.512
+    },
+    {
+     "w": "visit",
+     "t": 48.732
+    },
+    {
+     "w": "a",
+     "t": 49.012
+    },
+    {
+     "w": "website,",
+     "t": 49.192
+    },
+    {
+     "w": "your",
+     "t": 50.052
+    },
+    {
+     "w": "computer",
+     "t": 50.092
+    },
+    {
+     "w": "has",
+     "t": 50.472
+    },
+    {
+     "w": "to",
+     "t": 50.772
+    },
+    {
+     "w": "ask",
+     "t": 50.952
+    },
+    {
+     "w": "where",
+     "t": 51.212
+    },
+    {
+     "w": "that",
+     "t": 51.492
+    },
+    {
+     "w": "website",
+     "t": 51.692
+    },
+    {
+     "w": "lives.",
+     "t": 52.072
+    },
+    {
+     "w": "A",
+     "t": 53.312
+    },
+    {
+     "w": "name",
+     "t": 53.352
+    },
+    {
+     "w": "like",
+     "t": 53.532
+    },
+    {
+     "w": "wikipedia",
+     "t": 53.852
+    },
+    {
+     "w": "dot",
+     "t": 54.209
+    },
+    {
+     "w": "org",
+     "t": 54.352
+    },
+    {
+     "w": "means",
+     "t": 55.092
+    },
+    {
+     "w": "nothing",
+     "t": 55.472
+    },
+    {
+     "w": "to",
+     "t": 55.792
+    },
+    {
+     "w": "a",
+     "t": 56.092
+    },
+    {
+     "w": "computer.",
+     "t": 56.212
+    },
+    {
+     "w": "It",
+     "t": 57.072
+    },
+    {
+     "w": "needs",
+     "t": 57.292
+    },
+    {
+     "w": "a",
+     "t": 57.472
+    },
+    {
+     "w": "number,",
+     "t": 57.632
+    },
+    {
+     "w": "an",
+     "t": 58.312
+    },
+    {
+     "w": "IP",
+     "t": 58.372
+    },
+    {
+     "w": "address.",
+     "t": 58.592
+    },
+    {
+     "w": "The",
+     "t": 59.532
+    },
+    {
+     "w": "system",
+     "t": 59.712
+    },
+    {
+     "w": "that",
+     "t": 60.012
+    },
+    {
+     "w": "translates",
+     "t": 60.212
+    },
+    {
+     "w": "one",
+     "t": 60.612
+    },
+    {
+     "w": "into",
+     "t": 61.152
+    },
+    {
+     "w": "the",
+     "t": 61.432
+    },
+    {
+     "w": "other",
+     "t": 61.612
+    },
+    {
+     "w": "is",
+     "t": 61.852
+    },
+    {
+     "w": "called",
+     "t": 62.232
+    },
+    {
+     "w": "the",
+     "t": 62.512
+    },
+    {
+     "w": "Domain",
+     "t": 62.752
+    },
+    {
+     "w": "Name",
+     "t": 63.032
+    },
+    {
+     "w": "System,",
+     "t": 63.272
+    },
+    {
+     "w": "or",
+     "t": 64.192
+    },
+    {
+     "w": "DNS.",
+     "t": 64.232
+    },
+    {
+     "w": "It's",
+     "t": 65.192
+    },
+    {
+     "w": "basically",
+     "t": 65.472
+    },
+    {
+     "w": "the",
+     "t": 65.832
+    },
+    {
+     "w": "internet's",
+     "t": 66.152
+    },
+    {
+     "w": "phone",
+     "t": 66.712
+    },
+    {
+     "w": "book.",
+     "t": 66.892
+    }
+   ]
+  },
+  {
+   "id": "spoof",
+   "start": 67.844,
+   "end": 86.449,
+   "wer": 0.082,
+   "heard": "And for a long time, that phone book had a problem. It trusted whoever answered. If a hacker could slip in a fake answer first, your computer would happily believe it and send you to a fake version of your bank. In 2008, a researcher named Dan Kaminski showed that this was much, much easier than anyone thought.",
+   "words": [
+    {
+     "w": "And",
+     "t": 67.844
+    },
+    {
+     "w": "for",
+     "t": 68.004
+    },
+    {
+     "w": "a",
+     "t": 68.204
+    },
+    {
+     "w": "long",
+     "t": 68.324
+    },
+    {
+     "w": "time,",
+     "t": 68.484
+    },
+    {
+     "w": "that",
+     "t": 69.164
+    },
+    {
+     "w": "phone",
+     "t": 69.404
+    },
+    {
+     "w": "book",
+     "t": 69.664
+    },
+    {
+     "w": "had",
+     "t": 69.924
+    },
+    {
+     "w": "a",
+     "t": 70.204
+    },
+    {
+     "w": "problem.",
+     "t": 70.364
+    },
+    {
+     "w": "It",
+     "t": 71.224
+    },
+    {
+     "w": "trusted",
+     "t": 71.404
+    },
+    {
+     "w": "whoever",
+     "t": 71.824
+    },
+    {
+     "w": "answered.",
+     "t": 72.144
+    },
+    {
+     "w": "If",
+     "t": 73.124
+    },
+    {
+     "w": "a",
+     "t": 73.244
+    },
+    {
+     "w": "hacker",
+     "t": 73.384
+    },
+    {
+     "w": "could",
+     "t": 73.584
+    },
+    {
+     "w": "slip",
+     "t": 73.864
+    },
+    {
+     "w": "in",
+     "t": 74.124
+    },
+    {
+     "w": "a",
+     "t": 74.284
+    },
+    {
+     "w": "fake",
+     "t": 74.404
+    },
+    {
+     "w": "answer",
+     "t": 74.604
+    },
+    {
+     "w": "first,",
+     "t": 74.984
+    },
+    {
+     "w": "your",
+     "t": 75.784
+    },
+    {
+     "w": "computer",
+     "t": 75.904
+    },
+    {
+     "w": "would",
+     "t": 76.244
+    },
+    {
+     "w": "happily",
+     "t": 76.524
+    },
+    {
+     "w": "believe",
+     "t": 76.824
+    },
+    {
+     "w": "it,",
+     "t": 77.164
+    },
+    {
+     "w": "and",
+     "t": 77.464
+    },
+    {
+     "w": "send",
+     "t": 77.824
+    },
+    {
+     "w": "you",
+     "t": 78.024
+    },
+    {
+     "w": "to",
+     "t": 78.224
+    },
+    {
+     "w": "a",
+     "t": 78.364
+    },
+    {
+     "w": "fake",
+     "t": 78.484
+    },
+    {
+     "w": "version",
+     "t": 78.704
+    },
+    {
+     "w": "of",
+     "t": 78.984
+    },
+    {
+     "w": "your",
+     "t": 79.224
+    },
+    {
+     "w": "bank.",
+     "t": 79.344
+    },
+    {
+     "w": "In",
+     "t": 80.064
+    },
+    {
+     "w": "two",
+     "t": 80.224
+    },
+    {
+     "w": "thousand",
+     "t": 80.438
+    },
+    {
+     "w": "and",
+     "t": 80.918
+    },
+    {
+     "w": "eight,",
+     "t": 81.131
+    },
+    {
+     "w": "a",
+     "t": 81.504
+    },
+    {
+     "w": "researcher",
+     "t": 81.644
+    },
+    {
+     "w": "named",
+     "t": 82.044
+    },
+    {
+     "w": "Dan",
+     "t": 82.464
+    },
+    {
+     "w": "Kaminsky",
+     "t": 82.717
+    },
+    {
+     "w": "showed",
+     "t": 83.284
+    },
+    {
+     "w": "that",
+     "t": 83.984
+    },
+    {
+     "w": "this",
+     "t": 84.204
+    },
+    {
+     "w": "was",
+     "t": 84.384
+    },
+    {
+     "w": "much,",
+     "t": 84.544
+    },
+    {
+     "w": "much",
+     "t": 84.844
+    },
+    {
+     "w": "easier",
+     "t": 85.084
+    },
+    {
+     "w": "than",
+     "t": 85.404
+    },
+    {
+     "w": "anyone",
+     "t": 85.724
+    },
+    {
+     "w": "thought.",
+     "t": 86.024
+    }
+   ]
+  },
+  {
+   "id": "dnssec",
+   "start": 86.999,
+   "end": 106.521,
+   "wer": 0.071,
+   "heard": "The fix is called DNSSEC. Every answer in the phone book now comes with a cryptographic signature, a kind of temperproof seal, and every level vouches for the level below it. Wikipedia .org is vouched for by .org, and .org is vouched for by the very top of the whole system, the root.",
+   "words": [
+    {
+     "w": "The",
+     "t": 86.999
+    },
+    {
+     "w": "fix",
+     "t": 87.159
+    },
+    {
+     "w": "is",
+     "t": 87.359
+    },
+    {
+     "w": "called",
+     "t": 87.699
+    },
+    {
+     "w": "DNSSEC.",
+     "t": 88.039
+    },
+    {
+     "w": "Every",
+     "t": 89.559
+    },
+    {
+     "w": "answer",
+     "t": 89.819
+    },
+    {
+     "w": "in",
+     "t": 90.099
+    },
+    {
+     "w": "the",
+     "t": 90.359
+    },
+    {
+     "w": "phone",
+     "t": 90.459
+    },
+    {
+     "w": "book",
+     "t": 90.659
+    },
+    {
+     "w": "now",
+     "t": 90.899
+    },
+    {
+     "w": "comes",
+     "t": 91.139
+    },
+    {
+     "w": "with",
+     "t": 91.399
+    },
+    {
+     "w": "a",
+     "t": 91.619
+    },
+    {
+     "w": "cryptographic",
+     "t": 91.759
+    },
+    {
+     "w": "signature,",
+     "t": 92.259
+    },
+    {
+     "w": "a",
+     "t": 93.559
+    },
+    {
+     "w": "kind",
+     "t": 93.659
+    },
+    {
+     "w": "of",
+     "t": 93.799
+    },
+    {
+     "w": "tamper-proof",
+     "t": 93.968
+    },
+    {
+     "w": "seal.",
+     "t": 94.699
+    },
+    {
+     "w": "And",
+     "t": 95.699
+    },
+    {
+     "w": "every",
+     "t": 95.899
+    },
+    {
+     "w": "level",
+     "t": 96.179
+    },
+    {
+     "w": "vouches",
+     "t": 96.499
+    },
+    {
+     "w": "for",
+     "t": 96.919
+    },
+    {
+     "w": "the",
+     "t": 97.139
+    },
+    {
+     "w": "level",
+     "t": 97.279
+    },
+    {
+     "w": "below",
+     "t": 97.499
+    },
+    {
+     "w": "it.",
+     "t": 97.839
+    },
+    {
+     "w": "Wikipedia",
+     "t": 98.459
+    },
+    {
+     "w": "dot",
+     "t": 98.687
+    },
+    {
+     "w": "org",
+     "t": 98.779
+    },
+    {
+     "w": "is",
+     "t": 99.499
+    },
+    {
+     "w": "vouched",
+     "t": 99.799
+    },
+    {
+     "w": "for",
+     "t": 100.199
+    },
+    {
+     "w": "by",
+     "t": 100.419
+    },
+    {
+     "w": "dot",
+     "t": 100.522
+    },
+    {
+     "w": "org.",
+     "t": 100.659
+    },
+    {
+     "w": "And",
+     "t": 101.819
+    },
+    {
+     "w": "dot",
+     "t": 101.989
+    },
+    {
+     "w": "org",
+     "t": 102.159
+    },
+    {
+     "w": "is",
+     "t": 102.679
+    },
+    {
+     "w": "vouched",
+     "t": 102.899
+    },
+    {
+     "w": "for",
+     "t": 103.279
+    },
+    {
+     "w": "by",
+     "t": 103.499
+    },
+    {
+     "w": "the",
+     "t": 103.719
+    },
+    {
+     "w": "very",
+     "t": 103.899
+    },
+    {
+     "w": "top",
+     "t": 104.139
+    },
+    {
+     "w": "of",
+     "t": 104.419
+    },
+    {
+     "w": "the",
+     "t": 104.699
+    },
+    {
+     "w": "whole",
+     "t": 104.859
+    },
+    {
+     "w": "system:",
+     "t": 105.039
+    },
+    {
+     "w": "the",
+     "t": 105.959
+    },
+    {
+     "w": "root.",
+     "t": 106.139
+    }
+   ]
+  },
+  {
+   "id": "root",
+   "start": 107.071,
+   "end": 121.319,
+   "wer": 0.0,
+   "heard": "But who vouches for the root? Nobody. There's nothing above it. The root's signature is the one thing the entire system has to take on faith, which means the key that makes that signature had better be very, very well protected.",
+   "words": [
+    {
+     "w": "But",
+     "t": 107.071
+    },
+    {
+     "w": "who",
+     "t": 107.271
+    },
+    {
+     "w": "vouches",
+     "t": 107.591
+    },
+    {
+     "w": "for",
+     "t": 108.011
+    },
+    {
+     "w": "the",
+     "t": 108.291
+    },
+    {
+     "w": "root?",
+     "t": 108.451
+    },
+    {
+     "w": "Nobody.",
+     "t": 109.711
+    },
+    {
+     "w": "There's",
+     "t": 110.211
+    },
+    {
+     "w": "nothing",
+     "t": 110.391
+    },
+    {
+     "w": "above",
+     "t": 110.611
+    },
+    {
+     "w": "it.",
+     "t": 110.971
+    },
+    {
+     "w": "The",
+     "t": 111.751
+    },
+    {
+     "w": "root's",
+     "t": 111.951
+    },
+    {
+     "w": "signature",
+     "t": 112.371
+    },
+    {
+     "w": "is",
+     "t": 112.791
+    },
+    {
+     "w": "the",
+     "t": 113.211
+    },
+    {
+     "w": "one",
+     "t": 113.371
+    },
+    {
+     "w": "thing",
+     "t": 113.591
+    },
+    {
+     "w": "the",
+     "t": 113.851
+    },
+    {
+     "w": "entire",
+     "t": 114.051
+    },
+    {
+     "w": "system",
+     "t": 114.471
+    },
+    {
+     "w": "has",
+     "t": 114.771
+    },
+    {
+     "w": "to",
+     "t": 115.111
+    },
+    {
+     "w": "take",
+     "t": 115.291
+    },
+    {
+     "w": "on",
+     "t": 115.511
+    },
+    {
+     "w": "faith.",
+     "t": 115.731
+    },
+    {
+     "w": "Which",
+     "t": 116.451
+    },
+    {
+     "w": "means",
+     "t": 116.711
+    },
+    {
+     "w": "the",
+     "t": 117.031
+    },
+    {
+     "w": "key",
+     "t": 117.471
+    },
+    {
+     "w": "that",
+     "t": 117.671
+    },
+    {
+     "w": "makes",
+     "t": 117.851
+    },
+    {
+     "w": "that",
+     "t": 118.111
+    },
+    {
+     "w": "signature",
+     "t": 118.391
+    },
+    {
+     "w": "had",
+     "t": 118.911
+    },
+    {
+     "w": "better",
+     "t": 119.451
+    },
+    {
+     "w": "be",
+     "t": 119.711
+    },
+    {
+     "w": "very,",
+     "t": 119.951
+    },
+    {
+     "w": "very",
+     "t": 120.331
+    },
+    {
+     "w": "well",
+     "t": 120.531
+    },
+    {
+     "w": "protected.",
+     "t": 120.851
+    }
+   ]
+  },
+  {
+   "id": "hsm",
+   "start": 121.869,
+   "end": 140.352,
+   "wer": 0.128,
+   "heard": "That key is called the key signing key. It lives inside machines called hardware security modules, tamper -proof boxes designed to wipe themselves if anyone tries to break in. There are copies on both coasts more than 4 ,000 come letters apart. The key never leaves these boxes, ever.",
+   "words": [
+    {
+     "w": "That",
+     "t": 121.869
+    },
+    {
+     "w": "key",
+     "t": 122.069
+    },
+    {
+     "w": "is",
+     "t": 122.429
+    },
+    {
+     "w": "called",
+     "t": 122.809
+    },
+    {
+     "w": "the",
+     "t": 123.109
+    },
+    {
+     "w": "Key",
+     "t": 123.309
+    },
+    {
+     "w": "Signing",
+     "t": 123.529
+    },
+    {
+     "w": "Key.",
+     "t": 123.809
+    },
+    {
+     "w": "It",
+     "t": 124.789
+    },
+    {
+     "w": "lives",
+     "t": 124.969
+    },
+    {
+     "w": "inside",
+     "t": 125.169
+    },
+    {
+     "w": "machines",
+     "t": 125.549
+    },
+    {
+     "w": "called",
+     "t": 125.969
+    },
+    {
+     "w": "hardware",
+     "t": 126.329
+    },
+    {
+     "w": "security",
+     "t": 126.769
+    },
+    {
+     "w": "modules:",
+     "t": 127.289
+    },
+    {
+     "w": "tamper-proof",
+     "t": 127.919
+    },
+    {
+     "w": "boxes",
+     "t": 128.829
+    },
+    {
+     "w": "designed",
+     "t": 129.409
+    },
+    {
+     "w": "to",
+     "t": 130.069
+    },
+    {
+     "w": "wipe",
+     "t": 130.269
+    },
+    {
+     "w": "themselves",
+     "t": 130.489
+    },
+    {
+     "w": "if",
+     "t": 130.989
+    },
+    {
+     "w": "anyone",
+     "t": 131.529
+    },
+    {
+     "w": "tries",
+     "t": 131.829
+    },
+    {
+     "w": "to",
+     "t": 132.189
+    },
+    {
+     "w": "break",
+     "t": 132.429
+    },
+    {
+     "w": "in.",
+     "t": 132.629
+    },
+    {
+     "w": "There",
+     "t": 133.269
+    },
+    {
+     "w": "are",
+     "t": 133.489
+    },
+    {
+     "w": "copies",
+     "t": 133.589
+    },
+    {
+     "w": "on",
+     "t": 133.889
+    },
+    {
+     "w": "both",
+     "t": 134.169
+    },
+    {
+     "w": "coasts,",
+     "t": 134.449
+    },
+    {
+     "w": "more",
+     "t": 134.929
+    },
+    {
+     "w": "than",
+     "t": 135.469
+    },
+    {
+     "w": "four",
+     "t": 135.709
+    },
+    {
+     "w": "thousand",
+     "t": 135.949
+    },
+    {
+     "w": "kilometres",
+     "t": 136.381
+    },
+    {
+     "w": "apart.",
+     "t": 136.909
+    },
+    {
+     "w": "The",
+     "t": 137.849
+    },
+    {
+     "w": "key",
+     "t": 138.009
+    },
+    {
+     "w": "never",
+     "t": 138.189
+    },
+    {
+     "w": "leaves",
+     "t": 138.449
+    },
+    {
+     "w": "these",
+     "t": 138.789
+    },
+    {
+     "w": "boxes.",
+     "t": 139.049
+    },
+    {
+     "w": "Ever.",
+     "t": 139.969
+    }
+   ]
+  },
+  {
+   "id": "cards",
+   "start": 140.902,
+   "end": 159.637,
+   "wer": 0.184,
+   "heard": "But to wake one of these machines up, you need smart cards. The smart cards are sealed in bags, inside safe deposit boxes, inside a safe, and every safe deposit box needs two keys. One is held by ICANN, the organization that runs all this. The other is held by a crypto officer.",
+   "words": [
+    {
+     "w": "But",
+     "t": 140.902
+    },
+    {
+     "w": "to",
+     "t": 141.122
+    },
+    {
+     "w": "wake",
+     "t": 141.382
+    },
+    {
+     "w": "one",
+     "t": 141.702
+    },
+    {
+     "w": "of",
+     "t": 142.742
+    },
+    {
+     "w": "these",
+     "t": 142.902
+    },
+    {
+     "w": "machines",
+     "t": 143.122
+    },
+    {
+     "w": "up,",
+     "t": 143.462
+    },
+    {
+     "w": "you",
+     "t": 144.082
+    },
+    {
+     "w": "need",
+     "t": 144.122
+    },
+    {
+     "w": "smartcards.",
+     "t": 144.551
+    },
+    {
+     "w": "The",
+     "t": 145.582
+    },
+    {
+     "w": "smartcards",
+     "t": 145.763
+    },
+    {
+     "w": "are",
+     "t": 146.262
+    },
+    {
+     "w": "sealed",
+     "t": 146.442
+    },
+    {
+     "w": "in",
+     "t": 146.742
+    },
+    {
+     "w": "bags,",
+     "t": 147.002
+    },
+    {
+     "w": "inside",
+     "t": 147.622
+    },
+    {
+     "w": "safe-deposit",
+     "t": 148.0
+    },
+    {
+     "w": "boxes,",
+     "t": 148.702
+    },
+    {
+     "w": "inside",
+     "t": 149.382
+    },
+    {
+     "w": "a",
+     "t": 149.742
+    },
+    {
+     "w": "safe.",
+     "t": 149.922
+    },
+    {
+     "w": "And",
+     "t": 150.682
+    },
+    {
+     "w": "every",
+     "t": 150.882
+    },
+    {
+     "w": "safe-deposit",
+     "t": 151.185
+    },
+    {
+     "w": "box",
+     "t": 151.842
+    },
+    {
+     "w": "needs",
+     "t": 152.142
+    },
+    {
+     "w": "two",
+     "t": 152.422
+    },
+    {
+     "w": "keys.",
+     "t": 152.762
+    },
+    {
+     "w": "One",
+     "t": 153.622
+    },
+    {
+     "w": "is",
+     "t": 153.862
+    },
+    {
+     "w": "held",
+     "t": 154.042
+    },
+    {
+     "w": "by",
+     "t": 154.242
+    },
+    {
+     "w": "ICANN,",
+     "t": 154.522
+    },
+    {
+     "w": "the",
+     "t": 155.462
+    },
+    {
+     "w": "organisation",
+     "t": 155.584
+    },
+    {
+     "w": "that",
+     "t": 155.982
+    },
+    {
+     "w": "runs",
+     "t": 156.482
+    },
+    {
+     "w": "all",
+     "t": 156.722
+    },
+    {
+     "w": "this.",
+     "t": 156.942
+    },
+    {
+     "w": "The",
+     "t": 157.602
+    },
+    {
+     "w": "other",
+     "t": 157.782
+    },
+    {
+     "w": "is",
+     "t": 157.942
+    },
+    {
+     "w": "held",
+     "t": 158.182
+    },
+    {
+     "w": "by",
+     "t": 158.402
+    },
+    {
+     "w": "a",
+     "t": 158.662
+    },
+    {
+     "w": "crypto",
+     "t": 158.842
+    },
+    {
+     "w": "officer.",
+     "t": 159.042
+    }
+   ]
+  },
+  {
+   "id": "officers",
+   "start": 160.187,
+   "end": 181.131,
+   "wer": 0.061,
+   "heard": "There are 14 crypto offices, seven for each coast. They're volunteers from the internet community, from all over the world, and at least three of them have to show up for anything to happen. Then there are seven more people called recovery key shareholders who each hold a piece of the backup. Five of them are needed, but only if every single machine is destroyed.",
+   "words": [
+    {
+     "w": "There",
+     "t": 160.187
+    },
+    {
+     "w": "are",
+     "t": 160.327
+    },
+    {
+     "w": "fourteen",
+     "t": 160.524
+    },
+    {
+     "w": "crypto",
+     "t": 160.967
+    },
+    {
+     "w": "officers,",
+     "t": 161.766
+    },
+    {
+     "w": "seven",
+     "t": 162.907
+    },
+    {
+     "w": "for",
+     "t": 162.907
+    },
+    {
+     "w": "each",
+     "t": 163.207
+    },
+    {
+     "w": "coast.",
+     "t": 163.407
+    },
+    {
+     "w": "They're",
+     "t": 164.567
+    },
+    {
+     "w": "volunteers",
+     "t": 164.787
+    },
+    {
+     "w": "from",
+     "t": 165.207
+    },
+    {
+     "w": "the",
+     "t": 165.527
+    },
+    {
+     "w": "internet",
+     "t": 165.707
+    },
+    {
+     "w": "community,",
+     "t": 165.947
+    },
+    {
+     "w": "from",
+     "t": 166.887
+    },
+    {
+     "w": "all",
+     "t": 167.147
+    },
+    {
+     "w": "over",
+     "t": 167.327
+    },
+    {
+     "w": "the",
+     "t": 167.567
+    },
+    {
+     "w": "world,",
+     "t": 167.667
+    },
+    {
+     "w": "and",
+     "t": 168.407
+    },
+    {
+     "w": "at",
+     "t": 168.607
+    },
+    {
+     "w": "least",
+     "t": 168.707
+    },
+    {
+     "w": "three",
+     "t": 168.867
+    },
+    {
+     "w": "of",
+     "t": 169.147
+    },
+    {
+     "w": "them",
+     "t": 169.267
+    },
+    {
+     "w": "have",
+     "t": 169.407
+    },
+    {
+     "w": "to",
+     "t": 169.587
+    },
+    {
+     "w": "show",
+     "t": 169.747
+    },
+    {
+     "w": "up",
+     "t": 169.907
+    },
+    {
+     "w": "for",
+     "t": 170.047
+    },
+    {
+     "w": "anything",
+     "t": 170.207
+    },
+    {
+     "w": "to",
+     "t": 170.427
+    },
+    {
+     "w": "happen.",
+     "t": 170.667
+    },
+    {
+     "w": "Then",
+     "t": 171.467
+    },
+    {
+     "w": "there",
+     "t": 171.627
+    },
+    {
+     "w": "are",
+     "t": 171.767
+    },
+    {
+     "w": "seven",
+     "t": 171.927
+    },
+    {
+     "w": "more",
+     "t": 172.147
+    },
+    {
+     "w": "people,",
+     "t": 172.447
+    },
+    {
+     "w": "called",
+     "t": 172.807
+    },
+    {
+     "w": "recovery",
+     "t": 173.387
+    },
+    {
+     "w": "key",
+     "t": 173.907
+    },
+    {
+     "w": "share",
+     "t": 174.189
+    },
+    {
+     "w": "holders,",
+     "t": 174.612
+    },
+    {
+     "w": "who",
+     "t": 175.247
+    },
+    {
+     "w": "each",
+     "t": 175.467
+    },
+    {
+     "w": "hold",
+     "t": 175.647
+    },
+    {
+     "w": "a",
+     "t": 175.867
+    },
+    {
+     "w": "piece",
+     "t": 176.007
+    },
+    {
+     "w": "of",
+     "t": 176.187
+    },
+    {
+     "w": "the",
+     "t": 176.367
+    },
+    {
+     "w": "backup.",
+     "t": 176.487
+    },
+    {
+     "w": "Five",
+     "t": 177.567
+    },
+    {
+     "w": "of",
+     "t": 177.707
+    },
+    {
+     "w": "them",
+     "t": 177.867
+    },
+    {
+     "w": "are",
+     "t": 178.027
+    },
+    {
+     "w": "needed,",
+     "t": 178.127
+    },
+    {
+     "w": "but",
+     "t": 178.687
+    },
+    {
+     "w": "only",
+     "t": 179.027
+    },
+    {
+     "w": "if",
+     "t": 179.207
+    },
+    {
+     "w": "every",
+     "t": 179.427
+    },
+    {
+     "w": "single",
+     "t": 179.667
+    },
+    {
+     "w": "machine",
+     "t": 179.947
+    },
+    {
+     "w": "is",
+     "t": 180.267
+    },
+    {
+     "w": "destroyed.",
+     "t": 180.487
+    }
+   ]
+  },
+  {
+   "id": "twentyone",
+   "start": 181.681,
+   "end": 189.371,
+   "wer": 0.056,
+   "heard": "So the famous seven people, it's actually 21 people and not one of them can do anything alone.",
+   "words": [
+    {
+     "w": "So",
+     "t": 181.681
+    },
+    {
+     "w": "the",
+     "t": 181.881
+    },
+    {
+     "w": "famous",
+     "t": 182.061
+    },
+    {
+     "w": "seven",
+     "t": 182.441
+    },
+    {
+     "w": "people?",
+     "t": 183.121
+    },
+    {
+     "w": "It's",
+     "t": 184.221
+    },
+    {
+     "w": "actually",
+     "t": 184.581
+    },
+    {
+     "w": "twenty-one",
+     "t": 185.031
+    },
+    {
+     "w": "people.",
+     "t": 185.581
+    },
+    {
+     "w": "And",
+     "t": 186.061
+    },
+    {
+     "w": "not",
+     "t": 186.861
+    },
+    {
+     "w": "one",
+     "t": 187.081
+    },
+    {
+     "w": "of",
+     "t": 187.301
+    },
+    {
+     "w": "them",
+     "t": 187.441
+    },
+    {
+     "w": "can",
+     "t": 187.681
+    },
+    {
+     "w": "do",
+     "t": 188.181
+    },
+    {
+     "w": "anything",
+     "t": 188.381
+    },
+    {
+     "w": "alone.",
+     "t": 188.821
+    }
+   ]
+  },
+  {
+   "id": "ceremony",
+   "start": 190.271,
+   "end": 216.447,
+   "wer": 0.025,
+   "heard": "The ceremony itself is gloriously over the top. The officers pass through layer after layer of security. Two staff members who must always stay together enter a separate safe room to fetch the equipment. Every temper evident bag is checked against a serial number written down months earlier. The laptop they use has no battery and no hard drive. It boots from a DVD. And every single step is read aloud from a script filmed and streamed live on the internet. .",
+   "words": [
+    {
+     "w": "The",
+     "t": 190.271
+    },
+    {
+     "w": "ceremony",
+     "t": 190.451
+    },
+    {
+     "w": "itself",
+     "t": 190.791
+    },
+    {
+     "w": "is",
+     "t": 191.191
+    },
+    {
+     "w": "gloriously",
+     "t": 191.551
+    },
+    {
+     "w": "over",
+     "t": 192.111
+    },
+    {
+     "w": "the",
+     "t": 192.411
+    },
+    {
+     "w": "top.",
+     "t": 192.571
+    },
+    {
+     "w": "The",
+     "t": 193.351
+    },
+    {
+     "w": "officers",
+     "t": 193.391
+    },
+    {
+     "w": "pass",
+     "t": 193.671
+    },
+    {
+     "w": "through",
+     "t": 194.051
+    },
+    {
+     "w": "layer",
+     "t": 194.391
+    },
+    {
+     "w": "after",
+     "t": 194.731
+    },
+    {
+     "w": "layer",
+     "t": 195.091
+    },
+    {
+     "w": "of",
+     "t": 195.431
+    },
+    {
+     "w": "security.",
+     "t": 195.611
+    },
+    {
+     "w": "Two",
+     "t": 196.571
+    },
+    {
+     "w": "staff",
+     "t": 196.791
+    },
+    {
+     "w": "members,",
+     "t": 197.131
+    },
+    {
+     "w": "who",
+     "t": 197.511
+    },
+    {
+     "w": "must",
+     "t": 197.811
+    },
+    {
+     "w": "always",
+     "t": 197.971
+    },
+    {
+     "w": "stay",
+     "t": 198.391
+    },
+    {
+     "w": "together,",
+     "t": 198.691
+    },
+    {
+     "w": "enter",
+     "t": 199.111
+    },
+    {
+     "w": "a",
+     "t": 199.711
+    },
+    {
+     "w": "separate",
+     "t": 199.971
+    },
+    {
+     "w": "safe",
+     "t": 200.251
+    },
+    {
+     "w": "room",
+     "t": 200.571
+    },
+    {
+     "w": "to",
+     "t": 200.791
+    },
+    {
+     "w": "fetch",
+     "t": 201.051
+    },
+    {
+     "w": "the",
+     "t": 201.251
+    },
+    {
+     "w": "equipment.",
+     "t": 201.491
+    },
+    {
+     "w": "Every",
+     "t": 202.431
+    },
+    {
+     "w": "tamper-evident",
+     "t": 202.705
+    },
+    {
+     "w": "bag",
+     "t": 203.391
+    },
+    {
+     "w": "is",
+     "t": 203.751
+    },
+    {
+     "w": "checked",
+     "t": 203.951
+    },
+    {
+     "w": "against",
+     "t": 204.211
+    },
+    {
+     "w": "a",
+     "t": 204.531
+    },
+    {
+     "w": "serial",
+     "t": 204.771
+    },
+    {
+     "w": "number",
+     "t": 205.071
+    },
+    {
+     "w": "written",
+     "t": 205.311
+    },
+    {
+     "w": "down",
+     "t": 205.631
+    },
+    {
+     "w": "months",
+     "t": 205.911
+    },
+    {
+     "w": "earlier.",
+     "t": 206.171
+    },
+    {
+     "w": "The",
+     "t": 207.051
+    },
+    {
+     "w": "laptop",
+     "t": 207.211
+    },
+    {
+     "w": "they",
+     "t": 207.491
+    },
+    {
+     "w": "use",
+     "t": 207.791
+    },
+    {
+     "w": "has",
+     "t": 208.011
+    },
+    {
+     "w": "no",
+     "t": 208.171
+    },
+    {
+     "w": "battery",
+     "t": 208.411
+    },
+    {
+     "w": "and",
+     "t": 208.791
+    },
+    {
+     "w": "no",
+     "t": 209.151
+    },
+    {
+     "w": "hard",
+     "t": 209.331
+    },
+    {
+     "w": "drive.",
+     "t": 209.571
+    },
+    {
+     "w": "It",
+     "t": 210.211
+    },
+    {
+     "w": "boots",
+     "t": 210.391
+    },
+    {
+     "w": "from",
+     "t": 210.591
+    },
+    {
+     "w": "a",
+     "t": 210.811
+    },
+    {
+     "w": "DVD.",
+     "t": 210.951
+    },
+    {
+     "w": "And",
+     "t": 212.011
+    },
+    {
+     "w": "every",
+     "t": 212.091
+    },
+    {
+     "w": "single",
+     "t": 212.311
+    },
+    {
+     "w": "step",
+     "t": 212.571
+    },
+    {
+     "w": "is",
+     "t": 212.891
+    },
+    {
+     "w": "read",
+     "t": 213.071
+    },
+    {
+     "w": "aloud",
+     "t": 213.271
+    },
+    {
+     "w": "from",
+     "t": 213.571
+    },
+    {
+     "w": "a",
+     "t": 213.811
+    },
+    {
+     "w": "script,",
+     "t": 213.931
+    },
+    {
+     "w": "filmed,",
+     "t": 214.211
+    },
+    {
+     "w": "and",
+     "t": 214.791
+    },
+    {
+     "w": "streamed",
+     "t": 215.091
+    },
+    {
+     "w": "live",
+     "t": 215.411
+    },
+    {
+     "w": "on",
+     "t": 215.731
+    },
+    {
+     "w": "the",
+     "t": 215.951
+    },
+    {
+     "w": "internet.",
+     "t": 216.071
+    }
+   ]
+  },
+  {
+   "id": "signing",
+   "start": 216.997,
+   "end": 235.946,
+   "wer": 0.085,
+   "heard": "Then, three officers insert their smart cards, the machine wakes up, and it signs the keys the internet will use for the next three months. That's it. That's the whole ritual. It's designed so that even if 1 in 20 participants were dishonest, the odds of a group of them stealing the key are less than 1 in a million.",
+   "words": [
+    {
+     "w": "Then,",
+     "t": 216.997
+    },
+    {
+     "w": "three",
+     "t": 217.917
+    },
+    {
+     "w": "officers",
+     "t": 218.297
+    },
+    {
+     "w": "insert",
+     "t": 218.677
+    },
+    {
+     "w": "their",
+     "t": 219.297
+    },
+    {
+     "w": "smartcards,",
+     "t": 219.671
+    },
+    {
+     "w": "the",
+     "t": 220.417
+    },
+    {
+     "w": "machine",
+     "t": 220.537
+    },
+    {
+     "w": "wakes",
+     "t": 220.897
+    },
+    {
+     "w": "up,",
+     "t": 221.177
+    },
+    {
+     "w": "and",
+     "t": 221.637
+    },
+    {
+     "w": "it",
+     "t": 221.817
+    },
+    {
+     "w": "signs",
+     "t": 221.977
+    },
+    {
+     "w": "the",
+     "t": 222.317
+    },
+    {
+     "w": "keys",
+     "t": 222.617
+    },
+    {
+     "w": "the",
+     "t": 222.837
+    },
+    {
+     "w": "internet",
+     "t": 223.157
+    },
+    {
+     "w": "will",
+     "t": 223.437
+    },
+    {
+     "w": "use",
+     "t": 223.737
+    },
+    {
+     "w": "for",
+     "t": 224.017
+    },
+    {
+     "w": "the",
+     "t": 224.217
+    },
+    {
+     "w": "next",
+     "t": 224.317
+    },
+    {
+     "w": "three",
+     "t": 224.537
+    },
+    {
+     "w": "months.",
+     "t": 224.777
+    },
+    {
+     "w": "That's",
+     "t": 225.797
+    },
+    {
+     "w": "it.",
+     "t": 226.297
+    },
+    {
+     "w": "That's",
+     "t": 226.757
+    },
+    {
+     "w": "the",
+     "t": 226.977
+    },
+    {
+     "w": "whole",
+     "t": 227.097
+    },
+    {
+     "w": "ritual.",
+     "t": 227.277
+    },
+    {
+     "w": "It's",
+     "t": 228.117
+    },
+    {
+     "w": "designed",
+     "t": 228.337
+    },
+    {
+     "w": "so",
+     "t": 228.717
+    },
+    {
+     "w": "that",
+     "t": 228.997
+    },
+    {
+     "w": "even",
+     "t": 229.137
+    },
+    {
+     "w": "if",
+     "t": 229.417
+    },
+    {
+     "w": "one",
+     "t": 229.597
+    },
+    {
+     "w": "in",
+     "t": 229.837
+    },
+    {
+     "w": "twenty",
+     "t": 229.999
+    },
+    {
+     "w": "participants",
+     "t": 230.377
+    },
+    {
+     "w": "were",
+     "t": 230.817
+    },
+    {
+     "w": "dishonest,",
+     "t": 231.257
+    },
+    {
+     "w": "the",
+     "t": 232.257
+    },
+    {
+     "w": "odds",
+     "t": 232.357
+    },
+    {
+     "w": "of",
+     "t": 232.577
+    },
+    {
+     "w": "a",
+     "t": 232.817
+    },
+    {
+     "w": "group",
+     "t": 232.937
+    },
+    {
+     "w": "of",
+     "t": 233.137
+    },
+    {
+     "w": "them",
+     "t": 233.297
+    },
+    {
+     "w": "stealing",
+     "t": 233.517
+    },
+    {
+     "w": "the",
+     "t": 233.857
+    },
+    {
+     "w": "key",
+     "t": 234.157
+    },
+    {
+     "w": "are",
+     "t": 234.357
+    },
+    {
+     "w": "less",
+     "t": 234.617
+    },
+    {
+     "w": "than",
+     "t": 234.757
+    },
+    {
+     "w": "one",
+     "t": 235.024
+    },
+    {
+     "w": "in",
+     "t": 235.237
+    },
+    {
+     "w": "a",
+     "t": 235.417
+    },
+    {
+     "w": "million.",
+     "t": 235.557
+    }
+   ]
+  },
+  {
+   "id": "locksmith",
+   "start": 236.496,
+   "end": 257.192,
+   "wer": 0.044,
+   "heard": "Of course, even the most secure room on the internet has a weakness. In February 2020, during routine maintenance in California, the lock on one of the safes failed. Not hacked, just broken. The only fix was to call a locksmith and drill through the safe, which took most of two days. It was the first time in 10 years that a ceremony had to be rescheduled.",
+   "words": [
+    {
+     "w": "Of",
+     "t": 236.496
+    },
+    {
+     "w": "course,",
+     "t": 236.636
+    },
+    {
+     "w": "even",
+     "t": 237.116
+    },
+    {
+     "w": "the",
+     "t": 237.256
+    },
+    {
+     "w": "most",
+     "t": 237.416
+    },
+    {
+     "w": "secure",
+     "t": 237.596
+    },
+    {
+     "w": "room",
+     "t": 238.036
+    },
+    {
+     "w": "on",
+     "t": 238.296
+    },
+    {
+     "w": "the",
+     "t": 238.456
+    },
+    {
+     "w": "internet",
+     "t": 238.596
+    },
+    {
+     "w": "has",
+     "t": 238.836
+    },
+    {
+     "w": "a",
+     "t": 239.196
+    },
+    {
+     "w": "weakness.",
+     "t": 239.356
+    },
+    {
+     "w": "In",
+     "t": 240.136
+    },
+    {
+     "w": "February",
+     "t": 240.296
+    },
+    {
+     "w": "twenty",
+     "t": 240.836
+    },
+    {
+     "w": "twenty,",
+     "t": 241.256
+    },
+    {
+     "w": "during",
+     "t": 241.736
+    },
+    {
+     "w": "routine",
+     "t": 242.016
+    },
+    {
+     "w": "maintenance",
+     "t": 242.396
+    },
+    {
+     "w": "in",
+     "t": 242.856
+    },
+    {
+     "w": "California,",
+     "t": 243.136
+    },
+    {
+     "w": "the",
+     "t": 244.236
+    },
+    {
+     "w": "lock",
+     "t": 244.416
+    },
+    {
+     "w": "on",
+     "t": 244.576
+    },
+    {
+     "w": "one",
+     "t": 244.756
+    },
+    {
+     "w": "of",
+     "t": 244.896
+    },
+    {
+     "w": "the",
+     "t": 245.016
+    },
+    {
+     "w": "safes",
+     "t": 245.136
+    },
+    {
+     "w": "failed.",
+     "t": 245.476
+    },
+    {
+     "w": "Not",
+     "t": 246.336
+    },
+    {
+     "w": "hacked.",
+     "t": 246.556
+    },
+    {
+     "w": "Just",
+     "t": 247.196
+    },
+    {
+     "w": "broken.",
+     "t": 247.316
+    },
+    {
+     "w": "The",
+     "t": 248.316
+    },
+    {
+     "w": "only",
+     "t": 248.476
+    },
+    {
+     "w": "fix",
+     "t": 248.656
+    },
+    {
+     "w": "was",
+     "t": 248.916
+    },
+    {
+     "w": "to",
+     "t": 249.136
+    },
+    {
+     "w": "call",
+     "t": 249.336
+    },
+    {
+     "w": "a",
+     "t": 249.536
+    },
+    {
+     "w": "locksmith",
+     "t": 249.676
+    },
+    {
+     "w": "and",
+     "t": 250.096
+    },
+    {
+     "w": "drill",
+     "t": 250.336
+    },
+    {
+     "w": "through",
+     "t": 250.556
+    },
+    {
+     "w": "the",
+     "t": 250.756
+    },
+    {
+     "w": "safe,",
+     "t": 250.956
+    },
+    {
+     "w": "which",
+     "t": 251.476
+    },
+    {
+     "w": "took",
+     "t": 251.696
+    },
+    {
+     "w": "most",
+     "t": 251.916
+    },
+    {
+     "w": "of",
+     "t": 252.196
+    },
+    {
+     "w": "two",
+     "t": 252.416
+    },
+    {
+     "w": "days.",
+     "t": 252.636
+    },
+    {
+     "w": "It",
+     "t": 253.476
+    },
+    {
+     "w": "was",
+     "t": 253.576
+    },
+    {
+     "w": "the",
+     "t": 253.696
+    },
+    {
+     "w": "first",
+     "t": 253.876
+    },
+    {
+     "w": "time",
+     "t": 254.096
+    },
+    {
+     "w": "in",
+     "t": 254.356
+    },
+    {
+     "w": "ten",
+     "t": 254.536
+    },
+    {
+     "w": "years",
+     "t": 254.776
+    },
+    {
+     "w": "that",
+     "t": 255.076
+    },
+    {
+     "w": "a",
+     "t": 255.316
+    },
+    {
+     "w": "ceremony",
+     "t": 255.476
+    },
+    {
+     "w": "had",
+     "t": 255.816
+    },
+    {
+     "w": "to",
+     "t": 256.136
+    },
+    {
+     "w": "be",
+     "t": 256.296
+    },
+    {
+     "w": "rescheduled.",
+     "t": 256.436
+    }
+   ]
+  },
+  {
+   "id": "covid",
+   "start": 257.742,
+   "end": 276.214,
+   "wer": 0.038,
+   "heard": "Two months later, a pandemic grounded flights around the world. So the crypto officers did the only sensible thing. They mailed their keys, sealed in temper -evident bags, and watched the ceremony on a video call. And just to be safe, the machine signed nine months of keys at once instead of three.",
+   "words": [
+    {
+     "w": "Two",
+     "t": 257.742
+    },
+    {
+     "w": "months",
+     "t": 257.962
+    },
+    {
+     "w": "later,",
+     "t": 258.202
+    },
+    {
+     "w": "a",
+     "t": 259.142
+    },
+    {
+     "w": "pandemic",
+     "t": 259.222
+    },
+    {
+     "w": "grounded",
+     "t": 259.722
+    },
+    {
+     "w": "flights",
+     "t": 260.102
+    },
+    {
+     "w": "around",
+     "t": 260.542
+    },
+    {
+     "w": "the",
+     "t": 260.862
+    },
+    {
+     "w": "world.",
+     "t": 261.002
+    },
+    {
+     "w": "So",
+     "t": 261.962
+    },
+    {
+     "w": "the",
+     "t": 262.222
+    },
+    {
+     "w": "crypto",
+     "t": 262.342
+    },
+    {
+     "w": "officers",
+     "t": 262.642
+    },
+    {
+     "w": "did",
+     "t": 263.042
+    },
+    {
+     "w": "the",
+     "t": 263.342
+    },
+    {
+     "w": "only",
+     "t": 263.502
+    },
+    {
+     "w": "sensible",
+     "t": 263.742
+    },
+    {
+     "w": "thing.",
+     "t": 264.142
+    },
+    {
+     "w": "They",
+     "t": 264.982
+    },
+    {
+     "w": "mailed",
+     "t": 265.182
+    },
+    {
+     "w": "their",
+     "t": 265.422
+    },
+    {
+     "w": "keys,",
+     "t": 265.682
+    },
+    {
+     "w": "sealed",
+     "t": 266.462
+    },
+    {
+     "w": "in",
+     "t": 266.902
+    },
+    {
+     "w": "tamper-evident",
+     "t": 267.046
+    },
+    {
+     "w": "bags,",
+     "t": 267.762
+    },
+    {
+     "w": "and",
+     "t": 268.602
+    },
+    {
+     "w": "watched",
+     "t": 268.742
+    },
+    {
+     "w": "the",
+     "t": 268.942
+    },
+    {
+     "w": "ceremony",
+     "t": 269.162
+    },
+    {
+     "w": "on",
+     "t": 269.562
+    },
+    {
+     "w": "a",
+     "t": 269.822
+    },
+    {
+     "w": "video",
+     "t": 269.942
+    },
+    {
+     "w": "call.",
+     "t": 270.142
+    },
+    {
+     "w": "And",
+     "t": 271.162
+    },
+    {
+     "w": "just",
+     "t": 271.362
+    },
+    {
+     "w": "to",
+     "t": 271.562
+    },
+    {
+     "w": "be",
+     "t": 271.722
+    },
+    {
+     "w": "safe,",
+     "t": 271.862
+    },
+    {
+     "w": "the",
+     "t": 272.702
+    },
+    {
+     "w": "machine",
+     "t": 272.762
+    },
+    {
+     "w": "signed",
+     "t": 273.062
+    },
+    {
+     "w": "nine",
+     "t": 273.462
+    },
+    {
+     "w": "months",
+     "t": 273.782
+    },
+    {
+     "w": "of",
+     "t": 274.102
+    },
+    {
+     "w": "keys",
+     "t": 274.262
+    },
+    {
+     "w": "at",
+     "t": 274.462
+    },
+    {
+     "w": "once,",
+     "t": 274.662
+    },
+    {
+     "w": "instead",
+     "t": 275.042
+    },
+    {
+     "w": "of",
+     "t": 275.642
+    },
+    {
+     "w": "three.",
+     "t": 275.822
+    }
+   ]
+  },
+  {
+   "id": "cant",
+   "start": 276.764,
+   "end": 296.599,
+   "wer": 0.019,
+   "heard": "So, can these people turn off the internet? No. The keys only work inside those two buildings. They only protect one thing, the signature at the top of the phone book. And if every key vanished tomorrow, iCan could buy a new machine and restore everything from encrypted backups. Annoying? Very. Apocalyptic? No.",
+   "words": [
+    {
+     "w": "So,",
+     "t": 276.764
+    },
+    {
+     "w": "can",
+     "t": 277.484
+    },
+    {
+     "w": "these",
+     "t": 277.604
+    },
+    {
+     "w": "people",
+     "t": 277.784
+    },
+    {
+     "w": "turn",
+     "t": 278.084
+    },
+    {
+     "w": "off",
+     "t": 278.404
+    },
+    {
+     "w": "the",
+     "t": 278.624
+    },
+    {
+     "w": "internet?",
+     "t": 278.824
+    },
+    {
+     "w": "No.",
+     "t": 279.504
+    },
+    {
+     "w": "The",
+     "t": 280.084
+    },
+    {
+     "w": "keys",
+     "t": 280.244
+    },
+    {
+     "w": "only",
+     "t": 280.444
+    },
+    {
+     "w": "work",
+     "t": 280.784
+    },
+    {
+     "w": "inside",
+     "t": 281.084
+    },
+    {
+     "w": "those",
+     "t": 281.464
+    },
+    {
+     "w": "two",
+     "t": 281.704
+    },
+    {
+     "w": "buildings.",
+     "t": 281.964
+    },
+    {
+     "w": "They",
+     "t": 282.724
+    },
+    {
+     "w": "only",
+     "t": 282.924
+    },
+    {
+     "w": "protect",
+     "t": 283.144
+    },
+    {
+     "w": "one",
+     "t": 283.524
+    },
+    {
+     "w": "thing:",
+     "t": 283.944
+    },
+    {
+     "w": "the",
+     "t": 284.564
+    },
+    {
+     "w": "signature",
+     "t": 284.764
+    },
+    {
+     "w": "at",
+     "t": 285.104
+    },
+    {
+     "w": "the",
+     "t": 285.504
+    },
+    {
+     "w": "top",
+     "t": 285.644
+    },
+    {
+     "w": "of",
+     "t": 285.804
+    },
+    {
+     "w": "the",
+     "t": 285.964
+    },
+    {
+     "w": "phone",
+     "t": 286.084
+    },
+    {
+     "w": "book.",
+     "t": 286.304
+    },
+    {
+     "w": "And",
+     "t": 287.044
+    },
+    {
+     "w": "if",
+     "t": 287.164
+    },
+    {
+     "w": "every",
+     "t": 287.304
+    },
+    {
+     "w": "key",
+     "t": 287.664
+    },
+    {
+     "w": "vanished",
+     "t": 287.904
+    },
+    {
+     "w": "tomorrow,",
+     "t": 288.264
+    },
+    {
+     "w": "ICANN",
+     "t": 289.089
+    },
+    {
+     "w": "could",
+     "t": 289.584
+    },
+    {
+     "w": "buy",
+     "t": 289.864
+    },
+    {
+     "w": "a",
+     "t": 290.064
+    },
+    {
+     "w": "new",
+     "t": 290.204
+    },
+    {
+     "w": "machine",
+     "t": 290.344
+    },
+    {
+     "w": "and",
+     "t": 290.684
+    },
+    {
+     "w": "restore",
+     "t": 291.204
+    },
+    {
+     "w": "everything",
+     "t": 291.564
+    },
+    {
+     "w": "from",
+     "t": 292.084
+    },
+    {
+     "w": "encrypted",
+     "t": 292.364
+    },
+    {
+     "w": "backups.",
+     "t": 292.744
+    },
+    {
+     "w": "Annoying?",
+     "t": 293.724
+    },
+    {
+     "w": "Very.",
+     "t": 294.444
+    },
+    {
+     "w": "Apocalyptic?",
+     "t": 295.404
+    },
+    {
+     "w": "No.",
+     "t": 296.224
+    }
+   ]
+  },
+  {
+   "id": "rollover",
+   "start": 297.149,
+   "end": 319.662,
+   "wer": 0.176,
+   "heard": "Which brings us back to changing the locks. The first root key was created in 2010. It was supposed to be replaced in 2017, but that got delayed by a whole year because too many systems weren't ready. The switch finally happened on October the 11th, 2018. A new key was made in 2024, and on October the 11th, 2026, it takes over.",
+   "words": [
+    {
+     "w": "Which",
+     "t": 297.149
+    },
+    {
+     "w": "brings",
+     "t": 297.349
+    },
+    {
+     "w": "us",
+     "t": 297.609
+    },
+    {
+     "w": "back",
+     "t": 297.829
+    },
+    {
+     "w": "to",
+     "t": 298.109
+    },
+    {
+     "w": "changing",
+     "t": 298.329
+    },
+    {
+     "w": "the",
+     "t": 298.629
+    },
+    {
+     "w": "locks.",
+     "t": 298.909
+    },
+    {
+     "w": "The",
+     "t": 299.729
+    },
+    {
+     "w": "first",
+     "t": 299.869
+    },
+    {
+     "w": "root",
+     "t": 300.149
+    },
+    {
+     "w": "key",
+     "t": 300.429
+    },
+    {
+     "w": "was",
+     "t": 300.649
+    },
+    {
+     "w": "created",
+     "t": 300.829
+    },
+    {
+     "w": "in",
+     "t": 301.209
+    },
+    {
+     "w": "twenty",
+     "t": 301.505
+    },
+    {
+     "w": "ten.",
+     "t": 302.196
+    },
+    {
+     "w": "It",
+     "t": 302.689
+    },
+    {
+     "w": "was",
+     "t": 302.849
+    },
+    {
+     "w": "supposed",
+     "t": 302.969
+    },
+    {
+     "w": "to",
+     "t": 303.249
+    },
+    {
+     "w": "be",
+     "t": 303.469
+    },
+    {
+     "w": "replaced",
+     "t": 303.589
+    },
+    {
+     "w": "in",
+     "t": 303.969
+    },
+    {
+     "w": "twenty",
+     "t": 304.155
+    },
+    {
+     "w": "seventeen,",
+     "t": 304.588
+    },
+    {
+     "w": "but",
+     "t": 305.269
+    },
+    {
+     "w": "that",
+     "t": 305.389
+    },
+    {
+     "w": "got",
+     "t": 305.609
+    },
+    {
+     "w": "delayed",
+     "t": 305.769
+    },
+    {
+     "w": "by",
+     "t": 306.129
+    },
+    {
+     "w": "a",
+     "t": 306.369
+    },
+    {
+     "w": "whole",
+     "t": 306.489
+    },
+    {
+     "w": "year,",
+     "t": 306.649
+    },
+    {
+     "w": "because",
+     "t": 306.969
+    },
+    {
+     "w": "too",
+     "t": 307.569
+    },
+    {
+     "w": "many",
+     "t": 307.849
+    },
+    {
+     "w": "systems",
+     "t": 308.029
+    },
+    {
+     "w": "weren't",
+     "t": 308.489
+    },
+    {
+     "w": "ready.",
+     "t": 308.849
+    },
+    {
+     "w": "The",
+     "t": 309.709
+    },
+    {
+     "w": "switch",
+     "t": 309.889
+    },
+    {
+     "w": "finally",
+     "t": 310.089
+    },
+    {
+     "w": "happened",
+     "t": 310.549
+    },
+    {
+     "w": "on",
+     "t": 310.909
+    },
+    {
+     "w": "October",
+     "t": 311.169
+    },
+    {
+     "w": "the",
+     "t": 311.469
+    },
+    {
+     "w": "eleventh,",
+     "t": 311.737
+    },
+    {
+     "w": "twenty",
+     "t": 312.408
+    },
+    {
+     "w": "eighteen.",
+     "t": 312.878
+    },
+    {
+     "w": "A",
+     "t": 313.549
+    },
+    {
+     "w": "new",
+     "t": 313.689
+    },
+    {
+     "w": "key",
+     "t": 313.849
+    },
+    {
+     "w": "was",
+     "t": 314.069
+    },
+    {
+     "w": "made",
+     "t": 314.249
+    },
+    {
+     "w": "in",
+     "t": 314.489
+    },
+    {
+     "w": "twenty",
+     "t": 314.695
+    },
+    {
+     "w": "twenty-four.",
+     "t": 315.176
+    },
+    {
+     "w": "And",
+     "t": 316.069
+    },
+    {
+     "w": "on",
+     "t": 316.409
+    },
+    {
+     "w": "October",
+     "t": 316.549
+    },
+    {
+     "w": "the",
+     "t": 316.909
+    },
+    {
+     "w": "eleventh,",
+     "t": 317.154
+    },
+    {
+     "w": "twenty",
+     "t": 317.766
+    },
+    {
+     "w": "twenty-six,",
+     "t": 318.194
+    },
+    {
+     "w": "it",
+     "t": 318.929
+    },
+    {
+     "w": "takes",
+     "t": 319.029
+    },
+    {
+     "w": "over.",
+     "t": 319.229
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "start": 320.212,
+   "end": 337.101,
+   "wer": 0.0,
+   "heard": "If everything goes to plan, you won't notice a thing, which is exactly the point. Nobody can switch off the internet, but four times a year, a few volunteers fly across the world, scan their eyeballs, and read a script out loud next to a safe just so the rest of us never have to think about it.",
+   "words": [
+    {
+     "w": "If",
+     "t": 320.212
+    },
+    {
+     "w": "everything",
+     "t": 320.392
+    },
+    {
+     "w": "goes",
+     "t": 320.692
+    },
+    {
+     "w": "to",
+     "t": 320.932
+    },
+    {
+     "w": "plan,",
+     "t": 321.172
+    },
+    {
+     "w": "you",
+     "t": 321.632
+    },
+    {
+     "w": "won't",
+     "t": 321.692
+    },
+    {
+     "w": "notice",
+     "t": 321.952
+    },
+    {
+     "w": "a",
+     "t": 322.232
+    },
+    {
+     "w": "thing.",
+     "t": 322.472
+    },
+    {
+     "w": "Which",
+     "t": 323.192
+    },
+    {
+     "w": "is",
+     "t": 323.612
+    },
+    {
+     "w": "exactly",
+     "t": 323.772
+    },
+    {
+     "w": "the",
+     "t": 324.132
+    },
+    {
+     "w": "point.",
+     "t": 324.392
+    },
+    {
+     "w": "Nobody",
+     "t": 325.432
+    },
+    {
+     "w": "can",
+     "t": 325.612
+    },
+    {
+     "w": "switch",
+     "t": 325.972
+    },
+    {
+     "w": "off",
+     "t": 326.192
+    },
+    {
+     "w": "the",
+     "t": 326.392
+    },
+    {
+     "w": "internet.",
+     "t": 326.592
+    },
+    {
+     "w": "But",
+     "t": 327.132
+    },
+    {
+     "w": "four",
+     "t": 327.232
+    },
+    {
+     "w": "times",
+     "t": 327.472
+    },
+    {
+     "w": "a",
+     "t": 327.732
+    },
+    {
+     "w": "year,",
+     "t": 327.932
+    },
+    {
+     "w": "a",
+     "t": 328.312
+    },
+    {
+     "w": "few",
+     "t": 328.432
+    },
+    {
+     "w": "volunteers",
+     "t": 328.632
+    },
+    {
+     "w": "fly",
+     "t": 329.172
+    },
+    {
+     "w": "across",
+     "t": 329.572
+    },
+    {
+     "w": "the",
+     "t": 329.852
+    },
+    {
+     "w": "world,",
+     "t": 330.052
+    },
+    {
+     "w": "scan",
+     "t": 330.712
+    },
+    {
+     "w": "their",
+     "t": 331.072
+    },
+    {
+     "w": "eyeballs,",
+     "t": 331.292
+    },
+    {
+     "w": "and",
+     "t": 332.152
+    },
+    {
+     "w": "read",
+     "t": 332.352
+    },
+    {
+     "w": "a",
+     "t": 332.552
+    },
+    {
+     "w": "script",
+     "t": 332.712
+    },
+    {
+     "w": "out",
+     "t": 332.912
+    },
+    {
+     "w": "loud",
+     "t": 333.212
+    },
+    {
+     "w": "next",
+     "t": 333.492
+    },
+    {
+     "w": "to",
+     "t": 333.812
+    },
+    {
+     "w": "a",
+     "t": 334.032
+    },
+    {
+     "w": "safe,",
+     "t": 334.152
+    },
+    {
+     "w": "just",
+     "t": 334.412
+    },
+    {
+     "w": "so",
+     "t": 334.972
+    },
+    {
+     "w": "the",
+     "t": 335.192
+    },
+    {
+     "w": "rest",
+     "t": 335.312
+    },
+    {
+     "w": "of",
+     "t": 335.472
+    },
+    {
+     "w": "us",
+     "t": 335.672
+    },
+    {
+     "w": "never",
+     "t": 335.852
+    },
+    {
+     "w": "have",
+     "t": 336.072
+    },
+    {
+     "w": "to",
+     "t": 336.312
+    },
+    {
+     "w": "think",
+     "t": 336.492
+    },
+    {
+     "w": "about",
+     "t": 336.652
+    },
+    {
+     "w": "it.",
+     "t": 336.932
+    }
+   ]
+  }
+ ]
+}
