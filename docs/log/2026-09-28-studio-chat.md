@@ -1896,3 +1896,18 @@ okay let the video go, can we atleast moving forward, have all the information w
   - the review rounds and trial-report excerpts.
 - The dashboard build regenerates the files, and every Media library card links to "discussion". AGENTS.md has the rule.
 - Limit: chats from other sessions are included only if those sessions wrote to docs/log (now required). The earlier MAREA and Sonnet trial transcripts are not readable from here; what survives of them is in TRIAL-REPORT.md, review.json and what was pasted into this chat.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+can you give some prompt that i paste into all the other chats and have them push all their data so you and everyone can see? also what mechanism do we have to have in place that when and if we start new chats they dont run into these issues either
+
+#### Claude · record
+
+- Wrote the paste-in prompt to `docs/setup/collect-chats.md`.
+- **Mechanisms:**
+  - `studio/tools/closeout.py`: merges main, force-adds out/*.mp4 under 95 MB, warns if no docs/log entry, rebuilds the dashboard and notes, and pushes to main;
+  - `.github/workflows/merge-to-main.yml`: auto-merges any side-branch push into main;
+  - AGENTS.md "Before you stop" rule. CLAUDE.md and GEMINI.md point to AGENTS.md, so every new chat sees it.
+- Tested closeout.py by using it for this commit.

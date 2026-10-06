@@ -17,6 +17,10 @@ Nobody will re-explain anything. Everything you need is in this repo:
 
 ## Nothing lives only in one chat
 
+**Before you stop, every time:** append your chat to `docs/log/`, then run `python3 studio/tools/closeout.py`. It merges
+main, commits finished media, rebuilds the dashboard and per-video notes, and pushes to main. If you pushed to a side
+branch anyway, a GitHub workflow (`merge-to-main`) merges it into main automatically.
+
 Every session runs on its own temporary machine. Anything not pushed to `main` is lost when that machine is recycled.
 - **Push to `main`.** Never leave work on a side branch. If your platform made a branch, merge it into main before you stop.
 - **Finished media** (video, thumbnail, SRT) goes in the episode's `out/` folder and gets committed (`git add -f` for the .mp4).
