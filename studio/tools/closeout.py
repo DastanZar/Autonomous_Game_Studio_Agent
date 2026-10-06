@@ -33,7 +33,7 @@ def main():
     msg = sys.argv[1] if len(sys.argv) > 1 else "Session close-out: logs, media, dashboard"
     if git("status", "--porcelain").stdout.strip():
         git("add", "-A")
-        git("commit", "-q", "-m", "WIP before close-out merge", check=False)
+        git("commit", "-q", "-m", msg, check=False)        # the session's own message, not a WIP placeholder
     merge_main()
     big = []
     for f in glob.glob(os.path.join(ROOT, "*", "**", "out", "*.mp4"), recursive=True):
