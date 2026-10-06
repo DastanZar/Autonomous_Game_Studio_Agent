@@ -1726,3 +1726,15 @@ how do i enable option 2? / yes,add rule
 - Explained the allow rule for vault writes.
 - My attempt to create `.claude/settings.json` with that rule was **denied by the auto-mode classifier (self-modification)**. I did not retry.
 - Gave the user the steps to add the file themselves via the GitHub web UI; a new session then loads it.
+
+---
+
+### 🧑 User · 2026-10-06 UTC
+
+[Pasted PowerShell output: git commit failed (no author identity) and git push failed (GitHub no longer accepts passwords).] "its stupid that we have been stuck on this damn setup process for so long, be smart about this"
+
+#### Claude · record
+
+- Removed the need for git on the laptop. The vault file is encrypted, so the user uploads it through the GitHub web UI ("Add file → Upload files").
+- `publish.py auth` now saves each refresh token straight into the vault when a vault key is present, so there is no copying of tokens.
+- Sequence given: git pull, link 3 channels, one web upload, one STUDIO_VAULT_KEY setting.

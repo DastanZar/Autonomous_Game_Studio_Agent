@@ -20,7 +20,7 @@ Upload behaviour:
 Quota (June 2026 buckets): videos.insert is 1 unit of a 100/day upload bucket per project; captions.insert
 uses the general bucket.
 """
-import argparse, datetime, http.server, json, os, secrets, sys, urllib.parse, urllib.request, webbrowser
+import argparse, datetime, http.server, json, os, secrets, subprocess, sys, urllib.parse, urllib.request, webbrowser
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
@@ -71,7 +71,12 @@ def cmd_auth(channel):
         sys.exit(f"authorisation failed: {got.get('error', 'state mismatch')}")
     tok = post_form(TOKEN_URL, {"code": got["code"], "client_id": cid, "client_secret": secret,
                                 "redirect_uri": redirect, "grant_type": "authorization_code"})
-    print(f"\nStore this as the environment secret {env_name(channel)} (it is shown only here):\n{tok['refresh_token']}")
+    if os.environ.get("STUDIO_VAULT_KEY") or os.path.exists(os.path.expanduser("~/.config/studio/vault.key")):
+        subprocess.run([sys.executable, os.path.join(HERE, "vault.py"), "set", env_name(channel)],
+                       input=tok["refresh_token"], text=True, check=True)
+        print(f"Linked. Token saved (encrypted) to studio/vault.enc.json as {env_name(channel)}. Upload that file to GitHub when done.")
+    else:
+        print(f"\nStore this as the secret {env_name(channel)} (it is shown only here):\n{tok['refresh_token']}")
 
 
 def access_token(channel):
