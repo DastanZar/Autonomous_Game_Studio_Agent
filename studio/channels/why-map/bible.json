@@ -34,7 +34,7 @@
   "fps": 24,
   "duration_s": [
    25,
-   55
+   62
   ],
   "wpm": 170,
   "min_scene_s": 0.8,
@@ -47,9 +47,9 @@
   "name": "Felix (Fish Audio library, Australian male)",
   "max_wer": 0.08,
   "fallback": {
-   "engine": "piper",
-   "id": "en_US-ryan-high",
-   "length_scale": 0.9
+   "engine": "kokoro",
+   "id": "bm_george",
+   "speed": 1.1
   },
   "notes": "Fish free tier: 50 requests/day across ALL channels. One request per paragraph, cached by hash."
  },

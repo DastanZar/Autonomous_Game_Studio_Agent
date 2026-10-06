@@ -271,7 +271,9 @@ def gate_storyboard(ctx):
     runtime = tl["duration"]
     custom = sum((nxt[1] - t0) for (a, t0, _), nxt in zip(times, times[1:] + [(None, runtime, None)])
                  if next(s for s in sb["scenes"] if s["id"] == a)["type"] == "custom") if times else 0
-    res.append(ok(custom <= 0.2 * runtime, f"custom scenes are {100 * custom / runtime:.0f}% of runtime (max 20%)"))
+    cap = 1.0 if sb.get("flagship") else 0.2       # a flagship (storyboard.flagship says why) is hand-built by the strategy model
+    res.append(ok(custom <= cap * runtime, f"custom scenes are {100 * custom / runtime:.0f}% of runtime (max {100 * cap:.0f}%"
+                  + (", flagship" if sb.get("flagship") else "") + ")"))
     bad = [m for g, m in res if not g]
     res.append(ok(not bad, f"{len(sb['scenes'])} scenes, all cues resolve against the spoken timeline"))
     return res

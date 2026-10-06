@@ -10,60 +10,69 @@
   },
   "research": {
    "result": "pass",
-   "at": "2026-09-28T08:40:53Z",
+   "at": "2026-10-06T13:22:53Z",
    "hashes": {
     "topic.json": "caefd6bf591d",
-    "dossier.json": "c64810aa4c15"
+    "dossier.json": "c0077dbb6afb"
    },
    "failed": []
   },
   "script": {
    "result": "pass",
-   "at": "2026-09-28T09:24:37Z",
+   "at": "2026-10-06T13:56:16Z",
    "hashes": {
     "topic.json": "caefd6bf591d",
-    "dossier.json": "c64810aa4c15",
-    "script.json": "fd3f3a912c35"
+    "dossier.json": "c0077dbb6afb",
+    "script.json": "4d011c574a6d"
    },
    "failed": []
   },
   "voice": {
-   "result": "fail",
-   "at": "2026-10-06T06:51:41Z",
+   "result": "pass",
+   "at": "2026-10-06T13:56:16Z",
    "hashes": {
-    "script.json": "fd3f3a912c35",
-    "build/timeline.json": null
+    "script.json": "4d011c574a6d",
+    "build/timeline.json": "a64fb04175fe"
    },
-   "failed": [
-    "build/timeline.json is missing: run the voice tool (studio/sop/04-voice.md)"
-   ]
+   "failed": []
   },
   "storyboard": {
    "result": "pass",
-   "at": "2026-09-28T10:05:45Z",
+   "at": "2026-10-06T13:56:26Z",
    "hashes": {
-    "script.json": "fd3f3a912c35",
-    "build/timeline.json": "a8ee26d691cf",
-    "storyboard.json": "438ecd109c2a"
+    "script.json": "4d011c574a6d",
+    "build/timeline.json": "a64fb04175fe",
+    "storyboard.json": "b899c9d17584"
    },
    "failed": []
   },
   "picture": {
    "result": "pass",
-   "at": "2026-09-28T10:05:45Z",
+   "at": "2026-10-06T14:10:29Z",
    "hashes": {
-    "storyboard.json": "438ecd109c2a",
-    "build/timeline.json": "a8ee26d691cf",
-    "review.json": "99211d4cb113"
+    "storyboard.json": "b899c9d17584",
+    "build/timeline.json": "a64fb04175fe",
+    "review.json": "c977944edb6b"
    },
    "failed": []
   },
   "final": {
    "result": "pass",
-   "at": "2026-09-29T06:16:26Z",
+   "at": "2026-10-06T14:10:34Z",
    "hashes": {
-    "review.json": "99211d4cb113",
-    "build/final_report.json": "b98717f14991"
+    "review.json": "c977944edb6b",
+    "build/final_report.json": "883a1532c829"
+   },
+   "failed": []
+  },
+  "package": {
+   "result": "pass",
+   "at": "2026-10-06T14:10:58Z",
+   "hashes": {
+    "build/final_report.json": "883a1532c829",
+    "dossier.json": "c0077dbb6afb",
+    "script.json": "4d011c574a6d",
+    "package.json": "2bc43a68ab8a"
    },
    "failed": []
   }

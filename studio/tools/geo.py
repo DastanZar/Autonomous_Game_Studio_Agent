@@ -2,9 +2,12 @@
 
     python3 studio/tools/geo.py <episode-dir>
 
-For every map_focus / map_route scene:
+For every map_focus / map_route scene, and every custom scene that has params.region:
 - base layer: Natural Earth 1:10m admin-0 countries (public domain), clipped to the scene's region
   (padded) and simplified to screen resolution. Cached in ~/.cache/studio/.
+- optional coast: params.coast = "osm" swaps the Natural Earth shapes inside the view for OpenStreetMap's
+  coastline and national border (Overpass, cached), each land piece keeping its Natural Earth country. Use it
+  when 1:10m is too coarse (a town-sized exclave). ODbL, credited like the detail layer.
 - optional detail layer: params.detail = [{"osm": "<place name>", "iso": "BE"}, ...] fetches that
   place's administrative boundary from OpenStreetMap (Nominatim, cached, 1 request/s) and draws it on
   top in that country's colour. Use it when the story lives below country scale (enclaves, villages).
@@ -86,6 +89,52 @@ def rings(geom):
         rr = [p.exterior] + list(p.interiors)
         out.append([[[round(x, 5), round(y, 5)] for x, y in r.coords] for r in rr])
     return out
+
+
+OVERPASS = ["https://overpass-api.de/api/interpreter", "https://overpass.private.coffee/api/interpreter",
+            "https://maps.mail.ru/osm/tools/overpass/api/interpreter"]
+
+
+def osm_coast(view, countries):
+    """Land inside `view` from OSM coastlines + admin_level=2 borders: {iso: shapely geometry}."""
+    w, s, e, n = view.bounds
+    key = f"osmcoast_{w:.3f}_{s:.3f}_{e:.3f}_{n:.3f}".replace("-", "m")
+    fn = os.path.join(CACHE, key + ".json")
+    if not os.path.exists(fn):
+        bb = f"({s},{w},{n},{e})"   # border ways come from the national relations: not every member way is tagged itself
+        ql = (f'[out:json][timeout:120];rel["boundary"="administrative"]["admin_level"="2"]{bb}->.r;way(r.r){bb}->.b;'
+              f'(way["natural"="coastline"]{bb};.b;);out geom;')
+        data = None
+        for url in OVERPASS[1:] + OVERPASS[:1]:                       # public mirrors are often busy: try each, once
+            try:
+                req = urllib.request.Request(url, data=urllib.parse.urlencode({"data": ql}).encode(), headers={"User-Agent": UA})
+                data = json.load(urllib.request.urlopen(req, timeout=180))
+                break
+            except Exception as ex:                # noqa: BLE001 (HTML error pages, timeouts, 5xx)
+                print(f"overpass {url}: {ex}; trying the next mirror")
+        if data is None:
+            sys.exit("Overpass: every mirror failed; retry later")
+        json.dump(data, open(fn, "w"))
+    data = json.load(open(fn))
+    coast = [LineString([(g["lon"], g["lat"]) for g in el["geometry"]]) for el in data["elements"] if el.get("tags", {}).get("natural") == "coastline"]
+    border = [LineString([(g["lon"], g["lat"]) for g in el["geometry"]]) for el in data["elements"] if el.get("tags", {}).get("natural") != "coastline"]
+    if not coast:
+        return {}
+    faces = list(polygonize(unary_union(coast + border + [view.exterior])))
+    land = {}
+    for f in faces:
+        f = f.intersection(view)
+        if f.is_empty or f.area == 0:
+            continue
+        rp = f.representative_point()
+        near = min(coast, key=lambda c: c.distance(rp))  # OSM coastlines run with the land on their left
+        d = near.project(rp)
+        a, b = near.interpolate(max(0, d - 1e-5)), near.interpolate(min(near.length, d + 1e-5))
+        if (b.x - a.x) * (rp.y - a.y) - (b.y - a.y) * (rp.x - a.x) <= 0:
+            continue
+        iso = min(countries, key=lambda k: countries[k]["geom"].distance(rp))
+        land.setdefault(iso, []).append(f)
+    return {iso: unary_union(fs) for iso, fs in land.items()}
 
 
 # ---------------- OpenHistoricalMap ----------------
@@ -276,8 +325,8 @@ countries = None
 geo = {"sources": [], "scenes": {}}
 all_lic, all_non_cc0 = [], []
 for sc in sb["scenes"]:
-    if sc["type"] not in MAP_TYPES:
-        continue
+    if sc["type"] not in MAP_TYPES and not (sc["type"] == "custom" and "region" in sc.get("params", {})):
+        continue                       # a custom scene with params.region gets the same Natural Earth layers as map_focus
     countries = countries or natural_earth()
     if sc["type"] == "map_history":
         gs, lic, non = history_scene(sc, countries)
@@ -309,6 +358,12 @@ for sc in sb["scenes"]:
         layers.append({"iso": iso, "name": c["name"], "src": "ne", "polys": rings(clip),
                        "label": [round(lp.x, 5), round(lp.y, 5)] if lp else None})
     used_osm = False
+    if p.get("coast") == "osm":
+        oc = osm_coast(view, {iso: c for iso, c in countries.items() if c["geom"].intersects(view)})
+        for L in layers:
+            if L["iso"] in oc:
+                L["polys"], L["src_coast"] = rings(oc[L["iso"]].simplify(tol / 3, preserve_topology=True)), "osm"
+        used_osm = bool(oc)
     detail_geoms = []
     for d in p.get("detail", []):
         b = osm_boundary(d["osm"])

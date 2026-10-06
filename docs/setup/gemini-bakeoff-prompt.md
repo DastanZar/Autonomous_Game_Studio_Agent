@@ -8,7 +8,7 @@
 >   - `script.json`;
 >   - `dossier.json` (the only facts allowed on screen);
 >   - `timeline.snapshot.json` (word timings);
->   - `out/point-roberts.mp4` (extract its audio track and reuse it).
+>   - `out/point-roberts-v1.mp4` (extract its audio track and reuse it).
 > - **Channel look:** `studio/channels/why-map/bible.json` (fonts in `studio/engine/fonts/`). Keep text out of the safe zones: top 220 px, bottom 420 px, right 140 px.
 > - **Maps:** real data only. Use `python3 studio/tools/geo.py episodes/why-map/point-roberts` for geometry.
 > - **Tool:** HyperFrames (`npx hyperframes init`, set `HYPERFRAMES_NO_TELEMETRY=1`). Follow its skills.

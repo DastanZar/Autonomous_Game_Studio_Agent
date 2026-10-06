@@ -12,4 +12,5 @@ docs/review/music/ranked-finale.mp3
 docs/review/music/ranked-scoreboard.mp3
 docs/review/music/ranked-tally.mp3
 episodes/why-map/point-roberts/out/bakeoff-hyperframes.mp4
+episodes/why-map/point-roberts/out/point-roberts-v1.mp4
 episodes/why-map/point-roberts/out/point-roberts.mp4

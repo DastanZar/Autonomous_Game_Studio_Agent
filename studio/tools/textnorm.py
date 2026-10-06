@@ -25,21 +25,35 @@ def spell_year(n):
     return spell(hi) + (" hundred" if lo == 0 else (" oh " + ONES[lo] if lo < 10 else " " + spell(lo)))
 
 
+ORD = {"one": "first", "two": "second", "three": "third", "five": "fifth", "eight": "eighth", "nine": "ninth", "twelve": "twelfth"}
+
+
+def ordinal(n):
+    w = spell(n).split()
+    last = w[-1]
+    w[-1] = ORD.get(last) or (last[:-1] + "ieth" if last.endswith("y") else last + "th")
+    return " ".join(w)
+
+
 def words(s):
     """Lowercase words, digits spelled out, hyphens split, punctuation and 'and' removed."""
     s = s.lower().replace("%", " percent")
+    s = re.sub(r"(?<=\d)(?: ?, ?|[ .\u00a0\u202f])(?=\d{3}\b)", ",", s)    # Whisper word tokens '5, 000' / '5.000' -> '5,000'
+    s = re.sub(r"\b(\d+)(?:st|nd|rd|th)\b", lambda m: ordinal(int(m.group(1))), s)   # '49th' -> 'forty ninth'
     out, prev = [], ""
     for tok in re.findall(r"[a-z']+|\d[\d,]*", s):
         if tok[0].isdigit():
             tok = tok.rstrip(",")
             n = int(tok.replace(",", ""))
             yearish = "," not in tok and 1100 <= n <= 2099
-            out += (spell_year(n) if yearish else spell(n)).split()
+            hundreds = 1100 <= n < 10000 and n % 100 == 0 and n % 1000   # 1,200 is said 'twelve hundred'
+            out += (spell_year(n) if yearish or hundreds else spell(n)).split()
         elif tok in ("i", "ii", "iii") and prev == "war":   # World War I -> world war one
             out.append(ONES[len(tok)])
         else:
             out.append(tok)
         prev = tok
+    out = ["one" if w == "a" and nxt in ("hundred", "thousand", "million") else w for w, nxt in zip(out, out[1:] + [""])]
     return [w for w in out if w != "and"]
 
 

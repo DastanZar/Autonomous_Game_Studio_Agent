@@ -1,0 +1,19 @@
+{
+ "title": "Why this US town's only road out goes through Canada",
+ "description": "An American town of about 1,200 people has one road out, and it crosses into Canada. Twice, if you want to reach the rest of Washington. It happened because the 1846 treaty drew the border with a ruler along the 49th parallel, and nobody checked the coast.\n\nSources:\n- Point Roberts, Washington — Wikipedia: https://en.wikipedia.org/wiki/Point_Roberts,_Washington\n- Point Roberts — NASA Earth Observatory: https://science.nasa.gov/earth/earth-observatory/point-roberts-148367/\n- Caught in the middle, this US oddity at the border is grappling with Trump's trade war with Canada — Associated Press (via Yahoo News): https://www.yahoo.com/news/caught-middle-quaint-us-exclave-012748560.html\n- The birth of a ghost town: Point Roberts has lost 80% of its business, hundreds of its residents — CBC News: https://www.cbc.ca/news/canada/british-columbia/point-roberts-covid-1.5740806\n\nLabels: the 80 percent figure is the Border Policy Research Institute's estimate, reported by CBC. The 55 percent fall in February 2025 is one business owner's reported figure, from the Associated Press. Narration is a synthetic voice (Kokoro-82M). Some sound effects generated with Stable Audio Open (Stability AI). Maps: Natural Earth (public domain) and OpenStreetMap contributors (ODbL).",
+ "hashtags": [
+  "#geography",
+  "#history",
+  "#maps",
+  "#shorts"
+ ],
+ "pinned_comment": "Four border crossings a day just to get to school. Would you live there?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/point-roberts.mp4",
+ "srt": "out/point-roberts.srt",
+ "thumbnail": "out/thumbnail.jpg"
+}

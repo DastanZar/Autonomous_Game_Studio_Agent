@@ -307,6 +307,7 @@ function tornEdge(x) {
 // a cut (no torn-paper wipe) when the next scene continues the same picture
 function continuous(S) {
   if (!S.prev || FLAT) return true;
+  if (S.p.cut) return true;                                          // custom scenes that continue the previous camera
   if (S.type === "stamp_reveal") return true;                        // stamps land on the previous picture
   const same = a => JSON.stringify(a.p.region || null);
   return S.type.startsWith("map_") && S.prev.type.startsWith("map_") && same(S) === same(S.prev);

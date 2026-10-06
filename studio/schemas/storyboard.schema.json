@@ -73,6 +73,11 @@
      }
     }
    }
+  },
+  "flagship": {
+   "type": "string",
+   "minLength": 20,
+   "description": "Why this episode is hand-built (custom scenes may exceed 20% of runtime). Strategy-model use only."
   }
  }
 }

@@ -155,6 +155,7 @@ model = WhisperModel(os.environ.get("STUDIO_WHISPER", "small.en"), device="cpu",
 segs, _ = model.transcribe(np.frombuffer(y16, np.float32), word_timestamps=True, language="en")
 hyp = [w for s in segs for w in s.words]
 heard = " ".join(w.word.strip() for w in hyp)
+open(os.path.join(ep, "build", "heard.txt"), "w").write(heard + "\n")   # the raw transcript, for checking a flagged WER
 
 # 3. word times: matched words take Whisper's time; the rest interpolate by characters inside their paragraph
 nrm = lambda s: re.sub(r"[^a-z0-9']", "", s.lower())

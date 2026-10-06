@@ -155,7 +155,7 @@
   },
   {
    "id": "critic-loop",
-   "title": "Independent critic in the picture stage (builder \u2260 judge) + round ledger",
+   "title": "Independent critic in the picture stage (builder ≠ judge) + round ledger",
    "status": "todo",
    "who": "model",
    "detail": "Adapt motion-video-kit critic prompts (MIT) to 9:16 Shorts; sop/06 + picture gate require review rounds written by a different agent, FIXED/PARTLY/STILL PRESENT verification, SHIP verdict. docs/research/tools-review-2026-10.md item 1."
@@ -165,11 +165,11 @@
    "title": "Measured quality bar in the final gate: frozen time, frame-0, contrast, loudness range, safe zones",
    "status": "todo",
    "who": "model",
-   "detail": "Frozen time on a grain-free check render (\u22641 s per 30 s, no hold >0.6 s except the loop end); frame 0 finished; settled text \u22654.5:1; LRA \u22653 LU energetic. Baseline: Emu 1.4 s/30 s, Point Roberts 2.1, Swiss 2.7. docs/research/tools-review-2026-10.md item 2."
+   "detail": "Frozen time on a grain-free check render (≤1 s per 30 s, no hold >0.6 s except the loop end); frame 0 finished; settled text ≥4.5:1; LRA ≥3 LU energetic. Baseline: Emu 1.4 s/30 s, Point Roberts 2.1, Swiss 2.7. docs/research/tools-review-2026-10.md item 2. Measuring tool now exists: studio/tools/frozen.py (threshold 0.35 YAVG at 10 fps). Wire it into the final gate."
   },
   {
    "id": "motion-grammar",
-   "title": "Motion grammar into sop/05 + engine checks (ease variety, exits faster, persistent actor, no t=0 start, 60\u201385% fill)",
+   "title": "Motion grammar into sop/05 + engine checks (ease variety, exits faster, persistent actor, no t=0 start, 60–85% fill)",
    "status": "todo",
    "who": "model",
    "detail": "docs/research/tools-review-2026-10.md item 3; sources: motion-video-kit references/motion-grammar.md, hyperframes skills/hyperframes-creative/references/motion-principles.md."
@@ -194,6 +194,14 @@
    "status": "todo",
    "who": "model",
    "detail": "docs/research/tools-review-2026-10.md item 6. The style catalogue has NO licence: never copy its code."
+  },
+  {
+   "id": "diorama-kit",
+   "title": "Promote the Point Roberts v2 diorama into catalog scene types",
+   "status": "open",
+   "who": "model",
+   "detail": "episodes/why-map/point-roberts/scenes.js is the new standard. Lift its reusable parts into studio/engine so cheaper agents can use them without writing code: a side-view world (sky, mountains, water, ground, road, near foreground with fence, bushes and edge pines), vehicles (car, top-down car, bus), border booth with barrier, waving flags (US, CA, then any flag from flags.js), people, a crowd-count scene (N figures that thin out), a map with a moving vehicle along a route and an odometer, a cutaway (pipe under a border), a shopfront row whose windows go dark, a desk-and-parchment history beat. Each becomes a catalog type with params and word cues.",
+   "done_when": "A new why-map episode can reach the Point Roberts v2 frozen-time bar (<=1 s per 30 s, hold <=0.6 s) using catalog types only, with custom scenes under 20%."
   }
  ]
 }
