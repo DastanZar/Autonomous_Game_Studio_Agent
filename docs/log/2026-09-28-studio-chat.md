@@ -2232,3 +2232,12 @@ whats this 540 downgrade? when till now we had a working pipeline of videos and 
 #### Claude · record
 
 - **540p reverted.** My mistake: I counted `docs/site-media.txt` (310 MB) as extra, but it lists the same 12 files that are already copied. The real site is 716 MB at full quality, under the 1 GB Pages limit, once the three full-size Point Roberts method variants are left off (their review previews stay). The dashboard again serves the exact rendered files; the masters release stays as a download page.
+- **Verified:** the live dashboard file for the stomach video is 29,809,781 bytes, identical to the render.
+- **Channel research:** niche-clear name and description, 3-5 relevant hashtags in the description (never 15+), keyword-first titles, series playlists, a related video and a pinned question on every Short, steady cadence. Risk noted: YouTube's 'inauthentic content' rules target mass-produced TTS channels; our safeguards are original animation and sourced scripts.
+- **Applied through the API on all three channels:** description, keywords, default language English, public series playlists (4 + 3 + 2), home shelves (popular uploads plus one per playlist). Read back to confirm. `channel_setup.py sort` will file Shorts into playlists once they're uploaded.
+- **Per upload:** search tags, category (Education) and a related video added to every package.json (schema updated; publish.py now sends the tags); the publish kit shows them.
+- **Manual for the user:** profile pictures and banners (prompts written for Nano Banana, with sizes and safe areas), sister-channel links, contact email, country, and each Short's related video in Studio.
+
+### 🧑 User · 2026-10-07 UTC
+
+Apart from the work already assigned to you, i want you to do one more thing once everything is wrapped up and that is to try a different form of video : it will be a hand using a pencil and drawing on a paper or a canvas or something and telling the story by drawing it out, way back when there used to be a trend like this to tell a day in my life, i want to use that methodoology to tell stories happening around us, look at the channel - @SportsBall_Visual and the way he does it, he uses his real drawings probably, not sure, but ive definitely seen animated versions of these too, sketching chracaters, scenes - a complete story out

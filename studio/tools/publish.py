@@ -95,7 +95,7 @@ def build_request(ep):
     bible = json.load(open(os.path.join(ROOT, "studio", "channels", meta["channel"], "bible.json")))
     video = resolve(pkg["video"], ep)
     problems = [f"missing file {f}" for f in [video] + ([resolve(pkg["srt"], ep)] if pkg.get("srt") else []) if not os.path.exists(f)]
-    tags = [h.lstrip("#") for h in pkg.get("hashtags", [])]
+    tags = pkg.get("tags") or [h.lstrip("#") for h in pkg.get("hashtags", [])]
     desc = pkg["description"] + ("\n\n" + " ".join(pkg["hashtags"]) if pkg.get("hashtags") else "")
     if len(pkg["title"]) > bible["publishing"].get("title_max", 100):
         problems.append(f"title is longer than {bible['publishing']['title_max']} characters")

@@ -15,6 +15,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | # | Decision | Options / recommendation | Detail |
 |---|---|---|---|
+| 0a | **Make the 6 channel pictures** (profile + banner each) from the prompts in `docs/channel-setup-2026-10.md`, then add links, contact email and country in Studio | Prompts are written for Nano Banana | `docs/channel-setup-2026-10.md` |
 | 0 | **Watch the 12 launch videos** on the dashboard and flag anything to fix before the first upload (Tue 13 Oct, 11:00 ET) | Then upload each in YouTube Studio as private with its scheduled time | `docs/publish-kit-2026-10.md`, `studio/review_queue.json` |
 | 1 | (Settled 2026-10-06) Music: one track per niche, rotated on analytics; no per-track approval needed | `inside` (Gut Gang), `countdown` (Leader Flags) | bibles `audio.music` |
 
@@ -31,6 +32,8 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-10-07 | **Channels set up through the API:** description, keywords, language, public series playlists and home-page shelves on all three. Each upload now also has search tags, Education category and a related-video pick. Pictures, links, contact email and country are manual (prompts and steps in the guide). | User: 'set up the channels… you do everything else'; the image is theirs to make with Nano Banana | `docs/channel-setup-2026-10.md`, `studio/channels/setup.json`, `studio/tools/channel_setup.py` |
+| 2026-10-07 | **Dashboard serves full-quality files again** (no 540p). The site is 716 MB, under the 1 GB Pages limit; only the three full-size Point Roberts method variants are left off (their previews stay). | User: 'whats this 540 downgrade?' My size estimate had double-counted 310 MB | `.github/workflows/dashboard.yml` |
 | 2026-10-07 | **Gut Gang rewritten from the story out, not lengthened.** Each episode now has a turn: the stomach's raincoat and the doctor who drank H. pylori (2005 Nobel); the gum myth and the 1998 case of kids whose swallowed gum had to be removed; the 'tennis court' gut that is really half a badminton court; the brain's 12-watt, always-on budget. New lengths 36–49 s, set by the stories. | User: 'dont extend it artificially… rethink and rewrite the whole thing to produce the best product possible' | the four `episodes/body-cast/*/` dossiers and scripts; `studio/engine/kits/body.js` |
 | 2026-10-07 | **Leader Flags background is now a real, turning globe** (Natural Earth) that rotates to each scene's country and lights it gold; replaces the empty blue grid. Frozen time fell to 0.6–4.1 s per 30 s. Border Quirks approved by the user as ready to publish. | User: the deep blue was 'nothingness'; Border Quirks 'ready to fire' | `studio/engine/kits/rank.js` (`lfGlobe`) |
 | 2026-10-07 | **All 12 launch videos made, packaged and scheduled for manual upload** (4 per channel). Schedule (ET): Tue 13 Oct, Wed 14, Thu 15 and Tue 20 Oct; Border Quirks 11:00, Gut Gang 12:00, Leader Flags 13:00. API upload stays off: an unverified API project's uploads are locked private for good. | The user: "even if the push automatic isnt possible, have all 12 videos made and ready and stored, ill upload manually" | `docs/publish-kit-2026-10.md`, each `package.json` (`schedule`), dashboard "Watch & listen" |

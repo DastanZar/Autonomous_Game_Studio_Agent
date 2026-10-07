@@ -10,7 +10,8 @@ named `<slug>-thumbnail.jpg`), refreshed on every push. The dashboard plays the 
 **For each video:** Studio → Create → Upload → pick the MP4 → paste the title and description → add the thumbnail →
 Audience: *No, it's not made for kids* → Altered content: *No* (it's animation) → upload the SRT under Subtitles →
 Visibility: **Schedule**, at the time below (your Studio time zone may differ; the UTC time is exact) → after it goes live,
-post the pinned comment and pin it.
+post the pinned comment and pin it. Once a channel has uploads, run `python3 studio/tools/channel_setup.py sort` (or ask
+me) to file each Short into its series playlist.
 
 | # | When (ET) | UTC | Channel | Title | Length | File |
 |---|---|---|---|---|---|---|
@@ -31,7 +32,10 @@ post the pinned comment and pin it.
 
 - **Schedule:** Tue 13 Oct, 11:00 ET (2026-10-13T15:00:00Z)
 - **Video:** `episodes/why-map/point-roberts/out/point-roberts.mp4`  **Captions:** `episodes/why-map/point-roberts/out/point-roberts.srt`  **Thumbnail:** `episodes/why-map/point-roberts/out/thumbnail.jpg`
-- **Hashtags:** #geography #history #maps #shorts
+- **Hashtags** (already at the end of the description): #geography #history #maps #shorts
+- **Tags** (Studio → Show more → Tags): point roberts, point roberts washington, exclave, us canada border, weird borders, geography facts, 49th parallel, oregon treaty
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): America and Britain nearly went to war over a pig
 - **Pinned comment:** Four border crossings a day just to get to school. Would you live there?
 - **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.0
 
@@ -55,7 +59,10 @@ Labels: the 80 percent figure is the Border Policy Research Institute's estimate
 
 - **Schedule:** Tue 13 Oct, 12:00 ET (2026-10-13T16:00:00Z)
 - **Video:** `episodes/body-cast/food-journey/out/food-journey.mp4`  **Captions:** `episodes/body-cast/food-journey/out/food-journey.srt`  **Thumbnail:** `episodes/body-cast/food-journey/out/thumbnail.jpg`
-- **Hashtags:** #science #biology #digestion #shorts
+- **Hashtags** (already at the end of the description): #science #biology #digestion #shorts
+- **Tags** (Studio → Show more → Tags): digestion, digestive system, small intestine, gut surface area, how digestion works, human body facts, biology, science shorts
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Why doesn't your stomach digest itself?
 - **Pinned comment:** Which organ deserves the thank-you?
 - **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
 
@@ -81,7 +88,10 @@ Labels: about 30 m² for the small intestine (Wikipedia) and about 32 m² for th
 
 - **Schedule:** Tue 13 Oct, 13:00 ET (2026-10-13T17:00:00Z)
 - **Video:** `episodes/ranked/world-cup-titles/out/world-cup-titles.mp4`  **Captions:** `episodes/ranked/world-cup-titles/out/world-cup-titles.srt`  **Thumbnail:** `episodes/ranked/world-cup-titles/out/thumbnail.jpg`
-- **Hashtags:** #worldcup #football #countries #shorts
+- **Hashtags** (already at the end of the description): #worldcup #football #countries #shorts
+- **Tags** (Studio → Show more → Tags): world cup winners, most world cup titles, world cup 2026, spain world cup, brazil world cup, football, soccer, countries ranked
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): California's economy is bigger than Japan's
 - **Pinned comment:** Who wins 2030?
 - **Measured:** 1080×1920, 24.0 fps, -14.3 LUFS, transcript WER 0.0
 
@@ -105,7 +115,10 @@ Labels: Germany's four titles include three won as West Germany, as FIFA counts 
 
 - **Schedule:** Wed 14 Oct, 11:00 ET (2026-10-14T15:00:00Z)
 - **Video:** `episodes/why-map/pig-war/out/pig-war.mp4`  **Captions:** `episodes/why-map/pig-war/out/pig-war.srt`  **Thumbnail:** `episodes/why-map/pig-war/out/thumbnail.jpg`
-- **Hashtags:** #history #geography #maps #shorts
+- **Hashtags** (already at the end of the description): #history #geography #maps #shorts
+- **Tags** (Studio → Show more → Tags): pig war, pig war 1859, san juan island, us britain war, weird history, history facts, oregon treaty, haro strait
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Why this US town's only road out goes through Canada
 - **Pinned comment:** Would you have paid the $100 for the pig?
 - **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.015
 
@@ -127,7 +140,10 @@ Labels: the British force total is Wikipedia's summary figure. Maps: Natural Ear
 
 - **Schedule:** Wed 14 Oct, 12:00 ET (2026-10-14T16:00:00Z)
 - **Video:** `episodes/body-cast/stomach-acid/out/stomach-acid.mp4`  **Captions:** `episodes/body-cast/stomach-acid/out/stomach-acid.srt`  **Thumbnail:** `episodes/body-cast/stomach-acid/out/thumbnail.jpg`
-- **Hashtags:** #science #biology #body #shorts
+- **Hashtags** (already at the end of the description): #science #biology #body #shorts
+- **Tags** (Studio → Show more → Tags): stomach acid, why doesn't the stomach digest itself, h pylori, barry marshall, stomach ulcers, human body facts, biology, science history
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Your gut isn't the size of a tennis court. Follow your lunch.
 - **Pinned comment:** Would you have drunk the beaker?
 - **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
 
@@ -155,7 +171,10 @@ Labels: 'can dissolve zinc' is IFLScience's claim. Barry Marshall is named, not 
 
 - **Schedule:** Wed 14 Oct, 13:00 ET (2026-10-14T17:00:00Z)
 - **Video:** `episodes/ranked/states-vs-countries/out/states-vs-countries.mp4`  **Captions:** `episodes/ranked/states-vs-countries/out/states-vs-countries.srt`  **Thumbnail:** `episodes/ranked/states-vs-countries/out/thumbnail.jpg`
-- **Hashtags:** #economy #countries #usa #shorts
+- **Hashtags** (already at the end of the description): #economy #countries #usa #shorts
+- **Tags** (Studio → Show more → Tags): us states vs countries, california economy, california gdp vs japan, state gdp, texas economy, economy, countries ranked, usa
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Which country has the most World Cup titles? (after 2026)
 - **Pinned comment:** Which state surprised you most?
 - **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.016
 
@@ -177,7 +196,10 @@ Labels: 2024 nominal GDP; states from the BEA, countries from the World Bank, as
 
 - **Schedule:** Thu 15 Oct, 11:00 ET (2026-10-15T15:00:00Z)
 - **Video:** `episodes/why-map/alaska-sale/out/alaska-sale.mp4`  **Captions:** `episodes/why-map/alaska-sale/out/alaska-sale.srt`  **Thumbnail:** `episodes/why-map/alaska-sale/out/thumbnail.jpg`
-- **Hashtags:** #history #geography #alaska #shorts
+- **Hashtags** (already at the end of the description): #history #geography #alaska #shorts
+- **Tags** (Studio → Show more → Tags): alaska purchase, why russia sold alaska, seward's folly, diomede islands, international date line, alaska day, history facts, geography facts
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): America and Britain nearly went to war over a pig
 - **Pinned comment:** Good deal for Russia or for America?
 - **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
 
@@ -203,7 +225,10 @@ Labels: 'Seward's Folly' was what critics called it; the purchase was approved b
 
 - **Schedule:** Thu 15 Oct, 12:00 ET (2026-10-15T16:00:00Z)
 - **Video:** `episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4`  **Captions:** `episodes/body-cast/swallowed-gum/out/swallowed-gum.srt`  **Thumbnail:** `episodes/body-cast/swallowed-gum/out/thumbnail.jpg`
-- **Hashtags:** #science #biology #mythbusting #shorts
+- **Hashtags** (already at the end of the description): #science #biology #mythbusting #shorts
+- **Tags** (Studio → Show more → Tags): swallowed gum, does gum stay in your stomach 7 years, gum myth, digestion, body myths, human body facts, biology, science shorts
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Your gut isn't the size of a tennis court. Follow your lunch.
 - **Pinned comment:** Who told you the seven-year rule?
 - **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.0
 
@@ -225,7 +250,10 @@ The case report is Milov et al., Pediatrics 1998, as described by Scientific Ame
 
 - **Schedule:** Thu 15 Oct, 13:00 ET (2026-10-15T17:00:00Z)
 - **Video:** `episodes/ranked/most-islands/out/most-islands.mp4`  **Captions:** `episodes/ranked/most-islands/out/most-islands.srt`  **Thumbnail:** `episodes/ranked/most-islands/out/thumbnail.jpg`
-- **Hashtags:** #geography #countries #islands #shorts
+- **Hashtags** (already at the end of the description): #geography #countries #islands #shorts
+- **Tags** (Studio → Show more → Tags): country with the most islands, sweden islands, most islands in the world, indonesia islands, geography facts, countries ranked, islands, flags
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Which country has the most time zones? It's not Russia.
 - **Pinned comment:** Should a 9 square metre rock count as an island?
 - **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.0
 
@@ -248,7 +276,10 @@ Labels: national counts use different rules, so figures differ between sources (
 
 - **Schedule:** Tue 20 Oct, 11:00 ET (2026-10-20T15:00:00Z)
 - **Video:** `episodes/why-map/chile-long/out/chile-long.mp4`  **Captions:** `episodes/why-map/chile-long/out/chile-long.srt`  **Thumbnail:** `episodes/why-map/chile-long/out/thumbnail.jpg`
-- **Hashtags:** #geography #history #maps #shorts
+- **Hashtags** (already at the end of the description): #geography #history #maps #shorts
+- **Tags** (Studio → Show more → Tags): why is chile so long, chile geography, war of the pacific, bolivia navy, bolivia landlocked, andes, geography facts, south america
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Russia sold Alaska for 2 cents an acre, and left a view of tomorrow
 - **Pinned comment:** Should Bolivia get its coast back?
 - **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.0
 
@@ -277,7 +308,10 @@ Labels: Chile's length is 4,270 km in one source and 'over 4,300 km' in another.
 
 - **Schedule:** Tue 20 Oct, 12:00 ET (2026-10-20T16:00:00Z)
 - **Video:** `episodes/body-cast/brain-energy/out/brain-energy.mp4`  **Captions:** `episodes/body-cast/brain-energy/out/brain-energy.srt`  **Thumbnail:** `episodes/body-cast/brain-energy/out/thumbnail.jpg`
-- **Hashtags:** #science #brain #biology #shorts
+- **Hashtags** (already at the end of the description): #science #brain #biology #shorts
+- **Tags** (Studio → Show more → Tags): brain energy, how many watts does the brain use, 10 percent brain myth, brain facts, human body facts, neuroscience, biology, science shorts
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Why doesn't your stomach digest itself?
 - **Pinned comment:** What's the hardest thing your brain did today?
 - **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
 
@@ -302,7 +336,10 @@ Labels: 12 watts is Scientific American's estimate from a 1,300 kcal resting rat
 
 - **Schedule:** Tue 20 Oct, 13:00 ET (2026-10-20T17:00:00Z)
 - **Video:** `episodes/ranked/most-time-zones/out/most-time-zones.mp4`  **Captions:** `episodes/ranked/most-time-zones/out/most-time-zones.srt`  **Thumbnail:** `episodes/ranked/most-time-zones/out/thumbnail.jpg`
-- **Hashtags:** #geography #countries #timezones #shorts
+- **Hashtags** (already at the end of the description): #geography #countries #timezones #shorts
+- **Tags** (Studio → Show more → Tags): country with the most time zones, france time zones, china one time zone, time zones, geography facts, countries ranked, flags, russia time zones
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Which country has the most islands? It's not Indonesia.
 - **Pinned comment:** Should China use more than one time zone?
 - **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
 

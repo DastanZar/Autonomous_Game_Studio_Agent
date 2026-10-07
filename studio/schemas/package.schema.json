@@ -66,6 +66,22 @@
    "items": {
     "type": "string"
    }
+  },
+  "tags": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "maxItems": 15,
+   "description": "Studio search tags (not hashtags), 6-10 specific phrases."
+  },
+  "related_video": {
+   "type": "string",
+   "description": "Title of the channel's video to set as this Short's related video in Studio (not available in the API)."
+  },
+  "category": {
+   "type": "string",
+   "description": "YouTube category name; publish.py uses id 27 (Education)."
   }
  }
 }

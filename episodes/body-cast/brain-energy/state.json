@@ -67,20 +67,20 @@
   },
   "package": {
    "result": "pass",
-   "at": "2026-10-07T07:14:57Z",
+   "at": "2026-10-07T13:59:51Z",
    "hashes": {
     "build/final_report.json": "945af958b5b8",
     "dossier.json": "c89bab770133",
     "script.json": "2158ae57ed02",
-    "package.json": "fb52aaddfbfa"
+    "package.json": "00f536baf807"
    },
    "failed": []
   },
   "publish": {
    "result": "fail",
-   "at": "2026-10-07T07:14:57Z",
+   "at": "2026-10-07T13:59:51Z",
    "hashes": {
-    "package.json": "fb52aaddfbfa",
+    "package.json": "00f536baf807",
     "publish.json": null
    },
    "failed": [
