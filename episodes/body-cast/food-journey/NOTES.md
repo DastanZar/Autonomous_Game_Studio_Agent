@@ -1,4 +1,4 @@
-# Where your lunch goes after you swallow it: discussion and decisions
+# Your gut isn't the size of a tennis court. Follow your lunch.: discussion and decisions
 
 Folder: `episodes/body-cast/food-journey`. Built by `studio/tools/notes.py`.
 
@@ -18,27 +18,21 @@ _No chat turns mention this video yet._
 ### Round 1
 ```json
 {
- "at": "2026-10-07T06:13:08Z",
- "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+ "at": "2026-10-07T07:14:48Z",
+ "reviewer": "builder (orchestrator), rewrite contact sheets, round 1",
  "frames": [
-  0.05,
-  20.85,
-  33.0
+  8.36,
+  12.76
  ],
  "defects": [
   {
-   "t": 0.05,
-   "issue": "hook: first frame had no title",
+   "t": 8.36,
+   "issue": "door: 'FOLLOW THE LUNCH' title sat in the caption zone; removed",
    "fixed": true
   },
   {
-   "t": 20.85,
-   "issue": "small intestine: clock in the caption zone",
-   "fixed": true
-  },
-  {
-   "t": 33.0,
-   "issue": "toll: title wrapped as '9 METERS \u00b7 1 / LUNCH'",
+   "t": 12.76,
+   "issue": "churn: food bits drawn over the stomach's face; moved into the body",
    "fixed": true
   }
  ]
@@ -48,19 +42,22 @@ _No chat turns mention this video yet._
 ### Round 2
 ```json
 {
- "at": "2026-10-07T06:13:08Z",
- "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+ "at": "2026-10-07T07:14:48Z",
+ "reviewer": "builder (orchestrator), final rewrite sheets and encoded-frame spot check, round 2",
  "frames": [
   0.05,
-  2.4,
-  6.36,
-  10.36,
-  12.22,
-  20.85,
-  24.92,
-  29.06,
-  30.53,
-  33.19
+  4.36,
+  8.36,
+  12.76,
+  14.57,
+  22.96,
+  24.23,
+  29.92,
+  36.92,
+  41.68,
+  44.28,
+  45.96,
+  49.3
  ],
  "defects": []
 }

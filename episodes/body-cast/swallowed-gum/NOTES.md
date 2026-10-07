@@ -1,4 +1,4 @@
-# Does swallowed gum really stay in you for seven years?: discussion and decisions
+# Does swallowed gum really stay in you for 7 years?: discussion and decisions
 
 Folder: `episodes/body-cast/swallowed-gum`. Built by `studio/tools/notes.py`.
 
@@ -33,33 +33,44 @@ Try again
 - **Not verified:** I can't listen. Levels and transcripts were measured instead. The music beds for Gut Gang ('inside') and Leader Flags ('countdown') are at the bible default of 8 dB under the voice; only Border Quirks' 'detective' at 13 dB has been heard by the user.
 - **Delivered:** `docs/publish-kit-2026-10.md` (times, titles, descriptions, steps, API audit draft) and a dashboard review item with all 12 videos.
 
+_Source: docs/log/2026-09-28-studio-chat.md_
+
+### 🧑 User · 2026-10-07 UTC
+
+i dont want you to extend it artifically just for the sake of increasing the duration, rethink and rewrite the whole thing to produce the best product possible
+
+#### Claude · record
+
+- **Rewrote all four Gut Gang episodes from new research,** keeping the same topics and slots, so each has a story with a turn instead of a list of facts:
+  - Stomach: the snot raincoat, then H. pylori corkscrews through it; doctors blamed stress and spicy food until Barry Marshall drank a beaker of it in July 1984 (named, never drawn: a beaker and a GULP stamp); 2005 Nobel. Sources include the Nobel press release (official), Wikipedia, The Scientist, James Clear.
+  - Gum: the myth, what really happens, then the 1998 Pediatrics case report (kids given gum as a reward who swallowed it; a taffy-like lump removed; a toddler's four coins glued into one blob), via Scientific American.
+  - Lunch: a relay through the cast (stomach, liver's bile, small intestine's folds, microbes) ending on the corrected size: about 30 m², half a badminton court, not a tennis court (Helander & Fändriks 2014 via Popular Science; Wikipedia).
+  - Brain: 2% of weight, 20% of energy, about 12 W (a fifth of a 60 W bulb, Scientific American's estimate); hard thinking barely adds to the bill; so the 10% myth is backwards.
+- **New props in the body kit:** beaker with swimming microbes, coins, light bulb, sports courts drawn to scale, chili pepper, fat globule that splits into droplets, flat card.
+- **Retakes:** "Hi" was heard as "high", so the line became "Hello".
+- **Results:** 47.7, 47.8, 49.3 and 36.5 s; transcript WER 0.0 on all four; −14.1/−14.2 LUFS; frozen time 0–3 s per 30 s; two review rounds each; every gate passes through packaging. Titles and descriptions updated (food and brain retitled); schedule unchanged.
+
 
 ## Review rounds (review.json)
 
 ### Round 1
 ```json
 {
- "at": "2026-10-07T06:13:08Z",
- "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+ "at": "2026-10-07T07:14:48Z",
+ "reviewer": "builder (orchestrator), rewrite contact sheets, round 1",
  "frames": [
-  0.05,
-  12.78,
-  29.3
+  5.56,
+  34.2
  ],
  "defects": [
   {
-   "t": 0.05,
-   "issue": "hook: first frame had no title",
+   "t": 5.56,
+   "issue": "unit: speech bubble collided with the stomach's head; shortened",
    "fixed": true
   },
   {
-   "t": 12.78,
-   "issue": "base: sweeteners label too small",
-   "fixed": true
-  },
-  {
-   "t": 29.3,
-   "issue": "doctors: microbe drawn with the wrong rig (render error)",
+   "t": 34.2,
+   "issue": "reward: swallowed gum piled on the stomach's face; moved to its belly",
    "fixed": true
   }
  ]
@@ -69,19 +80,22 @@ Try again
 ### Round 2
 ```json
 {
- "at": "2026-10-07T06:13:08Z",
- "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+ "at": "2026-10-07T07:14:48Z",
+ "reviewer": "builder (orchestrator), final rewrite sheets and encoded-frame spot check, round 2",
  "frames": [
   0.05,
   3.98,
   5.56,
-  12.78,
-  16.44,
-  20.22,
-  23.05,
-  29.32,
-  32.74,
-  32.79
+  13.54,
+  18.34,
+  20.35,
+  27.22,
+  28.56,
+  34.18,
+  38.58,
+  41.0,
+  47.74,
+  47.79
  ],
  "defects": []
 }

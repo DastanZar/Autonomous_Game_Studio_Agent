@@ -1,4 +1,4 @@
-# Your brain is 2% of you and eats 20% of your energy: discussion and decisions
+# Your brain runs on 12 watts, and never turns off: discussion and decisions
 
 Folder: `episodes/body-cast/brain-energy`. Built by `studio/tools/notes.py`.
 
@@ -39,21 +39,15 @@ Try again
 ### Round 1
 ```json
 {
- "at": "2026-10-07T06:13:08Z",
- "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+ "at": "2026-10-07T07:14:48Z",
+ "reviewer": "builder (orchestrator), rewrite contact sheets, round 1",
  "frames": [
-  0.05,
-  3.18
+  24.3
  ],
  "defects": [
   {
-   "t": 0.05,
-   "issue": "hook: brain partly off the left edge, no title",
-   "fixed": true
-  },
-  {
-   "t": 3.18,
-   "issue": "hook: '2% of your weight' tag tiny, under the big number",
+   "t": 24.3,
+   "issue": "hard: the energy meter's labels were too small to read; meter widened, labels enlarged",
    "fixed": true
   }
  ]
@@ -63,19 +57,21 @@ Try again
 ### Round 2
 ```json
 {
- "at": "2026-10-07T06:13:08Z",
- "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+ "at": "2026-10-07T07:14:48Z",
+ "reviewer": "builder (orchestrator), final rewrite sheets and encoded-frame spot check, round 2",
  "frames": [
   0.05,
-  3.18,
-  5.14,
-  9.52,
-  11.82,
-  15.52,
-  20.08,
-  22.24,
-  29.14,
-  29.19
+  3.2,
+  5.16,
+  9.18,
+  11.39,
+  19.0,
+  20.12,
+  24.32,
+  27.98,
+  29.95,
+  33.65,
+  36.4
  ],
  "defects": []
 }
