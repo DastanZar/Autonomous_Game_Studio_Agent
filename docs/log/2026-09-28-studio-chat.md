@@ -2373,3 +2373,19 @@ Is there a way to maybe try using google omni 1.1 flash jsut to see how it would
 - **The test:** "What would happen if you jumped into a hole through the Earth?" Four prompts (one text-to-video plus three extends, about 40 s), same pencil-on-paper look, no text, no voice or music. Saved in `docs/research/omni-test-2026-10.md`.
 - **Advice given:** text is enough for the test; if the style drifts, use our engine's text-free frames as start frames.
 - **Slower pilot finished:** 80.5 s, −14.2 LUFS, WER 0.011, frozen 2.5 s per 30 s; review rounds 4 and 5 logged; all gates pass.
+
+### 🧑 User · 2026-10-07 UTC
+
+Okay there does seem to be some merit to the omni idea too. without getting into the specifics, uh, so we'll just put it off for another time and focus on what we were first doing. But on the list of ideas that we're putting off on our vision board that we will get back to within a few days itself, not a long time, is uh, maybe seeing if we can run an entire channel based on uh, Google Omni 1.1 Flash or Minimax H3, one of these models. Uh, see if the cost makes sense for us and if we can run one channel just off of these. Apart from that, what we were doing currently, we stick to that. And another idea is, uh, you know, somehow uh, getting better at long form content. And apart from this, um, uh, for the image generation that you said, you know, uh, when we were discussing about things that can be done on a laptop, we wouldn't have to rely on models like Flux, Schnell, and all of that, because I do have access to NanoBanana and GPT 2.0. So uh, I can just use those models to generate whatever images are needed for whatever sort of content we're producing, shorts, reels, long form, whatever. That goes without saying. Apart from that, for the pencil-based uh, niche that we've identified and we've built on, I feel like the one you suggested would be the best idea. What would actually happen if kind of videos that would actually fit that sort of niche really well. So I think let's run with that. Still not very convinced with the cartoony hand though. I, I want you to try and see if you can maybe come up with a real human looking hand if possible. I want you to try it again and come up with a real human looking hand. Uh, maybe just, you know, first try creating a sort of just a still frame of it and showing it to me before you even spend tokens and time on generating videos. Just show me a still frame.
+
+#### Claude · record
+
+- **Decisions recorded:**
+  - lane = "What would actually happen if…" (bible updated: promise, series, radar, sources);
+  - images come from the user's Nano Banana or GPT Image;
+  - a vision board in DECISIONS: a channel made entirely with Omni or MiniMax, and long-form.
+- **Realistic hand, what was tried:**
+  - Openverse CC0 search: the "hand" PNGs are vintage engravings or clipart (and fake-transparent JPEGs).
+  - A CC0 StockSnap photo (right hand, pencil, white background) was the right angle, but soft-focus fingertips at 960 px; no higher resolution is available without a login.
+  - The Wikimedia Commons API is blocked from here.
+- **Conclusion:** a photoreal hand can't be drawn credibly in code. Wrote a Nano Banana prompt for a purpose-made hand: top-down, tripod grip, yellow pencil, sharp focus, sleeve from bottom-right, chroma-green background, 2048², no text or jewellery. Optional lifted pose. A still frame comes first when the image arrives.

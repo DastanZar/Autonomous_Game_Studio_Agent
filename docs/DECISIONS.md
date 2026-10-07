@@ -21,6 +21,11 @@ what is still open. It is updated with every step we take; newest entries are at
 | 0c | **Listen to the free voice catalogue** on the dashboard (Kokoro, Piper, Fish S2.1 Free) and name the voices you like. Also: OpenRouter shows $0.45 used with $0 credit after my paid-model mistake; check the account and tell me if it asks for payment | free only from here | review queue `voices-*` |
 | 1 | (Settled 2026-10-06) Music: one track per niche, rotated on analytics; no per-track approval needed | `inside` (Gut Gang), `countdown` (Leader Flags) | bibles `audio.music` |
 
+## Vision board (parked by the user, to revisit within days)
+
+- **A channel made entirely with a video model** (Gemini Omni 1.1 Flash or MiniMax H3): price a full channel and test whether the quality holds. Test prompts: `docs/research/omni-test-2026-10.md`.
+- **Getting better at long-form** (10–20 min): Blender, real terrain, a better free voice (Chatterbox to test), Manim diagrams, likely on the user's RTX 3060 laptop.
+
 ## Blocked (needs something from outside this container)
 
 
@@ -34,6 +39,7 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-10-07 | **The drawn channel's lane: 'What would actually happen if…'** (real science, drawn). Chosen by the user from the three data-backed options. The power-bill video stays as the format pilot. **Images:** the user makes any needed images with Nano Banana or GPT Image (no local image model needed). **Hand:** a photoreal cut-out from a Nano Banana image, shown as a still before any render. | Research in `docs/research/sketch-niche/README.md`; user: 'let's run with that'; 'not very convinced with the cartoony hand' | `studio/channels/sketch/bible.json` |
 | 2026-10-07 | **Audio is free only** (user). Voice catalogue rebuilt with free voices only: Kokoro (28, local), Piper (12, local), Fish S2.1 Free (13, OpenRouter's only free speech model, 50 requests a day). Every paid sample deleted. My earlier run hit paid models before OpenRouter refused for lack of credit: the account shows $0.45 used against $0 credit. The tool now refuses any model whose price isn't zero before sending a request. | User: 'we will be approaching this entire project with a free slash freemium only option… for audios… free' | `studio/tools/voice_catalog.py`, review queue `voices-*` |
 | 2026-10-07 | **Leader Flags globe follows the narration.** Each country turns into view on the word that names it (`focusAt` cues); places named earlier in a scene stay gold; US states light up as their own Natural Earth shapes; small places get a pulsing ring. All four re-rendered. **Fact fix:** 'Canada is outscored by two separate states' was wrong by the episode's own figures; it is three (California, Texas, New York). Line, caption, claim and graphic corrected; only that paragraph re-voiced. | User: 'when you say a certain country, that's not the country that comes up… Texas or California, the entire US gets highlighted' | `studio/engine/kits/rank.js`, the four `episodes/ranked/*/storyboard.json` |
 | 2026-10-07 | **Pencil pilot: white cartoon glove instead of the drawn hand; no pencil-scratch sound; drawing and camera 8% slower** (`storyboard.pace` 1.08). | User: the hand 'doesn't look like a human hand'; the scratch was 'horrible'; 'a tinge bit too fast' | `studio/engine/kits/sketch.js` |

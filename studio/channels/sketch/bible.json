@@ -2,8 +2,8 @@
  "id": "sketch",
  "name": "Drawn Out (working name)",
  "status": "draft",
- "promise": "A story from the news, drawn out by hand on one sheet of paper while you watch: sourced, simple, and finished as a single page you could pin on a wall.",
- "audience": "Adults 18-45 who want the news behind their own bills, prices and headlines explained without a talking head; US first.",
+ "promise": "What would actually happen if…? Real science, worked out and drawn by hand on one sheet of paper while you watch: sourced answers, deadpan jokes in the margins.",
+ "audience": "Curious adults and teens 16-40 who like science thought experiments (xkcd What If, Kurzgesagt) but scroll Shorts; global English.",
  "benchmarks": [
   {
    "channel": "SportsBall Visual",
@@ -73,7 +73,7 @@
    }
   },
   "notes": "Everything is drawn in code (studio/engine/kits/sketch.js): strokes are seeded polylines revealed over time, the hand and pencil are drawn shapes that follow the stroke tip. No image model draws anything, and no text is ever generated as an image. Real people are named, never drawn.",
-  "direction": "Pilot (user request 2026-10-07): the 'draw my life' hand-and-pencil format applied to stories around us. Each beat is drawn into its own cell of one page; the camera pans cell to cell; the last beat pulls back to reveal the whole page."
+  "direction": "'What would actually happen if…' (user 2026-10-07, after the niche research). Each beat drawn into its own part of one page; the camera pans; the last beat pulls back to the whole page. Hand: a photoreal hand cut-out is being tested (user rejected the drawn and cartoon hands)."
  },
  "cast": [
   {
@@ -91,15 +91,31 @@
  ],
  "series": [
   {
+   "id": "whatif",
+   "name": "What would actually happen if…",
+   "title_pattern": "What would actually happen if <hypothetical>?",
+   "beats": [
+    "hook: the hypothetical in one line, drawn as the first sketch",
+    "the setup: the real numbers that matter (size, speed, temperature), drawn as a diagram",
+    "the escalation: step by step, what physics or biology does next",
+    "the twist: the surprising real answer, sourced",
+    "callback: the pull-back reveals the whole page"
+   ],
+   "example_titles": [
+    "What would actually happen if you jumped into a hole through the Earth?",
+    "What would actually happen if the Moon disappeared?"
+   ]
+  },
+  {
    "id": "around",
-   "name": "Stories around us",
+   "name": "Stories around us (occasional)",
    "title_pattern": "Why <everyday thing> <changed>",
    "beats": [
-    "hook: the thing in the viewer's own life",
-    "the hidden cause, drawn",
-    "the numbers, drawn as a chart",
-    "the twist or the honest caveat",
-    "callback to the hook while the page is revealed"
+    "hook",
+    "hidden cause",
+    "numbers as a chart",
+    "twist or caveat",
+    "callback"
    ],
    "example_titles": [
     "Why your power bill went up (it's a building you've never seen)"
@@ -142,9 +158,9 @@
    "series_fit": 1
   },
   "radar": [
-   "Price and bill changes people feel (power, groceries, rent, insurance)",
-   "Official releases behind them (EIA, BLS, grid operators, regulators)",
-   "Stories in the news this month with a cause most people haven't seen"
+   "Science news this month that makes a hypothetical timely (missions, discoveries, records)",
+   "Questions people ask (Reddit r/askscience, r/NoStupidQuestions, xkcd What If archive for style, never to copy)",
+   "Our YouTube API scans: 'what would happen if' and science-animation outliers"
   ],
   "avoid": [
    "Partisan framing: explain mechanisms, name sources, no villains",
@@ -164,10 +180,9 @@
  ],
  "sources": {
   "preferred": [
-   "Grid operators and regulators (PJM, ERCOT, FERC, state utility commissions)",
-   "US government (EIA, DOE, BLS)",
-   "National labs (LBNL)",
-   "Independent market monitors"
+   "NASA, ESA, NOAA, USGS",
+   "Peer-reviewed papers and university press releases",
+   "Textbook physics with the calculation shown in the dossier"
   ],
   "banned": [
    "reddit.com",
@@ -201,7 +216,7 @@
  },
  "open_decisions": [
   "Channel name and handle (working name 'Drawn Out'): the user's call",
-  "Whether this becomes a fourth channel or a series on an existing one"
+  "The hand: photoreal cut-out from a Nano Banana image (prompt in the chat log, 2026-10-07); a still frame first"
  ],
  "audio": {
   "music_under_voice_db": 13,
