@@ -1,0 +1,222 @@
+{
+ "topic": "What would happen if the Earth stopped spinning (sudden stop, slow stop) and the real slowdown",
+ "sources": [
+  {
+   "id": "astro",
+   "title": "What happens if Earth stops rotating?",
+   "publisher": "Astronomy magazine (Edward Herrick-Gleason, astronomy educator)",
+   "url": "https://www.astronomy.com/science/what-happens-if-earth-stops-rotating/",
+   "type": "secondary",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "nasa_earth",
+   "title": "Earth Fact Sheet",
+   "publisher": "NASA Goddard Space Flight Center (NSSDCA)",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "ifls",
+   "title": "What Would Happen If The Earth Suddenly Stopped Spinning?",
+   "publisher": "IFLScience (Dr. Alfredo Carpineti)",
+   "url": "https://www.iflscience.com/editors-blog/what-would-happen-if-the-earth-suddenly-stopped-spinning/",
+   "type": "secondary",
+   "accessed": "2026-10-07",
+   "cites": "Witold Fraczek (Esri) ocean model"
+  },
+  {
+   "id": "focus",
+   "title": "The thought experiment: What would happen if the Earth stopped spinning?",
+   "publisher": "BBC Science Focus Magazine",
+   "url": "https://www.sciencefocus.com/planet-earth/the-thought-experiment-what-would-happen-if-the-earth-stopped-spinning/",
+   "type": "secondary",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "stephenson",
+   "title": "Measurement of the Earth's rotation: 720 BC to AD 2015 (Proc. R. Soc. A 472: 20160404, 2016)",
+   "publisher": "Stephenson, Morrison & Hohenkerk, Proceedings of the Royal Society A (open access via PubMed Central)",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5247521/",
+   "type": "scholarly",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "archaeology",
+   "title": "Ancient Astronomers' Records Assist Modern Scientists",
+   "publisher": "Archaeology magazine (Archaeological Institute of America)",
+   "url": "https://archaeology.org/?p=5775",
+   "type": "secondary",
+   "accessed": "2026-10-07",
+   "cites": "Stephenson et al. 2016"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_speed",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "astro",
+    "ifls",
+    "nasa_earth"
+   ],
+   "text": "A point on the equator moves at about 1,670 km/h because of Earth's spin (Astronomy: 1,668 km/h; IFLScience: 1,670 km/h).",
+   "quote": "A point along the equator moves at approximately 1,037 mph (1,668 km/h); At the equator, it's like being in a car that was moving at 1,670 kilometers (1,038 miles) per hour; Equatorial radius (km) 6378.137; Sidereal rotation period (hrs) 23.9345",
+   "note": "Check from NASA's fact sheet: circumference 2 x pi x 6378.137 km = 40,075 km; one rotation takes 23.9345 h (sidereal), so 40,075 / 23.9345 = 1,674 km/h (Astronomy's 1,668 uses the 24 h solar day: 40,075/24 = 1,670). Speed falls with latitude (x cos latitude); zero at the poles."
+  },
+  {
+   "id": "c_inertia",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "astro",
+    "focus"
+   ],
+   "text": "If Earth stopped in an instant, the water, air and anything not anchored would keep moving at the speed of their latitude.",
+   "quote": "If Earth stopped spinning in an instant, all the water, air, and structures on Earth would still be moving at speeds corresponding to their latitudes; If the planet stopped suddenly, everything on the surface would be destroyed, as the atmosphere, oceans and anything not nailed down kept spinning"
+  },
+  {
+   "id": "c_east",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "ifls"
+   ],
+   "text": "After a sudden stop you would keep moving east (Earth spins eastward) and hit the nearest eastward wall.",
+   "quote": "If you are in a building you'll be thrown into the closest eastward wall"
+  },
+  {
+   "id": "c_wind",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "ifls",
+    "astro"
+   ],
+   "text": "The winds after a sudden stop would be about four times faster than the fastest wind ever recorded (408 km/h).",
+   "quote": "The winds alone would be four times faster and stronger than the fastest wind ever recorded ( 408 km/h 253 mph ); you'd experience wind speeds in excess of 1,000 mph, a velocity nearly five times greater in speed",
+   "note": "1,670 / 408 = 4.1. Astronomy rounds the other way ('nearly five times'); the script says 'about four times'."
+  },
+  {
+   "id": "c_flood",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "astro",
+    "ifls"
+   ],
+   "text": "After a sudden stop the oceans would keep moving and flood the coasts.",
+   "quote": "If Earth were to stop turning suddenly, that water would continue to move at a rapid velocity, inundating coastal and possibly even inner regions with a deluge of displaced ocean water"
+  },
+  {
+   "id": "c_slow",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "focus"
+   ],
+   "text": "Even if Earth slowed to a stop over several years, it would still be a disaster.",
+   "quote": "If it slowed down over several years, it would still be a disaster"
+  },
+  {
+   "id": "c_bulge",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "ifls",
+    "nasa_earth",
+    "astro"
+   ],
+   "text": "Because it spins, Earth bulges at the equator: the poles are about 21 km closer to the centre than the equator.",
+   "quote": "Due to its rotation, the Earth bulges in the middle, so the poles are about 21 kilometers (13 miles) closer to the center of the Earth than the equator; Equatorial radius (km) 6378.137; Polar radius (km) 6356.752; This oblateness results from the centrifugal force of the planet's rotation",
+   "note": "NASA radii: 6378.137 - 6356.752 = 21.4 km."
+  },
+  {
+   "id": "c_poles",
+   "key": true,
+   "status": "estimate",
+   "label": "simplified model",
+   "sources": [
+    "focus",
+    "ifls",
+    "astro"
+   ],
+   "text": "Without the spin, the oceans would move towards the poles, leaving two polar oceans and a belt of land around the middle; everything north of Spain would be underwater (a model, not a forecast).",
+   "quote": "Without centrifugal force, the oceans would move towards the poles, dropping ocean depth by 8km around the equator; Earth's water would be divided into two huge polar oceans separated by a belt of land in the middle. Everything north of Spain would be underwater, as well as all of Antarctica; Without the rotation, the oceans will migrate towards the poles",
+   "note": "IFLScience attributes the map to Witold Fraczek (Esri). Labelled 'simplified model' on the page."
+  },
+  {
+   "id": "c_dayyear",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "focus",
+    "ifls",
+    "nasa_earth"
+   ],
+   "text": "If Earth stopped spinning on its axis, one day would last a year: six months of daylight, then six months of night.",
+   "quote": "Once Earth doesn't spin on its own axis, a day lasts as long as a year. Everywhere receives six months of daylight; Sidereal orbit period (days) 365.256",
+   "note": "With no rotation relative to the stars, the Sun's position in the sky changes only because Earth orbits it, so one sunrise-to-sunrise cycle takes one orbit: 365.256 days (NASA). Half of that is daylight."
+  },
+  {
+   "id": "c_heat",
+   "key": false,
+   "status": "estimate",
+   "label": "BBC Science Focus estimate",
+   "sources": [
+    "focus"
+   ],
+   "text": "Six months of daylight would gradually heat the planet to well over 100°C (Science Focus estimate).",
+   "quote": "Everywhere receives six months of daylight, gradually heating up the planet to well over 100°C"
+  },
+  {
+   "id": "c_slowing",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "stephenson",
+    "archaeology"
+   ],
+   "text": "Earth's spin really is slowing: the length of the day has increased at an average rate of about 1.8 milliseconds per century (eclipse records, 720 BC to AD 2015).",
+   "quote": "the change in the length of the mean solar day (lod) increases at an average rate of +1.8 ms per century; has increased by an average of 1.8 milliseconds per century"
+  },
+  {
+   "id": "c_hour",
+   "key": false,
+   "status": "estimate",
+   "label": "our sum, at today's average rate",
+   "sources": [
+    "stephenson"
+   ],
+   "text": "At that average rate, the day would take about 200 million years to get one hour longer.",
+   "quote": "the change in the length of the mean solar day (lod) increases at an average rate of +1.8 ms per century",
+   "note": "3,600 s / 0.0018 s per century = 2,000,000 centuries = 200 million years. A linear extrapolation of today's average rate; the real rate fluctuates (the paper notes fluctuations about the trend). Labelled on the page."
+  },
+  {
+   "id": "c_never",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "astro"
+   ],
+   "text": "Earth will never actually stop rotating; its rate fluctuates but the trend is a very gradual slowdown.",
+   "quote": "even though fluctuations will continue, you can rest assured that Earth will never actually stop rotating"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "If Earth stopped, you'd be flung into space.",
+   "truth": "You'd keep moving sideways (east) at the ground's old speed, up to about 1,670 km/h at the equator; the danger is the sudden sideways motion, winds and water.",
+   "sources": [
+    "astro",
+    "ifls"
+   ]
+  }
+ ],
+ "open_questions": [
+  "The magnetic field claim (IFLScience: a non-rotating Earth has no field) is not used: not sourced to a geophysics paper.",
+  "IFLScience's '18.5 billion years for a day as long as a year' is not used: it does not follow from its own 1.7 ms/century figure (that gives about 1.9 trillion years)."
+ ]
+}

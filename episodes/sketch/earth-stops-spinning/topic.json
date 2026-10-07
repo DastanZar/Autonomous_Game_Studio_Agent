@@ -1,0 +1,30 @@
+{
+ "slug": "earth-stops-spinning",
+ "channel": "sketch",
+ "series": "whatif",
+ "hook": "At the equator, the ground is moving at sixteen hundred and seventy kilometres an hour.",
+ "twist": "If Earth stopped, the ground would stop but you, the air and the oceans would not; and even a slow stop drains the oceans to the poles and makes one day last a year. Meanwhile Earth really is slowing: the day grows about 1.8 ms per century.",
+ "angle": "What would actually happen, step by step, if Earth stopped spinning, suddenly and then slowly, and is it actually slowing down?",
+ "why_now": "Launch week falls between Europe's clock change (25 Oct) and America's (1 Nov): an 'extra hour' week; the callback compares it with how long Earth's slowdown takes to add an hour.",
+ "candidate_sources": [
+  "https://www.astronomy.com/science/what-happens-if-earth-stops-rotating/",
+  "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
+  "https://pmc.ncbi.nlm.nih.gov/articles/PMC5247521/",
+  "https://www.sciencefocus.com/planet-earth/the-thought-experiment-what-would-happen-if-the-earth-stopped-spinning/"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 3,
+  "series_fit": 5
+ },
+ "risks": [
+  "A hypothetical: the sudden-stop and slow-stop outcomes are the sources' reasoning, labelled 'simplified' on the page; no disaster imagery of real places or people.",
+  "Competitors with huge views (FactoHolic 80.2M, Zack D. Films 45.9M) already covered it; our angle is the worked numbers and the real slowdown.",
+  "The 200-million-year figure is our own calculation at today's average rate (shown in the dossier) and labelled on screen."
+ ],
+ "approved_by": "user (2026-10-07: 'include the pencil ones … 4 videos ready to go'); topics from docs/content-plan-2026-10-21_to_11-20.md",
+ "approved_at": "2026-10-07"
+}

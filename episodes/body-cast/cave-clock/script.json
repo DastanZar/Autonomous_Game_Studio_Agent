@@ -6,9 +6,6 @@
  "lead_in": 0.3,
  "tail": 0.8,
  "gap": 0.3,
- "pronounce": {
-  "Siffre": "Seefruh"
- },
  "loop": {
   "last": "toll",
   "connects_to": "hook",
@@ -57,7 +54,7 @@
   },
   {
    "id": "who",
-   "say": "Michel Siffre went a hundred and thirty meters underground. No watch. No sun. He slept when his body said so.",
+   "say": "A French scientist went one hundred thirty meters underground. No watch. No sun. He slept when his body said so.",
    "kind": "fact",
    "claims": [
     "c_cave",
@@ -66,12 +63,12 @@
    "gap": 0.3,
    "caps": [
     [
-     "MICHEL SIFFRE WENT",
-     3
+     "A FRENCH SCIENTIST WENT",
+     4
     ],
     [
      "130 METRES",
-     5
+     4
     ],
     [
      "UNDERGROUND.",

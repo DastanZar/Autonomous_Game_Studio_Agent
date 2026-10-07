@@ -1,0 +1,375 @@
+{
+ "channel": "sketch",
+ "episode": "earth-stops-spinning",
+ "series": "whatif",
+ "working_title": "What would actually happen if the Earth stopped spinning?",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "At the equator, the ground moves at sixteen hundred and seventy kilometres an hour.",
+   "kind": "hook",
+   "claims": [
+    "c_speed"
+   ],
+   "gap": 1.2,
+   "caps": [
+    [
+     "At the equator,",
+     3
+    ],
+    [
+     "the ground moves at",
+     4
+    ],
+    [
+     "1,670 km/h.",
+     7
+    ]
+   ]
+  },
+  {
+   "id": "stop",
+   "say": "Now stop the Earth. Instantly. The ground stops. You don't.",
+   "kind": "fact",
+   "claims": [
+    "c_inertia"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Now stop the Earth.",
+     4
+    ],
+    [
+     "Instantly.",
+     1
+    ],
+    [
+     "The ground stops.",
+     3
+    ],
+    [
+     "You don't.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "east",
+   "say": "You keep going east at the same speed. So does the air.",
+   "kind": "fact",
+   "claims": [
+    "c_inertia",
+    "c_east"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "You keep going east",
+     4
+    ],
+    [
+     "at the same speed.",
+     4
+    ],
+    [
+     "So does the air.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "wind",
+   "say": "That's a wind about four times faster than the strongest gust ever recorded.",
+   "kind": "fact",
+   "claims": [
+    "c_wind"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "That's a wind",
+     3
+    ],
+    [
+     "about 4 times faster",
+     4
+    ],
+    [
+     "than the strongest gust",
+     4
+    ],
+    [
+     "ever recorded.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "sea",
+   "say": "The oceans keep going too. Straight over the coasts.",
+   "kind": "fact",
+   "claims": [
+    "c_flood"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "The oceans keep going too.",
+     5
+    ],
+    [
+     "Straight over the coasts.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "slow",
+   "say": "Fine. Let's stop it slowly instead. Over a few years.",
+   "kind": "fact",
+   "claims": [
+    "c_slow"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Fine.",
+     1
+    ],
+    [
+     "Let's stop it slowly instead.",
+     5
+    ],
+    [
+     "Over a few years.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "bulge",
+   "say": "Spinning makes Earth bulge. The poles are twenty-one kilometres closer to the centre than the equator.",
+   "kind": "fact",
+   "claims": [
+    "c_bulge"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Spinning makes Earth bulge.",
+     4
+    ],
+    [
+     "The poles are",
+     3
+    ],
+    [
+     "21 km closer",
+     3
+    ],
+    [
+     "to the centre",
+     3
+    ],
+    [
+     "than the equator.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "drain",
+   "say": "Without the spin, the oceans slide to the poles. Two polar oceans, one belt of land around the middle.",
+   "kind": "fact",
+   "claims": [
+    "c_poles"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Without the spin,",
+     3
+    ],
+    [
+     "the oceans slide",
+     3
+    ],
+    [
+     "to the poles.",
+     3
+    ],
+    [
+     "Two polar oceans,",
+     3
+    ],
+    [
+     "one belt of land",
+     4
+    ],
+    [
+     "around the middle.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "spain",
+   "say": "Everything north of Spain? Underwater.",
+   "kind": "fact",
+   "claims": [
+    "c_poles"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "Everything north of Spain?",
+     4
+    ],
+    [
+     "Underwater.",
+     1
+    ]
+   ]
+  },
+  {
+   "id": "day",
+   "say": "And one day lasts a whole year. Six months of daylight. Then six months of night.",
+   "kind": "fact",
+   "claims": [
+    "c_dayyear"
+   ],
+   "gap": 0.9,
+   "caps": [
+    [
+     "And one day",
+     3
+    ],
+    [
+     "lasts a whole year.",
+     4
+    ],
+    [
+     "6 months of daylight.",
+     4
+    ],
+    [
+     "Then 6 months of night.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "heat",
+   "say": "Long enough to bake the land past a hundred degrees.",
+   "kind": "fact",
+   "claims": [
+    "c_heat"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "Long enough to bake the land",
+     6
+    ],
+    [
+     "past 100 degrees.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "real",
+   "say": "Here's the real part. Earth is slowing down. Every century, the day gets about one point eight thousandths of a second longer.",
+   "kind": "fact",
+   "claims": [
+    "c_slowing"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Here's the real part.",
+     4
+    ],
+    [
+     "Earth is slowing down.",
+     4
+    ],
+    [
+     "Every century,",
+     2
+    ],
+    [
+     "the day gets about",
+     4
+    ],
+    [
+     "1.8 thousandths of a second",
+     7
+    ],
+    [
+     "longer.",
+     1
+    ]
+   ]
+  },
+  {
+   "id": "hour",
+   "say": "At that rate, it takes Earth about two hundred million years to add one extra hour.",
+   "kind": "fact",
+   "claims": [
+    "c_hour"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "At that rate,",
+     3
+    ],
+    [
+     "it takes Earth about",
+     4
+    ],
+    [
+     "200 million years",
+     4
+    ],
+    [
+     "to add one extra hour.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "call",
+   "say": "So relax. Earth won't stop. It's just taking its time.",
+   "kind": "callback",
+   "claims": [
+    "c_never"
+   ],
+   "gap": 0.2,
+   "caps": [
+    [
+     "So relax.",
+     2
+    ],
+    [
+     "Earth won't stop.",
+     3
+    ],
+    [
+     "It's just taking its time.",
+     5
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "call",
+  "connects_to": "hook",
+  "how": "The hook's breakneck 1,670 km/h meets the real answer: Earth is stopping, but at 1.8 ms per century; the page pulls back to show the whole spinning-to-still Earth."
+ }
+}

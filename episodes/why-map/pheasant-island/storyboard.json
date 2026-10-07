@@ -68,13 +68,6 @@
    "params": {
     "fn": "size",
     "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
-    "region": [
-     -1.79,
-     43.333,
-     -1.74,
-     43.352
-    ],
-    "coast": "osm",
     "cut": true
    },
    "events": [

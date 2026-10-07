@@ -19,11 +19,20 @@
   },
   "script": {
    "result": "pass",
-   "at": "2026-10-07T20:05:53Z",
+   "at": "2026-10-07T20:18:51Z",
    "hashes": {
     "topic.json": "39a06b88d298",
     "dossier.json": "53dc55519fca",
-    "script.json": "e5b8356982db"
+    "script.json": "f4e106937297"
+   },
+   "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-07T20:20:18Z",
+   "hashes": {
+    "script.json": "f4e106937297",
+    "build/timeline.json": "3aba5ef4886d"
    },
    "failed": []
   }

@@ -26,6 +26,15 @@
     "script.json": "71845921aad6"
    },
    "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-07T20:20:18Z",
+   "hashes": {
+    "script.json": "71845921aad6",
+    "build/timeline.json": "858f76bc2be6"
+   },
+   "failed": []
   }
  }
 }
