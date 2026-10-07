@@ -503,66 +503,44 @@ the A,B,C arent added to the studio dashboard and i cant find them in github, wh
   - The workflow now finds media in nested `out/` folders with `find`, rather than a fixed 2-level glob.
 - **Still to watch:** site size, about 620 MB of media and growing. GitHub Pages' soft limit is 1 GB, so rejected masters will need retiring from the site soon.
 
+_Source: docs/log/2026-09-28-studio-chat.md_
+
+### 🧑 User · 2026-10-07 UTC
+
+Try again
+
+#### Claude · record
+
+- **"Try again"** read as: carry on with the 12-video job after the interrupted turn. No step was redone from scratch.
+- **House method built as shared kits** (`studio/engine/kits/`): `paper` (A's lit paper cast and props, now with a history cast: pig, troopers in US/UK/navy/pickelhaube/Russian/sailor uniforms, steam frigate, quote card), `flight` (B's 3D map flights), `kinetic` (C's moving type, big number), `flagart` (official Wikimedia flag SVGs, now with BO, PE and five US state flags), and two new ones: `body` (Gut Gang props: gum, sandwich, pH bar, meters, clocks, gut tubes) and `rank` (Leader Flags' night-blue C stage: drifting grid, particles, flag rows with a sheen, rank chips, face-off bars, clock rows).
+- **Engine changes:** a `stomach` character joined the Gut Gang cast (cast.js and the bible); kinetic's `glow` renamed `kGlow` (it clobbered cast.js's `glow`); storyboard `drift` adds a slow push-in per scene (cut Leader Flags' frozen time from 12.6 to 7.4 s per 30 s); `vo.py` reads script `pronounce` respellings for TTS only (Kokoro said "Deomd" for Diomede); textnorm handles Whisper's split decimals ("2 .4") and British spellings.
+- **Topics (scout data plus fetched sources), final 12:**
+  - Border Quirks: Point Roberts (hybrid main cut), the Pig War, Russia's sale of Alaska (Diomede date-line payoff; Alaska Day is 18 Oct), why Chile is so long (Bolivia's navy payoff).
+  - Gut Gang: where lunch goes (9 m), why the stomach doesn't digest itself, the swallowed-gum myth, the brain's 2%/20% energy bill. Changed from the slate: "swallowing a pill" became the gum myth and "brain learning" became brain energy, because those had fetchable, quotable sources.
+  - Leader Flags: World Cup titles after 2026 (Spain won the 19 July final, its second), most islands (Sweden, with the nine-square-metre catch), US states vs countries by 2024 GDP, most time zones (France 12; China uses one).
+- **Every claim is quoted from a fetched source** (`verify_quotes.py`: 0 NOT_FOUND across all 12). Key claims have two independent sites or an official source; single-source numbers are marked non-key and labelled on screen and in the description.
+- **Scripts were voiced with Kokoro George** and retaken where the transcript disagreed: "a war" heard as "a wall", "won" as "one", "England has one" as "won", "nonstop" split; each line was rewritten rather than forced.
+- **Publishing:** API uploads stay off (an unverified project's uploads are locked private for good). Each episode has `package.json` with title, sourced description, hashtags, pinned comment and a `schedule` time for manual upload.
+- **Produced and checked (all 12 pass every gate through packaging):** 1080×1920, 24 fps, −14.1/−14.2 LUFS, true peak ≤ −1.5 dBTP, transcript WER 0.0 on ten and 0.015–0.016 on two. Lengths: Border Quirks 49–60 s, Gut Gang 29–33 s, Leader Flags 25–34 s. Fair frozen time per 30 s: Gut Gang ~0, Leader Flags 5–9, Border Quirks 4–11 (Alaska is the stillest at 11). Picture reviews: two rounds each, defects listed in each `review.json`; one frame from every encoded MP4 was spot-checked.
+- **Late fixes:** Alaska's treaty line was a 9 km-wide ribbon that filled the screen at close range (now 3 km and hidden once the camera is near the islands); four first frames were half-drawn (titles now present at t=0); three scenes over the 7 s pace limit were split; the encoder's limiter ceiling dropped from 0.79 to 0.75 after one file measured −0.9 dBTP.
+- **Not verified:** I can't listen. Levels and transcripts were measured instead. The music beds for Gut Gang ('inside') and Leader Flags ('countdown') are at the bible default of 8 dB under the voice; only Border Quirks' 'detective' at 13 dB has been heard by the user.
+- **Delivered:** `docs/publish-kit-2026-10.md` (times, titles, descriptions, steps, API audit draft) and a dashboard review item with all 12 videos.
+
 
 ## Review rounds (review.json)
 
 ### Round 1
 ```json
 {
- "at": "2026-10-06T14:20:00Z",
- "reviewer": "builder (orchestrator), v2 contact sheet round 1",
+ "at": "2026-10-07T06:13:08Z",
+ "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
  "frames": [
-  0.05,
-  4.28,
-  6.76,
-  13.28,
-  15.82,
-  19.38,
-  23.72,
-  26.8,
-  31.76,
-  37.52,
-  39.76,
-  45.24,
-  48.02,
-  54.84,
-  57.86,
-  59.72
+  23.7
  ],
  "defects": [
   {
-   "t": 0.05,
-   "issue": "side-view scenes (hook, kids, shut, lost, gas) leave the bottom 40% of the frame as empty grass",
-   "fixed": true
-  },
-  {
-   "t": 0.05,
-   "issue": "hook: car and booth too small for a 9:16 hero shot",
-   "fixed": true
-  },
-  {
-   "t": 15.82,
-   "issue": "coast: zoomed parchment drags giant clipped labels (UNITED STATES, 49N) across the frame",
-   "fixed": true
-  },
-  {
-   "t": 23.72,
-   "issue": "drive: passport card covers the POINT ROBERTS label and the start of the route",
-   "fixed": true
-  },
-  {
-   "t": 19.38,
-   "issue": "survey: surveyors too small to read as people",
-   "fixed": true
-  },
-  {
-   "t": 54.84,
-   "issue": "trade: lower half of the diner beat is empty paper",
-   "fixed": true
-  },
-  {
-   "t": 13.28,
-   "issue": "treaty: desk below the parchment is bare",
+   "t": 23.7,
+   "issue": "drive: the 3D car left the frame; camera raised to 62-70 km and the car scaled up",
    "fixed": true
   }
  ]
@@ -572,8 +550,8 @@ the A,B,C arent added to the studio dashboard and i cant find them in github, wh
 ### Round 2
 ```json
 {
- "at": "2026-10-06T13:56:49Z",
- "reviewer": "builder (orchestrator), v2 contact sheet round 2",
+ "at": "2026-10-07T06:13:08Z",
+ "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
  "frames": [
   0.05,
   4.28,
@@ -593,71 +571,6 @@ the A,B,C arent added to the studio dashboard and i cant find them in github, wh
   59.72
  ],
  "defects": []
-}
-```
-
-### Round 3
-```json
-{
- "at": "2026-10-06T14:10:29Z",
- "reviewer": "critic pass on the ENCODED mp4 (frames pulled from out/point-roberts.mp4, not the renderer)",
- "frames": [
-  2.6,
-  5.2,
-  7.8,
-  10.4,
-  13.0,
-  15.6,
-  18.2,
-  20.8,
-  23.4,
-  26.0,
-  28.6,
-  31.2,
-  33.8,
-  36.4,
-  39.0,
-  41.6,
-  44.2,
-  46.8,
-  49.4,
-  52.0,
-  54.6,
-  57.2,
-  59.8
- ],
- "defects": [
-  {
-   "t": 23.9,
-   "issue": "drive: the mileage counter stopped at 21, not the 25 the line says (fraction maths used the wrong waypoints)",
-   "fixed": true
-  },
-  {
-   "t": 45.5,
-   "issue": "grocery: 5,000 shoppers rendered as 1:1 specks that read as noise, not people",
-   "fixed": true
-  },
-  {
-   "t": 13.3,
-   "issue": "treaty: the right half of the parchment was blank sea",
-   "fixed": true
-  },
-  {
-   "t": 51.5,
-   "issue": "trade: the tug-of-war beat was two hands over empty ground",
-   "fixed": true
-  },
-  {
-   "t": 4.34,
-   "issue": "hook: the border arm swung DOWN when it opened (the mirror flipped the rotation)",
-   "fixed": true
-  },
-  {
-   "t": 4.34,
-   "issue": "hook: WELCOME TO CANADA sign hidden behind the treeline (thumbnail frame)",
-   "fixed": true
-  }
- ]
 }
 ```
 

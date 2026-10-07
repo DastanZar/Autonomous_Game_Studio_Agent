@@ -1,3 +1,12 @@
-episodes/why-map/point-roberts/variants/a/out/preview-a.mp4
-episodes/why-map/point-roberts/variants/b/out/preview-b.mp4
-episodes/why-map/point-roberts/variants/c/out/preview-c.mp4
+episodes/body-cast/brain-energy/out/brain-energy.mp4
+episodes/body-cast/food-journey/out/food-journey.mp4
+episodes/body-cast/stomach-acid/out/stomach-acid.mp4
+episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4
+episodes/ranked/most-islands/out/most-islands.mp4
+episodes/ranked/most-time-zones/out/most-time-zones.mp4
+episodes/ranked/states-vs-countries/out/states-vs-countries.mp4
+episodes/ranked/world-cup-titles/out/world-cup-titles.mp4
+episodes/why-map/alaska-sale/out/alaska-sale.mp4
+episodes/why-map/chile-long/out/chile-long.mp4
+episodes/why-map/pig-war/out/pig-war.mp4
+episodes/why-map/point-roberts/out/point-roberts.mp4

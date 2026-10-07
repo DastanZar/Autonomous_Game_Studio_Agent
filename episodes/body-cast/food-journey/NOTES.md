@@ -1,0 +1,67 @@
+# Where your lunch goes after you swallow it: discussion and decisions
+
+Folder: `episodes/body-cast/food-journey`. Built by `studio/tools/notes.py`.
+
+## Notes
+
+_(add notes about this video here)_
+
+<!-- everything below this line is rebuilt by studio/tools/notes.py; write by hand above it -->
+
+## From the chat logs
+
+_No chat turns mention this video yet._
+
+
+## Review rounds (review.json)
+
+### Round 1
+```json
+{
+ "at": "2026-10-07T06:13:08Z",
+ "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+ "frames": [
+  0.05,
+  20.85,
+  33.0
+ ],
+ "defects": [
+  {
+   "t": 0.05,
+   "issue": "hook: first frame had no title",
+   "fixed": true
+  },
+  {
+   "t": 20.85,
+   "issue": "small intestine: clock in the caption zone",
+   "fixed": true
+  },
+  {
+   "t": 33.0,
+   "issue": "toll: title wrapped as '9 METERS \u00b7 1 / LUNCH'",
+   "fixed": true
+  }
+ ]
+}
+```
+
+### Round 2
+```json
+{
+ "at": "2026-10-07T06:13:08Z",
+ "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+ "frames": [
+  0.05,
+  2.4,
+  6.36,
+  10.36,
+  12.22,
+  20.85,
+  24.92,
+  29.06,
+  30.53,
+  33.19
+ ],
+ "defects": []
+}
+```
