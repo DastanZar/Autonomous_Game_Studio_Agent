@@ -471,3 +471,59 @@ I need you to go through the logs and figure out what the issue is with the accu
   and on a synthetic LinkedIn-like run; it flagged the loops correctly. Tests 11/11.
 - Wrote `docs/reviews/2026-10-07-claude-accuracy.md` and a CHANGELOG entry. Pushed e3e0f02. No agent
   behaviour has changed yet; the five-step fix list is open decision B6.
+
+
+---
+
+### 2026-10-07 · Build fixes 1, 2 and 4 (Fast off, save_item, benchmark)
+
+#### User (verbatim)
+
+go ahead, build 1, 2 and 4
+
+[later, pasted from the other agent: it ran tools/analyze_run.py on both LinkedIn logs. Run 2 had 45 steps,
+25/25 fast-mode steps, 19 empty replies, median page ~5.9k tokens. Run 1 had 58 steps, 43/43 fast-mode steps,
+14 empty replies, and write_file/read_file loops. It also did fix 3 (the compiler states goals and a "Done When"
+condition, with a test) and pushed 0512851.]
+
+I hit my usage limit while you were working, but it has reset now. Please continue from where you left off.
+
+#### Claude · record
+
+- **Built the benchmark first**, so the old code could be measured before any change:
+  - `bench/testsite.py`: made-up data; a people search that rejects Boolean syntax, has 4 pages and no
+    Experience filter; a virtualised catalog; company pages; a lookup.
+  - `bench/run.py`: real b.ai models in headless Chromium, scored against answer keys, with `--rescore`
+    and a per-setup summary.
+- **`save_item`:**
+  - My first version took a free-form dict. I checked the schema Browser Use actually sends: strict mode
+    turns it into an object that must stay empty, so every save would have arrived blank. Switched to a name
+    plus `{field, value}` pairs and verified the schema.
+  - Values are checked against the page text and links when saved. The dashboard shows a live count, a table
+    with ⚠ and a CSV download. Checked in Chromium.
+  - CSV formula injection guarded (`=`/`+`/`-`/`@` get a leading `'`), because the values come from web pages.
+- **Fast mode off by default** in the dashboard and CLI (`--fast` to opt in); digests keep their own default.
+- **Merged the other agent's 0512851** (a test-file conflict; kept both tests). Reviewed their compiler
+  rewrite: good.
+- **Benchmark results, 24 runs:**
+  - Old code, Fast on: 26/71. It dropped product-name numbers 2 of 2 times, lost locations once, and its
+    answer was cut off mid-word.
+  - Old code, Fast off: 71/71.
+  - New code: 40/40.
+  - New + skip rule: 65/80. One b.ai aborted reply led to an early `done` at 6/21; the repeat scored 21/21.
+- **Found mid-run:** old code with Fast off made up a URL parameter "appearing" to work, and the agent kept
+  hunting for the missing filter. I added a policy line (look once, skip, say so) and measured it as a separate
+  setup. It removed the made-up claims, but not the extra checking steps.
+- **Scorer fixes along the way:** "EXCLUDED"/"EXCLUSIONS" lists and inline "was excluded" mentions were
+  counted as wrong answers, and the last name absorbed a later caveat. Fixed, with `test_bench_scorer`.
+- **Failures:**
+  - The first benchmark processes died during the usage-limit pause (connection errors); I relaunched the
+    missing runs. Baselines ran from a separate checkout of 0512851.
+  - My `pkill` matched its own shell again; I switched to killing by PID.
+  - I miscounted twice: fallback runs (14/24 → 13 of 17) and the test count (15 → 14). Both corrected
+    before pushing.
+- **Honest limits:**
+  - n = 1–2 per cell.
+  - `save_item` showed no accuracy gain at this list size.
+  - Its page check catches invented values, not shortened ones.
+- Tests 14/14. Pushed beed05e and e528fdb. Updated README/ENGINEERING (Fast mode is no longer the default).
