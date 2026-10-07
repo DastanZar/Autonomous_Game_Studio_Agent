@@ -2445,3 +2445,18 @@ approved, go ahead, also while youre at it, spin up multiple workers making the 
   - measurement reviews on 27 Oct and 10 Nov.
 - **Overlaps:** the strategist removed overlaps with the workers' topics.
 - **Not available to it:** TikTok, Instagram and Google Trends could not be queried directly.
+
+### 🧑 User · 2026-10-07 UTC
+
+Make sure to include the pencil ones also part of the montly plan and it having 4 videos ready to go as well
+Also research about another 5th niche for a 5th channel, something totally different to what we have till now, but that pushes the boundaries of what were doing, something absolutely mesmerizing and a views magnet
+
+#### Claude · record
+
+- **Month plan:** it already includes the drawn channel (8 slots from the 29 Oct launch). Uncommitted worker files were committed as a WIP backup (9004d73).
+- **New worker, drawn channel's first 4 videos** (photoreal hand, pace 1.2, longer gaps, no scratch sound):
+  - Earth stops spinning, 29 Oct (launch);
+  - quicksand, 31 Oct;
+  - hole through the Earth, 3 Nov;
+  - Mars without a suit, 5 Nov.
+- **New strategist, fifth-channel niche:** web plus API data (the API is probably out of quota until about 07:00 UTC). Deliverable: `docs/research/fifth-channel-2026-10.md` with the top 3 options ranked.
