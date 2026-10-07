@@ -2418,3 +2418,18 @@ give me the prompt for it again
 - **Sketch kit:** `storyboard.hand = "photo"` draws the cut-out with the pencil tip pinned to the stroke, a soft paper shadow, and the lifted pose while travelling between strokes.
 - **Stills sent** (t = 13.2 drawing, t = 29.6 lifted). No video render until the user approves.
 - **Known flaw:** the sleeve continuation is slightly streaky in the bottom ~300 px, inside the area YouTube covers with its own buttons and title.
+
+### 🧑 User · 2026-10-07 UTC
+
+approved, go ahead, also while youre at it, spin up multiple workers making the next 4 videos backed on research for the first 3 channels as well, and also come up with the ntire content plan for the month, completely backed by research, you know how we work by now
+
+#### Claude · record
+
+- **Photo hand approved:** smoothed lift between strokes, plus a short crossfade between the down and lifted poses; the pilot is re-rendering with the photo hand.
+- **Disk:** freed 6.6 GB (the rendered frame folders of finished episodes and the Piper voice downloads; 9.3 GB free). `produce.sh` moved into the repo (`studio/tools/produce.sh`) so workers can run it.
+- **Four background workers started**, sharing one checkout: each only writes its own new episode folders, runs no git, and leaves shared files alone.
+  - Border Quirks, Gut Gang and Leader Flags each make their next 4 Shorts. Slots: 21, 22, 27 and 28 Oct at the channel's usual time.
+  - A strategist writes the research-backed month plan (21 Oct–20 Nov, all four channels, including the drawn channel's launch) to `docs/content-plan-2026-10-21_to_11-20.md`.
+  - The shared brief covers sources, free tools only, Kokoro George, review rounds, gates, the globe following the narration, disk and CPU limits.
+  - YouTube API budget: about 3,400 units left today, so each worker gets at most 4 searches (the strategist 6); web research otherwise.
+- **Topic approval:** recorded as delegated by the user's message; the topics can still be vetoed before upload.

@@ -194,15 +194,15 @@ const SK = (() => {
     for (const it of items) {
       if (t < it.t0) continue;
       const s = clamp((t - it.t0) / it.dur) * it.total;
-      let tip = null, drawing = false;
+      let tip = null, drawing = false, lv = 0;
       for (const g of it.seg) {
         if (s <= g.s0) break;
         const k = clamp((s - g.s0) / (g.s1 - g.s0 || 1));
-        if (g.travel) { if (k < 1) { tip = [lerp(g.a[0], g.b[0], eio(k)), lerp(g.a[1], g.b[1], eio(k))]; drawing = false; } continue; }
+        if (g.travel) { if (k < 1) { tip = [lerp(g.a[0], g.b[0], eio(k)), lerp(g.a[1], g.b[1], eio(k))]; drawing = false; lv = Math.sin(Math.PI * k); } continue; }
         const tp = drawOp(g.op, k, t);
-        if (k < 1 || g === it.seg[it.seg.length - 1]) { tip = tp; drawing = k < 1; }
+        if (k < 1 || g === it.seg[it.seg.length - 1]) { tip = tp; drawing = k < 1; lv = 0; }
       }
-      if (t < it.t0 + it.dur) pen = { tip: tip || it.start, item: it, drawing };
+      if (t < it.t0 + it.dur) pen = { tip: tip || it.start, item: it, drawing, lift: lv };
     }
     return pen;
   }
@@ -306,27 +306,29 @@ const SK = (() => {
     return out;
   })();
   function photoHand(sx, sy, s, lift, t) {
-    const H = PHOTO[lift > 0.5 && PHOTO.hand_lifted ? "hand_lifted" : "hand_down"]; if (!H || !H.img.complete) return;
-    const k = s * 1.0;
-    ctx.save(); ctx.translate(sx, sy); ctx.rotate(Math.sin(t * 1.1) * 0.02 + lift * 0.03);
-    ctx.shadowColor = "rgba(30,18,8,0.30)"; ctx.shadowBlur = 26 + lift * 20; ctx.shadowOffsetX = 16 + lift * 26; ctx.shadowOffsetY = 22 + lift * 34;
-    ctx.drawImage(H.img, -H.tip[0] * k, -H.tip[1] * k, H.img.width * k, H.img.height * k);
+    const k = s * 1.0, l = PHOTO.hand_lifted ? clamp(lift) : 0;
+    const draw = (H, a) => { if (!H || !H.img.complete || a <= 0.001) return; ctx.globalAlpha = a; ctx.drawImage(H.img, -H.tip[0] * k, -H.tip[1] * k, H.img.width * k, H.img.height * k); };
+    ctx.save(); ctx.translate(sx, sy); ctx.rotate(Math.sin(t * 1.1) * 0.02 + l * 0.03);
+    ctx.shadowColor = "rgba(30,18,8,0.30)"; ctx.shadowBlur = 26 + l * 20; ctx.shadowOffsetX = 16 + l * 26; ctx.shadowOffsetY = 22 + l * 34;
+    if (l < 0.5) { draw(PHOTO.hand_down, 1); ctx.shadowColor = "transparent"; draw(PHOTO.hand_lifted, l * 2 * 0.999); }   // a short crossfade between the two poses
+    else { draw(PHOTO.hand_lifted, 1); ctx.shadowColor = "transparent"; draw(PHOTO.hand_down, (1 - l) * 2 * 0.999); }
     ctx.restore();
   }
   const REST = () => [W + 300, H * 0.66];
   function handPos(t, cam, pen) {
-    if (pen) return { p: toScreen(cam, pen.tip), lift: pen.drawing ? 0 : 1 };
+    if (pen) return { p: toScreen(cam, pen.tip), lift: pen.drawing ? 0 : (pen.lift ?? 1) };
     let prev = null, next = null;
     for (const it of items) { const e = it.t0 + it.dur; if (e <= t && (!prev || e > prev.t0 + prev.dur)) prev = it; if (it.t0 > t && (!next || it.t0 < next.t0)) next = it; }
     const rest = REST();
     if (prev && next && next.t0 - (prev.t0 + prev.dur) < 1.0) {
-      const k = eio(prog(t, prev.t0 + prev.dur, next.t0));
-      return { p: toScreen(cam, [lerp(prev.end[0], next.start[0], k), lerp(prev.end[1], next.start[1], k)]), lift: 1 };
+      const k = eio(prog(t, prev.t0 + prev.dur, next.t0)), lv = Math.min(1, (t - prev.t0 - prev.dur) / 0.15, (next.t0 - t) / 0.15);
+      return { p: toScreen(cam, [lerp(prev.end[0], next.start[0], k), lerp(prev.end[1], next.start[1], k)]), lift: clamp(lv) };
     }
     let p = rest;
     if (prev) { const k = eio(prog(t, prev.t0 + prev.dur, prev.t0 + prev.dur + 0.5)); const a = toScreen(cam, prev.end); p = [lerp(a[0], rest[0], k), lerp(a[1], rest[1], k)]; }
     if (next && t > next.t0 - 0.5) { const k = eio(prog(t, next.t0 - 0.5, next.t0)); const b = toScreen(cam, next.start); p = [lerp(rest[0], b[0], k), lerp(rest[1], b[1], k)]; }
-    return { p, lift: 1 };
+    const lv = Math.min(prev ? (t - prev.t0 - prev.dur) / 0.15 : 1, next ? (next.t0 - t) / 0.15 : 1);
+    return { p, lift: clamp(lv) };
   }
 
   // ---------- one frame ----------
