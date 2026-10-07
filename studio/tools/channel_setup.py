@@ -1,4 +1,4 @@
-"""Apply the channel setup in studio/channels/setup.json through the YouTube Data API.
+"""Apply the channel setup in studio/channel_setup.json through the YouTube Data API.
 
     python3 studio/tools/channel_setup.py apply            # description, keywords, language, playlists, home sections
     python3 studio/tools/channel_setup.py sort             # after uploads: put each uploaded Short in its series playlist
@@ -80,6 +80,6 @@ def sort(ch, cfg):
 
 
 if __name__ == "__main__":
-    cfg = json.load(open(os.path.join(ROOT, "studio", "channels", "setup.json")))
+    cfg = json.load(open(os.path.join(ROOT, "studio", "channel_setup.json")))
     for ch in ("why-map", "body-cast", "ranked"):
         (apply if (sys.argv[1:] or ["apply"])[0] == "apply" else sort)(ch, cfg[ch])

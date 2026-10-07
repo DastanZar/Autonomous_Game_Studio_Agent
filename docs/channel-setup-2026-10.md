@@ -10,7 +10,7 @@
 | Series playlists (public) | The time a country… · Why does…? · How did…? · Border oddities | What happens if…? · A day in the life of your organs · Organ vs organ | Which country has the most…? · State vs country |
 | Home page | Popular uploads, then one shelf per series playlist | same | same |
 
-The exact text is in `studio/channels/setup.json`; rerun `python3 studio/tools/channel_setup.py apply` after any edit.
+The exact text is in `studio/channel_setup.json`; rerun `python3 studio/tools/channel_setup.py apply` after any edit.
 After you upload, `python3 studio/tools/channel_setup.py sort` files every Short into its series playlist (or ask me).
 
 Every upload's title, description (hook line first, sources, labels, 4 hashtags at the end), search tags, category,

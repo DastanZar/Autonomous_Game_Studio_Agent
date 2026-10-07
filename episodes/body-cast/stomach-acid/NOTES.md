@@ -63,6 +63,25 @@ i dont want you to extend it artifically just for the sake of increasing the dur
 - **Retakes:** "Hi" was heard as "high", so the line became "Hello".
 - **Results:** 47.7, 47.8, 49.3 and 36.5 s; transcript WER 0.0 on all four; −14.1/−14.2 LUFS; frozen time 0–3 s per 30 s; two review rounds each; every gate passes through packaging. Titles and descriptions updated (food and brain retitled); schedule unchanged.
 
+_Source: docs/log/2026-09-28-studio-chat.md_
+
+### 🧑 User · 2026-10-07 UTC
+
+whats this 540 downgrade? when till now we had a working pipeline of videos and evry update being published there
+
+(then) I also want you to once you finish the renders, set up the channels and other aspects of them, all we have done is name them, we need to put a proper channel picture, description, write proper titles hashtags for all th euploads and whatever else is needed that helps boost a channel and its videos, im not the expert so i want you to go learn, read find what the experts are doing, use your own brain and set up the channels too, for the pciture give me a prompt, i will make them with nano banana and put it myself, everyhtig else you do
+
+(then) I hit my usage limit while you were working, but it has reset now. Please continue from where you left off.
+
+#### Claude · record
+
+- **540p reverted.** My mistake: I counted `docs/site-media.txt` (310 MB) as extra, but it lists the same 12 files that are already copied. The real site is 716 MB at full quality, under the 1 GB Pages limit, once the three full-size Point Roberts method variants are left off (their review previews stay). The dashboard again serves the exact rendered files; the masters release stays as a download page.
+- **Verified:** the live dashboard file for the stomach video is 29,809,781 bytes, identical to the render.
+- **Channel research:** niche-clear name and description, 3-5 relevant hashtags in the description (never 15+), keyword-first titles, series playlists, a related video and a pinned question on every Short, steady cadence. Risk noted: YouTube's 'inauthentic content' rules target mass-produced TTS channels; our safeguards are original animation and sourced scripts.
+- **Applied through the API on all three channels:** description, keywords, default language English, public series playlists (4 + 3 + 2), home shelves (popular uploads plus one per playlist). Read back to confirm. `channel_setup.py sort` will file Shorts into playlists once they're uploaded.
+- **Per upload:** search tags, category (Education) and a related video added to every package.json (schema updated; publish.py now sends the tags); the publish kit shows them.
+- **Manual for the user:** profile pictures and banners (prompts written for Nano Banana, with sizes and safe areas), sister-channel links, contact email, country, and each Short's related video in Studio.
+
 
 ## Review rounds (review.json)
 
