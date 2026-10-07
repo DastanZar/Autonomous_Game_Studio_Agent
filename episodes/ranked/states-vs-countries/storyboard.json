@@ -284,14 +284,15 @@
       "at": "canada/states",
       "codes": [
        "US-CA",
-       "US-TX"
+       "US-TX",
+       "US-NY"
       ]
      }
     ]
    },
    "events": [
     {
-     "at": "canada/two",
+     "at": "canada/three",
      "do": "verdict",
      "sfx": "pop"
     }

@@ -162,9 +162,10 @@
   },
   {
    "id": "canada",
-   "say": "Canada, by the way, is outscored by two separate states.",
+   "say": "Canada, by the way, is outscored by three separate states.",
    "kind": "joke",
    "claims": [
+    "c_ca_canada",
     "c_tx",
     "c_ny"
    ],
@@ -179,7 +180,7 @@
      2
     ],
     [
-     "BY TWO SEPARATE STATES.",
+     "BY THREE SEPARATE STATES.",
      4
     ]
    ]

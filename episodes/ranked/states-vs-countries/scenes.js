@@ -23,9 +23,9 @@ CU.duel = (t, S) => {
 CU.canada = (t, S) => {
   rankBG(t);
   flagRow(["CA"], 560, t, S.t0, { w: 420 });
-  const t2 = cue("canada/two") - 0.2;
-  [["US-TX", 250], ["US-NY", 690]].forEach(([c, x], i) => { const k = kSpring(kpp(t, t2 + i * 0.15, 0.5)); if (k <= 0) return; ctx.save(); ctx.translate(x, 960); ctx.scale(k, k); flagArt(c, -130, -80, 260, 160, { lw: 5 }); ctx.restore(); });
-  kText("OUTSCORED BY 2 STATES", W / 2 - 70, 1180, 70, t, t2 + 0.3, { color: LF.gold, stroke: 10, ink: LF.ink });
+  const t2 = cue("canada/three") - 0.2;
+  [["US-CA", 160], ["US-TX", 470], ["US-NY", 780]].forEach(([c, x], i) => { const k = kSpring(kpp(t, t2 + i * 0.15, 0.5)); if (k <= 0) return; ctx.save(); ctx.translate(x, 960); ctx.scale(k * 0.85, k * 0.85); flagArt(c, -130, -80, 260, 160, { lw: 5 }); ctx.restore(); });
+  kText("OUTSCORED BY 3 STATES", W / 2 - 70, 1180, 70, t, t2 + 0.3, { color: LF.gold, stroke: 10, ink: LF.ink });
   srcLine(SRC);
 };
 CU.toll = (t, S) => { rankBG(t); faceoff(t, S.t0, { code: "US-CA", name: "California", value: 4103124 }, { code: "JP", name: "Japan", value: 4026211 }, { fmt: T$ }); srcLine(SRC); };

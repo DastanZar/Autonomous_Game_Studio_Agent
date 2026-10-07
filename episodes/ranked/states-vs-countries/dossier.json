@@ -28,7 +28,7 @@
     "sher"
    ],
    "text": "California's 2024 GDP ($4.10T) is larger than Japan's ($4.03T); it would be the world's fourth-largest economy.",
-   "quote": "California has officially become the world\u2019s fourth-largest economy, bumping Japan down to fifth; 3 California 4,103,124 4 Japan 4,026,211",
+   "quote": "California has officially become the world’s fourth-largest economy, bumping Japan down to fifth; 3 California 4,103,124 4 Japan 4,026,211",
    "label": "2024, nominal"
   },
   {
@@ -74,6 +74,18 @@
    "text": "Pennsylvania ($1.02T) is larger than Switzerland ($0.94T).",
    "quote": "24 Pennsylvania 1,024,206 25 Switzerland 936,564",
    "label": "2024, nominal"
+  },
+  {
+   "id": "c_ca_canada",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "sher",
+    "table"
+   ],
+   "text": "California ($4.10T) is also larger than Canada ($2.24T), so three states (California, Texas, New York) outscore Canada.",
+   "quote": "California has officially become the world’s fourth-largest economy, bumping Japan down to fifth; 3 California 4,103,124 4 Japan 4,026,211; 8 Texas 2,709,393 9 Italy 2,372,775 10 New York 2,297,028 11 Canada 2,241,253",
+   "note": "California's figure (c_ca) against Canada's (quoted in c_tx): 4.10 > 2.24. Added 2026-10-07 after the 'two separate states' line was found wrong."
   }
  ],
  "myths": [],

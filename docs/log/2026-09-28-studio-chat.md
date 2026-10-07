@@ -2314,3 +2314,21 @@ So there are two obvious corrections that have to be done in that. One of it is 
   - Wrote `studio/tools/voice_catalog.py`: 23 OpenRouter speech models, 347 English voices, about $0.96. It writes a sample per voice and one dashboard card per model. Episode voices are untouched.
   - Fish has no public voice list on OpenRouter, so only Felix is included.
 - Re-renders of the pilot and the four Leader Flags videos are running.
+
+### 🧑 User · 2026-10-07 UTC
+
+[OpenRouter key redacted] - openrouter key, just use it from here, the session is secure anyways, no one has acces to it apart from me
+
+(then) when you push updates to anything please also make sure to push them to the studio because that is wher ei review eveything
+
+#### Claude · record
+
+- **Key handling:** stored only in `~/.config/openrouter/key` inside this container (mode 600), outside the repo. A git grep confirms it is in no tracked or untracked file; it is redacted in this log.
+- **Voice catalogue:**
+  - 135 samples made: ElevenLabs v3 (21), v4 (18) and v4-turbo (20); Microsoft MAI-Voice 2.1 (12) and 2.1 Flash (12); Deepgram Flux (35); Fish S1 and S2.1 free (Felix); a handful of Kokoro, MiniMax, Qwen and Deepgram Aura.
+  - Then the account returned HTTP 402 "insufficient credits" (it has never had credit bought; usage $0.38 so far). About 210 voices are left; about $1 of credit makes them.
+  - On the dashboard: one card per model plus a summary card. Samples run 4.5–8 s.
+- **Leader Flags, all four re-rendered:** the globe follows the narration, US states light up as their own shapes, and small places get a pulsing ring (rings only on the visible side).
+- **Fact error found while reviewing:** "Canada is outscored by two separate states" is three by the episode's own figures. I corrected the line, caption, claim and graphic, and re-voiced that paragraph (WER 0).
+- **Results:** −14.1 to −14.3 LUFS; WER 0 to 0.016. Reviews: rounds 4 and 5 logged, and every gate passes through packaging.
+- **Rule noted:** every push must land on the dashboard. Each push to main redeploys it, and I now check that the deploy succeeded after pushing.

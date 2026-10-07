@@ -160,6 +160,7 @@ function lfGlobe(t, o = {}) {
   const P = (lon, lat) => { const l = (lon - lon0) * Math.PI / 180, f = lat * Math.PI / 180, cl = Math.cos(f);
     let x = cl * Math.sin(l), y = cp * Math.sin(f) - sp * cl * Math.cos(l); const z = sp * Math.sin(f) + cp * cl * Math.cos(l);
     if (z < 0) { const n = Math.hypot(x, y) || 1; x /= n; y /= n; } return [cx + x * R, cy - y * R]; };
+  const front = (lon, lat) => { const l = (lon - lon0) * Math.PI / 180, f = lat * Math.PI / 180; return sp * Math.sin(f) + cp * Math.cos(f) * Math.cos(l) > 0.15; };
   // atmosphere and ocean
   const at = ctx.createRadialGradient(cx, cy, R * 0.92, cx, cy, R * 1.12); at.addColorStop(0, "rgba(90,150,255,0.45)"); at.addColorStop(1, "rgba(90,150,255,0)");
   ctx.fillStyle = at; ctx.beginPath(); ctx.arc(cx, cy, R * 1.12, 0, 7); ctx.fill();
@@ -172,8 +173,11 @@ function lfGlobe(t, o = {}) {
   for (let la = -60; la <= 60; la += 30) { ctx.beginPath(); for (let lo = -180; lo <= 180; lo += 5) { const [x, y] = P(lo, la); lo === -180 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke(); }
   // land, then the focus countries in gold
   const hi = new Set(F.lit), glowK = Math.max(k, 0.6);
+  const small = [];                       // highlighted places too small to spot get a pulsing ring (Chile, Uruguay, Switzerland...)
+  const boxOf = polys => { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (const poly of polys) for (const [lo, la] of poly[0]) { const [x, y] = P(lo, la); x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); } return [x0, y0, x1, y1]; };
   for (const L of LFG.g.layers) {
     const on = hi.has(L.iso);
+    if (on) { const b = boxOf(L.polys), c = lfCen(L.iso), p = c && front(c[0], c[1]) && P(c[0], c[1]); if (p && Math.min(b[2] - b[0], b[3] - b[1]) < 110) small.push(p); }
     ctx.beginPath(); for (const poly of L.polys) for (const ring of poly) { ring.forEach(([lo, la], j) => { const [x, y] = P(lo, la); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.closePath(); }
     if (on) { ctx.save(); ctx.shadowColor = "rgba(244,185,66,0.9)"; ctx.shadowBlur = 40 * glowK; ctx.fillStyle = hexA(LF.gold, 0.35 + 0.55 * glowK); ctx.fill("evenodd"); ctx.restore(); }
     else { ctx.fillStyle = "#34589c"; ctx.fill("evenodd"); }
@@ -181,9 +185,14 @@ function lfGlobe(t, o = {}) {
   }
   for (const key of hi) {                 // US states: drawn over their country, so only the state lights up
     const st = LFS[key]; if (!st) continue;
+    { const b = boxOf(st.polys), p = front(st.cen[0], st.cen[1]) && P(st.cen[0], st.cen[1]); if (p && Math.min(b[2] - b[0], b[3] - b[1]) < 110) small.push(p); }
     ctx.beginPath(); for (const poly of st.polys) for (const ring of poly) { ring.forEach(([lo, la], j) => { const [x, y] = P(lo, la); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.closePath(); }
     ctx.save(); ctx.shadowColor = "rgba(244,185,66,0.9)"; ctx.shadowBlur = 40 * glowK; ctx.fillStyle = hexA(LF.gold, 0.35 + 0.55 * glowK); ctx.fill("evenodd"); ctx.restore();
     ctx.strokeStyle = "rgba(255,230,160,0.9)"; ctx.lineWidth = 3; ctx.stroke();
+  }
+  for (const [x, y] of small) for (let r = 0; r < 2; r++) {
+    const u = ((t * 0.8 + r * 0.5) % 1), rad = 46 + u * 70;
+    ctx.strokeStyle = `rgba(255,214,120,${0.85 * (1 - u)})`; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(x, y, rad, 0, 7); ctx.stroke();
   }
   // a terminator: the night side shades the lower-right of the disc
   const sh = ctx.createLinearGradient(cx - R, cy - R, cx + R, cy + R); sh.addColorStop(0.45, "rgba(5,8,20,0)"); sh.addColorStop(1, "rgba(5,8,20,0.6)");

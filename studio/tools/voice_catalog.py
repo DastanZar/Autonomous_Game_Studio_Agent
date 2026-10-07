@@ -113,6 +113,7 @@ with cf.ThreadPoolExecutor(args.workers) as ex:
 json.dump(cat, open(cat_p, "w"), indent=1)
 
 # dashboard: one review item per model, every sample with a player
+ok_n = sum(1 for vs in cat.values() for d in vs.values() if d["status"] == "ok")
 rq_p = os.path.join(ROOT, "studio", "review_queue.json")
 rq = json.load(open(rq_p))
 rq["items"] = [i for i in rq["items"] if not i["id"].startswith("voices-")]
@@ -121,7 +122,7 @@ items = []
 for mid, vs in sorted(cat.items()):
     files = [[(FISH.get(v, v)), d["file"]] for v, d in sorted(vs.items()) if d["status"] == "ok"]
     bad = [v for v, d in vs.items() if d["status"] != "ok"]
-    if not files and not bad:
+    if not files:                      # nothing to play (e.g. no credit for that model): listed in the summary item instead
         continue
     m = names.get(mid, {"name": mid, "pricing": {}})
     cost = float(m["pricing"].get("prompt") or 0) * 1000
@@ -130,6 +131,15 @@ for mid, vs in sorted(cat.items()):
                   "question": f"Same sentence, every English voice. Price: ${cost:.3f} per 1,000 characters (a 60 s script is about 900)."
                               + (f" Failed: {', '.join(bad)}." if bad else "") + " Tell me the ones you like by name.",
                   "files": files})
+blocked = {mid: sum(1 for d in vs.values() if d["status"] != "ok") for mid, vs in cat.items()}
+blocked = {m: n for m, n in blocked.items() if n}
+if blocked:
+    why = sorted({(d["error"] or "")[:60] for vs in cat.values() for d in vs.values() if d["status"] != "ok"})
+    items.insert(0, {"id": "voices-summary", "status": "open", "kind": "audio", "title": f"Voice catalogue: {ok_n} samples ready, {sum(blocked.values())} not generated",
+                     "question": "Not generated yet: " + "; ".join(f"{m} ({n})" for m, n in sorted(blocked.items()))
+                                 + ". Most failed with HTTP 402 'insufficient credits': the account has no purchased credit, so paid models refuse. "
+                                 "About $1 of credit covers every remaining sample; rerun studio/tools/voice_catalog.py and only the missing ones are made.",
+                     "files": []})
 rq["items"] = items + rq["items"]
 json.dump(rq, open(rq_p, "w"), indent=1, ensure_ascii=False)
 ok = sum(1 for vs in cat.values() for d in vs.values() if d["status"] == "ok")

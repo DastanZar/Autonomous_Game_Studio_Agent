@@ -2,6 +2,671 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "voices-summary",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue: 135 samples ready, 338 not generated",
+   "question": "Not generated yet: bytedance-seed/seed-audio-1-0 (1); canopylabs/orpheus-3b-0.1-ft (7); deepgram/aura-2 (37); deepgram/flux-tts (1); elevenlabs/eleven-flash-v2.5 (21); elevenlabs/eleven-multilingual-v2 (21); elevenlabs/eleven-v3-conversational (21); elevenlabs/eleven-v4 (3); elevenlabs/eleven-v4-turbo (1); fish-audio/s2-pro (1); fish-audio/s2.1-pro (1); google/gemini-3.1-flash-tts-preview (30); google/gemini-3.8-flash-lite-tts (30); google/gemini-3.8-flash-tts (30); hexgrad/kokoro-82m (25); microsoft/mai-voice-2 (1); microsoft/mai-voice-2-flash (1); minimax/speech-2.8-hd (44); minimax/speech-2.8-turbo (39); mistralai/voxtral-mini-tts-2603 (8); qwen/qwen-audio-3.0-tts-flash (1); qwen/qwen-audio-3.0-tts-plus (2); sesame/csm-1b (7); x-ai/grok-voice-tts-1.0 (5). Most failed with HTTP 402 'insufficient credits': the account has no purchased credit, so paid models refuse. About $1 of credit covers every remaining sample; rerun studio/tools/voice_catalog.py and only the missing ones are made.",
+   "files": []
+  },
+  {
+   "id": "voices-deepgram_aura-2",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · Deepgram: Aura-2 (4 voices)",
+   "question": "Same sentence, every English voice. Price: $0.030 per 1,000 characters (a 60 s script is about 900). Failed: aura-2-thalia-en, aura-2-amalthea-en, aura-2-andromeda-en, aura-2-apollo-en, aura-2-arcas-en, aura-2-athena-en, aura-2-aurora-en, aura-2-callista-en, aura-2-cora-en, aura-2-delia-en, aura-2-draco-en, aura-2-electra-en, aura-2-harmonia-en, aura-2-helena-en, aura-2-hera-en, aura-2-hermes-en, aura-2-hyperion-en, aura-2-iris-en, aura-2-janus-en, aura-2-juno-en, aura-2-jupiter-en, aura-2-luna-en, aura-2-mars-en, aura-2-minerva-en, aura-2-neptune-en, aura-2-odysseus-en, aura-2-ophelia-en, aura-2-orion-en, aura-2-orpheus-en, aura-2-pandora-en, aura-2-phoebe-en, aura-2-pluto-en, aura-2-saturn-en, aura-2-selene-en, aura-2-theia-en, aura-2-vesta-en, aura-2-zeus-en. Tell me the ones you like by name.",
+   "files": [
+    [
+     "aura-2-aries-en",
+     "studio/voices/catalog/deepgram_aura-2/aura-2-aries-en.mp3"
+    ],
+    [
+     "aura-2-asteria-en",
+     "studio/voices/catalog/deepgram_aura-2/aura-2-asteria-en.mp3"
+    ],
+    [
+     "aura-2-atlas-en",
+     "studio/voices/catalog/deepgram_aura-2/aura-2-atlas-en.mp3"
+    ],
+    [
+     "aura-2-cordelia-en",
+     "studio/voices/catalog/deepgram_aura-2/aura-2-cordelia-en.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-deepgram_flux-tts",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · Deepgram: Flux TTS (35 voices)",
+   "question": "Same sentence, every English voice. Price: $0.045 per 1,000 characters (a 60 s script is about 900). Failed: flux-tanner-en. Tell me the ones you like by name.",
+   "files": [
+    [
+     "flux-alexis-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-alexis-en.mp3"
+    ],
+    [
+     "flux-bree-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-bree-en.mp3"
+    ],
+    [
+     "flux-brittany-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-brittany-en.mp3"
+    ],
+    [
+     "flux-brooke-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-brooke-en.mp3"
+    ],
+    [
+     "flux-bruce-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-bruce-en.mp3"
+    ],
+    [
+     "flux-cliff-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-cliff-en.mp3"
+    ],
+    [
+     "flux-cole-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-cole-en.mp3"
+    ],
+    [
+     "flux-colin-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-colin-en.mp3"
+    ],
+    [
+     "flux-conor-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-conor-en.mp3"
+    ],
+    [
+     "flux-donovan-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-donovan-en.mp3"
+    ],
+    [
+     "flux-drew-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-drew-en.mp3"
+    ],
+    [
+     "flux-elise-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-elise-en.mp3"
+    ],
+    [
+     "flux-gemma-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-gemma-en.mp3"
+    ],
+    [
+     "flux-haley-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-haley-en.mp3"
+    ],
+    [
+     "flux-hannah-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-hannah-en.mp3"
+    ],
+    [
+     "flux-heather-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-heather-en.mp3"
+    ],
+    [
+     "flux-jack-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-jack-en.mp3"
+    ],
+    [
+     "flux-kai-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-kai-en.mp3"
+    ],
+    [
+     "flux-kelsey-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-kelsey-en.mp3"
+    ],
+    [
+     "flux-kit-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-kit-en.mp3"
+    ],
+    [
+     "flux-maeve-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-maeve-en.mp3"
+    ],
+    [
+     "flux-marcelo-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-marcelo-en.mp3"
+    ],
+    [
+     "flux-marcus-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-marcus-en.mp3"
+    ],
+    [
+     "flux-meena-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-meena-en.mp3"
+    ],
+    [
+     "flux-meghan-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-meghan-en.mp3"
+    ],
+    [
+     "flux-miles-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-miles-en.mp3"
+    ],
+    [
+     "flux-naveen-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-naveen-en.mp3"
+    ],
+    [
+     "flux-paige-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-paige-en.mp3"
+    ],
+    [
+     "flux-priya-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-priya-en.mp3"
+    ],
+    [
+     "flux-rufus-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-rufus-en.mp3"
+    ],
+    [
+     "flux-sean-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-sean-en.mp3"
+    ],
+    [
+     "flux-sharon-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-sharon-en.mp3"
+    ],
+    [
+     "flux-sienna-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-sienna-en.mp3"
+    ],
+    [
+     "flux-wade-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-wade-en.mp3"
+    ],
+    [
+     "flux-wes-en",
+     "studio/voices/catalog/deepgram_flux-tts/flux-wes-en.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-elevenlabs_eleven-v3",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · ElevenLabs: Eleven v3 (21 voices)",
+   "question": "Same sentence, every English voice. Price: $0.040 per 1,000 characters (a 60 s script is about 900). Tell me the ones you like by name.",
+   "files": [
+    [
+     "adam",
+     "studio/voices/catalog/elevenlabs_eleven-v3/adam.mp3"
+    ],
+    [
+     "alice",
+     "studio/voices/catalog/elevenlabs_eleven-v3/alice.mp3"
+    ],
+    [
+     "bella",
+     "studio/voices/catalog/elevenlabs_eleven-v3/bella.mp3"
+    ],
+    [
+     "bill",
+     "studio/voices/catalog/elevenlabs_eleven-v3/bill.mp3"
+    ],
+    [
+     "brian",
+     "studio/voices/catalog/elevenlabs_eleven-v3/brian.mp3"
+    ],
+    [
+     "callum",
+     "studio/voices/catalog/elevenlabs_eleven-v3/callum.mp3"
+    ],
+    [
+     "charlie",
+     "studio/voices/catalog/elevenlabs_eleven-v3/charlie.mp3"
+    ],
+    [
+     "chris",
+     "studio/voices/catalog/elevenlabs_eleven-v3/chris.mp3"
+    ],
+    [
+     "daniel",
+     "studio/voices/catalog/elevenlabs_eleven-v3/daniel.mp3"
+    ],
+    [
+     "eric",
+     "studio/voices/catalog/elevenlabs_eleven-v3/eric.mp3"
+    ],
+    [
+     "george",
+     "studio/voices/catalog/elevenlabs_eleven-v3/george.mp3"
+    ],
+    [
+     "harry",
+     "studio/voices/catalog/elevenlabs_eleven-v3/harry.mp3"
+    ],
+    [
+     "jessica",
+     "studio/voices/catalog/elevenlabs_eleven-v3/jessica.mp3"
+    ],
+    [
+     "laura",
+     "studio/voices/catalog/elevenlabs_eleven-v3/laura.mp3"
+    ],
+    [
+     "liam",
+     "studio/voices/catalog/elevenlabs_eleven-v3/liam.mp3"
+    ],
+    [
+     "lily",
+     "studio/voices/catalog/elevenlabs_eleven-v3/lily.mp3"
+    ],
+    [
+     "matilda",
+     "studio/voices/catalog/elevenlabs_eleven-v3/matilda.mp3"
+    ],
+    [
+     "river",
+     "studio/voices/catalog/elevenlabs_eleven-v3/river.mp3"
+    ],
+    [
+     "roger",
+     "studio/voices/catalog/elevenlabs_eleven-v3/roger.mp3"
+    ],
+    [
+     "sarah",
+     "studio/voices/catalog/elevenlabs_eleven-v3/sarah.mp3"
+    ],
+    [
+     "will",
+     "studio/voices/catalog/elevenlabs_eleven-v3/will.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-elevenlabs_eleven-v4",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · ElevenLabs: Eleven v4 (18 voices)",
+   "question": "Same sentence, every English voice. Price: $0.040 per 1,000 characters (a 60 s script is about 900). Failed: adam, alice, charlie. Tell me the ones you like by name.",
+   "files": [
+    [
+     "bella",
+     "studio/voices/catalog/elevenlabs_eleven-v4/bella.mp3"
+    ],
+    [
+     "bill",
+     "studio/voices/catalog/elevenlabs_eleven-v4/bill.mp3"
+    ],
+    [
+     "brian",
+     "studio/voices/catalog/elevenlabs_eleven-v4/brian.mp3"
+    ],
+    [
+     "callum",
+     "studio/voices/catalog/elevenlabs_eleven-v4/callum.mp3"
+    ],
+    [
+     "chris",
+     "studio/voices/catalog/elevenlabs_eleven-v4/chris.mp3"
+    ],
+    [
+     "daniel",
+     "studio/voices/catalog/elevenlabs_eleven-v4/daniel.mp3"
+    ],
+    [
+     "eric",
+     "studio/voices/catalog/elevenlabs_eleven-v4/eric.mp3"
+    ],
+    [
+     "george",
+     "studio/voices/catalog/elevenlabs_eleven-v4/george.mp3"
+    ],
+    [
+     "harry",
+     "studio/voices/catalog/elevenlabs_eleven-v4/harry.mp3"
+    ],
+    [
+     "jessica",
+     "studio/voices/catalog/elevenlabs_eleven-v4/jessica.mp3"
+    ],
+    [
+     "laura",
+     "studio/voices/catalog/elevenlabs_eleven-v4/laura.mp3"
+    ],
+    [
+     "liam",
+     "studio/voices/catalog/elevenlabs_eleven-v4/liam.mp3"
+    ],
+    [
+     "lily",
+     "studio/voices/catalog/elevenlabs_eleven-v4/lily.mp3"
+    ],
+    [
+     "matilda",
+     "studio/voices/catalog/elevenlabs_eleven-v4/matilda.mp3"
+    ],
+    [
+     "river",
+     "studio/voices/catalog/elevenlabs_eleven-v4/river.mp3"
+    ],
+    [
+     "roger",
+     "studio/voices/catalog/elevenlabs_eleven-v4/roger.mp3"
+    ],
+    [
+     "sarah",
+     "studio/voices/catalog/elevenlabs_eleven-v4/sarah.mp3"
+    ],
+    [
+     "will",
+     "studio/voices/catalog/elevenlabs_eleven-v4/will.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-elevenlabs_eleven-v4-turbo",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · ElevenLabs: Eleven v4 Turbo (20 voices)",
+   "question": "Same sentence, every English voice. Price: $0.020 per 1,000 characters (a 60 s script is about 900). Failed: harry. Tell me the ones you like by name.",
+   "files": [
+    [
+     "adam",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/adam.mp3"
+    ],
+    [
+     "alice",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/alice.mp3"
+    ],
+    [
+     "bella",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/bella.mp3"
+    ],
+    [
+     "bill",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/bill.mp3"
+    ],
+    [
+     "brian",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/brian.mp3"
+    ],
+    [
+     "callum",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/callum.mp3"
+    ],
+    [
+     "charlie",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/charlie.mp3"
+    ],
+    [
+     "chris",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/chris.mp3"
+    ],
+    [
+     "daniel",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/daniel.mp3"
+    ],
+    [
+     "eric",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/eric.mp3"
+    ],
+    [
+     "george",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/george.mp3"
+    ],
+    [
+     "jessica",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/jessica.mp3"
+    ],
+    [
+     "laura",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/laura.mp3"
+    ],
+    [
+     "liam",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/liam.mp3"
+    ],
+    [
+     "lily",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/lily.mp3"
+    ],
+    [
+     "matilda",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/matilda.mp3"
+    ],
+    [
+     "river",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/river.mp3"
+    ],
+    [
+     "roger",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/roger.mp3"
+    ],
+    [
+     "sarah",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/sarah.mp3"
+    ],
+    [
+     "will",
+     "studio/voices/catalog/elevenlabs_eleven-v4-turbo/will.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-fish-audio_s1",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · Fish Audio: S1 (1 voices)",
+   "question": "Same sentence, every English voice. Price: $0.015 per 1,000 characters (a 60 s script is about 900). Tell me the ones you like by name.",
+   "files": [
+    [
+     "Felix (Australian male; our original pick)",
+     "studio/voices/catalog/fish-audio_s1/8062e83481fe4165a2a92cd753f9c06b.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-fish-audio_s2.1-pro-free_free",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · Fish Audio: S2.1 Pro Free (free) (1 voices)",
+   "question": "Same sentence, every English voice. Price: $0.000 per 1,000 characters (a 60 s script is about 900). Tell me the ones you like by name.",
+   "files": [
+    [
+     "Felix (Australian male; our original pick)",
+     "studio/voices/catalog/fish-audio_s2.1-pro-free_free/8062e83481fe4165a2a92cd753f9c06b.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-hexgrad_kokoro-82m",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · hexgrad: Kokoro 82M (3 voices)",
+   "question": "Same sentence, every English voice. Price: $0.001 per 1,000 characters (a 60 s script is about 900). Failed: af_alloy, af_aoede, af_bella, af_heart, af_jessica, af_kore, af_nova, af_river, af_sky, am_adam, am_echo, am_eric, am_liam, am_michael, am_onyx, am_puck, am_santa, bf_alice, bf_emma, bf_isabella, bf_lily, bm_daniel, bm_fable, bm_george, bm_lewis. Tell me the ones you like by name.",
+   "files": [
+    [
+     "af_nicole",
+     "studio/voices/catalog/hexgrad_kokoro-82m/af_nicole.mp3"
+    ],
+    [
+     "af_sarah",
+     "studio/voices/catalog/hexgrad_kokoro-82m/af_sarah.mp3"
+    ],
+    [
+     "am_fenrir",
+     "studio/voices/catalog/hexgrad_kokoro-82m/am_fenrir.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-microsoft_mai-voice-2.1",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · Microsoft AI: MAI-Voice-2.1 (12 voices)",
+   "question": "Same sentence, every English voice. Price: $0.022 per 1,000 characters (a 60 s script is about 900). Tell me the ones you like by name.",
+   "files": [
+    [
+     "en-AU-Isla:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-AU-Isla_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-GB-Emily:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-GB-Emily_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-GB-Harry:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-GB-Harry_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-IN-Dhruv:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-IN-Dhruv_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-IN-Priya:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-IN-Priya_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-US-Ethan:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Ethan_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-US-Grant:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Grant_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-US-Harper:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Harper_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-US-Iris:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Iris_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-US-Jasper:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Jasper_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-US-Olivia:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Olivia_MAI-Voice-2.1.mp3"
+    ],
+    [
+     "en-US-Sage:MAI-Voice-2.1",
+     "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Sage_MAI-Voice-2.1.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-microsoft_mai-voice-2.1-flash",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · Microsoft AI: MAI-Voice-2.1-Flash (12 voices)",
+   "question": "Same sentence, every English voice. Price: $0.015 per 1,000 characters (a 60 s script is about 900). Tell me the ones you like by name.",
+   "files": [
+    [
+     "en-AU-Isla:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-AU-Isla_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-GB-Emily:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-GB-Emily_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-GB-Harry:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-GB-Harry_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-IN-Dhruv:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-IN-Dhruv_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-IN-Priya:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-IN-Priya_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-US-Ethan:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Ethan_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-US-Grant:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Grant_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-US-Harper:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Harper_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-US-Iris:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Iris_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-US-Jasper:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Jasper_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-US-Olivia:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Olivia_MAI-Voice-2.1-Flash.mp3"
+    ],
+    [
+     "en-US-Sage:MAI-Voice-2.1-Flash",
+     "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Sage_MAI-Voice-2.1-Flash.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-minimax_speech-2.8-hd",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · MiniMax: Speech 2.8 HD (1 voices)",
+   "question": "Same sentence, every English voice. Price: $0.100 per 1,000 characters (a 60 s script is about 900). Failed: English_expressive_narrator, English_radiant_girl, English_magnetic_voiced_man, English_compelling_lady1, English_Aussie_Bloke, English_captivating_female1, English_Upbeat_Woman, English_Trustworth_Man, English_CalmWoman, English_UpsetGirl, English_Gentle-voiced_man, English_Whispering_girl, English_Diligent_Man, English_Graceful_Lady, English_ReservedYoungMan, English_PlayfulGirl, English_ManWithDeepVoice, English_MaturePartner, English_FriendlyPerson, English_MatureBoss, English_Debator, English_LovelyGirl, English_Steadymentor, English_Deep-VoicedGentleman, English_Wiselady, English_DecentYoungMan, English_SentimentalLady, English_ImposingManner, English_SadTeen, English_PassionateWarrior, English_WiseScholar, English_Soft-spokenGirl, English_SereneWoman, English_ConfidentWoman, English_PatientMan, English_Comedian, English_BossyLeader, English_Strong-WilledBoy, English_StressedLady, English_AssertiveQueen, English_AnimeCharacter, English_Jovialman, English_WhimsicalGirl, English_Kind-heartedGirl. Tell me the ones you like by name.",
+   "files": [
+    [
+     "English_CaptivatingStoryteller",
+     "studio/voices/catalog/minimax_speech-2.8-hd/English_CaptivatingStoryteller.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-minimax_speech-2.8-turbo",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · MiniMax: Speech 2.8 Turbo (6 voices)",
+   "question": "Same sentence, every English voice. Price: $0.060 per 1,000 characters (a 60 s script is about 900). Failed: English_radiant_girl, English_magnetic_voiced_man, English_compelling_lady1, English_Aussie_Bloke, English_captivating_female1, English_CalmWoman, English_UpsetGirl, English_Gentle-voiced_man, English_Whispering_girl, English_Diligent_Man, English_Graceful_Lady, English_ReservedYoungMan, English_PlayfulGirl, English_ManWithDeepVoice, English_MaturePartner, English_FriendlyPerson, English_Debator, English_LovelyGirl, English_Steadymentor, English_Wiselady, English_CaptivatingStoryteller, English_DecentYoungMan, English_SentimentalLady, English_ImposingManner, English_SadTeen, English_PassionateWarrior, English_WiseScholar, English_Soft-spokenGirl, English_ConfidentWoman, English_PatientMan, English_Comedian, English_BossyLeader, English_Strong-WilledBoy, English_StressedLady, English_AssertiveQueen, English_AnimeCharacter, English_Jovialman, English_WhimsicalGirl, English_Kind-heartedGirl. Tell me the ones you like by name.",
+   "files": [
+    [
+     "English_Deep-VoicedGentleman",
+     "studio/voices/catalog/minimax_speech-2.8-turbo/English_Deep-VoicedGentleman.mp3"
+    ],
+    [
+     "English_MatureBoss",
+     "studio/voices/catalog/minimax_speech-2.8-turbo/English_MatureBoss.mp3"
+    ],
+    [
+     "English_SereneWoman",
+     "studio/voices/catalog/minimax_speech-2.8-turbo/English_SereneWoman.mp3"
+    ],
+    [
+     "English_Trustworth_Man",
+     "studio/voices/catalog/minimax_speech-2.8-turbo/English_Trustworth_Man.mp3"
+    ],
+    [
+     "English_Upbeat_Woman",
+     "studio/voices/catalog/minimax_speech-2.8-turbo/English_Upbeat_Woman.mp3"
+    ],
+    [
+     "English_expressive_narrator",
+     "studio/voices/catalog/minimax_speech-2.8-turbo/English_expressive_narrator.mp3"
+    ]
+   ]
+  },
+  {
+   "id": "voices-qwen_qwen-audio-3.0-tts-flash",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voice catalogue · Qwen: Qwen-Audio-3.0-TTS Flash (1 voices)",
+   "question": "Same sentence, every English voice. Price: $0.015 per 1,000 characters (a 60 s script is about 900). Failed: longanhuan_v3.6. Tell me the ones you like by name.",
+   "files": [
+    [
+     "loongjohn",
+     "studio/voices/catalog/qwen_qwen-audio-3.0-tts-flash/loongjohn.mp3"
+    ]
+   ]
+  },
+  {
    "id": "sketch-pilot",
    "status": "open",
    "kind": "video",
