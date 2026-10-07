@@ -14,7 +14,7 @@
    "claims": [
     "c_prices"
    ],
-   "gap": 0.5,
+   "gap": 1.2,
    "caps": [
     [
      "Your power bill went up.",
@@ -35,7 +35,7 @@
    "say": "This is a data center. A warehouse full of computers, running all day and all night.",
    "kind": "transition",
    "claims": [],
-   "gap": 0.3,
+   "gap": 1.0,
    "caps": [
     [
      "This is a data center.",
@@ -62,7 +62,7 @@
    "claims": [
     "c_share"
    ],
-   "gap": 0.35,
+   "gap": 1.05,
    "caps": [
     [
      "In 2023,",
@@ -93,7 +93,7 @@
    "claims": [
     "c_pjm"
    ],
-   "gap": 0.3,
+   "gap": 1.0,
    "caps": [
     [
      "13 states and Washington",
@@ -120,7 +120,7 @@
    "claims": [
     "c_auction"
    ],
-   "gap": 0.3,
+   "gap": 1.0,
    "caps": [
     [
      "Every year,",
@@ -151,7 +151,7 @@
    "claims": [
     "c_prices"
    ],
-   "gap": 0.45,
+   "gap": 1.15,
    "caps": [
     [
      "For 2024,",
@@ -174,7 +174,7 @@
    "claims": [
     "c_forecast"
    ],
-   "gap": 0.4,
+   "gap": 1.1,
    "caps": [
     [
      "Then the forecasts",
@@ -193,7 +193,7 @@
    "claims": [
     "c_prices"
    ],
-   "gap": 0.45,
+   "gap": 1.15,
    "caps": [
     [
      "$270.",
@@ -216,7 +216,7 @@
    "claims": [
     "c_cap"
    ],
-   "gap": 0.4,
+   "gap": 1.1,
    "caps": [
     [
      "And that's with a price cap.",
@@ -243,7 +243,7 @@
    "claims": [
     "c_monitor"
    ],
-   "gap": 0.35,
+   "gap": 1.05,
    "caps": [
     [
      "The market monitor's estimate?",
@@ -274,7 +274,7 @@
    "claims": [
     "c_dcbill"
    ],
-   "gap": 0.5,
+   "gap": 1.2,
    "caps": [
     [
      "In Washington,",

@@ -56,6 +56,22 @@
    }
   },
   {
+   "id": "s_share_2028",
+   "type": "custom",
+   "start": "share/by-0.4",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     1090,
+     1020,
+     1020
+    ],
+    "move": 0.4
+   }
+  },
+  {
    "id": "s_grid",
    "type": "custom",
    "start": "grid.start-0.2",
@@ -211,5 +227,5 @@
    }
   }
  ],
- "pace": 1.08
+ "pace": 1.2
 }

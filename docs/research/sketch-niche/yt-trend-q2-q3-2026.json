@@ -1,0 +1,142 @@
+{
+ "what if animation": {
+  "Q2 Apr-Jun": {
+   "n": 50,
+   "median": 7354033,
+   "top10": 47067282,
+   "channels": 44
+  },
+  "Q3 Jul-Sep": {
+   "n": 50,
+   "median": 2680988,
+   "top10": 17783908,
+   "channels": 43
+  }
+ },
+ "what would happen if": {
+  "Q2 Apr-Jun": {
+   "n": 50,
+   "median": 8716195,
+   "top10": 43308188,
+   "channels": 34
+  },
+  "Q3 Jul-Sep": {
+   "n": 50,
+   "median": 6021726,
+   "top10": 24144653,
+   "channels": 40
+  }
+ },
+ "weird history": {
+  "Q2 Apr-Jun": {
+   "n": 50,
+   "median": 155379,
+   "top10": 14971427,
+   "channels": 42
+  },
+  "Q3 Jul-Sep": {
+   "n": 50,
+   "median": 48349,
+   "top10": 6232800,
+   "channels": 47
+  }
+ },
+ "history explained": {
+  "Q2 Apr-Jun": {
+   "n": 50,
+   "median": 6094411,
+   "top10": 15752876,
+   "channels": 39
+  },
+  "Q3 Jul-Sep": {
+   "n": 50,
+   "median": 3249223,
+   "top10": 16217735,
+   "channels": 46
+  }
+ },
+ "science animation shorts": {
+  "Q2 Apr-Jun": {
+   "n": 50,
+   "median": 406313,
+   "top10": 8312746,
+   "channels": 33
+  },
+  "Q3 Jul-Sep": {
+   "n": 50,
+   "median": 1978898,
+   "top10": 25974930,
+   "channels": 40
+  }
+ },
+ "draw my life": {
+  "Q2 Apr-Jun": {
+   "n": 50,
+   "median": 30215,
+   "top10": 3008507,
+   "channels": 28
+  },
+  "Q3 Jul-Sep": {
+   "n": 50,
+   "median": 18744,
+   "top10": 1886105,
+   "channels": 41
+  }
+ },
+ "economy explained": {
+  "Q2 Apr-Jun": {
+   "n": 50,
+   "median": 262085,
+   "top10": 3620403,
+   "channels": 43
+  },
+  "Q3 Jul-Sep": {
+   "n": 50,
+   "median": 279146,
+   "top10": 1152347,
+   "channels": 40
+  }
+ },
+ "sports explained animation": {
+  "Q2 Apr-Jun": {
+   "n": 4,
+   "median": 355387,
+   "top10": 1017719,
+   "channels": 4
+  },
+  "Q3 Jul-Sep": {
+   "n": 6,
+   "median": 1350,
+   "top10": 94027,
+   "channels": 6
+  }
+ },
+ "psychology explained": {
+  "Q2 Apr-Jun": {
+   "n": 50,
+   "median": 377262,
+   "top10": 4658526,
+   "channels": 38
+  },
+  "Q3 Jul-Sep": {
+   "n": 50,
+   "median": 189376,
+   "top10": 3619118,
+   "channels": 43
+  }
+ },
+ "true crime explained": {
+  "Q2 Apr-Jun": {
+   "n": 50,
+   "median": 82392,
+   "top10": 1052151,
+   "channels": 45
+  },
+  "Q3 Jul-Sep": {
+   "n": 50,
+   "median": 27648,
+   "top10": 514271,
+   "channels": 44
+  }
+ }
+}
