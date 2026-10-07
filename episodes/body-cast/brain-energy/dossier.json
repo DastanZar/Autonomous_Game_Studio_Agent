@@ -1,0 +1,123 @@
+{
+ "topic": "Your brain: 2% of your weight, 20% of your energy",
+ "sources": [
+  {
+   "id": "wiki",
+   "title": "Human brain",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Human_brain",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "sa",
+   "title": "Why Does the Brain Need So Much Power?",
+   "publisher": "Scientific American",
+   "url": "https://www.scientificamerican.com/article/why-does-the-brain-need-s/",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "hyper",
+   "title": "Power of a Human Brain",
+   "publisher": "The Physics Factbook (hypertextbook.com)",
+   "url": "https://hypertextbook.com/facts/2001/JacquelineLing.shtml",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "flip",
+   "title": "How much energy does your brain require?",
+   "publisher": "FlipScience",
+   "url": "https://www.flipscience.ph/flipfacts/how-much-energy-does-your-brain-require/",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "sa10",
+   "title": "Do People Only Use 10 Percent of Their Brains?",
+   "publisher": "Scientific American",
+   "url": "https://www.scientificamerican.com/article/do-people-only-use-10-percent-of-their-brains/",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_weight",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "flip"
+   ],
+   "text": "The brain is about 2% of body weight.",
+   "quote": "which is about 2% of the total body weight; Your brain accounts for roughly two percent of your body weight"
+  },
+  {
+   "id": "c_energy",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "sa",
+    "hyper"
+   ],
+   "text": "The brain uses up to about 20% of the body's energy (at rest).",
+   "quote": "The brain consumes up to 20% of the energy used by the human body, more than any other organ; accounting for up to 20 percent of the body's total haul; it consumes about 20% of the total energy in the body at rest"
+  },
+  {
+   "id": "c_oxygen",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "hyper"
+   ],
+   "text": "It accounts for about 20% of total body oxygen consumption.",
+   "quote": "20% of total body oxygen consumption; the human brain accounts for about 20% of the total oxygen consumption when a person is at rest"
+  },
+  {
+   "id": "c_glucose",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "It uses about 25% of total body glucose.",
+   "quote": "25% of total body glucose utilization"
+  },
+  {
+   "id": "c_cardiac",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "It receives about 15% of cardiac output.",
+   "quote": "it receives 15% of the cardiac output"
+  },
+  {
+   "id": "c_myth",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "sa10"
+   ],
+   "text": "The idea that people use only 10% of their brain is a myth.",
+   "quote": "nor that normal humans use only ten per cent of the brain; the \"10 percent myth\" is so wrong it is almost laughable"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "You only use 10% of your brain.",
+   "truth": "A myth; the video says so.",
+   "sources": [
+    "wiki",
+    "sa10"
+   ]
+  }
+ ],
+ "open_questions": []
+}

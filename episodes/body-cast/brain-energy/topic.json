@@ -1,0 +1,27 @@
+{
+ "slug": "brain-energy",
+ "channel": "body-cast",
+ "series": "day_in_life",
+ "hook": "Your brain is two percent of your body weight, and it eats a fifth of your energy.",
+ "twist": "2% of the weight, 20% of the oxygen, 25% of the glucose, 15% of the heart's output; and the 'you only use 10% of your brain' myth is wrong.",
+ "angle": "The Brain brags, the Heart complains about deliveries, the myth gets stamped. One big number: 20%.",
+ "why_now": "Scout: brain-facts Shorts top 80.9M, median of top 25 6.4M since mid-2024.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/Human_brain",
+  "https://www.scientificamerican.com/article/why-does-the-brain-need-s/",
+  "https://hypertextbook.com/facts/2001/JacquelineLing.shtml"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 4,
+  "timeliness": 2,
+  "series_fit": 5
+ },
+ "risks": [
+  "The 20% figure is for the body at rest: the description says so."
+ ],
+ "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
+ "approved_at": "2026-10-06"
+}

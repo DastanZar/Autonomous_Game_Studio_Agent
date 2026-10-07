@@ -1,0 +1,294 @@
+{
+ "channel": "why-map",
+ "episode": "alaska-sale",
+ "series": "how_did",
+ "working_title": "Why Russia sold Alaska for two cents an acre",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "In eighteen sixty-seven, America bought Alaska from Russia. For about two cents an acre.",
+   "kind": "hook",
+   "claims": [
+    "c_price"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "IN 1867,",
+     3
+    ],
+    [
+     "AMERICA BOUGHT ALASKA",
+     3
+    ],
+    [
+     "FROM RUSSIA.",
+     2
+    ],
+    [
+     "FOR ABOUT",
+     2
+    ],
+    [
+     "TWO CENTS AN ACRE.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "why",
+   "say": "Russia had just lost the Crimean War. It needed money.",
+   "kind": "fact",
+   "claims": [
+    "c_money"
+   ],
+   "gap": 0.25,
+   "caps": [
+    [
+     "RUSSIA HAD JUST LOST",
+     4
+    ],
+    [
+     "THE CRIMEAN WAR.",
+     3
+    ],
+    [
+     "IT NEEDED MONEY.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "defend",
+   "say": "And Alaska would be hard to defend from Britain.",
+   "kind": "fact",
+   "claims": [
+    "c_crimea"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "AND ALASKA WOULD BE",
+     4
+    ],
+    [
+     "HARD TO DEFEND",
+     3
+    ],
+    [
+     "FROM BRITAIN.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "settlers",
+   "say": "Russia never had more than four hundred settlers there anyway.",
+   "kind": "joke",
+   "claims": [
+    "c_settlers"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "RUSSIA NEVER HAD",
+     3
+    ],
+    [
+     "MORE THAN 400 SETTLERS",
+     5
+    ],
+    [
+     "THERE ANYWAY.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "price",
+   "say": "So America paid seven point two million dollars. For land more than twice the size of Texas.",
+   "kind": "fact",
+   "claims": [
+    "c_price",
+    "c_size"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "SO AMERICA PAID",
+     3
+    ],
+    [
+     "$7.2 MILLION.",
+     5
+    ],
+    [
+     "FOR LAND MORE THAN",
+     4
+    ],
+    [
+     "TWICE THE SIZE OF TEXAS.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "folly",
+   "say": "Critics called it Seward's Folly. Seward's Icebox.",
+   "kind": "joke",
+   "claims": [
+    "c_folly"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "CRITICS CALLED IT",
+     3
+    ],
+    [
+     "SEWARD'S FOLLY.",
+     2
+    ],
+    [
+     "SEWARD'S ICEBOX.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "gold",
+   "say": "Then in eighteen ninety-six, gold was found in the Yukon, next door. And Alaska became the gateway.",
+   "kind": "fact",
+   "claims": [
+    "c_gold"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THEN IN 1896,",
+     4
+    ],
+    [
+     "GOLD WAS FOUND",
+     3
+    ],
+    [
+     "IN THE YUKON, NEXT DOOR.",
+     5
+    ],
+    [
+     "AND ALASKA BECAME THE GATEWAY.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "border",
+   "say": "But the strangest part? The treaty ran the border between two tiny islands.",
+   "kind": "fact",
+   "claims": [
+    "c_treatyline"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BUT THE STRANGEST PART?",
+     4
+    ],
+    [
+     "THE TREATY RAN THE BORDER",
+     5
+    ],
+    [
+     "BETWEEN TWO TINY ISLANDS.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "diomede",
+   "say": "Big Diomede is Russian. Little Diomede is American. Two point four miles apart.",
+   "kind": "fact",
+   "claims": [
+    "c_distance"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BIG DIOMEDE IS RUSSIAN.",
+     4
+    ],
+    [
+     "LITTLE DIOMEDE IS AMERICAN.",
+     4
+    ],
+    [
+     "2.4 MILES APART.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "dateline",
+   "say": "And the date line runs between them. Big Diomede is twenty-one hours ahead.",
+   "kind": "fact",
+   "claims": [
+    "c_dateline"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "AND THE DATE LINE",
+     4
+    ],
+    [
+     "RUNS BETWEEN THEM.",
+     3
+    ],
+    [
+     "BIG DIOMEDE IS",
+     3
+    ],
+    [
+     "21 HOURS AHEAD.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "So for two cents an acre, America also got a view of tomorrow.",
+   "kind": "callback",
+   "claims": [
+    "c_price",
+    "c_dateline"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "SO FOR TWO CENTS AN ACRE,",
+     6
+    ],
+    [
+     "AMERICA ALSO GOT",
+     3
+    ],
+    [
+     "A VIEW OF TOMORROW.",
+     4
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on 'two cents an acre', the hook's price; the last frame looks across at tomorrow, the first frame is the 1867 deal."
+ },
+ "pronounce": {
+  "Diomede": "Dye-uh-meed"
+ }
+}

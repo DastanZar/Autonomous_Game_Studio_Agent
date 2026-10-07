@@ -1,0 +1,28 @@
+{
+ "slug": "stomach-acid",
+ "channel": "body-cast",
+ "series": "day_in_life",
+ "hook": "Your stomach is full of acid that can dissolve zinc, so why doesn't it digest itself?",
+ "twist": "The lining coats itself in thick mucus laced with bicarbonate, and its cells are tightly joined: acid strong enough for zinc is stopped by snot.",
+ "angle": "The Stomach character panics about its own acid; the narrator explains the raincoat of mucus. One big number: 1.5 litres of gastric juice a day.",
+ "why_now": "Scout: 'why doesn't the stomach digest itself' Shorts top 40.6M views since mid-2024.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/Gastric_acid",
+  "https://www.iflscience.com/your-stomach-juices-are-so-acidic-they-can-digest-zinc-and-meat-so-why-dont-they-digest-you-and-your-precious-organs-83615",
+  "https://teachmephysiology.com/gastrointestinal-system/stomach/mucus-production/"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 4,
+  "timeliness": 2,
+  "series_fit": 5
+ },
+ "risks": [
+  "pH sources differ (1-3 in Wikipedia, 1.5-3.5 in IFLScience): say 'between one and three'.",
+  "'Dissolves zinc' is IFLScience's claim; it is shown as a fun line, not a key fact."
+ ],
+ "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
+ "approved_at": "2026-10-06"
+}

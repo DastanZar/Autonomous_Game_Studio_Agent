@@ -539,11 +539,11 @@ function pig(o) {
 // o: side ("US" blue kepi | "UK" redcoat shako | "navy" bicorne admiral | "pickel" spiked helmet), musket, walk, salute, brow, mustache
 function trooper(o) {
   const s = o.s || 1, ph = o.walk, side = o.side || "US";
-  const coat = o.coat || { US: "#2f3f6e", UK: "#b8322a", navy: "#1f2a44", pickel: "#2f3a46" }[side];
+  const coat = o.coat || { US: "#2f3f6e", UK: "#b8322a", navy: "#1f2a44", pickel: "#2f3a46", RU: "#3f5240", sailor: "#eeeae0" }[side];
   ctx.save(); ctx.translate(o.x, o.gy); ctx.scale(s * (o.dir || 1), s); boil(o.id || 7, 0.6 / s);
   const sw = ph == null ? 0 : Math.sin(ph); footShadow(0, 2, 62);
   ctx.translate(0, ph == null ? 0 : -Math.abs(Math.cos(ph)) * 6);
-  for (const k of [1, -1]) { ctx.save(); ctx.translate(k * 9, -120); ctx.rotate(sw * 0.42 * k); piece(() => ctx.roundRect(-11, 0, 22, 112, 6), side === "UK" ? "#2b2724" : tone(coat, -0.15), { lw: 3.5, rim: 4, shadow: false }); piece(() => ctx.roundRect(-13, 104, 36, 16, 6), KA.ink, { lw: 3, light: false, shadow: false }); ctx.restore(); }
+  for (const k of [1, -1]) { ctx.save(); ctx.translate(k * 9, -120); ctx.rotate(sw * 0.42 * k); piece(() => ctx.roundRect(-11, 0, 22, 112, 6), side === "UK" || side === "sailor" ? "#2b2724" : tone(coat, -0.15), { lw: 3.5, rim: 4, shadow: false }); piece(() => ctx.roundRect(-13, 104, 36, 16, 6), KA.ink, { lw: 3, light: false, shadow: false }); ctx.restore(); }
   piece(() => { ctx.moveTo(-38, -240); ctx.quadraticCurveTo(-46, -170, -42, -108); ctx.lineTo(42, -108); ctx.quadraticCurveTo(46, -170, 38, -240); ctx.quadraticCurveTo(0, -252, -38, -240); ctx.closePath(); }, coat, { lw: 4.5, rim: 9 });
   if (side === "UK") { line(-38, -240, 36, -120, KA.cream, 7); line(38, -240, -36, -120, KA.cream, 7); }        // crossbelts
   else { ctx.fillStyle = "#e3c36e"; for (const by of [-220, -196, -172, -148]) { ctx.beginPath(); ctx.arc(8, by, 4, 0, 7); ctx.fill(); } }
@@ -562,9 +562,12 @@ function trooper(o) {
   if (o.mustache) piece(() => { ctx.moveTo(4, 14); ctx.quadraticCurveTo(22, 4, 44, 16); ctx.quadraticCurveTo(22, 12, 4, 14); }, o.mustache, { lw: 2.5, rim: 2, shadow: false });
   else { ctx.beginPath(); ctx.arc(18, 18, 7, 0.3, 2.5); ctx.strokeStyle = KA.ink; ctx.lineWidth = 3; ctx.stroke(); }
   if (o.whiskers) piece(() => { ctx.moveTo(-30, -6); ctx.quadraticCurveTo(-34, 34, -8, 30); ctx.lineTo(-14, 6); ctx.closePath(); }, o.whiskers, { lw: 2.5, rim: 3, shadow: false });
-  if (side === "US") { piece(() => { ctx.moveTo(-30, -24); ctx.lineTo(-22, -64); ctx.lineTo(24, -60); ctx.lineTo(30, -24); ctx.closePath(); }, "#26324f", { lw: 3.5, rim: 4, shadow: false }); piece(() => { ctx.moveTo(14, -26); ctx.quadraticCurveTo(40, -26, 46, -16); ctx.lineTo(14, -18); ctx.closePath(); }, KA.ink, { lw: 2.5, light: false, shadow: false }); }
+  if (side === "sailor") { piece(() => { ctx.moveTo(-26, 40); ctx.lineTo(0, 74); ctx.lineTo(26, 40); ctx.closePath(); }, "#26324f", { lw: 2.5, rim: 2, shadow: false }); }
+  if (side === "US") { piece(() => { ctx.moveTo(-30, -24); ctx.lineTo(-22, -64); ctx.lineTo(24, -60); ctx.lineTo(30, -24); ctx.closePath(); }, o.cap || "#26324f", { lw: 3.5, rim: 4, shadow: false }); piece(() => { ctx.moveTo(14, -26); ctx.quadraticCurveTo(40, -26, 46, -16); ctx.lineTo(14, -18); ctx.closePath(); }, KA.ink, { lw: 2.5, light: false, shadow: false }); }
   else if (side === "UK") { piece(() => ctx.roundRect(-28, -78, 56, 54, 4), "#1e1c1a", { lw: 3.5, rim: 4, shadow: false }); piece(() => ctx.rect(-28, -34, 56, 8), "#e3c36e", { lw: 0, light: false, shadow: false }); piece(() => ctx.ellipse(0, -84, 8, 12, 0, 0, 7), KA.cream, { lw: 2.5, rim: 2, shadow: false }); }
   else if (side === "navy") { piece(() => { ctx.moveTo(-64, -22); ctx.quadraticCurveTo(0, -84, 64, -22); ctx.quadraticCurveTo(0, -40, -64, -22); ctx.closePath(); }, "#1e1c1a", { lw: 3.5, rim: 4, shadow: false }); piece(() => ctx.arc(0, -44, 7, 0, 7), "#e3c36e", { lw: 2, rim: 2, shadow: false }); }
+  else if (side === "RU") { piece(() => ctx.roundRect(-34, -44, 68, 24, 8), o.cap || "#3f5240", { lw: 3.5, rim: 4, shadow: false }); piece(() => ctx.rect(-34, -30, 68, 8), "#b8322a", { lw: 0, light: false, shadow: false }); piece(() => { ctx.moveTo(10, -22); ctx.quadraticCurveTo(38, -22, 44, -14); ctx.lineTo(10, -16); ctx.closePath(); }, KA.ink, { lw: 2.5, light: false, shadow: false }); }
+  else if (side === "sailor") { piece(() => ctx.ellipse(0, -30, 38, 12, 0, 0, 7), o.cap || "#f4f1ea", { lw: 3, rim: 3, shadow: false }); piece(() => ctx.rect(-30, -30, 60, 8), "#26324f", { lw: 0, light: false, shadow: false }); }
   else if (side === "pickel") { piece(() => { ctx.moveTo(-32, -18); ctx.bezierCurveTo(-32, -66, 32, -66, 32, -18); ctx.closePath(); }, "#1e1c1a", { lw: 3.5, rim: 5, shadow: false }); piece(() => { ctx.moveTo(-6, -58); ctx.lineTo(0, -92); ctx.lineTo(6, -58); ctx.closePath(); }, "#c9a043", { lw: 2.5, rim: 2, shadow: false }); piece(() => ctx.arc(0, -40, 8, 0, 7), "#c9a043", { lw: 2, rim: 2, shadow: false }); }
   ctx.restore();
   ctx.restore();

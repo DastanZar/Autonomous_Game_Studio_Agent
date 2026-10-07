@@ -1,0 +1,232 @@
+{
+ "episode": "states-vs-countries",
+ "theme": "data-flags",
+ "kits": [
+  "kinetic",
+  "flagart",
+  "rank"
+ ],
+ "flags": [
+  "US-CA",
+  "JP",
+  "US-TX",
+  "IT",
+  "CA",
+  "US-NY",
+  "US-FL",
+  "ID",
+  "US-PA",
+  "CH",
+  "US",
+  "CN",
+  "DE"
+ ],
+ "flagship": "House method (user 2026-10-06): C (kinetic infographic) is Leader Flags' default.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "hook/bigger",
+     "do": "reveal",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_fourth",
+   "type": "custom",
+   "start": "fourth.start-0.15",
+   "params": {
+    "fn": "fourth",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "fourth/four",
+     "do": "count_start",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_japan",
+   "type": "custom",
+   "start": "japan.start-0.15",
+   "params": {
+    "fn": "duel",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "L": {
+     "code": "US-CA",
+     "name": "California",
+     "value": 4103124
+    },
+    "R": {
+     "code": "JP",
+     "name": "Japan",
+     "value": 4026211
+    },
+    "at": "japan/japan"
+   },
+   "events": [
+    {
+     "at": "japan/japan",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_texas",
+   "type": "custom",
+   "start": "texas.start-0.15",
+   "params": {
+    "fn": "duel",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "L": {
+     "code": "US-TX",
+     "name": "Texas",
+     "value": 2709393
+    },
+    "R": {
+     "code": "IT",
+     "name": "Italy",
+     "value": 2372775
+    },
+    "at": "texas/texas",
+    "extra": {
+     "code": "CA",
+     "name": "CANADA $2.24T",
+     "at": "texas/canada"
+    }
+   },
+   "events": [
+    {
+     "at": "texas/beats",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_ny",
+   "type": "custom",
+   "start": "newyork.start-0.15",
+   "params": {
+    "fn": "duel",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "L": {
+     "code": "US-NY",
+     "name": "New York",
+     "value": 2297028
+    },
+    "R": {
+     "code": "CA",
+     "name": "Canada",
+     "value": 2241253
+    },
+    "at": "newyork/new"
+   },
+   "events": [
+    {
+     "at": "newyork/bigger",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_fl",
+   "type": "custom",
+   "start": "florida.start-0.15",
+   "params": {
+    "fn": "duel",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "L": {
+     "code": "US-FL",
+     "name": "Florida",
+     "value": 1705565
+    },
+    "R": {
+     "code": "ID",
+     "name": "Indonesia",
+     "value": 1396300
+    },
+    "at": "florida/florida"
+   },
+   "events": [
+    {
+     "at": "florida/beats",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_pa",
+   "type": "custom",
+   "start": "penn.start-0.15",
+   "params": {
+    "fn": "duel",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "L": {
+     "code": "US-PA",
+     "name": "Pennsylvania",
+     "value": 1024206
+    },
+    "R": {
+     "code": "CH",
+     "name": "Switzerland",
+     "value": 936564
+    },
+    "at": "penn/pennsylvania"
+   },
+   "events": [
+    {
+     "at": "penn/beats",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_canada",
+   "type": "custom",
+   "start": "canada.start-0.15",
+   "params": {
+    "fn": "canada",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "canada/two",
+     "do": "verdict",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "toll/meet",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

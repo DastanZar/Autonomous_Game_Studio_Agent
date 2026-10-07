@@ -1,0 +1,42 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+   "frames": [
+    0.05,
+    20.07
+   ],
+   "defects": [
+    {
+     "t": 0.05,
+     "issue": "hook: first frame half-drawn",
+     "fixed": true
+    },
+    {
+     "t": 20.07,
+     "issue": "Sweden's big number and label ran into the captions",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+   "frames": [
+    0.05,
+    3.26,
+    5.09,
+    8.5,
+    11.36,
+    13.98,
+    17.08,
+    20.07,
+    27.42,
+    31.72,
+    34.31
+   ],
+   "defects": []
+  }
+ ]
+}

@@ -1,0 +1,141 @@
+{
+ "episode": "swallowed-gum",
+ "theme": "flat-cast",
+ "kits": [
+  "body",
+  "kinetic"
+ ],
+ "flagship": "House method (user 2026-10-06): the organ cast and flat props carry the story; moving type for the one big number.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "hook/seven",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_long",
+   "type": "character_dialog",
+   "start": "long.start-0.15",
+   "params": {
+    "cast": [
+     "stomach"
+    ],
+    "setting": "stomach",
+    "moods": {
+     "stomach": "angry"
+    }
+   },
+   "events": []
+  },
+  {
+   "id": "s_base",
+   "type": "custom",
+   "start": "base.start-0.15",
+   "params": {
+    "fn": "base",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "base/sweeteners",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "base/indigestible",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_empty",
+   "type": "custom",
+   "start": "empty.start-0.15",
+   "params": {
+    "fn": "empty",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "empty/two",
+     "do": "count_start",
+     "sfx": "tick"
+    }
+   ]
+  },
+  {
+   "id": "s_path",
+   "type": "custom",
+   "start": "path.start-0.15",
+   "params": {
+    "fn": "path",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "path/path",
+     "do": "reveal",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_saw",
+   "type": "character_dialog",
+   "start": "saw.start-0.15",
+   "params": {
+    "cast": [
+     "gut_microbes"
+    ],
+    "setting": "gut"
+   },
+   "events": []
+  },
+  {
+   "id": "s_doctors",
+   "type": "custom",
+   "start": "doctors.start-0.15",
+   "params": {
+    "fn": "doctors",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "doctors/week",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "character_dialog",
+   "start": "toll.start-0.15",
+   "params": {
+    "cast": [
+     "stomach",
+     "gut_microbes"
+    ],
+    "setting": "spotlight",
+    "title": "LESS THAN A WEEK",
+    "moods": {
+     "stomach": "smug"
+    }
+   },
+   "events": []
+  }
+ ],
+ "drift": 0.06
+}

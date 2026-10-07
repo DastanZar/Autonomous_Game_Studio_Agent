@@ -4,7 +4,7 @@
 const kpp = (t, a, d) => clamp((t - a) / d);
 const kSpring = (k, f = 4.2, d = 5.5) => k <= 0 ? 0 : k >= 1 ? 1 : 1 - Math.exp(-d * k) * Math.cos(f * Math.PI * k);
 const hexA = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
-function glow(path, col, w, o = {}) {
+function kGlow(path, col, w, o = {}) {
   ctx.save(); ctx.lineCap = "round"; ctx.lineJoin = "round"; if (o.dash) ctx.setLineDash(o.dash);
   for (const [m, a] of [[5, 0.08], [2.6, 0.18], [1, 1]]) { ctx.beginPath(); path(); ctx.strokeStyle = col; ctx.globalAlpha = a * (o.alpha ?? 1); ctx.lineWidth = w * m; ctx.stroke(); }
   ctx.restore();

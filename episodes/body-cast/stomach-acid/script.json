@@ -1,0 +1,239 @@
+{
+ "channel": "body-cast",
+ "episode": "stomach-acid",
+ "series": "day_in_life",
+ "working_title": "Why your stomach doesn't digest itself",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Your stomach is full of acid strong enough to dissolve zinc.",
+   "kind": "hook",
+   "claims": [
+    "c_zinc"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "YOUR STOMACH IS FULL",
+     4
+    ],
+    [
+     "OF ACID STRONG ENOUGH",
+     4
+    ],
+    [
+     "TO DISSOLVE ZINC.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "ph",
+   "say": "It sits between one and three on the pH scale.",
+   "kind": "fact",
+   "claims": [
+    "c_ph"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IT SITS BETWEEN",
+     3
+    ],
+    [
+     "ONE AND THREE",
+     3
+    ],
+    [
+     "ON THE pH SCALE.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "litres",
+   "say": "And it makes about one and a half liters of it. Every day.",
+   "kind": "fact",
+   "claims": [
+    "c_volume"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "AND IT MAKES ABOUT",
+     4
+    ],
+    [
+     "1.5 LITERS OF IT.",
+     7
+    ],
+    [
+     "EVERY DAY.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "melt",
+   "say": "So why don't I melt?",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.45,
+   "caps": [
+    [
+     "SO WHY DON'T I MELT?",
+     5
+    ]
+   ],
+   "speaker": "stomach"
+  },
+  {
+   "id": "mucus",
+   "say": "Because the lining coats itself in thick mucus.",
+   "kind": "fact",
+   "claims": [
+    "c_mucus"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BECAUSE THE LINING",
+     3
+    ],
+    [
+     "COATS ITSELF",
+     2
+    ],
+    [
+     "IN THICK MUCUS.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "base",
+   "say": "Laced with bicarbonate, a base that fights the acid.",
+   "kind": "fact",
+   "claims": [
+    "c_mucus"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "LACED WITH BICARBONATE,",
+     3
+    ],
+    [
+     "A BASE THAT",
+     3
+    ],
+    [
+     "FIGHTS THE ACID.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "seal",
+   "say": "And the cells of the lining are tightly joined together.",
+   "kind": "fact",
+   "claims": [
+    "c_tight"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "AND THE CELLS",
+     3
+    ],
+    [
+     "OF THE LINING",
+     3
+    ],
+    [
+     "ARE TIGHTLY JOINED",
+     3
+    ],
+    [
+     "TOGETHER.",
+     1
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "coat",
+   "say": "Basically, I wear a raincoat. Made of snot.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.4,
+   "caps": [
+    [
+     "BASICALLY,",
+     1
+    ],
+    [
+     "I WEAR A RAINCOAT.",
+     4
+    ],
+    [
+     "MADE OF SNOT.",
+     3
+    ]
+   ],
+   "speaker": "stomach"
+  },
+  {
+   "id": "gross",
+   "say": "That's disgusting.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.4,
+   "caps": [
+    [
+     "THAT'S DISGUSTING.",
+     2
+    ]
+   ],
+   "speaker": "brain"
+  },
+  {
+   "id": "toll",
+   "say": "Acid strong enough for zinc. Stopped by snot.",
+   "kind": "callback",
+   "claims": [
+    "c_zinc",
+    "c_mucus"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "ACID STRONG ENOUGH",
+     3
+    ],
+    [
+     "FOR ZINC.",
+     2
+    ],
+    [
+     "STOPPED BY SNOT.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on the acid and zinc the hook named; the last frame is the stomach in its raincoat, the first is the stomach in its acid."
+ }
+}

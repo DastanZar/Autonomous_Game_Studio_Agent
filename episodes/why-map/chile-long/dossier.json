@@ -1,0 +1,179 @@
+{
+ "topic": "Why Chile is so long and thin, and why landlocked Bolivia still has a navy",
+ "sources": [
+  {
+   "id": "geo",
+   "title": "Geography of Chile",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Geography_of_Chile",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "t1881",
+   "title": "Boundary treaty of 1881 between Chile and Argentina",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Boundary_treaty_of_1881_between_Chile_and_Argentina",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "wop",
+   "title": "War of the Pacific",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/War_of_the_Pacific",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "navy",
+   "title": "Bolivian Naval Force",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Bolivian_Naval_Force",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "sea",
+   "title": "Day of the Sea",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Day_of_the_Sea",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "bigthink",
+   "title": "How long is Chile?",
+   "publisher": "Big Think (Strange Maps)",
+   "url": "https://bigthink.com/strange-maps/how-long-is-chile/",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "nwe",
+   "title": "War of the Pacific",
+   "publisher": "New World Encyclopedia",
+   "url": "https://newworldencyclopedia.org/entry/War_of_the_Pacific",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "osu",
+   "title": "The War of the Pacific, 1879-1884",
+   "publisher": "Origins, Ohio State University",
+   "url": "https://origins.osu.edu/watch/war-pacific-1879-1884",
+   "type": "scholarly",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "avaunt",
+   "title": "The Navy Without a Sea",
+   "publisher": "Avaunt Magazine",
+   "url": "https://avauntmagazine.com/the-navy-without-a-sea/",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_length",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "geo",
+    "bigthink"
+   ],
+   "text": "Chile extends 4,270 km north to south but averages only 177 km wide.",
+   "quote": "from north to south, the country extends 4,270 km (2,653 mi) , and yet it only averages 177 km (110 mi) in width; Chile measures 2,653 miles (4,270 km) from north to south; the country is only 110 miles (177 km) across, on average"
+  },
+  {
+   "id": "c_andes",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "t1881",
+    "bigthink"
+   ],
+   "text": "The 1881 treaty with Argentina put the border on the highest summits of the Andes that divide the waters.",
+   "quote": "The boundary-line shall run in that extent over the highest summits of the said Cordilleras which divide the waters; Chile is as narrow as it is because of the Andes Mountains, which separate it from Argentina"
+  },
+  {
+   "id": "c_cause",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wop",
+    "nwe"
+   ],
+   "text": "The War of the Pacific began over a nitrate taxation dispute between Bolivia and Chile; Peru was drawn in by a secret alliance with Bolivia.",
+   "quote": "The direct cause of the war was a nitrate taxation dispute between Bolivia and Chile, with Peru being drawn in due to its secret alliance with Bolivia; The War of the Pacific grew out of a dispute between Chile and Bolivia over control of a part of the Atacama desert"
+  },
+  {
+   "id": "c_fert",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wop",
+    "nwe"
+   ],
+   "text": "Nitrate and guano were valued as fertilizer (and saltpeter for explosives).",
+   "quote": "the value of guano and nitrate as fertilizer and the role of saltpeter in explosives; their use as fertilizer and as a key ingredient in explosives made the area strategically valuable"
+  },
+  {
+   "id": "c_antofagasta",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wop",
+    "nwe"
+   ],
+   "text": "On 14 February 1879 Chile's forces occupied the Bolivian port of Antofagasta.",
+   "quote": "14 February 1879, Chile's armed forces occupied without resistance the Bolivian port city of Antofagasta; claimed the port city of Antofagasta without a fight"
+  },
+  {
+   "id": "c_gain",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wop",
+    "osu"
+   ],
+   "text": "Chile acquired Peru's Tarapac\u00e1 and Bolivia's Litoral, turning Bolivia into a landlocked country.",
+   "quote": "Chile acquired the Peruvian territory of Tarapac\u00e1 , the disputed Bolivian department of Litoral (turning Bolivia into a landlocked country ); Bolivia lost its nitrate-rich coastal region and became a land-locked state"
+  },
+  {
+   "id": "c_navy",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "navy",
+    "avaunt"
+   ],
+   "text": "Landlocked since the war, Bolivia keeps a navy with a presence on Lake Titicaca, and it also patrols rivers; about 5,000 personnel as of 2018.",
+   "quote": "Bolivia also maintains a naval presence on Lake Titicaca; As of 2018, the Bolivian Navy had approximately 5,000 personnel; the Bolivian Navy extensively patrols Lake Titicaca and 5,000 miles of navigable rivers; keeping watch over Lake Titicaca, 3,800 metres above sea level"
+  },
+  {
+   "id": "c_dayofsea",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "sea",
+    "avaunt"
+   ],
+   "text": "Every 23 March Bolivia marks the Day of the Sea for the coast lost to Chile.",
+   "quote": "an annual celebration in Bolivia that observes the loss of Litoral Department during the 1879\u20131883 War of the Pacific with Chile; The day is celebrated on 23 March; particularly acute in Bolivia on March 23rd, the \u2018Day of the Sea\u2019, which marks the annexation of its shoreline"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Bolivia's navy has nothing to do and only sails a lake.",
+   "truth": "It also patrols about 5,000 miles of rivers against smugglers and floods; the script says the lake is where it keeps a presence, not its only water.",
+   "sources": [
+    "navy"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Length is 4,270 km (Geography of Chile) or 'over 4,300 km' (Chile article); the video uses 4,270."
+ ]
+}

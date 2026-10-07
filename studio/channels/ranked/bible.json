@@ -127,6 +127,20 @@
    "example_titles": [
     "Canada vs Russia: who is actually colder?"
    ]
+  },
+  {
+   "id": "top",
+   "name": "Top N countdown",
+   "title_pattern": "Which country has the most <X>?",
+   "beats": [
+    "hook: the obvious guess (and why it's wrong)",
+    "countdown from the bottom of the top 5 to number 1",
+    "the twist: how it's counted, or the one exception",
+    "callback to the hook"
+   ],
+   "example_titles": [
+    "Which country has the most time zones? Not Russia."
+   ]
   }
  ],
  "script": {

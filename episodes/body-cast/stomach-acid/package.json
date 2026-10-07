@@ -1,0 +1,20 @@
+{
+ "title": "Why doesn't your stomach digest itself?",
+ "description": "Your stomach acid sits between pH 1 and 3, yet the stomach doesn't digest itself: the lining coats itself in thick mucus laced with bicarbonate.\n\nSources:\n- Gastric acid — Wikipedia: https://en.wikipedia.org/wiki/Gastric_acid\n- Your stomach juices are so acidic they can digest zinc — IFLScience: https://www.iflscience.com/your-stomach-juices-are-so-acidic-they-can-digest-zinc-and-meat-so-why-dont-they-digest-you-and-your-precious-organs-83615\n- Mucus production — TeachMePhysiology: https://teachmephysiology.com/gastrointestinal-system/stomach/mucus-production/\n- Foveolar cell — Wikipedia: https://en.wikipedia.org/wiki/Foveolar_cell\n\nLabels: 'can dissolve zinc' is IFLScience's claim. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#science",
+  "#biology",
+  "#body",
+  "#shorts"
+ ],
+ "pinned_comment": "What's the grossest fact about your body you know?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/stomach-acid.mp4",
+ "srt": "out/stomach-acid.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-14T16:00:00Z"
+}

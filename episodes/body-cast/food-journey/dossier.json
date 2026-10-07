@@ -1,0 +1,105 @@
+{
+ "topic": "What happens to your lunch after you swallow it",
+ "sources": [
+  {
+   "id": "gi",
+   "title": "Human digestive system",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Human_digestive_system",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "cc",
+   "title": "Digestive System",
+   "publisher": "Cleveland Clinic",
+   "url": "https://my.clevelandclinic.org/health/body/7041-digestive-system",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "niddk",
+   "title": "Your Digestive System & How It Works",
+   "publisher": "U.S. National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works",
+   "type": "official",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_length",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "gi",
+    "cc"
+   ],
+   "text": "Mouth to anus, the GI tract is about nine metres (30 ft) long.",
+   "quote": "covering a distance of about nine metres (30 ft); If you could stretch it out, it would measure 30 feet (9 meters)"
+  },
+  {
+   "id": "c_sphincter",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "niddk"
+   ],
+   "text": "A ring-like muscle, the lower esophageal sphincter, relaxes to let food into the stomach.",
+   "quote": "a ringlike muscle\u2014called the lower esophageal sphincter \u2014relaxes and lets food pass into your stomach"
+  },
+  {
+   "id": "c_stomach",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "gi"
+   ],
+   "text": "After four or five hours the stomach has emptied.",
+   "quote": "After four or five hours the stomach has emptied"
+  },
+  {
+   "id": "c_small",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "cc",
+    "gi"
+   ],
+   "text": "The small intestine, about 22 feet, is the longest part of the tract.",
+   "quote": "This 22-foot-long muscular tube is the longest part of your gastrointestinal tract; The small intestine is the longest part of the GI tract"
+  },
+  {
+   "id": "c_transit",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "gi"
+   ],
+   "text": "Transit through the small intestine averages about 4 hours.",
+   "quote": "Transit time through the small intestine is an average of 4 hours"
+  },
+  {
+   "id": "c_water",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "niddk"
+   ],
+   "text": "The large intestine absorbs water and the waste becomes stool.",
+   "quote": "Your large intestine absorbs water, and the waste products of digestion become stool"
+  },
+  {
+   "id": "c_bacteria",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "niddk"
+   ],
+   "text": "Bacteria in the large intestine also break down food.",
+   "quote": "Bacteria in the large intestine can also break down food"
+  }
+ ],
+ "myths": [],
+ "open_questions": []
+}

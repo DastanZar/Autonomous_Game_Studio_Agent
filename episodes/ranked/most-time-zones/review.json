@@ -1,0 +1,46 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+   "frames": [
+    0.05,
+    4.86,
+    15.01
+   ],
+   "defects": [
+    {
+     "t": 0.05,
+     "issue": "hook: first frame half-drawn",
+     "fixed": true
+    },
+    {
+     "t": 4.86,
+     "issue": "clock rows drawn from the left edge, not centred",
+     "fixed": true
+    },
+    {
+     "t": 15.01,
+     "issue": "France's big number ran into the captions",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+   "frames": [
+    0.05,
+    3.48,
+    4.86,
+    6.57,
+    10.85,
+    15.01,
+    21.98,
+    24.22,
+    25.27
+   ],
+   "defects": []
+  }
+ ]
+}

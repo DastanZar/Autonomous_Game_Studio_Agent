@@ -1,0 +1,94 @@
+{
+ "topic": "Why your stomach doesn't digest itself",
+ "sources": [
+  {
+   "id": "gacid",
+   "title": "Gastric acid",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Gastric_acid",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "ifl",
+   "title": "Your stomach juices are so acidic they can digest zinc",
+   "publisher": "IFLScience",
+   "url": "https://www.iflscience.com/your-stomach-juices-are-so-acidic-they-can-digest-zinc-and-meat-so-why-dont-they-digest-you-and-your-precious-organs-83615",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "teach",
+   "title": "Mucus production",
+   "publisher": "TeachMePhysiology",
+   "url": "https://teachmephysiology.com/gastrointestinal-system/stomach/mucus-production/",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "fov",
+   "title": "Foveolar cell",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Foveolar_cell",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_zinc",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "ifl"
+   ],
+   "text": "IFLScience reports gastric juice can dissolve zinc.",
+   "quote": "Your gastric juice is capable of dissolving your organs, zinc, and the legs of living frogs"
+  },
+  {
+   "id": "c_ph",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "gacid",
+    "ifl"
+   ],
+   "text": "Gastric acid's pH is between about one and three.",
+   "quote": "In humans, the pH of gastric acid is between one and three; generally sitting around 1.5 and 3.5 on the pH scale"
+  },
+  {
+   "id": "c_volume",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "gacid"
+   ],
+   "text": "An adult stomach secretes about 1.5 litres of gastric juice a day.",
+   "quote": "A typical adult human stomach will secrete about 1.5 liters of gastric juice daily"
+  },
+  {
+   "id": "c_mucus",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "teach",
+    "ifl",
+    "fov"
+   ],
+   "text": "The lining secretes thick mucus with bicarbonate, which protects it from digesting itself.",
+   "quote": "This mucus, along with bicarbonate, forms a protective layer that prevents the stomach from digesting itself; secretes a thick alkaline mucus, rich in bicarbonate"
+  },
+  {
+   "id": "c_tight",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "teach"
+   ],
+   "text": "The epithelial cells of the lining are tightly joined together, part of the barrier.",
+   "quote": "the epithelial cells themselves, which are tightly joined together"
+  }
+ ],
+ "myths": [],
+ "open_questions": []
+}

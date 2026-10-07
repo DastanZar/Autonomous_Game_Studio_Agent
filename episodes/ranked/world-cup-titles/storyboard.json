@@ -1,0 +1,201 @@
+{
+ "episode": "world-cup-titles",
+ "theme": "data-flags",
+ "kits": [
+  "kinetic",
+  "flagart",
+  "rank"
+ ],
+ "flags": [
+  "ES",
+  "GB-ENG",
+  "FR",
+  "UY",
+  "AR",
+  "DE",
+  "IT",
+  "BR"
+ ],
+ "flagship": "House method (user 2026-10-06): C (kinetic infographic) is Leader Flags' default.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "hook/spain",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "hook/most",
+     "do": "highlight",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_one",
+   "type": "custom",
+   "start": "one.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "GB-ENG"
+    ],
+    "name": "England",
+    "value": 1,
+    "unit": "TITLE",
+    "rank": 8,
+    "at": "one/england",
+    "valueAt": "one/single",
+    "source": "Wikipedia, List of FIFA World Cup finals (after the 2026 final)"
+   },
+   "events": [
+    {
+     "at": "one/england",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_two",
+   "type": "custom",
+   "start": "two.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "ES",
+     "FR",
+     "UY"
+    ],
+    "name": "Spain · France · Uruguay",
+    "nameSize": 64,
+    "value": 2,
+    "unit": "TITLES",
+    "rank": 5,
+    "at": "two/spain",
+    "valueAt": "two/two",
+    "source": "Wikipedia, List of FIFA World Cup finals (after the 2026 final)"
+   },
+   "events": [
+    {
+     "at": "two/spain",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_three",
+   "type": "custom",
+   "start": "three.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "AR"
+    ],
+    "name": "Argentina",
+    "value": 3,
+    "unit": "TITLES",
+    "rank": 4,
+    "at": "three/argentina",
+    "valueAt": "three/three",
+    "source": "Wikipedia, List of FIFA World Cup finals (after the 2026 final)"
+   },
+   "events": [
+    {
+     "at": "three/argentina",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_four",
+   "type": "custom",
+   "start": "four.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "DE",
+     "IT"
+    ],
+    "name": "Germany · Italy",
+    "value": 4,
+    "unit": "TITLES",
+    "rank": 2,
+    "at": "four/germany",
+    "valueAt": "four/four",
+    "sub": "Germany's include three as West Germany",
+    "source": "Wikipedia, List of FIFA World Cup finals (after the 2026 final)"
+   },
+   "events": [
+    {
+     "at": "four/germany",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_five",
+   "type": "custom",
+   "start": "five.start-0.15",
+   "params": {
+    "fn": "five",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "five/five",
+     "do": "count_start",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_eight",
+   "type": "custom",
+   "start": "eight.start-0.15",
+   "params": {
+    "fn": "eight",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "eight/eight",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "toll/brazil",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

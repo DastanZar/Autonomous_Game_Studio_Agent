@@ -1,0 +1,304 @@
+{
+ "channel": "why-map",
+ "episode": "chile-long",
+ "series": "why",
+ "working_title": "Why Chile is so long, and Bolivia has a navy with no sea",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Chile is over four thousand kilometers long. On average, it's one hundred seventy-seven wide.",
+   "kind": "hook",
+   "claims": [
+    "c_length"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "CHILE IS OVER",
+     3
+    ],
+    [
+     "4,000 KILOMETERS LONG.",
+     4
+    ],
+    [
+     "ON AVERAGE,",
+     2
+    ],
+    [
+     "IT'S 177 WIDE.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "sides",
+   "say": "On one side, the Pacific. On the other, the Andes.",
+   "kind": "fact",
+   "claims": [
+    "c_andes"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "ON ONE SIDE,",
+     3
+    ],
+    [
+     "THE PACIFIC.",
+     2
+    ],
+    [
+     "ON THE OTHER,",
+     3
+    ],
+    [
+     "THE ANDES.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "treaty",
+   "say": "In eighteen eighty-one, Chile and Argentina put the border on the highest peaks.",
+   "kind": "fact",
+   "claims": [
+    "c_andes"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 1881,",
+     3
+    ],
+    [
+     "CHILE AND ARGENTINA",
+     3
+    ],
+    [
+     "PUT THE BORDER",
+     3
+    ],
+    [
+     "ON THE HIGHEST PEAKS.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "north",
+   "say": "So that's the width. The north, Chile took by force.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.4,
+   "caps": [
+    [
+     "SO THAT'S THE WIDTH.",
+     4
+    ],
+    [
+     "THE NORTH,",
+     2
+    ],
+    [
+     "CHILE TOOK BY FORCE.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "war",
+   "say": "In eighteen seventy-nine, Chile fought Bolivia and Peru over a desert full of fertilizer.",
+   "kind": "fact",
+   "claims": [
+    "c_cause",
+    "c_fert"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 1879,",
+     3
+    ],
+    [
+     "CHILE FOUGHT",
+     2
+    ],
+    [
+     "BOLIVIA AND PERU",
+     3
+    ],
+    [
+     "OVER A DESERT",
+     3
+    ],
+    [
+     "FULL OF FERTILIZER.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "port",
+   "say": "Chile's army took the port of Antofagasta without a fight.",
+   "kind": "fact",
+   "claims": [
+    "c_antofagasta"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "CHILE'S ARMY TOOK",
+     3
+    ],
+    [
+     "THE PORT OF ANTOFAGASTA",
+     4
+    ],
+    [
+     "WITHOUT A FIGHT.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "won",
+   "say": "Chile won. And took Bolivia's coast.",
+   "kind": "fact",
+   "claims": [
+    "c_gain"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "CHILE WON.",
+     2
+    ],
+    [
+     "AND TOOK BOLIVIA'S COAST.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "land",
+   "say": "Bolivia has been landlocked ever since.",
+   "kind": "fact",
+   "claims": [
+    "c_gain"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "BOLIVIA HAS BEEN",
+     3
+    ],
+    [
+     "LANDLOCKED EVER SINCE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "navy",
+   "say": "But it still has a navy. About five thousand strong.",
+   "kind": "fact",
+   "claims": [
+    "c_navy"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BUT IT STILL HAS",
+     4
+    ],
+    [
+     "A NAVY.",
+     2
+    ],
+    [
+     "ABOUT 5,000 STRONG.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "lake",
+   "say": "It patrols rivers. And a lake.",
+   "kind": "joke",
+   "claims": [
+    "c_navy"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "IT PATROLS RIVERS.",
+     3
+    ],
+    [
+     "AND A LAKE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "day",
+   "say": "And every March, Bolivia holds a Day of the Sea, for the coast it lost.",
+   "kind": "fact",
+   "claims": [
+    "c_dayofsea"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "AND EVERY MARCH,",
+     3
+    ],
+    [
+     "BOLIVIA HOLDS",
+     2
+    ],
+    [
+     "A DAY OF THE SEA",
+     5
+    ],
+    [
+     "FOR THE COAST IT LOST.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "So Chile got long. And Bolivia got a navy with no sea.",
+   "kind": "callback",
+   "claims": [
+    "c_length",
+    "c_gain"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "SO CHILE GOT LONG.",
+     4
+    ],
+    [
+     "AND BOLIVIA GOT",
+     3
+    ],
+    [
+     "A NAVY WITH NO SEA.",
+     5
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on 'Chile got long', answering the hook's question; the last frame is the full-length map the first frame starts on."
+ }
+}

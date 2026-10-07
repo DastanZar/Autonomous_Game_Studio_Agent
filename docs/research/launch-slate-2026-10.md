@@ -21,10 +21,10 @@
 | Border Quirks | 2 | The Pig War: the US and Britain nearly went to war over a pig (1859) | 14.5M / 0.85M | the_time |
 | Border Quirks | 3 | Why Chile is so long and thin | 31.9M / 0.34M; a 9k-sub channel got 5.9M on it | why |
 | Border Quirks | 4 | Russia sold Alaska for about 2 cents an acre | 30.7M / 1.28M | the_time |
-| Gut Gang | 1 | What happens inside you after you eat a banana | 103M / 7.0M, the strongest topic in the whole scout | journey |
-| Gut Gang | 2 | What happens after you swallow a pill (the liver's first pass) | 35.2M / 2.7M | journey |
+| Gut Gang | 1 | What happens inside you after you eat (made as 'your lunch travels 9 metres') | 103M / 7.0M, the strongest topic in the whole scout | what_if |
+| Gut Gang | 2 | ~~What happens after you swallow a pill~~ → **Does swallowed gum stay in you for 7 years?** (same 'swallow' demand; the pill story had no quotable source) | 35.2M / 2.7M | what_if |
 | Gut Gang | 3 | Why your stomach doesn't digest itself | 40.6M top ("How strong is stomach acid") | why |
-| Gut Gang | 4 | What happens in your brain when you learn something | 80.9M / 6.4M (noisy query) | journey |
+| Gut Gang | 4 | ~~What happens in your brain when you learn something~~ → **Your brain: 2% of your weight, 20% of your energy** (brain-facts demand, sourced) | 80.9M / 6.4M (noisy query) | day_in_life |
 | Leader Flags | 1 | Countries with the most World Cup titles (after 2026) | 44.9M / 3.76M | ranking |
 | Leader Flags | 2 | Countries with the most islands | 50.1M / 3.44M | ranking |
 | Leader Flags | 3 | US states bigger than countries by GDP | 7.8M / 0.66M; US-centric, so high ad rates | versus |
@@ -75,3 +75,8 @@ The API's upload cost dropped to about 100 units in December 2025, so once audit
 - [Buffer: 1.8M videos](https://buffer.com/resources/best-time-to-post-on-youtube/)
 - [Fluxnote: when YouTube CPM is highest](https://fluxnote.io/guides/when-is-youtube-cpm-highest)
 - [air.io: Shorts RPM 2026](https://air.io/en/monetization/what-rpm-can-you-expect-from-shorts-in-2026)
+
+
+## As made (2026-10-07)
+
+Final order and times are in `docs/publish-kit-2026-10.md`. Alaska moved to Thu 15 Oct (before Alaska Day, 18 Oct) and Chile to Tue 20 Oct. Leader Flags' first slot went to the World Cup titles (timely: Spain won on 19 July 2026) and the second to states vs countries (US audience, highest ad rates).

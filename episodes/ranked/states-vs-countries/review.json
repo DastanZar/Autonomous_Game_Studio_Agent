@@ -1,0 +1,42 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+   "frames": [
+    0.05,
+    4.76
+   ],
+   "defects": [
+    {
+     "t": 0.05,
+     "issue": "hook: face-off still springing in on frame 1",
+     "fixed": true
+    },
+    {
+     "t": 4.76,
+     "issue": "fourth: source line ran off both edges",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+   "frames": [
+    0.05,
+    2.56,
+    4.76,
+    10.32,
+    16.88,
+    18.72,
+    20.7,
+    23.62,
+    27.94,
+    31.02,
+    32.31
+   ],
+   "defects": []
+  }
+ ]
+}

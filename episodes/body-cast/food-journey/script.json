@@ -1,0 +1,230 @@
+{
+ "channel": "body-cast",
+ "episode": "food-journey",
+ "series": "what_if",
+ "working_title": "Where your lunch goes after you swallow it",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Your lunch is about to travel nine meters. Inside you.",
+   "kind": "hook",
+   "claims": [
+    "c_length"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "YOUR LUNCH IS ABOUT",
+     4
+    ],
+    [
+     "TO TRAVEL NINE METERS.",
+     4
+    ],
+    [
+     "INSIDE YOU.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "door",
+   "say": "First, a ring of muscle opens to let it into your stomach.",
+   "kind": "fact",
+   "claims": [
+    "c_sphincter"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "FIRST, A RING OF MUSCLE",
+     5
+    ],
+    [
+     "OPENS TO LET IT",
+     4
+    ],
+    [
+     "INTO YOUR STOMACH.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "churn",
+   "say": "Where it gets churned for four or five hours.",
+   "kind": "fact",
+   "claims": [
+    "c_stomach"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "WHERE IT GETS CHURNED",
+     4
+    ],
+    [
+     "FOR FOUR OR FIVE HOURS.",
+     5
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "thanks",
+   "say": "Five hours of churning. Nobody says thank you.",
+   "kind": "joke",
+   "claims": [
+    "c_stomach"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "FIVE HOURS OF CHURNING.",
+     4
+    ],
+    [
+     "NOBODY SAYS THANK YOU.",
+     4
+    ]
+   ],
+   "speaker": "stomach"
+  },
+  {
+   "id": "small",
+   "say": "Next, the small intestine. Twenty-two feet. The longest part.",
+   "kind": "fact",
+   "claims": [
+    "c_small"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "NEXT,",
+     1
+    ],
+    [
+     "THE SMALL INTESTINE.",
+     3
+    ],
+    [
+     "22 FEET.",
+     2
+    ],
+    [
+     "THE LONGEST PART.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "four",
+   "say": "Food spends about four hours in there.",
+   "kind": "fact",
+   "claims": [
+    "c_transit"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "FOOD SPENDS ABOUT",
+     3
+    ],
+    [
+     "FOUR HOURS IN THERE.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "water",
+   "say": "Then the large intestine pulls out the water.",
+   "kind": "fact",
+   "claims": [
+    "c_water"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THEN THE LARGE INTESTINE",
+     4
+    ],
+    [
+     "PULLS OUT THE WATER.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "bugs",
+   "say": "Its bacteria break down whatever's left.",
+   "kind": "fact",
+   "claims": [
+    "c_bacteria"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "ITS BACTERIA",
+     2
+    ],
+    [
+     "BREAK DOWN",
+     2
+    ],
+    [
+     "WHATEVER'S LEFT.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "left",
+   "say": "Leftovers!",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.4,
+   "caps": [
+    [
+     "LEFTOVERS!",
+     1
+    ]
+   ],
+   "speaker": "gut_microbes"
+  },
+  {
+   "id": "toll",
+   "say": "Nine meters of tube. For one lunch.",
+   "kind": "callback",
+   "claims": [
+    "c_length"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "NINE METERS OF TUBE.",
+     4
+    ],
+    [
+     "FOR ONE LUNCH.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on 'nine meters', the hook's number; the last frame is the lunch on the plate the first frame starts with."
+ }
+}

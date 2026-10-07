@@ -1,0 +1,20 @@
+{
+ "title": "California's economy is bigger than Japan's",
+ "description": "By 2024 GDP, California ($4.10T) is bigger than Japan ($4.03T); Texas beats Italy and Canada, New York beats Canada, Florida beats Indonesia and Pennsylvania beats Switzerland.\n\nSources:\n- List of U.S. states and territories by GDP (section: U.S. states by GDP if they were sovereign states) — Wikipedia (BEA for states, World Bank for countries, 2024): https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_GDP\n- California just leapfrogged Japan to become the world's fourth-largest economy — Sherwood News: https://sherwood.news/world/california-just-leapfrogged-japan-to-become-the-worlds-fourth-largest\n\nLabels: 2024 nominal GDP; states from the BEA, countries from the World Bank, as compiled by Wikipedia. Flags: official SVGs from Wikimedia Commons. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#economy",
+  "#countries",
+  "#usa",
+  "#shorts"
+ ],
+ "pinned_comment": "Which state surprised you most?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/states-vs-countries.mp4",
+ "srt": "out/states-vs-countries.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-14T17:00:00Z"
+}

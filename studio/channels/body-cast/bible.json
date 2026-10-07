@@ -136,6 +136,13 @@
    "role": "The crowd",
    "traits": "chaotic, many voices, secretly in charge",
    "design": "TBD"
+  },
+  {
+   "id": "stomach",
+   "name": "Stomach",
+   "role": "The worrier",
+   "traits": "anxious, house-proud about its lining, dramatic about acid",
+   "design": "J-shaped bag with the oesophagus top-left and the duodenum bottom-right, folds (rugae) inside, rubber-hose limbs (studio/engine/scenes/cast.js)"
   }
  ],
  "series": [

@@ -1,0 +1,81 @@
+{
+ "topic": "US states vs countries by GDP (2024, nominal)",
+ "sources": [
+  {
+   "id": "table",
+   "title": "List of U.S. states and territories by GDP (section: U.S. states by GDP if they were sovereign states)",
+   "publisher": "Wikipedia (BEA for states, World Bank for countries, 2024)",
+   "url": "https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_GDP",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "sher",
+   "title": "California just leapfrogged Japan to become the world's fourth-largest economy",
+   "publisher": "Sherwood News",
+   "url": "https://sherwood.news/world/california-just-leapfrogged-japan-to-become-the-worlds-fourth-largest",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_ca",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "table",
+    "sher"
+   ],
+   "text": "California's 2024 GDP ($4.10T) is larger than Japan's ($4.03T); it would be the world's fourth-largest economy.",
+   "quote": "California has officially become the world\u2019s fourth-largest economy, bumping Japan down to fifth; 3 California 4,103,124 4 Japan 4,026,211",
+   "label": "2024, nominal"
+  },
+  {
+   "id": "c_tx",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "table"
+   ],
+   "text": "Texas ($2.71T) is larger than Italy ($2.37T) and Canada ($2.24T).",
+   "quote": "8 Texas 2,709,393 9 Italy 2,372,775 10 New York 2,297,028 11 Canada 2,241,253",
+   "label": "2024, nominal"
+  },
+  {
+   "id": "c_ny",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "table"
+   ],
+   "text": "New York ($2.30T) is larger than Canada ($2.24T).",
+   "quote": "10 New York 2,297,028 11 Canada 2,241,253",
+   "label": "2024, nominal"
+  },
+  {
+   "id": "c_fl",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "table"
+   ],
+   "text": "Florida ($1.71T) is larger than Indonesia ($1.40T).",
+   "quote": "18 Florida 1,705,565 19 Indonesia 1,396,300",
+   "label": "2024, nominal"
+  },
+  {
+   "id": "c_pa",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "table"
+   ],
+   "text": "Pennsylvania ($1.02T) is larger than Switzerland ($0.94T).",
+   "quote": "24 Pennsylvania 1,024,206 25 Switzerland 936,564",
+   "label": "2024, nominal"
+  }
+ ],
+ "myths": [],
+ "open_questions": []
+}

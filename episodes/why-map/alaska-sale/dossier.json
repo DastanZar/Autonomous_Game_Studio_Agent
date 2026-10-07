@@ -1,0 +1,183 @@
+{
+ "topic": "Why Russia sold Alaska, and the border it left between 'yesterday' and 'tomorrow'",
+ "sources": [
+  {
+   "id": "state",
+   "title": "Purchase of Alaska, 1867 (Milestones)",
+   "publisher": "U.S. Department of State, Office of the Historian",
+   "url": "https://history.state.gov/milestones/1866-1898/alaska-purchase",
+   "type": "official",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "wiki",
+   "title": "Alaska Purchase",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Alaska_Purchase",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "diom",
+   "title": "Diomede Islands",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Diomede_Islands",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "akgov",
+   "title": "Alaska Economic Trends, December 2018",
+   "publisher": "Alaska Department of Labor and Workforce Development",
+   "url": "https://laborstats.alaska.gov/trends/dec18art2.pdf",
+   "type": "official",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "georealm",
+   "title": "These Two Countries are Separated by 2.4 Miles and 21 Hours",
+   "publisher": "Geography Realm",
+   "url": "https://geographyrealm.com/separated-by-2-4-miles-and-21-hours",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  },
+  {
+   "id": "atlas",
+   "title": "Why Did Russia Sell Alaska To The US?",
+   "publisher": "WorldAtlas",
+   "url": "https://www.worldatlas.com/articles/why-did-russia-sell-alaska-to-the-us.html",
+   "type": "reference",
+   "accessed": "2026-10-06"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_price",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "state",
+    "wiki"
+   ],
+   "text": "On March 30, 1867, Seward agreed to buy Alaska from Russia for $7.2 million, about 2 cents an acre.",
+   "quote": "on March 30, 1867, agreed to a proposal from Russian Minister in Washington, Edouard de Stoeckl, to purchase Alaska for $7.2 million; or about 2 cents per acre"
+  },
+  {
+   "id": "c_crimea",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "atlas"
+   ],
+   "text": "Alexander II, after defeat in the Crimean War, explored selling Alaska, which would be difficult to defend from the United Kingdom in a future war.",
+   "quote": "having faced a catastrophic defeat in the Crimean War , began exploring the possibility of selling the state's Alaskan possessions, which, in any future war, would be difficult to defend from the United Kingdom; in any future war, it could neither defend nor resupply Alaska, and that Britain could simply take it"
+  },
+  {
+   "id": "c_money",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "atlas"
+   ],
+   "text": "Russia needed money after being defeated by France and Britain in the Crimean War.",
+   "quote": "Russia needed money after being defeated by France and Britain in the Crimean War; pitted Russia against Britain, France, and the Ottoman Empire, drained its treasury"
+  },
+  {
+   "id": "c_settlers",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "state"
+   ],
+   "text": "Permanent Russian settlers in Alaska never numbered more than four hundred.",
+   "quote": "permanent Russian settlers in Alaska never numbered more than four hundred"
+  },
+  {
+   "id": "c_size",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "atlas"
+   ],
+   "text": "The purchase added 586,412 square miles; an area over twice as large as Texas.",
+   "quote": "the United States had grown by 586,412 sq mi; The United States acquired an area over twice as large as Texas; Russia wanted to sell Alaska , all 586,412 square miles of it"
+  },
+  {
+   "id": "c_folly",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "state",
+    "wiki"
+   ],
+   "text": "Skeptics dubbed the purchase 'Seward's Folly'; some called it 'Seward's Icebox'.",
+   "quote": "Skeptics had dubbed the purchase of Alaska \u201cSeward\u2019s Folly,\u201d; Some opponents labeled the purchase as \" Seward's Folly \" or \" Seward's Icebox \""
+  },
+  {
+   "id": "c_gold",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "state"
+   ],
+   "text": "Seward was vindicated when a major gold deposit was found in the Yukon in 1896 and Alaska became the gateway to the Klondike.",
+   "quote": "was vindicated when a major gold deposit was discovered in the Yukon in 1896, and Alaska became the gateway to the Klondike gold fields"
+  },
+  {
+   "id": "c_transfer",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "state"
+   ],
+   "text": "Alaska was formally transferred on October 18, 1867.",
+   "quote": "Alaska was formally transferred to the United States on October 18, 1867"
+  },
+  {
+   "id": "c_treatyline",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "diom",
+    "georealm"
+   ],
+   "text": "The 1867 treaty uses the Diomede islands to mark the US-Russia boundary.",
+   "quote": "uses the islands to designate the boundary between the two nations; when the United States purchased Alaska from Russia in 1867 and a new border was drawn between the two islands"
+  },
+  {
+   "id": "c_distance",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "diom",
+    "akgov"
+   ],
+   "text": "Big Diomede (Russia) and Little Diomede (US) are about 2.4 miles apart.",
+   "quote": "The two islands are about 2.4 miles; The Russian island Big Diomede was just 2.4 miles in the distance"
+  },
+  {
+   "id": "c_dateline",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "diom",
+    "georealm"
+   ],
+   "text": "The International Date Line runs between them; Big Diomede is 21 hours ahead of Little Diomede (20 in summer); they are called Tomorrow and Yesterday islands.",
+   "quote": "Because they are separated by the International Date Line , Big Diomede is almost a day ahead of Little Diomede; Big Diomede is 21 hours ahead of Little Diomede (20 in summer); sometimes called Tomorrow Island (Big Diomede) and Yesterday Island (Little Diomede); The International Date Line (IDL) runs between these islands; Tomorrow Island (Big Diomedes) is 21 hours ahead of Yesterday Isle (Little Diomedes) during standard time"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Everyone in America thought the purchase was a joke.",
+   "truth": "Some critics called it Seward's Folly; the Senate approved it and press opinion was mixed. The script says 'critics called it'.",
+   "sources": [
+    "wiki"
+   ]
+  }
+ ],
+ "open_questions": []
+}

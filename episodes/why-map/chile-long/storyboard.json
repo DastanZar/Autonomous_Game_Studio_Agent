@@ -1,0 +1,304 @@
+{
+ "episode": "chile-long",
+ "kits": [
+  "paper",
+  "kinetic",
+  "flight",
+  "flagart"
+ ],
+ "flags": [
+  "CL",
+  "AR",
+  "BO",
+  "PE"
+ ],
+ "flagship": "House method (user 2026-10-06): A's characters and paper props, B's 3D map flights for the geography beats, C's moving type for the one big number.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -82.0,
+     -56.5,
+     -60.0,
+     -16.0
+    ]
+   },
+   "events": [
+    {
+     "at": "hook/four",
+     "do": "count_start",
+     "sfx": "pop"
+    },
+    {
+     "at": "hook/average",
+     "do": "reveal",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_sides",
+   "type": "custom",
+   "start": "sides.start",
+   "params": {
+    "fn": "sides",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -82.0,
+     -56.5,
+     -60.0,
+     -16.0
+    ]
+   },
+   "events": [
+    {
+     "at": "sides/pacific",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "sides/andes",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_treaty",
+   "type": "custom",
+   "start": "treaty.start",
+   "params": {
+    "fn": "treaty",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "treaty/eightyone",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "treaty/highest",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_north",
+   "type": "custom",
+   "start": "north.start",
+   "params": {
+    "fn": "north",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -82.0,
+     -56.5,
+     -60.0,
+     -16.0
+    ]
+   },
+   "events": [
+    {
+     "at": "north/north",
+     "do": "reveal",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_war",
+   "type": "custom",
+   "start": "war.start",
+   "params": {
+    "fn": "war",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "war/bolivia",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "war/fertilizer",
+     "do": "reveal",
+     "sfx": "thud"
+    }
+   ]
+  },
+  {
+   "id": "s_port",
+   "type": "custom",
+   "start": "port.start",
+   "params": {
+    "fn": "port",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -82.0,
+     -56.5,
+     -60.0,
+     -16.0
+    ]
+   },
+   "events": [
+    {
+     "at": "port/antofagasta",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "port/fight",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_won",
+   "type": "custom",
+   "start": "won.start",
+   "params": {
+    "fn": "won",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -82.0,
+     -56.5,
+     -60.0,
+     -16.0
+    ]
+   },
+   "events": [
+    {
+     "at": "won/won",
+     "do": "verdict",
+     "sfx": "stamp"
+    },
+    {
+     "at": "won/coast",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_land",
+   "type": "custom",
+   "start": "land.start",
+   "params": {
+    "fn": "land",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -82.0,
+     -56.5,
+     -60.0,
+     -16.0
+    ]
+   },
+   "events": [
+    {
+     "at": "land/landlocked",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_navy",
+   "type": "custom",
+   "start": "navy.start",
+   "params": {
+    "fn": "navy",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "navy/navy",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "navy/five",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_lake",
+   "type": "custom",
+   "start": "lake.start",
+   "params": {
+    "fn": "lake",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "lake/rivers",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "lake/lake",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_day",
+   "type": "custom",
+   "start": "day.start",
+   "params": {
+    "fn": "day",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "day/march",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "day/sea",
+     "do": "highlight",
+     "sfx": "marching"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start",
+   "params": {
+    "fn": "toll",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -82.0,
+     -56.5,
+     -60.0,
+     -16.0
+    ]
+   },
+   "events": [
+    {
+     "at": "toll/long",
+     "do": "reveal",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "toll/sea",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

@@ -90,7 +90,9 @@
      "paper",
      "kinetic",
      "flight",
-     "flagart"
+     "flagart",
+     "body",
+     "rank"
     ]
    },
    "description": "Shared drawing kits loaded before the episode's scenes.js (studio/engine/kits/)."
@@ -101,6 +103,12 @@
     "type": "string"
    },
    "description": "Flag codes (studio/assets/flags/<code>.svg) the flagart kit preloads."
+  },
+  "drift": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 0.15,
+   "description": "Slow push-in per scene (0.06 = 6% over the scene) so no beat sits still; captions are not affected."
   }
  }
 }

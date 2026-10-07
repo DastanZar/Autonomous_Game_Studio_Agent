@@ -2,8 +2,65 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
-   "id": "point-roberts-3-methods",
+   "id": "launch-12",
    "status": "open",
+   "kind": "video",
+   "title": "The 12 launch Shorts: watch before the first upload (Tue 13 Oct, 11:00 ET)",
+   "question": "All 12 pass every gate up to packaging (sourced facts, voice WER, two picture reviews, -14 LUFS, captions, thumbnail). Flag anything you want changed. Then upload each by hand in YouTube Studio as Scheduled at the time shown, with the title, description, captions and thumbnail from docs/publish-kit-2026-10.md.",
+   "files": [
+    [
+     "2026-10-13 15:00 UTC · Why this US town's only road out goes through Canada",
+     "episodes/why-map/point-roberts/out/point-roberts.mp4"
+    ],
+    [
+     "2026-10-13 16:00 UTC · Your lunch travels 9 meters inside you. Here's the route.",
+     "episodes/body-cast/food-journey/out/food-journey.mp4"
+    ],
+    [
+     "2026-10-13 17:00 UTC · Which country has the most World Cup titles? (after 2026)",
+     "episodes/ranked/world-cup-titles/out/world-cup-titles.mp4"
+    ],
+    [
+     "2026-10-14 15:00 UTC · America and Britain nearly went to war over a pig",
+     "episodes/why-map/pig-war/out/pig-war.mp4"
+    ],
+    [
+     "2026-10-14 16:00 UTC · Why doesn't your stomach digest itself?",
+     "episodes/body-cast/stomach-acid/out/stomach-acid.mp4"
+    ],
+    [
+     "2026-10-14 17:00 UTC · California's economy is bigger than Japan's",
+     "episodes/ranked/states-vs-countries/out/states-vs-countries.mp4"
+    ],
+    [
+     "2026-10-15 15:00 UTC · Russia sold Alaska for 2 cents an acre, and left a view of tomorrow",
+     "episodes/why-map/alaska-sale/out/alaska-sale.mp4"
+    ],
+    [
+     "2026-10-15 16:00 UTC · Does swallowed gum really stay in you for 7 years?",
+     "episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4"
+    ],
+    [
+     "2026-10-15 17:00 UTC · Which country has the most islands? It's not Indonesia.",
+     "episodes/ranked/most-islands/out/most-islands.mp4"
+    ],
+    [
+     "2026-10-20 15:00 UTC · Why Chile is so long, and Bolivia has a navy with no sea",
+     "episodes/why-map/chile-long/out/chile-long.mp4"
+    ],
+    [
+     "2026-10-20 16:00 UTC · Your brain is 2% of you and burns 20% of your energy",
+     "episodes/body-cast/brain-energy/out/brain-energy.mp4"
+    ],
+    [
+     "2026-10-20 17:00 UTC · Which country has the most time zones? It's not Russia.",
+     "episodes/ranked/most-time-zones/out/most-time-zones.mp4"
+    ]
+   ]
+  },
+  {
+   "id": "point-roberts-3-methods",
+   "status": "done",
    "kind": "video",
    "title": "Point Roberts A and B (new calm mix): which is the main cut?",
    "question": "Music settled (detective, 13 dB under). Which goes out as the main cut? My pick: A. B becomes the second cut for YouTube's new video A/B test once Studio offers it to our channels (see docs/research/youtube-video-ab-testing-2026-10.md).",

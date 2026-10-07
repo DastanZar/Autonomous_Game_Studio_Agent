@@ -1,0 +1,171 @@
+{
+ "episode": "most-time-zones",
+ "theme": "data-flags",
+ "kits": [
+  "kinetic",
+  "flagart",
+  "rank"
+ ],
+ "flags": [
+  "RU",
+  "CA",
+  "GB",
+  "AU",
+  "US",
+  "FR",
+  "CN"
+ ],
+ "flagship": "House method (user 2026-10-06): C (kinetic infographic) is Leader Flags' default.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "hook/not",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_canada",
+   "type": "custom",
+   "start": "canada.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "CA"
+    ],
+    "name": "Canada",
+    "value": 5,
+    "unit": "TIME ZONES",
+    "rank": 6,
+    "at": "canada/canada",
+    "valueAt": "canada/five",
+    "clocks": 5,
+    "source": "Wikipedia, List of time zones by country (incl. territories, excl. Antarctica)"
+   },
+   "events": [
+    {
+     "at": "canada/canada",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_nine",
+   "type": "custom",
+   "start": "nine.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "GB",
+     "AU"
+    ],
+    "name": "UK · Australia",
+    "value": 9,
+    "unit": "TIME ZONES",
+    "rank": 4,
+    "at": "nine/uk",
+    "valueAt": "nine/nine",
+    "clocks": 9,
+    "sub": "mostly overseas islands",
+    "source": "Wikipedia, List of time zones by country (incl. territories, excl. Antarctica)"
+   },
+   "events": [
+    {
+     "at": "nine/uk",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_eleven",
+   "type": "custom",
+   "start": "eleven.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "RU",
+     "US"
+    ],
+    "name": "Russia · United States",
+    "nameSize": 66,
+    "value": 11,
+    "unit": "TIME ZONES",
+    "rank": 2,
+    "at": "eleven/russia",
+    "valueAt": "eleven/eleven",
+    "clocks": 11,
+    "source": "Wikipedia, List of time zones by country (incl. territories, excl. Antarctica)"
+   },
+   "events": [
+    {
+     "at": "eleven/russia",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_france",
+   "type": "custom",
+   "start": "france.start-0.15",
+   "params": {
+    "fn": "france",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "france/twelve",
+     "do": "count_start",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_china",
+   "type": "custom",
+   "start": "china.start-0.15",
+   "params": {
+    "fn": "china",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "china/one",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "toll/china",
+     "do": "verdict",
+     "sfx": "pop"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

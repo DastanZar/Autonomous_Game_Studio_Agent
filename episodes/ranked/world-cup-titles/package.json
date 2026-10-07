@@ -1,0 +1,20 @@
+{
+ "title": "Which country has the most World Cup titles? (after 2026)",
+ "description": "Spain won the 2026 World Cup, its second title. The all-time table: Brazil 5, Germany and Italy 4, Argentina 3, Spain, France and Uruguay 2, England 1.\n\nSources:\n- List of FIFA World Cup finals — Wikipedia: https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals\n- 2026 FIFA World Cup final — Wikipedia: https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_final\n- World Cup 2026 Results: July 19, 2026 — WorldCupRanking: https://worldcupranking.com/blog/world-cup-2026-july-19-results/\n- List of World Cup winners (Reuters) — The Star: https://www.thestar.com.my/news/world/2026/07/20/list-of-world-cup-winners\n\nLabels: Germany's four titles include three won as West Germany, as FIFA counts them. Flags: official SVGs from Wikimedia Commons. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#worldcup",
+  "#football",
+  "#countries",
+  "#shorts"
+ ],
+ "pinned_comment": "Who wins 2030?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/world-cup-titles.mp4",
+ "srt": "out/world-cup-titles.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-13T17:00:00Z"
+}

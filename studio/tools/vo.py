@@ -94,13 +94,22 @@ def kokoro_say(text, voice, speed, path):
         w.writeframes((x * 32767).astype(np.int16).tobytes())
 
 
+def tts_text(say):
+    """The words the engine reads: script.json `pronounce` respells names the TTS gets wrong, e.g. {"Diomede": "Dyeameed"}.
+    WER is still scored against `say`, so a respelling only changes how the word sounds."""
+    for word, sound in (script.get("pronounce") or {}).items():
+        say = re.sub(r"\b%s\b" % re.escape(word), sound, say)
+    return say
+
+
 def synth(para):
     engine, v = pick_voice(para)
+    text = tts_text(para["say"])
     if engine == "kokoro":
         speed = para.get("speed", v.get("speed", 0.98))
     else:
         speed = para.get("length_scale", v.get("length_scale", 0.9))
-    h = hashlib.sha1(json.dumps([engine, v.get("model"), v["id"], para["say"], speed]).encode()).hexdigest()[:16]
+    h = hashlib.sha1(json.dumps([engine, v.get("model"), v["id"], text, speed]).encode()).hexdigest()[:16]
     ext = "mp3" if engine == "fish" else "wav"
     path = os.path.join(cache, f"{para['id']}-{h}.{ext}")
     if para["id"] in args.redo:
@@ -109,18 +118,18 @@ def synth(para):
                 os.remove(os.path.join(cache, f))
     if not os.path.exists(path):
         if engine == "fish":
-            body = json.dumps({"model": v["model"], "input": para["say"], "voice": v["id"], "response_format": "mp3"}).encode()
+            body = json.dumps({"model": v["model"], "input": text, "voice": v["id"], "response_format": "mp3"}).encode()
             req = urllib.request.Request("https://openrouter.ai/api/v1/audio/speech", body,
                                          {"Authorization": "Bearer " + fish_key(), "Content-Type": "application/json"})
             open(path, "wb").write(urllib.request.urlopen(req, timeout=300).read())
         elif engine == "kokoro":
-            kokoro_say(para["say"], v["id"], speed, path)
+            kokoro_say(text, v["id"], speed, path)
         else:
             model = os.path.expanduser(f"~/voices/{v['id']}.onnx")
             if not os.path.exists(model):
                 sys.exit(f"missing Piper voice {model} (see recipes/emu-war/02-assets.md for the download)")
             subprocess.run(["piper", "-m", model, "-f", path, "--length-scale", str(speed)],
-                           input=para["say"].encode(), check=True, capture_output=True)
+                           input=text.encode(), check=True, capture_output=True)
     return decode(path), f"{engine}:{v['id']}"
 
 

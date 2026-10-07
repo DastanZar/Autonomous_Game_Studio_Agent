@@ -149,6 +149,13 @@
      }
     }
    }
+  },
+  "pronounce": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string"
+   },
+   "description": "TTS-only respellings for names the voice gets wrong, e.g. {\"Diomede\": \"Dye-uh-meed\"}. WER is still scored against `say`."
   }
  }
 }

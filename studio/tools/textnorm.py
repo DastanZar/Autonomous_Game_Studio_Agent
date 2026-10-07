@@ -38,6 +38,10 @@ def ordinal(n):
 def words(s):
     """Lowercase words, digits spelled out, hyphens split, punctuation and 'and' removed."""
     s = s.lower().replace("%", " percent")
+    s = re.sub(r"(?<=\d) \.(?=\d)", ".", s)
+    s = re.sub(r"\b(kilo|centi|milli)?metres?\b", lambda m: (m.group(1) or "") + ("meters" if m.group(0).endswith("s") else "meter"), s)   # British spellings
+    s = re.sub(r"(fertili|organi|reali|recogni|speciali)s(e|es|ed|er|ers|ing|ation)\b", r"\1z\2", s)
+    s = re.sub(r"\b(colo|favo|harbo|neighbo|labo|hono)ur", r"\1r", s)                                # Whisper word tokens '2 .4' -> '2.4'
     s = re.sub(r"\$\s?(\d[\d,]*(?:\.\d+)?)\s*(million|billion|trillion)?", lambda m: " " + m.group(1) + " " + (m.group(2) + " " if m.group(2) else "") + "dollars ", s)   # '$10' -> '10 dollars' 
     s = re.sub(r"(?<=\d)(?: ?, ?|[ .\u00a0\u202f])(?=\d{3}\b)", ",", s)    # Whisper word tokens '5, 000' / '5.000' -> '5,000'
     s = re.sub(r"\b(\d+)(?:st|nd|rd|th)\b", lambda m: ordinal(int(m.group(1))), s)   # '49th' -> 'forty ninth'

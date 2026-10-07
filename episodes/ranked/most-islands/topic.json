@@ -1,0 +1,27 @@
+{
+ "slug": "most-islands",
+ "channel": "ranked",
+ "series": "top",
+ "hook": "Sweden counts more islands than any other country: 267,570, against Indonesia's 17,500.",
+ "twist": "Sweden: 267,570 by its own 2013 count, then Norway and Finland; Indonesia has about 17,500. The catch: Sweden counted islands as small as nine square metres.",
+ "angle": "Countdown with flags, ending on Sweden's number and the nine-square-metre twist. One big number: 267,570.",
+ "why_now": "Scout: most-islands Shorts top 50.1M (median of top 25: 3.44M) since mid-2024.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/List_of_countries_by_number_of_islands",
+  "https://www.scandinaviastandard.com/t-sweden-267570-islands-official-count/",
+  "https://www.livescience.com/what-country-has-most-islands"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 3,
+  "series_fit": 5
+ },
+ "risks": [
+  "National counts use different rules; Norway's figure ranges from about 55,000 (Statista) to 239,057 (Wikipedia list). Label every number 'national count, methods differ'."
+ ],
+ "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
+ "approved_at": "2026-10-06"
+}

@@ -1,0 +1,74 @@
+{
+ "topic": "Countries with the most time zones",
+ "sources": [
+  {
+   "id": "list",
+   "title": "List of time zones by country",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/List_of_time_zones_by_country",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "glob",
+   "title": "France: Global Time Zone Leader",
+   "publisher": "The Globalist",
+   "url": "https://www.theglobalist.com/france-global-time-zone-leader/",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "china",
+   "title": "Time in China",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Time_in_China",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_france",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "list",
+    "glob"
+   ],
+   "text": "France, with its overseas territories, has the most time zones: 12 (13 with its Antarctic claim).",
+   "quote": "France , including its overseas territories, has the most time zones with 12 (13 including its claim in Antarctica ); France has more time zones than any other country, at 12 worldwide"
+  },
+  {
+   "id": "c_ranks",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "list"
+   ],
+   "text": "Russia 11, United States 11, Australia 9, United Kingdom 9, Canada 5.",
+   "quote": "Russia 11; United States 11; Australia 9; United Kingdom 9; Canada 5",
+   "label": "incl. territories, excl. Antarctica"
+  },
+  {
+   "id": "c_china",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "china"
+   ],
+   "text": "China uses a single time zone (UTC+8) though it spans five geographical time zones.",
+   "quote": "The time in China follows a single standard time offset of UTC+08:00 , where Beijing is located, even though the country spans five geographical time zones"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Russia has the most time zones.",
+   "truth": "Russia has 11; France has 12 counting its overseas territories.",
+   "sources": [
+    "list",
+    "glob"
+   ]
+  }
+ ],
+ "open_questions": []
+}

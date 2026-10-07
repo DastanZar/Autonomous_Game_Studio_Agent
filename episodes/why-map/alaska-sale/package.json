@@ -1,0 +1,20 @@
+{
+ "title": "Russia sold Alaska for 2 cents an acre, and left a view of tomorrow",
+ "description": "In 1867 Russia sold Alaska to the US for $7.2 million, about two cents an acre, and the new border runs between two islands with the date line in the middle. Alaska Day is October 18.\n\nSources:\n- Purchase of Alaska, 1867 (Milestones) — U.S. Department of State, Office of the Historian: https://history.state.gov/milestones/1866-1898/alaska-purchase\n- Alaska Purchase — Wikipedia: https://en.wikipedia.org/wiki/Alaska_Purchase\n- Diomede Islands — Wikipedia: https://en.wikipedia.org/wiki/Diomede_Islands\n- Alaska Economic Trends, December 2018 — Alaska Department of Labor and Workforce Development: https://laborstats.alaska.gov/trends/dec18art2.pdf\n- These Two Countries are Separated by 2.4 Miles and 21 Hours — Geography Realm: https://geographyrealm.com/separated-by-2-4-miles-and-21-hours\n- Why Did Russia Sell Alaska To The US? — WorldAtlas: https://www.worldatlas.com/articles/why-did-russia-sell-alaska-to-the-us.html\n\nLabels: 'Seward's Folly' was what critics called it; the purchase was approved by the Senate. Big Diomede is 21 hours ahead of Little Diomede in winter (20 in summer). Maps: Natural Earth (public domain) and OpenStreetMap contributors (ODbL). Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#history",
+  "#geography",
+  "#alaska",
+  "#shorts"
+ ],
+ "pinned_comment": "Good deal for Russia or for America?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/alaska-sale.mp4",
+ "srt": "out/alaska-sale.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-15T15:00:00Z"
+}

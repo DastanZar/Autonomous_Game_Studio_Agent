@@ -1,0 +1,20 @@
+{
+ "title": "Which country has the most time zones? It's not Russia.",
+ "description": "France has the most time zones, 12, thanks to its overseas territories; Russia and the US have 11. China spans five geographical time zones and uses one.\n\nSources:\n- List of time zones by country — Wikipedia: https://en.wikipedia.org/wiki/List_of_time_zones_by_country\n- France: Global Time Zone Leader — The Globalist: https://www.theglobalist.com/france-global-time-zone-leader/\n- Time in China — Wikipedia: https://en.wikipedia.org/wiki/Time_in_China\n\nLabels: counts include overseas territories and exclude Antarctica (France has 13 with its Antarctic claim). Flags: official SVGs from Wikimedia Commons. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#geography",
+  "#countries",
+  "#timezones",
+  "#shorts"
+ ],
+ "pinned_comment": "Should China use more than one time zone?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/most-time-zones.mp4",
+ "srt": "out/most-time-zones.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-20T17:00:00Z"
+}

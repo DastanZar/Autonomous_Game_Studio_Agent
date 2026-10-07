@@ -316,5 +316,6 @@
  "kits": [
   "flight",
   "kinetic"
- ]
+ ],
+ "drift": 0.06
 }

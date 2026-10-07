@@ -1,0 +1,200 @@
+{
+ "channel": "ranked",
+ "episode": "most-islands",
+ "series": "top",
+ "working_title": "Which country has the most islands? Not Indonesia.",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Which country has the most islands? It's not Indonesia.",
+   "kind": "hook",
+   "claims": [
+    "c_sweden"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "WHICH COUNTRY HAS",
+     3
+    ],
+    [
+     "THE MOST ISLANDS?",
+     3
+    ],
+    [
+     "IT'S NOT INDONESIA.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "indo",
+   "say": "Indonesia has about seventeen thousand.",
+   "kind": "fact",
+   "claims": [
+    "c_others"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "INDONESIA HAS ABOUT",
+     3
+    ],
+    [
+     "17,000.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "chile",
+   "say": "Chile has over forty-three thousand.",
+   "kind": "fact",
+   "claims": [
+    "c_others"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "CHILE HAS",
+     2
+    ],
+    [
+     "OVER 43,000.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "canada",
+   "say": "Canada, over fifty-two thousand.",
+   "kind": "fact",
+   "claims": [
+    "c_others"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "CANADA,",
+     1
+    ],
+    [
+     "OVER 52,000.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "finland",
+   "say": "Finland, nearly one hundred eighty thousand.",
+   "kind": "fact",
+   "claims": [
+    "c_top3"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "FINLAND,",
+     1
+    ],
+    [
+     "NEARLY 180,000.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "norway",
+   "say": "Norway, two hundred thirty-nine thousand.",
+   "kind": "fact",
+   "claims": [
+    "c_top3"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "NORWAY,",
+     1
+    ],
+    [
+     "239,000.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "sweden",
+   "say": "And Sweden. Two hundred sixty-seven thousand, five hundred seventy.",
+   "kind": "fact",
+   "claims": [
+    "c_sweden"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "AND SWEDEN.",
+     2
+    ],
+    [
+     "267,570.",
+     7
+    ]
+   ]
+  },
+  {
+   "id": "tiny",
+   "say": "To be fair, Sweden counted islands the size of a parking space.",
+   "kind": "joke",
+   "claims": [
+    "c_tiny"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "TO BE FAIR,",
+     3
+    ],
+    [
+     "SWEDEN COUNTED ISLANDS",
+     3
+    ],
+    [
+     "THE SIZE OF",
+     3
+    ],
+    [
+     "A PARKING SPACE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "Sweden: two hundred sixty-seven thousand. Indonesia: seventeen thousand.",
+   "kind": "callback",
+   "claims": [
+    "c_sweden",
+    "c_others"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "SWEDEN: 267,000.",
+     5
+    ],
+    [
+     "INDONESIA: 17,000.",
+     3
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on Indonesia, the hook's wrong guess; the last frame is Indonesia's flag beside Sweden's number."
+ }
+}

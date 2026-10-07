@@ -30,7 +30,7 @@ st = os.path.join(tmpd, "stereo.wav"); fin = os.path.join(tmpd, "final.wav")
 subprocess.run([FF, "-y", "-loglevel", "error", "-i", audio, "-ac", "2", "-ar", "48000", st], check=True)
 g = -14.0 - lufs(st)
 for _ in range(3):   # the limiter shaves a little, so correct and repeat
-    subprocess.run([FF, "-y", "-loglevel", "error", "-i", st, "-af", f"volume={g:.2f}dB,alimiter=limit=0.79:level=false", "-ar", "48000", fin], check=True)
+    subprocess.run([FF, "-y", "-loglevel", "error", "-i", st, "-af", f"volume={g:.2f}dB,alimiter=limit=0.75:level=false", "-ar", "48000", fin], check=True)
     err = -14.0 - lufs(fin)
     if abs(err) < 0.2:
         break

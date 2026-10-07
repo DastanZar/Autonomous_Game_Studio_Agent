@@ -1,0 +1,142 @@
+{
+ "episode": "food-journey",
+ "theme": "flat-cast",
+ "kits": [
+  "body",
+  "kinetic"
+ ],
+ "flagship": "House method (user 2026-10-06): the organ cast and flat props carry the story; moving type for the one big number.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "hook/nine",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_door",
+   "type": "custom",
+   "start": "door.start-0.15",
+   "params": {
+    "fn": "door",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "door/opens",
+     "do": "reveal",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_churn",
+   "type": "custom",
+   "start": "churn.start-0.15",
+   "params": {
+    "fn": "churn",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "churn/four",
+     "do": "count_start",
+     "sfx": "tick"
+    }
+   ]
+  },
+  {
+   "id": "s_thanks",
+   "type": "character_dialog",
+   "start": "thanks.start-0.15",
+   "params": {
+    "cast": [
+     "stomach"
+    ],
+    "setting": "stomach",
+    "moods": {
+     "stomach": "tired"
+    }
+   },
+   "events": []
+  },
+  {
+   "id": "s_small",
+   "type": "custom",
+   "start": "small.start-0.15",
+   "params": {
+    "fn": "small",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "small/twentytwo",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "four/four",
+     "do": "count_start",
+     "sfx": "tick"
+    }
+   ]
+  },
+  {
+   "id": "s_water",
+   "type": "custom",
+   "start": "water.start-0.15",
+   "params": {
+    "fn": "water",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "water/water",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_bugs",
+   "type": "character_dialog",
+   "start": "bugs.start-0.15",
+   "params": {
+    "cast": [
+     "gut_microbes"
+    ],
+    "setting": "gut",
+    "microbe_kind": "rod"
+   },
+   "events": []
+  },
+  {
+   "id": "s_toll",
+   "type": "character_dialog",
+   "start": "toll.start-0.15",
+   "params": {
+    "cast": [
+     "stomach",
+     "gut_microbes"
+    ],
+    "setting": "spotlight",
+    "title": "NINE METERS!",
+    "moods": {
+     "stomach": "proud"
+    }
+   },
+   "events": []
+  }
+ ],
+ "drift": 0.06
+}

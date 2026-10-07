@@ -1,0 +1,20 @@
+{
+ "title": "America and Britain nearly went to war over a pig",
+ "description": "In 1859 the US and Britain came close to war on San Juan Island, and it started with a farmer shooting a pig.\n\nSources:\n- The Pig War — U.S. National Park Service, San Juan Island National Historical Park: https://www.nps.gov/sajh/learn/historyculture/the-pig-war.htm\n- Pig War (1859) — Wikipedia: https://en.wikipedia.org/wiki/Pig_War_(1859)\n\nLabels: the British force total is Wikipedia's summary figure. Maps: Natural Earth (public domain) and OpenStreetMap contributors (ODbL). Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#history",
+  "#geography",
+  "#maps",
+  "#shorts"
+ ],
+ "pinned_comment": "Would you have paid the $100 for the pig?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/pig-war.mp4",
+ "srt": "out/pig-war.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-14T15:00:00Z"
+}

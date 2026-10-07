@@ -15,15 +15,15 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | # | Decision | Options / recommendation | Detail |
 |---|---|---|---|
-| 0 | **Watch the three Point Roberts methods (A, B, C) on the dashboard** and pick one, or parts of each | The answer sets how every future video is made | `studio/review_queue.json`, methodology note |
+| 0 | **Watch the 12 launch videos** on the dashboard and flag anything to fix before the first upload (Tue 13 Oct, 11:00 ET) | Then upload each in YouTube Studio as private with its scheduled time | `docs/publish-kit-2026-10.md`, `studio/review_queue.json` |
 | 1 | (Settled 2026-10-06) Music: one track per niche, rotated on analytics; no per-track approval needed | `inside` (Gut Gang), `countdown` (Leader Flags) | bibles `audio.music` |
 
 ## Blocked (needs something from outside this container)
 
 
-- **Fish voice:** there is no OpenRouter key in the container, so every episode so far uses the Piper
-  draft voice. To unblock, add `OPENROUTER_API_KEY` as an environment secret.
-- **YouTube test upload:** the connection is verified, but no episode has a built video in this container. `build/` isn't in git, and a rebuild needs the voice key above. Next step: rebuild one why-map episode, then upload it privately.
+- **Fish voice:** there is no OpenRouter key in the container, so every episode so far uses a local draft
+  voice (Kokoro George, the user's pick). To unblock, add `OPENROUTER_API_KEY` as an environment secret.
+- **YouTube API uploads:** the OAuth connection works, but the Google Cloud project isn't verified, so anything uploaded through the API is locked private permanently. Until the API audit passes, upload by hand in YouTube Studio (the 12 launch videos are ready; `docs/publish-kit-2026-10.md`). To unblock: submit the YouTube API audit form (draft answers in the publish kit).
 - **Stable Audio Open SFX:** too slow on this CPU (678 s per 1.5 s clip). Run `studio/tools/sfx_gen.py`
   on your RTX 3060 laptop.
 
@@ -31,6 +31,10 @@ what is still open. It is updated with every step we take; newest entries are at
 
 | Date | Decision | Why | Where it's recorded |
 |---|---|---|---|
+| 2026-10-07 | **All 12 launch videos made, packaged and scheduled for manual upload** (4 per channel). Schedule (ET): Tue 13 Oct, Wed 14, Thu 15 and Tue 20 Oct; Border Quirks 11:00, Gut Gang 12:00, Leader Flags 13:00. API upload stays off: an unverified API project's uploads are locked private for good. | The user: "even if the push automatic isnt possible, have all 12 videos made and ready and stored, ill upload manually" | `docs/publish-kit-2026-10.md`, each `package.json` (`schedule`), dashboard "Watch & listen" |
+| 2026-10-07 | **Two Gut Gang topics swapped from the slate:** the pill's journey became the swallowed-gum myth, and brain learning became the brain's 2%/20% energy bill. Both keep the scout's high-demand theme (swallowing; brain facts) and have quotable sources; the originals didn't. | Facts beat topics: no claim without a fetched, quoted source | `docs/research/launch-slate-2026-10.md`, episode dossiers |
+| 2026-10-07 | **Engine: per-scene camera drift** (`storyboard.drift`, 6% push-in) on all 12. Leader Flags' fair frozen time fell from 12.6 to 7.4 s per 30 s, below the Emu War's 8.4. | C's measured weakness was holding still between beats | `studio/engine/core.js`, `studio/tools/frozen.py` |
+| 2026-10-06 | **House method adopted:** A's characters and paper props, B's 3D map flights for geography, C's moving type for the one big number. Defaults: A for Border Quirks and Gut Gang, C for Leader Flags. Built as shared kits so cheap agents can reuse them. | The user's call after watching A, B and C | `studio/engine/kits/` (paper, flight, kinetic, flagart, body, rank) |
 | 2026-10-06 | **Correction: YouTube does test whole videos.** Made on YouTube (23 Sep 2026) announced video A/B testing: up to 3 cuts, winner by watch-time share, select creators first, wider from 2027, Shorts unconfirmed. Plan: A is the main cut and B the test cut when Studio offers it to us; every episode can render up to 3 cuts (backlog `ab-cuts`); method testing across episodes continues until then. My first answer used old pages. | The user caught it (MKBHD video). Rule: search the latest event and news first for platform questions | `docs/research/youtube-video-ab-testing-2026-10.md` |
 | 2026-10-06 | **Music settled:** Border Quirks uses 'detective' at 13 dB under the voice. The user listened: "much better". | User approval | why-map manifest, bible |
 | 2026-10-06 | **Methods A and B are kept; C is parked as a recipe for other niches** (Leader Flags first). The method is A/B tested across episodes, not by uploading one story twice: YouTube's Test & Compare tests thumbnails and titles only, and not on Shorts. | User liked A and B; two versions of one story on one channel compete and risk the repetitive-content policy | backlog `method-test`, `c-recipe-ranked` |

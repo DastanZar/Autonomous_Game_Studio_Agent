@@ -1,0 +1,168 @@
+{
+ "episode": "stomach-acid",
+ "theme": "flat-cast",
+ "kits": [
+  "body",
+  "kinetic"
+ ],
+ "flagship": "House method (user 2026-10-06): the organ cast and flat props carry the story; moving type for the one big number.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "hook/acid",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "hook/zinc",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_ph",
+   "type": "custom",
+   "start": "ph.start-0.15",
+   "params": {
+    "fn": "ph",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "ph/one",
+     "do": "reveal",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_litres",
+   "type": "custom",
+   "start": "litres.start-0.15",
+   "params": {
+    "fn": "litres",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "litres/one",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_melt",
+   "type": "character_dialog",
+   "start": "melt.start-0.15",
+   "params": {
+    "cast": [
+     "stomach"
+    ],
+    "setting": "stomach",
+    "moods": {
+     "stomach": "shocked"
+    }
+   },
+   "events": []
+  },
+  {
+   "id": "s_mucus",
+   "type": "custom",
+   "start": "mucus.start-0.15",
+   "params": {
+    "fn": "mucus",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "mucus/mucus",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "base/bicarbonate",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_seal",
+   "type": "custom",
+   "start": "seal.start-0.3",
+   "params": {
+    "fn": "mucus",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number.",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "seal/tightly",
+     "do": "emphasize",
+     "sfx": "thud"
+    }
+   ]
+  },
+  {
+   "id": "s_coat",
+   "type": "custom",
+   "start": "coat.start-0.15",
+   "params": {
+    "fn": "coat",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "coat/raincoat",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_gross",
+   "type": "character_dialog",
+   "start": "gross.start-0.15",
+   "params": {
+    "cast": [
+     "brain",
+     "stomach"
+    ],
+    "setting": "neurons",
+    "moods": {
+     "brain": "worried",
+     "stomach": "smug"
+    }
+   },
+   "events": []
+  },
+  {
+   "id": "s_toll",
+   "type": "character_dialog",
+   "start": "toll.start-0.15",
+   "params": {
+    "cast": [
+     "stomach",
+     "brain"
+    ],
+    "setting": "spotlight",
+    "title": "STOPPED BY SNOT",
+    "moods": {
+     "stomach": "proud"
+    }
+   },
+   "events": []
+  }
+ ],
+ "drift": 0.06
+}

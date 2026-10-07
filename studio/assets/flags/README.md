@@ -7,3 +7,6 @@ never redrawn or approximated.
 
 Codes are ISO 3166-1 alpha-2, plus GB-ENG for England. Load them with the `flagart` kit:
 `flagArt(code, x, y, w, h)` draws the flag; `flagBadge(code, x, y, r)` draws a round badge.
+
+Added 2026-10-07: BO, PE, and US state flags US-CA, US-TX, US-NY, US-FL, US-PA (state flags are public domain on
+Commons; used unmodified).

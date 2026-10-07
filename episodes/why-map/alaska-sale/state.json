@@ -1,0 +1,91 @@
+{
+ "stages": {
+  "topic": {
+   "result": "pass",
+   "at": "2026-10-06T21:10:15Z",
+   "hashes": {
+    "topic.json": "8ef8217c0a56"
+   },
+   "failed": []
+  },
+  "research": {
+   "result": "pass",
+   "at": "2026-10-06T21:10:24Z",
+   "hashes": {
+    "topic.json": "8ef8217c0a56",
+    "dossier.json": "6582c537bb03"
+   },
+   "failed": []
+  },
+  "script": {
+   "result": "pass",
+   "at": "2026-10-06T21:14:45Z",
+   "hashes": {
+    "topic.json": "8ef8217c0a56",
+    "dossier.json": "6582c537bb03",
+    "script.json": "5074b1013e5d"
+   },
+   "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-06T21:14:45Z",
+   "hashes": {
+    "script.json": "5074b1013e5d",
+    "build/timeline.json": "bf3571ae4f48"
+   },
+   "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-07T05:39:38Z",
+   "hashes": {
+    "script.json": "5074b1013e5d",
+    "build/timeline.json": "bf3571ae4f48",
+    "storyboard.json": "0c434499a7a4"
+   },
+   "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-07T06:13:10Z",
+   "hashes": {
+    "storyboard.json": "0c434499a7a4",
+    "build/timeline.json": "bf3571ae4f48",
+    "review.json": "6d41bcb20453"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "pass",
+   "at": "2026-10-07T06:13:10Z",
+   "hashes": {
+    "review.json": "6d41bcb20453",
+    "build/final_report.json": "e08bfe36877a"
+   },
+   "failed": []
+  },
+  "package": {
+   "result": "pass",
+   "at": "2026-10-07T06:13:10Z",
+   "hashes": {
+    "build/final_report.json": "e08bfe36877a",
+    "dossier.json": "6582c537bb03",
+    "script.json": "5074b1013e5d",
+    "package.json": "276cd8703884"
+   },
+   "failed": []
+  },
+  "publish": {
+   "result": "fail",
+   "at": "2026-10-07T06:13:11Z",
+   "hashes": {
+    "package.json": "276cd8703884",
+    "publish.json": null
+   },
+   "failed": [
+    "publish.json is missing"
+   ]
+  }
+ }
+}

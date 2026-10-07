@@ -221,7 +221,10 @@ const emph = (t, S) => S.ev.reduce((a, e) => a + Math.max(0, 1 - Math.abs(t - e.
 function drawScene(S, t) {
   const fn = SCENE_FNS[S.type];
   if (!fn) { warn(`no renderer for scene type '${S.type}'`); paperBG(); text(S.type.toUpperCase(), W / 2, H / 2, { size: 70 }); return; }
-  ctx.save(); fn(t, S); ctx.restore();
+  ctx.save();
+  const dr = EP.storyboard.drift || 0;            // a slow push-in across each scene, so no beat ever sits still (frozen.py)
+  if (dr) { const u = clamp((t - S.t0) / Math.max(1, S.t1 - S.t0)), z = 1 + dr * eio(u); ctx.translate(W / 2 + Math.sin(t * 0.35) * 10, H * 0.45); ctx.scale(z, z); ctx.translate(-W / 2, -H * 0.45); }
+  fn(t, S); ctx.restore();
 }
 
 // ---------- captions from the script's caption chunks, timed by the spoken words ----------

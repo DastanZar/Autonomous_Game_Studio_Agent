@@ -1,0 +1,20 @@
+{
+ "title": "Your brain is 2% of you and burns 20% of your energy",
+ "description": "Your brain is about 2% of your body weight but uses about 20% of your energy and oxygen at rest, a quarter of your glucose and 15% of the blood your heart pumps. And no, you don't use only 10% of it.\n\nSources:\n- Human brain — Wikipedia: https://en.wikipedia.org/wiki/Human_brain\n- Why Does the Brain Need So Much Power? — Scientific American: https://www.scientificamerican.com/article/why-does-the-brain-need-s/\n- Power of a Human Brain — The Physics Factbook (hypertextbook.com): https://hypertextbook.com/facts/2001/JacquelineLing.shtml\n- How much energy does your brain require? — FlipScience: https://www.flipscience.ph/flipfacts/how-much-energy-does-your-brain-require/\n- Do People Only Use 10 Percent of Their Brains? — Scientific American: https://www.scientificamerican.com/article/do-people-only-use-10-percent-of-their-brains/\n\nThe energy figures are for the body at rest. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#science",
+  "#brain",
+  "#biology",
+  "#shorts"
+ ],
+ "pinned_comment": "What's the hardest thing your brain did today?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/brain-energy.mp4",
+ "srt": "out/brain-energy.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-20T16:00:00Z"
+}

@@ -1,0 +1,216 @@
+{
+ "episode": "most-islands",
+ "theme": "data-flags",
+ "kits": [
+  "kinetic",
+  "flagart",
+  "rank"
+ ],
+ "flags": [
+  "ID",
+  "CL",
+  "CA",
+  "FI",
+  "NO",
+  "SE"
+ ],
+ "flagship": "House method (user 2026-10-06): C (kinetic infographic) is Leader Flags' default.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "hook/not",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_indo",
+   "type": "custom",
+   "start": "indo.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "ID"
+    ],
+    "name": "Indonesia",
+    "value": 17508,
+    "unit": "ISLANDS",
+    "at": "indo/indonesia",
+    "valueAt": "indo/seventeen",
+    "source": "national counts, methods differ (Wikipedia list; Statistics Sweden 2013)"
+   },
+   "events": [
+    {
+     "at": "indo/indonesia",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_chile",
+   "type": "custom",
+   "start": "chile.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "CL"
+    ],
+    "name": "Chile",
+    "value": 43471,
+    "unit": "ISLANDS",
+    "rank": 5,
+    "at": "chile/chile",
+    "valueAt": "chile/fortythree",
+    "source": "national counts, methods differ (Wikipedia list; Statistics Sweden 2013)"
+   },
+   "events": [
+    {
+     "at": "chile/chile",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_canada",
+   "type": "custom",
+   "start": "canada.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "CA"
+    ],
+    "name": "Canada",
+    "value": 52455,
+    "unit": "ISLANDS",
+    "rank": 4,
+    "at": "canada/canada",
+    "valueAt": "canada/fiftytwo",
+    "source": "national counts, methods differ (Wikipedia list; Statistics Sweden 2013)"
+   },
+   "events": [
+    {
+     "at": "canada/canada",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_finland",
+   "type": "custom",
+   "start": "finland.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "FI"
+    ],
+    "name": "Finland",
+    "value": 178947,
+    "unit": "ISLANDS",
+    "rank": 3,
+    "at": "finland/finland",
+    "valueAt": "finland/one",
+    "sub": "other counts: up to 198,146",
+    "source": "national counts, methods differ (Wikipedia list; Statistics Sweden 2013)"
+   },
+   "events": [
+    {
+     "at": "finland/finland",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_norway",
+   "type": "custom",
+   "start": "norway.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "NO"
+    ],
+    "name": "Norway",
+    "value": 239057,
+    "unit": "ISLANDS",
+    "rank": 2,
+    "at": "norway/norway",
+    "valueAt": "norway/two",
+    "sub": "other counts: about 55,000",
+    "source": "national counts, methods differ (Wikipedia list; Statistics Sweden 2013)"
+   },
+   "events": [
+    {
+     "at": "norway/norway",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_sweden",
+   "type": "custom",
+   "start": "sweden.start-0.15",
+   "params": {
+    "fn": "sweden",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "sweden/two",
+     "do": "count_start",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_tiny",
+   "type": "custom",
+   "start": "tiny.start-0.15",
+   "params": {
+    "fn": "tiny",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "tiny/parking",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+   },
+   "events": [
+    {
+     "at": "toll/indonesia",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

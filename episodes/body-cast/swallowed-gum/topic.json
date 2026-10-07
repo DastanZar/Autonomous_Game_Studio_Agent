@@ -1,0 +1,26 @@
+{
+ "slug": "swallowed-gum",
+ "channel": "body-cast",
+ "series": "what_if",
+ "hook": "They told you swallowed gum stays in your stomach for seven years.",
+ "twist": "Most stomachs empty within two hours, gum included; the gum base is indigestible but takes the same path as food. Doctors rarely see swallowed gum more than a week old.",
+ "angle": "Myth-buster: the Stomach is offended by the seven-year claim; the microbes saw it leave. One big number: 7 YEARS crossed out.",
+ "why_now": "Scout: 'what happens when you swallow' Shorts top 35.2M views since mid-2024; the gum myth is the most-searched swallow question.",
+ "candidate_sources": [
+  "https://www.dukehealth.org/blog/myth-or-fact-it-takes-seven-years-digest-chewing-gum",
+  "https://www.scientificamerican.com/article/fact-or-fiction-chewing-gum-takes-seven-years-to-digest/"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 4,
+  "timeliness": 2,
+  "series_fit": 5
+ },
+ "risks": [
+  "Doctors warn that swallowing lots of gum (especially children) can cause a blockage: the description says so."
+ ],
+ "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
+ "approved_at": "2026-10-06"
+}

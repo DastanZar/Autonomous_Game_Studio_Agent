@@ -1,0 +1,41 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+   "frames": [
+    0.05,
+    3.18
+   ],
+   "defects": [
+    {
+     "t": 0.05,
+     "issue": "hook: brain partly off the left edge, no title",
+     "fixed": true
+    },
+    {
+     "t": 3.18,
+     "issue": "hook: '2% of your weight' tag tiny, under the big number",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+   "frames": [
+    0.05,
+    3.18,
+    5.14,
+    9.52,
+    11.82,
+    15.52,
+    20.08,
+    22.24,
+    29.14,
+    29.19
+   ],
+   "defects": []
+  }
+ ]
+}

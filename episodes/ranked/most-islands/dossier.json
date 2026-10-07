@@ -1,0 +1,88 @@
+{
+ "topic": "Countries with the most islands (national counts)",
+ "sources": [
+  {
+   "id": "list",
+   "title": "List of countries by number of islands",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/List_of_countries_by_number_of_islands",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "scst",
+   "title": "Sweden's 267,570 islands: the official count",
+   "publisher": "Scandinavia Standard",
+   "url": "https://www.scandinaviastandard.com/t-sweden-267570-islands-official-count/",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "lsci",
+   "title": "Which country has the most islands?",
+   "publisher": "Live Science",
+   "url": "https://www.livescience.com/what-country-has-most-islands",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_sweden",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "scst",
+    "lsci"
+   ],
+   "text": "Statistics Sweden counted 267,570 islands (2013 inventory); Sweden tops the list.",
+   "quote": "Statistics Sweden counted 267,570 islands in its 2013 inventory; The winner \u2014 by quite some margin \u2014 is Sweden",
+   "label": "national count"
+  },
+  {
+   "id": "c_top3",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "scst"
+   ],
+   "text": "A 2025 comparison of national totals ranks Sweden 267,570, Norway 239,057, Finland 178,947.",
+   "quote": "ranks Sweden first with 267,570, Norway second with 239,057 and Finland third with 178,947",
+   "label": "national counts, methods differ"
+  },
+  {
+   "id": "c_others",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "list"
+   ],
+   "text": "Wikipedia's list: Canada 52,455; Chile 43,471; Indonesia 17,508.",
+   "quote": "Canada 52,455 260; Chile 43,471 2,324; Indonesia 17,508 6,000",
+   "label": "national counts, methods differ"
+  },
+  {
+   "id": "c_tiny",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "scst"
+   ],
+   "text": "Sweden's count included areas as small as nine square metres.",
+   "quote": "The smallest included areas measured just nine square metres"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Indonesia (or the Philippines) has the most islands.",
+   "truth": "By national counts, Sweden, Norway and Finland each count far more; their rules count tiny islets.",
+   "sources": [
+    "lsci",
+    "scst"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Norway's count varies by source (about 55,000 to 239,057)."
+ ]
+}

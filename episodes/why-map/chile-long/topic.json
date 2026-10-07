@@ -1,0 +1,32 @@
+{
+ "slug": "chile-long",
+ "channel": "why-map",
+ "series": "why",
+ "hook": "Chile is 4,270 km long and on average only 177 km wide.",
+ "twist": "The Andes fixed the east side (an 1881 treaty put the border on the highest peaks that divide the waters), the Pacific the west. The north came from a war over fertilizer: Chile took Bolivia's coast, and Bolivia, landlocked since, still keeps a navy on Lake Titicaca and a Day of the Sea.",
+ "angle": "A shape question with a war-and-navy payoff. 3D flight down the whole country; paper soldiers, a nitrate sack and a tiny navy on a lake.",
+ "why_now": "Evergreen; scout: why-Chile-is-so-long Shorts top 31.9M, median of top 25 0.34M since mid-2024; the Bolivian-navy payoff is less used.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/Geography_of_Chile",
+  "https://en.wikipedia.org/wiki/Boundary_treaty_of_1881_between_Chile_and_Argentina",
+  "https://en.wikipedia.org/wiki/War_of_the_Pacific",
+  "https://en.wikipedia.org/wiki/Bolivian_Naval_Force",
+  "https://en.wikipedia.org/wiki/Day_of_the_Sea",
+  "https://bigthink.com/strange-maps/how-long-is-chile/",
+  "https://origins.osu.edu/watch/war-pacific-1879-1884"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 4,
+  "timeliness": 2,
+  "series_fit": 5
+ },
+ "risks": [
+  "Length figures differ (4,270 km in Geography of Chile, 'over 4,300' in Chile): use 4,270 and its 177 km average.",
+  "Do not say Bolivia's navy only sails the lake: it also patrols rivers."
+ ],
+ "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
+ "approved_at": "2026-10-06"
+}

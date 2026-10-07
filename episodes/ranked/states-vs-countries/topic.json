@@ -1,0 +1,26 @@
+{
+ "slug": "states-vs-countries",
+ "channel": "ranked",
+ "series": "versus",
+ "hook": "California's economy is bigger than Japan's.",
+ "twist": "In 2024 GDP, California would rank fourth in the world, Texas beats Italy and Canada, New York beats Canada, Florida beats Indonesia, Pennsylvania beats Switzerland.",
+ "angle": "Head-to-head cards, state flag vs country flag, numbers rolling. One big number: California's $4.1 trillion.",
+ "why_now": "Scout: states-vs-countries Shorts top 7.8M (median of top 25: 0.66M); US-centric, so the highest ad rates of the slate.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_GDP",
+  "https://sherwood.news/world/california-just-leapfrogged-japan-to-become-the-worlds-fourth-largest"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 3,
+  "series_fit": 5
+ },
+ "risks": [
+  "Mixes BEA (states) and World Bank (countries) 2024 nominal figures, as Wikipedia's comparison table does: say so on screen."
+ ],
+ "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
+ "approved_at": "2026-10-06"
+}

@@ -1,0 +1,174 @@
+{
+ "channel": "ranked",
+ "episode": "most-time-zones",
+ "series": "top",
+ "working_title": "Which country has the most time zones? Not Russia.",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Which country has the most time zones? It's not Russia.",
+   "kind": "hook",
+   "claims": [
+    "c_france"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "WHICH COUNTRY HAS",
+     3
+    ],
+    [
+     "THE MOST TIME ZONES?",
+     4
+    ],
+    [
+     "IT'S NOT RUSSIA.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "canada",
+   "say": "Canada has five.",
+   "kind": "fact",
+   "claims": [
+    "c_ranks"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "CANADA HAS FIVE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "nine",
+   "say": "The UK and Australia have nine each. Mostly islands.",
+   "kind": "fact",
+   "claims": [
+    "c_ranks"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "THE UK AND AUSTRALIA",
+     4
+    ],
+    [
+     "HAVE NINE EACH.",
+     3
+    ],
+    [
+     "MOSTLY ISLANDS.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "eleven",
+   "say": "Russia has eleven. So does the United States.",
+   "kind": "fact",
+   "claims": [
+    "c_ranks"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "RUSSIA HAS ELEVEN.",
+     3
+    ],
+    [
+     "SO DOES",
+     2
+    ],
+    [
+     "THE UNITED STATES.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "france",
+   "say": "And France has twelve. Thanks to islands scattered across the world.",
+   "kind": "fact",
+   "claims": [
+    "c_france"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "AND FRANCE HAS TWELVE.",
+     4
+    ],
+    [
+     "THANKS TO ISLANDS",
+     3
+    ],
+    [
+     "SCATTERED ACROSS",
+     2
+    ],
+    [
+     "THE WORLD.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "china",
+   "say": "Meanwhile, China spans five time zones. And uses one.",
+   "kind": "fact",
+   "claims": [
+    "c_china"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "MEANWHILE,",
+     1
+    ],
+    [
+     "CHINA SPANS",
+     2
+    ],
+    [
+     "FIVE TIME ZONES.",
+     3
+    ],
+    [
+     "AND USES ONE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "France: twelve. China: one.",
+   "kind": "callback",
+   "claims": [
+    "c_france",
+    "c_china"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "FRANCE: TWELVE.",
+     2
+    ],
+    [
+     "CHINA: ONE.",
+     2
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on France's twelve, the answer to the hook; the last frame is France's twelve clocks."
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "title": "Your lunch travels 9 meters inside you. Here's the route.",
+ "description": "From mouth to exit your gut is about nine metres of tube: the stomach churns food for four or five hours, the 22-foot small intestine takes about four more, then the large intestine takes the water.\n\nSources:\n- Human digestive system — Wikipedia: https://en.wikipedia.org/wiki/Human_digestive_system\n- Digestive System — Cleveland Clinic: https://my.clevelandclinic.org/health/body/7041-digestive-system\n- Your Digestive System & How It Works — U.S. National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK): https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works\n\nTimes vary a lot between people and meals; the figures are typical values. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#science",
+  "#biology",
+  "#digestion",
+  "#shorts"
+ ],
+ "pinned_comment": "Which organ deserves a thank-you the most?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/food-journey.mp4",
+ "srt": "out/food-journey.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-13T16:00:00Z"
+}

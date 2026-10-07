@@ -1,0 +1,85 @@
+{
+ "topic": "Countries with the most men's World Cup titles, after the 2026 final",
+ "sources": [
+  {
+   "id": "finals",
+   "title": "List of FIFA World Cup finals",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/List_of_FIFA_World_Cup_finals",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "final26",
+   "title": "2026 FIFA World Cup final",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_final",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "wcr",
+   "title": "World Cup 2026 Results: July 19, 2026",
+   "publisher": "WorldCupRanking",
+   "url": "https://worldcupranking.com/blog/world-cup-2026-july-19-results/",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "star",
+   "title": "List of World Cup winners (Reuters)",
+   "publisher": "The Star",
+   "url": "https://www.thestar.com.my/news/world/2026/07/20/list-of-world-cup-winners",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_spain",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "final26",
+    "wcr"
+   ],
+   "text": "Spain beat Argentina 1-0 after extra time in the 2026 final; its second title.",
+   "quote": "Spain's win earned the country its second World Cup title and its first since 2010; Spain beat Argentina 1\u20130 after extra time at MetLife Stadium"
+  },
+  {
+   "id": "c_table",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "finals",
+    "star"
+   ],
+   "text": "Brazil has five titles; Italy and Germany four; Argentina three; Uruguay, France and Spain two; England one.",
+   "quote": "having won five titles and finished second twice; Italy and Germany have four titles each; Argentina has won three titles, Uruguay , France and Spain have two each, and England has one; 2026: Spain 2022: Argentina 2018: France 2014: Germany 2010: Spain"
+  },
+  {
+   "id": "c_every",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "finals"
+   ],
+   "text": "Brazil is the only team that has played at every World Cup.",
+   "quote": "Brazil , the only team that has participated in every World Cup"
+  },
+  {
+   "id": "c_eight",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "finals"
+   ],
+   "text": "Of 84 nations to appear, 13 have reached the final and 8 have won it.",
+   "quote": "Of 84 nations that have appeared in the tournament , 13 have made it to the final, and 8 have won"
+  }
+ ],
+ "myths": [],
+ "open_questions": [
+  "Germany's four titles include three won as West Germany."
+ ]
+}

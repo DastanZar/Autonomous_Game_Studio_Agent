@@ -1,0 +1,47 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+   "frames": [
+    0.05,
+    12.78,
+    29.3
+   ],
+   "defects": [
+    {
+     "t": 0.05,
+     "issue": "hook: first frame had no title",
+     "fixed": true
+    },
+    {
+     "t": 12.78,
+     "issue": "base: sweeteners label too small",
+     "fixed": true
+    },
+    {
+     "t": 29.3,
+     "issue": "doctors: microbe drawn with the wrong rig (render error)",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+   "frames": [
+    0.05,
+    3.98,
+    5.56,
+    12.78,
+    16.44,
+    20.22,
+    23.05,
+    29.32,
+    32.74,
+    32.79
+   ],
+   "defects": []
+  }
+ ]
+}

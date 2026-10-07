@@ -6,7 +6,7 @@
 // ---------- flat-cast palette: the bible's palette wins over these defaults ----------
 const BC = Object.assign({
   ink: "#1d1b2e", flesh: "#f2a38f", blood: "#d2383f", bone: "#f4ecd8", bile: "#9bb63a", lymph: "#7fc8d8", neuron: "#9a7de0", sun: "#ffcc4d",
-  liver: "#a8433f", brain: "#f3a0b6", heart: "#d2383f", vein: "#4f6fd0",
+  liver: "#a8433f", brain: "#f3a0b6", heart: "#d2383f", vein: "#4f6fd0", stomach: "#ee8a7c",
 }, EP.look.palette || {});
 
 // ---------- drawing helpers (from stylelab/base.js) ----------
@@ -167,6 +167,24 @@ const CAST = {
     strokePath(body, BC.ink, 8);
     arm(o, "R", 150, -290, c);
     castFace({ x: -5, y: -290, sz: 70, mood: o.mood || "proud", look: o.look, blink: castBlinkAt(t, o.seed), talk: o.talk, body: c });
+    ctx.restore();
+  },
+  stomach(o) {   // a J-shaped bag: the oesophagus enters top-left, the duodenum leaves bottom-right; about 470 tall
+    const c = BC.stomach, t = o.t, sq = Math.sin(t * 3.1 + (o.seed || 0)) * 0.025;   // a slow churn
+    const tube = (path, col, w) => { strokePath(path, BC.ink, w + 16); strokePath(path, col, w); };
+    tube(() => { ctx.moveTo(-78, -440); ctx.quadraticCurveTo(-92, -500, -70, -560); }, shade(c, -0.08), 54);
+    tube(() => { ctx.moveTo(118, -230); ctx.quadraticCurveTo(190, -230, 196, -170); }, shade(c, -0.08), 50);
+    legs(o, -60, 30, -160, c);
+    ctx.save(); ctx.translate(0, -300); ctx.scale(1 + sq, 1 - sq); ctx.translate(0, 300);
+    arm(o, "L", -165, -300, c);
+    const body = () => smooth([[-120, -440], [-30, -470], [40, -440], [70, -370], [150, -300], [140, -210], [40, -158], [-90, -170], [-175, -250], [-170, -360]]);
+    part(body, c, { hlAt: [-90, -380, 48] });
+    ctx.save(); ctx.beginPath(); body(); ctx.clip();      // rugae: the folds of the lining
+    for (let k = 0; k < 5; k++) strokePath(() => { ctx.moveTo(-170, -380 + k * 44); ctx.quadraticCurveTo(-40, -350 + k * 44 + Math.sin(t * 2 + k) * 8, 150, -330 + k * 40); }, shade(c, -0.16), 5);
+    ctx.restore();
+    strokePath(body, BC.ink, 8);
+    arm(o, "R", 140, -280, c);
+    castFace({ x: -30, y: -330, sz: 70, mood: o.mood || "worried", look: o.look, blink: castBlinkAt(t, o.seed), talk: o.talk, body: c });
     ctx.restore();
   },
   microbe(o) {  // o.kind: rod | coccus | spiral; about 130 tall
@@ -343,6 +361,7 @@ const RIGS = {
   brain: { kind: "brain", h: 505, w: 360, mood: "smug" },
   heart: { kind: "heart", h: 480, w: 380, mood: "proud" },
   microbe: { kind: "microbe", h: 120, w: 130, mood: "happy" },
+  stomach: { kind: "stomach", h: 560, w: 400, mood: "worried" },
   gut_microbes: { kind: "microbe", h: 120, w: 130, mood: "happy" },
 };
 const GROUND = 1230;                                   // feet line: above the caption block, below the bubbles

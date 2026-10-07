@@ -1,0 +1,150 @@
+{
+ "episode": "brain-energy",
+ "theme": "flat-cast",
+ "kits": [
+  "body",
+  "kinetic"
+ ],
+ "flagship": "House method (user 2026-10-06): the organ cast and flat props carry the story; moving type for the one big number.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "hook/two",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "hook/fifth",
+     "do": "count_start",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_worth",
+   "type": "character_dialog",
+   "start": "worth.start-0.15",
+   "params": {
+    "cast": [
+     "brain"
+    ],
+    "setting": "neurons",
+    "moods": {
+     "brain": "smug"
+    }
+   },
+   "events": []
+  },
+  {
+   "id": "s_share",
+   "type": "custom",
+   "start": "oxygen.start-0.15",
+   "params": {
+    "fn": "share",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "oxygen/twenty",
+     "do": "count_start",
+     "sfx": "pop"
+    },
+    {
+     "at": "glucose/quarter",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_share2",
+   "type": "custom",
+   "start": "blood.start-0.15",
+   "params": {
+    "fn": "share",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number.",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "blood/fifteen",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_deliver",
+   "type": "character_dialog",
+   "start": "deliver.start-0.15",
+   "params": {
+    "cast": [
+     "heart",
+     "brain"
+    ],
+    "setting": "bloodstream",
+    "moods": {
+     "heart": "angry"
+    }
+   },
+   "events": []
+  },
+  {
+   "id": "s_myth",
+   "type": "custom",
+   "start": "myth.start-0.15",
+   "params": {
+    "fn": "myth",
+    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "myth/ten",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_insult",
+   "type": "character_dialog",
+   "start": "insult.start-0.15",
+   "params": {
+    "cast": [
+     "brain"
+    ],
+    "setting": "neurons",
+    "moods": {
+     "brain": "angry"
+    }
+   },
+   "events": []
+  },
+  {
+   "id": "s_toll",
+   "type": "character_dialog",
+   "start": "toll.start-0.15",
+   "params": {
+    "cast": [
+     "brain",
+     "heart"
+    ],
+    "setting": "spotlight",
+    "title": "2% · 20%",
+    "moods": {
+     "brain": "proud"
+    }
+   },
+   "events": []
+  }
+ ],
+ "drift": 0.06
+}

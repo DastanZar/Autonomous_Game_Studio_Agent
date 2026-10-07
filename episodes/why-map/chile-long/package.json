@@ -1,0 +1,20 @@
+{
+ "title": "Why Chile is so long, and Bolivia has a navy with no sea",
+ "description": "Chile runs 4,270 km north to south but averages only 177 km wide: the Andes fix one side, the Pacific the other, and the north came from a war that left Bolivia without a coast.\n\nSources:\n- Geography of Chile — Wikipedia: https://en.wikipedia.org/wiki/Geography_of_Chile\n- Boundary treaty of 1881 between Chile and Argentina — Wikipedia: https://en.wikipedia.org/wiki/Boundary_treaty_of_1881_between_Chile_and_Argentina\n- War of the Pacific — Wikipedia: https://en.wikipedia.org/wiki/War_of_the_Pacific\n- Bolivian Naval Force — Wikipedia: https://en.wikipedia.org/wiki/Bolivian_Naval_Force\n- Day of the Sea — Wikipedia: https://en.wikipedia.org/wiki/Day_of_the_Sea\n- How long is Chile? — Big Think (Strange Maps): https://bigthink.com/strange-maps/how-long-is-chile/\n- War of the Pacific — New World Encyclopedia: https://newworldencyclopedia.org/entry/War_of_the_Pacific\n- The War of the Pacific, 1879-1884 — Origins, Ohio State University: https://origins.osu.edu/watch/war-pacific-1879-1884\n- The Navy Without a Sea — Avaunt Magazine: https://avauntmagazine.com/the-navy-without-a-sea/\n\nLabels: Chile's length is 4,270 km in one source and 'over 4,300 km' in another. Bolivia's navy also patrols rivers, not just Lake Titicaca. Maps: Natural Earth (public domain). Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#geography",
+  "#history",
+  "#maps",
+  "#shorts"
+ ],
+ "pinned_comment": "Should Bolivia get its coast back?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/chile-long.mp4",
+ "srt": "out/chile-long.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-20T15:00:00Z"
+}

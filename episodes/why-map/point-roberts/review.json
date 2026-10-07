@@ -1,0 +1,41 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), contact sheet and spot frames, round 1 (logged after the fact; fixes were made in this session)",
+   "frames": [
+    23.7
+   ],
+   "defects": [
+    {
+     "t": 23.7,
+     "issue": "drive: the 3D car left the frame; camera raised to 62-70 km and the car scaled up",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-07T06:13:08Z",
+   "reviewer": "builder (orchestrator), final contact sheet after camera drift, round 2",
+   "frames": [
+    0.05,
+    4.28,
+    6.76,
+    13.28,
+    15.82,
+    19.38,
+    23.72,
+    26.8,
+    31.76,
+    37.52,
+    39.76,
+    45.24,
+    48.02,
+    54.84,
+    57.86,
+    59.72
+   ],
+   "defects": []
+  }
+ ]
+}

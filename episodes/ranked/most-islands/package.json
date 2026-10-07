@@ -1,0 +1,20 @@
+{
+ "title": "Which country has the most islands? It's not Indonesia.",
+ "description": "By national counts Sweden has the most islands, 267,570, then Norway and Finland; Indonesia has about 17,500. Sweden counted islands as small as nine square metres.\n\nSources:\n- List of countries by number of islands — Wikipedia: https://en.wikipedia.org/wiki/List_of_countries_by_number_of_islands\n- Sweden's 267,570 islands: the official count — Scandinavia Standard: https://www.scandinaviastandard.com/t-sweden-267570-islands-official-count/\n- Which country has the most islands? — Live Science: https://www.livescience.com/what-country-has-most-islands\n\nLabels: national counts use different rules, so figures differ between sources (Norway's ranges from about 55,000 to 239,057). Flags: official SVGs from Wikimedia Commons. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#geography",
+  "#countries",
+  "#islands",
+  "#shorts"
+ ],
+ "pinned_comment": "Should a 9 square metre rock count as an island?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/most-islands.mp4",
+ "srt": "out/most-islands.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-15T17:00:00Z"
+}

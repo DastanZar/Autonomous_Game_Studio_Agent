@@ -1,0 +1,219 @@
+{
+ "channel": "body-cast",
+ "episode": "swallowed-gum",
+ "series": "what_if",
+ "working_title": "Does swallowed gum really stay in you for seven years?",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "They told you swallowed gum stays in your stomach for seven years.",
+   "kind": "hook",
+   "claims": [
+    "c_myth"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "THEY TOLD YOU",
+     3
+    ],
+    [
+     "SWALLOWED GUM",
+     2
+    ],
+    [
+     "STAYS IN YOUR STOMACH",
+     4
+    ],
+    [
+     "FOR SEVEN YEARS.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "long",
+   "say": "Seven years? I don't keep anything that long.",
+   "kind": "joke",
+   "claims": [
+    "c_myth"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "SEVEN YEARS?",
+     2
+    ],
+    [
+     "I DON'T KEEP ANYTHING",
+     4
+    ],
+    [
+     "THAT LONG.",
+     2
+    ]
+   ],
+   "speaker": "stomach"
+  },
+  {
+   "id": "base",
+   "say": "Your stomach breaks down the sweeteners. But the gum base is basically indigestible.",
+   "kind": "fact",
+   "claims": [
+    "c_base"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "YOUR STOMACH BREAKS DOWN",
+     4
+    ],
+    [
+     "THE SWEETENERS.",
+     2
+    ],
+    [
+     "BUT THE GUM BASE",
+     4
+    ],
+    [
+     "IS BASICALLY INDIGESTIBLE.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "empty",
+   "say": "Doesn't matter. Most stomachs empty within two hours of eating. Gum included.",
+   "kind": "fact",
+   "claims": [
+    "c_empty"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "DOESN'T MATTER.",
+     2
+    ],
+    [
+     "MOST STOMACHS EMPTY",
+     3
+    ],
+    [
+     "WITHIN TWO HOURS",
+     3
+    ],
+    [
+     "OF EATING.",
+     2
+    ],
+    [
+     "GUM INCLUDED.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "path",
+   "say": "Then it takes the same path as food. All the way out.",
+   "kind": "fact",
+   "claims": [
+    "c_path"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THEN IT TAKES",
+     3
+    ],
+    [
+     "THE SAME PATH AS FOOD.",
+     5
+    ],
+    [
+     "ALL THE WAY OUT.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "saw",
+   "say": "We saw it. It didn't stay.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.4,
+   "caps": [
+    [
+     "WE SAW IT.",
+     3
+    ],
+    [
+     "IT DIDN'T STAY.",
+     3
+    ]
+   ],
+   "speaker": "gut_microbes"
+  },
+  {
+   "id": "doctors",
+   "say": "Doctors who look inside guts rarely find swallowed gum more than a week old.",
+   "kind": "fact",
+   "claims": [
+    "c_week"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "DOCTORS WHO LOOK",
+     3
+    ],
+    [
+     "INSIDE GUTS",
+     2
+    ],
+    [
+     "RARELY FIND SWALLOWED GUM",
+     4
+    ],
+    [
+     "MORE THAN A WEEK OLD.",
+     5
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "toll",
+   "say": "Seven years? Try less than a week.",
+   "kind": "callback",
+   "claims": [
+    "c_myth",
+    "c_week"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "SEVEN YEARS?",
+     2
+    ],
+    [
+     "TRY LESS THAN A WEEK.",
+     5
+    ]
+   ],
+   "speaker": "narrator"
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on 'seven years', the hook's claim; the last frame crosses out the 7 the first frame shows."
+ }
+}

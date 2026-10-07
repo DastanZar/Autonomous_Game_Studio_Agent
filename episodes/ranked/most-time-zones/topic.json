@@ -1,0 +1,27 @@
+{
+ "slug": "most-time-zones",
+ "channel": "ranked",
+ "series": "top",
+ "hook": "Which country has the most time zones? Not Russia.",
+ "twist": "France has 12, thanks to overseas territories; Russia and the US 11; the UK and Australia 9; Canada 5. China spans five geographical time zones and uses one.",
+ "angle": "Countdown with flags and clock rings; the twist is China's single clock. One big number: 12.",
+ "why_now": "Scout: most-time-zones Shorts top 31.8M (median of top 25: 0.38M) since mid-2024.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/List_of_time_zones_by_country",
+  "https://www.theglobalist.com/france-global-time-zone-leader/",
+  "https://en.wikipedia.org/wiki/Time_in_China"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 3,
+  "series_fit": 5
+ },
+ "risks": [
+  "Counts include overseas territories and exclude Antarctica (France has 13 with its Antarctic claim): say so on screen."
+ ],
+ "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
+ "approved_at": "2026-10-06"
+}

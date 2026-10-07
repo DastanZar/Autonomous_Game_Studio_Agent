@@ -1,0 +1,186 @@
+{
+ "channel": "ranked",
+ "episode": "world-cup-titles",
+ "series": "top",
+ "working_title": "Which country has the most World Cup titles? (after 2026)",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Spain just won its second World Cup. So who has the most?",
+   "kind": "hook",
+   "claims": [
+    "c_spain"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "SPAIN JUST WON",
+     3
+    ],
+    [
+     "ITS SECOND WORLD CUP.",
+     4
+    ],
+    [
+     "SO WHO HAS THE MOST?",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "one",
+   "say": "England has a single title.",
+   "kind": "fact",
+   "claims": [
+    "c_table"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "ENGLAND HAS",
+     2
+    ],
+    [
+     "A SINGLE TITLE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "two",
+   "say": "Spain, France and Uruguay have two each.",
+   "kind": "fact",
+   "claims": [
+    "c_table"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "SPAIN, FRANCE",
+     2
+    ],
+    [
+     "AND URUGUAY",
+     2
+    ],
+    [
+     "HAVE TWO EACH.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "three",
+   "say": "Argentina has three.",
+   "kind": "fact",
+   "claims": [
+    "c_table"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "ARGENTINA HAS THREE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "four",
+   "say": "Germany and Italy have four.",
+   "kind": "fact",
+   "claims": [
+    "c_table"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "GERMANY AND ITALY",
+     3
+    ],
+    [
+     "HAVE FOUR.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "five",
+   "say": "And Brazil has five. The only team that's played at every World Cup.",
+   "kind": "fact",
+   "claims": [
+    "c_table",
+    "c_every"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "AND BRAZIL HAS FIVE.",
+     4
+    ],
+    [
+     "THE ONLY TEAM",
+     3
+    ],
+    [
+     "THAT'S PLAYED",
+     2
+    ],
+    [
+     "AT EVERY WORLD CUP.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "eight",
+   "say": "In ninety-six years, only eight countries have ever won it.",
+   "kind": "fact",
+   "claims": [
+    "c_eight"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "IN 96 YEARS,",
+     3
+    ],
+    [
+     "ONLY EIGHT COUNTRIES",
+     3
+    ],
+    [
+     "HAVE EVER WON IT.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "Spain's two? Brazil has five.",
+   "kind": "callback",
+   "claims": [
+    "c_spain",
+    "c_table"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "SPAIN'S TWO?",
+     2
+    ],
+    [
+     "BRAZIL HAS FIVE.",
+     3
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on Spain's two titles, the hook's news; the last frame is Spain's flag next to Brazil's five stars."
+ }
+}

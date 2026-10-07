@@ -1,0 +1,212 @@
+{
+ "channel": "ranked",
+ "episode": "states-vs-countries",
+ "series": "versus",
+ "working_title": "US states vs countries: California beats Japan",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "California's economy is bigger than Japan's.",
+   "kind": "hook",
+   "claims": [
+    "c_ca"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "CALIFORNIA'S ECONOMY",
+     2
+    ],
+    [
+     "IS BIGGER",
+     2
+    ],
+    [
+     "THAN JAPAN'S.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "fourth",
+   "say": "Four point one trillion dollars. As a country, it would rank fourth in the world.",
+   "kind": "fact",
+   "claims": [
+    "c_ca"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "$4.1 TRILLION.",
+     5
+    ],
+    [
+     "AS A COUNTRY,",
+     3
+    ],
+    [
+     "IT WOULD RANK",
+     3
+    ],
+    [
+     "FOURTH IN THE WORLD.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "japan",
+   "say": "Japan comes in at four point zero three.",
+   "kind": "fact",
+   "claims": [
+    "c_ca"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "JAPAN COMES IN",
+     3
+    ],
+    [
+     "AT 4.03.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "texas",
+   "say": "Texas, at two point seven trillion, beats Italy. And Canada.",
+   "kind": "fact",
+   "claims": [
+    "c_tx"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "TEXAS,",
+     1
+    ],
+    [
+     "AT 2.7 TRILLION,",
+     5
+    ],
+    [
+     "BEATS ITALY.",
+     2
+    ],
+    [
+     "AND CANADA.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "newyork",
+   "say": "New York? Also bigger than Canada.",
+   "kind": "fact",
+   "claims": [
+    "c_ny"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "NEW YORK?",
+     2
+    ],
+    [
+     "ALSO BIGGER",
+     2
+    ],
+    [
+     "THAN CANADA.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "florida",
+   "say": "Florida beats Indonesia.",
+   "kind": "fact",
+   "claims": [
+    "c_fl"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "FLORIDA BEATS INDONESIA.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "penn",
+   "say": "And Pennsylvania beats Switzerland.",
+   "kind": "fact",
+   "claims": [
+    "c_pa"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "AND PENNSYLVANIA",
+     2
+    ],
+    [
+     "BEATS SWITZERLAND.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "canada",
+   "say": "Canada, by the way, is outscored by two separate states.",
+   "kind": "joke",
+   "claims": [
+    "c_tx",
+    "c_ny"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "CANADA, BY THE WAY,",
+     4
+    ],
+    [
+     "IS OUTSCORED",
+     2
+    ],
+    [
+     "BY TWO SEPARATE STATES.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "So, Japan. Meet California.",
+   "kind": "callback",
+   "claims": [
+    "c_ca"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "SO, JAPAN.",
+     2
+    ],
+    [
+     "MEET CALIFORNIA.",
+     2
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Ends on California and Japan, the hook's pair; the last frame is the same face-off card as the first."
+ }
+}

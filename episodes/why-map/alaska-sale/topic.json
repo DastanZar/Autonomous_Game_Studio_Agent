@@ -1,0 +1,30 @@
+{
+ "slug": "alaska-sale",
+ "channel": "why-map",
+ "series": "how_did",
+ "hook": "In 1867, America bought Alaska from Russia for about two cents an acre.",
+ "twist": "Russia sold because it was broke after the Crimean War and could not defend Alaska from Britain. Critics called it Seward's Folly until the Klondike gold. And the border it drew runs between two islands 2.4 miles apart, with the International Date Line between them: from Little Diomede you can see tomorrow.",
+ "angle": "The purchase story with a border-quirk payoff: the Diomedes, 'Yesterday' and 'Tomorrow' islands. Map flight from Alaska to the Bering Strait.",
+ "why_now": "Alaska Day is October 18 (the transfer anniversary); publishes the week of it. Scout: Russia-sold-Alaska Shorts top 30.7M, median of the top 25 1.28M since mid-2024.",
+ "candidate_sources": [
+  "https://history.state.gov/milestones/1866-1898/alaska-purchase",
+  "https://en.wikipedia.org/wiki/Alaska_Purchase",
+  "https://en.wikipedia.org/wiki/Diomede_Islands",
+  "https://laborstats.alaska.gov/trends/dec18art2.pdf",
+  "https://geographyrealm.com/separated-by-2-4-miles-and-21-hours"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 4,
+  "series_fit": 5
+ },
+ "risks": [
+  "'Seward's Folly' overstates how unpopular the purchase was; say 'critics called it', never 'everyone'.",
+  "Diomede time difference is 21 hours (20 in summer); say 21 and say 'almost a day'."
+ ],
+ "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
+ "approved_at": "2026-10-06"
+}
