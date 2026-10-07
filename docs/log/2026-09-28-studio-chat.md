@@ -2218,3 +2218,17 @@ all updated videos pushed to studio as well right? i hope i dont have to keep re
   - the site gets 540p previews transcoded on the runner (same paths, so every player keeps working);
   - full-quality masters, captions and thumbnails of every packaged episode go to a `masters` release, re-uploading only files whose size changed.
 - **Rule from here:** every finished or changed video lands on the dashboard and the masters release in the same push, without being asked.
+
+---
+
+### 🧑 User · 2026-10-07 UTC
+
+whats this 540 downgrade? when till now we had a working pipeline of videos and evry update being published there
+
+(then) I also want you to once you finish the renders, set up the channels and other aspects of them, all we have done is name them, we need to put a proper channel picture, description, write proper titles hashtags for all th euploads and whatever else is needed that helps boost a channel and its videos, im not the expert so i want you to go learn, read find what the experts are doing, use your own brain and set up the channels too, for the pciture give me a prompt, i will make them with nano banana and put it myself, everyhtig else you do
+
+(then) I hit my usage limit while you were working, but it has reset now. Please continue from where you left off.
+
+#### Claude · record
+
+- **540p reverted.** My mistake: I counted `docs/site-media.txt` (310 MB) as extra, but it lists the same 12 files that are already copied. The real site is 716 MB at full quality, under the 1 GB Pages limit, once the three full-size Point Roberts method variants are left off (their review previews stay). The dashboard again serves the exact rendered files; the masters release stays as a download page.

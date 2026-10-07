@@ -23,15 +23,12 @@ jobs:
       - run: pip install jsonschema
       - run: python3 studio/studio.py dashboard
       - run: mkdir -p _site && cp docs/dashboard.html _site/index.html && cp docs/site/*.html _site/
-      # Pages caps a site at 1 GB, so the dashboard gets light 540p previews (same paths); full-quality masters go to
-      # the "masters" release below. Images, captions and other files are copied as they are.
-      - name: media (previews)
+      # Full-quality media, exactly as rendered (no re-encoding). Pages caps a site at 1 GB: the only thing left out is
+      # the three full-size Point Roberts method variants, whose review previews are published instead.
+      - name: media
         run: |
-          sudo apt-get install -y -qq ffmpeg >/dev/null 2>&1 || true
-          add() { f="$1"; [ -f "$f" ] || return 0; mkdir -p "_site/media/$(dirname "$f")"
-            case "$f" in *.mp4) ffmpeg -loglevel error -y -i "$f" -vf "scale=-2:960" -c:v libx264 -preset veryfast -crf 30 -c:a aac -b:a 96k -movflags +faststart "_site/media/$f" || cp "$f" "_site/media/$f";;
-              *) cp "$f" "_site/media/$f";; esac; }
-          for f in $(find episodes shorts videos -path '*/out/*' -type f); do add "$f"; done
+          add() { f="$1"; [ -f "$f" ] || return 0; mkdir -p "_site/media/$(dirname "$f")"; cp "$f" "_site/media/$f"; }
+          for f in $(find episodes shorts videos -path '*/out/*' -type f | grep -v '/variants/.*/out/point-roberts.mp4$'); do add "$f"; done
           while read -r f; do add "$f"; done < docs/site-media.txt
           du -sh _site
       # full-quality masters of every episode with a package.json, as downloads on the "masters" release
@@ -39,7 +36,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release view masters >/dev/null 2>&1 || gh release create masters --title "Video masters (full quality, for upload)" --notes "Full-quality MP4, captions and thumbnail of every packaged episode, refreshed on every push to main. Preview them on the dashboard; download them here for YouTube Studio."
+          gh release view masters >/dev/null 2>&1 || gh release create masters --title "Video masters (full quality, for upload)" --notes "Full-quality MP4, captions and thumbnail of every packaged episode, refreshed on every push to main. The dashboard plays the same files; download them here for YouTube Studio."
           files=""; for p in $(find episodes -name package.json); do d=$(dirname "$p"); s=$(basename "$d")
             [ -f "$d/out/$s.mp4" ] && files="$files $d/out/$s.mp4"; [ -f "$d/out/$s.srt" ] && files="$files $d/out/$s.srt"
             [ -f "$d/out/thumbnail.jpg" ] && cp "$d/out/thumbnail.jpg" "/tmp/$s-thumbnail.jpg" && files="$files /tmp/$s-thumbnail.jpg"; done
