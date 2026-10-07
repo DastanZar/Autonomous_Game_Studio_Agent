@@ -116,6 +116,13 @@
    "minimum": 0.5,
    "maximum": 2,
    "description": "sketch kit: >1 draws and moves the camera slower"
+  },
+  "hand": {
+   "enum": [
+    "glove",
+    "photo"
+   ],
+   "description": "sketch kit: the drawing hand"
   }
  }
 }

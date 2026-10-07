@@ -2398,3 +2398,23 @@ Do you need me to generate the image?
 
 - **Answered yes:** I have no free image model (OpenRouter image models need credit; audio and the rest stay free). Asked for the Nano Banana image from the prompt above.
 - **How to send it:** attach it in chat, or upload it to `studio/assets/hands/` on GitHub. A still frame follows before any render.
+
+### 🧑 User · 2026-10-07 UTC
+
+give me the prompt for it again
+
+(then) added both the images for the 2 prompts to the location you defined in the repo
+
+#### Claude · record
+
+- Repeated both prompts.
+- **The images:** they arrived in `studio/assets/` (upload commit dcfaf24) and were moved to `studio/assets/hands/hand_down.jpg` and `hand_lifted.jpg`.
+- **New `studio/tools/hand_cutout.py`:**
+  - chroma key with green-spill removal;
+  - the generator's sparkle watermark painted out (OpenCV inpaint);
+  - the green screen's soft shadow kept as a dark shadow, not a pale halo;
+  - the sleeve continued past the right and bottom edges along the arm's slope;
+  - pencil-tip pixels written to `hands.json`.
+- **Sketch kit:** `storyboard.hand = "photo"` draws the cut-out with the pencil tip pinned to the stroke, a soft paper shadow, and the lifted pose while travelling between strokes.
+- **Stills sent** (t = 13.2 drawing, t = 29.6 lifted). No video render until the user approves.
+- **Known flaw:** the sleeve continuation is slightly streaky in the bottom ~300 px, inside the area YouTube covers with its own buttons and title.

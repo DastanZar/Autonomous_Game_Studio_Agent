@@ -1,0 +1,27 @@
+{
+ "_doc": "Photoreal hand cut-outs for the sketch kit (studio/tools/hand_cutout.py). Source images: Nano Banana, made by the user 2026-10-08 (prompt in the chat log). tip = pencil-tip pixel.",
+ "hands": {
+  "hand_down": {
+   "file": "hand_down.png",
+   "tip": [
+    78,
+    479
+   ],
+   "size": [
+    1118,
+    2176
+   ]
+  },
+  "hand_lifted": {
+   "file": "hand_lifted.png",
+   "tip": [
+    154,
+    559
+   ],
+   "size": [
+    1118,
+    2176
+   ]
+  }
+ }
+}

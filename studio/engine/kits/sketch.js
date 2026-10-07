@@ -292,6 +292,27 @@ const SK = (() => {
     });
     ctx.restore();
   }
+  // photoreal hand (storyboard.hand = "photo"): cut-outs from studio/assets/hands/ (hand_cutout.py); the pencil tip is pinned to the stroke
+  const PHOTO = (() => {
+    if (EP.storyboard.hand !== "photo") return null;
+    let meta = null;
+    try { const x = new XMLHttpRequest(); x.open("GET", "../assets/hands/hands.json", false); x.send(); meta = JSON.parse(x.responseText).hands; } catch (e) { warn("photo hand: hands.json not readable"); return null; }
+    const out = {};
+    window.PRELOAD = window.PRELOAD || [];
+    for (const [k, m] of Object.entries(meta)) {
+      const img = new Image(); img.src = "../assets/hands/" + m.file; out[k] = { img, tip: m.tip };
+      window.PRELOAD.push(new Promise(r => { img.onload = r; img.onerror = () => { warn("photo hand: " + m.file + " failed to load"); r(); }; }));
+    }
+    return out;
+  })();
+  function photoHand(sx, sy, s, lift, t) {
+    const H = PHOTO[lift > 0.5 && PHOTO.hand_lifted ? "hand_lifted" : "hand_down"]; if (!H || !H.img.complete) return;
+    const k = s * 1.0;
+    ctx.save(); ctx.translate(sx, sy); ctx.rotate(Math.sin(t * 1.1) * 0.02 + lift * 0.03);
+    ctx.shadowColor = "rgba(30,18,8,0.30)"; ctx.shadowBlur = 26 + lift * 20; ctx.shadowOffsetX = 16 + lift * 26; ctx.shadowOffsetY = 22 + lift * 34;
+    ctx.drawImage(H.img, -H.tip[0] * k, -H.tip[1] * k, H.img.width * k, H.img.height * k);
+    ctx.restore();
+  }
   const REST = () => [W + 300, H * 0.66];
   function handPos(t, cam, pen) {
     if (pen) return { p: toScreen(cam, pen.tip), lift: pen.drawing ? 0 : 1 };
@@ -320,7 +341,7 @@ const SK = (() => {
     ctx.restore();
     const h = handPos(t, cam, pen);
     const bob = pen && pen.drawing ? Math.sin(t * 31) * 1.5 : 0;
-    if (h.p[0] < W + 250) hand(h.p[0], h.p[1] + bob, clamp(cam.z, 0.5, 1.0) * 0.74, h.lift, t);
+    if (h.p[0] < W + 250) { if (PHOTO) photoHand(h.p[0], h.p[1] + bob, clamp(cam.z, 0.5, 1.0) * 0.95, h.lift, t); else hand(h.p[0], h.p[1] + bob, clamp(cam.z, 0.5, 1.0) * 0.74, h.lift, t); }
   }
 
   // no pencil-scratch sound: the user found it grating (2026-10-07); an episode can still add its own cues
