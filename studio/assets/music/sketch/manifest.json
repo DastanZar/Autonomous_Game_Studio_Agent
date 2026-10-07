@@ -1,0 +1,34 @@
+{
+ "_doc": "Channel music library. approved=true only after a human listen.",
+ "tracks": [
+  {
+   "id": "detective",
+   "file": "detective.ogg",
+   "prompt": "curious detective jazz, upright bass, vibraphone, soft piano stabs, brushed drums, understated, instrumental",
+   "bpm": 92,
+   "seed": 13,
+   "model": "ACE-Step 1.5 turbo (ca1e85f, cpu, 8 steps)",
+   "license": "ACE-Step 1.5 (MIT); output is ours",
+   "duration_s": 54.99,
+   "gen_seconds": 221,
+   "checks": {
+    "words_heard": "",
+    "clipped_before_normalise": false,
+    "longest_dropout_s": 0.0,
+    "ok": true,
+    "whisper_ignored": [
+     {
+      "text": "Thank you for watching!",
+      "avg_logprob": -0.97,
+      "no_speech_prob": 0.76
+     }
+    ]
+   },
+   "sha1": "78e51a73c8e4",
+   "approved": true,
+   "approved_by": "user (listened; 'the music is much better' at 13 dB under the voice)",
+   "approved_at": "2026-10-06",
+   "note": "copied from studio/assets/music/why-map (approved there by the user) for the sketch pilot"
+  }
+ ]
+}

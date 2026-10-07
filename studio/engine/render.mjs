@@ -52,7 +52,7 @@ async function openPage(browser) {
   const vendor = path.join(EPD, "vendor");                 // third-party libraries an episode needs (e.g. three.min.js), loaded first
   if (fs.existsSync(vendor)) for (const f of fs.readdirSync(vendor).filter(f => f.endsWith(".js")).sort()) await page.addScriptTag({ path: path.join(vendor, f) });
   if (fs.existsSync(customJs)) await page.addScriptTag({ path: customJs });
-  await page.evaluate(async () => { await Promise.all(["98px Anton", "40px Elite", "92px Serif"].map(f => document.fonts.load(f))); await Promise.all(window.PRELOAD || []); });
+  await page.evaluate(async () => { await Promise.all(["98px Anton", "40px Elite", "92px Serif", "60px Hand", "60px Marker"].map(f => document.fonts.load(f))); await Promise.all(window.PRELOAD || []); });
   if (errors.length) { console.error("ENGINE ERROR:", errors.join("\n")); process.exit(1); }
   await page.evaluate(() => window.render(0));
   return page;

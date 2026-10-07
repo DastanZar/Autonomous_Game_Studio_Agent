@@ -92,7 +92,8 @@
      "flight",
      "flagart",
      "body",
-     "rank"
+     "rank",
+     "sketch"
     ]
    },
    "description": "Shared drawing kits loaded before the episode's scenes.js (studio/engine/kits/)."

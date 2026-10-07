@@ -1,0 +1,29 @@
+{
+ "slug": "power-bill",
+ "channel": "sketch",
+ "series": "around",
+ "hook": "Your power bill went up. Blame a building you've never seen.",
+ "twist": "On the biggest US grid (PJM, 67 million people), the yearly auction that pays power plants to stand ready went from $28.92 to $333.44 per megawatt-day in three auctions, and the grid's own market monitor puts most of the first jump on data centers.",
+ "angle": "Why are electricity bills in the eastern US going up? Drawn as one page: the bill, the data center, the grid, the auction chart, the watchdog's estimate, the bill again.",
+ "why_now": "The 2026/27 price ($329.17) took effect on 1 June 2026 and the record $333.44 for 2027/28 was set on 17 Dec 2025; power bills and data centers are in the news this autumn.",
+ "candidate_sources": [
+  "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers",
+  "https://ieefa.org/resources/projected-data-center-growth-spurs-pjm-capacity-prices-factor-10",
+  "https://www.pjm.com/-/media/DotCom/about-pjm/newsroom/2025-releases/20251217-pjm-auction-procures-134479-mw-of-generation-resources.pdf"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 4,
+  "sourceability": 5,
+  "timeliness": 4,
+  "series_fit": 5
+ },
+ "risks": [
+  "Politically hot: explain the mechanism, no villains; SemiAnalysis argues the auction design, not AI itself, is the main cause, so the script attributes the 63% to the market monitor and says 'estimate'.",
+  "Bill impacts vary by utility zone: the only bill number shown is the D.C. Pepco example, labelled with who estimated it.",
+  "Forecasts of data-center demand may not come true (IEEFA); the script says 'forecasts', not 'demand'."
+ ],
+ "approved_by": "user (2026-10-07: asked for a hand-drawn pilot telling 'stories happening around us'; topic picked by the builder under that brief)",
+ "approved_at": "2026-10-07"
+}

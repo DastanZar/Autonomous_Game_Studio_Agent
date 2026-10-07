@@ -1,0 +1,91 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-07T14:28:13Z",
+   "reviewer": "builder (orchestrator), contact sheet + 4 full-res frames, round 1",
+   "frames": [
+    0.05,
+    3.81,
+    9.53,
+    12.4,
+    17.52,
+    23.83,
+    26.3,
+    30.7,
+    35.91,
+    39.13,
+    45.93,
+    52.15,
+    57.86,
+    62.05,
+    68.14,
+    72.61,
+    72.81
+   ],
+   "defects": [
+    {
+     "t": 26.3,
+     "issue": "two items drawing at once: 'THE AUCTION' kept writing itself while the hand drew the gavel's strike marks (kit now runs one item at a time)",
+     "fixed": true
+    },
+    {
+     "t": 12.4,
+     "issue": "paper texture tiles showed 512 px seams",
+     "fixed": true
+    },
+    {
+     "t": 12.4,
+     "issue": "hand and sleeve too big, covering a third of the frame; pencil too short to read as a pencil",
+     "fixed": true
+    },
+    {
+     "t": 30.7,
+     "issue": "gavel read as a sign on a stick",
+     "fixed": true
+    },
+    {
+     "t": 52.15,
+     "issue": "'$529.80' note ran off the left of the frame",
+     "fixed": true
+    },
+    {
+     "t": 17.52,
+     "issue": "labels still being written as the camera left (share, grid, bill, cap); several items late against the words",
+     "fixed": true
+    },
+    {
+     "t": 57.86,
+     "issue": "last row: captions over the desk, page ended right under the cells",
+     "fixed": true
+    },
+    {
+     "t": 9.53,
+     "issue": "the data center's power line was a stray zigzag",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-07T14:28:13Z",
+   "reviewer": "builder (orchestrator), contact sheet after fixes, round 2",
+   "frames": [
+    0.05,
+    3.66,
+    9.38,
+    17.37,
+    23.68,
+    30.55,
+    35.76,
+    38.98,
+    45.78,
+    52.0,
+    57.71,
+    61.9,
+    67.99,
+    72.46,
+    72.81
+   ],
+   "defects": []
+  }
+ ]
+}

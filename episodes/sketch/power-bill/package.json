@@ -1,0 +1,30 @@
+{
+ "title": "Why your power bill went up (a building you've never seen)",
+ "description": "On PJM, the grid that serves 67 million people in 13 states and Washington, D.C., the yearly auction that pays power plants to stand ready went from $28.92 to $333.44 per megawatt-day in three auctions. The grid's market monitor estimates data centers caused 63% of the first jump.\n\nSources:\n- DOE Releases New Report Evaluating Increase in Electricity Demand from Data Centers (LBNL 2024 report) — U.S. Department of Energy: https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers\n- PJM Auction Procures 134,479 MW of Generation Resources (17 Dec 2025) — PJM Interconnection: https://www.pjm.com/-/media/DotCom/about-pjm/newsroom/2025-releases/20251217-pjm-auction-procures-134479-mw-of-generation-resources.pdf\n- 2024/2025 Base Residual Auction Report — PJM Interconnection: https://www.pjm.com/-/media/markets-ops/rpm/rpm-auction-info/2024-2025/2024-2025-base-residual-auction-report.ashx\n- 2025/2026 Base Residual Auction Report — PJM Interconnection: https://www.pjm.com/-/media/markets-ops/rpm/rpm-auction-info/2025-2026/2025-2026-base-residual-auction-report.ashx\n- 2027/2028 Base Residual Auction Report — PJM Interconnection: https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2027-2028/2027-2028-bra-report.pdf\n- Projected data center growth spurs PJM capacity prices by factor of 10 — IEEFA (Cathy Kunkel): https://ieefa.org/resources/projected-data-center-growth-spurs-pjm-capacity-prices-factor-10\n- Data center power demands again drive record power auction prices (17 Dec 2025) — Maryland Office of People's Counsel: https://content.govdelivery.com/accounts/MDOPC/bulletins/4006939\n\nLabels: the 2028 share (6.7-12%) is LBNL's estimate for the Department of Energy; the 63% and $9.3 billion are the market monitor's estimate (Monitoring Analytics, via IEEFA); the D.C. bill figures (+$21 a month, about $10 of it from the auction) are Pepco residential averages from June 2025, with the half estimated by D.C.'s consumer counsel (via IEEFA). Prices are the PJM-wide (rest of RTO) clearing prices; some zones paid more. $529.80 is PJM's own no-cap simulation for 2027/28.\nMap: Natural Earth state outlines (public domain). Drawn in code; narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; sound effects from Kenney (CC0).",
+ "hashtags": [
+  "#explained",
+  "#electricity",
+  "#datacenters",
+  "#shorts"
+ ],
+ "pinned_comment": "Should data centers pay for the power plants their demand makes us buy?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/power-bill.mp4",
+ "srt": "out/power-bill.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "tags": [
+  "electricity bill",
+  "power bill going up",
+  "data centers",
+  "PJM",
+  "capacity auction",
+  "AI data centers electricity",
+  "electricity prices",
+  "explained"
+ ],
+ "category": "Education"
+}

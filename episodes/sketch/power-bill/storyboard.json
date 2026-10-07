@@ -1,0 +1,214 @@
+{
+ "episode": "power-bill",
+ "theme": "sketch",
+ "kits": [
+  "sketch"
+ ],
+ "drift": 0,
+ "flagship": "Format pilot (user 2026-10-07): the whole video is one hand-drawn page, so every scene is the sketch kit's page renderer.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     50,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_dc",
+   "type": "custom",
+   "start": "dc.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     50,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_share",
+   "type": "custom",
+   "start": "share.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     1090,
+     1020,
+     1020
+    ],
+    "labels": [
+     "LBNL estimate"
+    ]
+   }
+  },
+  {
+   "id": "s_grid",
+   "type": "custom",
+   "start": "grid.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     1090,
+     1020,
+     1020
+    ],
+    "dataset": "data/states_east.json"
+   }
+  },
+  {
+   "id": "s_auction",
+   "type": "custom",
+   "start": "auction.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     2130,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_cheap",
+   "type": "custom",
+   "start": "cheap.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     60,
+     3130,
+     1040,
+     1060
+    ]
+   }
+  },
+  {
+   "id": "s_fcst",
+   "type": "custom",
+   "start": "fcst.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     2130,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_jump",
+   "type": "custom",
+   "start": "jump.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     600,
+     3130,
+     1580,
+     1060
+    ]
+   }
+  },
+  {
+   "id": "s_cap",
+   "type": "custom",
+   "start": "cap.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1120,
+     3130,
+     1040,
+     1060
+    ]
+   }
+  },
+  {
+   "id": "s_monitor",
+   "type": "custom",
+   "start": "monitor.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     4210,
+     1020,
+     1020
+    ],
+    "labels": [
+     "market monitor's estimate"
+    ]
+   }
+  },
+  {
+   "id": "s_billions",
+   "type": "custom",
+   "start": "monitor/nine-0.3",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     4210,
+     1020,
+     1020
+    ],
+    "move": 0.6
+   }
+  },
+  {
+   "id": "s_bill",
+   "type": "custom",
+   "start": "bill.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     4210,
+     1020,
+     1020
+    ],
+    "labels": [
+     "consumer counsel's estimate"
+    ]
+   }
+  },
+  {
+   "id": "s_call",
+   "type": "custom",
+   "start": "call.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (user request 2026-10-07: a hand drawing the story on paper): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": "page",
+    "move": 2.2,
+    "lead": 0.1
+   }
+  }
+ ]
+}

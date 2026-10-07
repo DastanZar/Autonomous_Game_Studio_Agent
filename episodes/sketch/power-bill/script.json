@@ -1,0 +1,328 @@
+{
+ "channel": "sketch",
+ "episode": "power-bill",
+ "series": "around",
+ "working_title": "Why your power bill went up (it's a building you've never seen)",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Your power bill went up. Blame a building you've never seen.",
+   "kind": "hook",
+   "claims": [
+    "c_prices"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "Your power bill went up.",
+     5
+    ],
+    [
+     "Blame a building",
+     3
+    ],
+    [
+     "you've never seen.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "dc",
+   "say": "This is a data center. A warehouse full of computers, running all day and all night.",
+   "kind": "transition",
+   "claims": [],
+   "gap": 0.3,
+   "caps": [
+    [
+     "This is a data center.",
+     5
+    ],
+    [
+     "A warehouse full of computers,",
+     5
+    ],
+    [
+     "running all day",
+     3
+    ],
+    [
+     "and all night.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "share",
+   "say": "In twenty twenty-three, they used about four percent of America's electricity. By twenty twenty-eight, it could be twelve.",
+   "kind": "fact",
+   "claims": [
+    "c_share"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "In 2023,",
+     3
+    ],
+    [
+     "they used about 4%",
+     5
+    ],
+    [
+     "of America's electricity.",
+     3
+    ],
+    [
+     "By 2028,",
+     3
+    ],
+    [
+     "it could be 12.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "grid",
+   "say": "Thirteen states and Washington share one grid, called PJM. Sixty-seven million people.",
+   "kind": "fact",
+   "claims": [
+    "c_pjm"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "13 states and Washington",
+     4
+    ],
+    [
+     "share one grid,",
+     3
+    ],
+    [
+     "called PJM.",
+     2
+    ],
+    [
+     "67 million people.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "auction",
+   "say": "Every year, PJM holds an auction. It pays power plants just to be ready for the busiest days.",
+   "kind": "fact",
+   "claims": [
+    "c_auction"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "Every year,",
+     2
+    ],
+    [
+     "PJM holds an auction.",
+     4
+    ],
+    [
+     "It pays power plants",
+     4
+    ],
+    [
+     "just to be ready",
+     4
+    ],
+    [
+     "for the busiest days.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "cheap",
+   "say": "For twenty twenty-four, the price was twenty-nine dollars. Per megawatt, per day.",
+   "kind": "fact",
+   "claims": [
+    "c_prices"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "For 2024,",
+     3
+    ],
+    [
+     "the price was $29.",
+     5
+    ],
+    [
+     "Per megawatt, per day.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "fcst",
+   "say": "Then the forecasts filled up with data centers.",
+   "kind": "fact",
+   "claims": [
+    "c_forecast"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "Then the forecasts",
+     3
+    ],
+    [
+     "filled up with data centers.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "jump",
+   "say": "Two hundred seventy dollars. Then three hundred twenty-nine dollars. Then three hundred thirty-three dollars.",
+   "kind": "fact",
+   "claims": [
+    "c_prices"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "$270.",
+     4
+    ],
+    [
+     "Then $329.",
+     5
+    ],
+    [
+     "Then $333.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "cap",
+   "say": "And that's with a price cap. Without it, PJM says the price would have been five hundred thirty.",
+   "kind": "fact",
+   "claims": [
+    "c_cap"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "And that's with a price cap.",
+     6
+    ],
+    [
+     "Without it, PJM says",
+     4
+    ],
+    [
+     "the price would have been",
+     5
+    ],
+    [
+     "$530.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "monitor",
+   "say": "The market monitor's estimate? Data centers caused sixty-three percent of the first price jump. Nine point three billion dollars, paid by customers.",
+   "kind": "fact",
+   "claims": [
+    "c_monitor"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "The market monitor's estimate?",
+     4
+    ],
+    [
+     "Data centers caused",
+     3
+    ],
+    [
+     "63% of the first price jump.",
+     7
+    ],
+    [
+     "$9.3 billion,",
+     5
+    ],
+    [
+     "paid by customers.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "bill",
+   "say": "In Washington, home bills went up twenty-one dollars a month. About half came from this auction.",
+   "kind": "fact",
+   "claims": [
+    "c_dcbill"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "In Washington,",
+     2
+    ],
+    [
+     "home bills went up",
+     4
+    ],
+    [
+     "$21 a month.",
+     4
+    ],
+    [
+     "About half came",
+     3
+    ],
+    [
+     "from this auction.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "call",
+   "say": "So no, you've never seen the building. But it's seen your bill.",
+   "kind": "callback",
+   "claims": [],
+   "gap": 0.2,
+   "caps": [
+    [
+     "So no, you've never",
+     4
+    ],
+    [
+     "seen the building.",
+     3
+    ],
+    [
+     "But it's seen your bill.",
+     5
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "call",
+  "connects_to": "hook",
+  "how": "The last line answers the hook's 'a building you've never seen' while the page pulls back to show the whole drawing."
+ }
+}

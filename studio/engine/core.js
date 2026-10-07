@@ -247,19 +247,20 @@ function captions(t) {
   const k = prog(t, c.start - 0.03, c.start + 0.12);
   const s = lerp(0.8, 1, back(k));
   ctx.save(); ctx.translate((W - SAFE.right) / 2 + 30, CAP_Y); ctx.scale(s, s); ctx.rotate((rnd(c.start * 100 | 0, 3) - 0.5) * 0.03);
-  const f = fit(c.text, W - SAFE.right - 120, 96, 2, "Anton", "caption");
-  ctx.font = `${f.size}px Anton`; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic"; ctx.lineJoin = "round";
+  const cf = (EP.look.captions || {}).font || "Anton", hand = cf !== "Anton";   // sketch channel: hand lettering, ink on a paper outline
+  const f = fit(c.text, W - SAFE.right - 120, hand ? 110 : 96, 2, cf, "caption");
+  ctx.font = `${f.size}px ${cf}`; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic"; ctx.lineJoin = "round";
   f.lines.forEach((ln, i) => {
     const y = (i - (f.lines.length - 1) / 2) * f.size * 1.1 + f.size * 0.35;
     const parts = ln.split(" "), total = ctx.measureText(ln).width, sp = ctx.measureText(" ").width;
     let x = -total / 2;
     for (const w of parts) {
       const ww = ctx.measureText(w).width;
-      ctx.lineWidth = 16; ctx.strokeStyle = P.ink;
-      ctx.shadowColor = "rgba(20,10,5,0.45)"; ctx.shadowOffsetY = 6; ctx.shadowBlur = 6;
+      ctx.lineWidth = hand ? 18 : 16; ctx.strokeStyle = hand ? P.white : P.ink;
+      ctx.shadowColor = hand ? "rgba(20,10,5,0.25)" : "rgba(20,10,5,0.45)"; ctx.shadowOffsetY = hand ? 3 : 6; ctx.shadowBlur = 6;
       ctx.strokeText(w, x + ww / 2, y);
       ctx.shadowColor = "transparent";
-      ctx.fillStyle = /\d/.test(w) ? P.yellow : P.white;
+      ctx.fillStyle = hand ? (/\d/.test(w) ? P.red : P.ink) : (/\d/.test(w) ? P.yellow : P.white);
       ctx.fillText(w, x + ww / 2, y);
       x += ww + sp;
     }
@@ -300,7 +301,7 @@ function buildTextures() {
 }
 
 // ---------- transitions ----------
-const FLAT = ["flat-cast", "data-flags"].includes(EP.storyboard.theme || EP.look.theme);   // a storyboard may override the bible's theme   // flat themes: hard cuts, no paper texture or film grain
+const FLAT = ["flat-cast", "data-flags", "sketch"].includes(EP.storyboard.theme || EP.look.theme);   // a storyboard may override the bible's theme   // flat themes: hard cuts, no paper texture or film grain
 const TR = 0.3;
 function tornEdge(x) {
   ctx.moveTo(x, -10);

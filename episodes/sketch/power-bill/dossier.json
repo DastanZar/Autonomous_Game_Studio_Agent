@@ -1,0 +1,185 @@
+{
+ "topic": "Data centers and the PJM capacity auction behind rising power bills",
+ "sources": [
+  {
+   "id": "doe",
+   "title": "DOE Releases New Report Evaluating Increase in Electricity Demand from Data Centers (LBNL 2024 report)",
+   "publisher": "U.S. Department of Energy",
+   "url": "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "ieefa",
+   "title": "Projected data center growth spurs PJM capacity prices by factor of 10",
+   "publisher": "IEEFA (Cathy Kunkel)",
+   "url": "https://ieefa.org/resources/projected-data-center-growth-spurs-pjm-capacity-prices-factor-10",
+   "type": "secondary",
+   "accessed": "2026-10-07",
+   "cites": "PJM auction results; Monitoring Analytics (PJM's independent market monitor); D.C. Office of the People's Counsel"
+  },
+  {
+   "id": "pjm_dec25",
+   "title": "PJM Auction Procures 134,479 MW of Generation Resources (17 Dec 2025)",
+   "publisher": "PJM Interconnection",
+   "url": "https://www.pjm.com/-/media/DotCom/about-pjm/newsroom/2025-releases/20251217-pjm-auction-procures-134479-mw-of-generation-resources.pdf",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "pjm_bra2728",
+   "title": "2027/2028 Base Residual Auction Report",
+   "publisher": "PJM Interconnection",
+   "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2027-2028/2027-2028-bra-report.pdf",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "pjm_bra2425",
+   "title": "2024/2025 Base Residual Auction Report",
+   "publisher": "PJM Interconnection",
+   "url": "https://www.pjm.com/-/media/markets-ops/rpm/rpm-auction-info/2024-2025/2024-2025-base-residual-auction-report.ashx",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "pjm_bra2526",
+   "title": "2025/2026 Base Residual Auction Report",
+   "publisher": "PJM Interconnection",
+   "url": "https://www.pjm.com/-/media/markets-ops/rpm/rpm-auction-info/2025-2026/2025-2026-base-residual-auction-report.ashx",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "mdopc",
+   "title": "Data center power demands again drive record power auction prices (17 Dec 2025)",
+   "publisher": "Maryland Office of People's Counsel",
+   "url": "https://content.govdelivery.com/accounts/MDOPC/bulletins/4006939",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "semi",
+   "title": "Are AI Datacenters Increasing Electric Bills for American Households?",
+   "publisher": "SemiAnalysis",
+   "url": "https://newsletter.semianalysis.com/p/are-ai-datacenters-increasing-electric",
+   "type": "secondary",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_share",
+   "key": true,
+   "status": "estimate",
+   "sources": [
+    "doe"
+   ],
+   "text": "Data centers used about 4.4% of US electricity in 2023 and are expected to use about 6.7-12% by 2028 (LBNL report for DOE).",
+   "quote": "data centers consumed about 4.4% of total U.S. electricity in 2023 and are expected to consume approximately 6.7 to 12% of total U.S. electricity by 2028",
+   "label": "LBNL estimate"
+  },
+  {
+   "id": "c_pjm",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "pjm_dec25",
+    "ieefa"
+   ],
+   "text": "PJM serves more than 67 million people across 13 states and the District of Columbia.",
+   "quote": "to meet projected electricity needs for more than 67 million people across 13 states and the District of Columbia; which spans all or parts of 13 mid-Atlantic and Midwestern states, plus the District of Columbia"
+  },
+  {
+   "id": "c_auction",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "ieefa",
+    "pjm_dec25"
+   ],
+   "text": "PJM's capacity market is a forward auction that pays for enough power plant capacity to meet forecast peak demand.",
+   "quote": "The capacity market is a forward auction that seeks to ensure there is enough power plant capacity on the system to meet projected load; available to serve forecasted peak electricity demand, plus a reserve margin"
+  },
+  {
+   "id": "c_prices",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "pjm_bra2425",
+    "pjm_bra2526",
+    "pjm_dec25",
+    "ieefa",
+    "mdopc"
+   ],
+   "text": "PJM capacity prices (rest of RTO): $28.92/MW-day for 2024/25, $269.92 for 2025/26, $329.17 for 2026/27, $333.44 (the cap) for 2027/28.",
+   "quote": "RTO prices were down from $34.13/MW-day to $28.92/MW-day; 2025/2026 delivery year (June 1, 2025-May 31, 2026): $269.92/MW-day in most zones; 2026/2027 delivery year (June 1, 2026-May 31, 2027): $329.17/MW-day in all zones; The price came in at the FERC-approved cap, $333.44/MW-day (UCAP) for the entire PJM footprint; again set an all-time record high clearing price of $333 per megawatt-day"
+  },
+  {
+   "id": "c_cap",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "pjm_bra2728"
+   ],
+   "text": "Without the cap, PJM's simulation says the 2027/28 price would have cleared at $529.80/MW-day.",
+   "quote": "For the 2027/2028 simulated BRA, all prices cleared at $529.80 except the DOM LDA which cleared at $542"
+  },
+  {
+   "id": "c_forecast",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "ieefa",
+    "pjm_dec25"
+   ],
+   "text": "Forecast PJM demand rose sharply with data centers: IEEFA ties it to the AI boom between the Dec 2022 and Jul 2024 auctions; for 2027/28 nearly 5,100 of 5,250 MW of forecast growth is data centers.",
+   "quote": "Between December 2022 and July 2024, the artificial intelligence (AI) bubble took off driving a dramatic increase in forecasted energy consumption in PJM; Nearly 5,100 MW of that increase is attributable to data center demand"
+  },
+  {
+   "id": "c_monitor",
+   "key": false,
+   "status": "estimate",
+   "sources": [
+    "ieefa"
+   ],
+   "text": "PJM's independent market monitor (Monitoring Analytics) estimated data centers caused 63% of the 2025/26 price increase: $9.3 billion recovered from customers.",
+   "quote": "estimated that data centers were responsible for 63% of the increase in prices in the 2025/2026 auction, which translates to $9.3 billion in costs that will be recovered from customers across PJM in higher electric rates",
+   "label": "market monitor's estimate"
+  },
+  {
+   "id": "c_dcbill",
+   "key": false,
+   "status": "estimate",
+   "sources": [
+    "ieefa"
+   ],
+   "text": "Pepco residential customers in D.C. saw bills rise an average $21/month from June 2025; the D.C. consumer counsel estimates about half ($10) is from capacity prices.",
+   "quote": "Pepco residential customers saw their bills go up by an average of $21/month starting in June 2025; estimates that $10/month, or about half of this increase, is due to the spike in capacity market prices",
+   "label": "consumer counsel's estimate"
+  },
+  {
+   "id": "c_policy",
+   "key": false,
+   "status": "framed",
+   "sources": [
+    "semi"
+   ],
+   "text": "SemiAnalysis argues the bill rise is mostly due to market design rather than AI itself; Texas, with similar data-center growth and no capacity auction, saw futures move only a few percent.",
+   "quote": "In short, empirically the fault is government policy, not AI; Yet power futures in Texas have moved only a few percent in the past year",
+   "label": "one analysis",
+   "note": "Context for the risk note; not used in the script."
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Data centers raise your bill by using your electricity.",
+   "truth": "The main channel in PJM is the capacity auction: forecast data-center demand raised the price every customer pays for standby power plants.",
+   "sources": [
+    "ieefa",
+    "pjm_dec25"
+   ]
+  }
+ ],
+ "open_questions": []
+}
