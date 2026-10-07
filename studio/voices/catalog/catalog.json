@@ -1,2425 +1,273 @@
 {
- "elevenlabs/eleven-v4-turbo": {
-  "george": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/george.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "sarah": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/sarah.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "adam": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/adam.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "alice": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/alice.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "bella": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/bella.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "bill": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/bill.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "brian": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/brian.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "callum": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/callum.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "charlie": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/charlie.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "chris": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/chris.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "daniel": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/daniel.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "eric": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/eric.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "harry": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "jessica": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/jessica.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "laura": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/laura.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "liam": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/liam.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "lily": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/lily.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "matilda": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/matilda.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "river": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/river.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "roger": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/roger.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "will": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4-turbo/will.mp3",
-   "status": "ok",
-   "error": null
-  }
- },
- "elevenlabs/eleven-v3": {
-  "george": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/george.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "sarah": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/sarah.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "adam": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/adam.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "alice": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/alice.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "bella": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/bella.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "bill": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/bill.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "brian": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/brian.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "callum": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/callum.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "charlie": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/charlie.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "chris": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/chris.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "daniel": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/daniel.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "eric": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/eric.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "harry": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/harry.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "jessica": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/jessica.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "laura": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/laura.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "liam": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/liam.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "lily": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/lily.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "matilda": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/matilda.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "river": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/river.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "roger": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/roger.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "will": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v3/will.mp3",
-   "status": "ok",
-   "error": null
-  }
- },
- "elevenlabs/eleven-v4": {
-  "george": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/george.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "sarah": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/sarah.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "adam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "alice": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "bella": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/bella.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "bill": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/bill.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "brian": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/brian.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "callum": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/callum.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "charlie": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "chris": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/chris.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "daniel": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/daniel.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "eric": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/eric.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "harry": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/harry.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "jessica": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/jessica.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "laura": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/laura.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "liam": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/liam.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "lily": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/lily.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "matilda": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/matilda.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "river": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/river.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "roger": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/roger.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "will": {
-   "file": "studio/voices/catalog/elevenlabs_eleven-v4/will.mp3",
-   "status": "ok",
-   "error": null
-  }
- },
- "microsoft/mai-voice-2.1-flash": {
-  "en-AU-Isla:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-AU-Isla_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-GB-Emily:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-GB-Emily_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-GB-Harry:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-GB-Harry_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-IN-Dhruv:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-IN-Dhruv_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-IN-Priya:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-IN-Priya_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Ethan:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Ethan_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Grant:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Grant_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Harper:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Harper_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Iris:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Iris_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Jasper:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Jasper_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Olivia:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Olivia_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Sage:MAI-Voice-2.1-Flash": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1-flash/en-US-Sage_MAI-Voice-2.1-Flash.mp3",
-   "status": "ok",
-   "error": null
-  }
- },
- "microsoft/mai-voice-2.1": {
-  "en-AU-Isla:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-AU-Isla_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-GB-Emily:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-GB-Emily_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-GB-Harry:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-GB-Harry_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-IN-Dhruv:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-IN-Dhruv_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-IN-Priya:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-IN-Priya_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Ethan:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Ethan_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Grant:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Grant_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Harper:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Harper_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Iris:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Iris_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Jasper:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Jasper_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Olivia:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Olivia_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "en-US-Sage:MAI-Voice-2.1": {
-   "file": "studio/voices/catalog/microsoft_mai-voice-2.1/en-US-Sage_MAI-Voice-2.1.mp3",
-   "status": "ok",
-   "error": null
-  }
- },
- "bytedance-seed/seed-audio-1-0": {
-  "(default)": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "google/gemini-3.8-flash-lite-tts": {
-  "Zephyr": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Puck": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Charon": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Kore": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Fenrir": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Leda": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Orus": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Aoede": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Callirrhoe": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Autonoe": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Enceladus": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Iapetus": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Umbriel": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Algieba": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Despina": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Erinome": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Algenib": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Rasalgethi": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Laomedeia": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Achernar": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Alnilam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Schedar": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Gacrux": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Pulcherrima": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Achird": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Zubenelgenubi": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Vindemiatrix": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Sadachbia": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Sadaltager": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Sulafat": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "google/gemini-3.8-flash-tts": {
-  "Zephyr": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Puck": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Charon": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Kore": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Fenrir": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Leda": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Orus": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Aoede": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Callirrhoe": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Autonoe": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Enceladus": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Iapetus": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Umbriel": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Algieba": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Despina": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Erinome": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Algenib": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Rasalgethi": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Laomedeia": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Achernar": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Alnilam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Schedar": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Gacrux": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Pulcherrima": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Achird": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Zubenelgenubi": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Vindemiatrix": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Sadachbia": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Sadaltager": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Sulafat": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "deepgram/flux-tts": {
-  "flux-alexis-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-alexis-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-bree-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-bree-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-brittany-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-brittany-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-brooke-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-brooke-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-bruce-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-bruce-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-cliff-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-cliff-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-cole-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-cole-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-colin-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-colin-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-conor-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-conor-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-donovan-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-donovan-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-drew-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-drew-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-elise-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-elise-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-gemma-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-gemma-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-haley-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-haley-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-hannah-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-hannah-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-heather-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-heather-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-jack-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-jack-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-kai-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-kai-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-kelsey-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-kelsey-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-kit-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-kit-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-maeve-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-maeve-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-marcelo-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-marcelo-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-marcus-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-marcus-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-meena-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-meena-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-meghan-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-meghan-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-miles-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-miles-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-naveen-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-naveen-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-paige-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-paige-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-priya-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-priya-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-rufus-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-rufus-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-sean-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-sean-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-sharon-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-sharon-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-sienna-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-sienna-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-tanner-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "flux-wade-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-wade-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "flux-wes-en": {
-   "file": "studio/voices/catalog/deepgram_flux-tts/flux-wes-en.mp3",
-   "status": "ok",
-   "error": null
-  }
- },
- "fish-audio/s1": {
-  "8062e83481fe4165a2a92cd753f9c06b": {
-   "file": "studio/voices/catalog/fish-audio_s1/8062e83481fe4165a2a92cd753f9c06b.mp3",
-   "status": "ok",
-   "error": null
-  }
- },
- "fish-audio/s2-pro": {
-  "8062e83481fe4165a2a92cd753f9c06b": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "fish-audio/s2.1-pro-free:free": {
-  "8062e83481fe4165a2a92cd753f9c06b": {
-   "file": "studio/voices/catalog/fish-audio_s2.1-pro-free_free/8062e83481fe4165a2a92cd753f9c06b.mp3",
-   "status": "ok",
-   "error": null
-  }
- },
- "fish-audio/s2.1-pro": {
-  "8062e83481fe4165a2a92cd753f9c06b": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "microsoft/mai-voice-2-flash": {
-  "en-US-Harper:MAI-Voice-2": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "qwen/qwen-audio-3.0-tts-flash": {
-  "loongjohn": {
-   "file": "studio/voices/catalog/qwen_qwen-audio-3.0-tts-flash/loongjohn.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "longanhuan_v3.6": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "qwen/qwen-audio-3.0-tts-plus": {
-  "longanlingxin": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "longanlufeng": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "deepgram/aura-2": {
-  "aura-2-thalia-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-amalthea-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-andromeda-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-apollo-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-arcas-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-aries-en": {
-   "file": "studio/voices/catalog/deepgram_aura-2/aura-2-aries-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "aura-2-asteria-en": {
-   "file": "studio/voices/catalog/deepgram_aura-2/aura-2-asteria-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "aura-2-athena-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-atlas-en": {
-   "file": "studio/voices/catalog/deepgram_aura-2/aura-2-atlas-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "aura-2-aurora-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-callista-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-cora-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-cordelia-en": {
-   "file": "studio/voices/catalog/deepgram_aura-2/aura-2-cordelia-en.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "aura-2-delia-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-draco-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-electra-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-harmonia-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-helena-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-hera-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-hermes-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-hyperion-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-iris-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-janus-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-juno-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-jupiter-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-luna-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-mars-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-minerva-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-neptune-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-odysseus-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-ophelia-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-orion-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-orpheus-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-pandora-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-phoebe-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-pluto-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-saturn-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-selene-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-theia-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-vesta-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "aura-2-zeus-en": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "minimax/speech-2.8-hd": {
-  "English_expressive_narrator": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_radiant_girl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_magnetic_voiced_man": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_compelling_lady1": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Aussie_Bloke": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_captivating_female1": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Upbeat_Woman": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Trustworth_Man": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_CalmWoman": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_UpsetGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Gentle-voiced_man": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Whispering_girl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Diligent_Man": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Graceful_Lady": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_ReservedYoungMan": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_PlayfulGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_ManWithDeepVoice": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_MaturePartner": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_FriendlyPerson": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_MatureBoss": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Debator": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_LovelyGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Steadymentor": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Deep-VoicedGentleman": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Wiselady": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_CaptivatingStoryteller": {
-   "file": "studio/voices/catalog/minimax_speech-2.8-hd/English_CaptivatingStoryteller.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "English_DecentYoungMan": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_SentimentalLady": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_ImposingManner": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_SadTeen": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_PassionateWarrior": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_WiseScholar": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Soft-spokenGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_SereneWoman": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_ConfidentWoman": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_PatientMan": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Comedian": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_BossyLeader": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Strong-WilledBoy": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_StressedLady": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_AssertiveQueen": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_AnimeCharacter": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Jovialman": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_WhimsicalGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Kind-heartedGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "minimax/speech-2.8-turbo": {
-  "English_expressive_narrator": {
-   "file": "studio/voices/catalog/minimax_speech-2.8-turbo/English_expressive_narrator.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "English_radiant_girl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_magnetic_voiced_man": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_compelling_lady1": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Aussie_Bloke": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_captivating_female1": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Upbeat_Woman": {
-   "file": "studio/voices/catalog/minimax_speech-2.8-turbo/English_Upbeat_Woman.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "English_Trustworth_Man": {
-   "file": "studio/voices/catalog/minimax_speech-2.8-turbo/English_Trustworth_Man.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "English_CalmWoman": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_UpsetGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Gentle-voiced_man": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Whispering_girl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Diligent_Man": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Graceful_Lady": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_ReservedYoungMan": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_PlayfulGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_ManWithDeepVoice": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_MaturePartner": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_FriendlyPerson": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_MatureBoss": {
-   "file": "studio/voices/catalog/minimax_speech-2.8-turbo/English_MatureBoss.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "English_Debator": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_LovelyGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Steadymentor": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Deep-VoicedGentleman": {
-   "file": "studio/voices/catalog/minimax_speech-2.8-turbo/English_Deep-VoicedGentleman.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "English_Wiselady": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_CaptivatingStoryteller": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_DecentYoungMan": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_SentimentalLady": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_ImposingManner": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_SadTeen": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_PassionateWarrior": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_WiseScholar": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Soft-spokenGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_SereneWoman": {
-   "file": "studio/voices/catalog/minimax_speech-2.8-turbo/English_SereneWoman.mp3",
-   "status": "ok",
-   "error": null
-  },
-  "English_ConfidentWoman": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_PatientMan": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Comedian": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_BossyLeader": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Strong-WilledBoy": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_StressedLady": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_AssertiveQueen": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_AnimeCharacter": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Jovialman": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_WhimsicalGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "English_Kind-heartedGirl": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "microsoft/mai-voice-2": {
-  "en-US-Harper:MAI-Voice-2": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "x-ai/grok-voice-tts-1.0": {
-  "eve": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "ara": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "rex": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "sal": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "leo": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "google/gemini-3.1-flash-tts-preview": {
-  "Zephyr": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Puck": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Charon": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Kore": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Fenrir": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Leda": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Orus": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Aoede": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Callirrhoe": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Autonoe": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Enceladus": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Iapetus": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Umbriel": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Algieba": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Despina": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Erinome": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Algenib": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Rasalgethi": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Laomedeia": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Achernar": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Alnilam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Schedar": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Gacrux": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Pulcherrima": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Achird": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Zubenelgenubi": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Vindemiatrix": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Sadachbia": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Sadaltager": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "Sulafat": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "canopylabs/orpheus-3b-0.1-ft": {
-  "tara": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "leah": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "jess": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "leo": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "dan": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "mia": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "zac": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "sesame/csm-1b": {
-  "conversational_a": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "conversational_b": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "read_speech_a": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "read_speech_b": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "read_speech_c": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "read_speech_d": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "none": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "hexgrad/kokoro-82m": {
+ "kokoro": {
   "af_alloy": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/af_alloy.mp3",
+   "label": "af_alloy (US female)",
+   "status": "ok"
   },
   "af_aoede": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/af_aoede.mp3",
+   "label": "af_aoede (US female)",
+   "status": "ok"
   },
   "af_bella": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/af_bella.mp3",
+   "label": "af_bella (US female)",
+   "status": "ok"
   },
   "af_heart": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/af_heart.mp3",
+   "label": "af_heart (US female)",
+   "status": "ok"
   },
   "af_jessica": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/af_jessica.mp3",
+   "label": "af_jessica (US female)",
+   "status": "ok"
   },
   "af_kore": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/af_kore.mp3",
+   "label": "af_kore (US female)",
+   "status": "ok"
   },
   "af_nicole": {
-   "file": "studio/voices/catalog/hexgrad_kokoro-82m/af_nicole.mp3",
-   "status": "ok",
-   "error": null
+   "file": "studio/voices/catalog/kokoro/af_nicole.mp3",
+   "label": "af_nicole (US female)",
+   "status": "ok"
   },
   "af_nova": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/af_nova.mp3",
+   "label": "af_nova (US female)",
+   "status": "ok"
   },
   "af_river": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/af_river.mp3",
+   "label": "af_river (US female)",
+   "status": "ok"
   },
   "af_sarah": {
-   "file": "studio/voices/catalog/hexgrad_kokoro-82m/af_sarah.mp3",
-   "status": "ok",
-   "error": null
+   "file": "studio/voices/catalog/kokoro/af_sarah.mp3",
+   "label": "af_sarah (US female)",
+   "status": "ok"
   },
   "af_sky": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/af_sky.mp3",
+   "label": "af_sky (US female)",
+   "status": "ok"
   },
   "am_adam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/am_adam.mp3",
+   "label": "am_adam (US male)",
+   "status": "ok"
   },
   "am_echo": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/am_echo.mp3",
+   "label": "am_echo (US male)",
+   "status": "ok"
   },
   "am_eric": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/am_eric.mp3",
+   "label": "am_eric (US male)",
+   "status": "ok"
   },
   "am_fenrir": {
-   "file": "studio/voices/catalog/hexgrad_kokoro-82m/am_fenrir.mp3",
-   "status": "ok",
-   "error": null
+   "file": "studio/voices/catalog/kokoro/am_fenrir.mp3",
+   "label": "am_fenrir (US male)",
+   "status": "ok"
   },
   "am_liam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/am_liam.mp3",
+   "label": "am_liam (US male)",
+   "status": "ok"
   },
   "am_michael": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/am_michael.mp3",
+   "label": "am_michael (US male)",
+   "status": "ok"
   },
   "am_onyx": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/am_onyx.mp3",
+   "label": "am_onyx (US male)",
+   "status": "ok"
   },
   "am_puck": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/am_puck.mp3",
+   "label": "am_puck (US male)",
+   "status": "ok"
   },
   "am_santa": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/am_santa.mp3",
+   "label": "am_santa (US male)",
+   "status": "ok"
   },
   "bf_alice": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/bf_alice.mp3",
+   "label": "bf_alice (UK female)",
+   "status": "ok"
   },
   "bf_emma": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/bf_emma.mp3",
+   "label": "bf_emma (UK female)",
+   "status": "ok"
   },
   "bf_isabella": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/bf_isabella.mp3",
+   "label": "bf_isabella (UK female)",
+   "status": "ok"
   },
   "bf_lily": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/bf_lily.mp3",
+   "label": "bf_lily (UK female)",
+   "status": "ok"
   },
   "bm_daniel": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/bm_daniel.mp3",
+   "label": "bm_daniel (UK male)",
+   "status": "ok"
   },
   "bm_fable": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/bm_fable.mp3",
+   "label": "bm_fable (UK male)",
+   "status": "ok"
   },
   "bm_george": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/bm_george.mp3",
+   "label": "bm_george (UK male)",
+   "status": "ok"
   },
   "bm_lewis": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+   "file": "studio/voices/catalog/kokoro/bm_lewis.mp3",
+   "label": "bm_lewis (UK male)",
+   "status": "ok"
   }
  },
- "mistralai/voxtral-mini-tts-2603": {
-  "en_paul_sad": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+ "piper": {
+  "en_US-ryan-high": {
+   "file": "studio/voices/catalog/piper/en_US-ryan-high.mp3",
+   "label": "en_US-ryan-high",
+   "status": "ok"
   },
-  "en_paul_neutral": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "en_US-lessac-high": {
+   "file": "studio/voices/catalog/piper/en_US-lessac-high.mp3",
+   "label": "en_US-lessac-high",
+   "status": "ok"
   },
-  "en_paul_happy": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "en_US-joe-medium": {
+   "file": "studio/voices/catalog/piper/en_US-joe-medium.mp3",
+   "label": "en_US-joe-medium",
+   "status": "ok"
   },
-  "en_paul_frustrated": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "en_US-amy-medium": {
+   "file": "studio/voices/catalog/piper/en_US-amy-medium.mp3",
+   "label": "en_US-amy-medium",
+   "status": "ok"
   },
-  "en_paul_excited": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "en_US-kristin-medium": {
+   "file": "studio/voices/catalog/piper/en_US-kristin-medium.mp3",
+   "label": "en_US-kristin-medium",
+   "status": "ok"
   },
-  "en_paul_confident": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "en_US-norman-medium": {
+   "file": "studio/voices/catalog/piper/en_US-norman-medium.mp3",
+   "label": "en_US-norman-medium",
+   "status": "ok"
   },
-  "en_paul_cheerful": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "en_US-hfc_male-medium": {
+   "file": "studio/voices/catalog/piper/en_US-hfc_male-medium.mp3",
+   "label": "en_US-hfc_male-medium",
+   "status": "ok"
   },
-  "en_paul_angry": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "en_US-hfc_female-medium": {
+   "file": "studio/voices/catalog/piper/en_US-hfc_female-medium.mp3",
+   "label": "en_US-hfc_female-medium",
+   "status": "ok"
+  },
+  "en_GB-alan-medium": {
+   "file": "studio/voices/catalog/piper/en_GB-alan-medium.mp3",
+   "label": "en_GB-alan-medium",
+   "status": "ok"
+  },
+  "en_GB-cori-high": {
+   "file": "studio/voices/catalog/piper/en_GB-cori-high.mp3",
+   "label": "en_GB-cori-high",
+   "status": "ok"
+  },
+  "en_GB-northern_english_male-medium": {
+   "file": "studio/voices/catalog/piper/en_GB-northern_english_male-medium.mp3",
+   "label": "en_GB-northern_english_male-medium",
+   "status": "ok"
+  },
+  "en_GB-jenny_dioco-medium": {
+   "file": "studio/voices/catalog/piper/en_GB-jenny_dioco-medium.mp3",
+   "label": "en_GB-jenny_dioco-medium",
+   "status": "ok"
   }
  },
- "elevenlabs/eleven-flash-v2.5": {
-  "george": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+ "fish-free": {
+  "8062e83481fe4165a2a92cd753f9c06b": {
+   "file": "studio/voices/catalog/fish-free/Felix_Australian_male.mp3",
+   "label": "Felix (Australian male)",
+   "status": "ok"
   },
-  "sarah": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "933563129e564b19a115bedd57b7406a": {
+   "file": "studio/voices/catalog/fish-free/Sarah.mp3",
+   "label": "Sarah",
+   "status": "ok"
   },
-  "adam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "bf322df2096a46f18c579d0baa36f41d": {
+   "file": "studio/voices/catalog/fish-free/Adrian.mp3",
+   "label": "Adrian",
+   "status": "ok"
   },
-  "alice": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "536d3a5e000945adb7038665781a4aca": {
+   "file": "studio/voices/catalog/fish-free/Ethan.mp3",
+   "label": "Ethan",
+   "status": "ok"
   },
-  "bella": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "c5f56a6cc2ec4fa8920cb4c5889a3fb7": {
+   "file": "studio/voices/catalog/fish-free/Slax.mp3",
+   "label": "Slax",
+   "status": "ok"
   },
-  "bill": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "c2623f0c075b4492ac367989aee1576f": {
+   "file": "studio/voices/catalog/fish-free/Paula.mp3",
+   "label": "Paula",
+   "status": "ok"
   },
-  "brian": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "e3cd384158934cc9a01029cd7d278634": {
+   "file": "studio/voices/catalog/fish-free/Laura.mp3",
+   "label": "Laura",
+   "status": "ok"
   },
-  "callum": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "f8dfe9c83081432386f143e2fe9767ef": {
+   "file": "studio/voices/catalog/fish-free/Book_Record_deep_narrator.mp3",
+   "label": "Book Record (deep narrator)",
+   "status": "ok"
   },
-  "charlie": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "79d0bd3e4e5444b18f7b6d89b5927bf1": {
+   "file": "studio/voices/catalog/fish-free/Jordan.mp3",
+   "label": "Jordan",
+   "status": "ok"
   },
-  "chris": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "beb44e5fac1e4b33a15dfcdcc2a9421d": {
+   "file": "studio/voices/catalog/fish-free/Sleepless_Historian_British.mp3",
+   "label": "Sleepless Historian (British)",
+   "status": "ok"
   },
-  "daniel": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "1d52151a55eb4878a997bd06e816b5f6": {
+   "file": "studio/voices/catalog/fish-free/Alex.mp3",
+   "label": "Alex",
+   "status": "ok"
   },
-  "eric": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "e422370a73e4439b8ccc10d58b78819b": {
+   "file": "studio/voices/catalog/fish-free/Deep_Voice.mp3",
+   "label": "Deep Voice",
+   "status": "ok"
   },
-  "harry": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "jessica": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "laura": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "liam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "lily": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "matilda": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "river": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "roger": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "will": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "elevenlabs/eleven-multilingual-v2": {
-  "george": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "sarah": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "adam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "alice": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "bella": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "bill": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "brian": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "callum": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "charlie": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "chris": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "daniel": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "eric": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "harry": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "jessica": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "laura": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "liam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "lily": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "matilda": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "river": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "roger": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "will": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  }
- },
- "elevenlabs/eleven-v3-conversational": {
-  "george": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "sarah": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "adam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "alice": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "bella": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "bill": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "brian": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "callum": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "charlie": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "chris": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "daniel": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "eric": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "harry": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "jessica": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "laura": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "liam": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "lily": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "matilda": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "river": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "roger": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
-  },
-  "will": {
-   "file": null,
-   "status": "error",
-   "error": "HTTP 402: {\"error\":{\"message\":\"Insufficient credits. This account never purchased credits. Make sure your key is on the correct account or org, and if so, purchase more at https://openrouter.ai/settings/credits"
+  "9a9cf47702da476aa4629e2506d4a857": {
+   "file": "studio/voices/catalog/fish-free/Hannah.mp3",
+   "label": "Hannah",
+   "status": "ok"
   }
  }
 }

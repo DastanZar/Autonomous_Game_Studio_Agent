@@ -2332,3 +2332,17 @@ So there are two obvious corrections that have to be done in that. One of it is 
 - **Fact error found while reviewing:** "Canada is outscored by two separate states" is three by the episode's own figures. I corrected the line, caption, claim and graphic, and re-voiced that paragraph (WER 0).
 - **Results:** −14.1 to −14.3 LUFS; WER 0 to 0.016. Reviews: rounds 4 and 5 logged, and every gate passes through packaging.
 - **Rule noted:** every push must land on the dashboard. Each push to main redeploys it, and I now check that the deploy succeeded after pushing.
+
+### 🧑 User · 2026-10-07 UTC
+
+How will you even able to try Microsoft MAI or 11 Labs? Aren't those paid ones? Uh, also, isn't one of the fish ones paid and how are you even able to generate this? Because my open router account doesn't really have credits in it. So I'm a bit confused because I don't want to end up liking something which is paid and then not be able to pay for it and have to do this exercise all over again. So just uh, sort the audio clips out. Just remove the ones that are paid because we will be approaching this entire project with a free slash freemium only option. And for audios, we will definitely be sticking to free. Because there are some really great free TTS out there.
+
+#### Claude · record
+
+- **Admitted the mistake:** the paid models were called without checking their price. OpenRouter served the first requests with no credit, then refused (402). The account shows $0.45 used against $0 credit.
+- **All paid samples deleted.** `voice_catalog.py` is now free-only and refuses any model whose OpenRouter price isn't zero before sending a request.
+- **Free catalogue on the dashboard (53 voices):**
+  - Kokoro-82M: 28 English voices, local.
+  - Piper: 12 voices, downloaded from rhasspy/piper-voices, local.
+  - Fish S2.1 Free: 13 hand-picked narration voices from the Fish public library; celebrity and character clones excluded (e.g. "Elon Musk", "Morgan Freeman", game characters). This used 13 of the 50 free requests per day.
+- **OpenRouter today:** Fish S2.1 Free is the only free speech model.
