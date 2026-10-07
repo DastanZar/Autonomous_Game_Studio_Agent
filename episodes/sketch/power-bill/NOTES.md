@@ -158,3 +158,63 @@ Apart from the work already assigned to you, i want you to do one more thing onc
  "defects": []
 }
 ```
+
+### Round 4
+```json
+{
+ "at": "2026-10-07T18:16:55Z",
+ "reviewer": "builder (orchestrator), round 4 after user feedback: drawing still felt rushed; 0.7 s more pause per line, pace 1.2, s_share split",
+ "frames": [
+  0.05,
+  4.36,
+  10.78,
+  15.74,
+  19.47,
+  26.48,
+  34.05,
+  39.96,
+  43.88,
+  51.38,
+  58.3,
+  64.01,
+  68.9,
+  75.69,
+  80.16,
+  80.51
+ ],
+ "defects": [
+  {
+   "t": 15.74,
+   "issue": "drawings appeared and the camera left before they could be read",
+   "fixed": true
+  }
+ ]
+}
+```
+
+### Round 5
+```json
+{
+ "at": "2026-10-07T18:16:55Z",
+ "reviewer": "builder (orchestrator), round 5: every drawing completes and holds before the camera moves",
+ "frames": [
+  0.05,
+  4.36,
+  10.78,
+  15.74,
+  19.47,
+  26.48,
+  34.05,
+  39.96,
+  43.88,
+  51.38,
+  58.3,
+  64.01,
+  68.9,
+  75.69,
+  80.16,
+  80.51
+ ],
+ "defects": []
+}
+```
