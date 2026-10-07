@@ -12,6 +12,7 @@
 const LF = { bg0: "#0b1430", bg1: "#1d2d5c", ink: "#0b1020", fg: "#f4f1ea", gold: "#f4b942", red: "#e63946", blue: "#4aa3df", grid: "rgba(120,160,255,0.16)" };
 function rankBG(t, o = {}) {
   const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, o.bg0 || LF.bg0); g.addColorStop(1, o.bg1 || LF.bg1); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  if (GEO.s_hook) { lfGlobe(t, o); drawStars(t); return; }
   // a floor grid in perspective that slides toward the viewer
   ctx.save(); ctx.strokeStyle = LF.grid; ctx.lineWidth = 2; const hz = 1080, vx = W / 2 + Math.sin(t * 0.3) * 60;
   for (let i = -12; i <= 12; i++) { ctx.beginPath(); ctx.moveTo(vx + i * 30, hz); ctx.lineTo(W / 2 + i * 260, H + 40); ctx.stroke(); }
@@ -95,4 +96,68 @@ function clocks(n, t, t0, y, o = {}) {
     const b = (t * 0.02 + off) * 6.283 - Math.PI / 2; line(0, 0, Math.cos(b) * r * 0.5, Math.sin(b) * r * 0.5, LF.red, 7);
     ctx.restore();
   }
+}
+
+// ---------- the globe stage: a real Earth (Natural Earth, from the hook scene's world region) that turns to face
+// each scene's country, which glows gold. Frames stay pure functions of t: the turn eases from the previous
+// scene's focus to this one's over the first second of each scene.
+const LFG = (() => {
+  const g = (typeof GEO !== "undefined" && GEO.s_hook) || null; if (!g) return null;
+  const cen = {};
+  for (const L of g.layers) {            // the centroid of each country's largest polygon (shoelace, in degrees)
+    let best = null, ba = 0;
+    for (const poly of L.polys) { const r = poly[0]; let a = 0, cx = 0, cy = 0; for (let i = 0; i < r.length; i++) { const [x0, y0] = r[i], [x1, y1] = r[(i + 1) % r.length], f = x0 * y1 - x1 * y0; a += f; cx += (x0 + x1) * f; cy += (y0 + y1) * f; }
+      if (Math.abs(a) > ba && a !== 0) { ba = Math.abs(a); best = [cx / (3 * a), cy / (3 * a)]; } }
+    if (best) cen[L.iso] = best;
+  }
+  return { g, cen };
+})();
+function lfFocusOf(S) {
+  if (!S) return null; const p = S.p || {};
+  const codes = p.focus || p.codes || (p.L ? [p.L.code, p.R && p.R.code] : null);
+  if (!codes) return null;
+  const isos = codes.filter(Boolean).map(c => c.split("-")[0] === "GB" ? "GB" : c.split("-")[0]);
+  const pts = isos.map(c => LFG.cen[c]).filter(Boolean); if (!pts.length) return null;
+  return { isos, lon: pts.reduce((a, p) => a + p[0], 0) / pts.length, lat: pts.reduce((a, p) => a + p[1], 0) / pts.length };
+}
+function lfFocusAt(S) { for (let s = S; s; s = s.prev) { const f = lfFocusOf(s); if (f) return f; } return { isos: [], lon: 0, lat: 20 }; }
+function lfGlobe(t, o = {}) {
+  if (!LFG) return;
+  const S = sceneAt(t), cur = lfFocusAt(S), prv = S.prev ? lfFocusAt(S.prev) : cur, k = eio(clamp((t - S.t0) / 1.1));
+  let dl = cur.lon - prv.lon; if (dl > 180) dl -= 360; if (dl < -180) dl += 360;
+  const lon0 = prv.lon + dl * k + (t - S.t0) * 2.5, lat0 = clamp(lerp(prv.lat, cur.lat, k) - 24, -60, 60);
+  const cx = W / 2 - 70, cy = 1330, R = 980, ph = lat0 * Math.PI / 180, sp = Math.sin(ph), cp = Math.cos(ph);
+  const P = (lon, lat) => { const l = (lon - lon0) * Math.PI / 180, f = lat * Math.PI / 180, cl = Math.cos(f);
+    let x = cl * Math.sin(l), y = cp * Math.sin(f) - sp * cl * Math.cos(l); const z = sp * Math.sin(f) + cp * cl * Math.cos(l);
+    if (z < 0) { const n = Math.hypot(x, y) || 1; x /= n; y /= n; } return [cx + x * R, cy - y * R]; };
+  // atmosphere and ocean
+  const at = ctx.createRadialGradient(cx, cy, R * 0.92, cx, cy, R * 1.12); at.addColorStop(0, "rgba(90,150,255,0.45)"); at.addColorStop(1, "rgba(90,150,255,0)");
+  ctx.fillStyle = at; ctx.beginPath(); ctx.arc(cx, cy, R * 1.12, 0, 7); ctx.fill();
+  const oc = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.4, R * 0.1, cx, cy, R); oc.addColorStop(0, "#1f3f7a"); oc.addColorStop(1, "#0c1a3c");
+  ctx.fillStyle = oc; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.fill();
+  ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.clip();
+  // graticule
+  ctx.strokeStyle = "rgba(140,180,255,0.12)"; ctx.lineWidth = 2;
+  for (let lo = -180; lo < 180; lo += 30) { ctx.beginPath(); for (let la = -80; la <= 80; la += 5) { const [x, y] = P(lo, la); la === -80 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke(); }
+  for (let la = -60; la <= 60; la += 30) { ctx.beginPath(); for (let lo = -180; lo <= 180; lo += 5) { const [x, y] = P(lo, la); lo === -180 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke(); }
+  // land, then the focus countries in gold
+  const hi = new Set(cur.isos), glowK = k;
+  for (const L of LFG.g.layers) {
+    const on = hi.has(L.iso);
+    ctx.beginPath(); for (const poly of L.polys) for (const ring of poly) { ring.forEach(([lo, la], j) => { const [x, y] = P(lo, la); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.closePath(); }
+    if (on) { ctx.save(); ctx.shadowColor = "rgba(244,185,66,0.9)"; ctx.shadowBlur = 40 * glowK; ctx.fillStyle = hexA(LF.gold, 0.35 + 0.55 * glowK); ctx.fill("evenodd"); ctx.restore(); }
+    else { ctx.fillStyle = "#34589c"; ctx.fill("evenodd"); }
+    ctx.strokeStyle = on ? "rgba(255,230,160,0.9)" : "rgba(160,195,255,0.35)"; ctx.lineWidth = on ? 3 : 1.5; ctx.stroke();
+  }
+  // a terminator: the night side shades the lower-right of the disc
+  const sh = ctx.createLinearGradient(cx - R, cy - R, cx + R, cy + R); sh.addColorStop(0.45, "rgba(5,8,20,0)"); sh.addColorStop(1, "rgba(5,8,20,0.6)");
+  ctx.fillStyle = sh; ctx.fillRect(cx - R, cy - R, 2 * R, 2 * R);
+  ctx.restore();
+  // dim the globe under the content so flags and numbers stay the subject
+  const dimg = ctx.createLinearGradient(0, 300, 0, H); dimg.addColorStop(0, "rgba(8,14,40,0)"); dimg.addColorStop(0.55, "rgba(8,14,40,0.15)"); dimg.addColorStop(1, "rgba(8,14,40,0.5)");
+  ctx.fillStyle = dimg; ctx.fillRect(0, 0, W, H);
+}
+function drawStars(t) {
+  for (let i = 0; i < 70; i++) { const x = rnd(i, 1) * W, y = rnd(i, 2) * 700, tw = 0.35 + 0.35 * Math.sin(t * (1 + rnd(i, 3) * 2) + i);
+    ctx.fillStyle = `rgba(220,230,255,${tw})`; ctx.beginPath(); ctx.arc(x, y, 1 + rnd(i, 4) * 2.2, 0, 7); ctx.fill(); }
 }

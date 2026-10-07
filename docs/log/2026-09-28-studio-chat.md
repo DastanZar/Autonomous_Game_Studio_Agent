@@ -2175,3 +2175,15 @@ Try again
 - **Late fixes:** Alaska's treaty line was a 9 km-wide ribbon that filled the screen at close range (now 3 km and hidden once the camera is near the islands); four first frames were half-drawn (titles now present at t=0); three scenes over the 7 s pace limit were split; the encoder's limiter ceiling dropped from 0.79 to 0.75 after one file measured −0.9 dBTP.
 - **Not verified:** I can't listen. Levels and transcripts were measured instead. The music beds for Gut Gang ('inside') and Leader Flags ('countdown') are at the bible default of 8 dB under the voice; only Border Quirks' 'detective' at 13 dB has been heard by the user.
 - **Delivered:** `docs/publish-kit-2026-10.md` (times, titles, descriptions, steps, API audit draft) and a dashboard review item with all 12 videos.
+
+---
+
+### 🧑 User · 2026-10-07 UTC
+
+i watched them, the border quirk ones look good, ready to fire, the gut gang ones, just a question, have you purposely kept them short upto 30seconds ish? creative decison or any other reason? the map ones are good too but can we have a better background or something happening in it apart form just that deep blue of nothing ness?
+
+#### Claude · record
+
+- **Border Quirks:** approved by the user, unchanged.
+- **Gut Gang length (answered, nothing changed):** not a deliberate target. The scripts came out short (about 80 words, 29–33 s) because each beat needed a fetched source and I cut lines I couldn't source; the bible allows 25–55 s. Offered to extend to about 45 s with more sourced beats.
+- **Leader Flags background:** replaced the empty grid with a real Earth (Natural Earth 1:10m, the hook scene's world region) drawn in orthographic projection. It turns to each scene's country (a new `focus` param for custom scenes), lights the country gold, and has a graticule, an atmosphere glow, a night side and twinkling stars. All four re-rendered: gates pass, frozen time 0.6–4.1 s per 30 s (was 5–9).

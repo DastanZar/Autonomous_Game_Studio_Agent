@@ -24,7 +24,16 @@
    "start": "0",
    "params": {
     "fn": "hook",
-    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "region": [
+     -180.0,
+     -60.0,
+     180.0,
+     84.0
+    ],
+    "focus": [
+     "ES"
+    ]
    },
    "events": [
     {
@@ -154,7 +163,10 @@
    "start": "five.start-0.15",
    "params": {
     "fn": "five",
-    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "BR"
+    ]
    },
    "events": [
     {
@@ -170,7 +182,17 @@
    "start": "eight.start-0.15",
    "params": {
     "fn": "eight",
-    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "BR",
+     "DE",
+     "IT",
+     "AR",
+     "FR",
+     "UY",
+     "ES",
+     "GB"
+    ]
    },
    "events": [
     {
@@ -186,7 +208,11 @@
    "start": "toll.start-0.15",
    "params": {
     "fn": "toll",
-    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "ES",
+     "BR"
+    ]
    },
    "events": [
     {

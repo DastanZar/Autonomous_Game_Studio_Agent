@@ -76,7 +76,7 @@ Times vary a lot between people and meals; the figures are typical values. The c
 - **Video:** `episodes/ranked/world-cup-titles/out/world-cup-titles.mp4`  **Captions:** `episodes/ranked/world-cup-titles/out/world-cup-titles.srt`  **Thumbnail:** `episodes/ranked/world-cup-titles/out/thumbnail.jpg`
 - **Hashtags:** #worldcup #football #countries #shorts
 - **Pinned comment:** Who wins 2030?
-- **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.0
+- **Measured:** 1080×1920, 24.0 fps, -14.3 LUFS, transcript WER 0.0
 
 **Description:**
 
@@ -146,7 +146,7 @@ Labels: 'can dissolve zinc' is IFLScience's claim. The characters are cartoons, 
 - **Video:** `episodes/ranked/states-vs-countries/out/states-vs-countries.mp4`  **Captions:** `episodes/ranked/states-vs-countries/out/states-vs-countries.srt`  **Thumbnail:** `episodes/ranked/states-vs-countries/out/thumbnail.jpg`
 - **Hashtags:** #economy #countries #usa #shorts
 - **Pinned comment:** Which state surprised you most?
-- **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.016
+- **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.016
 
 **Description:**
 
@@ -216,7 +216,7 @@ Doctors still warn against swallowing lots of gum, especially for children: it c
 - **Video:** `episodes/ranked/most-islands/out/most-islands.mp4`  **Captions:** `episodes/ranked/most-islands/out/most-islands.srt`  **Thumbnail:** `episodes/ranked/most-islands/out/thumbnail.jpg`
 - **Hashtags:** #geography #countries #islands #shorts
 - **Pinned comment:** Should a 9 square metre rock count as an island?
-- **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
+- **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.0
 
 **Description:**
 
