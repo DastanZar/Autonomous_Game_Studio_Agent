@@ -2460,3 +2460,14 @@ Also research about another 5th niche for a 5th channel, something totally diffe
   - hole through the Earth, 3 Nov;
   - Mars without a suit, 5 Nov.
 - **New strategist, fifth-channel niche:** web plus API data (the API is probably out of quota until about 07:00 UTC). Deliverable: `docs/research/fifth-channel-2026-10.md` with the top 3 options ranked.
+
+#### Claude · record (fifth niche delivered)
+
+- `docs/research/fifth-channel-2026-10.md`.
+- **Recommendation:** "Inside Job", everyday mechanisms in 3D cutaways (locks, zippers, sink traps, click pens).
+  - Infinite Desk's median rose ×5.0 from Q2 to Q3; 2026-born channels have 10–26M-view Shorts.
+  - Big channels are scarce: 5 of the top 50 are from 1M+ subscriber channels.
+  - Education and science RPM: $10.22 median, measured by AIR Media-Tech.
+  - Runner-up: physics simulations that answer a question (cheap, but satisfying-sim views are flat at ×0.62 and template-crowded). Third: true scale in 3D.
+- **Not measured:** API search quota was exhausted (429), so channel uploads were pulled through non-search endpoints (94 channels). TikTok and Reels per-niche data was unavailable.
+- **The user's hand note** ("pause at 9 seconds… the hand looking unnatural due to the stretch"): fixed. The wrist now turns toward an off-screen shoulder, and the sleeve continues with the photo's own knit texture and edge shading.
