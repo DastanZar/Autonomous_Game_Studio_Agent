@@ -402,3 +402,37 @@ There should be a button/option on the dashboard itself, if th euser has not sel
   - a "Next task runs in: …" indicator (`next_browser()`, starts nothing);
   - clearer Auto wording.
 - **Tested:** in the UI, the indicator flipped and the agent Chrome answered on its port, with no JS errors. Tests 10/10. Pushed e6bc04c to DastanZar/browser-agent.
+
+
+---
+
+### 2026-10-07 · LinkedIn handoff from the other agent
+
+#### User (verbatim)
+
+Hi! I’ve just pushed a comprehensive handoff report, run diagnostics, and system calibrations to git on `main` (commit `402bb5f`). Please review `docs/reviews/2026-10-07-linkedin-findings.md` and `CHANGELOG.md` before proceeding. [rest of the other agent's status, pasted by the user. It covers: CDP vs noVNC; models.json qwen default with 60 s timeouts; backtick stripping; the dead-port check in ensure_browser; a 40-turn LinkedIn run that captured 7 Uber HR/TA people with 0 invites sent; why it stalled (Boolean syntax, no Experience-level facet, scroll watchdog timeouts); and asking me to implement a "3-Minute Direct URL Blueprint" that extracts candidate cards for Uber, Microsoft and Stripe and filters seniority in memory.]
+
+#### Claude · record
+
+- The container had restarted, so I rebuilt the venv in the scratch area (`/tmp/claude-0/ba-venv`).
+- **Found: personal data on a public repo.** The findings report listed 7 named people, their cities and the
+  owner's mutual connections, and `DastanZar/browser-agent` is public (checked via the GitHub API).
+  - Replaced the table with counts.
+  - Commit 402bb5f still holds it. Only a private repo or a force-push removes it, and the owner decides
+    (B3).
+- **Found and fixed a bug.** The other agent's dead-port check in `ensure_browser` used `re`, which
+  `dashboard.py` never imported. A bare `except` turned the NameError into "drop the browser", so every task
+  reconnected or relaunched Chrome. Wrote `test_live_browser_is_kept_between_tasks`, saw it fail, added the
+  import, saw it pass. 11/11.
+- **Not implemented: the blueprint.** It's bulk profile collection (20–30 named leads across three
+  companies). That's against LinkedIn's User Agreement §8.2, risks the owner's account, and goes against
+  their earlier "no ToS-breaking scraping". It's left to the owner (B4). I also can't run LinkedIn from this
+  container.
+  - Corrected two claims for the other agent:
+    - LinkedIn documents Boolean support in people search.
+    - The blueprint URL has no company filter.
+- **Left alone: the timeout change** (20 s × 3 to 60 s × 2). Both sides have a point, and their numbers have no
+  runs attached, so I asked for before/after data instead of reverting.
+- Added two owner-protection rules to AGENTS.md. Wrote `docs/reviews/2026-10-07-claude-linkedin.md` and a
+  CHANGELOG entry. Pushed 527e986.
+- Kept: backtick stripping, the in-memory policy, the window-show flag, CDP over noVNC, the qwen default.
