@@ -1,0 +1,175 @@
+{
+ "topic": "The Statue of Liberty is in New York, surrounded by New Jersey (and Ellis Island is in both)",
+ "sources": [
+  {
+   "id": "npsfaq",
+   "title": "Frequently Asked Questions",
+   "publisher": "U.S. National Park Service, Statue of Liberty National Monument",
+   "url": "https://www.nps.gov/stli/faqs.htm",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "npschron",
+   "title": "Liberty Island: A Chronology",
+   "publisher": "U.S. National Park Service, Statue of Liberty National Monument",
+   "url": "https://www.nps.gov/stli/learn/historyculture/liberty-island-a-chronology.htm",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "court",
+   "title": "New Jersey v. New York, 523 U.S. 767 (1998)",
+   "publisher": "Supreme Court of the United States, via Cornell Law School Legal Information Institute",
+   "url": "https://www.law.cornell.edu/supremecourt/text/523/767",
+   "type": "primary",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "wiki",
+   "title": "Liberty Island",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Liberty_Island",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "wikistatue",
+   "title": "Statue of Liberty",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_ny",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "npsfaq",
+    "wiki"
+   ],
+   "text": "The Statue of Liberty stands on Liberty Island, which is part of the territorial jurisdiction of the State of New York.",
+   "quote": "The Statue of Liberty is on Liberty Island; which is federal property administered by the National Park Service. The island is part of the territorial jurisdiction of the State of New York. (npsfaq); Part of the State of New York , the island is an exclave of the New York City borough of Manhattan (wiki)"
+  },
+  {
+   "id": "c_surrounded",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "npschron"
+   ],
+   "text": "The island is surrounded by the waters of Jersey City, New Jersey: New Jersey has the rights to the waters and submerged land around it.",
+   "quote": "surrounded by the waters of Jersey City, New Jersey (wiki); places Bedloe's Island (the land above low level water mark) within New York while New Jersey retains riparian rights to waters and all submerged land surrounding the island (npschron)"
+  },
+  {
+   "id": "c_compact",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "court",
+    "wiki"
+   ],
+   "text": "An 1834 compact between New York and New Jersey set the boundary as the middle of the Hudson River.",
+   "quote": "An 1834 compact between New York and New Jersey, approved by Congress pursuant to the Compact Clause, set the boundary line between the States as the middle of the Hudson River (court); ratified by Congress in 1834, which set the boundary line between them as the midpoint of the shared waterway (wiki)"
+  },
+  {
+   "id": "c_nside",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "court",
+    "wiki"
+   ],
+   "text": "That line puts the statue's island (then Bedloe's/Bedlow's Island) and Ellis Island on New Jersey's side.",
+   "quote": "Ellis Island is on New Jersey's side of this line (court); This would place Bedloe's (Liberty) Island and Ellis Island in New Jersey (wiki)"
+  },
+  {
+   "id": "c_keep",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "court",
+    "wiki"
+   ],
+   "text": "The compact itself said New York keeps its jurisdiction over Bedlow's and Ellis's islands.",
+   "quote": "New York shall retain its present jurisdiction of and over Bedlow's and Ellis's islands (court); the compact included an exception specifying that they remain the territory of New York (wiki)"
+  },
+  {
+   "id": "c_dedicated",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "npschron",
+    "wikistatue"
+   ],
+   "text": "The statue was dedicated on 28 October 1886, on Bedloe's Island.",
+   "quote": "October 28th - New York City holds the first Ticker-Tape Parade in honor of the dedication of the statue (npschron); The statue was dedicated on October 28, 1886. (wikistatue)"
+  },
+  {
+   "id": "c_fog",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "npschron"
+   ],
+   "text": "On dedication day, fog and rain cut visibility to less than a quarter of a mile.",
+   "quote": "visibility is less than a quarter of a mile due to fog and rain throughout the day"
+  },
+  {
+   "id": "c_fill",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "court"
+   ],
+   "text": "Ellis Island was three acres in 1834; after 1891 the federal government added some 24.5 acres of landfill.",
+   "quote": "provided that Ellis Island, then three acres, was part of New York; the National Government began filling around the Island's shoreline and over the next 42 years added some 24.5 acres to the original Island"
+  },
+  {
+   "id": "c_ruling",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "court",
+    "wiki"
+   ],
+   "text": "In 1998 the Supreme Court ruled that New Jersey has sovereign authority over the filled land; the original island stays New York: Ellis Island is in two states.",
+   "quote": "Held: New Jersey has sovereign authority over the filled land added to the original Island. (court); Thus it was agreed that the parts of the island made of filled land belonged to New Jersey while the original natural part belonged to New York. (wiki)"
+  },
+  {
+   "id": "c_libfill",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "npsfaq"
+   ],
+   "text": "Liberty Island has some landfill on its western shore, but the land directly under and around the statue is natural.",
+   "quote": "Liberty Island has received some landfill on its western shore for administrative and maintenance purposes. However, the land directly under and around the Statue of Liberty is natural."
+  },
+  {
+   "id": "c_utilities",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "Electricity, water and sewage for Liberty and Ellis Islands come from the New Jersey side; mail comes from the Battery in New York.",
+   "quote": "Utility services, including electricity, water, and sewage, to Liberty and Ellis Islands are provided from the New Jersey side, while mail is delivered from the Battery in New York."
+  }
+ ],
+ "myths": [
+  {
+   "myth": "The Statue of Liberty is really in New Jersey.",
+   "truth": "Liberty Island is in New York's jurisdiction (NPS), although it sits on New Jersey's side of the state line. Only Ellis Island's landfill went to New Jersey (1998).",
+   "sources": [
+    "npsfaq",
+    "court"
+   ]
+  }
+ ],
+ "open_questions": []
+}

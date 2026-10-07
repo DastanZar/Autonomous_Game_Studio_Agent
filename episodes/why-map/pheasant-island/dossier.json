@@ -1,0 +1,204 @@
+{
+ "topic": "Pheasant Island: the river island that switches between Spain and France every six months",
+ "sources": [
+  {
+   "id": "wiki",
+   "title": "Pheasant Island",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Pheasant_Island",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "euronews",
+   "title": "Spanish or French? Pheasant Island is about to swap nationalities — again",
+   "publisher": "Euronews (Inês Trindade Pereira, 30 July 2024)",
+   "url": "https://www.euronews.com/2024/07/30/spanish-or-french-pheasant-island-is-about-to-swap-nationalities-again",
+   "type": "journalism",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "cnn",
+   "title": "The little Spanish town that found itself in France",
+   "publisher": "CNN Travel",
+   "url": "https://www.cnn.com/travel/article/llivia-spain-france",
+   "type": "journalism",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "pyr",
+   "title": "Treaty of the Pyrenees",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Treaty_of_the_Pyrenees",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_swap",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "euronews",
+    "cnn"
+   ],
+   "text": "Spain administers Pheasant Island from 1 February to 31 July and France from 1 August to 31 January: it switches every six months.",
+   "quote": "It is administered by France from 1 August to 31 January. It is administered by Spain from 1 February to 31 July. (wiki); From 1 February until 31 July, Spain holds stewardship of the condominium (euronews); It switches sovereignty between France and Spain every six months, with Spain owning it from February to July and France taking over from August to January (cnn)"
+  },
+  {
+   "id": "c_where",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "euronews"
+   ],
+   "text": "It is an island in the Bidasoa river, on the border between France and Spain, between Hendaye (France) and Irun (Spain).",
+   "quote": "is an uninhabited river island located in the Bidasoa river, located between France and Spain (wiki); Pheasant Island is located on the Bidasoa river between Hendaye, France, and Irun, Spain (euronews)"
+  },
+  {
+   "id": "c_size",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "euronews",
+    "wiki"
+   ],
+   "text": "The island is about 200 metres long (and about 40 metres wide).",
+   "quote": "one of the rare occasions visitors are allowed to visit this 200-metre-long island (euronews); the island was approximately 200 metres (660 ft) long and 40 metres (130 ft) wide (wiki)"
+  },
+  {
+   "id": "c_empty",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "cnn"
+   ],
+   "text": "Nobody lives on the island; it is uninhabited (population 0).",
+   "quote": "is an uninhabited river island (wiki); This remained the status of this uninhabited island (cnn)"
+  },
+  {
+   "id": "c_treaty",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "pyr",
+    "wiki",
+    "cnn"
+   ],
+   "text": "In 1659 France and Spain negotiated and signed the Treaty of the Pyrenees on the island, ending the Franco-Spanish war that began in 1635.",
+   "quote": "The Treaty of the Pyrenees was signed on 7 November 1659 and ended the Franco–Spanish War that had begun in 1635. Negotiations were conducted and the treaty was signed on Pheasant Island (pyr); The most important historical event to have taken place on the island was the signing of the Treaty of the Pyrenees (wiki); the Franco-Spanish War ran on from 1635 to 1659 (cnn); the patch of land in the middle of the Bidasoa River upon which the treaty was signed (cnn)"
+  },
+  {
+   "id": "c_talks",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "The treaty was the climax of a series of 24 conferences between the two chief ministers.",
+   "quote": "This was the climax to a series of 24 conferences held between Luis Méndez de Haro"
+  },
+  {
+   "id": "c_brides",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "cnn",
+    "wiki"
+   ],
+   "text": "For centuries, treaties were signed and royal brides and grooms were exchanged on the island; Louis XIV met his future wife Maria Theresa of Spain there.",
+   "quote": "It was for centuries a sort of “no man’s land” where international treaties were signed and royal grooms and brides were exchanged between the two kingdoms (cnn); 1659 – Louis XIV met his future wife Maria Theresa of Spain (wiki)"
+  },
+  {
+   "id": "c_condo",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "euronews"
+   ],
+   "text": "Today the island is a condominium under the joint sovereignty of Spain and France, the world's smallest.",
+   "quote": "The island is a condominium , the world's smallest, under joint sovereignty of Spain and France (wiki); Pheasant Island, the world's smallest territory with joint custody (euronews)"
+  },
+  {
+   "id": "c_viceroy",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "The French official responsible carries the title 'viceroy of Pheasant Island'.",
+   "quote": "carries the title of \" viceroy of Pheasant Island\", an unusual name in the French Republic"
+  },
+  {
+   "id": "c_nopheasant",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "There are no pheasants on the island.",
+   "quote": "There are no pheasants on the island."
+  },
+  {
+   "id": "c_name",
+   "key": false,
+   "status": "framed",
+   "sources": [
+    "wiki",
+    "euronews"
+   ],
+   "text": "The name probably comes from a misreading: an older name meaning passage was translated into French words that ended up as 'Faisans' (pheasants).",
+   "quote": "The name could be a misinterpretation of some French word related to \"passing\" or \"toll\" (wiki); Then, the French translated this as Paysans, meaning peasant, before switching it to Faisans, meaning pheasant (euronews)",
+   "label": "probably",
+   "note": "Etymology is uncertain ('could be' in Wikipedia); the script says 'probably'."
+  },
+  {
+   "id": "c_visit",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "euronews",
+    "wiki"
+   ],
+   "text": "Visitors are allowed on only on rare occasions such as the handover days; access is otherwise forbidden.",
+   "quote": "Visitors are only allowed onto the island on very few occasions (euronews); access is forbidden, except very occasionally on heritage open days (wiki)"
+  },
+  {
+   "id": "c_alt_origin",
+   "key": false,
+   "status": "rejected",
+   "sources": [
+    "cnn"
+   ],
+   "text": "The six-month alternation was set up by the 1659 treaty.",
+   "quote": "until 1866, when it became what is known in international law as a “condominium.”",
+   "note": "Rejected: CNN dates condominium status to 1866 and Wikipedia's note dates the alternation to an 1856 treaty and a 1901 agreement; the script does not date the swap."
+  }
+ ],
+ "myths": [
+  {
+   "myth": "The 1659 Treaty of the Pyrenees created the six-month swap.",
+   "truth": "Sources disagree: CNN dates condominium status to 1866; Wikipedia's note (Mermoz, International Boundaries Review) says the island became undivided by the 1856 Treaty of Bayonne and the alternation follows a 1901 agreement in force from 1902. The script avoids dating the swap.",
+   "sources": [
+    "cnn",
+    "wiki"
+   ]
+  },
+  {
+   "myth": "The island is named after its pheasants.",
+   "truth": "There are no pheasants; the name is probably a mistranslation.",
+   "sources": [
+    "wiki",
+    "euronews"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Exact year the alternating administration started (1856, 1866 or 1901-1902 depending on source)."
+ ]
+}

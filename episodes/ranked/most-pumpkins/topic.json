@@ -1,0 +1,27 @@
+{
+ "slug": "most-pumpkins",
+ "channel": "ranked",
+ "series": "top",
+ "hook": "The world's biggest pumpkin grower isn't America. It's India.",
+ "twist": "FAOSTAT 2024: India 9.33 million tonnes of pumpkins, squash and gourds, China 7.65, then Egypt, Russia, Ukraine; the US is sixth with 0.93, about a tenth of India.",
+ "angle": "Halloween countdown 6 to 1 from one FAOSTAT table, ending with India and the ten-to-one gap. One big number: 9.3 million tonnes.",
+ "why_now": "Halloween is 31 October 2026; slot 28 October. Data: FAOSTAT production for 2024 (bulk file dated 2025-12-23). Demand evidence is thin: YouTube search 'which country grows the most pumpkins' (2026-10-07) found the exact topic only at 15k views ('Which Country produces the most pumpkins?'); the pick rests on Halloween timing.",
+ "candidate_sources": [
+  "https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_All_Data_(Normalized).zip",
+  "https://www.helgilibrary.com/indicators/pumpkin-squash-and-gourd-production/"
+ ],
+ "scores": {
+  "hook": 4,
+  "surprise": 4,
+  "visual": 4,
+  "sourceability": 5,
+  "timeliness": 5,
+  "series_fit": 5
+ },
+ "risks": [
+  "FAO counts pumpkins, squash and gourds together: name the measure on screen.",
+  "Several figures are FAO estimates or imputations (China E, Egypt I, Russia I, Ukraine E): label them on screen."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

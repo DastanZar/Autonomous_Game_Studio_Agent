@@ -1,0 +1,166 @@
+{
+ "topic": "Do cold feet give you a cold? The 2005 Cardiff foot-chilling study",
+ "sources": [
+  {
+   "id": "abs",
+   "title": "Acute cooling of the feet and the onset of common cold symptoms (Johnson & Eccles, Family Practice 2005): PubMed record",
+   "publisher": "National Library of Medicine (PubMed)",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=16286463&rettype=abstract&retmode=text",
+   "type": "scholarly",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "cnn",
+   "title": "Study: Chills can trigger colds",
+   "publisher": "CNN",
+   "url": "https://edition.cnn.com/2005/HEALTH/11/14/cold.chill/index.html",
+   "type": "journalism",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "hday",
+   "title": "Feeling a Chill Can Brrrr-ing on a Cold",
+   "publisher": "HealthDay",
+   "url": "https://www.healthday.com/health-news/pulmonology/feeling-a-chill-can-brrrr-ing-on-a-cold-529127.html",
+   "type": "journalism",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "nhs",
+   "title": "Common cold",
+   "publisher": "NHS",
+   "url": "https://www.nhs.uk/conditions/common-cold/",
+   "type": "official",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_virus",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nhs"
+   ],
+   "text": "Colds are caused by viruses.",
+   "quote": "Colds are caused by viruses and easily spread to other people"
+  },
+  {
+   "id": "c_folk",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "abs",
+    "hday"
+   ],
+   "text": "It is common folklore that getting chilled causes colds, and earlier research had failed to show any effect of cold exposure.",
+   "quote": "There is a common folklore that chilling of the body surface causes the development of common cold symptoms, but previous clinical research has failed to demonstrate any effect of cold exposure on susceptibility to infection with common cold viruses; Previous research had dismissed any link between getting a chill and catching a cold"
+  },
+  {
+   "id": "c_lab",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "abs",
+    "cnn"
+   ],
+   "text": "The study was run by the Common Cold Centre at Cardiff University and published in 2005.",
+   "quote": "Common Cold Centre, Cardiff School of Biosciences, Cardiff University; Fam Pract. 2005 Dec; Claire Johnson and Professor Ron Eccles, from Cardiff University's Common Cold Center"
+  },
+  {
+   "id": "c_design",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "abs",
+    "cnn",
+    "hday"
+   ],
+   "text": "180 healthy volunteers: half put their feet in ice-cold water for 20 minutes, the other 90 sat with their feet in an empty bowl.",
+   "quote": "180 healthy subjects were randomized to receive either a foot chill or control procedure; recruited 180 volunteers, half of whom they got to immerse their feet in ice and cold water for 20 minutes. The other 90 in tests during the common cold \"season\" sat with their feet in an empty bowl; either soak their feet in ice-cold water or place them in an empty bowl for 20 minutes"
+  },
+  {
+   "id": "c_result",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "abs"
+   ],
+   "text": "In the four or five days after, 13 of the 90 chilled volunteers reported a cold, against 5 of the 90 controls.",
+   "quote": "13/90 subjects who were chilled reported they were suffering from a cold in the 4/5 days after the procedure compared to 5/90 control subjects"
+  },
+  {
+   "id": "c_press",
+   "key": false,
+   "status": "rejected",
+   "sources": [
+    "cnn",
+    "hday"
+   ],
+   "text": "Press reports said 29 percent of chilled volunteers developed cold symptoms, against 9 percent.",
+   "quote": "29 percent of the chilled volunteers developed cold symptoms",
+   "note": "Rejected: the paper's abstract gives 13/90 vs 5/90 for reporting a cold; the script uses the paper."
+  },
+  {
+   "id": "c_carriers",
+   "key": true,
+   "status": "framed",
+   "label": "THE RESEARCHERS' THEORY",
+   "sources": [
+    "cnn",
+    "hday"
+   ],
+   "text": "The researchers' theory: when colds are going around, many people are mildly infected with no symptoms.",
+   "quote": "When colds are circulating in the community many people are mildly infected but show no symptoms"
+  },
+  {
+   "id": "c_vessels",
+   "key": true,
+   "status": "framed",
+   "label": "THE RESEARCHERS' THEORY",
+   "sources": [
+    "cnn",
+    "hday"
+   ],
+   "text": "The researchers' theory: chilling narrows the blood vessels in the nose and shuts off the warm blood that supplies the white cells that fight infection, so the virus gets stronger.",
+   "quote": "If they become chilled this causes a pronounced constriction of the blood vessels in the nose and shuts off the warm blood that supplies the white cells that fight infection; allow the virus to get stronger and common cold symptoms develop"
+  },
+  {
+   "id": "c_dormant",
+   "key": false,
+   "status": "framed",
+   "label": "THE RESEARCHERS' THEORY",
+   "sources": [
+    "cnn",
+    "hday"
+   ],
+   "text": "In the researchers' words, the chilled person thinks they caught a cold, but a dormant infection has taken hold.",
+   "quote": "what has in fact happened is that the dormant infection has taken hold"
+  },
+  {
+   "id": "c_more",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "abs"
+   ],
+   "text": "The authors said further studies are needed.",
+   "quote": "Further studies are needed to determine the relationship of symptom generation to any respiratory infection"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Being cold gives you a cold.",
+   "truth": "Colds are caused by viruses (NHS). One 2005 study found chilled feet were followed by more reported colds; its authors' theory is that the chill lets a virus already present take hold.",
+   "sources": [
+    "nhs",
+    "abs",
+    "cnn"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Press coverage said 29% vs 9%; the abstract says 13/90 vs 5/90 reported a cold. Use the abstract only.",
+  "Whether the effect replicates; one study only, labelled on screen."
+ ]
+}

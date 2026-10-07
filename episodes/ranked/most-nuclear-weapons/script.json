@@ -1,0 +1,244 @@
+{
+ "channel": "ranked",
+ "episode": "most-nuclear-weapons",
+ "series": "top",
+ "working_title": "Which country has the most nuclear weapons? Not America.",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "The country with the most nuclear weapons isn't America.",
+   "kind": "hook",
+   "claims": [
+    "c_russia",
+    "c_us"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "THE COUNTRY WITH",
+     3
+    ],
+    [
+     "THE MOST NUCLEAR WEAPONS",
+     4
+    ],
+    [
+     "ISN'T AMERICA.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "nine",
+   "say": "Nine countries have them. About twelve thousand warheads.",
+   "kind": "fact",
+   "claims": [
+    "c_nine",
+    "c_total"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "NINE COUNTRIES",
+     2
+    ],
+    [
+     "HAVE THEM.",
+     2
+    ],
+    [
+     "ABOUT 12,000 WARHEADS.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "small",
+   "say": "North Korea, about sixty. Israel, about ninety. Officially, it won't say.",
+   "kind": "fact",
+   "claims": [
+    "c_nk",
+    "c_israel"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "NORTH KOREA,",
+     2
+    ],
+    [
+     "ABOUT 60.",
+     2
+    ],
+    [
+     "ISRAEL, ABOUT 90.",
+     3
+    ],
+    [
+     "OFFICIALLY,",
+     1
+    ],
+    [
+     "IT WON'T SAY.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "south",
+   "say": "Pakistan, one hundred seventy. India, one hundred ninety.",
+   "kind": "fact",
+   "claims": [
+    "c_pak",
+    "c_india"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "PAKISTAN, 170.",
+     4
+    ],
+    [
+     "INDIA, 190.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "europe",
+   "say": "Britain, two hundred twenty-five. France, three hundred seventy.",
+   "kind": "fact",
+   "claims": [
+    "c_uk",
+    "c_france"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BRITAIN, 225.",
+     4
+    ],
+    [
+     "FRANCE, 370.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "china",
+   "say": "China, six hundred twenty. Growing faster than anyone.",
+   "kind": "fact",
+   "claims": [
+    "c_china"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "CHINA, 620.",
+     4
+    ],
+    [
+     "GROWING FASTER",
+     2
+    ],
+    [
+     "THAN ANYONE.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "usa",
+   "say": "The United States: five thousand and forty-two.",
+   "kind": "fact",
+   "claims": [
+    "c_us"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "THE UNITED STATES:",
+     3
+    ],
+    [
+     "5,042.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "russia",
+   "say": "Russia: five thousand four hundred and twenty.",
+   "kind": "fact",
+   "claims": [
+    "c_russia"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "RUSSIA:",
+     1
+    ],
+    [
+     "5,420.",
+     6
+    ]
+   ]
+  },
+  {
+   "id": "share",
+   "say": "Between them, about eighty-three percent of the usable ones.",
+   "kind": "fact",
+   "claims": [
+    "c_share"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "BETWEEN THEM,",
+     2
+    ],
+    [
+     "ABOUT 83%",
+     3
+    ],
+    [
+     "OF THE USABLE ONES.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "Not America. Russia. By three hundred seventy-eight.",
+   "kind": "callback",
+   "claims": [
+    "c_russia",
+    "c_us"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "NOT AMERICA.",
+     2
+    ],
+    [
+     "RUSSIA.",
+     1
+    ],
+    [
+     "BY 378.",
+     4
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Answers the hook's 'isn't America' with the margin; the last frame is the Russia vs US face-off that the first frame teases with the US flag."
+ }
+}

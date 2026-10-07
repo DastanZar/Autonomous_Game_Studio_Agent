@@ -1,0 +1,27 @@
+{
+ "slug": "most-meat-per-person",
+ "channel": "ranked",
+ "series": "top",
+ "hook": "The country with the most meat per person isn't America. It's Tonga.",
+ "twist": "In FAO's 2023 food balances Tonga has 157 kg of meat per person a year, ahead of Mongolia (136) and the Marshall Islands (126); the US is fourth (122). India has 8 kg.",
+ "angle": "Countdown 4 to 1 from one FAO dataset (via Our World in Data), then the other end of the table. One big number: 157 kg.",
+ "why_now": "Demand: the 2026-10-06 scout's food-per-country cluster: 'Most vs Least Oil-Using Countries' 26.8M on a 61k-sub channel (outlier 439), 'Which Country Eats The Most Meat' 9.5M (119k subs), 'Which Country Eats The Most Chicken' 8.3M; YouTube search 'which country eats the most meat' (2026-10-07): median of top 25 7.2M. Data: FAO food balances for 2023, published through Our World in Data.",
+ "candidate_sources": [
+  "https://ourworldindata.org/grapher/meat-supply-per-person",
+  "https://www.fao.org/faostat/en/#data/FBS"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 5,
+  "visual": 4,
+  "sourceability": 5,
+  "timeliness": 1,
+  "series_fit": 5
+ },
+ "risks": [
+  "FAO measures meat supply (available for consumption, incl. waste), not meat eaten: label 'meat supply per person' on screen.",
+  "Small island states: Tonga's figure rests on imports; avoid any judgement of diets or bodies."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

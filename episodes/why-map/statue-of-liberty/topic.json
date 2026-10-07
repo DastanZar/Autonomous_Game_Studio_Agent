@@ -1,0 +1,29 @@
+{
+ "slug": "statue-of-liberty",
+ "channel": "why-map",
+ "series": "border",
+ "hook": "The Statue of Liberty is in New York. Surrounded by New Jersey.",
+ "twist": "An 1834 compact put the New York-New Jersey border down the middle of the Hudson, which leaves Liberty and Ellis Islands on New Jersey's side, but New York kept them. Then landfill grew Ellis Island from 3 acres to about 27.5, and in 1998 the Supreme Court gave the new land to New Jersey: Ellis Island is in two states.",
+ "angle": "Whose statue is it? A 140th-birthday border story: the compact line drawn on a real map of the harbour, the landfill growing, the Supreme Court verdict, and the statue standing on natural New York ground.",
+ "why_now": "The statue was dedicated on 28 October 1886: the 28 October 2026 slot is its 140th anniversary. Evidence from a YouTube search on 2026-10-07 ('statue of liberty new jersey', Shorts since mid-2024, scout.json): the statue itself draws 19.4M and 16.8M; the exact NY-vs-NJ angle has proven demand ('Who Owns the Statue of Liberty? New York or New Jersey?' 1.19M on a 129k channel; 'Did you know the Statue of Liberty isn't actually in New York?' 0.60M on 79k; an Indonesian version 0.68M). US-centric topic, highest ad rates.",
+ "candidate_sources": [
+  "https://www.nps.gov/stli/faqs.htm",
+  "https://www.law.cornell.edu/supremecourt/text/523/767",
+  "https://en.wikipedia.org/wiki/Liberty_Island"
+ ],
+ "scores": {
+  "hook": 4,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 5,
+  "series_fit": 5
+ },
+ "risks": [
+  "Popular claim 'the Statue of Liberty is in New Jersey' is wrong: NPS says the island is in New York's jurisdiction. Use it as the myth.",
+  "Wording: the waters around the island are on New Jersey's side of the line (Wikipedia: 'surrounded by the waters of Jersey City'); the compact gave New York jurisdiction over the waters themselves, so avoid 'New Jersey's water'.",
+  "Do not draw Bartholdi, Cleveland or any real person."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

@@ -1,0 +1,30 @@
+{
+ "slug": "cold-feet",
+ "channel": "body-cast",
+ "series": "what_if",
+ "hook": "Grandma said cold feet give you a cold. Science called it folklore.",
+ "twist": "Colds are viruses, and earlier studies found chilling didn't matter. Then in 2005 Cardiff's Common Cold Centre put 90 volunteers' feet in icy water for 20 minutes: 13 of 90 reported a cold within 4-5 days, against 5 of 90 with their feet in an empty bowl. The researchers' theory: the virus was already there; the chill narrows the nose's blood vessels and lets it take hold.",
+ "angle": "The Heart stands in the ice bucket, the microbes wait in the nose. Grandma was half right. Big number: 13 vs 5 of 90.",
+ "why_now": "Cold season: the first colds of autumn. Scout evidence: 'Does Being Cold Make You Sick?' (AsapSCIENCE) 6.6M views, 'Why do our noses run in the cold?' (SciShow) 0.5M (yt-dlp search 2026-10-07); body 'what happens to your body when' Shorts median top-25 is in the millions (scout 2026-10-06). Publish 22 Oct, as colds start circulating.",
+ "candidate_sources": [
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=16286463&rettype=abstract&retmode=text",
+  "https://edition.cnn.com/2005/HEALTH/11/14/cold.chill/index.html",
+  "https://www.nhs.uk/conditions/common-cold/"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 4,
+  "timeliness": 4,
+  "series_fit": 4
+ },
+ "risks": [
+  "One small study; label it 'one study' on screen.",
+  "Press reports said 29%; the paper's abstract says 13 of 90 vs 5 of 90. Use the paper's numbers.",
+  "The mechanism is the researchers' theory: label it.",
+  "No advice: the episode explains, it doesn't tell anyone what to do."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

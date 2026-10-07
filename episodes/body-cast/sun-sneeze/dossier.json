@@ -1,0 +1,136 @@
+{
+ "topic": "Why bright sunlight makes some people sneeze: Aristotle, Bacon's eyes-shut test, and an EEG",
+ "sources": [
+  {
+   "id": "wiki",
+   "title": "Photic sneeze reflex",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Photic_sneeze_reflex",
+   "type": "reference",
+   "accessed": "2026-10-07",
+   "cites": "Aristotle, Problems 34.5; Francis Bacon, Sylva Sylvarum"
+  },
+  {
+   "id": "mun",
+   "title": "Aristotle: Problems with the Nose (from Barnes, The Complete Works of Aristotle, Princeton 1984)",
+   "publisher": "Memorial University of Newfoundland",
+   "url": "https://mun.ca/biology/scarr/Aristotle_on_Sneezing.html",
+   "type": "primary",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "ipm",
+   "title": "Sneezing At The Sun (A Moment of Science)",
+   "publisher": "Indiana Public Media / Indiana University",
+   "url": "https://indianapublicmedia.org/amomentofscience/sneezing-at-the-sun/",
+   "type": "journalism",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "plos",
+   "title": "When the Sun Prickles Your Nose: An EEG Study Identifying Neural Bases of Photic Sneezing (Langer, Beeli & Jäncke, 2010)",
+   "publisher": "PLoS ONE",
+   "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0009208",
+   "type": "scholarly",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "ebr",
+   "title": "Stimulus conditions eliciting sneezing in response to bright light (Exp Brain Res 2025): Europe PMC record",
+   "publisher": "Europe PMC (EMBL-EBI)",
+   "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39893297%20AND%20SRC:MED&resultType=core&format=json",
+   "type": "scholarly",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_quarter",
+   "key": true,
+   "status": "estimate",
+   "label": "ABOUT 1 IN 4",
+   "sources": [
+    "plos",
+    "ebr"
+   ],
+   "text": "Bright light such as sunlight makes about one in four people sneeze (estimates vary).",
+   "quote": "Exposure to bright light such as sunlight elicits a sneeze or prickling sensation in about one of every four individuals; affecting approximately 25% of the population"
+  },
+  {
+   "id": "c_aristotle",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "mun",
+    "wiki"
+   ],
+   "text": "Aristotle asked why people sneeze after looking at the sun, and suggested the sun's heat sets up movement in the nose.",
+   "quote": "Why is it that one sneezes more after one has looked at the sun? Is it because the sun engenders heat and so causes movement; He hypothesized that the sun's heat caused sweating inside the nose"
+  },
+  {
+   "id": "c_bacon",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "ipm"
+   ],
+   "text": "In the 17th century Francis Bacon faced the sun with his eyes closed and did not sneeze, and concluded the cause was not the heating of the nostrils.",
+   "quote": "In the 17th century, English philosopher Francis Bacon disproved Aristotle's hypothesis by facing the sun with his eyes closed, which did not elicit the ordinary sneeze response; The cause is not the heating of the nostrils"
+  },
+  {
+   "id": "c_brainmoist",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "ipm"
+   ],
+   "text": "Bacon wrote in 1635 that the cause was 'the drawing down of the moisture of the brain'.",
+   "quote": "Francis Bacon thought he had the condition figured out in 1635; but the drawing down of the moisture of the brain"
+  },
+  {
+   "id": "c_tears",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "Bacon's idea that watering eyes drained into the nose was later judged wrong too, because the sneeze comes too quickly.",
+   "quote": "scientists later determined this hypothesis to also be incorrect because sun-induced sneezing occurs too quickly after sunlight exposure"
+  },
+  {
+   "id": "c_eeg",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "plos"
+   ],
+   "text": "A 2010 EEG study found that photic sneezers' visual cortex is generally more excitable to visual stimuli than other people's.",
+   "quote": "we found a generally enhanced excitability of the visual cortex (mainly in the cuneus) to visual stimuli in 'photic sneezers' compared with control subjects; Published: February 15, 2010"
+  },
+  {
+   "id": "c_unclear",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "ebr"
+   ],
+   "text": "A 2025 review says the underlying mechanisms are still unclear.",
+   "quote": "Despite its long history in scientific literature, the underlying mechanisms remain unclear"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "The sun's heat on your nose makes you sneeze (Aristotle).",
+   "truth": "Bacon faced the sun with his eyes closed and didn't sneeze: it's the light reaching the eyes.",
+   "sources": [
+    "wiki",
+    "ipm"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Exact mechanism unknown; script says so.",
+  "Prevalence varies by study (18-35%); labelled 'about 1 in 4'."
+ ]
+}

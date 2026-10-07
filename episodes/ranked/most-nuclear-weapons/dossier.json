@@ -1,0 +1,171 @@
+{
+ "topic": "Countries ranked by nuclear warheads (SIPRI Yearbook 2026 estimates, total inventory, January 2026)",
+ "sources": [
+  {
+   "id": "sipri_ch",
+   "title": "SIPRI Yearbook 2026, chapter 8: World nuclear forces (H. M. Kristensen and M. Korda), incl. Table 8A.1 World nuclear forces, January 2026",
+   "publisher": "Stockholm International Peace Research Institute (SIPRI)",
+   "url": "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+   "type": "scholarly",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "sipri_pr",
+   "title": "Increasing focus on nuclear weapons amid heightened escalation risks: new SIPRI Yearbook out now (press release, 8 June 2026)",
+   "publisher": "SIPRI",
+   "url": "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+   "type": "official",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_nine",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "sipri_pr"
+   ],
+   "text": "Nine states have nuclear weapons: the United States, Russia, the United Kingdom, France, China, India, Pakistan, North Korea and Israel.",
+   "quote": "The nine nuclear-armed states—the United States, Russia, the United Kingdom, France, China, India, Pakistan, the Democratic People’s Republic of Korea (North Korea) and Israel— continued programmes to modernize and enhance their nuclear arsenals in 2025"
+  },
+  {
+   "id": "c_total",
+   "key": true,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch",
+    "sipri_pr"
+   ],
+   "text": "The global inventory was an estimated 12,187 nuclear warheads in January 2026 (about twelve thousand).",
+   "quote": "Of the total global inventory of an estimated 12 187 nuclear warheads in January 2026, about 9745 were in military stockpiles for potential use (sipri_ch); Of the total global inventory of an estimated 12 187 warheads in January 2026, about 9745 were in military stockpiles for potential use (sipri_pr)"
+  },
+  {
+   "id": "c_russia",
+   "key": true,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch"
+   ],
+   "text": "Russia had an estimated total inventory of 5,420 nuclear warheads in January 2026, the largest of any state.",
+   "quote": "Russia 1949 1 718 1 796 h 2 591 2 604 i 4 309 4 400 j 1 150 1 020 5 459 5 420; 1 020 Total inventory 5 420",
+   "note": "Table 8A.1 row and Table 8A.3 total. Largest: compare every other row of Table 8A.1 (USA 5 042 next)."
+  },
+  {
+   "id": "c_us",
+   "key": true,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch"
+   ],
+   "text": "The United States had an estimated total inventory of 5,042 nuclear warheads in January 2026, second to Russia (378 fewer).",
+   "quote": "USA 1945 1 770 1 770 f 1 930 1 930 g 3 700 3 700 1 477 1 342 5 177 5 042; 1 342 Total inventory 5 042",
+   "note": "5420 - 5042 = 378."
+  },
+  {
+   "id": "c_china",
+   "key": true,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch",
+    "sipri_pr"
+   ],
+   "text": "China had about 620 nuclear warheads in January 2026 and is expanding its arsenal faster than any other country.",
+   "quote": "SIPRI estimates that China’s nuclear arsenal increased from around 600 warheads in January 2025 to approximately 620 in January 2026 (sipri_ch); SIPRI estimates that China now has around 620 nuclear warheads (sipri_pr); China is expanding its nuclear arsenal faster than any other country (sipri_pr)"
+  },
+  {
+   "id": "c_france",
+   "key": false,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch"
+   ],
+   "text": "France had an estimated total inventory of 370 warheads in January 2026 (290 in its stockpile plus 80 retired).",
+   "quote": "80 Total inventory 370; through­out 2025, at approximately 290 warheads"
+  },
+  {
+   "id": "c_uk",
+   "key": false,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch"
+   ],
+   "text": "The United Kingdom had an estimated 225 warheads in January 2026.",
+   "quote": "105 Total stockpile 225"
+  },
+  {
+   "id": "c_india",
+   "key": false,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch"
+   ],
+   "text": "India had about 190 nuclear weapons in January 2026.",
+   "quote": "India was estimated to have a growing stock­pile of about 190 nuclear weapons as of January 2026"
+  },
+  {
+   "id": "c_pak",
+   "key": false,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch"
+   ],
+   "text": "Pakistan had around 170 warheads in January 2026.",
+   "quote": "Pakistan’s nuclear warhead stockpile is thought to have remained stable at around 170 warheads as of January 2026"
+  },
+  {
+   "id": "c_israel",
+   "key": false,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch"
+   ],
+   "text": "Israel had around 90 warheads in January 2026 and keeps a policy of nuclear ambiguity (it does not say).",
+   "quote": "Israel continues to maintain its long-standing policy of nuclear ambiguity, leaving significant uncertainty about the number and characteristics of its nuclear weapons; SIPRI estimates that Israel’s stockpile probably remained stable at around 90 warheads as of January 2026"
+  },
+  {
+   "id": "c_nk",
+   "key": false,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch"
+   ],
+   "text": "North Korea had probably assembled around 60 warheads by January 2026.",
+   "quote": "SIPRI estimates that, as of January 2026, North Korea had probably assembled around 60 warheads"
+  },
+  {
+   "id": "c_share",
+   "key": false,
+   "status": "estimate",
+   "label": "SIPRI estimate, Jan 2026",
+   "sources": [
+    "sipri_ch",
+    "sipri_pr"
+   ],
+   "text": "Russia and the US together hold around 83 per cent of the warheads available for use (military stockpiles).",
+   "quote": "SIPRI estimates that, as of January 2026, the USA and Russia together pos­sessed around 83 per cent of the nuclear warheads potentially available for use in global military stockpiles (sipri_ch); Russia and the USA together possess around 83 per cent of all stockpiled nuclear warheads (i.e. useable warheads) (sipri_pr)"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "The United States has the most nuclear weapons.",
+   "truth": "SIPRI's January 2026 estimate puts Russia first (5,420) and the US second (5,042).",
+   "sources": [
+    "sipri_ch"
+   ]
+  }
+ ],
+ "open_questions": [
+  "France: in March 2026 President Macron ordered an increase and ended public disclosure; SIPRI's 370 includes 80 retired warheads. Say only the number."
+ ]
+}

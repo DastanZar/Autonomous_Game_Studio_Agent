@@ -1,0 +1,107 @@
+{
+ "note": "YouTube Data API search.list, Shorts (videoDuration short), order viewCount, publishedAfter 2024-06-01, relevanceLanguage en, 25 results; run 2026-10-07 by the topic worker (one of 4 searches allowed).",
+ "query": "which country grows the most pumpkins",
+ "top": 8615932,
+ "median_top25": 9638,
+ "videos": [
+  {
+   "id": "ufQaXbOH6rY",
+   "title": "These are Five of the BIGGEST Fruits Ever Recorded! #shorts",
+   "channel": "NutriFacts7",
+   "published": "2025-07-23",
+   "views": 8615932,
+   "subs": 151000,
+   "outlier": 57.06
+  },
+  {
+   "id": "a-h1O9yLOjM",
+   "title": "Growing a giant pumpkin in 90 seconds",
+   "channel": "Pumpkinista",
+   "published": "2025-01-03",
+   "views": 760306,
+   "subs": 143000,
+   "outlier": 5.32
+  },
+  {
+   "id": "LRQilKJZ1Rw",
+   "title": "3 Biggest Giant Pumpkins!  {Check them out!} #pumpkin #gardening #2025goals #farming #giantfruits",
+   "channel": "The Turner Ranch",
+   "published": "2025-02-10",
+   "views": 161434,
+   "subs": 47300,
+   "outlier": 3.41
+  },
+  {
+   "id": "4yPWo6eZ_CI",
+   "title": "How to plant &amp; grow pumpkins!🎃      #gardening #homestead #pumpkin #moneysavingtips #grow #country",
+   "channel": "Collins Country",
+   "published": "2024-06-28",
+   "views": 95280,
+   "subs": 156000,
+   "outlier": 0.61
+  },
+  {
+   "id": "WYtU7gSRcyM",
+   "title": "Which Country produces the most pumpkins? #shorts #usa #quiz",
+   "channel": "Mind Giggles",
+   "published": "2026-05-03",
+   "views": 14987,
+   "subs": 9420,
+   "outlier": 1.59
+  },
+  {
+   "id": "KNTCNsI9ADw",
+   "title": "Which U.S State produces the most Pumpkins? #shorts #usa #quiz",
+   "channel": "Mind Giggles",
+   "published": "2026-05-16",
+   "views": 9638,
+   "subs": 9420,
+   "outlier": 1.02
+  },
+  {
+   "id": "jxfAu8ZZZVs",
+   "title": "Which U.S. State Produces the Most Pumpkins? #shorts #usafacts #usa",
+   "channel": "World Clash Quizzes & Facts",
+   "published": "2026-06-10",
+   "views": 4205,
+   "subs": 3490,
+   "outlier": 1.2
+  },
+  {
+   "id": "F9OQk3i2mOc",
+   "title": "Pumpkin most growing countries in the world #gk #cricketgame #generalknowledge #worldsgk #quiz",
+   "channel": "Game Off Haii",
+   "published": "2025-09-07",
+   "views": 1564,
+   "subs": 312,
+   "outlier": 1.56
+  },
+  {
+   "id": "gxgzr4larLc",
+   "title": "King of Pumpkin Production Country 🎃👑",
+   "channel": "2W Brain",
+   "published": "2026-03-27",
+   "views": 1274,
+   "subs": 1370,
+   "outlier": 0.93
+  },
+  {
+   "id": "BHzo2Ytbei8",
+   "title": "Pumpkin most growing countries #gk #islamiquiz #generalknowledge #worldsgk #quiz",
+   "channel": "Game Off Haii",
+   "published": "2025-08-24",
+   "views": 954,
+   "subs": 312,
+   "outlier": 0.95
+  },
+  {
+   "id": "nCXpEG0imr8",
+   "title": "“Which Country Produces the MOST Pumpkins?",
+   "channel": "Do You Know ? ",
+   "published": "2026-03-29",
+   "views": 118,
+   "subs": 5,
+   "outlier": 0.12
+  }
+ ]
+}

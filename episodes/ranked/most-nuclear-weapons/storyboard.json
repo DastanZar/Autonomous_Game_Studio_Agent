@@ -1,0 +1,397 @@
+{
+ "episode": "most-nuclear-weapons",
+ "theme": "data-flags",
+ "kits": [
+  "kinetic",
+  "flagart",
+  "rank"
+ ],
+ "flags": [
+  "US",
+  "RU",
+  "CN",
+  "FR",
+  "GB",
+  "IN"
+ ],
+ "flagship": "House method (user 2026-10-06): C (kinetic infographic) is Leader Flags' default.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "region": [
+     -180.0,
+     -60.0,
+     180.0,
+     84.0
+    ],
+    "focus": [
+     "US"
+    ]
+   },
+   "events": [
+    {
+     "at": "hook/america",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_nine",
+   "type": "custom",
+   "start": "nine.start-0.15",
+   "params": {
+    "fn": "nine",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "label": "SIPRI estimate, Jan 2026",
+    "focus": [
+     "RU",
+     "US",
+     "CN",
+     "FR",
+     "GB",
+     "IN",
+     "PK",
+     "IL",
+     "KP"
+    ]
+   },
+   "events": [
+    {
+     "at": "nine/nine",
+     "do": "reveal",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "nine/about",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_small",
+   "type": "custom",
+   "start": "small.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "rows": [
+     {
+      "rank": 9,
+      "code": "KP",
+      "name": "North Korea",
+      "value": 60,
+      "at": "small/north",
+      "valueAt": "small/sixty"
+     },
+     {
+      "rank": 8,
+      "code": "IL",
+      "name": "Israel",
+      "value": 90,
+      "at": "small/israel",
+      "valueAt": "small/ninety"
+     }
+    ],
+    "note": "Israel's policy: nuclear ambiguity",
+    "noteAt": "small/officially",
+    "focus": [
+     "KP"
+    ],
+    "focusAt": [
+     {
+      "at": "small/israel",
+      "codes": [
+       "IL"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "small/north",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "small/israel",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_south",
+   "type": "custom",
+   "start": "south.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "rows": [
+     {
+      "rank": 9,
+      "code": "KP",
+      "name": "North Korea",
+      "value": 60
+     },
+     {
+      "rank": 8,
+      "code": "IL",
+      "name": "Israel",
+      "value": 90
+     },
+     {
+      "rank": 7,
+      "code": "PK",
+      "name": "Pakistan",
+      "value": 170,
+      "at": "south/pakistan",
+      "valueAt": "south/seventy"
+     },
+     {
+      "rank": 6,
+      "code": "IN",
+      "name": "India",
+      "value": 190,
+      "at": "south/india",
+      "valueAt": "south/ninety"
+     }
+    ],
+    "focus": [
+     "PK"
+    ],
+    "focusAt": [
+     {
+      "at": "south/india",
+      "codes": [
+       "IN"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "south/pakistan",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "south/india",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_europe",
+   "type": "custom",
+   "start": "europe.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "y0": 380,
+    "dy": 125,
+    "rows": [
+     {
+      "rank": 9,
+      "code": "KP",
+      "name": "North Korea",
+      "value": 60
+     },
+     {
+      "rank": 8,
+      "code": "IL",
+      "name": "Israel",
+      "value": 90
+     },
+     {
+      "rank": 7,
+      "code": "PK",
+      "name": "Pakistan",
+      "value": 170
+     },
+     {
+      "rank": 6,
+      "code": "IN",
+      "name": "India",
+      "value": 190
+     },
+     {
+      "rank": 5,
+      "code": "GB",
+      "name": "United Kingdom",
+      "value": 225,
+      "at": "europe/britain",
+      "valueAt": "europe/twentyfive"
+     },
+     {
+      "rank": 4,
+      "code": "FR",
+      "name": "France",
+      "value": 370,
+      "at": "europe/france",
+      "valueAt": "europe/seventy"
+     }
+    ],
+    "focus": [
+     "GB"
+    ],
+    "focusAt": [
+     {
+      "at": "europe/france",
+      "codes": [
+       "FR"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "europe/britain",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "europe/france",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_china",
+   "type": "custom",
+   "start": "china.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "CN"
+    ],
+    "name": "China",
+    "value": 620,
+    "unit": "WARHEADS",
+    "rank": 3,
+    "at": "china/china",
+    "valueAt": "china/six",
+    "sub": "growing faster than any other country",
+    "source": "SIPRI Yearbook 2026 \u00b7 estimates, Jan 2026 \u00b7 total warheads",
+    "focus": [
+     "CN"
+    ]
+   },
+   "events": [
+    {
+     "at": "china/china",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_usa",
+   "type": "custom",
+   "start": "usa.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "US"
+    ],
+    "name": "United States",
+    "value": 5042,
+    "unit": "WARHEADS",
+    "rank": 2,
+    "at": "usa/united",
+    "valueAt": "usa/five",
+    "sub": "SIPRI estimate, Jan 2026",
+    "source": "SIPRI Yearbook 2026 \u00b7 estimates, Jan 2026 \u00b7 total warheads",
+    "focus": [
+     "US"
+    ]
+   },
+   "events": [
+    {
+     "at": "usa/united",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_russia",
+   "type": "custom",
+   "start": "russia.start-0.15",
+   "params": {
+    "fn": "russia",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "label": "SIPRI estimate, Jan 2026 \u00b7 total inventory",
+    "focus": [
+     "RU"
+    ]
+   },
+   "events": [
+    {
+     "at": "russia/five",
+     "do": "count_start",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_share",
+   "type": "custom",
+   "start": "share.start-0.15",
+   "params": {
+    "fn": "share",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "label": "SIPRI estimate, Jan 2026 \u00b7 military stockpiles",
+    "focus": [
+     "RU",
+     "US"
+    ]
+   },
+   "events": [
+    {
+     "at": "share/eightythree",
+     "do": "count_start",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "US"
+    ],
+    "focusAt": [
+     {
+      "at": "toll/russia",
+      "codes": [
+       "RU"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "toll/russia",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

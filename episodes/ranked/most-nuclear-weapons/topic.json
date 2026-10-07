@@ -1,0 +1,29 @@
+{
+ "slug": "most-nuclear-weapons",
+ "channel": "ranked",
+ "series": "top",
+ "hook": "The country with the most nuclear weapons isn't America. It's Russia.",
+ "twist": "SIPRI's January 2026 estimate: Russia 5,420 warheads, the US 5,042; then a cliff to China's 620, which is growing faster than anyone's. Nine countries hold about 12,187 between them, and Russia and the US hold about 83% of the usable ones.",
+ "angle": "Countdown of all nine nuclear-armed states from SIPRI Yearbook 2026 (Table 8A.1), ending on the near-tie at the top and the gap below it. One big number: 5,420.",
+ "why_now": "Data: SIPRI Yearbook 2026 (June 2026) is the newest edition; New START expired in February 2026. Demand: YouTube search 'countries with the most nuclear weapons' (2026-10-07, Shorts since 2024-06): top 51.4M, median of top 25 13.3M; the 2026-10-06 scout found 'Top 10 Countries with the Most Nuclear Weapons in 2025' at 14.9M views on a 181k-sub channel (outlier 82) and 'Top 10 Nuclear Powers 2025' at 7.1M.",
+ "candidate_sources": [
+  "https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf",
+  "https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now",
+  "https://fas.org/initiative/status-world-nuclear-forces/"
+ ],
+ "scores": {
+  "hook": 4,
+  "surprise": 4,
+  "visual": 4,
+  "sourceability": 5,
+  "timeliness": 3,
+  "series_fit": 5
+ },
+ "risks": [
+  "All counts are SIPRI estimates (secret arsenals): label 'SIPRI estimates' on screen.",
+  "Total inventory includes retired warheads awaiting dismantlement; say 'warheads' and name the measure on screen (total inventory).",
+  "Serious subject: keep the deadpan dry, no jokes about use."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

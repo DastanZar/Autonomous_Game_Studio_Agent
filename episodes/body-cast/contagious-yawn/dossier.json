@@ -1,0 +1,130 @@
+{
+ "topic": "Why yawns are contagious, and why it isn't about oxygen",
+ "sources": [
+  {
+   "id": "amsci",
+   "title": "Yawning (Robert R. Provine), American Scientist 93(6), Nov-Dec 2005",
+   "publisher": "American Scientist / Sigma Xi",
+   "url": "https://www.americanscientist.org/sites/americanscientist.org/files/200510314450_646.pdf",
+   "type": "scholarly",
+   "accessed": "2026-10-07",
+   "note": "Review of his own experiments by the researcher who ran them."
+  },
+  {
+   "id": "prov87",
+   "title": "Yawning: no effect of 3-5% CO2, 100% O2, and exercise (Provine, Tate & Geldmacher, Behav Neural Biol 1987): PubMed record",
+   "publisher": "National Library of Medicine (PubMed)",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3120687&rettype=abstract&retmode=text",
+   "type": "scholarly",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_myth",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "amsci",
+    "prov87"
+   ],
+   "text": "People widely believe we yawn because of a shortage of oxygen or too much carbon dioxide; Provine calls it a legendary but unsupported factoid.",
+   "quote": "People widely believe that yawning is a response to a shortage of oxygen in the blood or brain, or an excess of carbon dioxide; These legendary but unsupported factoids are repeated so often that they have a life of their own; tested the commonly cited but previously untested hypothesis that yawning is facilitated by higher than normal levels of CO2 or lower than normal levels of O2"
+  },
+  {
+   "id": "c_1987",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "prov87"
+   ],
+   "text": "Robert Provine and colleagues published the oxygen and carbon dioxide test in 1987, on college-age subjects.",
+   "quote": "Behav Neural Biol. 1987 Nov; Provine RR(1), Tate BC, Geldmacher LL; Using human college-age subjects"
+  },
+  {
+   "id": "c_provine",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "amsci"
+   ],
+   "text": "Robert Provine was a professor of psychology at the University of Maryland, Baltimore County.",
+   "quote": "Robert R. Provine is professor of psychology at the University of Maryland, Baltimore County"
+  },
+  {
+   "id": "c_oxygen",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "prov87",
+    "amsci"
+   ],
+   "text": "Breathing pure oxygen did not reduce yawning, and air with extra carbon dioxide did not increase it, although both made people breathe faster.",
+   "quote": "breathing neither pure O2 nor gases high in CO2 had a significant effect on yawning although both increased breathing rate; breathing 100-percent oxygen did not inhibit yawning; did not increase yawning, although subjects did dramatically increase their breathing rate"
+  },
+  {
+   "id": "c_video",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "amsci"
+   ],
+   "text": "In Provine's tests, 55 percent of people watching a five-minute video of yawns yawned, against 21 percent watching smiles.",
+   "quote": "exposing subjects to a five-minute series of 30 videotaped repetitions of a male adult yawning; Subjects were more than twice as likely to yawn while observing yawns (55 percent) as to yawn while viewing a comparable series of smiles (21 percent)"
+  },
+  {
+   "id": "c_read",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "amsci"
+   ],
+   "text": "30 percent of people who read an article about yawning for five minutes yawned, against 11 percent who read about hiccups.",
+   "quote": "reading about yawning triggers yawns; 30 percent of subjects who read an article about yawning for 5 minutes reported yawning during this period, versus 11 percent of a control group who read an article about hiccuping"
+  },
+  {
+   "id": "c_think",
+   "key": false,
+   "status": "rejected",
+   "sources": [
+    "amsci"
+   ],
+   "text": "Thinking about yawning evoked yawns in 88 percent of subjects within 30 minutes.",
+   "quote": "evoked yawns in 88 percent of subjects within 30 minutes",
+   "note": "Not used: one number too many for a 45 s script."
+  },
+  {
+   "id": "c_half",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "amsci"
+   ],
+   "text": "Once a yawn starts it runs its course, about six seconds on average; there are no half-yawns and you cannot stifle one.",
+   "quote": "once started, a yawn progresses with the inevitability of a sneeze; The yawn runs its course over about six seconds on average; There are no half-yawns, an example of the; a reason why you cannot stifle a yawn"
+  },
+  {
+   "id": "c_breath",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "prov87"
+   ],
+   "text": "Provine concluded yawning and breathing are controlled by separate mechanisms; yawning does not serve a primary breathing function.",
+   "quote": "yawning does not serve a primary respiratory function and that yawning and breathing are triggered by different internal states and are controlled by separate mechanisms"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "We yawn to get more oxygen (or to blow off carbon dioxide).",
+   "truth": "Breathing pure oxygen or air rich in CO2 didn't change how often people yawned (Provine et al. 1987).",
+   "sources": [
+    "prov87",
+    "amsci"
+   ]
+  }
+ ],
+ "open_questions": [
+  "What yawning is for is still debated; the script does not claim a function."
+ ]
+}

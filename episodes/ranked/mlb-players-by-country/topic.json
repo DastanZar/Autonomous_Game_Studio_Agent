@@ -1,0 +1,28 @@
+{
+ "slug": "mlb-players-by-country",
+ "channel": "ranked",
+ "series": "per_person",
+ "hook": "Nearly one in ten Major League players was born in the Dominican Republic.",
+ "twist": "MLB's 2026 Opening Day count: 93 Dominican-born players of 948, then Venezuela 60, Cuba 20, Canada 19. Per person, tiny Curaçao (4 players, about 156,000 people) beats the Dominican Republic three to one.",
+ "angle": "Who supplies the Majors outside the US, by count and then per person, from MLB's own Opening Day release and World Bank populations.",
+ "why_now": "The 2026 World Series runs from 23 October (Game 4 on 27 October, our slot); MLB published the birthplace count on 26 March 2026. US audience, highest ad rates. Demand evidence is thin: YouTube search 'countries with the most mlb players' (2026-10-07) found no Short on the exact topic above 0.4M ('Guess the top ten countries with the most NBA players' 0.40M); the pick rests on the World Series timing, not on a proven outlier.",
+ "candidate_sources": [
+  "https://www.mlb.com/press-release/press-release-opening-day-rosters-feature-249-internationally-born-players",
+  "https://api.worldbank.org/v2/country/DOM;CUW/indicator/SP.POP.TOTL?date=2024&format=json"
+ ],
+ "scores": {
+  "hook": 4,
+  "surprise": 4,
+  "visual": 4,
+  "sourceability": 5,
+  "timeliness": 5,
+  "series_fit": 4
+ },
+ "risks": [
+  "Counts are birthplaces of players on 2026 Opening Day rosters and inactive lists (pool 948), not nationality: say 'born in' and show the source.",
+  "Puerto Rico is a US territory and Curaçao a constituent country of the Kingdom of the Netherlands; MLB counts both as 'countries and territories'. Use 'places', not 'countries', for those two.",
+  "MLB revised its release (247 then 249 players; Canada 17 then 19); use the revised version."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

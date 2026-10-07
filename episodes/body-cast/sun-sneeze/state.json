@@ -1,0 +1,21 @@
+{
+ "stages": {
+  "topic": {
+   "result": "pass",
+   "at": "2026-10-07T19:36:05Z",
+   "hashes": {
+    "topic.json": "6a9c8c72260a"
+   },
+   "failed": []
+  },
+  "research": {
+   "result": "pass",
+   "at": "2026-10-07T20:04:10Z",
+   "hashes": {
+    "topic.json": "6a9c8c72260a",
+    "dossier.json": "6a16e36cf6fb"
+   },
+   "failed": []
+  }
+ }
+}

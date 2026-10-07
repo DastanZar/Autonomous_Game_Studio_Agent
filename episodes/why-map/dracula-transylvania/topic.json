@@ -1,0 +1,30 @@
+{
+ "slug": "dracula-transylvania",
+ "channel": "why-map",
+ "series": "why",
+ "hook": "When Dracula came out in 1897, Transylvania wasn't in Romania.",
+ "twist": "It was part of the Kingdom of Hungary inside Austria-Hungary; it joined Romania only in 1918-1920. Bram Stoker never went there, the real Vlad the Impaler ruled Wallachia (south of the mountains), and 'Dracula's Castle' at Bran was picked for tourists decades later. Dracula never moved: the border did.",
+ "angle": "Why is Dracula's homeland in Romania? A Halloween-week border story told on a real map of the Carpathians: the 1897 border, the 1918 union and the 1920 treaty, with the Vlad and Bran myths as payoffs.",
+ "why_now": "Halloween (31 October) is four days after the 27 October slot. Evidence from a YouTube search on 2026-10-07 ('transylvania dracula history', Shorts since mid-2024, scout.json): 'The Real Life Dracula - Vlad The Impaler' 352k views on an 823-subscriber channel (outlier 352); 'What if Dracula returned today and tried to form his own empire?' (Mapper Maniac, a map format) 4.1M; 'Dracula Lived Here! Brașov, Romania' 1.0M; median of the top 25 0.40M, with October uploads among the strongest.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/Transylvania",
+  "https://countrystudies.us/romania/18.htm",
+  "https://www.nationalgeographic.com/travel/destinations/europe/romania/dracula-castle-things-to-do-brasov-transylvania/",
+  "https://en.wikipedia.org/wiki/Bran_Castle"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 5,
+  "visual": 4,
+  "sourceability": 4,
+  "timeliness": 4,
+  "series_fit": 4
+ },
+ "risks": [
+  "Trianon is a live grievance in Hungary and a national holiday story in Romania: state the dates neutrally, no jokes about the transfer, mention that the union was proclaimed by Transylvania's Romanian delegates and confirmed by treaty.",
+  "No historical-border dataset is wired into custom scenes; the region is drawn from Natural Earth admin-1 counties merged and labelled 'approximate'.",
+  "Do not draw Vlad III, Stoker or any real person."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

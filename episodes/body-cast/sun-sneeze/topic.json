@@ -1,0 +1,29 @@
+{
+ "slug": "sun-sneeze",
+ "channel": "body-cast",
+ "series": "what_if",
+ "hook": "One in four people sneeze when they step into bright sunlight.",
+ "twist": "Aristotle blamed the sun's heat sweating the nose. Francis Bacon tested it in the 1600s by facing the sun with his eyes shut: no sneeze, so it's the eyes, not the heat. His own theory (the sun draws moisture down from the brain) was wrong too. A 2010 EEG study found sneezers' visual cortex reacts more to light, and a 2025 review says the mechanism is still unclear.",
+ "angle": "The Brain is accused by Aristotle, cleared by Bacon, insulted by Bacon's theory, and caught by an EEG. Big number: 1 in 4.",
+ "why_now": "Scout 2026-10-06 (YouTube Data API, query 'why do we sneeze'): 'Why Do We Sneeze in Sun' 10.0M (FactoHolic) and 'Why Bright Light Makes You Sneeze' 4.7M (Zack D. Films); median of the top 25 for the query is 1.5M. Our angle (Bacon's eyes-shut experiment) is one those Shorts skip.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/Photic_sneeze_reflex",
+  "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0009208",
+  "https://indianapublicmedia.org/amomentofscience/sneezing-at-the-sun/"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 4,
+  "sourceability": 4,
+  "timeliness": 2,
+  "series_fit": 4
+ },
+ "risks": [
+  "Prevalence estimates vary (18-35%; 'about one in four'); say 'about one in four'.",
+  "Aristotle and Bacon are named, never drawn.",
+  "Competitors covered the sun sneeze; our angle is the experiment history."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

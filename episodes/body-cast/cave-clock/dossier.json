@@ -1,0 +1,163 @@
+{
+ "topic": "Michel Siffre's 1962 cave experiment and the brain's 24-hour-11-minute clock",
+ "sources": [
+  {
+   "id": "cab",
+   "title": "Caveman: An Interview with Michel Siffre (Joshua Foer), Cabinet issue 30, Summer 2008",
+   "publisher": "Cabinet Magazine",
+   "url": "https://www.cabinetmagazine.org/issues/30/foer.php",
+   "type": "primary",
+   "accessed": "2026-10-07",
+   "note": "Siffre's own account, in interview."
+  },
+  {
+   "id": "globe",
+   "title": "Michel Siffre, scientist who explored solitude deep within caves, dies at 85",
+   "publisher": "The Boston Globe (Washington Post obituary)",
+   "url": "https://www.bostonglobe.com/2024/09/04/world/michel-siffre-scientist-solitude-deep-within-caves-dies-85/",
+   "type": "journalism",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "wiki",
+   "title": "Michel Siffre",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Michel_Siffre",
+   "type": "reference",
+   "accessed": "2026-10-07",
+   "cites": "Risen, NYT obituary 24 Sep 2024; Siffre, Hors du temps (1963)"
+  },
+  {
+   "id": "hgaz",
+   "title": "Human biological clock set back an hour",
+   "publisher": "Harvard Gazette (Harvard University)",
+   "url": "https://news.harvard.edu/gazette/story/1999/07/human-biological-clock-set-back-an-hour/",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "nigms",
+   "title": "Circadian Rhythms fact sheet",
+   "publisher": "National Institute of General Medical Sciences (NIH)",
+   "url": "https://www.nigms.nih.gov/education/fact-sheets/Pages/circadian-rhythms.aspx",
+   "type": "official",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_cave",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "cab"
+   ],
+   "text": "Beginning in July 1962, French scientist Michel Siffre spent about two months 130 metres underground in a cave with no clock, calendar or sun.",
+   "quote": "spending 62 or 63 days without time cues, cloistered 130 m (430 ft) below the surface in the abyss of Scarasson; beginning July 1962; In 1962, a French speleologist named Michel Siffre spent two months living in total isolation in a subterranean cave, without access to clock, calendar, or sun"
+  },
+  {
+   "id": "c_body",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "cab"
+   ],
+   "text": "He slept and ate only when his body told him to.",
+   "quote": "Sleeping and eating only when his body told him to"
+  },
+  {
+   "id": "c_count",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "cab",
+    "globe"
+   ],
+   "text": "Asked to count to 120 at one number per second, he took five minutes.",
+   "quote": "I had to count from 1 to 120, at the rate of one digit per second. With that test we made a great discovery: it took me five minutes to count to 120; It took Dr. Siffre five minutes to reach the end"
+  },
+  {
+   "id": "c_date",
+   "key": true,
+   "status": "estimate",
+   "label": "HIS OWN ACCOUNT",
+   "sources": [
+    "cab",
+    "globe"
+   ],
+   "text": "When his team told him the experiment was over (planned for 14 September), he thought it was only 20 August: about 25 days behind, by his own account.",
+   "quote": "I descended into the cave on July 16 and was planning finish the experiment on September 14. When my surface team notified me that the day had finally arrived, I thought that it was only August 20; He thought it was only Aug. 20"
+  },
+  {
+   "id": "c_cycle",
+   "key": true,
+   "status": "estimate",
+   "label": "HIS OWN ACCOUNT",
+   "sources": [
+    "cab"
+   ],
+   "text": "His sleep-wake cycle was not 24 hours but slightly longer, about 24 hours 30 minutes, showing an internal clock independent of day and night.",
+   "quote": "We showed that my sleep/wake cycle was not twenty-four hours, like people have on the surface on the earth, but slightly longer—about twenty-four hours and thirty minutes. But the important thing is that we proved that there was an internal clock independent of the natural terrestrial day/night cycle"
+  },
+  {
+   "id": "c_lights",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "hgaz"
+   ],
+   "text": "Harvard researchers found that earlier isolation experiments let subjects switch lights on and off, and switching on lights resets the biological clock; earlier estimates were near 25 hours.",
+   "quote": "these experimenters allowed their subjects to switch on lights when they were awake and turn them off when they wanted to sleep. They didn't think this would have any effect, but switching on electric lights resets the biological clock. It's the same as resetting your watch; significantly shorter than past estimates of 25 hours"
+  },
+  {
+   "id": "c_2411",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "hgaz"
+   ],
+   "text": "Measured in 24 people over a month (1999), the internal clock runs on a cycle of 24 hours 11 minutes.",
+   "quote": "By recording the daily rhythms of hormones and body temperatures in 24 healthy young and old men and women over a one-month period, the researchers conclude that our internal clocks run on a daily cycle of 24 hours, 11 minutes"
+  },
+  {
+   "id": "c_scn",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nigms"
+   ],
+   "text": "The master clock is a group of nerve cells in the brain (the SCN); light and dark have the biggest influence on circadian rhythms.",
+   "quote": "In vertebrate animals, including humans, the master clock exists in the brain. The human master clock is a large group of nerve cells that form a structure called the suprachiasmatic nucleus (SCN); Light and dark have the biggest influence on circadian rhythms"
+  },
+  {
+   "id": "c_organs",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "nigms"
+   ],
+   "text": "Nearly every tissue and organ has its own clock, and the brain's master clock keeps them in sync.",
+   "quote": "In humans, nearly every tissue and organ has its own; The SCN also synchronizes the circadian rhythms in different organs and tissues across the body"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Without daylight your body loses all sense of time.",
+   "truth": "Siffre's body still ran a near-daily rhythm underground; his sense of passing days was what failed.",
+   "sources": [
+    "cab"
+   ]
+  },
+  {
+   "myth": "The human body clock runs on a 25-hour day.",
+   "truth": "Earlier experiments let subjects switch lights on, which resets the clock; measured properly it's 24 h 11 min.",
+   "sources": [
+    "hgaz"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Whether Siffre's own experiment was affected by his lamp is not stated in the sources; the script says only that earlier experiments of this kind were."
+ ]
+}

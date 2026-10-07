@@ -1,0 +1,28 @@
+{
+ "slug": "market-island",
+ "channel": "why-map",
+ "series": "border",
+ "hook": "In 1885, Finland built a lighthouse on the Swedish half of an island.",
+ "twist": "The border across Märket, a bare Baltic skerry, ran straight through its midpoint from 1809. Finland's 1885 lighthouse stood 35-60 m inside Sweden, and the official papers do not say why. In 1985 the two countries moved the border, not the lighthouse: 3,913 square metres swapped each way, leaving a zigzag border on a rock nobody lives on.",
+ "angle": "Why does a border zigzag across a rock in the sea? Paper lighthouse, a ruler line through the middle, then the swap of two equal pieces animated on a real OSM outline of the island.",
+ "why_now": "Evergreen (no dated hook; timeliness scored 1). Evidence from the YouTube scout (docs/research/topics/why-map-2026-10-06.json): 'The Strangest Border Between Sweden & Finland, Märket Island' (GeoGlobeTales) 29.7M views, the 16th most-viewed of 439 Shorts in the niche; 'The Strangest Borders in the World' (Geo Bytes) 4.1M, outlier 42, also features a Finland-Sweden border oddity. Our fresh detail: the Swedish parliament's 1985 report says the reason for the misplaced lighthouse is not on record, and gives the exact 3,913 m2 swap.",
+ "candidate_sources": [
+  "https://data.riksdagen.se/dokument/G801LU16.html",
+  "https://en.wikipedia.org/wiki/M%C3%A4rket"
+ ],
+ "scores": {
+  "hook": 4,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 1,
+  "series_fit": 5
+ },
+ "risks": [
+  "Popular retellings say the lighthouse was built there 'by mistake'; the primary source only says the reason is not recorded. Say 'the papers don't say why', never 'by mistake'.",
+  "Finland was a Grand Duchy under the Russian Empire in 1885; the Riksdag report says 'Finland' built it, so the script says Finland.",
+  "Competitor GeoGlobeTales covered it (29.7M); our angle uses the primary source and the exact swap."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

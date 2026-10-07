@@ -1,0 +1,29 @@
+{
+ "slug": "pheasant-island",
+ "channel": "why-map",
+ "series": "border",
+ "hook": "This island changes country every six months.",
+ "twist": "Pheasant Island, a 200-metre river island between Irun (Spain) and Hendaye (France), is the world's smallest condominium: Spain runs it from 1 February to 31 July, France from 1 August to 31 January. France even has an official titled 'viceroy of Pheasant Island'. And there are no pheasants on it.",
+ "angle": "How does a country share an island by taking turns, and why? The 1659 peace conference on the island, the royal meetings, then the six-month swap; paper calendar flipping between two flags on a real map of the Bidasoa.",
+ "why_now": "Evergreen (no dated hook; timeliness scored 1). Evidence from the YouTube scout (docs/research/topics/why-map-2026-10-06.json): 'Spain's Strangest Borders' (GeoGlobeTales, Llivia + Pheasant Island) 46.8M views; 'The Strangest Borders in the World' (Geo Bytes, 97k subs, leads with this island) 4.1M, outlier 42; 'The Strangest Borders in Europe' (Mini Maps, 72k subs) 8.9M, outlier 124. On publish day (21 Oct) the island is French until 31 January.",
+ "candidate_sources": [
+  "https://en.wikipedia.org/wiki/Pheasant_Island",
+  "https://www.euronews.com/2024/07/30/spanish-or-french-pheasant-island-is-about-to-swap-nationalities-again",
+  "https://www.cnn.com/travel/article/llivia-spain-france"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 5,
+  "visual": 4,
+  "sourceability": 4,
+  "timeliness": 1,
+  "series_fit": 5
+ },
+ "risks": [
+  "When the six-month alternation began is disputed: Wikipedia ties the condominium to the 1659 Treaty of the Pyrenees, CNN dates condominium status to 1866, and Wikipedia's note (Mermoz) dates the alternation to an 1856 treaty and a 1901 agreement. Do not date the swap; say only that the 1659 peace was made there and that it is shared today.",
+  "Covered by bigger map channels inside lists; our version is a single-story Short with the viceroy and 'no pheasants' payoffs.",
+  "Do not draw Louis XIV, Maria Theresa or any real person; name only."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

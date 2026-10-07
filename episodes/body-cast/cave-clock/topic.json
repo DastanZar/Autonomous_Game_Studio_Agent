@@ -1,0 +1,30 @@
+{
+ "slug": "cave-clock",
+ "channel": "body-cast",
+ "series": "what_if",
+ "hook": "In nineteen sixty-two, a man lived in a cave without clocks. He lost twenty-five days.",
+ "twist": "Michel Siffre spent two months 130 m underground with no clock or sun. Counting to 120 took him five minutes; when his team ended the experiment on 14 September he thought it was 20 August. Yet his body kept a near-daily rhythm (about 24 h 30 min). Harvard later showed cave lamps had reset the clocks in such experiments; measured properly, the brain's clock runs 24 hours 11 minutes, and light sets it.",
+ "angle": "The Brain loses track of the days, but the body's clock never stops; just before the clocks go back. Big number: 25 days lost; 24 h 11 min.",
+ "why_now": "Clocks change: UK 25 Oct, US 1 Nov 2026; publish 28 Oct. Scout 2026-10-06 (query 'brain facts'): median of the top 25 is 10.8M, with sleep Shorts like 'Why We Feel Sleepy While Studying' at 19.3M.",
+ "candidate_sources": [
+  "https://www.cabinetmagazine.org/issues/30/foer.php",
+  "https://www.bostonglobe.com/2024/09/04/world/michel-siffre-scientist-solitude-deep-within-caves-dies-85/",
+  "https://news.harvard.edu/gazette/story/1999/07/human-biological-clock-set-back-an-hour/",
+  "https://www.nigms.nih.gov/education/fact-sheets/Pages/circadian-rhythms.aspx"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 5,
+  "visual": 4,
+  "sourceability": 5,
+  "timeliness": 4,
+  "series_fit": 4
+ },
+ "risks": [
+  "Siffre is a real person: named, never drawn (a tent, a lamp, a phone line).",
+  "The 25 days and the 24 h 30 min cycle are his own account; label it.",
+  "No sleep advice."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

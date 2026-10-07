@@ -1,0 +1,28 @@
+{
+ "slug": "contagious-yawn",
+ "channel": "body-cast",
+ "series": "what_if",
+ "hook": "Reading about yawning makes people yawn. A scientist measured it.",
+ "twist": "Everyone says we yawn for oxygen. Robert Provine tested it in 1987: breathing pure oxygen or extra carbon dioxide didn't change yawning. Then he measured contagion: 55% yawned at a yawn video (21% at smiles), and 30% yawned just reading about yawning (11% reading about hiccups). The viewer is the experiment.",
+ "angle": "The Brain insists it yawns for oxygen; the experiments say no, and then make the viewer yawn. Big numbers: 55% vs 21%, 30% vs 11%.",
+ "why_now": "Scout 2026-10-06 (YouTube Data API, Shorts since mid-2024, query 'why do we yawn'): top 32.5M ('The Yawn That Locked Her Jaw', Zack D. Films), 'Why Is Yawning Contagious' 5.8M, interactive 'this trick will make you yawn' 1.2M and 'I can make you yawn' 0.8M; median of the top 25 is 0.5M. Evergreen, proven demand; the interactive angle is the outlier format.",
+ "candidate_sources": [
+  "https://www.americanscientist.org/sites/americanscientist.org/files/200510314450_646.pdf",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3120687&rettype=abstract&retmode=text"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 4,
+  "sourceability": 5,
+  "timeliness": 2,
+  "series_fit": 4
+ },
+ "risks": [
+  "Provine is a real person: named, never drawn.",
+  "Percentages are from small lab studies; say 'in his tests' and show them as his results.",
+  "Competitors cover 'why yawning is contagious'; our angle is the oxygen myth test plus the reading experiment."
+ ],
+ "approved_by": "user (2026-10-07: 'spin up multiple workers making the next 4 videos backed on research'); topic picked by the worker from data",
+ "approved_at": "2026-10-07"
+}

@@ -1,0 +1,155 @@
+{
+ "topic": "Märket: the Baltic rock whose Sweden-Finland border zigzags around a lighthouse",
+ "sources": [
+  {
+   "id": "riks",
+   "title": "Lagutskottets betänkande 1984/85:16 om ändring av riksgränsen mellan Sverige och Finland (committee report on changing the Sweden-Finland border, 29 January 1985)",
+   "publisher": "Sveriges riksdag (Swedish Parliament)",
+   "url": "https://data.riksdagen.se/dokument/G801LU16.html",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "wiki",
+   "title": "Märket",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/M%C3%A4rket",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_built",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "riks",
+    "wiki"
+   ],
+   "text": "Finland built a lighthouse on Märket in 1885.",
+   "quote": "Finland uppförde år 1885 en fyr av tegel på Märket (riks); When it was built by the Grand Duchy of Finland in 1885 (wiki)"
+  },
+  {
+   "id": "c_side",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "riks",
+    "wiki"
+   ],
+   "text": "The lighthouse and its buildings stood 35-60 metres west of the island's midpoint, i.e. on the Swedish part of the island.",
+   "quote": "Den av Finland uppförda fyren med tillhörande byggnader är belägen inom ett område 35-60 meter väster om skärets mittpunkt, dvs. på den svenska delen av skäret (riks); However, the location selected was within the Swedish portion of the island (wiki)"
+  },
+  {
+   "id": "c_why",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "riks"
+   ],
+   "text": "The official papers do not say why the lighthouse was built on Swedish territory.",
+   "quote": "Orsaken till att fyranläggningen uppförts på svenskt territorium framgår inte av propositionen eller gränshandlingarna",
+   "note": "Translation: 'The reason the lighthouse was built on Swedish territory does not appear in the bill or the border documents.'"
+  },
+  {
+   "id": "c_rock",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "riks",
+    "wiki"
+   ],
+   "text": "Märket is a bare rock (skerry) in the Sea of Åland in the Baltic, just over 300 metres long.",
+   "quote": "Skäret Märket i Ålands hav är en kal klippa, som har sin största längd, drygt 300 meter (riks); is a 3.3-hectare (8.2-acre) uninhabited skerry in the Baltic Sea shared by Sweden and Finland (wiki)"
+  },
+  {
+   "id": "c_mid",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "riks",
+    "wiki"
+   ],
+   "text": "Since the 1809 peace (described in 1811), the border ran through the midpoint of the island, splitting it in two.",
+   "quote": "av den topografiska gränsbestämning som upprättades år 1811 framgår att riksgränsen går över skärets mittpunkt (riks); Märket has been divided between the two countries since the Treaty of Fredrikshamn of 1809 defined the border between Sweden and Grand Duchy of Finland as going through the middle of the island (wiki)"
+  },
+  {
+   "id": "c_change",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "riks"
+   ],
+   "text": "In 1985 the border was changed (not the lighthouse moved) so that the lighthouse is on Finnish territory.",
+   "quote": "the border was adjusted in 1985 so that the lighthouse is now located on Finnish territory (wiki); Lagutskottet konstaterar att gränsförslaget tillgodoser önskemålet att den finländska fyren med därtill hörande byggnader blir belägen på finländskt territorium (riks)"
+  },
+  {
+   "id": "c_swap",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "riks",
+    "wiki"
+   ],
+   "text": "3,913 square metres east of the old line went to Sweden and an equally large area around the lighthouse went to Finland: no net transfer.",
+   "quote": "Förslaget har utformats så att ett område om 3 913 m2 öster om den nuvarande riksgränsen överförs till Sverige medan ett lika stort område kring fyrplatsen och alltså väster om den nuvarande gränsen förs över till Finland (riks); The adjustment was carried out such that no net transfer of territory occurred (wiki)"
+  },
+  {
+   "id": "c_coast",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wiki",
+    "riks"
+   ],
+   "text": "The coastline ownership was unchanged so as not to interfere with each country's fishing rights; the new line returns to the old one before it meets the shore.",
+   "quote": "the ownership of the coastline was unchanged so as not to interfere with each country's fishing rights (wiki); återgå till nuvarande läge innan den skär strandlinjen (riks)"
+  },
+  {
+   "id": "c_zigzag",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "riks",
+    "wiki"
+   ],
+   "text": "The new border is a zigzag line across the island.",
+   "quote": "som på skäret kommer att beskriva en sicksacklinje (riks); This resulted in an unusual shape for the international border (wiki)"
+  },
+  {
+   "id": "c_empty",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "Nobody lives on Märket.",
+   "quote": "is a 3.3-hectare (8.2-acre) uninhabited skerry"
+  },
+  {
+   "id": "c_holes",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "wiki"
+   ],
+   "text": "The border is marked by holes drilled into the rock, because drift ice would shear off protruding markers.",
+   "quote": "The border is marked by holes drilled into the rock, because the seasonal drift ice would shear off any protruding markers."
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Finland built the lighthouse on the wrong side by mistake.",
+   "truth": "The Swedish parliament's 1985 committee report says the reason is not stated in the bill or the border documents; Wikipedia says the island was then considered a no-man's land and the lighthouse went on its highest point. The script says only that the papers don't say why.",
+   "sources": [
+    "riks",
+    "wiki"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Exact date the new line took effect in 1985 (the committee report is dated 29 January 1985; secondary reports give 1 August 1985). The script says only 'in 1985'."
+ ]
+}

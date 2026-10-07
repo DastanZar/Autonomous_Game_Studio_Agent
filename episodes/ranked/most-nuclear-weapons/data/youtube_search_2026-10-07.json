@@ -1,0 +1,233 @@
+{
+ "note": "YouTube Data API search.list, Shorts (videoDuration short), order viewCount, publishedAfter 2024-06-01, relevanceLanguage en, 25 results; run 2026-10-07 by the topic worker (one of 4 searches allowed).",
+ "query": "countries with the most nuclear weapons",
+ "top": 51389168,
+ "median_top25": 13323412,
+ "videos": [
+  {
+   "id": "KVQf4K1kVxk",
+   "title": "What Happens If You Shoot a Nuclear Bomb? 😨",
+   "channel": "Fact Craze",
+   "published": "2025-04-15",
+   "views": 51389168,
+   "subs": 86000,
+   "outlier": 597.55
+  },
+  {
+   "id": "TSOJiWweZ0U",
+   "title": "Nuke History :",
+   "channel": "Napkins Gag",
+   "published": "2025-03-17",
+   "views": 36429203,
+   "subs": 142000,
+   "outlier": 256.54
+  },
+  {
+   "id": "d2QpXM18jB8",
+   "title": "You’ve Got 10 Minutes Before a Nuclear Bomb Hits! Hypothetical Situation Analysis #shorts",
+   "channel": "FactTechz",
+   "published": "2025-07-07",
+   "views": 31707071,
+   "subs": 21600000,
+   "outlier": 1.47
+  },
+  {
+   "id": "fHo3xguYX2Y",
+   "title": "If We Drop &#39;EVERY&#39; Nuclear Weapon On Earth &#39;IN A SINGLE VOLCANO&#39; #shorts",
+   "channel": "FactTechz",
+   "published": "2025-06-01",
+   "views": 31350378,
+   "subs": 21600000,
+   "outlier": 1.45
+  },
+  {
+   "id": "Ydu56biJxDg",
+   "title": "These Countries Are Most Unsafe In WW3",
+   "channel": "Fact2Fact Plus",
+   "published": "2025-10-25",
+   "views": 29350194,
+   "subs": 1680000,
+   "outlier": 17.47
+  },
+  {
+   "id": "A8zs9o7MFA4",
+   "title": "Russia’s Automatic NUCLEAR WEAPON System is CREEPING OUT The World #shorts",
+   "channel": "FactTechz",
+   "published": "2025-05-17",
+   "views": 23652710,
+   "subs": 21600000,
+   "outlier": 1.1
+  },
+  {
+   "id": "oN7AI9cC02I",
+   "title": "SHOCKING Reason Behind RUSSIA’s &#39;Insane POWER&#39; Over The World! #shorts",
+   "channel": "FactTechz",
+   "published": "2025-08-23",
+   "views": 22316324,
+   "subs": 21600000,
+   "outlier": 1.03
+  },
+  {
+   "id": "TUawscdOhx0",
+   "title": "How Israel tested its nuclear weapons #isreal #mosad",
+   "channel": "Suraj Rawat",
+   "published": "2025-07-26",
+   "views": 19769259,
+   "subs": 417000,
+   "outlier": 47.41
+  },
+  {
+   "id": "7bAcAgzCscE",
+   "title": "What If The Biggest Nuke Hit New York? 🤯",
+   "channel": "Zack D. Films",
+   "published": "2025-02-27",
+   "views": 16336387,
+   "subs": 28800000,
+   "outlier": 0.57
+  },
+  {
+   "id": "wUFNu5J8J4w",
+   "title": "Why America Actually Fears Russia&#39;s Military Power #geopolitics #military #shorts",
+   "channel": "Xplaining Studio",
+   "published": "2025-06-30",
+   "views": 15081767,
+   "subs": 361000,
+   "outlier": 41.78
+  },
+  {
+   "id": "B17Vh5AJSjU",
+   "title": "Could A Bomb Blow Up A Hurricane? 🤯",
+   "channel": "Zack D. Films",
+   "published": "2025-03-13",
+   "views": 14883130,
+   "subs": 28800000,
+   "outlier": 0.52
+  },
+  {
+   "id": "EKniIQ_Jtpo",
+   "title": "&#39;1&#39; Hydrogen Bomb = &#39;995&#39; Nuclear Atomic Bombs! The SCARY Truth! #shorts",
+   "channel": "FactTechz",
+   "published": "2025-07-27",
+   "views": 13731774,
+   "subs": 21600000,
+   "outlier": 0.64
+  },
+  {
+   "id": "5ymjeAuiXhE",
+   "title": "The New Russian Nuclear Weapon",
+   "channel": "TruthScope",
+   "published": "2025-10-10",
+   "views": 13323412,
+   "subs": 170000,
+   "outlier": 78.37
+  },
+  {
+   "id": "Mz9Ub-VsYu0",
+   "title": "He Survived Nuclear Bomb",
+   "channel": "Ai Plot",
+   "published": "2024-08-19",
+   "views": 12747336,
+   "subs": 1080000,
+   "outlier": 11.8
+  },
+  {
+   "id": "OwwIxhPXheI",
+   "title": "Japan Surrendered For Something Far More Terrifying Than Nukes! #shorts",
+   "channel": "Coggnize",
+   "published": "2026-01-06",
+   "views": 12450872,
+   "subs": 543000,
+   "outlier": 22.93
+  },
+  {
+   "id": "qkOePbJczdY",
+   "title": "How A Nuke Works 🤔",
+   "channel": "Zack D. Films",
+   "published": "2025-07-16",
+   "views": 12173077,
+   "subs": 28800000,
+   "outlier": 0.42
+  },
+  {
+   "id": "ZBBI3iyQnrY",
+   "title": "See The HORRORS of Japan Immediately After The NUCLEAR WEAPON Event - Clip Analysis #shorts",
+   "channel": "FactTechz",
+   "published": "2025-05-22",
+   "views": 11739409,
+   "subs": 21600000,
+   "outlier": 0.54
+  },
+  {
+   "id": "3QxXoB3BBOc",
+   "title": "Name ALL 9 Countries With NUCLEAR Weapons! Can You? #shorts #countries #bomb #guessinggame #world",
+   "channel": "Makeshift Project",
+   "published": "2024-10-22",
+   "views": 11038423,
+   "subs": 2460000,
+   "outlier": 4.49
+  },
+  {
+   "id": "7Qakk4_7Be4",
+   "title": "Nuclear Bombs on America (3D) by Professor Of How",
+   "channel": "Professor Of How",
+   "published": "2025-06-19",
+   "views": 10907924,
+   "subs": 15900000,
+   "outlier": 0.69
+  },
+  {
+   "id": "ie9VtSL7tyM",
+   "title": "Why Ukraine Gave Up Its Nuclear Weapons | Explained in 60 Seconds",
+   "channel": "Geo Breakdown",
+   "published": "2025-04-08",
+   "views": 10554344,
+   "subs": 55800,
+   "outlier": 189.15
+  },
+  {
+   "id": "lxIysMPP9sk",
+   "title": "Ok But.. &#39;Why&#39; Did USA Dropped NUCLEAR BOMB On Japan? #shorts",
+   "channel": "FactTechz",
+   "published": "2025-10-30",
+   "views": 9959072,
+   "subs": 21600000,
+   "outlier": 0.46
+  },
+  {
+   "id": "UgpTMBqAVhU",
+   "title": "Can USA Attack INDIA, Just Like IRAN?? #shorts",
+   "channel": "FactTechz",
+   "published": "2026-03-04",
+   "views": 8846369,
+   "subs": 21600000,
+   "outlier": 0.41
+  },
+  {
+   "id": "Q1aeSQ9CERw",
+   "title": "Three Nuclear Armed Nations Openly Take India’s name at the UN | By Prashant Dhawan",
+   "channel": "StudyIQ IAS",
+   "published": "2024-09-27",
+   "views": 7856424,
+   "subs": 20600000,
+   "outlier": 0.38
+  },
+  {
+   "id": "1YmhWnomFzs",
+   "title": "Only Thing More DANGEROUS Than A Nuclear Weapon #shorts",
+   "channel": "FactTechz",
+   "published": "2025-03-03",
+   "views": 7126376,
+   "subs": 21600000,
+   "outlier": 0.33
+  },
+  {
+   "id": "RIhwuKK54XY",
+   "title": "Number of Nuclear Bombs by Country 2025",
+   "channel": "Horizon ",
+   "published": "2025-06-24",
+   "views": 650332,
+   "subs": 59000,
+   "outlier": 11.02
+  }
+ ]
+}
