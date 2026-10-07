@@ -436,3 +436,38 @@ Hi! I’ve just pushed a comprehensive handoff report, run diagnostics, and syst
 - Added two owner-protection rules to AGENTS.md. Wrote `docs/reviews/2026-10-07-claude-linkedin.md` and a
   CHANGELOG entry. Pushed 527e986.
 - Kept: backtick stripping, the in-memory policy, the window-show flag, CDP over noVNC, the qwen default.
+
+
+---
+
+### 2026-10-07 · Why accuracy is low on long tasks
+
+#### User (verbatim)
+
+I need you to go through the logs and figure out what the issue is with the accuracy being so low even after so many turns, analyse the methodology being used and what we can do differently or better on
+
+#### Claude · record
+
+- **No LinkedIn logs here.** `runs/` is git-ignored, the two LinkedIn run files are on the owner's PC, and
+  none were pasted. The only local run is my 5-step smoke test from 10-06. I analysed the code and the report
+  instead, and wrote a tool so the real logs can confirm each cause.
+- **Verified in Browser Use 0.13.10's source.** Fast mode (default ticked in the dashboard) does three things:
+  - it uses `system_prompt_flash.md` (343 words) instead of `system_prompt.md` (3,719 words);
+  - it removes thinking and the evaluation of the previous step;
+  - it disables planning.
+  The rules lost are the ones the LinkedIn stalls needed: loop-breaking after 3 steps on one URL, judging
+  each action, preferring search_page/find_elements/extract over scrolling, and a todo plan for long tasks.
+  My own short-task benchmark (2–4× faster) is why it became the default; it was never tested on a long task.
+- **Other causes:**
+  - Verified: results have to live in a 5-sentence memory field, and the other agent's new "working
+    memory, no files" policy removed the only durable store. The prompt compiler wrote the Boolean syntax and
+    the non-existent filter.
+  - Needs the logs: page size (about 35k tokens claimed), `max_failures=4` ending runs on scroll timeouts,
+    and follow-up turns accumulating history.
+- **Method:** "accuracy" is undefined (no answer key); changes are judged on single 40-step live runs; one
+  commit changed five things.
+- **Built:** `tools/analyze_run.py`. It reports steps, errors by kind, repeated actions, time on one URL,
+  page tokens, fast-mode steps and empty replies, with profile slugs redacted. Tested on the real smoke run
+  and on a synthetic LinkedIn-like run; it flagged the loops correctly. Tests 11/11.
+- Wrote `docs/reviews/2026-10-07-claude-accuracy.md` and a CHANGELOG entry. Pushed e3e0f02. No agent
+  behaviour has changed yet; the five-step fix list is open decision B6.
