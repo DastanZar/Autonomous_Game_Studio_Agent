@@ -2204,3 +2204,17 @@ i dont want you to extend it artifically just for the sake of increasing the dur
 - **New props in the body kit:** beaker with swimming microbes, coins, light bulb, sports courts drawn to scale, chili pepper, fat globule that splits into droplets, flat card.
 - **Retakes:** "Hi" was heard as "high", so the line became "Hello".
 - **Results:** 47.7, 47.8, 49.3 and 36.5 s; transcript WER 0.0 on all four; −14.1/−14.2 LUFS; frozen time 0–3 s per 30 s; two review rounds each; every gate passes through packaging. Titles and descriptions updated (food and brain retitled); schedule unchanged.
+
+---
+
+### 🧑 User · 2026-10-07 UTC
+
+all updated videos pushed to studio as well right? i hope i dont have to keep repeating myself, and if you run out of space there think of something creative
+
+#### Claude · record
+
+- **Checked:** every push to main redeploys the dashboard; the Gut Gang rewrite (ef5288d) was deploying when asked, and the previous three deploys succeeded.
+- **Space:** the dashboard was copying 825 MB of finished videos plus 310 MB of extra media, over GitHub Pages' 1 GB site limit. Creating a GitHub release from this session is blocked (403), so the dashboard workflow now does it with its own token:
+  - the site gets 540p previews transcoded on the runner (same paths, so every player keeps working);
+  - full-quality masters, captions and thumbnails of every packaged episode go to a `masters` release, re-uploading only files whose size changed.
+- **Rule from here:** every finished or changed video lands on the dashboard and the masters release in the same push, without being asked.

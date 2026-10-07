@@ -3,6 +3,10 @@
 Everything needed to upload each video by hand in YouTube Studio. API uploads stay off until the API audit passes
 (an unverified project's API uploads are locked private for good).
 
+**Where the files are:** full-quality MP4s, captions and thumbnails are downloads on the
+[masters release](https://github.com/DastanZar/Autonomous_Game_Studio_Agent/releases/tag/masters) (thumbnails are
+named `<slug>-thumbnail.jpg`), refreshed on every push. The dashboard plays lighter 540p previews of the same videos.
+
 **For each video:** Studio → Create → Upload → pick the MP4 → paste the title and description → add the thumbnail →
 Audience: *No, it's not made for kids* → Altered content: *No* (it's animation) → upload the SRT under Subtitles →
 Visibility: **Schedule**, at the time below (your Studio time zone may differ; the UTC time is exact) → after it goes live,
