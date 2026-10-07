@@ -2362,3 +2362,14 @@ The animation, like when the pencil is actually drawing things out, writing, on 
   - Findings: drawn *storytelling* wins, not the drawn format itself ("draw my life" median 19k). Science animation is surging (×4.9). "What would happen if" has the highest median (6.0M) and holds best. History is steady (3M, 21 small breakouts). Economy/news is steady but owned by big outlets. Money/business animated is dead.
   - Top three: (1) "What would actually happen if…", real science drawn by hand (recommended); (2) history through one lens ("a day in the life of…"); (3) the money behind everyday things (the pilot's lane, as occasional episodes).
 - Laptop tools and the publishing date are answered in chat.
+
+### 🧑 User · 2026-10-07 UTC
+
+Is there a way to maybe try using google omni 1.1 flash jsut to see how it would hold upto vs the style we make videos? like for example if we wanted to make a video about something cool in that niche and you give me the prompt to try there? it only generates a maximum of 10 seconds ata time so not sure how we would get the whole video, also do we need to gen images first and feed those or only a text prompt shall be enough, pick a cool topic to test
+
+#### Claude · record
+
+- **Gemini Omni 1.1 Flash (looked up):** 3–10 s per generation, extendable in 10 s steps to 40 s; text, first-frame or first-and-last-frame input; native audio.
+- **The test:** "What would happen if you jumped into a hole through the Earth?" Four prompts (one text-to-video plus three extends, about 40 s), same pencil-on-paper look, no text, no voice or music. Saved in `docs/research/omni-test-2026-10.md`.
+- **Advice given:** text is enough for the test; if the style drifts, use our engine's text-free frames as start frames.
+- **Slower pilot finished:** 80.5 s, −14.2 LUFS, WER 0.011, frozen 2.5 s per 30 s; review rounds 4 and 5 logged; all gates pass.
