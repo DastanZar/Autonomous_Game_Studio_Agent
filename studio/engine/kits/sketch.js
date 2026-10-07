@@ -300,14 +300,27 @@ const SK = (() => {
     const out = {};
     window.PRELOAD = window.PRELOAD || [];
     for (const [k, m] of Object.entries(meta)) {
-      const img = new Image(); img.src = "../assets/hands/" + m.file; out[k] = { img, tip: m.tip };
+      const img = new Image(); img.src = "../assets/hands/" + m.file; out[k] = { img, tip: m.tip, sleeve: m.sleeve };
       window.PRELOAD.push(new Promise(r => { img.onload = r; img.onerror = () => { warn("photo hand: " + m.file + " failed to load"); r(); }; }));
     }
     return out;
   })();
   function photoHand(sx, sy, s, lift, t) {
     const k = s * 1.0, l = PHOTO.hand_lifted ? clamp(lift) : 0;
-    const draw = (H, a) => { if (!H || !H.img.complete || a <= 0.001) return; ctx.globalAlpha = a; ctx.drawImage(H.img, -H.tip[0] * k, -H.tip[1] * k, H.img.width * k, H.img.height * k); };
+    const draw = (H, a) => {
+      if (!H || !H.img.complete || a <= 0.001) return;
+      ctx.globalAlpha = a;
+      const S = H.sleeve;
+      if (S) {                                  // the rest of the arm: a soft sleeve shape from the photo's edge, off screen
+        const ox = -H.tip[0] * k, oy = -H.tip[1] * k, D = 4000, P = ([x, y]) => [ox + x * k, oy + y * k];
+        const a1 = P([S.bl[0] - 30, S.bl[1] - 70]), a3 = P([S.rt[0] - 70, S.rt[1] - 30]);
+        ctx.save(); ctx.shadowColor = "transparent"; ctx.filter = "blur(6px)"; ctx.fillStyle = S.color;
+        ctx.beginPath(); ctx.moveTo(a1[0], a1[1]); ctx.lineTo(a3[0], a3[1]);
+        ctx.lineTo(a3[0] + S.dir[0] * D, a3[1] + S.dir[1] * D); ctx.lineTo(a1[0] + S.dir[0] * D, a1[1] + S.dir[1] * D); ctx.closePath(); ctx.fill();
+        ctx.restore();
+      }
+      ctx.drawImage(H.img, -H.tip[0] * k, -H.tip[1] * k, H.img.width * k, H.img.height * k);
+    };
     ctx.save(); ctx.translate(sx, sy); ctx.rotate(Math.sin(t * 1.1) * 0.02 + l * 0.03);
     ctx.shadowColor = "rgba(30,18,8,0.30)"; ctx.shadowBlur = 26 + l * 20; ctx.shadowOffsetX = 16 + l * 26; ctx.shadowOffsetY = 22 + l * 34;
     if (l < 0.5) { draw(PHOTO.hand_down, 1); ctx.shadowColor = "transparent"; draw(PHOTO.hand_lifted, l * 2 * 0.999); }   // a short crossfade between the two poses

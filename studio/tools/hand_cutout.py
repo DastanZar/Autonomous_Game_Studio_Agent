@@ -3,7 +3,7 @@
     python3 studio/tools/hand_cutout.py hand_down hand_lifted
 
 Chroma key on green dominance, green spill removed at the edges, the image generator's corner watermark painted out,
-the sleeve extended past the right and bottom edges (so the arm never ends on screen), downscaled by half.
+the sleeve's exit recorded (the engine draws the rest of the arm) (so the arm never ends on screen), downscaled by half.
 hands.json records each image's pencil-tip pixel, which the kit pins to the line being drawn.
 """
 import json, os, sys
@@ -34,23 +34,24 @@ for name in sys.argv[1:]:
     im[soft] = im[soft] * 0.15 + 12; a = np.where(soft, a * 0.55, a)
     ys, xs = np.where(a > 0.6); i = np.argmin(xs); tip = (int(xs[i]), int(ys[i]))
     rgba = np.dstack([im, a * 255]).clip(0, 255).astype(np.uint8)
-    # the sleeve continues off the right and bottom edges (smoothed, so it reads as out-of-frame arm, not a cut)
-    right = cv2.GaussianBlur(np.repeat(rgba[:, -1:], 700, axis=1), (1, 61), 0)
-    rgba = np.hstack([rgba, right])
-    # below the photo the arm keeps its own direction: each new row is the last row shifted right along the arm's slope
-    last = rgba[-1].astype(np.float32); edge = np.where(last[:, 3] > 128)[0]
-    prev = rgba[-60].astype(np.float32); edge0 = np.where(prev[:, 3] > 128)[0]
-    slope = ((edge.min() - edge0.min()) / 60.0) if len(edge) and len(edge0) else 0.5
-    rows = [np.roll(last, int(round(i * max(slope, 0.2))), axis=0) for i in range(1, 1601)]
-    down = np.stack(rows).astype(np.uint8)
-    for i, row in enumerate(down):
-        sh = int(round((i + 1) * max(slope, 0.2))); row[:sh] = 0 if sh else row[:sh]
-    down = cv2.GaussianBlur(down, (31, 1), 0)
-    rgba = np.vstack([rgba, down])
+    # the sleeve leaves the photo at its bottom and right edges: fade those edges, and record the exit so the engine can
+    # draw the rest of the arm as a soft sleeve shape running off screen (stretching photo pixels made hard blocks)
+    al = rgba[..., 3].astype(np.float32)
+    bot = np.where(al[-1] > 128)[0]; rgt = np.where(al[:, -1] > 128)[0]
+    xl = int(bot.min()) if len(bot) else w; yt = int(rgt.min()) if len(rgt) else h
+    ramp = np.linspace(1, 0, 70)[:, None]
+    al[-70:] *= ramp; al[:, -70:] *= ramp.T
+    rgba[..., 3] = al.astype(np.uint8)
+    sl = rgba[int(h * 0.85):, :, :3][al[int(h * 0.85):] > 200]
+    col = sl.mean(axis=0) if len(sl) else np.array([60, 40, 30])          # BGR
+    cx, cy = (xl + w) / 2, h
+    d = np.array([cx - tip[0], cy - tip[1]], dtype=float); d /= np.linalg.norm(d)
     s = 0.5
     rgba = cv2.resize(rgba, None, fx=s, fy=s, interpolation=cv2.INTER_AREA)
     cv2.imwrite(os.path.join(D, name + ".png"), rgba, [cv2.IMWRITE_PNG_COMPRESSION, 9])
-    out[name] = {"file": name + ".png", "tip": [round(tip[0] * s), round(tip[1] * s)], "size": [rgba.shape[1], rgba.shape[0]]}
+    out[name] = {"file": name + ".png", "tip": [round(tip[0] * s), round(tip[1] * s)], "size": [rgba.shape[1], rgba.shape[0]],
+                 "sleeve": {"bl": [round(xl * s), round(h * s)], "corner": [round(w * s), round(h * s)], "rt": [round(w * s), round(yt * s)],
+                            "dir": [round(float(d[0]), 3), round(float(d[1]), 3)], "color": "#%02x%02x%02x" % (int(col[2]), int(col[1]), int(col[0]))}}
     print(name, out[name])
 json.dump({"_doc": "Photoreal hand cut-outs for the sketch kit (studio/tools/hand_cutout.py). Source images: Nano Banana, made by the user 2026-10-08 (prompt in the chat log). tip = pencil-tip pixel.", "hands": out},
           open(os.path.join(D, "hands.json"), "w"), indent=1)

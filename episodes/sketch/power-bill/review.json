@@ -160,6 +160,58 @@
     80.51
    ],
    "defects": []
+  },
+  {
+   "at": "2026-10-07T19:35:29Z",
+   "reviewer": "builder (orchestrator), round 6: photoreal hand (user-approved still)",
+   "frames": [
+    0.05,
+    4.36,
+    10.78,
+    15.74,
+    19.47,
+    26.48,
+    34.05,
+    39.96,
+    43.88,
+    51.38,
+    58.3,
+    64.01,
+    68.9,
+    75.69,
+    80.16,
+    80.51
+   ],
+   "defects": [
+    {
+     "t": 36.0,
+     "issue": "the sleeve's continuation below the photo showed as a hard dark block",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-07T19:35:29Z",
+   "reviewer": "builder (orchestrator), round 7: engine-drawn soft sleeve continuation; encoded frames spot-checked",
+   "frames": [
+    0.05,
+    4.36,
+    10.78,
+    15.74,
+    19.47,
+    26.48,
+    34.05,
+    39.96,
+    43.88,
+    51.38,
+    58.3,
+    64.01,
+    68.9,
+    75.69,
+    80.16,
+    80.51
+   ],
+   "defects": []
   }
  ]
 }
