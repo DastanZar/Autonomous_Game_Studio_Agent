@@ -16,6 +16,16 @@
     "dossier.json": "acb48cc1d695"
    },
    "failed": []
+  },
+  "script": {
+   "result": "pass",
+   "at": "2026-10-07T20:10:50Z",
+   "hashes": {
+    "topic.json": "ae0683c74094",
+    "dossier.json": "acb48cc1d695",
+    "script.json": "9bf48898ba95"
+   },
+   "failed": []
   }
  }
 }

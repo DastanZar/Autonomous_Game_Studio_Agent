@@ -1,0 +1,293 @@
+{
+ "channel": "body-cast",
+ "episode": "cave-clock",
+ "series": "what_if",
+ "working_title": "He lived in a cave without clocks and lost 25 days",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "pronounce": {
+  "Siffre": "Seefruh"
+ },
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Back to the lost days of the hook: the brain lost count, the clock didn't. Last frame is the Brain in the cave with its clock ticking, as in frame one."
+ },
+ "paras": [
+  {
+   "id": "hook",
+   "say": "In nineteen sixty-two, a man lived in a cave with no clocks.",
+   "kind": "hook",
+   "claims": [
+    "c_cave"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 1962,",
+     3
+    ],
+    [
+     "A MAN LIVED IN A CAVE",
+     6
+    ],
+    [
+     "WITH NO CLOCKS.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "lost",
+   "say": "He lost twenty-five days.",
+   "kind": "fact",
+   "claims": [
+    "c_date"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "HE LOST 25 DAYS.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "who",
+   "say": "Michel Siffre went a hundred and thirty meters underground. No watch. No sun. He slept when his body said so.",
+   "kind": "fact",
+   "claims": [
+    "c_cave",
+    "c_body"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "MICHEL SIFFRE WENT",
+     3
+    ],
+    [
+     "130 METRES",
+     5
+    ],
+    [
+     "UNDERGROUND.",
+     1
+    ],
+    [
+     "NO WATCH. NO SUN.",
+     4
+    ],
+    [
+     "HE SLEPT WHEN",
+     3
+    ],
+    [
+     "HIS BODY SAID SO.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "count",
+   "say": "His team asked him to count to one hundred twenty, one number a second. It took him five minutes.",
+   "kind": "fact",
+   "claims": [
+    "c_count"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "HIS TEAM ASKED HIM",
+     4
+    ],
+    [
+     "TO COUNT TO 120,",
+     6
+    ],
+    [
+     "ONE NUMBER A SECOND.",
+     4
+    ],
+    [
+     "IT TOOK HIM",
+     3
+    ],
+    [
+     "FIVE MINUTES.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "slow",
+   "say": "I was being thorough.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.4,
+   "caps": [],
+   "speaker": "brain"
+  },
+  {
+   "id": "date",
+   "say": "When his team called time on September fourteenth, he thought it was August twentieth.",
+   "kind": "fact",
+   "claims": [
+    "c_date"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "WHEN HIS TEAM CALLED TIME",
+     5
+    ],
+    [
+     "ON 14 SEPTEMBER,",
+     3
+    ],
+    [
+     "HE THOUGHT IT WAS",
+     4
+    ],
+    [
+     "20 AUGUST.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "cycle",
+   "say": "But his body never lost the beat. By his own count, his days ran about twenty-four and a half hours.",
+   "kind": "fact",
+   "claims": [
+    "c_cycle"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BUT HIS BODY",
+     3
+    ],
+    [
+     "NEVER LOST THE BEAT.",
+     4
+    ],
+    [
+     "BY HIS OWN COUNT,",
+     4
+    ],
+    [
+     "HIS DAYS RAN ABOUT",
+     4
+    ],
+    [
+     "24½ HOURS.",
+     5
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "lamp",
+   "say": "Later, Harvard spotted a catch. In isolation experiments like these, switching on a lamp resets the clock.",
+   "kind": "fact",
+   "claims": [
+    "c_lights"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "LATER, HARVARD",
+     2
+    ],
+    [
+     "SPOTTED A CATCH.",
+     3
+    ],
+    [
+     "IN ISOLATION EXPERIMENTS",
+     3
+    ],
+    [
+     "LIKE THESE,",
+     2
+    ],
+    [
+     "SWITCHING ON A LAMP",
+     4
+    ],
+    [
+     "RESETS THE CLOCK.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "real",
+   "say": "Measured properly, your internal day is twenty-four hours and eleven minutes.",
+   "kind": "fact",
+   "claims": [
+    "c_2411"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "MEASURED PROPERLY,",
+     2
+    ],
+    [
+     "YOUR INTERNAL DAY IS",
+     4
+    ],
+    [
+     "24 HOURS",
+     2
+    ],
+    [
+     "AND 11 MINUTES.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "master",
+   "say": "The master clock is in me. Light sets it.",
+   "kind": "joke",
+   "claims": [
+    "c_scn"
+   ],
+   "gap": 0.4,
+   "caps": [],
+   "speaker": "brain"
+  },
+  {
+   "id": "toll",
+   "say": "He lost count. His body didn't.",
+   "kind": "callback",
+   "claims": [
+    "c_date",
+    "c_cycle"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "HE LOST COUNT.",
+     3
+    ],
+    [
+     "HIS BODY DIDN'T.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  }
+ ]
+}

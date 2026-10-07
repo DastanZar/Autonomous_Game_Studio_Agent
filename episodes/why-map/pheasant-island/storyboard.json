@@ -1,0 +1,279 @@
+{
+ "episode": "pheasant-island",
+ "kits": [
+  "paper",
+  "kinetic",
+  "flight",
+  "flagart"
+ ],
+ "flags": [
+  "ES",
+  "FR"
+ ],
+ "flagship": "House method (user 2026-10-06): A's paper props and island, B's 3D map flight over the real Bidasoa (OSM river and island outlines), C's moving type for the six-month calendar and the 24 meetings.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "dataset": "data/geom.json"
+   },
+   "events": [
+    {
+     "at": "hook/changes",
+     "do": "reveal",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "hook/six",
+     "do": "emphasize",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_river",
+   "type": "custom",
+   "start": "river.start-0.15",
+   "params": {
+    "fn": "river",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -2.4,
+     42.95,
+     -1.0,
+     43.6
+    ]
+   },
+   "events": [
+    {
+     "at": "river/france",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "river/spain",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_size",
+   "type": "custom",
+   "start": "size.start-0.1",
+   "params": {
+    "fn": "size",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     -1.79,
+     43.333,
+     -1.74,
+     43.352
+    ],
+    "coast": "osm",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "size/two",
+     "do": "draw",
+     "sfx": "pop"
+    },
+    {
+     "at": "size/nobody",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_treaty",
+   "type": "custom",
+   "start": "treaty.start-0.15",
+   "params": {
+    "fn": "treaty",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "treaty/sixteen",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "treaty/peace",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_talks",
+   "type": "custom",
+   "start": "talks.start-0.1",
+   "params": {
+    "fn": "talks",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "talks/twentyfour",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_brides",
+   "type": "custom",
+   "start": "brides.start-0.15",
+   "params": {
+    "fn": "brides",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "brides/royal",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "brides/handed",
+     "do": "highlight",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_share",
+   "type": "custom",
+   "start": "share.start-0.15",
+   "params": {
+    "fn": "share",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "share/both",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "share/turns",
+     "do": "highlight",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_swap",
+   "type": "custom",
+   "start": "swap.start-0.15",
+   "params": {
+    "fn": "swap",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "swap/february",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "swap/august",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_viceroy",
+   "type": "custom",
+   "start": "viceroy.start-0.15",
+   "params": {
+    "fn": "viceroy",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "viceroy/official",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "viceroy/viceroy",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_birds",
+   "type": "custom",
+   "start": "birds.start-0.15",
+   "params": {
+    "fn": "birds",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "birds/pheasants",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "birds/island",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_name",
+   "type": "custom",
+   "start": "name.start-0.15",
+   "params": {
+    "fn": "name",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "name/probably",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "name/mistake",
+     "do": "highlight",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_now",
+   "type": "custom",
+   "start": "now.start-0.15",
+   "params": {
+    "fn": "now",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "now/french",
+     "do": "reveal",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "now/february",
+     "do": "highlight",
+     "sfx": "pop"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

@@ -1,0 +1,209 @@
+{
+ "topic": "Dracula's Transylvania was in Hungary, not Romania, when the novel came out (1897)",
+ "sources": [
+  {
+   "id": "trwiki",
+   "title": "Transylvania",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Transylvania",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "cs4",
+   "title": "Romania: Romania Under Charles of Hohenzollern-Sigmaringen (Romania: A Country Study)",
+   "publisher": "U.S. Library of Congress Country Studies, via countrystudies.us",
+   "url": "https://countrystudies.us/romania/17.htm",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "cs5",
+   "title": "Romania: The Balkan Wars and World War I (Romania: A Country Study)",
+   "publisher": "U.S. Library of Congress Country Studies, via countrystudies.us",
+   "url": "https://countrystudies.us/romania/18.htm",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "cs8",
+   "title": "Romania: The Ottoman Invasions (Romania: A Country Study)",
+   "publisher": "U.S. Library of Congress Country Studies, via countrystudies.us",
+   "url": "https://countrystudies.us/romania/8.htm",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "drwiki",
+   "title": "Dracula",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Dracula",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "gutenberg",
+   "title": "Dracula by Bram Stoker",
+   "publisher": "Project Gutenberg",
+   "url": "https://www.gutenberg.org/ebooks/345",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "natgeo",
+   "title": "Dracula's Castle in Romania (Amy Alipio, 28 September 2018)",
+   "publisher": "National Geographic",
+   "url": "https://www.nationalgeographic.com/travel/destinations/europe/romania/dracula-castle-things-to-do-brasov-transylvania/",
+   "type": "journalism",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "bran",
+   "title": "Bran Castle",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Bran_Castle",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "vlad",
+   "title": "Vlad the Impaler",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Vlad_the_Impaler",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_novel",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "drwiki",
+    "gutenberg"
+   ],
+   "text": "Bram Stoker's Dracula was published in 1897; the Count's castle is in Transylvania.",
+   "quote": "Dracula is an 1897 Gothic horror novel by Irish author Bram Stoker (drwiki); to stay at the castle of a Transylvanian nobleman, Count Dracula (drwiki); Gothic horror novel published in 1897 (gutenberg); the story follows solicitor Jonathan Harker's terrifying encounter with Count Dracula in Transylvania (gutenberg)"
+  },
+  {
+   "id": "c_hungary",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "trwiki",
+    "cs4",
+    "cs5"
+   ],
+   "text": "From 1867 until 1918 Transylvania was part of the Kingdom of Hungary within Austria-Hungary (the Dual Monarchy), ruled from Budapest.",
+   "quote": "it was reincorporated into the Kingdom of Hungary ( Transleithania ) as part of the Austro-Hungarian Empire (trwiki); Romanian nationalism smoldered in Transylvania during the period of the Dual Monarchy (cs4); notified the Budapest government that it had assumed control of twenty-three Transylvanian counties (cs5)"
+  },
+  {
+   "id": "c_never",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "natgeo",
+    "bran"
+   ],
+   "text": "Stoker never visited Transylvania (no evidence he ever went).",
+   "quote": "Yet, Stoker never visited Transylvania, much less Bran Castle. (natgeo); there is no evidence that Stoker ever visited either Transylvania or Bran Castle (bran)"
+  },
+  {
+   "id": "c_mountains",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "cs4",
+    "natgeo"
+   ],
+   "text": "In the late 1800s the Kingdom of Romania bordered Hungary along the Transylvanian mountain passes; Transylvania and Wallachia are divided by the Carpathian mountains.",
+   "quote": "left unprotected the Transylvanian mountain passes into Hungary (cs4); guarded the one mountain pass running between Transylvania and Walachia (natgeo)"
+  },
+  {
+   "id": "c_ww1",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "trwiki",
+    "cs5"
+   ],
+   "text": "After defeat in World War I, Austria-Hungary broke apart.",
+   "quote": "Following defeat in World War I , Austria-Hungary disintegrated. (trwiki); Austria-Hungary was disintegrating (cs5)"
+  },
+  {
+   "id": "c_union",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "trwiki",
+    "cs5"
+   ],
+   "text": "In 1918 (1 December) elected Romanian representatives of Transylvania proclaimed union with Romania at Alba Iulia.",
+   "quote": "Elected representatives of the ethnic Romanians from Transylvania, Banat, Crișana and Maramureș backed by the mobilization of Romanian troops , proclaimed Union with Romania on 1 December 1918 (trwiki); A mass assembly later that month in Alba Iulia (southern Transylvania), passed a resolution calling for unification of all Romanians in a single state (cs5)"
+  },
+  {
+   "id": "c_trianon",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "trwiki"
+   ],
+   "text": "The Treaty of Trianon (1920) made Transylvania part of the Kingdom of Romania.",
+   "quote": "Transylvania became part of the Kingdom of Romania by the Treaty of Trianon in 1920"
+  },
+  {
+   "id": "c_vlad",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "vlad",
+    "cs8"
+   ],
+   "text": "Vlad III, 'Vlad the Impaler' (Vlad Dracula), was the ruler (voivode) of Wallachia.",
+   "quote": "commonly known as Vlad the Impaler (vlad); was Voivode of Wallachia during three separate r (vlad); Hunyadi installed Vlad Tepes (1456-62) on Walachia's throne (cs8)"
+  },
+  {
+   "id": "c_bran",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "bran",
+    "natgeo"
+   ],
+   "text": "Bran Castle is marketed as 'Dracula's Castle'; according to a local historian, Romania's communist-era tourism officials picked it in the 1960s because it looked Gothic.",
+   "quote": "Marketed outside Romania as Dracula's Castle (bran); In the 1960s, when Romania was ruled by a communist government, its tourism czars decided it could be advantageous to market a place associated with Vlad Tepes (natgeo)"
+  },
+  {
+   "id": "c_noevidence",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "bran"
+   ],
+   "text": "There is no evidence that Stoker knew anything about Bran Castle; it is not mentioned in the novel.",
+   "quote": "There is no evidence that Stoker knew anything about this castle; Bran Castle is not mentioned in the novel Dracula"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Bran Castle is Dracula's castle.",
+   "truth": "It is not in the novel and there is no evidence Stoker knew of it; it was marketed to tourists from the 1960s.",
+   "sources": [
+    "bran",
+    "natgeo"
+   ]
+  },
+  {
+   "myth": "The real Dracula ruled Transylvania.",
+   "truth": "Vlad III ruled Wallachia, across the Carpathians (he was born in Sighișoara, Transylvania, then in the Kingdom of Hungary).",
+   "sources": [
+    "vlad",
+    "cs8"
+   ]
+  }
+ ],
+ "open_questions": [
+  "The Library of Congress study places the Alba Iulia assembly 'later that month' after 1 December; Wikipedia gives 1 December 1918. The script says only 'in 1918'."
+ ]
+}

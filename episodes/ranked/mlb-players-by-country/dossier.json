@@ -1,0 +1,101 @@
+{
+ "topic": "Where Major League Baseball players were born, outside the 50 US states (2026 Opening Day), by count and per person",
+ "sources": [
+  {
+   "id": "mlb_pr",
+   "title": "Opening Day rosters feature 249 internationally born players (March 26, 2026, revised release)",
+   "publisher": "Major League Baseball",
+   "url": "https://www.mlb.com/press-release/press-release-opening-day-rosters-feature-249-internationally-born-players",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "wb_pop",
+   "title": "World Development Indicators: Population, total (SP.POP.TOTL), 2024",
+   "publisher": "World Bank",
+   "url": "https://api.worldbank.org/v2/country/DOM;VEN;CUB;CAN;JPN;PRI;MEX;CUW;PAN;COL;KOR;ABW;BHS;HND;NIC/indicator/SP.POP.TOTL?date=2024&format=json&per_page=50",
+   "type": "dataset",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_dr",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "mlb_pr"
+   ],
+   "text": "93 of the 948 players on 2026 Opening Day rosters and inactive lists were born in the Dominican Republic (9.8%, nearly one in ten), the most of any place outside the US, as every year since 1995.",
+   "quote": "The 249 players born outside the U.S. (26.3%) come from a total pool of 948 players (780 active 26-man roster players and 168 Major League players on injured or restricted lists); As it has each year since MLB began releasing this annual data in 1995, the Dominican Republic again leads the Major Leagues among countries and territories outside the United States with 93 players",
+   "note": "93 / 948 = 9.8%."
+  },
+  {
+   "id": "c_next",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "mlb_pr"
+   ],
+   "text": "Venezuela had 60 players, Cuba 20, Canada 19.",
+   "quote": "The World Baseball Classic Champion Venezuela ranks second with 60 players, while Cuba places third with 20. Canada has a record-high-tying 19 players on Opening Day rosters"
+  },
+  {
+   "id": "c_jp_pr",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "mlb_pr"
+   ],
+   "text": "Japan had 14 players and Puerto Rico 14.",
+   "quote": "Japan features 14 players on Opening Day rosters; Rounding out the totals are Puerto Rico (14)"
+  },
+  {
+   "id": "c_small",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "mlb_pr"
+   ],
+   "text": "Curaçao had 4 players and Aruba 1.",
+   "quote": "Rounding out the totals are Puerto Rico (14); Mexico (7); Curaçao (4); Panama (4); Colombia (3); South Korea (3); Aruba (1)"
+  },
+  {
+   "id": "c_pop_cw",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wb_pop"
+   ],
+   "text": "Curaçao's population in 2024 was 155,967 (about a hundred fifty-six thousand).",
+   "quote": "Curacao countryiso3code CUW date 2024 value 155967"
+  },
+  {
+   "id": "c_pop_dr",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "wb_pop"
+   ],
+   "text": "The Dominican Republic's population in 2024 was 11,427,557.",
+   "quote": "Dominican Republic countryiso3code DOM date 2024 value 11427557"
+  },
+  {
+   "id": "c_percap",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "mlb_pr",
+    "wb_pop"
+   ],
+   "text": "Per person, Curaçao leads: one Major Leaguer per about 39,000 people (155,967 / 4), against one per about 123,000 in the Dominican Republic (11,427,557 / 93): about three times the Dominican rate. Aruba (1 per 108,000) is second; Curaçao is first of the 16 places in data/mlb_opening_day_2026_by_birthplace.csv.",
+   "quote": "Curaçao (4); Curacao countryiso3code CUW date 2024 value 155967; Dominican Republic countryiso3code DOM date 2024 value 11427557",
+   "note": "Arithmetic on the two sources: 38,992 and 122,877 people per player; ratio 3.15."
+  }
+ ],
+ "myths": [],
+ "open_questions": [
+  "MLB's first version said 247 players and Canada 17; the revised release says 249 and 19. The script uses the revised one.",
+  "Counts are by birthplace, not nationality or team."
+ ]
+}

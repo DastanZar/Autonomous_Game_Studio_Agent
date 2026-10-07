@@ -1,0 +1,226 @@
+{
+ "channel": "ranked",
+ "episode": "most-meat-per-person",
+ "series": "top",
+ "working_title": "Which country has the most meat per person? Not America.",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "The country with the most meat per person isn't America.",
+   "kind": "hook",
+   "claims": [
+    "c_tonga",
+    "c_usa"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "THE COUNTRY WITH",
+     3
+    ],
+    [
+     "THE MOST MEAT",
+     3
+    ],
+    [
+     "PER PERSON",
+     2
+    ],
+    [
+     "ISN'T AMERICA.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "fourth",
+   "say": "Fourth: the United States. One hundred twenty-two kilos per person, per year.",
+   "kind": "fact",
+   "claims": [
+    "c_usa"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "FOURTH:",
+     1
+    ],
+    [
+     "THE UNITED STATES.",
+     3
+    ],
+    [
+     "122 KG",
+     4
+    ],
+    [
+     "PER PERSON, PER YEAR.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "third",
+   "say": "Third: the Marshall Islands. One hundred twenty-six.",
+   "kind": "fact",
+   "claims": [
+    "c_marshall"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "THIRD:",
+     1
+    ],
+    [
+     "THE MARSHALL ISLANDS.",
+     3
+    ],
+    [
+     "126.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "second",
+   "say": "Second: Mongolia. One hundred thirty-six.",
+   "kind": "fact",
+   "claims": [
+    "c_mongolia"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "SECOND: MONGOLIA.",
+     2
+    ],
+    [
+     "136.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "first",
+   "say": "And first: Tonga. One hundred fifty-seven kilos.",
+   "kind": "fact",
+   "claims": [
+    "c_tonga"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "AND FIRST: TONGA.",
+     3
+    ],
+    [
+     "157 KG.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "day",
+   "say": "That's over four hundred grams a day, per person.",
+   "kind": "fact",
+   "claims": [
+    "c_tonga"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "THAT'S OVER",
+     2
+    ],
+    [
+     "400 GRAMS A DAY,",
+     5
+    ],
+    [
+     "PER PERSON.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "supply",
+   "say": "Technically, it's supply. Not all of it gets eaten.",
+   "kind": "fact",
+   "claims": [
+    "c_supply"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "TECHNICALLY,",
+     1
+    ],
+    [
+     "IT'S SUPPLY.",
+     2
+    ],
+    [
+     "NOT ALL OF IT",
+     4
+    ],
+    [
+     "GETS EATEN.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "bottom",
+   "say": "At the other end: India, eight kilos. Congo, under four.",
+   "kind": "fact",
+   "claims": [
+    "c_india",
+    "c_congo"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "AT THE OTHER END:",
+     4
+    ],
+    [
+     "INDIA, 8 KG.",
+     3
+    ],
+    [
+     "CONGO, UNDER 4.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "Not America. Tonga.",
+   "kind": "callback",
+   "claims": [
+    "c_tonga",
+    "c_usa"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "NOT AMERICA.",
+     2
+    ],
+    [
+     "TONGA.",
+     1
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Answers the hook's 'isn't America' with Tonga; the last frame is the Tonga vs United States face-off that the first frame teases with the US flag."
+ }
+}

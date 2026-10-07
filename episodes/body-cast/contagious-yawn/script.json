@@ -1,0 +1,273 @@
+{
+ "channel": "body-cast",
+ "episode": "contagious-yawn",
+ "series": "what_if",
+ "working_title": "Why yawns are contagious (and it isn't oxygen)",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "The Brain, mid-yawn, insists it's 'just oxygen', the myth the episode broke; the first frame is the Brain refusing to yawn under the hook title."
+ },
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Reading about yawning makes people yawn. A scientist measured it.",
+   "kind": "hook",
+   "claims": [
+    "c_read"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "READING ABOUT YAWNING",
+     3
+    ],
+    [
+     "MAKES PEOPLE YAWN.",
+     3
+    ],
+    [
+     "A SCIENTIST",
+     2
+    ],
+    [
+     "MEASURED IT.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "nope",
+   "say": "Not me. I only yawn when I need oxygen.",
+   "kind": "joke",
+   "claims": [
+    "c_myth"
+   ],
+   "gap": 0.45,
+   "caps": [],
+   "speaker": "brain"
+  },
+  {
+   "id": "myth",
+   "say": "That's the classic theory. In nineteen eighty-seven, psychologist Robert Provine tested it.",
+   "kind": "fact",
+   "claims": [
+    "c_myth",
+    "c_1987",
+    "c_provine"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THAT'S THE CLASSIC THEORY.",
+     4
+    ],
+    [
+     "IN 1987,",
+     3
+    ],
+    [
+     "PSYCHOLOGIST",
+     1
+    ],
+    [
+     "ROBERT PROVINE",
+     2
+    ],
+    [
+     "TESTED IT.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "oxygen",
+   "say": "He had people breathe pure oxygen. They kept yawning.",
+   "kind": "fact",
+   "claims": [
+    "c_oxygen"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "HE HAD PEOPLE BREATHE",
+     4
+    ],
+    [
+     "PURE OXYGEN.",
+     2
+    ],
+    [
+     "THEY KEPT YAWNING.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "co2",
+   "say": "Air thick with carbon dioxide made them breathe harder. Not yawn more.",
+   "kind": "fact",
+   "claims": [
+    "c_oxygen"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "AIR THICK WITH",
+     3
+    ],
+    [
+     "CARBON DIOXIDE",
+     2
+    ],
+    [
+     "MADE THEM BREATHE HARDER.",
+     4
+    ],
+    [
+     "NOT YAWN MORE.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "huh",
+   "say": "Then why am I yawning?",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.4,
+   "caps": [],
+   "speaker": "brain"
+  },
+  {
+   "id": "video",
+   "say": "Because yawns spread. Five minutes of yawning faces made fifty-five percent of his subjects yawn.",
+   "kind": "fact",
+   "claims": [
+    "c_video"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BECAUSE YAWNS SPREAD.",
+     3
+    ],
+    [
+     "FIVE MINUTES OF",
+     3
+    ],
+    [
+     "YAWNING FACES",
+     2
+    ],
+    [
+     "MADE 55%",
+     3
+    ],
+    [
+     "OF HIS SUBJECTS YAWN.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "smiles",
+   "say": "Smiling faces? Twenty-one percent.",
+   "kind": "fact",
+   "claims": [
+    "c_video"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "SMILING FACES?",
+     2
+    ],
+    [
+     "21%.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "read",
+   "say": "Just reading about yawning for five minutes? Thirty percent. Reading about hiccups? Eleven.",
+   "kind": "fact",
+   "claims": [
+    "c_read"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "JUST READING ABOUT YAWNING",
+     4
+    ],
+    [
+     "FOR FIVE MINUTES?",
+     3
+    ],
+    [
+     "30%.",
+     2
+    ],
+    [
+     "READING ABOUT HICCUPS?",
+     3
+    ],
+    [
+     "11%.",
+     1
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "half",
+   "say": "And once a yawn starts, you can't stop it. There's no such thing as half a yawn.",
+   "kind": "fact",
+   "claims": [
+    "c_half"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "AND ONCE A YAWN STARTS,",
+     5
+    ],
+    [
+     "YOU CAN'T STOP IT.",
+     4
+    ],
+    [
+     "THERE'S NO SUCH THING",
+     4
+    ],
+    [
+     "AS HALF A YAWN.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "toll",
+   "say": "Nope. Just oxygen.",
+   "kind": "callback",
+   "claims": [
+    "c_myth"
+   ],
+   "gap": 0.0,
+   "caps": [],
+   "speaker": "brain"
+  }
+ ]
+}

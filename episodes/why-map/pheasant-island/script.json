@@ -1,0 +1,285 @@
+{
+ "channel": "why-map",
+ "episode": "pheasant-island",
+ "series": "border",
+ "working_title": "This island changes country every six months",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "This island changes country every six months.",
+   "kind": "hook",
+   "claims": [
+    "c_swap"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "THIS ISLAND",
+     2
+    ],
+    [
+     "CHANGES COUNTRY",
+     2
+    ],
+    [
+     "EVERY 6 MONTHS.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "river",
+   "say": "It sits in a river on the border between France and Spain.",
+   "kind": "fact",
+   "claims": [
+    "c_where"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IT SITS IN A RIVER",
+     5
+    ],
+    [
+     "ON THE BORDER",
+     3
+    ],
+    [
+     "BETWEEN FRANCE AND SPAIN.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "size",
+   "say": "It's two hundred metres long. Nobody lives on it.",
+   "kind": "fact",
+   "claims": [
+    "c_size",
+    "c_empty"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "IT'S 200 METRES LONG.",
+     5
+    ],
+    [
+     "NOBODY LIVES ON IT.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "treaty",
+   "say": "In sixteen fifty-nine, France and Spain signed a peace treaty on it.",
+   "kind": "fact",
+   "claims": [
+    "c_treaty"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 1659,",
+     3
+    ],
+    [
+     "FRANCE AND SPAIN",
+     3
+    ],
+    [
+     "SIGNED A PEACE TREATY",
+     4
+    ],
+    [
+     "ON IT.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "talks",
+   "say": "It took twenty-four meetings.",
+   "kind": "joke",
+   "claims": [
+    "c_talks"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "IT TOOK",
+     2
+    ],
+    [
+     "24 MEETINGS.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "brides",
+   "say": "For centuries, royal brides were handed over here.",
+   "kind": "fact",
+   "claims": [
+    "c_brides"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "FOR CENTURIES,",
+     2
+    ],
+    [
+     "ROYAL BRIDES",
+     2
+    ],
+    [
+     "WERE HANDED OVER HERE.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "share",
+   "say": "Today, both countries own it. They just take turns.",
+   "kind": "fact",
+   "claims": [
+    "c_condo"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "TODAY, BOTH COUNTRIES OWN IT.",
+     5
+    ],
+    [
+     "THEY JUST TAKE TURNS.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "swap",
+   "say": "February to July, it's Spanish. August to January, it's French.",
+   "kind": "fact",
+   "claims": [
+    "c_swap"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "FEBRUARY TO JULY,",
+     3
+    ],
+    [
+     "IT'S SPANISH.",
+     2
+    ],
+    [
+     "AUGUST TO JANUARY,",
+     3
+    ],
+    [
+     "IT'S FRENCH.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "viceroy",
+   "say": "France's official in charge has the title Viceroy of Pheasant Island.",
+   "kind": "fact",
+   "claims": [
+    "c_viceroy"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "FRANCE'S OFFICIAL IN CHARGE",
+     4
+    ],
+    [
+     "HAS THE TITLE",
+     3
+    ],
+    [
+     "VICEROY OF",
+     2
+    ],
+    [
+     "PHEASANT ISLAND.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "birds",
+   "say": "There are no pheasants on Pheasant Island.",
+   "kind": "joke",
+   "claims": [
+    "c_nopheasant"
+   ],
+   "gap": 0.55,
+   "caps": [
+    [
+     "THERE ARE NO PHEASANTS",
+     4
+    ],
+    [
+     "ON PHEASANT ISLAND.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "name",
+   "say": "The name is probably a translation mistake.",
+   "kind": "fact",
+   "claims": [
+    "c_name"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "THE NAME IS PROBABLY",
+     4
+    ],
+    [
+     "A TRANSLATION MISTAKE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "now",
+   "say": "Right now, it's French. Until February.",
+   "kind": "callback",
+   "claims": [
+    "c_swap"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "RIGHT NOW,",
+     2
+    ],
+    [
+     "IT'S FRENCH.",
+     2
+    ],
+    [
+     "UNTIL FEBRUARY.",
+     2
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "now",
+  "connects_to": "hook",
+  "how": "Answers 'changes country every six months' with where the swap stands on publish day; the last frame is the island under the French flag, the first frame shows it flipping."
+ }
+}

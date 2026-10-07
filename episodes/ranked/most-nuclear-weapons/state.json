@@ -38,11 +38,11 @@
   },
   "storyboard": {
    "result": "pass",
-   "at": "2026-10-07T20:04:58Z",
+   "at": "2026-10-07T20:06:31Z",
    "hashes": {
     "script.json": "455e4f78d6b5",
     "build/timeline.json": "d71784dfdd67",
-    "storyboard.json": "acd030084ce2"
+    "storyboard.json": "95f8c691ece2"
    },
    "failed": []
   }

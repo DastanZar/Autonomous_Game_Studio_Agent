@@ -7,6 +7,25 @@
     "topic.json": "ebb5982d9726"
    },
    "failed": []
+  },
+  "research": {
+   "result": "pass",
+   "at": "2026-10-07T20:06:38Z",
+   "hashes": {
+    "topic.json": "ebb5982d9726",
+    "dossier.json": "351141e398f3"
+   },
+   "failed": []
+  },
+  "script": {
+   "result": "pass",
+   "at": "2026-10-07T20:10:40Z",
+   "hashes": {
+    "topic.json": "ebb5982d9726",
+    "dossier.json": "351141e398f3",
+    "script.json": "51ff292ca266"
+   },
+   "failed": []
   }
  }
 }

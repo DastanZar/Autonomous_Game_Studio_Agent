@@ -16,6 +16,25 @@
     "dossier.json": "f706f8d7dfa1"
    },
    "failed": []
+  },
+  "script": {
+   "result": "pass",
+   "at": "2026-10-07T20:06:58Z",
+   "hashes": {
+    "topic.json": "5b7d406b0afd",
+    "dossier.json": "f706f8d7dfa1",
+    "script.json": "3cb84a82e7cb"
+   },
+   "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-07T20:12:16Z",
+   "hashes": {
+    "script.json": "3cb84a82e7cb",
+    "build/timeline.json": "db15f7710dae"
+   },
+   "failed": []
   }
  }
 }

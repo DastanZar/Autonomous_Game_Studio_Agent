@@ -28,6 +28,7 @@
      0.566,
      0.825
     ],
+    "tile": "hand_down_sleeve.png",
     "color": "#121e30"
    }
   },
@@ -58,6 +59,7 @@
      0.532,
      0.847
     ],
+    "tile": "hand_lifted_sleeve.png",
     "color": "#141f34"
    }
   }

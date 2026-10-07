@@ -1,0 +1,302 @@
+{
+ "channel": "why-map",
+ "episode": "dracula-transylvania",
+ "series": "why",
+ "working_title": "When Dracula came out, Transylvania wasn't in Romania",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "When Dracula came out in eighteen ninety-seven, Transylvania wasn't in Romania.",
+   "kind": "hook",
+   "claims": [
+    "c_novel",
+    "c_hungary"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "WHEN DRACULA CAME OUT",
+     4
+    ],
+    [
+     "IN 1897,",
+     3
+    ],
+    [
+     "TRANSYLVANIA",
+     1
+    ],
+    [
+     "WASN'T IN ROMANIA.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "hungary",
+   "say": "It was in Hungary.",
+   "kind": "joke",
+   "claims": [
+    "c_hungary"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "IT WAS IN HUNGARY.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "stoker",
+   "say": "Bram Stoker put the Count's castle there. He never went.",
+   "kind": "fact",
+   "claims": [
+    "c_novel",
+    "c_never"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "BRAM STOKER PUT",
+     3
+    ],
+    [
+     "THE COUNT'S CASTLE THERE.",
+     4
+    ],
+    [
+     "HE NEVER WENT.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "then",
+   "say": "Back then, Transylvania belonged to the Kingdom of Hungary, inside Austria-Hungary.",
+   "kind": "fact",
+   "claims": [
+    "c_hungary"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BACK THEN, TRANSYLVANIA",
+     3
+    ],
+    [
+     "BELONGED TO",
+     2
+    ],
+    [
+     "THE KINGDOM OF HUNGARY,",
+     4
+    ],
+    [
+     "INSIDE AUSTRIA-HUNGARY.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "border",
+   "say": "Romania was next door, across the mountains.",
+   "kind": "fact",
+   "claims": [
+    "c_mountains"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "ROMANIA WAS",
+     2
+    ],
+    [
+     "NEXT DOOR,",
+     2
+    ],
+    [
+     "ACROSS THE MOUNTAINS.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "war",
+   "say": "Then the First World War broke Austria-Hungary apart.",
+   "kind": "fact",
+   "claims": [
+    "c_ww1"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THEN THE FIRST WORLD WAR",
+     5
+    ],
+    [
+     "BROKE AUSTRIA-HUNGARY",
+     2
+    ],
+    [
+     "APART.",
+     1
+    ]
+   ]
+  },
+  {
+   "id": "union",
+   "say": "In nineteen eighteen, Transylvania's Romanian delegates declared union with Romania.",
+   "kind": "fact",
+   "claims": [
+    "c_union"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 1918,",
+     3
+    ],
+    [
+     "TRANSYLVANIA'S ROMANIAN DELEGATES",
+     3
+    ],
+    [
+     "DECLARED UNION",
+     2
+    ],
+    [
+     "WITH ROMANIA.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "treaty",
+   "say": "A treaty made it official in nineteen twenty.",
+   "kind": "fact",
+   "claims": [
+    "c_trianon"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "A TREATY",
+     2
+    ],
+    [
+     "MADE IT OFFICIAL",
+     3
+    ],
+    [
+     "IN 1920.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "vlad",
+   "say": "And the real Dracula? Vlad the Impaler ruled Wallachia. The other side of the mountains.",
+   "kind": "fact",
+   "claims": [
+    "c_vlad",
+    "c_mountains"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "AND THE REAL DRACULA?",
+     4
+    ],
+    [
+     "VLAD THE IMPALER",
+     3
+    ],
+    [
+     "RULED WALLACHIA.",
+     2
+    ],
+    [
+     "THE OTHER SIDE OF THE MOUNTAINS.",
+     6
+    ]
+   ]
+  },
+  {
+   "id": "bran",
+   "say": "Today, Bran Castle is sold to tourists as Dracula's Castle.",
+   "kind": "fact",
+   "claims": [
+    "c_bran"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "TODAY, BRAN CASTLE",
+     3
+    ],
+    [
+     "IS SOLD TO TOURISTS",
+     4
+    ],
+    [
+     "AS DRACULA'S CASTLE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "evidence",
+   "say": "There's no evidence Stoker even knew it existed.",
+   "kind": "joke",
+   "claims": [
+    "c_noevidence"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "THERE'S NO EVIDENCE",
+     3
+    ],
+    [
+     "STOKER EVEN KNEW",
+     3
+    ],
+    [
+     "IT EXISTED.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "end",
+   "say": "Dracula never moved. The border did.",
+   "kind": "callback",
+   "claims": [
+    "c_union"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "DRACULA NEVER MOVED.",
+     3
+    ],
+    [
+     "THE BORDER DID.",
+     3
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "end",
+  "connects_to": "hook",
+  "how": "Answers the hook's 'wasn't in Romania': the castle stayed put and the border moved; the last frame is the castle under the new border, the first frame the castle under the old one."
+ },
+ "pronounce": {
+  "Wallachia": "Wa-lay-kia"
+ }
+}

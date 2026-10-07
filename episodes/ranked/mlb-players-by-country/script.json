@@ -1,0 +1,218 @@
+{
+ "channel": "ranked",
+ "episode": "mlb-players-by-country",
+ "series": "per_person",
+ "working_title": "Where MLB players come from, outside the US (and per person)",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Nearly one in ten Major League players was born in the Dominican Republic.",
+   "kind": "hook",
+   "claims": [
+    "c_dr"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "NEARLY 1 IN 10",
+     4
+    ],
+    [
+     "MAJOR LEAGUE PLAYERS",
+     3
+    ],
+    [
+     "WAS BORN IN",
+     3
+    ],
+    [
+     "THE DOMINICAN REPUBLIC.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "count",
+   "say": "Ninety-three of them, on this season's Opening Day rosters.",
+   "kind": "fact",
+   "claims": [
+    "c_dr"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "93 OF THEM,",
+     3
+    ],
+    [
+     "ON THIS SEASON'S",
+     3
+    ],
+    [
+     "OPENING DAY ROSTERS.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "rest",
+   "say": "Venezuela has sixty. Cuba, twenty. Canada, nineteen.",
+   "kind": "fact",
+   "claims": [
+    "c_next"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "VENEZUELA HAS 60.",
+     3
+    ],
+    [
+     "CUBA, 20.",
+     2
+    ],
+    [
+     "CANADA, 19.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "japan",
+   "say": "Japan and Puerto Rico, fourteen each.",
+   "kind": "fact",
+   "claims": [
+    "c_jp_pr"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "JAPAN AND PUERTO RICO,",
+     4
+    ],
+    [
+     "14 EACH.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "pivot",
+   "say": "But per person, the leader is somewhere much smaller.",
+   "kind": "transition",
+   "claims": [
+    "c_percap"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "BUT PER PERSON,",
+     3
+    ],
+    [
+     "THE LEADER IS",
+     3
+    ],
+    [
+     "SOMEWHERE MUCH SMALLER.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "curacao",
+   "say": "Curacao. Four Major Leaguers, from about a hundred fifty-six thousand people.",
+   "kind": "fact",
+   "claims": [
+    "c_small",
+    "c_pop_cw"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "CURAÇAO.",
+     1
+    ],
+    [
+     "4 MAJOR LEAGUERS,",
+     3
+    ],
+    [
+     "FROM ABOUT",
+     2
+    ],
+    [
+     "156,000 PEOPLE.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "ratio",
+   "say": "That's one in every thirty-nine thousand. About three times the Dominican rate.",
+   "kind": "fact",
+   "claims": [
+    "c_percap",
+    "c_pop_dr"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "THAT'S 1 IN EVERY",
+     4
+    ],
+    [
+     "39,000.",
+     2
+    ],
+    [
+     "ABOUT 3 TIMES",
+     3
+    ],
+    [
+     "THE DOMINICAN RATE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "Most players: Dominican Republic. Per person: Curacao.",
+   "kind": "callback",
+   "claims": [
+    "c_dr",
+    "c_percap"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "MOST PLAYERS:",
+     2
+    ],
+    [
+     "DOMINICAN REPUBLIC.",
+     2
+    ],
+    [
+     "PER PERSON:",
+     2
+    ],
+    [
+     "CURAÇAO.",
+     1
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Names the hook's Dominican Republic again and the per-person twist; the last frame is the Dominican Republic vs Curaçao face-off, and the replay starts on the Dominican flag."
+ },
+ "pronounce": {
+  "Curacao": "Kyoorasow"
+ }
+}

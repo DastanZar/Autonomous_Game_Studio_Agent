@@ -1,0 +1,317 @@
+{
+ "channel": "why-map",
+ "episode": "market-island",
+ "series": "border",
+ "working_title": "Finland built a lighthouse in Sweden, so they bent the border",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "In eighteen eighty-five, Finland built its lighthouse in Sweden.",
+   "kind": "hook",
+   "claims": [
+    "c_built",
+    "c_side"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "IN 1885,",
+     3
+    ],
+    [
+     "FINLAND BUILT",
+     2
+    ],
+    [
+     "ITS LIGHTHOUSE",
+     2
+    ],
+    [
+     "IN SWEDEN.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "rock",
+   "say": "The island is Märket. A bare rock in the Baltic Sea, just over three hundred metres long.",
+   "kind": "fact",
+   "claims": [
+    "c_rock"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THE ISLAND IS MÄRKET.",
+     4
+    ],
+    [
+     "A BARE ROCK",
+     3
+    ],
+    [
+     "IN THE BALTIC SEA,",
+     4
+    ],
+    [
+     "JUST OVER 300 M LONG.",
+     6
+    ]
+   ]
+  },
+  {
+   "id": "middle",
+   "say": "Since eighteen oh-nine, the border ran straight through its middle.",
+   "kind": "fact",
+   "claims": [
+    "c_mid"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "SINCE 1809,",
+     3
+    ],
+    [
+     "THE BORDER RAN",
+     3
+    ],
+    [
+     "STRAIGHT THROUGH ITS MIDDLE.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "west",
+   "say": "The lighthouse went up thirty-five to sixty metres west of that line. The Swedish side.",
+   "kind": "fact",
+   "claims": [
+    "c_side"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THE LIGHTHOUSE WENT UP",
+     4
+    ],
+    [
+     "35–60 METRES",
+     4
+    ],
+    [
+     "WEST OF THAT LINE.",
+     4
+    ],
+    [
+     "THE SWEDISH SIDE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "why",
+   "say": "Why there? The official papers don't say.",
+   "kind": "joke",
+   "claims": [
+    "c_why"
+   ],
+   "gap": 0.55,
+   "caps": [
+    [
+     "WHY THERE?",
+     2
+    ],
+    [
+     "THE OFFICIAL PAPERS",
+     3
+    ],
+    [
+     "DON'T SAY.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "fix",
+   "say": "In nineteen eighty-five, they fixed it. Not by moving the lighthouse. By moving the border.",
+   "kind": "fact",
+   "claims": [
+    "c_change"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 1985,",
+     3
+    ],
+    [
+     "THEY FIXED IT.",
+     3
+    ],
+    [
+     "NOT BY MOVING THE LIGHTHOUSE.",
+     5
+    ],
+    [
+     "BY MOVING THE BORDER.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "swap",
+   "say": "Finland got the land around the lighthouse. Sweden got the same amount back.",
+   "kind": "fact",
+   "claims": [
+    "c_swap"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "FINLAND GOT THE LAND",
+     4
+    ],
+    [
+     "AROUND THE LIGHTHOUSE.",
+     3
+    ],
+    [
+     "SWEDEN GOT THE SAME AMOUNT",
+     5
+    ],
+    [
+     "BACK.",
+     1
+    ]
+   ]
+  },
+  {
+   "id": "number",
+   "say": "Three thousand nine hundred and thirteen square metres. Each way.",
+   "kind": "fact",
+   "claims": [
+    "c_swap"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "3,913 M².",
+     8
+    ],
+    [
+     "EACH WAY.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "coast",
+   "say": "The coastline stayed put, to protect both countries' fishing rights.",
+   "kind": "fact",
+   "claims": [
+    "c_coast"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THE COASTLINE STAYED PUT,",
+     4
+    ],
+    [
+     "TO PROTECT BOTH COUNTRIES'",
+     4
+    ],
+    [
+     "FISHING RIGHTS.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "zigzag",
+   "say": "The result: a zigzag border on a rock where nobody lives.",
+   "kind": "fact",
+   "claims": [
+    "c_zigzag",
+    "c_empty"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "THE RESULT:",
+     2
+    ],
+    [
+     "A ZIGZAG BORDER",
+     3
+    ],
+    [
+     "ON A ROCK",
+     3
+    ],
+    [
+     "WHERE NOBODY LIVES.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "holes",
+   "say": "It's marked by holes drilled into the rock. Anything taller, the ice would shear off.",
+   "kind": "fact",
+   "claims": [
+    "c_holes"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "IT'S MARKED BY HOLES",
+     4
+    ],
+    [
+     "DRILLED INTO THE ROCK.",
+     4
+    ],
+    [
+     "ANYTHING TALLER,",
+     2
+    ],
+    [
+     "THE ICE WOULD SHEAR OFF.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "end",
+   "say": "All for one lighthouse.",
+   "kind": "callback",
+   "claims": [
+    "c_built"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "ALL FOR",
+     2
+    ],
+    [
+     "ONE LIGHTHOUSE.",
+     2
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "end",
+  "connects_to": "hook",
+  "how": "Returns to the lighthouse the hook introduced; the last frame is the lighthouse on its zigzag, the first frame the lighthouse going up."
+ },
+ "pronounce": {
+  "Märket": "Mair-ket"
+ }
+}

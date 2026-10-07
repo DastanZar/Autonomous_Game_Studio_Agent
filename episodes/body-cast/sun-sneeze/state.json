@@ -10,10 +10,20 @@
   },
   "research": {
    "result": "pass",
-   "at": "2026-10-07T20:04:10Z",
+   "at": "2026-10-07T20:06:10Z",
    "hashes": {
     "topic.json": "6a9c8c72260a",
-    "dossier.json": "6a16e36cf6fb"
+    "dossier.json": "57aea033acad"
+   },
+   "failed": []
+  },
+  "script": {
+   "result": "pass",
+   "at": "2026-10-07T20:17:30Z",
+   "hashes": {
+    "topic.json": "6a9c8c72260a",
+    "dossier.json": "57aea033acad",
+    "script.json": "6a40c0eaee0d"
    },
    "failed": []
   }

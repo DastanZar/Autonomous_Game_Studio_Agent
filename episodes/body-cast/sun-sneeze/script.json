@@ -1,0 +1,252 @@
+{
+ "channel": "body-cast",
+ "episode": "sun-sneeze",
+ "series": "what_if",
+ "working_title": "Why does sunlight make you sneeze?",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "The sun still wins: the last frame is the Brain sneezing under the sun, as in frame one."
+ },
+ "paras": [
+  {
+   "id": "hook",
+   "say": "About one in four people sneeze when they step into bright sunlight.",
+   "kind": "hook",
+   "claims": [
+    "c_quarter"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "ABOUT 1 IN 4 PEOPLE",
+     5
+    ],
+    [
+     "SNEEZE WHEN THEY STEP",
+     4
+    ],
+    [
+     "INTO BRIGHT SUNLIGHT.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "achoo",
+   "say": "Excuse me. That was the sun.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.45,
+   "caps": [],
+   "speaker": "brain"
+  },
+  {
+   "id": "aristotle",
+   "say": "Aristotle had a theory. The sun's heat stirs things up inside your nose.",
+   "kind": "fact",
+   "claims": [
+    "c_aristotle"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "ARISTOTLE HAD A THEORY.",
+     4
+    ],
+    [
+     "THE SUN'S HEAT",
+     3
+    ],
+    [
+     "STIRS THINGS UP",
+     3
+    ],
+    [
+     "INSIDE YOUR NOSE.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "bacon",
+   "say": "Nearly two thousand years later, Francis Bacon tested it. He faced the sun with his eyes shut.",
+   "kind": "fact",
+   "claims": [
+    "c_bacon",
+    "c_aristotle"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "NEARLY 2,000 YEARS LATER,",
+     5
+    ],
+    [
+     "FRANCIS BACON TESTED IT.",
+     4
+    ],
+    [
+     "HE FACED THE SUN",
+     4
+    ],
+    [
+     "WITH HIS EYES SHUT.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "none",
+   "say": "No sneeze. So it wasn't the heat. It was the light, in his eyes.",
+   "kind": "fact",
+   "claims": [
+    "c_bacon"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "NO SNEEZE.",
+     2
+    ],
+    [
+     "SO IT WASN'T THE HEAT.",
+     5
+    ],
+    [
+     "IT WAS THE LIGHT,",
+     4
+    ],
+    [
+     "IN HIS EYES.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "moist",
+   "say": "His explanation? The sun draws moisture down from your brain.",
+   "kind": "fact",
+   "claims": [
+    "c_brainmoist"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "HIS EXPLANATION?",
+     2
+    ],
+    [
+     "THE SUN DRAWS MOISTURE",
+     4
+    ],
+    [
+     "DOWN FROM YOUR BRAIN.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "rude",
+   "say": "I am not leaking.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.45,
+   "caps": [],
+   "speaker": "brain"
+  },
+  {
+   "id": "eeg",
+   "say": "In twenty ten, brain scans found that in people who sneeze at light, the visual cortex reacts more strongly.",
+   "kind": "fact",
+   "claims": [
+    "c_eeg"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 2010,",
+     3
+    ],
+    [
+     "BRAIN SCANS FOUND",
+     3
+    ],
+    [
+     "THAT IN PEOPLE WHO",
+     4
+    ],
+    [
+     "SNEEZE AT LIGHT,",
+     3
+    ],
+    [
+     "THE VISUAL CORTEX",
+     3
+    ],
+    [
+     "REACTS MORE STRONGLY.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "unclear",
+   "say": "How light becomes a sneeze? A twenty twenty-five review says it's still unclear.",
+   "kind": "fact",
+   "claims": [
+    "c_unclear"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "HOW LIGHT BECOMES",
+     3
+    ],
+    [
+     "A SNEEZE?",
+     2
+    ],
+    [
+     "A 2025 REVIEW",
+     4
+    ],
+    [
+     "SAYS IT'S STILL UNCLEAR.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "toll",
+   "say": "Two thousand years. Still sneezing.",
+   "kind": "callback",
+   "claims": [
+    "c_aristotle",
+    "c_unclear"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "2,000 YEARS.",
+     3
+    ],
+    [
+     "STILL SNEEZING.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  }
+ ]
+}

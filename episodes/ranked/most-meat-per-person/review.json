@@ -1,0 +1,59 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-07T20:13:22Z",
+   "reviewer": "worker (Leader Flags batch 2026-10-07), round 1: 14 stills, at least one per scene after each number lands",
+   "frames": [
+    0.05,
+    3.6,
+    9.1,
+    12.6,
+    15.9,
+    19.8,
+    22.9,
+    26.6,
+    31.3,
+    33.9
+   ],
+   "defects": [
+    {
+     "t": 6.0,
+     "issue": "source line wider than the frame (cut at both edges) in every scene",
+     "fixed": true
+    },
+    {
+     "t": 26.6,
+     "issue": "s_supply: the not-equal sign is missing from Anton and rendered as =, which says the opposite; stamp reworded NOT ALL EATEN",
+     "fixed": true
+    },
+    {
+     "t": 31.3,
+     "issue": "s_bottom: note line runs off the left edge",
+     "fixed": true
+    },
+    {
+     "t": 22.9,
+     "issue": "s_day: sub line long and crowded",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-07T20:13:23Z",
+   "reviewer": "worker, round 2: stills after the fixes; globe checked against each spoken place (US, US, MH, MN, TO, TO, TO, IN then CD, US then TO); numbers checked against data/meat_supply_per_person_2023.csv (122.06, 125.62, 136.14, 156.93, 8.12, 3.49)",
+   "frames": [
+    0.05,
+    3.6,
+    9.1,
+    12.6,
+    15.9,
+    19.8,
+    22.9,
+    26.6,
+    31.3,
+    33.9
+   ],
+   "defects": []
+  }
+ ]
+}

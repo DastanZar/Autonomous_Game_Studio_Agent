@@ -1,0 +1,112 @@
+{
+ "topic": "Countries ranked by meat supply per person (FAO Food Balances, 2023, via Our World in Data)",
+ "sources": [
+  {
+   "id": "owid_csv",
+   "title": "Meat supply per person (full data download, kilograms per person per year, 1961-2023)",
+   "publisher": "Our World in Data, from FAO Food Balances (2025 release)",
+   "url": "https://ourworldindata.org/grapher/meat-supply-per-person.csv?v=1&csvType=full&useColumnShortNames=true",
+   "type": "dataset",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "owid_meta",
+   "title": "Meat supply per person: chart metadata (definition and caveats)",
+   "publisher": "Our World in Data",
+   "url": "https://ourworldindata.org/grapher/meat-supply-per-person.metadata.json",
+   "type": "dataset",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_tonga",
+   "key": true,
+   "status": "framed",
+   "label": "FAO meat supply per person, 2023",
+   "sources": [
+    "owid_csv"
+   ],
+   "text": "Tonga had the highest meat supply per person in 2023: about 157 kg per person per year (156.93), the top of 176 countries in the dataset.",
+   "quote": "Tonga TON 2023 156.9305",
+   "note": "Rank from data/meat_supply_per_person_2023.csv (all 176 entities with an ISO code, 2023). 156.93/365 = 0.43 kg a day."
+  },
+  {
+   "id": "c_mongolia",
+   "key": true,
+   "status": "framed",
+   "label": "FAO meat supply per person, 2023",
+   "sources": [
+    "owid_csv"
+   ],
+   "text": "Mongolia was second in 2023 with about 136 kg per person.",
+   "quote": "Mongolia MNG 2023 136.13968"
+  },
+  {
+   "id": "c_marshall",
+   "key": true,
+   "status": "framed",
+   "label": "FAO meat supply per person, 2023",
+   "sources": [
+    "owid_csv"
+   ],
+   "text": "The Marshall Islands were third in 2023 with about 126 kg per person.",
+   "quote": "Marshall Islands MHL 2023 125.61854"
+  },
+  {
+   "id": "c_usa",
+   "key": true,
+   "status": "framed",
+   "label": "FAO meat supply per person, 2023",
+   "sources": [
+    "owid_csv"
+   ],
+   "text": "The United States was fourth in 2023 with about 122 kg per person.",
+   "quote": "United States USA 2023 122.060005"
+  },
+  {
+   "id": "c_india",
+   "key": false,
+   "status": "framed",
+   "label": "FAO meat supply per person, 2023",
+   "sources": [
+    "owid_csv"
+   ],
+   "text": "India had about 8 kg of meat per person in 2023.",
+   "quote": "India IND 2023 8.12"
+  },
+  {
+   "id": "c_congo",
+   "key": false,
+   "status": "framed",
+   "label": "FAO meat supply per person, 2023",
+   "sources": [
+    "owid_csv"
+   ],
+   "text": "The Democratic Republic of Congo had the lowest figure in 2023, about 3.5 kg per person (under four).",
+   "quote": "Democratic Republic of Congo COD 2023 3.4899998"
+  },
+  {
+   "id": "c_supply",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "owid_meta"
+   ],
+   "text": "The figure is meat available for consumption (supply), not meat eaten: it does not correct for waste, so actual consumption may be lower; it excludes fish and seafood.",
+   "quote": "Quantity that is available for consumption at the end of the supply chain. It does not account for consumer waste, so the quantity that is actually consumed may be lower; Data excludes fish and other seafood sources"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Americans eat the most meat in the world.",
+   "truth": "In FAO's 2023 supply data the US is fourth, behind Tonga, Mongolia and the Marshall Islands.",
+   "sources": [
+    "owid_csv"
+   ]
+  }
+ ],
+ "open_questions": [
+  "FAO's latest release lacks some countries (incl. Japan), filled by OWID from an earlier release; not used in the script."
+ ]
+}

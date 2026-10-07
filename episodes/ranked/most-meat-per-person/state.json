@@ -7,6 +7,44 @@
     "topic.json": "70f8ddb6cb2c"
    },
    "failed": []
+  },
+  "research": {
+   "result": "pass",
+   "at": "2026-10-07T20:10:18Z",
+   "hashes": {
+    "topic.json": "70f8ddb6cb2c",
+    "dossier.json": "8d2e6960ed8f"
+   },
+   "failed": []
+  },
+  "script": {
+   "result": "pass",
+   "at": "2026-10-07T20:10:18Z",
+   "hashes": {
+    "topic.json": "70f8ddb6cb2c",
+    "dossier.json": "8d2e6960ed8f",
+    "script.json": "6be43a1168d2"
+   },
+   "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-07T20:12:24Z",
+   "hashes": {
+    "script.json": "6be43a1168d2",
+    "build/timeline.json": "7ef6d344ce96"
+   },
+   "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-07T20:13:23Z",
+   "hashes": {
+    "script.json": "6be43a1168d2",
+    "build/timeline.json": "7ef6d344ce96",
+    "storyboard.json": "1ce88d77c18c"
+   },
+   "failed": []
   }
  }
 }

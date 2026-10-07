@@ -44,6 +44,12 @@ for name in sys.argv[1:]:
     rgba[..., 3] = al.astype(np.uint8)
     sl = rgba[int(h * 0.85):, :, :3][al[int(h * 0.85):] > 200]
     col = sl.mean(axis=0) if len(sl) else np.array([60, 40, 30])          # BGR
+    # a knit texture tile from the sleeve body (fully opaque, away from the edges), for the engine to continue the sleeve with
+    ys2, xs2 = np.where(al > 250); m2 = (ys2 > h * 0.80) & (ys2 < h - 90) & (xs2 < w - 90)
+    if m2.any():
+        cyy, cxx = int(np.median(ys2[m2])), int(np.median(xs2[m2]))
+        tile = rgba[max(0, cyy - 80): cyy + 80, max(0, cxx - 80): cxx + 80, :3]
+        cv2.imwrite(os.path.join(D, name + "_sleeve.png"), cv2.resize(tile, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA))
     cx, cy = (xl + w) / 2, h
     d = np.array([cx - tip[0], cy - tip[1]], dtype=float); d /= np.linalg.norm(d)
     s = 0.5
@@ -51,7 +57,7 @@ for name in sys.argv[1:]:
     cv2.imwrite(os.path.join(D, name + ".png"), rgba, [cv2.IMWRITE_PNG_COMPRESSION, 9])
     out[name] = {"file": name + ".png", "tip": [round(tip[0] * s), round(tip[1] * s)], "size": [rgba.shape[1], rgba.shape[0]],
                  "sleeve": {"bl": [round(xl * s), round(h * s)], "corner": [round(w * s), round(h * s)], "rt": [round(w * s), round(yt * s)],
-                            "dir": [round(float(d[0]), 3), round(float(d[1]), 3)], "color": "#%02x%02x%02x" % (int(col[2]), int(col[1]), int(col[0]))}}
+                            "dir": [round(float(d[0]), 3), round(float(d[1]), 3)], "tile": name + "_sleeve.png", "color": "#%02x%02x%02x" % (int(col[2]), int(col[1]), int(col[0]))}}
     print(name, out[name])
 json.dump({"_doc": "Photoreal hand cut-outs for the sketch kit (studio/tools/hand_cutout.py). Source images: Nano Banana, made by the user 2026-10-08 (prompt in the chat log). tip = pencil-tip pixel.", "hands": out},
           open(os.path.join(D, "hands.json"), "w"), indent=1)

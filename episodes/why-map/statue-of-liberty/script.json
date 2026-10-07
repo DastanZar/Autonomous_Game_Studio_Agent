@@ -1,0 +1,319 @@
+{
+ "channel": "why-map",
+ "episode": "statue-of-liberty",
+ "series": "border",
+ "working_title": "The Statue of Liberty is in New York, surrounded by New Jersey",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "The Statue of Liberty is in New York. Surrounded by New Jersey.",
+   "kind": "hook",
+   "claims": [
+    "c_ny",
+    "c_surrounded"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "THE STATUE OF LIBERTY",
+     4
+    ],
+    [
+     "IS IN NEW YORK.",
+     4
+    ],
+    [
+     "SURROUNDED BY",
+     2
+    ],
+    [
+     "NEW JERSEY.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "line",
+   "say": "In eighteen thirty-four, the two states drew their border down the middle of the Hudson.",
+   "kind": "fact",
+   "claims": [
+    "c_compact"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "IN 1834,",
+     3
+    ],
+    [
+     "THE TWO STATES",
+     3
+    ],
+    [
+     "DREW THEIR BORDER",
+     3
+    ],
+    [
+     "DOWN THE MIDDLE OF THE HUDSON.",
+     6
+    ]
+   ]
+  },
+  {
+   "id": "side",
+   "say": "That left two islands on New Jersey's side.",
+   "kind": "fact",
+   "claims": [
+    "c_nside"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THAT LEFT TWO ISLANDS",
+     4
+    ],
+    [
+     "ON NEW JERSEY'S SIDE.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "keep",
+   "say": "New York kept them anyway. It's written into the deal.",
+   "kind": "fact",
+   "claims": [
+    "c_keep"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "NEW YORK KEPT THEM ANYWAY.",
+     5
+    ],
+    [
+     "IT'S WRITTEN",
+     2
+    ],
+    [
+     "INTO THE DEAL.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "statue",
+   "say": "On October twenty-eighth, eighteen eighty-six, the statue was dedicated on one of them. In fog and rain.",
+   "kind": "fact",
+   "claims": [
+    "c_dedicated",
+    "c_fog"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "ON OCT 28,",
+     3
+    ],
+    [
+     "1886,",
+     2
+    ],
+    [
+     "THE STATUE WAS DEDICATED",
+     4
+    ],
+    [
+     "ON ONE OF THEM.",
+     4
+    ],
+    [
+     "IN FOG AND RAIN.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "ellis",
+   "say": "The other one was Ellis Island. Back then, three acres.",
+   "kind": "fact",
+   "claims": [
+    "c_fill"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THE OTHER ONE",
+     3
+    ],
+    [
+     "WAS ELLIS ISLAND.",
+     3
+    ],
+    [
+     "BACK THEN,",
+     2
+    ],
+    [
+     "3 ACRES.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "fill",
+   "say": "The government kept adding landfill. About twenty-four and a half more acres.",
+   "kind": "fact",
+   "claims": [
+    "c_fill"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THE GOVERNMENT",
+     2
+    ],
+    [
+     "KEPT ADDING LANDFILL.",
+     3
+    ],
+    [
+     "ABOUT 24.5 MORE ACRES.",
+     7
+    ]
+   ]
+  },
+  {
+   "id": "court",
+   "say": "New Jersey sued. In nineteen ninety-eight, the Supreme Court gave it the new land.",
+   "kind": "fact",
+   "claims": [
+    "c_ruling"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "NEW JERSEY SUED.",
+     3
+    ],
+    [
+     "IN 1998,",
+     3
+    ],
+    [
+     "THE SUPREME COURT",
+     3
+    ],
+    [
+     "GAVE IT THE NEW LAND.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "two",
+   "say": "So Ellis Island is in two states.",
+   "kind": "fact",
+   "claims": [
+    "c_ruling"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "SO ELLIS ISLAND",
+     3
+    ],
+    [
+     "IS IN TWO STATES.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "ground",
+   "say": "Liberty Island got some landfill too. But the ground under the statue is natural.",
+   "kind": "fact",
+   "claims": [
+    "c_libfill"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "LIBERTY ISLAND",
+     2
+    ],
+    [
+     "GOT SOME LANDFILL TOO.",
+     4
+    ],
+    [
+     "BUT THE GROUND",
+     3
+    ],
+    [
+     "UNDER THE STATUE",
+     3
+    ],
+    [
+     "IS NATURAL.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "power",
+   "say": "Her power and water still come from the New Jersey side.",
+   "kind": "fact",
+   "claims": [
+    "c_utilities"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "HER POWER AND WATER",
+     4
+    ],
+    [
+     "STILL COME",
+     2
+    ],
+    [
+     "FROM THE NEW JERSEY SIDE.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "end",
+   "say": "She stays in New York. Surrounded by New Jersey.",
+   "kind": "callback",
+   "claims": [
+    "c_ny",
+    "c_surrounded"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "SHE STAYS IN NEW YORK.",
+     5
+    ],
+    [
+     "SURROUNDED BY",
+     2
+    ],
+    [
+     "NEW JERSEY.",
+     2
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "end",
+  "connects_to": "hook",
+  "how": "Repeats the hook's 'Surrounded by New Jersey' as the verdict; the last frame is the statue on its New York island inside the New Jersey line, matching the first frame."
+ }
+}

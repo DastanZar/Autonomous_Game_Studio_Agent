@@ -1,0 +1,283 @@
+{
+ "episode": "most-meat-per-person",
+ "theme": "data-flags",
+ "kits": [
+  "kinetic",
+  "flagart",
+  "rank"
+ ],
+ "flags": [
+  "US",
+  "IN"
+ ],
+ "flagship": "House method (user 2026-10-06): C (kinetic infographic) is Leader Flags' default.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "region": [
+     -180.0,
+     -60.0,
+     180.0,
+     84.0
+    ],
+    "focus": [
+     "US"
+    ]
+   },
+   "events": [
+    {
+     "at": "hook/america",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_fourth",
+   "type": "custom",
+   "start": "fourth.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "US"
+    ],
+    "name": "United States",
+    "value": 122,
+    "unit": "KG",
+    "rank": 4,
+    "at": "fourth/united",
+    "valueAt": "fourth/one",
+    "sub": "per person, per year · FAO, 2023",
+    "source": "FAO Food Balances 2023 (Our World in Data)",
+    "focus": [
+     "US"
+    ]
+   },
+   "events": [
+    {
+     "at": "fourth/united",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_third",
+   "type": "custom",
+   "start": "third.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "MH"
+    ],
+    "name": "Marshall Islands",
+    "value": 126,
+    "unit": "KG",
+    "rank": 3,
+    "at": "third/marshall",
+    "valueAt": "third/one",
+    "sub": "per person, per year · FAO, 2023",
+    "source": "FAO Food Balances 2023 (Our World in Data)",
+    "focus": [
+     "MH"
+    ],
+    "nameSize": 70
+   },
+   "events": [
+    {
+     "at": "third/marshall",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_second",
+   "type": "custom",
+   "start": "second.start-0.15",
+   "params": {
+    "fn": "entry",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "codes": [
+     "MN"
+    ],
+    "name": "Mongolia",
+    "value": 136,
+    "unit": "KG",
+    "rank": 2,
+    "at": "second/mongolia",
+    "valueAt": "second/one",
+    "sub": "per person, per year · FAO, 2023",
+    "source": "FAO Food Balances 2023 (Our World in Data)",
+    "focus": [
+     "MN"
+    ]
+   },
+   "events": [
+    {
+     "at": "second/mongolia",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_first",
+   "type": "custom",
+   "start": "first.start-0.15",
+   "params": {
+    "fn": "first",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "label": "FAO meat supply per person, 2023",
+    "focus": [
+     "TO"
+    ]
+   },
+   "events": [
+    {
+     "at": "first/tonga",
+     "do": "reveal",
+     "sfx": "stamp"
+    },
+    {
+     "at": "first/one",
+     "do": "count_start",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_day",
+   "type": "custom",
+   "start": "day.start-0.15",
+   "params": {
+    "fn": "day",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "label": "FAO meat supply per person, 2023",
+    "focus": [
+     "TO"
+    ]
+   },
+   "events": [
+    {
+     "at": "day/four",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_supply",
+   "type": "custom",
+   "start": "supply.start-0.15",
+   "params": {
+    "fn": "supply",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "TO"
+    ]
+   },
+   "events": [
+    {
+     "at": "supply/not",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_bottom",
+   "type": "custom",
+   "start": "bottom.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "title": "THE OTHER END",
+    "y0": 620,
+    "dy": 150,
+    "rows": [
+     {
+      "rank": 168,
+      "code": "IN",
+      "name": "India",
+      "value": 8.1,
+      "dec": 1,
+      "suffix": " kg",
+      "at": "bottom/india",
+      "valueAt": "bottom/eight"
+     },
+     {
+      "rank": 176,
+      "code": "CD",
+      "name": "DR Congo",
+      "value": 3.5,
+      "dec": 1,
+      "suffix": " kg",
+      "at": "bottom/congo",
+      "valueAt": "bottom/under"
+     }
+    ],
+    "note": "DR Congo: last of 176 countries",
+    "noteAt": "bottom/four",
+    "focus": [
+     "IN"
+    ],
+    "focusAt": [
+     {
+      "at": "bottom/congo",
+      "codes": [
+       "CD"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "bottom/india",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "bottom/congo",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "US"
+    ],
+    "focusAt": [
+     {
+      "at": "toll/tonga",
+      "codes": [
+       "TO"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "toll/tonga",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

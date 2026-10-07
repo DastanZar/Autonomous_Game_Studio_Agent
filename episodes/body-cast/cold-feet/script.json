@@ -1,0 +1,287 @@
+{
+ "channel": "body-cast",
+ "episode": "cold-feet",
+ "series": "what_if",
+ "working_title": "Do cold feet give you a cold?",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Answers the hook's grandma line: half right. Last frame is the Heart back in the ice bucket, as in frame one."
+ },
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Grandma said cold feet give you a cold. Science called it folklore.",
+   "kind": "hook",
+   "claims": [
+    "c_folk"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "GRANDMA SAID",
+     2
+    ],
+    [
+     "COLD FEET",
+     2
+    ],
+    [
+     "GIVE YOU A COLD.",
+     4
+    ],
+    [
+     "SCIENCE CALLED IT",
+     3
+    ],
+    [
+     "FOLKLORE.",
+     1
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "virus",
+   "say": "Colds are caused by viruses. And earlier studies found no link to getting chilled.",
+   "kind": "fact",
+   "claims": [
+    "c_virus",
+    "c_folk"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "COLDS ARE CAUSED",
+     3
+    ],
+    [
+     "BY VIRUSES.",
+     2
+    ],
+    [
+     "AND EARLIER STUDIES",
+     3
+    ],
+    [
+     "FOUND NO LINK",
+     3
+    ],
+    [
+     "TO GETTING CHILLED.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "test",
+   "say": "So in two thousand five, a lab in Cardiff tested it on one hundred eighty volunteers.",
+   "kind": "fact",
+   "claims": [
+    "c_lab",
+    "c_design"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "SO IN 2005,",
+     5
+    ],
+    [
+     "A LAB IN CARDIFF",
+     4
+    ],
+    [
+     "TESTED IT ON",
+     3
+    ],
+    [
+     "180 VOLUNTEERS.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "bucket",
+   "say": "Half sat with their feet in icy water for twenty minutes. Half sat with their feet in an empty bowl.",
+   "kind": "fact",
+   "claims": [
+    "c_design"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "HALF SAT WITH",
+     3
+    ],
+    [
+     "THEIR FEET IN ICY WATER",
+     5
+    ],
+    [
+     "FOR 20 MINUTES.",
+     3
+    ],
+    [
+     "HALF SAT WITH THEIR FEET",
+     5
+    ],
+    [
+     "IN AN EMPTY BOWL.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "brr",
+   "say": "I volunteered for this?",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.45,
+   "caps": [],
+   "speaker": "heart"
+  },
+  {
+   "id": "result",
+   "say": "Over the next four or five days, thirteen of the chilled group reported a cold. In the dry bowl group? Five.",
+   "kind": "fact",
+   "claims": [
+    "c_result"
+   ],
+   "gap": 0.5,
+   "caps": [
+    [
+     "OVER THE NEXT",
+     3
+    ],
+    [
+     "FOUR OR FIVE DAYS,",
+     4
+    ],
+    [
+     "13 OF THE CHILLED 90",
+     5
+    ],
+    [
+     "REPORTED A COLD.",
+     3
+    ],
+    [
+     "IN THE DRY BOWL GROUP?",
+     5
+    ],
+    [
+     "5 OF 90.",
+     1
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "turn",
+   "say": "But the cold water didn't bring the virus. The researchers think many people already carry one, with no symptoms.",
+   "kind": "fact",
+   "claims": [
+    "c_carriers"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "BUT THE COLD WATER",
+     4
+    ],
+    [
+     "DIDN'T BRING THE VIRUS.",
+     4
+    ],
+    [
+     "THE RESEARCHERS THINK",
+     3
+    ],
+    [
+     "MANY PEOPLE ALREADY",
+     3
+    ],
+    [
+     "CARRY ONE,",
+     2
+    ],
+    [
+     "WITH NO SYMPTOMS.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "vessels",
+   "say": "Chilling squeezes the blood vessels in your nose, and cuts off the warm blood that brings your defenders.",
+   "kind": "fact",
+   "claims": [
+    "c_vessels"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "CHILLING SQUEEZES",
+     2
+    ],
+    [
+     "THE BLOOD VESSELS",
+     3
+    ],
+    [
+     "IN YOUR NOSE,",
+     3
+    ],
+    [
+     "AND CUTS OFF THE WARM BLOOD",
+     6
+    ],
+    [
+     "THAT BRINGS YOUR DEFENDERS.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "cue",
+   "say": "That's our cue.",
+   "kind": "joke",
+   "claims": [
+    "c_dormant"
+   ],
+   "gap": 0.45,
+   "caps": [],
+   "speaker": "gut_microbes"
+  },
+  {
+   "id": "toll",
+   "say": "So, Grandma? Half right.",
+   "kind": "callback",
+   "claims": [
+    "c_result",
+    "c_carriers"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "SO, GRANDMA?",
+     2
+    ],
+    [
+     "HALF RIGHT.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  }
+ ]
+}
