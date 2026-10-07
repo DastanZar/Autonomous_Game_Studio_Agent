@@ -526,6 +526,20 @@ Try again
 - **Not verified:** I can't listen. Levels and transcripts were measured instead. The music beds for Gut Gang ('inside') and Leader Flags ('countdown') are at the bible default of 8 dB under the voice; only Border Quirks' 'detective' at 13 dB has been heard by the user.
 - **Delivered:** `docs/publish-kit-2026-10.md` (times, titles, descriptions, steps, API audit draft) and a dashboard review item with all 12 videos.
 
+_Source: docs/log/2026-09-28-studio-chat.md_
+
+### 🧑 User · 2026-10-07 UTC
+
+whats this 540 downgrade? when till now we had a working pipeline of videos and evry update being published there
+
+(then) I also want you to once you finish the renders, set up the channels and other aspects of them, all we have done is name them, we need to put a proper channel picture, description, write proper titles hashtags for all th euploads and whatever else is needed that helps boost a channel and its videos, im not the expert so i want you to go learn, read find what the experts are doing, use your own brain and set up the channels too, for the pciture give me a prompt, i will make them with nano banana and put it myself, everyhtig else you do
+
+(then) I hit my usage limit while you were working, but it has reset now. Please continue from where you left off.
+
+#### Claude · record
+
+- **540p reverted.** My mistake: I counted `docs/site-media.txt` (310 MB) as extra, but it lists the same 12 files that are already copied. The real site is 716 MB at full quality, under the 1 GB Pages limit, once the three full-size Point Roberts method variants are left off (their review previews stay). The dashboard again serves the exact rendered files; the masters release stays as a download page.
+
 
 ## Review rounds (review.json)
 
