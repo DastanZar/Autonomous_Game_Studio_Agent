@@ -2260,3 +2260,22 @@ Apart from the work already assigned to you, i want you to do one more thing onc
   - the music is the user-approved 'detective' track, copied into the new channel.
 - **Gates and status:** voice gate passes (Kokoro George; WER 0 after rewriting two lines Whisper misheard). Storyboard and picture gates pass after two contact-sheet rounds. Eight defects were fixed, including two items drawing at once, paper tile seams, an oversized hand, a gavel that read as a sign, and late labels.
 - **Not yet done:** the full render was slow (about 25 frames a minute) and still running when this was committed.
+
+### 🧑 User · 2026-10-07 UTC
+
+Help me understand how channels like atrium, explorist, primal space, imperialyt make their videos, the graphics the visuals, its all animated and not real but how do they do it, and thier videos are older than video gen models getting good so they arent using video models either
+
+#### Claude · record
+
+- **Answered from research:**
+  - Confirmed: Primal Space states it makes everything in Blender, rendered with the real-time EEVEE engine, with a writer/animator, a 3D modeller and a narrator.
+  - Typical tools for this kind of channel: the GEOlayers plugin for After Effects (real map tiles and GeoJSON borders), real elevation data and satellite textures for 3D terrain, model and stock libraries, reusable template rigs, and freelance animators.
+  - Could not confirm: I found no first-party statement of tools for Atrium, Explorist or Imperial, and said so.
+  - Suggested real terrain (elevation data plus satellite texture) for our 3D flights as the next visible upgrade, to be priced separately.
+- **Pencil pilot finished:**
+  - The full render took 396 s (my earlier "slow" estimate was wrong: the frame count lagged because frames are written in runs).
+  - Mix: 'detective' at 13.0 dB under the voice.
+  - Encode: 1080×1920, 24 fps, 72.9 s, −14.2 LUFS, transcript WER 0.005.
+  - Frozen time 1.73 s per 30 s, longest hold 0.5 s.
+  - Every gate passes through packaging. Encoded frames spot-checked.
+  - Added to the dashboard review queue as `sketch-pilot`. No upload schedule: it's a pilot.

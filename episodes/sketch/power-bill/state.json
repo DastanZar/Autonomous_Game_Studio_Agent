@@ -55,6 +55,26 @@
     "review.json": "28980067a438"
    },
    "failed": []
+  },
+  "final": {
+   "result": "pass",
+   "at": "2026-10-07T14:37:55Z",
+   "hashes": {
+    "review.json": "28980067a438",
+    "build/final_report.json": "7e72f749b2e5"
+   },
+   "failed": []
+  },
+  "package": {
+   "result": "pass",
+   "at": "2026-10-07T14:38:02Z",
+   "hashes": {
+    "build/final_report.json": "7e72f749b2e5",
+    "dossier.json": "6dc3be0d7de5",
+    "script.json": "f4ec3188c1dc",
+    "package.json": "755138254792"
+   },
+   "failed": []
   }
  }
 }

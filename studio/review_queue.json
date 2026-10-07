@@ -2,6 +2,23 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "sketch-pilot",
+   "status": "open",
+   "kind": "video",
+   "title": "New format pilot: the hand-drawn pencil explainer ('Why your power bill went up', 73 s)",
+   "question": "A drawn hand sketches the story onto one page; the camera pans cell to cell and pulls back to show the whole sheet at the end. Do you want this format? If yes: a fourth channel (my recommendation, US 'stories around us') or a series on an existing one, and what name (working name 'Drawn Out')? Flag anything in the look: hand, lettering, pace, captions.",
+   "files": [
+    [
+     "Why your power bill went up (a building you've never seen)",
+     "episodes/sketch/power-bill/out/power-bill.mp4"
+    ],
+    [
+     "Thumbnail",
+     "episodes/sketch/power-bill/out/thumbnail.jpg"
+    ]
+   ]
+  },
+  {
    "id": "launch-12",
    "status": "open",
    "kind": "video",
