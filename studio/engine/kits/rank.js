@@ -112,20 +112,50 @@ const LFG = (() => {
   }
   return { g, cen };
 })();
-function lfFocusOf(S) {
-  if (!S) return null; const p = S.p || {};
-  const codes = p.focus || p.codes || (p.L ? [p.L.code, p.R && p.R.code] : null);
-  if (!codes) return null;
-  const isos = codes.filter(Boolean).map(c => c.split("-")[0] === "GB" ? "GB" : c.split("-")[0]);
-  const pts = isos.map(c => LFG.cen[c]).filter(Boolean); if (!pts.length) return null;
-  return { isos, lon: pts.reduce((a, p) => a + p[0], 0) / pts.length, lat: pts.reduce((a, p) => a + p[1], 0) / pts.length };
+// US states (e.g. "US-TX") light up as their own shape when an episode ships data/us_states.json (Natural Earth admin-1)
+const LFS = (() => {
+  const raw = EP.data && Object.entries(EP.data).find(([k]) => k.endsWith("us_states.json"));
+  if (!raw) return {};
+  const out = {};
+  for (const s of JSON.parse(raw[1]).states) {
+    let best = null, ba = 0;
+    for (const poly of s.polys) { const r = poly[0]; let a = 0, cx = 0, cy = 0; for (let i = 0; i < r.length; i++) { const [x0, y0] = r[i], [x1, y1] = r[(i + 1) % r.length], f = x0 * y1 - x1 * y0; a += f; cx += (x0 + x1) * f; cy += (y0 + y1) * f; }
+      if (Math.abs(a) > ba && a !== 0) { ba = Math.abs(a); best = [cx / (3 * a), cy / (3 * a)]; } }
+    out[s.code] = { polys: s.polys, cen: best };
+  }
+  return out;
+})();
+const lfKey = c => c.startsWith("GB-") ? "GB" : (LFS[c] ? c : c.split("-")[0]);   // a state when we have its shape, else its country
+const lfCen = k => (LFS[k] && LFS[k].cen) || LFG.cen[k];
+function lfFocusCodes(p) { return p.focus || p.codes || (p.L ? [p.L.code, p.R && p.R.code] : null); }
+// the globe follows the narration (user 2026-10-07: "when you say a certain country, that's not the country that comes up"):
+// each scene starts on params.focus; params.focusAt [{at: <word cue>, codes}] turns it to each place as it is named. Within a
+// scene every place named so far stays gold; the globe faces the latest one.
+const LFT = (() => {
+  if (!LFG) return [];
+  const ev = [];
+  SC.forEach(S => {
+    const base = lfFocusCodes(S.p || {});
+    if (base) ev.push({ t: S.t0, codes: base, S });
+    (S.p.focusAt || []).forEach(f => ev.push({ t: cue(f.at), codes: f.codes, S }));
+  });
+  ev.sort((a, b) => a.t - b.t);
+  ev.forEach(e => { e.keys = e.codes.filter(Boolean).map(lfKey); const pts = e.keys.map(lfCen).filter(Boolean);
+    e.lon = pts.length ? pts.reduce((a, p) => a + p[0], 0) / pts.length : null; e.lat = pts.length ? pts.reduce((a, p) => a + p[1], 0) / pts.length : null; });
+  return ev.filter(e => e.lon !== null);
+})();
+function lfFocusNow(t) {
+  let i = -1; for (let j = 0; j < LFT.length; j++) if (LFT[j].t <= t + 1e-6) i = j;
+  if (i < 0) return { cur: LFT[0] || { keys: [], lon: 0, lat: 20, t: 0 }, prv: LFT[0] || { lon: 0, lat: 20 }, lit: [] };
+  const cur = LFT[i], prv = LFT[i - 1] || cur, S = sceneAt(t);
+  const lit = new Set(); LFT.slice(0, i + 1).forEach(e => { if (e.S === S || e === cur) e.keys.forEach(k => lit.add(k)); });
+  return { cur, prv, lit: [...lit] };
 }
-function lfFocusAt(S) { for (let s = S; s; s = s.prev) { const f = lfFocusOf(s); if (f) return f; } return { isos: [], lon: 0, lat: 20 }; }
 function lfGlobe(t, o = {}) {
   if (!LFG) return;
-  const S = sceneAt(t), cur = lfFocusAt(S), prv = S.prev ? lfFocusAt(S.prev) : cur, k = eio(clamp((t - S.t0) / 1.1));
+  const F = lfFocusNow(t), cur = F.cur, prv = F.prv, k = eio(clamp((t - (cur.t || 0)) / 1.0));
   let dl = cur.lon - prv.lon; if (dl > 180) dl -= 360; if (dl < -180) dl += 360;
-  const lon0 = prv.lon + dl * k + (t - S.t0) * 2.5, lat0 = clamp(lerp(prv.lat, cur.lat, k) - 24, -60, 60);
+  const lon0 = prv.lon + dl * k + (t - (cur.t || 0)) * 1.5, lat0 = clamp(lerp(prv.lat, cur.lat, k) - 24, -60, 60);
   const cx = W / 2 - 70, cy = 1330, R = 980, ph = lat0 * Math.PI / 180, sp = Math.sin(ph), cp = Math.cos(ph);
   const P = (lon, lat) => { const l = (lon - lon0) * Math.PI / 180, f = lat * Math.PI / 180, cl = Math.cos(f);
     let x = cl * Math.sin(l), y = cp * Math.sin(f) - sp * cl * Math.cos(l); const z = sp * Math.sin(f) + cp * cl * Math.cos(l);
@@ -141,13 +171,19 @@ function lfGlobe(t, o = {}) {
   for (let lo = -180; lo < 180; lo += 30) { ctx.beginPath(); for (let la = -80; la <= 80; la += 5) { const [x, y] = P(lo, la); la === -80 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke(); }
   for (let la = -60; la <= 60; la += 30) { ctx.beginPath(); for (let lo = -180; lo <= 180; lo += 5) { const [x, y] = P(lo, la); lo === -180 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke(); }
   // land, then the focus countries in gold
-  const hi = new Set(cur.isos), glowK = k;
+  const hi = new Set(F.lit), glowK = Math.max(k, 0.6);
   for (const L of LFG.g.layers) {
     const on = hi.has(L.iso);
     ctx.beginPath(); for (const poly of L.polys) for (const ring of poly) { ring.forEach(([lo, la], j) => { const [x, y] = P(lo, la); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.closePath(); }
     if (on) { ctx.save(); ctx.shadowColor = "rgba(244,185,66,0.9)"; ctx.shadowBlur = 40 * glowK; ctx.fillStyle = hexA(LF.gold, 0.35 + 0.55 * glowK); ctx.fill("evenodd"); ctx.restore(); }
     else { ctx.fillStyle = "#34589c"; ctx.fill("evenodd"); }
     ctx.strokeStyle = on ? "rgba(255,230,160,0.9)" : "rgba(160,195,255,0.35)"; ctx.lineWidth = on ? 3 : 1.5; ctx.stroke();
+  }
+  for (const key of hi) {                 // US states: drawn over their country, so only the state lights up
+    const st = LFS[key]; if (!st) continue;
+    ctx.beginPath(); for (const poly of st.polys) for (const ring of poly) { ring.forEach(([lo, la], j) => { const [x, y] = P(lo, la); j ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }); ctx.closePath(); }
+    ctx.save(); ctx.shadowColor = "rgba(244,185,66,0.9)"; ctx.shadowBlur = 40 * glowK; ctx.fillStyle = hexA(LF.gold, 0.35 + 0.55 * glowK); ctx.fill("evenodd"); ctx.restore();
+    ctx.strokeStyle = "rgba(255,230,160,0.9)"; ctx.lineWidth = 3; ctx.stroke();
   }
   // a terminator: the night side shades the lower-right of the disc
   const sh = ctx.createLinearGradient(cx - R, cy - R, cx + R, cy + R); sh.addColorStop(0.45, "rgba(5,8,20,0)"); sh.addColorStop(1, "rgba(5,8,20,0.6)");

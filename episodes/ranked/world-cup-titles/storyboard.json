@@ -93,7 +93,24 @@
     "rank": 5,
     "at": "two/spain",
     "valueAt": "two/two",
-    "source": "Wikipedia, List of FIFA World Cup finals (after the 2026 final)"
+    "source": "Wikipedia, List of FIFA World Cup finals (after the 2026 final)",
+    "focus": [
+     "ES"
+    ],
+    "focusAt": [
+     {
+      "at": "two/france",
+      "codes": [
+       "FR"
+      ]
+     },
+     {
+      "at": "two/uruguay",
+      "codes": [
+       "UY"
+      ]
+     }
+    ]
    },
    "events": [
     {
@@ -147,7 +164,18 @@
     "at": "four/germany",
     "valueAt": "four/four",
     "sub": "Germany's include three as West Germany",
-    "source": "Wikipedia, List of FIFA World Cup finals (after the 2026 final)"
+    "source": "Wikipedia, List of FIFA World Cup finals (after the 2026 final)",
+    "focus": [
+     "DE"
+    ],
+    "focusAt": [
+     {
+      "at": "four/italy",
+      "codes": [
+       "IT"
+      ]
+     }
+    ]
    },
    "events": [
     {
@@ -210,8 +238,15 @@
     "fn": "toll",
     "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
     "focus": [
-     "ES",
-     "BR"
+     "ES"
+    ],
+    "focusAt": [
+     {
+      "at": "toll/brazil",
+      "codes": [
+       "BR"
+      ]
+     }
     ]
    },
    "events": [

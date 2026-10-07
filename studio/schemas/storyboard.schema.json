@@ -110,6 +110,12 @@
    "minimum": 0,
    "maximum": 0.15,
    "description": "Slow push-in per scene (0.06 = 6% over the scene) so no beat sits still; captions are not affected."
+  },
+  "pace": {
+   "type": "number",
+   "minimum": 0.5,
+   "maximum": 2,
+   "description": "sketch kit: >1 draws and moves the camera slower"
   }
  }
 }

@@ -37,9 +37,17 @@
      84.0
     ],
     "focus": [
-     "US",
-     "JP"
-    ]
+     "US-CA"
+    ],
+    "focusAt": [
+     {
+      "at": "hook/japan's",
+      "codes": [
+       "JP"
+      ]
+     }
+    ],
+    "dataset": "data/us_states.json"
    },
    "events": [
     {
@@ -57,7 +65,7 @@
     "fn": "fourth",
     "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
     "focus": [
-     "US"
+     "US-CA"
     ]
    },
    "events": [
@@ -85,7 +93,10 @@
      "name": "Japan",
      "value": 4026211
     },
-    "at": "japan/japan"
+    "at": "japan/japan",
+    "focus": [
+     "JP"
+    ]
    },
    "events": [
     {
@@ -117,7 +128,24 @@
      "code": "CA",
      "name": "CANADA $2.24T",
      "at": "texas/canada"
-    }
+    },
+    "focus": [
+     "US-TX"
+    ],
+    "focusAt": [
+     {
+      "at": "texas/italy",
+      "codes": [
+       "IT"
+      ]
+     },
+     {
+      "at": "texas/canada",
+      "codes": [
+       "CA"
+      ]
+     }
+    ]
    },
    "events": [
     {
@@ -144,7 +172,18 @@
      "name": "Canada",
      "value": 2241253
     },
-    "at": "newyork/new"
+    "at": "newyork/new",
+    "focus": [
+     "US-NY"
+    ],
+    "focusAt": [
+     {
+      "at": "newyork/canada",
+      "codes": [
+       "CA"
+      ]
+     }
+    ]
    },
    "events": [
     {
@@ -171,7 +210,18 @@
      "name": "Indonesia",
      "value": 1396300
     },
-    "at": "florida/florida"
+    "at": "florida/florida",
+    "focus": [
+     "US-FL"
+    ],
+    "focusAt": [
+     {
+      "at": "florida/indonesia",
+      "codes": [
+       "ID"
+      ]
+     }
+    ]
    },
    "events": [
     {
@@ -198,7 +248,18 @@
      "name": "Switzerland",
      "value": 936564
     },
-    "at": "penn/pennsylvania"
+    "at": "penn/pennsylvania",
+    "focus": [
+     "US-PA"
+    ],
+    "focusAt": [
+     {
+      "at": "penn/switzerland",
+      "codes": [
+       "CH"
+      ]
+     }
+    ]
    },
    "events": [
     {
@@ -216,8 +277,16 @@
     "fn": "canada",
     "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
     "focus": [
-     "CA",
-     "US"
+     "CA"
+    ],
+    "focusAt": [
+     {
+      "at": "canada/states",
+      "codes": [
+       "US-CA",
+       "US-TX"
+      ]
+     }
     ]
    },
    "events": [
@@ -234,7 +303,18 @@
    "start": "toll.start-0.15",
    "params": {
     "fn": "toll",
-    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type."
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "JP"
+    ],
+    "focusAt": [
+     {
+      "at": "toll/california",
+      "codes": [
+       "US-CA"
+      ]
+     }
+    ]
    },
    "events": [
     {

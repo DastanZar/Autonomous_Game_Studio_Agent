@@ -17,6 +17,7 @@ const SK = (() => {
   const pc = k => (k && P[k]) || k || P.ink;
   const n1 = (s, seed) => { const i = Math.floor(s), f = s - i, u = f * f * (3 - 2 * f); return lerp(rnd(i, seed, 5), rnd(i + 1, seed, 5), u) * 2 - 1; };
   const at = a => typeof a === "number" ? a : cue(a);
+  const PACE = EP.storyboard.pace || 1;      // >1 draws slower (user 2026-10-07: 'a tinge bit too fast')
 
   // ---------- geometry ----------
   function resample(pts, step) {
@@ -83,7 +84,7 @@ const SK = (() => {
 
   // ---------- items ----------
   function item(start, dur, o = {}) {
-    const it = { t0: at(start), dur, ops: [], seed: 101 + items.length * 13, sfx: o.sfx !== false };
+    const it = { t0: at(start), dur: dur * PACE, ops: [], seed: 101 + items.length * 13, sfx: o.sfx !== false };
     items.push(it);
     const add = op => { op.seed = it.seed * 50 + it.ops.length; it.ops.push(op); return api; };
     const stroke = (pts, so = {}) => {
@@ -245,7 +246,7 @@ const SK = (() => {
     const S = SC[j], b = camOf(S);
     let c = b;
     if (j > 0) {
-      const a = camOf(SC[j - 1]), lead = S.p.lead ?? 0.35, k = eio(prog(t, S.t0 - lead, S.t0 - lead + (S.p.move ?? 0.95)));
+      const a = camOf(SC[j - 1]), lead = S.p.lead ?? 0.35, k = eio(prog(t, S.t0 - lead, S.t0 - lead + (S.p.move ?? 0.95) * PACE));
       const dist = Math.hypot(b.x - a.x, b.y - a.y), dip = 1 - Math.min(0.22, dist / 6000) * Math.sin(Math.PI * k);
       c = { x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k), z: Math.exp(lerp(Math.log(a.z), Math.log(b.z), k)) * dip, sx: lerp(a.sx, b.sx, k), sy: lerp(a.sy, b.sy, k) };
     }
@@ -254,14 +255,18 @@ const SK = (() => {
   }
   const toScreen = (cam, p) => [cam.sx + (p[0] - cam.x) * cam.z, cam.sy + (p[1] - cam.y) * cam.z];
 
-  // ---------- the hand: a drawn right hand holding a pencil, tip at (0,0) ----------
-  function handShape(g) {   // g(path-fn, fill, outline?) draws each part in order
-    const skin = P.skin || "#e9b893";
-    g(() => { ctx.moveTo(390, -48); ctx.lineTo(1300, -30); ctx.lineTo(1300, 300); ctx.lineTo(380, 165); ctx.closePath(); }, skin);                 // forearm
-    g(() => { ctx.moveTo(600, -60); ctx.lineTo(1300, -50); ctx.lineTo(1300, 320); ctx.lineTo(585, 215); ctx.quadraticCurveTo(560, 80, 600, -60); }, P.sleeve || "#3d4a5c");   // sleeve
-    g(() => { ctx.moveTo(205, -55); ctx.bezierCurveTo(260, -95, 380, -85, 430, -40); ctx.bezierCurveTo(470, 30, 440, 140, 380, 175); ctx.bezierCurveTo(300, 200, 215, 170, 175, 110); ctx.bezierCurveTo(150, 60, 160, -20, 205, -55); }, skin);   // back of the hand
-    g(() => { ctx.moveTo(250, 120); ctx.bezierCurveTo(215, 150, 160, 120, 150, 72); ctx.bezierCurveTo(146, 40, 200, 40, 235, 70); }, "#e0a882");     // curled ring finger
-    g(() => { ctx.moveTo(225, 52); ctx.bezierCurveTo(170, 66, 112, 52, 100, 30); ctx.bezierCurveTo(92, 12, 110, 4, 130, 8); ctx.bezierCurveTo(170, 14, 205, 18, 230, 14); }, skin);  // middle finger under the pencil
+  // ---------- the hand: a cartoon white glove holding a pencil, tip at (0,0), pencil along +x ----------
+  // (user 2026-10-07: the drawn human hand didn't read as a hand; a glove is an honest cartoon, not a bad anatomy study)
+  const capsule = (x1, y1, x2, y2, r) => { const a = Math.atan2(y2 - y1, x2 - x1); ctx.arc(x2, y2, r, a - Math.PI / 2, a + Math.PI / 2); ctx.arc(x1, y1, r, a + Math.PI / 2, a + Math.PI * 1.5); ctx.closePath(); };
+  function handShape(g) {   // g(path-fn, fill, outline?) draws each part in order, back to front
+    const W1 = "#fbfaf4", SH = "#e4e1d6";
+    g(() => { ctx.moveTo(470, -70); ctx.lineTo(1300, -40); ctx.lineTo(1300, 310); ctx.lineTo(470, 175); ctx.closePath(); }, P.sleeve || "#3d4a5c");   // sleeve
+    g(() => { ctx.moveTo(395, -70); ctx.quadraticCurveTo(440, -100, 500, -95); ctx.quadraticCurveTo(540, 50, 505, 205); ctx.quadraticCurveTo(445, 200, 400, 165); ctx.quadraticCurveTo(425, 50, 395, -70); }, W1);   // flared cuff
+    g(() => { ctx.moveTo(425, -72); ctx.quadraticCurveTo(455, 50, 432, 178); }, null);                                                       // cuff roll line
+    g(() => { ctx.moveTo(190, -50); ctx.bezierCurveTo(250, -92, 370, -88, 420, -50); ctx.bezierCurveTo(455, 20, 445, 120, 405, 160); ctx.bezierCurveTo(330, 200, 230, 185, 190, 130); ctx.bezierCurveTo(165, 80, 160, -15, 190, -50); }, W1);   // back of the glove
+    g(() => capsule(300, 150, 230, 128, 34), SH);                                                                                              // curled pinky
+    g(() => capsule(285, 112, 195, 92, 37), SH);                                                                                               // curled ring finger
+    g(() => capsule(250, 48, 128, 40, 36), W1);                                                                                                // middle finger, under the pencil
     // pencil
     g(() => { ctx.moveTo(52, -12); ctx.lineTo(400, -12); ctx.lineTo(400, 12); ctx.lineTo(52, 12); ctx.closePath(); }, "#f2c230");
     g(() => { ctx.moveTo(52, -12); ctx.lineTo(400, -12); ctx.lineTo(400, -4); ctx.lineTo(52, -4); ctx.closePath(); }, "#f8dc72", false);
@@ -270,20 +275,21 @@ const SK = (() => {
     g(() => { ctx.moveTo(0, 0); ctx.lineTo(17, -4.5); ctx.lineTo(17, 4.5); ctx.closePath(); }, "#33343a");
     g(() => { ctx.moveTo(400, -13); ctx.lineTo(426, -13); ctx.lineTo(426, 13); ctx.lineTo(400, 13); ctx.closePath(); }, "#b9b9b4");
     g(() => { ctx.moveTo(426, -13); ctx.lineTo(440, -13); ctx.quadraticCurveTo(454, 0, 440, 13); ctx.lineTo(426, 13); ctx.closePath(); }, "#e99b9b");
-    // thumb (far side of the pencil) and index finger (on top of it)
-    g(() => { ctx.moveTo(215, -40); ctx.bezierCurveTo(175, -82, 120, -70, 96, -34); ctx.bezierCurveTo(84, -16, 96, -2, 116, -6); ctx.bezierCurveTo(150, -14, 190, -10, 222, 2); }, skin);
-    g(() => { ctx.moveTo(250, -30); ctx.bezierCurveTo(200, -44, 120, -30, 80, -16); ctx.bezierCurveTo(60, -8, 62, 16, 84, 18); ctx.bezierCurveTo(130, 20, 200, 26, 246, 34); }, skin);
-    g(() => { ctx.moveTo(82, -12); ctx.bezierCurveTo(70, -8, 70, 10, 84, 12); ctx.lineTo(106, 10); ctx.lineTo(104, -12); ctx.closePath(); }, "#f5d3bd");   // nail
+    g(() => capsule(235, -62, 125, -30, 36), W1);                                                                                              // thumb, far side of the pencil
+    g(() => capsule(255, -8, 92, -2, 37), W1);                                                                                                 // index finger, on top of the pencil
+    g(() => { ctx.moveTo(250, -52); ctx.quadraticCurveTo(300, -40, 345, -48); ctx.moveTo(262, -20); ctx.quadraticCurveTo(312, -8, 360, -14); ctx.moveTo(268, 14); ctx.quadraticCurveTo(318, 24, 362, 20); }, null);   // the three stitch lines on the back
   }
   function hand(sx, sy, s, lift, t) {
     ctx.save(); ctx.translate(sx, sy); ctx.scale(s, s); ctx.rotate(-0.62 + Math.sin(t * 1.3) * 0.025 + lift * 0.04);
-    ctx.save(); ctx.translate(30 + lift * 40, 40 + lift * 50); ctx.filter = "blur(12px)";      // shadow on the paper
-    handShape((path, fill, edge) => { if (edge === false) return; ctx.beginPath(); path(); ctx.fillStyle = "rgba(40,22,8,0.20)"; ctx.fill(); });
+    ctx.save(); ctx.translate(26 + lift * 40, 36 + lift * 50); ctx.filter = "blur(12px)";      // shadow on the paper
+    handShape((path, fill, edge) => { if (edge === false || !fill) return; ctx.beginPath(); path(); ctx.fillStyle = "rgba(40,22,8,0.20)"; ctx.fill(); });
     ctx.restore();
     ctx.lineJoin = "round"; ctx.lineCap = "round";
-    handShape((path, fill, edge) => { ctx.beginPath(); path(); ctx.fillStyle = fill; ctx.fill(); if (edge !== false) { ctx.lineWidth = 4.5; ctx.strokeStyle = P.ink; ctx.stroke(); } });
-    ctx.beginPath(); ctx.moveTo(300, -10); ctx.quadraticCurveTo(320, 30, 300, 70); ctx.moveTo(330, 0); ctx.quadraticCurveTo(350, 40, 335, 90);   // knuckle creases
-    ctx.lineWidth = 3; ctx.strokeStyle = "rgba(60,30,20,0.45)"; ctx.stroke();
+    handShape((path, fill, edge) => {
+      ctx.beginPath(); path();
+      if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+      if (edge !== false) { ctx.lineWidth = fill ? 5 : 3.5; ctx.strokeStyle = fill ? P.ink : "rgba(40,40,45,0.55)"; ctx.stroke(); }
+    });
     ctx.restore();
   }
   const REST = () => [W + 300, H * 0.66];
@@ -317,11 +323,9 @@ const SK = (() => {
     if (h.p[0] < W + 250) hand(h.p[0], h.p[1] + bob, clamp(cam.z, 0.5, 1.0) * 0.74, h.lift, t);
   }
 
-  // sound: a pencil scratch when a longer stroke starts (spaced out so it never chatters under the voice)
+  // no pencil-scratch sound: the user found it grating (2026-10-07); an episode can still add its own cues
   function done() {
-    let last = -9;
     const cues = [];
-    items.slice().sort((a, b) => a.t0 - b.t0).forEach(it => { if (it.sfx && it.dur >= 0.6 && it.t0 - last >= 1.5) { cues.push({ t: +it.t0.toFixed(3), type: "pen_scratch" }); last = it.t0; } });
     if (SC[0]) SC[0].cues = (SC[0].cues || []).concat(cues);
     SC.forEach(S => { S.landAt = S.t1 - 0.4; });     // review stills: each part of the page as its scene ends
   }

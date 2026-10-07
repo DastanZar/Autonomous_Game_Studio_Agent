@@ -218,8 +218,15 @@
     "fn": "toll",
     "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
     "focus": [
-     "SE",
-     "ID"
+     "SE"
+    ],
+    "focusAt": [
+     {
+      "at": "toll/indonesia",
+      "codes": [
+       "ID"
+      ]
+     }
     ]
    },
    "events": [

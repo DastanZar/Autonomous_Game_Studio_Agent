@@ -88,7 +88,18 @@
     "valueAt": "nine/nine",
     "clocks": 9,
     "sub": "mostly overseas islands",
-    "source": "Wikipedia, List of time zones by country (incl. territories, excl. Antarctica)"
+    "source": "Wikipedia, List of time zones by country (incl. territories, excl. Antarctica)",
+    "focus": [
+     "GB"
+    ],
+    "focusAt": [
+     {
+      "at": "nine/australia",
+      "codes": [
+       "AU"
+      ]
+     }
+    ]
    },
    "events": [
     {
@@ -117,7 +128,18 @@
     "at": "eleven/russia",
     "valueAt": "eleven/eleven",
     "clocks": 11,
-    "source": "Wikipedia, List of time zones by country (incl. territories, excl. Antarctica)"
+    "source": "Wikipedia, List of time zones by country (incl. territories, excl. Antarctica)",
+    "focus": [
+     "RU"
+    ],
+    "focusAt": [
+     {
+      "at": "eleven/united",
+      "codes": [
+       "US"
+      ]
+     }
+    ]
    },
    "events": [
     {
@@ -173,8 +195,15 @@
     "fn": "toll",
     "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
     "focus": [
-     "FR",
-     "CN"
+     "FR"
+    ],
+    "focusAt": [
+     {
+      "at": "toll/china",
+      "codes": [
+       "CN"
+      ]
+     }
     ]
    },
    "events": [
