@@ -2389,3 +2389,12 @@ Okay there does seem to be some merit to the omni idea too. without getting into
   - A CC0 StockSnap photo (right hand, pencil, white background) was the right angle, but soft-focus fingertips at 960 px; no higher resolution is available without a login.
   - The Wikimedia Commons API is blocked from here.
 - **Conclusion:** a photoreal hand can't be drawn credibly in code. Wrote a Nano Banana prompt for a purpose-made hand: top-down, tripod grip, yellow pencil, sharp focus, sleeve from bottom-right, chroma-green background, 2048², no text or jewellery. Optional lifted pose. A still frame comes first when the image arrives.
+
+### 🧑 User · 2026-10-07 UTC
+
+Do you need me to generate the image?
+
+#### Claude · record
+
+- **Answered yes:** I have no free image model (OpenRouter image models need credit; audio and the rest stay free). Asked for the Nano Banana image from the prompt above.
+- **How to send it:** attach it in chat, or upload it to `studio/assets/hands/` on GitHub. A still frame follows before any render.
