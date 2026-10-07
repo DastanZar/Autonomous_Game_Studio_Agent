@@ -2,26 +2,26 @@
  "slug": "brain-energy",
  "channel": "body-cast",
  "series": "day_in_life",
- "hook": "Your brain is two percent of your body weight, and it eats a fifth of your energy.",
- "twist": "2% of the weight, 20% of the oxygen, 25% of the glucose, 15% of the heart's output; and the 'you only use 10% of your brain' myth is wrong.",
- "angle": "The Brain brags, the Heart complains about deliveries, the myth gets stamped. One big number: 20%.",
+ "hook": "Your brain is 2% of your weight and burns a fifth of your energy.",
+ "twist": "It runs on about 12 watts, a fifth of an old 60-watt bulb, and hard thinking barely adds to the bill: most of the cost is staying switched on. So the 'you only use 10%' myth is backwards: you pay for all of it, all the time.",
+ "angle": "The Brain brags, the Heart complains about deliveries, a light bulb glows at 12 W, and the myth gets stamped. Big number: 12 watts.",
  "why_now": "Scout: brain-facts Shorts top 80.9M, median of top 25 6.4M since mid-2024.",
  "candidate_sources": [
   "https://en.wikipedia.org/wiki/Human_brain",
-  "https://www.scientificamerican.com/article/why-does-the-brain-need-s/",
-  "https://hypertextbook.com/facts/2001/JacquelineLing.shtml"
+  "https://www.scientificamerican.com/article/thinking-hard-calories/",
+  "https://www.scientificamerican.com/article/do-people-only-use-10-percent-of-their-brains/"
  ],
  "scores": {
   "hook": 5,
-  "surprise": 4,
+  "surprise": 5,
   "visual": 5,
   "sourceability": 4,
   "timeliness": 2,
   "series_fit": 5
  },
  "risks": [
-  "The 20% figure is for the body at rest: the description says so."
+  "12 W is Scientific American's worked estimate from a 1,300 kcal resting rate; label it."
  ],
- "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
- "approved_at": "2026-10-06"
+ "approved_by": "user (launch slate, 2026-10-06; rewrite asked 2026-10-07: 'rethink and rewrite the whole thing to produce the best product possible')",
+ "approved_at": "2026-10-07"
 }

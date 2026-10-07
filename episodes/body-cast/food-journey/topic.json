@@ -2,26 +2,26 @@
  "slug": "food-journey",
  "channel": "body-cast",
  "series": "what_if",
- "hook": "Your lunch is about to travel nine meters, inside you.",
- "twist": "Mouth to exit is one nine-metre tube; the stomach takes four or five hours, the 22-foot small intestine about four, then the large intestine takes the water and its bacteria eat the leftovers.",
- "angle": "A food's-eye trip through the cast: Stomach complains about churning, the microbes cheer for leftovers. One big number: 9 METERS.",
- "why_now": "Scout: 'what happens to food in your body' Shorts (banana digestion) top 103M, median of top 25 7.0M since mid-2024: the strongest body topic.",
+ "hook": "Textbooks said your gut's inner surface is the size of a tennis court.",
+ "twist": "A 2014 measurement found about 32 square metres: half a badminton court. Along the way: the stomach churns for hours, the liver sends up to 800 ml of bile a day, the small intestine's folds and villi do the absorbing, and the bacteria eat the leftovers.",
+ "angle": "A relay race through the cast, each organ handing the lunch on, ending on the corrected number. Big number: 30 square metres.",
+ "why_now": "Scout: food-in-your-body Shorts (banana digestion) top 103M, median of top 25 7.0M: the strongest body topic.",
  "candidate_sources": [
-  "https://en.wikipedia.org/wiki/Human_digestive_system",
-  "https://my.clevelandclinic.org/health/body/7041-digestive-system",
+  "https://popsci.com/article/science/human-gut-has-surface-area-studio-apartment",
+  "https://en.wikipedia.org/wiki/Small_intestine",
   "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works"
  ],
  "scores": {
   "hook": 5,
-  "surprise": 4,
+  "surprise": 5,
   "visual": 5,
   "sourceability": 4,
   "timeliness": 2,
   "series_fit": 5
  },
  "risks": [
-  "Times vary a lot between people and meals: say 'about'."
+  "Surface area figures: 30 m\u00b2 (Wikipedia, small intestine) vs about 32 m\u00b2 (whole tract, Helander & F\u00e4ndriks 2014). Say 'about thirty'."
  ],
- "approved_by": "user (launch slate, 2026-10-06: 'go ahead, do the whole process for all 12 videos')",
- "approved_at": "2026-10-06"
+ "approved_by": "user (launch slate, 2026-10-06; rewrite asked 2026-10-07: 'rethink and rewrite the whole thing to produce the best product possible')",
+ "approved_at": "2026-10-07"
 }

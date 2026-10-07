@@ -1,5 +1,5 @@
 {
- "topic": "Your brain: 2% of your weight, 20% of your energy",
+ "topic": "Your brain: 2% of your weight, 20% of your energy, 12 watts",
  "sources": [
   {
    "id": "wiki",
@@ -10,10 +10,10 @@
    "accessed": "2026-10-07"
   },
   {
-   "id": "sa",
-   "title": "Why Does the Brain Need So Much Power?",
-   "publisher": "Scientific American",
-   "url": "https://www.scientificamerican.com/article/why-does-the-brain-need-s/",
+   "id": "flip",
+   "title": "How much energy does your brain require?",
+   "publisher": "FlipScience",
+   "url": "https://www.flipscience.ph/flipfacts/how-much-energy-does-your-brain-require/",
    "type": "reference",
    "accessed": "2026-10-07"
   },
@@ -26,10 +26,10 @@
    "accessed": "2026-10-07"
   },
   {
-   "id": "flip",
-   "title": "How much energy does your brain require?",
-   "publisher": "FlipScience",
-   "url": "https://www.flipscience.ph/flipfacts/how-much-energy-does-your-brain-require/",
+   "id": "think",
+   "title": "Does Thinking Really Hard Burn More Calories?",
+   "publisher": "Scientific American",
+   "url": "https://www.scientificamerican.com/article/thinking-hard-calories/",
    "type": "reference",
    "accessed": "2026-10-07"
   },
@@ -60,11 +60,11 @@
    "status": "confirmed",
    "sources": [
     "wiki",
-    "sa",
+    "think",
     "hyper"
    ],
-   "text": "The brain uses up to about 20% of the body's energy (at rest).",
-   "quote": "The brain consumes up to 20% of the energy used by the human body, more than any other organ; accounting for up to 20 percent of the body's total haul; it consumes about 20% of the total energy in the body at rest"
+   "text": "The brain uses about 20% of the body's energy at rest.",
+   "quote": "The brain consumes up to 20% of the energy used by the human body, more than any other organ; it demands 20 percent of our resting metabolic rate; it consumes about 20% of the total energy in the body at rest"
   },
   {
    "id": "c_oxygen",
@@ -74,7 +74,7 @@
     "wiki",
     "hyper"
    ],
-   "text": "It accounts for about 20% of total body oxygen consumption.",
+   "text": "About 20% of oxygen consumption.",
    "quote": "20% of total body oxygen consumption; the human brain accounts for about 20% of the total oxygen consumption when a person is at rest"
   },
   {
@@ -84,7 +84,7 @@
    "sources": [
     "wiki"
    ],
-   "text": "It uses about 25% of total body glucose.",
+   "text": "About 25% of glucose use.",
    "quote": "25% of total body glucose utilization"
   },
   {
@@ -94,8 +94,29 @@
    "sources": [
     "wiki"
    ],
-   "text": "It receives about 15% of cardiac output.",
+   "text": "About 15% of cardiac output.",
    "quote": "it receives 15% of the cardiac output"
+  },
+  {
+   "id": "c_watts",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "think"
+   ],
+   "text": "A typical adult brain runs on about 12 watts, a fifth of a 60-watt bulb.",
+   "quote": "So a typical adult human brain runs on around 12 watts\u2014a fifth of the power required by a standard 60 watt lightbulb",
+   "label": "Scientific American's estimate"
+  },
+  {
+   "id": "c_think",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "think"
+   ],
+   "text": "Extra mental effort adds little next to the brain's baseline use.",
+   "quote": "any local increases in energy consumption are tiny compared with the brain's gluttonous baseline intake; short periods of additional mental effort require a little more brainpower than usual, but not much more"
   },
   {
    "id": "c_myth",
@@ -105,14 +126,14 @@
     "wiki",
     "sa10"
    ],
-   "text": "The idea that people use only 10% of their brain is a myth.",
+   "text": "Using only 10% of the brain is a myth.",
    "quote": "nor that normal humans use only ten per cent of the brain; the \"10 percent myth\" is so wrong it is almost laughable"
   }
  ],
  "myths": [
   {
    "myth": "You only use 10% of your brain.",
-   "truth": "A myth; the video says so.",
+   "truth": "A myth: the energy bill alone shows it.",
    "sources": [
     "wiki",
     "sa10"

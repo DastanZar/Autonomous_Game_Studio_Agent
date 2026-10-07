@@ -2,38 +2,60 @@
  "channel": "body-cast",
  "episode": "food-journey",
  "series": "what_if",
- "working_title": "Where your lunch goes after you swallow it",
+ "working_title": "Your gut isn't the size of a tennis court. Follow your lunch.",
  "lead_in": 0.3,
  "tail": 0.8,
  "gap": 0.3,
  "paras": [
   {
    "id": "hook",
-   "say": "Your lunch is about to travel nine meters. Inside you.",
+   "say": "Textbooks said the inside of your gut is the size of a tennis court.",
    "kind": "hook",
    "claims": [
-    "c_length"
+    "c_tennis"
    ],
    "gap": 0.4,
    "caps": [
     [
-     "YOUR LUNCH IS ABOUT",
-     4
-    ],
-    [
-     "TO TRAVEL NINE METERS.",
-     4
-    ],
-    [
-     "INSIDE YOU.",
+     "TEXTBOOKS SAID",
      2
+    ],
+    [
+     "THE INSIDE OF YOUR GUT",
+     5
+    ],
+    [
+     "IS THE SIZE",
+     3
+    ],
+    [
+     "OF A TENNIS COURT.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "follow",
+   "say": "Let's check. Follow the lunch.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.4,
+   "caps": [
+    [
+     "LET'S CHECK.",
+     2
+    ],
+    [
+     "FOLLOW THE LUNCH.",
+     3
     ]
    ],
    "speaker": "narrator"
   },
   {
    "id": "door",
-   "say": "First, a ring of muscle opens to let it into your stomach.",
+   "say": "First, a ring of muscle lets it into the stomach.",
    "kind": "fact",
    "claims": [
     "c_sphincter"
@@ -45,11 +67,11 @@
      5
     ],
     [
-     "OPENS TO LET IT",
-     4
+     "LETS IT",
+     2
     ],
     [
-     "INTO YOUR STOMACH.",
+     "INTO THE STOMACH.",
      3
     ]
    ],
@@ -57,7 +79,7 @@
   },
   {
    "id": "churn",
-   "say": "Where it gets churned for four or five hours.",
+   "say": "Acid and churning, for four or five hours.",
    "kind": "fact",
    "claims": [
     "c_stomach"
@@ -65,8 +87,8 @@
    "gap": 0.3,
    "caps": [
     [
-     "WHERE IT GETS CHURNED",
-     4
+     "ACID AND CHURNING,",
+     3
     ],
     [
      "FOR FOUR OR FIVE HOURS.",
@@ -96,48 +118,109 @@
    "speaker": "stomach"
   },
   {
-   "id": "small",
-   "say": "Next, the small intestine. Twenty-two feet. The longest part.",
+   "id": "bile",
+   "say": "Next, the liver sends bile. Up to eight hundred milliliters a day, to break fat into droplets.",
    "kind": "fact",
    "claims": [
-    "c_small"
+    "c_bile"
    ],
    "gap": 0.3,
    "caps": [
     [
-     "NEXT,",
-     1
-    ],
-    [
-     "THE SMALL INTESTINE.",
+     "NEXT, THE LIVER",
      3
     ],
     [
-     "22 FEET.",
+     "SENDS BILE.",
      2
     ],
     [
-     "THE LONGEST PART.",
+     "UP TO 800 MILLILITERS",
+     5
+    ],
+    [
+     "A DAY,",
+     2
+    ],
+    [
+     "TO BREAK FAT",
      3
+    ],
+    [
+     "INTO DROPLETS.",
+     2
     ]
    ],
    "speaker": "narrator"
   },
   {
-   "id": "four",
-   "say": "Food spends about four hours in there.",
+   "id": "jobs",
+   "say": "On top of my five hundred other jobs.",
+   "kind": "joke",
+   "claims": [
+    "c_liver500"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "ON TOP OF MY",
+     4
+    ],
+    [
+     "500 OTHER JOBS.",
+     4
+    ]
+   ],
+   "speaker": "liver"
+  },
+  {
+   "id": "folds",
+   "say": "In the small intestine, folds and tiny fingers soak up the food.",
    "kind": "fact",
    "claims": [
-    "c_transit"
+    "c_folds"
    ],
    "gap": 0.3,
    "caps": [
     [
-     "FOOD SPENDS ABOUT",
+     "IN THE SMALL INTESTINE,",
+     4
+    ],
+    [
+     "FOLDS AND TINY FINGERS",
+     4
+    ],
+    [
+     "SOAK UP THE FOOD.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "area",
+   "say": "Unfolded, they cover about thirty square meters. Not a tennis court. Half a badminton court.",
+   "kind": "fact",
+   "claims": [
+    "c_area",
+    "c_tennis"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "UNFOLDED, THEY COVER",
      3
     ],
     [
-     "FOUR HOURS IN THERE.",
+     "ABOUT 30 SQUARE METERS.",
+     4
+    ],
+    [
+     "NOT A TENNIS COURT.",
+     4
+    ],
+    [
+     "HALF A BADMINTON COURT.",
      4
     ]
    ],
@@ -145,10 +228,11 @@
   },
   {
    "id": "water",
-   "say": "Then the large intestine pulls out the water.",
+   "say": "Then the large intestine takes the water back, and its bacteria eat the leftovers.",
    "kind": "fact",
    "claims": [
-    "c_water"
+    "c_water",
+    "c_bacteria"
    ],
    "gap": 0.3,
    "caps": [
@@ -157,62 +241,50 @@
      4
     ],
     [
-     "PULLS OUT THE WATER.",
+     "TAKES THE WATER BACK,",
      4
-    ]
-   ],
-   "speaker": "narrator"
-  },
-  {
-   "id": "bugs",
-   "say": "Its bacteria break down whatever's left.",
-   "kind": "fact",
-   "claims": [
-    "c_bacteria"
-   ],
-   "gap": 0.3,
-   "caps": [
-    [
-     "ITS BACTERIA",
-     2
     ],
     [
-     "BREAK DOWN",
-     2
+     "AND ITS BACTERIA",
+     3
     ],
     [
-     "WHATEVER'S LEFT.",
-     2
+     "EAT THE LEFTOVERS.",
+     3
     ]
    ],
    "speaker": "narrator"
   },
   {
    "id": "left",
-   "say": "Leftovers!",
+   "say": "Dinner's served!",
    "kind": "joke",
    "claims": [],
    "gap": 0.4,
    "caps": [
     [
-     "LEFTOVERS!",
-     1
+     "DINNER'S SERVED!",
+     2
     ]
    ],
    "speaker": "gut_microbes"
   },
   {
    "id": "toll",
-   "say": "Nine meters of tube. For one lunch.",
+   "say": "Half a badminton court. Still a lot of work for one lunch.",
    "kind": "callback",
    "claims": [
-    "c_length"
+    "c_tennis"
    ],
    "gap": 0.0,
    "caps": [
     [
-     "NINE METERS OF TUBE.",
+     "HALF A BADMINTON COURT.",
      4
+    ],
+    [
+     "STILL A LOT OF WORK",
+     5
     ],
     [
      "FOR ONE LUNCH.",
@@ -225,6 +297,6 @@
  "loop": {
   "last": "toll",
   "connects_to": "hook",
-  "how": "Ends on 'nine meters', the hook's number; the last frame is the lunch on the plate the first frame starts with."
+  "how": "Ends on the badminton court that replaces the hook's tennis court; the last frame shows both courts."
  }
 }

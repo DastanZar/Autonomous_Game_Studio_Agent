@@ -1,6 +1,22 @@
 {
- "topic": "What happens to your lunch after you swallow it",
+ "topic": "Where your lunch goes, and how big your gut really is inside",
  "sources": [
+  {
+   "id": "popsci",
+   "title": "Human Gut Has The Surface Area Of A Studio Apartment",
+   "publisher": "Popular Science",
+   "url": "https://popsci.com/article/science/human-gut-has-surface-area-studio-apartment",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "sint",
+   "title": "Small intestine",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Small_intestine",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
   {
    "id": "gi",
    "title": "Human digestive system",
@@ -10,10 +26,18 @@
    "accessed": "2026-10-07"
   },
   {
-   "id": "cc",
-   "title": "Digestive System",
-   "publisher": "Cleveland Clinic",
-   "url": "https://my.clevelandclinic.org/health/body/7041-digestive-system",
+   "id": "bile",
+   "title": "Bile",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Bile",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "liver",
+   "title": "Liver",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Liver",
    "type": "reference",
    "accessed": "2026-10-07"
   },
@@ -28,15 +52,25 @@
  ],
  "claims": [
   {
-   "id": "c_length",
+   "id": "c_tennis",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "popsci"
+   ],
+   "text": "Textbooks said the gut's inner surface was about 300 m\u00b2, a tennis court; a 2014 study measured about 32 m\u00b2, half a badminton court.",
+   "quote": "say the surface area of the human gut is about 300 square meters, or about the size of a tennis court; is not in the order of tennis lawn,\u201d they wrote, \u201cbut rather is that of half a badminton court"
+  },
+  {
+   "id": "c_area",
    "key": true,
    "status": "confirmed",
    "sources": [
-    "gi",
-    "cc"
+    "sint",
+    "popsci"
    ],
-   "text": "Mouth to anus, the GI tract is about nine metres (30 ft) long.",
-   "quote": "covering a distance of about nine metres (30 ft); If you could stretch it out, it would measure 30 feet (9 meters)"
+   "text": "The small intestine's inner surface averages about 30 m\u00b2; the whole gut about 32 m\u00b2.",
+   "quote": "averages 30 square metres; found the average surface area of the human gut is actually about 32 square meters"
   },
   {
    "id": "c_sphincter",
@@ -45,7 +79,7 @@
    "sources": [
     "niddk"
    ],
-   "text": "A ring-like muscle, the lower esophageal sphincter, relaxes to let food into the stomach.",
+   "text": "A ring-like muscle lets food into the stomach.",
    "quote": "a ringlike muscle\u2014called the lower esophageal sphincter \u2014relaxes and lets food pass into your stomach"
   },
   {
@@ -59,25 +93,35 @@
    "quote": "After four or five hours the stomach has emptied"
   },
   {
-   "id": "c_small",
-   "key": true,
-   "status": "confirmed",
-   "sources": [
-    "cc",
-    "gi"
-   ],
-   "text": "The small intestine, about 22 feet, is the longest part of the tract.",
-   "quote": "This 22-foot-long muscular tube is the longest part of your gastrointestinal tract; The small intestine is the longest part of the GI tract"
-  },
-  {
-   "id": "c_transit",
+   "id": "c_bile",
    "key": false,
    "status": "confirmed",
    "sources": [
-    "gi"
+    "bile"
    ],
-   "text": "Transit through the small intestine averages about 4 hours.",
-   "quote": "Transit time through the small intestine is an average of 4 hours"
+   "text": "The liver makes about 400-800 ml of bile a day, which helps emulsify fat.",
+   "quote": "About 400 to 800 milliliters; helping to emulsify the lipids in food"
+  },
+  {
+   "id": "c_liver500",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "liver"
+   ],
+   "text": "The liver's functions are generally cited as around 500.",
+   "quote": "Estimates regarding the organ's total number of functions vary, but are generally cited as being around 500",
+   "label": "estimates vary"
+  },
+  {
+   "id": "c_folds",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "sint"
+   ],
+   "text": "Folds, villi and microvilli enlarge the small intestine's surface for absorption.",
+   "quote": "due to enlargement caused by folds, villi and microvilli"
   },
   {
    "id": "c_water",
@@ -86,7 +130,7 @@
    "sources": [
     "niddk"
    ],
-   "text": "The large intestine absorbs water and the waste becomes stool.",
+   "text": "The large intestine absorbs water.",
    "quote": "Your large intestine absorbs water, and the waste products of digestion become stool"
   },
   {
@@ -96,10 +140,18 @@
    "sources": [
     "niddk"
    ],
-   "text": "Bacteria in the large intestine also break down food.",
+   "text": "Bacteria in the large intestine break down food.",
    "quote": "Bacteria in the large intestine can also break down food"
   }
  ],
- "myths": [],
+ "myths": [
+  {
+   "myth": "Your gut's inner surface is the size of a tennis court.",
+   "truth": "About 30-32 m\u00b2, half a badminton court (Helander & F\u00e4ndriks 2014).",
+   "sources": [
+    "popsci"
+   ]
+  }
+ ],
  "open_questions": []
 }

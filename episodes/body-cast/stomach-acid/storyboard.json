@@ -5,7 +5,8 @@
   "body",
   "kinetic"
  ],
- "flagship": "House method (user 2026-10-06): the organ cast and flat props carry the story; moving type for the one big number.",
+ "flagship": "House method: organ cast and flat props carry a story with a turn; moving type for the one big number.",
+ "drift": 0.06,
  "scenes": [
   {
    "id": "s_hook",
@@ -13,64 +14,32 @@
    "start": "0",
    "params": {
     "fn": "hook",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
    },
    "events": [
     {
-     "at": "hook/acid",
+     "at": "hook/zinc",
      "do": "reveal",
      "sfx": "pop"
     },
     {
-     "at": "hook/zinc",
-     "do": "verdict",
-     "sfx": "stamp"
-    }
-   ]
-  },
-  {
-   "id": "s_ph",
-   "type": "custom",
-   "start": "ph.start-0.15",
-   "params": {
-    "fn": "ph",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
-   },
-   "events": [
-    {
-     "at": "ph/one",
-     "do": "reveal",
+     "at": "hook/so",
+     "do": "highlight",
      "sfx": "whoosh"
     }
    ]
   },
   {
-   "id": "s_litres",
-   "type": "custom",
-   "start": "litres.start-0.15",
-   "params": {
-    "fn": "litres",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
-   },
-   "events": [
-    {
-     "at": "litres/one",
-     "do": "count_start",
-     "sfx": "pop"
-    }
-   ]
-  },
-  {
-   "id": "s_melt",
+   "id": "s_ask",
    "type": "character_dialog",
-   "start": "melt.start-0.15",
+   "start": "ask.start-0.15",
    "params": {
     "cast": [
      "stomach"
     ],
     "setting": "stomach",
     "moods": {
-     "stomach": "shocked"
+     "stomach": "worried"
     }
    },
    "events": []
@@ -81,7 +50,7 @@
    "start": "mucus.start-0.15",
    "params": {
     "fn": "mucus",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
    },
    "events": [
     {
@@ -90,26 +59,9 @@
      "sfx": "pop"
     },
     {
-     "at": "base/bicarbonate",
+     "at": "mucus/bicarbonate",
      "do": "reveal",
      "sfx": "pop"
-    }
-   ]
-  },
-  {
-   "id": "s_seal",
-   "type": "custom",
-   "start": "seal.start-0.3",
-   "params": {
-    "fn": "mucus",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number.",
-    "cut": true
-   },
-   "events": [
-    {
-     "at": "seal/tightly",
-     "do": "emphasize",
-     "sfx": "thud"
     }
    ]
   },
@@ -119,7 +71,7 @@
    "start": "coat.start-0.15",
    "params": {
     "fn": "coat",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
    },
    "events": [
     {
@@ -130,21 +82,105 @@
    ]
   },
   {
-   "id": "s_gross",
-   "type": "character_dialog",
-   "start": "gross.start-0.15",
+   "id": "s_turn",
+   "type": "custom",
+   "start": "turn.start-0.15",
    "params": {
-    "cast": [
-     "brain",
-     "stomach"
-    ],
-    "setting": "neurons",
-    "moods": {
-     "brain": "worried",
-     "stomach": "smug"
-    }
+    "fn": "turn",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
    },
-   "events": []
+   "events": [
+    {
+     "at": "turn/corkscrews",
+     "do": "emphasize",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_hi",
+   "type": "custom",
+   "start": "hi.start-0.15",
+   "params": {
+    "fn": "hi",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "hi/half",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_blame",
+   "type": "custom",
+   "start": "blame.start-0.15",
+   "params": {
+    "fn": "blame",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "blame/stress",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "blame/spicy",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_drank",
+   "type": "custom",
+   "start": "drank.start-0.15",
+   "params": {
+    "fn": "drank",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "drank/drank",
+     "do": "emphasize",
+     "sfx": "thud"
+    }
+   ]
+  },
+  {
+   "id": "s_sick",
+   "type": "custom",
+   "start": "sick.start-0.15",
+   "params": {
+    "fn": "sick",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "sick/sick",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_nobel",
+   "type": "custom",
+   "start": "nobel.start-0.15",
+   "params": {
+    "fn": "nobel",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "nobel/two",
+     "do": "count_start",
+     "sfx": "stamp"
+    }
+   ]
   },
   {
    "id": "s_toll",
@@ -153,16 +189,17 @@
    "params": {
     "cast": [
      "stomach",
-     "brain"
+     "gut_microbes"
     ],
     "setting": "spotlight",
-    "title": "STOPPED BY SNOT",
+    "title": "STOPPED BY SNOT. MOSTLY.",
+    "microbe_kind": "spiral",
     "moods": {
-     "stomach": "proud"
+     "stomach": "proud",
+     "gut_microbes": "smug"
     }
    },
    "events": []
   }
- ],
- "drift": 0.06
+ ]
 }

@@ -5,7 +5,8 @@
   "body",
   "kinetic"
  ],
- "flagship": "House method (user 2026-10-06): the organ cast and flat props carry the story; moving type for the one big number.",
+ "flagship": "House method: organ cast and flat props carry a story with a turn; moving type for the one big number.",
+ "drift": 0.06,
  "scenes": [
   {
    "id": "s_hook",
@@ -13,7 +14,7 @@
    "start": "0",
    "params": {
     "fn": "hook",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
    },
    "events": [
     {
@@ -24,9 +25,9 @@
    ]
   },
   {
-   "id": "s_long",
+   "id": "s_unit",
    "type": "character_dialog",
-   "start": "long.start-0.15",
+   "start": "unit.start-0.15",
    "params": {
     "cast": [
      "stomach"
@@ -34,6 +35,9 @@
     "setting": "stomach",
     "moods": {
      "stomach": "angry"
+    },
+    "bubbles": {
+     "unit": "7 YEARS? I'M NOT A STORAGE UNIT."
     }
    },
    "events": []
@@ -44,7 +48,7 @@
    "start": "base.start-0.15",
    "params": {
     "fn": "base",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
    },
    "events": [
     {
@@ -53,7 +57,7 @@
      "sfx": "pop"
     },
     {
-     "at": "base/indigestible",
+     "at": "base/doesn't",
      "do": "verdict",
      "sfx": "stamp"
     }
@@ -65,57 +69,115 @@
    "start": "empty.start-0.15",
    "params": {
     "fn": "empty",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
    },
    "events": [
     {
      "at": "empty/two",
      "do": "count_start",
      "sfx": "tick"
-    }
-   ]
-  },
-  {
-   "id": "s_path",
-   "type": "custom",
-   "start": "path.start-0.15",
-   "params": {
-    "fn": "path",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
-   },
-   "events": [
+    },
     {
-     "at": "path/path",
+     "at": "empty/rides",
      "do": "reveal",
      "sfx": "whoosh"
     }
    ]
   },
   {
-   "id": "s_saw",
+   "id": "s_refuse",
    "type": "character_dialog",
-   "start": "saw.start-0.15",
+   "start": "refuse.start-0.15",
    "params": {
     "cast": [
      "gut_microbes"
     ],
-    "setting": "gut"
+    "setting": "gut",
+    "microbe_kind": "rod",
+    "moods": {
+     "gut_microbes": "angry"
+    }
    },
    "events": []
   },
   {
-   "id": "s_doctors",
+   "id": "s_week",
    "type": "custom",
-   "start": "doctors.start-0.15",
+   "start": "week.start-0.15",
    "params": {
     "fn": "doctors",
-    "why": "House method for Gut Gang (user 2026-10-06): A's characters and props (the organ cast plus body-kit props), C's moving type for the one big number."
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
    },
    "events": [
     {
-     "at": "doctors/week",
+     "at": "week/week",
      "do": "verdict",
      "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_catch",
+   "type": "custom",
+   "start": "catch.start-0.15",
+   "params": {
+    "fn": "catch",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "catch/catch",
+     "do": "emphasize",
+     "sfx": "thud"
+    }
+   ]
+  },
+  {
+   "id": "s_reward",
+   "type": "custom",
+   "start": "catch/kids-0.1",
+   "params": {
+    "fn": "reward",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number.",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "catch/swallowed",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_mass",
+   "type": "custom",
+   "start": "mass.start-0.15",
+   "params": {
+    "fn": "mass",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "mass/pulled",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_coins",
+   "type": "custom",
+   "start": "coins.start-0.15",
+   "params": {
+    "fn": "coins",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "coins/glued",
+     "do": "reveal",
+     "sfx": "thud"
     }
    ]
   },
@@ -129,13 +191,12 @@
      "gut_microbes"
     ],
     "setting": "spotlight",
-    "title": "LESS THAN A WEEK",
+    "title": "SPIT IT OUT",
     "moods": {
      "stomach": "smug"
     }
    },
    "events": []
   }
- ],
- "drift": 0.06
+ ]
 }

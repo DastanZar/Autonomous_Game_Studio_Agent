@@ -2,14 +2,14 @@
  "channel": "body-cast",
  "episode": "stomach-acid",
  "series": "day_in_life",
- "working_title": "Why your stomach doesn't digest itself",
+ "working_title": "Why doesn't your stomach digest itself?",
  "lead_in": 0.3,
  "tail": 0.8,
  "gap": 0.3,
  "paras": [
   {
    "id": "hook",
-   "say": "Your stomach is full of acid strong enough to dissolve zinc.",
+   "say": "Your stomach acid can dissolve zinc. So why not your stomach?",
    "kind": "hook",
    "claims": [
     "c_zinc"
@@ -17,85 +17,49 @@
    "gap": 0.4,
    "caps": [
     [
-     "YOUR STOMACH IS FULL",
-     4
-    ],
-    [
-     "OF ACID STRONG ENOUGH",
-     4
-    ],
-    [
-     "TO DISSOLVE ZINC.",
+     "YOUR STOMACH ACID",
      3
+    ],
+    [
+     "CAN DISSOLVE ZINC.",
+     3
+    ],
+    [
+     "SO WHY NOT",
+     3
+    ],
+    [
+     "YOUR STOMACH?",
+     2
     ]
    ],
    "speaker": "narrator"
   },
   {
-   "id": "ph",
-   "say": "It sits between one and three on the pH scale.",
-   "kind": "fact",
-   "claims": [
-    "c_ph"
-   ],
-   "gap": 0.3,
+   "id": "ask",
+   "say": "Honestly? I ask myself that every day.",
+   "kind": "joke",
+   "claims": [],
+   "gap": 0.4,
    "caps": [
     [
-     "IT SITS BETWEEN",
-     3
+     "HONESTLY?",
+     1
     ],
     [
-     "ONE AND THREE",
-     3
-    ],
-    [
-     "ON THE pH SCALE.",
+     "I ASK MYSELF THAT",
      4
-    ]
-   ],
-   "speaker": "narrator"
-  },
-  {
-   "id": "litres",
-   "say": "And it makes about one and a half liters of it. Every day.",
-   "kind": "fact",
-   "claims": [
-    "c_volume"
-   ],
-   "gap": 0.35,
-   "caps": [
-    [
-     "AND IT MAKES ABOUT",
-     4
-    ],
-    [
-     "1.5 LITERS OF IT.",
-     7
     ],
     [
      "EVERY DAY.",
      2
     ]
    ],
-   "speaker": "narrator"
-  },
-  {
-   "id": "melt",
-   "say": "So why don't I melt?",
-   "kind": "joke",
-   "claims": [],
-   "gap": 0.45,
-   "caps": [
-    [
-     "SO WHY DON'T I MELT?",
-     5
-    ]
-   ],
    "speaker": "stomach"
   },
   {
    "id": "mucus",
-   "say": "Because the lining coats itself in thick mucus.",
+   "say": "The lining coats itself in thick mucus, laced with bicarbonate, a base that fights the acid.",
    "kind": "fact",
    "claims": [
     "c_mucus"
@@ -103,68 +67,24 @@
    "gap": 0.3,
    "caps": [
     [
-     "BECAUSE THE LINING",
-     3
+     "THE LINING COATS ITSELF",
+     4
     ],
     [
-     "COATS ITSELF",
-     2
-    ],
-    [
-     "IN THICK MUCUS.",
+     "IN THICK MUCUS,",
      3
-    ]
-   ],
-   "speaker": "narrator"
-  },
-  {
-   "id": "base",
-   "say": "Laced with bicarbonate, a base that fights the acid.",
-   "kind": "fact",
-   "claims": [
-    "c_mucus"
-   ],
-   "gap": 0.3,
-   "caps": [
+    ],
     [
      "LACED WITH BICARBONATE,",
      3
     ],
     [
-     "A BASE THAT",
-     3
+     "A BASE THAT FIGHTS",
+     4
     ],
     [
-     "FIGHTS THE ACID.",
-     3
-    ]
-   ],
-   "speaker": "narrator"
-  },
-  {
-   "id": "seal",
-   "say": "And the cells of the lining are tightly joined together.",
-   "kind": "fact",
-   "claims": [
-    "c_tight"
-   ],
-   "gap": 0.4,
-   "caps": [
-    [
-     "AND THE CELLS",
-     3
-    ],
-    [
-     "OF THE LINING",
-     3
-    ],
-    [
-     "ARE TIGHTLY JOINED",
-     3
-    ],
-    [
-     "TOGETHER.",
-     1
+     "THE ACID.",
+     2
     ]
    ],
    "speaker": "narrator"
@@ -173,8 +93,10 @@
    "id": "coat",
    "say": "Basically, I wear a raincoat. Made of snot.",
    "kind": "joke",
-   "claims": [],
-   "gap": 0.4,
+   "claims": [
+    "c_mucus"
+   ],
+   "gap": 0.45,
    "caps": [
     [
      "BASICALLY,",
@@ -192,22 +114,168 @@
    "speaker": "stomach"
   },
   {
-   "id": "gross",
-   "say": "That's disgusting.",
-   "kind": "joke",
-   "claims": [],
-   "gap": 0.4,
+   "id": "turn",
+   "say": "But one bacterium corkscrews straight into the mucus.",
+   "kind": "fact",
+   "claims": [
+    "c_hp"
+   ],
+   "gap": 0.3,
    "caps": [
     [
-     "THAT'S DISGUSTING.",
+     "BUT ONE BACTERIUM",
+     3
+    ],
+    [
+     "CORKSCREWS STRAIGHT",
+     2
+    ],
+    [
+     "INTO THE MUCUS.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "hi",
+   "say": "Hello. Helicobacter. About half of you have me.",
+   "kind": "joke",
+   "claims": [
+    "c_half"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "HELLO. HELICOBACTER.",
+     2
+    ],
+    [
+     "ABOUT HALF OF YOU",
+     4
+    ],
+    [
+     "HAVE ME.",
      2
     ]
    ],
-   "speaker": "brain"
+   "speaker": "gut_microbes"
+  },
+  {
+   "id": "blame",
+   "say": "For decades, doctors blamed ulcers on stress and spicy food.",
+   "kind": "fact",
+   "claims": [
+    "c_doctrine"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "FOR DECADES,",
+     2
+    ],
+    [
+     "DOCTORS BLAMED ULCERS",
+     3
+    ],
+    [
+     "ON STRESS",
+     2
+    ],
+    [
+     "AND SPICY FOOD.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "drank",
+   "say": "So in nineteen eighty-four, a doctor named Barry Marshall drank a beaker of it.",
+   "kind": "fact",
+   "claims": [
+    "c_drank"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "SO IN 1984,",
+     4
+    ],
+    [
+     "A DOCTOR NAMED",
+     3
+    ],
+    [
+     "BARRY MARSHALL",
+     2
+    ],
+    [
+     "DRANK A BEAKER OF IT.",
+     5
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "sick",
+   "say": "Three days later he felt sick. His wife noticed his breath.",
+   "kind": "fact",
+   "claims": [
+    "c_sick"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "THREE DAYS LATER",
+     3
+    ],
+    [
+     "HE FELT SICK.",
+     3
+    ],
+    [
+     "HIS WIFE NOTICED",
+     3
+    ],
+    [
+     "HIS BREATH.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "nobel",
+   "say": "He was right. In two thousand five, he won the Nobel Prize.",
+   "kind": "fact",
+   "claims": [
+    "c_nobel"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "HE WAS RIGHT.",
+     3
+    ],
+    [
+     "IN 2005,",
+     4
+    ],
+    [
+     "HE WON",
+     2
+    ],
+    [
+     "THE NOBEL PRIZE.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
   },
   {
    "id": "toll",
-   "say": "Acid strong enough for zinc. Stopped by snot.",
+   "say": "Acid strong enough for zinc. Stopped by snot. Mostly.",
    "kind": "callback",
    "claims": [
     "c_zinc",
@@ -226,6 +294,10 @@
     [
      "STOPPED BY SNOT.",
      3
+    ],
+    [
+     "MOSTLY.",
+     1
     ]
    ],
    "speaker": "narrator"
@@ -234,6 +306,6 @@
  "loop": {
   "last": "toll",
   "connects_to": "hook",
-  "how": "Ends on the acid and zinc the hook named; the last frame is the stomach in its raincoat, the first is the stomach in its acid."
+  "how": "Ends on the acid and zinc the hook named; the last frame is the stomach in its raincoat with the microbe peeking out."
  }
 }

@@ -1,14 +1,6 @@
 {
- "topic": "Why your stomach doesn't digest itself",
+ "topic": "Why your stomach doesn't digest itself, and the bacterium that gets through",
  "sources": [
-  {
-   "id": "gacid",
-   "title": "Gastric acid",
-   "publisher": "Wikipedia",
-   "url": "https://en.wikipedia.org/wiki/Gastric_acid",
-   "type": "reference",
-   "accessed": "2026-10-07"
-  },
   {
    "id": "ifl",
    "title": "Your stomach juices are so acidic they can digest zinc",
@@ -32,6 +24,46 @@
    "url": "https://en.wikipedia.org/wiki/Foveolar_cell",
    "type": "reference",
    "accessed": "2026-10-07"
+  },
+  {
+   "id": "hp",
+   "title": "Helicobacter pylori",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Helicobacter_pylori",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "bm",
+   "title": "Barry Marshall",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Barry_Marshall",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "tsci",
+   "title": "Testing the most curious subject: oneself",
+   "publisher": "The Scientist",
+   "url": "https://www.the-scientist.com/testing-the-most-curious-subject----oneself-58213",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "jc",
+   "title": "Barry Marshall and the bacteria nobody believed in",
+   "publisher": "James Clear",
+   "url": "https://jamesclear.com/barry-marshall",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "nobel",
+   "title": "The Nobel Prize in Physiology or Medicine 2005: press release",
+   "publisher": "Nobel Prize Outreach / Karolinska Institutet",
+   "url": "https://www.nobelprize.org/prizes/medicine/2005/press-release/",
+   "type": "official",
+   "accessed": "2026-10-07"
   }
  ],
  "claims": [
@@ -44,27 +76,6 @@
    ],
    "text": "IFLScience reports gastric juice can dissolve zinc.",
    "quote": "Your gastric juice is capable of dissolving your organs, zinc, and the legs of living frogs"
-  },
-  {
-   "id": "c_ph",
-   "key": true,
-   "status": "confirmed",
-   "sources": [
-    "gacid",
-    "ifl"
-   ],
-   "text": "Gastric acid's pH is between about one and three.",
-   "quote": "In humans, the pH of gastric acid is between one and three; generally sitting around 1.5 and 3.5 on the pH scale"
-  },
-  {
-   "id": "c_volume",
-   "key": false,
-   "status": "confirmed",
-   "sources": [
-    "gacid"
-   ],
-   "text": "An adult stomach secretes about 1.5 litres of gastric juice a day.",
-   "quote": "A typical adult human stomach will secrete about 1.5 liters of gastric juice daily"
   },
   {
    "id": "c_mucus",
@@ -85,10 +96,81 @@
    "sources": [
     "teach"
    ],
-   "text": "The epithelial cells of the lining are tightly joined together, part of the barrier.",
+   "text": "The lining's cells are tightly joined together, part of the barrier.",
    "quote": "the epithelial cells themselves, which are tightly joined together"
+  },
+  {
+   "id": "c_hp",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "hp"
+   ],
+   "text": "H. pylori's spiral shape and flagella let it move into the less acidic mucus lining.",
+   "quote": "The bacteria reach the less acidic mucosa by use of their flagella; Its helical shape is better suited for progressing through the viscous mucosa lining of the stomach"
+  },
+  {
+   "id": "c_half",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "hp"
+   ],
+   "text": "About half the world's population carries H. pylori; most have no symptoms.",
+   "quote": "over half of the global population is infected, but most individuals are asymptomatic"
+  },
+  {
+   "id": "c_doctrine",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "bm",
+    "jc"
+   ],
+   "text": "For decades ulcers were blamed on stress, spicy food and too much acid.",
+   "quote": "ulcers were caused primarily by stress, spicy foods, and too much acid; were caused by stress, spicy foods, and too much acid in the stomach"
+  },
+  {
+   "id": "c_drank",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "bm",
+    "tsci"
+   ],
+   "text": "In July 1984 Barry Marshall drank a broth of cultured H. pylori.",
+   "quote": "drank a broth containing cultured H; One July day in 1984, Barry Marshall"
+  },
+  {
+   "id": "c_sick",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "bm"
+   ],
+   "text": "About three days later he had nausea and bad breath, which his wife noticed.",
+   "quote": "only three days later, he developed vague nausea and halitosis; bad breath , noticed by his wife"
+  },
+  {
+   "id": "c_nobel",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nobel"
+   ],
+   "text": "The 2005 Nobel Prize went for showing that gastritis and peptic ulcers are caused by H. pylori infection.",
+   "quote": "This year\u2019s Nobel Laureates in Physiology or Medicine made the remarkable and unexpected discovery that inflammation in the stomach (gastritis) as well as ulceration of the stomach or duodenum (peptic ulcer disease) is the result of an infection of the stomach caused by the bacterium Helicobacter pylori"
   }
  ],
- "myths": [],
+ "myths": [
+  {
+   "myth": "Ulcers are caused by stress and spicy food.",
+   "truth": "Most peptic ulcers are caused by H. pylori infection (2005 Nobel Prize).",
+   "sources": [
+    "nobel",
+    "bm"
+   ]
+  }
+ ],
  "open_questions": []
 }

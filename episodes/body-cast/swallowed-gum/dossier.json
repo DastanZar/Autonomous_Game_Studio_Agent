@@ -1,5 +1,5 @@
 {
- "topic": "Does swallowed gum stay in your stomach for seven years?",
+ "topic": "Does swallowed gum stay in you for seven years?",
  "sources": [
   {
    "id": "duke",
@@ -37,7 +37,7 @@
    "sources": [
     "sa"
    ],
-   "text": "Some components such as sweeteners are broken down, but the gum base is largely indigestible.",
+   "text": "Sweeteners are broken down, but the gum base is largely indigestible.",
    "quote": "Some of the components, such as sweeteners, are broken down, but the gum's base is largely indigestible"
   },
   {
@@ -69,14 +69,44 @@
     "sa",
     "duke"
    ],
-   "text": "Doctors who look inside guts rarely see swallowed gum more than a week old.",
+   "text": "Doctors rarely see swallowed gum more than a week old.",
    "quote": "usually it's not something that's any more than a week old; McGreal says it\u2019s unlikely that gum would stay in the stomach for seven years"
+  },
+  {
+   "id": "c_kids",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "sa"
+   ],
+   "text": "A 1998 Pediatrics report described children given gum as a reward who swallowed it regularly.",
+   "quote": "As Milov and his colleagues wrote in Pediatrics in 1998; two of whom received gum as positive reinforcement for good behavior and regularly disposed of the treat by swallowing it"
+  },
+  {
+   "id": "c_mass",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "sa"
+   ],
+   "text": "The gum built into a taffy-like mass that had to be removed.",
+   "quote": "the gum snowballed into a substantial \"taffylike\" mass that required extraction"
+  },
+  {
+   "id": "c_coins",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "sa"
+   ],
+   "text": "In a girl of a year and a half, gum fused four coins into one blob in the esophagus.",
+   "quote": "a girl just a year and a half old, four coins were found lodged in the esophagus, fused into a single blob by a wad of chewing gum"
   }
  ],
  "myths": [
   {
    "myth": "Swallowed gum stays in your stomach for seven years.",
-   "truth": "It passes like other indigestible things, usually within days; the video is built on debunking it.",
+   "truth": "It passes like other indigestible things, usually within days.",
    "sources": [
     "duke",
     "sa"

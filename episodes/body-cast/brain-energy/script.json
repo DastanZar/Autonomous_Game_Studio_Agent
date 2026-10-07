@@ -2,14 +2,14 @@
  "channel": "body-cast",
  "episode": "brain-energy",
  "series": "day_in_life",
- "working_title": "Your brain is 2% of you and eats 20% of your energy",
+ "working_title": "Your brain runs on 12 watts, and never turns off",
  "lead_in": 0.3,
  "tail": 0.8,
  "gap": 0.3,
  "paras": [
   {
    "id": "hook",
-   "say": "Your brain: two percent of your weight, a fifth of your energy.",
+   "say": "Your brain: two percent of your weight. A fifth of your energy.",
    "kind": "hook",
    "claims": [
     "c_weight",
@@ -22,7 +22,7 @@
      2
     ],
     [
-     "2% OF YOUR WEIGHT,",
+     "2% OF YOUR WEIGHT.",
      5
     ],
     [
@@ -47,11 +47,12 @@
    "speaker": "brain"
   },
   {
-   "id": "oxygen",
-   "say": "It takes twenty percent of your oxygen.",
+   "id": "bill",
+   "say": "It takes twenty percent of your oxygen, and a quarter of your glucose.",
    "kind": "fact",
    "claims": [
-    "c_oxygen"
+    "c_oxygen",
+    "c_glucose"
    ],
    "gap": 0.3,
    "caps": [
@@ -60,24 +61,12 @@
      2
     ],
     [
-     "20% OF YOUR OXYGEN.",
+     "20% OF YOUR OXYGEN,",
      5
-    ]
-   ],
-   "speaker": "narrator"
-  },
-  {
-   "id": "glucose",
-   "say": "A quarter of your glucose.",
-   "kind": "fact",
-   "claims": [
-    "c_glucose"
-   ],
-   "gap": 0.3,
-   "caps": [
+    ],
     [
-     "A QUARTER",
-     2
+     "AND A QUARTER",
+     3
     ],
     [
      "OF YOUR GLUCOSE.",
@@ -87,124 +76,182 @@
    "speaker": "narrator"
   },
   {
-   "id": "blood",
-   "say": "And fifteen percent of the blood your heart pumps out.",
-   "kind": "fact",
+   "id": "pump",
+   "say": "And fifteen percent of everything I pump.",
+   "kind": "joke",
    "claims": [
     "c_cardiac"
    ],
-   "gap": 0.3,
+   "gap": 0.45,
    "caps": [
     [
      "AND 15%",
      3
     ],
     [
-     "OF THE BLOOD",
-     3
-    ],
-    [
-     "YOUR HEART PUMPS OUT.",
+     "OF EVERYTHING I PUMP.",
      4
-    ]
-   ],
-   "speaker": "narrator"
-  },
-  {
-   "id": "deliver",
-   "say": "I deliver it. Non-stop. No days off.",
-   "kind": "joke",
-   "claims": [],
-   "gap": 0.45,
-   "caps": [
-    [
-     "I DELIVER IT.",
-     3
-    ],
-    [
-     "NON-STOP.",
-     1
-    ],
-    [
-     "NO DAYS OFF.",
-     3
     ]
    ],
    "speaker": "heart"
   },
   {
-   "id": "myth",
-   "say": "So no. You don't only use ten percent of your brain.",
+   "id": "watts",
+   "say": "Do the math, and it runs on about twelve watts. A fifth of an old light bulb.",
    "kind": "fact",
    "claims": [
-    "c_myth"
+    "c_watts"
    ],
    "gap": 0.3,
    "caps": [
     [
-     "SO NO.",
-     2
+     "DO THE MATH,",
+     3
     ],
     [
-     "YOU DON'T ONLY USE",
+     "AND IT RUNS",
+     3
+    ],
+    [
+     "ON ABOUT 12 WATTS.",
      4
     ],
     [
-     "10% OF YOUR BRAIN.",
-     5
+     "A FIFTH OF",
+     3
+    ],
+    [
+     "AN OLD LIGHT BULB.",
+     4
     ]
    ],
    "speaker": "narrator"
   },
   {
-   "id": "insult",
-   "say": "Ten percent? I'd be offended if I had the time.",
+   "id": "genius",
+   "say": "Twelve watts of pure genius.",
    "kind": "joke",
    "claims": [
-    "c_myth"
+    "c_watts"
    ],
    "gap": 0.45,
    "caps": [
     [
-     "10%?",
+     "12 WATTS",
      2
     ],
     [
-     "I'D BE OFFENDED",
+     "OF PURE GENIUS.",
      3
-    ],
-    [
-     "IF I HAD THE TIME.",
-     5
     ]
    ],
    "speaker": "brain"
   },
   {
+   "id": "hard",
+   "say": "And thinking really hard? It barely adds to the bill.",
+   "kind": "fact",
+   "claims": [
+    "c_think"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "AND THINKING REALLY HARD?",
+     4
+    ],
+    [
+     "IT BARELY ADDS",
+     3
+    ],
+    [
+     "TO THE BILL.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "on",
+   "say": "Most of the cost is just staying switched on.",
+   "kind": "fact",
+   "claims": [
+    "c_think"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "MOST OF THE COST",
+     4
+    ],
+    [
+     "IS JUST STAYING",
+     3
+    ],
+    [
+     "SWITCHED ON.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "myth",
+   "say": "So you don't use ten percent of your brain. You pay for all of it.",
+   "kind": "fact",
+   "claims": [
+    "c_myth"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "SO YOU DON'T USE",
+     4
+    ],
+    [
+     "10% OF YOUR BRAIN.",
+     5
+    ],
+    [
+     "YOU PAY",
+     2
+    ],
+    [
+     "FOR ALL OF IT.",
+     4
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
    "id": "toll",
-   "say": "Two percent of your weight. Twenty percent of your energy.",
+   "say": "Two percent of you. Twelve watts. Never off.",
    "kind": "callback",
    "claims": [
     "c_weight",
-    "c_energy"
+    "c_watts"
    ],
    "gap": 0.0,
    "caps": [
     [
-     "2% OF YOUR WEIGHT.",
-     5
+     "2% OF YOU.",
+     4
     ],
     [
-     "20% OF YOUR ENERGY.",
-     5
+     "12 WATTS.",
+     2
+    ],
+    [
+     "NEVER OFF.",
+     2
     ]
    ],
-   "speaker": "narrator"
+   "speaker": "brain"
   }
  ],
  "loop": {
   "last": "toll",
   "connects_to": "hook",
-  "how": "Ends on the hook's two numbers; the last frame is the brain on its scale, as in the first."
+  "how": "Ends with the brain repeating the hook's 2%; the last frame is the same seesaw as the first, with the bulb lit."
  }
 }

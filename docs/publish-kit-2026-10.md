@@ -11,16 +11,16 @@ post the pinned comment and pin it.
 | # | When (ET) | UTC | Channel | Title | Length | File |
 |---|---|---|---|---|---|---|
 | 1 | Tue 13 Oct, 11:00 | 2026-10-13T15:00:00Z | Border Quirks | Why this US town's only road out goes through Canada | 59.75 s | `episodes/why-map/point-roberts/out/point-roberts.mp4` |
-| 2 | Tue 13 Oct, 12:00 | 2026-10-13T16:00:00Z | Gut Gang | Your lunch travels 9 meters inside you. Here's the route. | 33.24 s | `episodes/body-cast/food-journey/out/food-journey.mp4` |
+| 2 | Tue 13 Oct, 12:00 | 2026-10-13T16:00:00Z | Gut Gang | Your gut isn't the size of a tennis court. Follow your lunch. | 49.33 s | `episodes/body-cast/food-journey/out/food-journey.mp4` |
 | 3 | Tue 13 Oct, 13:00 | 2026-10-13T17:00:00Z | Leader Flags | Which country has the most World Cup titles? (after 2026) | 26.7 s | `episodes/ranked/world-cup-titles/out/world-cup-titles.mp4` |
 | 4 | Wed 14 Oct, 11:00 | 2026-10-14T15:00:00Z | Border Quirks | America and Britain nearly went to war over a pig | 54.0 s | `episodes/why-map/pig-war/out/pig-war.mp4` |
-| 5 | Wed 14 Oct, 12:00 | 2026-10-14T16:00:00Z | Gut Gang | Why doesn't your stomach digest itself? | 33.27 s | `episodes/body-cast/stomach-acid/out/stomach-acid.mp4` |
+| 5 | Wed 14 Oct, 12:00 | 2026-10-14T16:00:00Z | Gut Gang | Why doesn't your stomach digest itself? | 47.71 s | `episodes/body-cast/stomach-acid/out/stomach-acid.mp4` |
 | 6 | Wed 14 Oct, 13:00 | 2026-10-14T17:00:00Z | Leader Flags | California's economy is bigger than Japan's | 32.36 s | `episodes/ranked/states-vs-countries/out/states-vs-countries.mp4` |
 | 7 | Thu 15 Oct, 11:00 | 2026-10-15T15:00:00Z | Border Quirks | Russia sold Alaska for 2 cents an acre, and left a view of tomorrow | 55.33 s | `episodes/why-map/alaska-sale/out/alaska-sale.mp4` |
-| 8 | Thu 15 Oct, 12:00 | 2026-10-15T16:00:00Z | Gut Gang | Does swallowed gum really stay in you for 7 years? | 32.83 s | `episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4` |
+| 8 | Thu 15 Oct, 12:00 | 2026-10-15T16:00:00Z | Gut Gang | Does swallowed gum really stay in you for 7 years? | 47.83 s | `episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4` |
 | 9 | Thu 15 Oct, 13:00 | 2026-10-15T17:00:00Z | Leader Flags | Which country has the most islands? It's not Indonesia. | 34.36 s | `episodes/ranked/most-islands/out/most-islands.mp4` |
 | 10 | Tue 20 Oct, 11:00 | 2026-10-20T15:00:00Z | Border Quirks | Why Chile is so long, and Bolivia has a navy with no sea | 49.36 s | `episodes/why-map/chile-long/out/chile-long.mp4` |
-| 11 | Tue 20 Oct, 12:00 | 2026-10-20T16:00:00Z | Gut Gang | Your brain is 2% of you and burns 20% of your energy | 29.24 s | `episodes/body-cast/brain-energy/out/brain-energy.mp4` |
+| 11 | Tue 20 Oct, 12:00 | 2026-10-20T16:00:00Z | Gut Gang | Your brain runs on 12 watts, and it never turns off | 36.45 s | `episodes/body-cast/brain-energy/out/brain-energy.mp4` |
 | 12 | Tue 20 Oct, 13:00 | 2026-10-20T17:00:00Z | Leader Flags | Which country has the most time zones? It's not Russia. | 25.33 s | `episodes/ranked/most-time-zones/out/most-time-zones.mp4` |
 
 ## 1. Border Quirks: Why this US town's only road out goes through Canada
@@ -47,25 +47,28 @@ Labels: the 80 percent figure is the Border Policy Research Institute's estimate
 #geography #history #maps #shorts
 ```
 
-## 2. Gut Gang: Your lunch travels 9 meters inside you. Here's the route.
+## 2. Gut Gang: Your gut isn't the size of a tennis court. Follow your lunch.
 
 - **Schedule:** Tue 13 Oct, 12:00 ET (2026-10-13T16:00:00Z)
 - **Video:** `episodes/body-cast/food-journey/out/food-journey.mp4`  **Captions:** `episodes/body-cast/food-journey/out/food-journey.srt`  **Thumbnail:** `episodes/body-cast/food-journey/out/thumbnail.jpg`
 - **Hashtags:** #science #biology #digestion #shorts
-- **Pinned comment:** Which organ deserves a thank-you the most?
+- **Pinned comment:** Which organ deserves the thank-you?
 - **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
 
 **Description:**
 
 ```
-From mouth to exit your gut is about nine metres of tube: the stomach churns food for four or five hours, the 22-foot small intestine takes about four more, then the large intestine takes the water.
+Textbooks said the inside of your gut is the size of a tennis court. Follow a lunch through the stomach, the liver's bile and the small intestine's folds, and the real number is about 30 square metres: half a badminton court.
 
 Sources:
+- Human Gut Has The Surface Area Of A Studio Apartment — Popular Science: https://popsci.com/article/science/human-gut-has-surface-area-studio-apartment
+- Small intestine — Wikipedia: https://en.wikipedia.org/wiki/Small_intestine
 - Human digestive system — Wikipedia: https://en.wikipedia.org/wiki/Human_digestive_system
-- Digestive System — Cleveland Clinic: https://my.clevelandclinic.org/health/body/7041-digestive-system
+- Bile — Wikipedia: https://en.wikipedia.org/wiki/Bile
+- Liver — Wikipedia: https://en.wikipedia.org/wiki/Liver
 - Your Digestive System & How It Works — U.S. National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK): https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works
 
-Times vary a lot between people and meals; the figures are typical values. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
+Labels: about 30 m² for the small intestine (Wikipedia) and about 32 m² for the whole gut (Helander & Fändriks 2014, via Popular Science). The liver's '500 jobs' is an often-cited estimate. Times vary between people and meals. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
 
 #science #biology #digestion #shorts
 ```
@@ -121,21 +124,25 @@ Labels: the British force total is Wikipedia's summary figure. Maps: Natural Ear
 - **Schedule:** Wed 14 Oct, 12:00 ET (2026-10-14T16:00:00Z)
 - **Video:** `episodes/body-cast/stomach-acid/out/stomach-acid.mp4`  **Captions:** `episodes/body-cast/stomach-acid/out/stomach-acid.srt`  **Thumbnail:** `episodes/body-cast/stomach-acid/out/thumbnail.jpg`
 - **Hashtags:** #science #biology #body #shorts
-- **Pinned comment:** What's the grossest fact about your body you know?
+- **Pinned comment:** Would you have drunk the beaker?
 - **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
 
 **Description:**
 
 ```
-Your stomach acid sits between pH 1 and 3, yet the stomach doesn't digest itself: the lining coats itself in thick mucus laced with bicarbonate.
+Your stomach acid can dissolve zinc, yet the stomach is safe under a raincoat of mucus and bicarbonate. One bacterium gets through, and in 1984 a doctor drank it to prove it causes ulcers. He won the 2005 Nobel Prize.
 
 Sources:
-- Gastric acid — Wikipedia: https://en.wikipedia.org/wiki/Gastric_acid
 - Your stomach juices are so acidic they can digest zinc — IFLScience: https://www.iflscience.com/your-stomach-juices-are-so-acidic-they-can-digest-zinc-and-meat-so-why-dont-they-digest-you-and-your-precious-organs-83615
 - Mucus production — TeachMePhysiology: https://teachmephysiology.com/gastrointestinal-system/stomach/mucus-production/
 - Foveolar cell — Wikipedia: https://en.wikipedia.org/wiki/Foveolar_cell
+- Helicobacter pylori — Wikipedia: https://en.wikipedia.org/wiki/Helicobacter_pylori
+- Barry Marshall — Wikipedia: https://en.wikipedia.org/wiki/Barry_Marshall
+- Testing the most curious subject: oneself — The Scientist: https://www.the-scientist.com/testing-the-most-curious-subject----oneself-58213
+- Barry Marshall and the bacteria nobody believed in — James Clear: https://jamesclear.com/barry-marshall
+- The Nobel Prize in Physiology or Medicine 2005: press release — Nobel Prize Outreach / Karolinska Institutet: https://www.nobelprize.org/prizes/medicine/2005/press-release/
 
-Labels: 'can dissolve zinc' is IFLScience's claim. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
+Labels: 'can dissolve zinc' is IFLScience's claim. Barry Marshall is named, not depicted. Don't try his experiment. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
 
 #science #biology #body #shorts
 ```
@@ -193,19 +200,19 @@ Labels: 'Seward's Folly' was what critics called it; the purchase was approved b
 - **Schedule:** Thu 15 Oct, 12:00 ET (2026-10-15T16:00:00Z)
 - **Video:** `episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4`  **Captions:** `episodes/body-cast/swallowed-gum/out/swallowed-gum.srt`  **Thumbnail:** `episodes/body-cast/swallowed-gum/out/thumbnail.jpg`
 - **Hashtags:** #science #biology #mythbusting #shorts
-- **Pinned comment:** Who told you the seven-year rule as a kid?
-- **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
+- **Pinned comment:** Who told you the seven-year rule?
+- **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.0
 
 **Description:**
 
 ```
-The seven-year gum myth is wrong: the gum base is indigestible, but it passes through like food, and doctors rarely find swallowed gum more than a week old.
+The seven-year gum myth is wrong: one piece passes through like food, usually within a week. The real risk is habit: in 1998 doctors described kids whose daily swallowed gum built into a lump that had to be removed.
 
 Sources:
 - Myth or Fact: It Takes Seven Years to Digest Chewing Gum — Duke Health: https://www.dukehealth.org/blog/myth-or-fact-it-takes-seven-years-digest-chewing-gum
 - Fact or Fiction?: Chewing Gum Takes Seven Years to Digest — Scientific American: https://www.scientificamerican.com/article/fact-or-fiction-chewing-gum-takes-seven-years-to-digest/
 
-Doctors still warn against swallowing lots of gum, especially for children: it can cause a blockage. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
+The case report is Milov et al., Pediatrics 1998, as described by Scientific American. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
 
 #science #biology #mythbusting #shorts
 ```
@@ -262,7 +269,7 @@ Labels: Chile's length is 4,270 km in one source and 'over 4,300 km' in another.
 #geography #history #maps #shorts
 ```
 
-## 11. Gut Gang: Your brain is 2% of you and burns 20% of your energy
+## 11. Gut Gang: Your brain runs on 12 watts, and it never turns off
 
 - **Schedule:** Tue 20 Oct, 12:00 ET (2026-10-20T16:00:00Z)
 - **Video:** `episodes/body-cast/brain-energy/out/brain-energy.mp4`  **Captions:** `episodes/body-cast/brain-energy/out/brain-energy.srt`  **Thumbnail:** `episodes/body-cast/brain-energy/out/thumbnail.jpg`
@@ -273,16 +280,16 @@ Labels: Chile's length is 4,270 km in one source and 'over 4,300 km' in another.
 **Description:**
 
 ```
-Your brain is about 2% of your body weight but uses about 20% of your energy and oxygen at rest, a quarter of your glucose and 15% of the blood your heart pumps. And no, you don't use only 10% of it.
+Your brain is about 2% of your weight but uses about 20% of your energy at rest: roughly 12 watts, a fifth of an old 60-watt bulb. Thinking hard barely adds to that; the cost is staying switched on. So no, you don't use only 10% of it.
 
 Sources:
 - Human brain — Wikipedia: https://en.wikipedia.org/wiki/Human_brain
-- Why Does the Brain Need So Much Power? — Scientific American: https://www.scientificamerican.com/article/why-does-the-brain-need-s/
-- Power of a Human Brain — The Physics Factbook (hypertextbook.com): https://hypertextbook.com/facts/2001/JacquelineLing.shtml
 - How much energy does your brain require? — FlipScience: https://www.flipscience.ph/flipfacts/how-much-energy-does-your-brain-require/
+- Power of a Human Brain — The Physics Factbook (hypertextbook.com): https://hypertextbook.com/facts/2001/JacquelineLing.shtml
+- Does Thinking Really Hard Burn More Calories? — Scientific American: https://www.scientificamerican.com/article/thinking-hard-calories/
 - Do People Only Use 10 Percent of Their Brains? — Scientific American: https://www.scientificamerican.com/article/do-people-only-use-10-percent-of-their-brains/
 
-The energy figures are for the body at rest. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
+Labels: 12 watts is Scientific American's estimate from a 1,300 kcal resting rate. The energy figures are for the body at rest. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
 
 #science #brain #biology #shorts
 ```

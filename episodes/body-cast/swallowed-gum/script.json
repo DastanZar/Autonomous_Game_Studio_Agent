@@ -2,7 +2,7 @@
  "channel": "body-cast",
  "episode": "swallowed-gum",
  "series": "what_if",
- "working_title": "Does swallowed gum really stay in you for seven years?",
+ "working_title": "Does swallowed gum really stay in you for 7 years?",
  "lead_in": 0.3,
  "tail": 0.8,
  "gap": 0.3,
@@ -36,8 +36,8 @@
    "speaker": "narrator"
   },
   {
-   "id": "long",
-   "say": "Seven years? I don't keep anything that long.",
+   "id": "unit",
+   "say": "Seven years? I'm a stomach, not a storage unit.",
    "kind": "joke",
    "claims": [
     "c_myth"
@@ -49,19 +49,19 @@
      2
     ],
     [
-     "I DON'T KEEP ANYTHING",
-     4
+     "I'M A STOMACH,",
+     3
     ],
     [
-     "THAT LONG.",
-     2
+     "NOT A STORAGE UNIT.",
+     4
     ]
    ],
    "speaker": "stomach"
   },
   {
    "id": "base",
-   "say": "Your stomach breaks down the sweeteners. But the gum base is basically indigestible.",
+   "say": "It's true the gum base won't digest. The sweeteners do. The rubbery part doesn't.",
    "kind": "fact",
    "claims": [
     "c_base"
@@ -69,106 +69,93 @@
    "gap": 0.3,
    "caps": [
     [
-     "YOUR STOMACH BREAKS DOWN",
-     4
-    ],
-    [
-     "THE SWEETENERS.",
+     "IT'S TRUE",
      2
     ],
     [
-     "BUT THE GUM BASE",
-     4
+     "THE GUM BASE",
+     3
     ],
     [
-     "IS BASICALLY INDIGESTIBLE.",
+     "WON'T DIGEST.",
+     2
+    ],
+    [
+     "THE SWEETENERS DO.",
      3
+    ],
+    [
+     "THE RUBBERY PART",
+     3
+    ],
+    [
+     "DOESN'T.",
+     1
     ]
    ],
    "speaker": "narrator"
   },
   {
    "id": "empty",
-   "say": "Doesn't matter. Most stomachs empty within two hours of eating. Gum included.",
+   "say": "But most stomachs empty within two hours. Gum included. It rides out with your food.",
    "kind": "fact",
    "claims": [
-    "c_empty"
-   ],
-   "gap": 0.3,
-   "caps": [
-    [
-     "DOESN'T MATTER.",
-     2
-    ],
-    [
-     "MOST STOMACHS EMPTY",
-     3
-    ],
-    [
-     "WITHIN TWO HOURS",
-     3
-    ],
-    [
-     "OF EATING.",
-     2
-    ],
-    [
-     "GUM INCLUDED.",
-     2
-    ]
-   ],
-   "speaker": "narrator"
-  },
-  {
-   "id": "path",
-   "say": "Then it takes the same path as food. All the way out.",
-   "kind": "fact",
-   "claims": [
+    "c_empty",
     "c_path"
    ],
    "gap": 0.3,
    "caps": [
     [
-     "THEN IT TAKES",
+     "BUT MOST STOMACHS EMPTY",
+     4
+    ],
+    [
+     "WITHIN TWO HOURS.",
      3
     ],
     [
-     "THE SAME PATH AS FOOD.",
-     5
+     "GUM INCLUDED.",
+     2
     ],
     [
-     "ALL THE WAY OUT.",
-     4
+     "IT RIDES OUT",
+     3
+    ],
+    [
+     "WITH YOUR FOOD.",
+     3
     ]
    ],
    "speaker": "narrator"
   },
   {
-   "id": "saw",
-   "say": "We saw it. It didn't stay.",
+   "id": "refuse",
+   "say": "We tried eating it. Zero stars.",
    "kind": "joke",
-   "claims": [],
-   "gap": 0.4,
+   "claims": [
+    "c_base"
+   ],
+   "gap": 0.45,
    "caps": [
     [
-     "WE SAW IT.",
-     3
+     "WE TRIED EATING IT.",
+     4
     ],
     [
-     "IT DIDN'T STAY.",
-     3
+     "ZERO STARS.",
+     2
     ]
    ],
    "speaker": "gut_microbes"
   },
   {
-   "id": "doctors",
+   "id": "week",
    "say": "Doctors who look inside guts rarely find swallowed gum more than a week old.",
    "kind": "fact",
    "claims": [
     "c_week"
    ],
-   "gap": 0.3,
+   "gap": 0.4,
    "caps": [
     [
      "DOCTORS WHO LOOK",
@@ -190,8 +177,100 @@
    "speaker": "narrator"
   },
   {
+   "id": "catch",
+   "say": "The catch? In nineteen ninety-eight, doctors described two kids who got gum as a reward, and swallowed it every time.",
+   "kind": "fact",
+   "claims": [
+    "c_kids"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "THE CATCH?",
+     2
+    ],
+    [
+     "IN 1998,",
+     3
+    ],
+    [
+     "DOCTORS DESCRIBED",
+     2
+    ],
+    [
+     "TWO KIDS",
+     2
+    ],
+    [
+     "WHO GOT GUM AS A REWARD,",
+     6
+    ],
+    [
+     "AND SWALLOWED IT",
+     3
+    ],
+    [
+     "EVERY TIME.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "mass",
+   "say": "It built into a taffy-like lump that had to be pulled out.",
+   "kind": "fact",
+   "claims": [
+    "c_mass"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "IT BUILT INTO",
+     3
+    ],
+    [
+     "A TAFFY-LIKE LUMP",
+     3
+    ],
+    [
+     "THAT HAD TO BE",
+     4
+    ],
+    [
+     "PULLED OUT.",
+     2
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
+   "id": "coins",
+   "say": "And in a toddler, gum glued four coins into one blob.",
+   "kind": "fact",
+   "claims": [
+    "c_coins"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "AND IN A TODDLER,",
+     4
+    ],
+    [
+     "GUM GLUED FOUR COINS",
+     4
+    ],
+    [
+     "INTO ONE BLOB.",
+     3
+    ]
+   ],
+   "speaker": "narrator"
+  },
+  {
    "id": "toll",
-   "say": "Seven years? Try less than a week.",
+   "say": "So one piece? Gone within a week. A daily habit? Spit it out.",
    "kind": "callback",
    "claims": [
     "c_myth",
@@ -200,12 +279,20 @@
    "gap": 0.0,
    "caps": [
     [
-     "SEVEN YEARS?",
-     2
+     "SO ONE PIECE?",
+     3
     ],
     [
-     "TRY LESS THAN A WEEK.",
-     5
+     "GONE WITHIN A WEEK.",
+     4
+    ],
+    [
+     "A DAILY HABIT?",
+     3
+    ],
+    [
+     "SPIT IT OUT.",
+     3
     ]
    ],
    "speaker": "narrator"
@@ -214,6 +301,6 @@
  "loop": {
   "last": "toll",
   "connects_to": "hook",
-  "how": "Ends on 'seven years', the hook's claim; the last frame crosses out the 7 the first frame shows."
+  "how": "Ends on the seven-year myth's answer; the last frame crosses out the 7 from the first."
  }
 }

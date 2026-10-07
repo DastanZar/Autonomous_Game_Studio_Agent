@@ -2187,3 +2187,20 @@ i watched them, the border quirk ones look good, ready to fire, the gut gang one
 - **Border Quirks:** approved by the user, unchanged.
 - **Gut Gang length (answered, nothing changed):** not a deliberate target. The scripts came out short (about 80 words, 29–33 s) because each beat needed a fetched source and I cut lines I couldn't source; the bible allows 25–55 s. Offered to extend to about 45 s with more sourced beats.
 - **Leader Flags background:** replaced the empty grid with a real Earth (Natural Earth 1:10m, the hook scene's world region) drawn in orthographic projection. It turns to each scene's country (a new `focus` param for custom scenes), lights the country gold, and has a graticule, an atmosphere glow, a night side and twinkling stars. All four re-rendered: gates pass, frozen time 0.6–4.1 s per 30 s (was 5–9).
+
+---
+
+### 🧑 User · 2026-10-07 UTC
+
+i dont want you to extend it artifically just for the sake of increasing the duration, rethink and rewrite the whole thing to produce the best product possible
+
+#### Claude · record
+
+- **Rewrote all four Gut Gang episodes from new research,** keeping the same topics and slots, so each has a story with a turn instead of a list of facts:
+  - Stomach: the snot raincoat, then H. pylori corkscrews through it; doctors blamed stress and spicy food until Barry Marshall drank a beaker of it in July 1984 (named, never drawn: a beaker and a GULP stamp); 2005 Nobel. Sources include the Nobel press release (official), Wikipedia, The Scientist, James Clear.
+  - Gum: the myth, what really happens, then the 1998 Pediatrics case report (kids given gum as a reward who swallowed it; a taffy-like lump removed; a toddler's four coins glued into one blob), via Scientific American.
+  - Lunch: a relay through the cast (stomach, liver's bile, small intestine's folds, microbes) ending on the corrected size: about 30 m², half a badminton court, not a tennis court (Helander & Fändriks 2014 via Popular Science; Wikipedia).
+  - Brain: 2% of weight, 20% of energy, about 12 W (a fifth of a 60 W bulb, Scientific American's estimate); hard thinking barely adds to the bill; so the 10% myth is backwards.
+- **New props in the body kit:** beaker with swimming microbes, coins, light bulb, sports courts drawn to scale, chili pepper, fat globule that splits into droplets, flat card.
+- **Retakes:** "Hi" was heard as "high", so the line became "Hello".
+- **Results:** 47.7, 47.8, 49.3 and 36.5 s; transcript WER 0.0 on all four; −14.1/−14.2 LUFS; frozen time 0–3 s per 30 s; two review rounds each; every gate passes through packaging. Titles and descriptions updated (food and brain retitled); schedule unchanged.

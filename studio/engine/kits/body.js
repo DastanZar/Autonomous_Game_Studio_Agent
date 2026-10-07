@@ -83,3 +83,56 @@ function tube(pts, w, col, t, flow = 1) {
   strokePath(path, BC.ink, w + 16); strokePath(path, col, w); strokePath(path, shade(col, 0.25), w * 0.3);
   if (flow) { ctx.save(); ctx.setLineDash([18, 70]); ctx.lineDashOffset = -t * 160 * flow; ctx.lineCap = "round"; ctx.lineWidth = w * 0.35; ctx.strokeStyle = "#e9b36a"; ctx.beginPath(); path(); ctx.stroke(); ctx.restore(); }
 }
+// ---- more props (rewrite, 2026-10-07) ----
+//   beaker(x, y, s, tilt, level, t)   a lab beaker with spiral microbes swimming in it
+//   coin(x, y, r, rot)                 a plain coin (no currency design)
+//   bulb(x, y, s, glow, t)             an old incandescent bulb, glowing by glow 0..1
+//   court(x, y, wM, hM, scale, col, lines, k)  a sports court drawn to scale (metres -> px), drawing on by k
+//   chili(x, y, s, rot)                a red chili pepper
+//   fatBlob(x, y, r, split, t)         a fat globule that breaks into droplets as split goes 0..1
+function beaker(x, y, s, tilt, level, t) {
+  ctx.save(); ctx.translate(x, y); ctx.rotate(tilt); ctx.scale(s, s);
+  const body = () => { ctx.moveTo(-90, -220); ctx.lineTo(-90, 0); ctx.quadraticCurveTo(-90, 30, -60, 30); ctx.lineTo(60, 30); ctx.quadraticCurveTo(90, 30, 90, 0); ctx.lineTo(90, -220); };
+  ctx.save(); ctx.beginPath(); body(); ctx.closePath(); ctx.clip();
+  const lv = 30 - 240 * clamp(level); ctx.fillStyle = "#a9a45a"; ctx.fillRect(-100, lv, 200, 300);
+  for (let i = 0; i < 6; i++) { const px = -60 + ((i * 37 + t * 40) % 120), py = lv + 30 + (i % 3) * 50; if (py < 25) strokePath(() => { for (let k = 0; k < 6; k++) ctx.lineTo(px + k * 6, py + Math.sin(k + t * 6 + i) * 6); }, "#4a5a20", 4); }
+  ctx.restore();
+  strokePath(() => { body(); }, BC.ink, 8); strokePath(() => { ctx.moveTo(-90, -220); ctx.lineTo(-110, -235); }, BC.ink, 8);
+  ctx.fillStyle = "rgba(255,255,255,0.35)"; ctx.fillRect(-70, -200, 14, 190);
+  for (let i = 1; i < 4; i++) line(50, -i * 55, 80, -i * 55, BC.ink, 4);
+  ctx.restore();
+}
+function coin(x, y, r, rot = 0) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); part(() => ctx.arc(0, 0, r, 0, 7), "#c9b27a", { hlAt: [-r * 0.3, -r * 0.3, r * 0.3], lw: 6 }); strokePath(() => ctx.arc(0, 0, r * 0.72, 0, 7), shade("#c9b27a", -0.2), 4); ctx.restore(); }
+function bulb(x, y, s, glow, t) {
+  ctx.save(); ctx.translate(x, y); ctx.scale(s, s);
+  if (glow > 0) { const g = ctx.createRadialGradient(0, -120, 20, 0, -120, 360); g.addColorStop(0, `rgba(255,230,140,${0.75 * glow})`); g.addColorStop(1, "rgba(255,230,140,0)"); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, -120, 360, 0, 7); ctx.fill(); }
+  part(() => { ctx.moveTo(-50, 0); ctx.bezierCurveTo(-60, -60, -130, -100, -130, -170); ctx.arc(0, -170, 130, Math.PI, 0); ctx.bezierCurveTo(130, -100, 60, -60, 50, 0); ctx.closePath(); }, glow > 0.3 ? "#fff2b0" : "#e8eef5", { hlAt: [-60, -220, 26] });
+  strokePath(() => { ctx.moveTo(-30, -20); ctx.lineTo(-20, -130); for (let i = 0; i < 6; i++) ctx.lineTo(-20 + i * 8, -150 + (i % 2) * 20); ctx.lineTo(30, -130); ctx.lineTo(30, -20); }, glow > 0.3 ? "#ff9a3c" : "#8a8a8a", 5);
+  for (let i = 0; i < 3; i++) part(() => ctx.roundRect(-52, i * 22, 104, 22, 8), "#b9bec6", { hl: false, lw: 6 });
+  part(() => ctx.roundRect(-26, 66, 52, 26, 10), BC.ink, { hl: false, lw: 4 });
+  ctx.restore();
+}
+function court(x, y, wM, hM, sc, col, lines, k) {
+  if (k <= 0) return; const w = wM * sc, h = hM * sc;
+  ctx.save(); ctx.translate(x, y); ctx.globalAlpha *= clamp(k * 2);
+  ctx.fillStyle = col; ctx.fillRect(-w / 2, -h / 2, w, h);
+  ctx.strokeStyle = "#fff"; ctx.lineWidth = 5; ctx.setLineDash([]); ctx.strokeRect(-w / 2, -h / 2, w * Math.min(1, k * 1.2), h);
+  if (lines) { ctx.beginPath(); ctx.moveTo(0, -h / 2); ctx.lineTo(0, h / 2); ctx.moveTo(-w / 2, 0); ctx.lineTo(w / 2, 0); ctx.stroke(); }
+  ctx.lineWidth = 6; ctx.strokeStyle = BC.ink; ctx.strokeRect(-w / 2 - 3, -h / 2 - 3, w + 6, h + 6);
+  ctx.restore();
+}
+function chili(x, y, s, rot) { ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s); part(() => { ctx.moveTo(-60, -10); ctx.bezierCurveTo(-20, -40, 60, -20, 90, 40); ctx.bezierCurveTo(50, 10, -20, 20, -60, 10); ctx.closePath(); }, BC.blood, { hlAt: [0, -12, 10] }); part(() => ctx.roundRect(-80, -12, 26, 20, 8), "#5f9e3a", { hl: false, lw: 5 }); ctx.restore(); }
+function fatBlob(x, y, r, split, t) {
+  if (split < 0.05) { part(() => ctx.arc(x, y + Math.sin(t * 2) * 6, r, 0, 7), "#ffd65c", { hlAt: [x - r * 0.3, y - r * 0.3, r * 0.3] }); return; }
+  for (let i = 0; i < 14; i++) { const a = i / 14 * 6.283 + rnd(i, 2), d = r * 1.3 * eout(split) * (0.4 + rnd(i, 3)), rr = r * lerp(1, 0.22 + rnd(i, 4) * 0.1, eout(split));
+    part(() => ctx.arc(x + Math.cos(a) * d, y + Math.sin(a) * d + Math.sin(t * 2 + i) * 5, rr, 0, 7), "#ffd65c", { hlAt: [x + Math.cos(a) * d - rr * 0.3, y + Math.sin(a) * d - rr * 0.3, rr * 0.3], lw: 5 }); }
+}
+// a flat card: white, 8 px ink outline, soft shadow; springs in with k. draw(w, h) draws in card coordinates.
+function flatCard(x, y, w, h, rot, k, draw, o = {}) {
+  if (k <= 0) return;
+  ctx.save(); ctx.translate(x, y + (1 - k) * 60); ctx.rotate(rot); ctx.scale(lerp(0.85, 1, k), lerp(0.85, 1, k));
+  ctx.save(); ctx.shadowColor = "rgba(0,0,0,0.3)"; ctx.shadowOffsetY = 10; ctx.shadowBlur = 16; ctx.beginPath(); ctx.roundRect(-w / 2, -h / 2, w, h, 32); ctx.fillStyle = o.bg || "#fffdf6"; ctx.fill(); ctx.restore();
+  ctx.save(); ctx.beginPath(); ctx.roundRect(-w / 2, -h / 2, w, h, 32); ctx.clip(); draw(w, h); ctx.restore();
+  ctx.beginPath(); ctx.roundRect(-w / 2, -h / 2, w, h, 32); ctx.lineWidth = 8; ctx.strokeStyle = BC.ink; ctx.stroke();
+  ctx.restore();
+}
