@@ -107,3 +107,51 @@ Try again
  "defects": []
 }
 ```
+
+### Round 4
+```json
+{
+ "at": "2026-10-07T15:24:47Z",
+ "reviewer": "builder (orchestrator), round 4 after user feedback: the globe now follows the narration (focusAt), US states light up, small places get a ring",
+ "frames": [
+  0.05,
+  4.02,
+  5.24,
+  8.72,
+  10.8,
+  13.62,
+  16.36,
+  22.04,
+  25.44,
+  26.65
+ ],
+ "defects": [
+  {
+   "t": 0,
+   "issue": "the globe showed the average of a scene's countries, not the one being named; US states lit the whole US",
+   "fixed": true
+  }
+ ]
+}
+```
+
+### Round 5
+```json
+{
+ "at": "2026-10-07T15:24:47Z",
+ "reviewer": "builder (orchestrator), round 5: contact sheet after the fixes",
+ "frames": [
+  0.05,
+  4.02,
+  5.24,
+  8.72,
+  10.8,
+  13.62,
+  16.36,
+  22.04,
+  25.44,
+  26.65
+ ],
+ "defects": []
+}
+```
