@@ -2433,3 +2433,15 @@ approved, go ahead, also while youre at it, spin up multiple workers making the 
   - The shared brief covers sources, free tools only, Kokoro George, review rounds, gates, the globe following the narration, disk and CPU limits.
   - YouTube API budget: about 3,400 units left today, so each worker gets at most 4 searches (the strategist 6); web research otherwise.
 - **Topic approval:** recorded as delegated by the user's message; the topics can still be vetoed before upload.
+
+#### Claude · record (later the same day)
+
+- **Rate limit:** all four workers stopped at the session usage limit (reset 20:00 UTC). Each was resumed from its own saved progress; nothing was lost.
+- **Month plan delivered** (`docs/content-plan-2026-10-21_to_11-20.md`):
+  - 48 slots for the three live channels plus 8 for the drawn channel, each with hook, evidence and two candidate sources;
+  - cadence 4 per week (Metricool's study of 799,718 videos: 2–4 per week is optimal per Short);
+  - the drawn channel launches 29 Oct with "the Earth stopped spinning" (6.06M median views on that topic);
+  - name options for the user, with Scratch Paper recommended;
+  - measurement reviews on 27 Oct and 10 Nov.
+- **Overlaps:** the strategist removed overlaps with the workers' topics.
+- **Not available to it:** TikTok, Instagram and Google Trends could not be queried directly.
