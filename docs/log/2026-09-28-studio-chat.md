@@ -2563,3 +2563,4 @@ I hit my usage limit while you were working, but it has reset now. Please contin
   - a slab height that scales with the region;
   - a harder true-peak margin in encode.py;
   - `map_history` in the bible's scene types.
+- **Live check (397c98e):** all four Border Quirks MP4s on the dashboard match the local file sizes byte for byte. All 16 next-batch videos (4 per channel) are now live for review.
