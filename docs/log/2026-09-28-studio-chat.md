@@ -2669,3 +2669,25 @@ Where do we stand - lets start pushing border quirks on a schedule, wether its 2
   - Swiss-invades-Liechtenstein is ✓ through final and Baarle through picture.
   - Asked the user whether to start the next batches.
 - **Live check (087557b):** the four Hannah MP4s on the dashboard match the local files byte for byte; the review item `gut-gang-hannah` is live. The earlier deploy (ae00cf5) was cancelled because this push replaced it.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+my changes to the picture and banner arent visible, and each time i refresh yt studio they dont show either, i tried checking in incognito also, no changes at all
+
+#### Claude · record
+
+- **Checked YouTube's own records** (API channels.list, 1 unit each): no banner on any of the three channels.
+  - Gut Gang and Leader Flags still have the default letter avatar.
+  - Border Quirks has an older photo avatar, a person in sunglasses: not the user's image, probably the Google account's photo.
+  - So the uploads never saved; it isn't a cache problem.
+- **Likely causes told to the user:**
+  - Customisation changes stay drafts until **Publish** (top right) is clicked.
+  - YouTube rejects banners under 2048×1152 or over 6 MB, and Nano Banana's 16:9 output is usually smaller.
+  - The wrong channel may have been selected in Studio.
+- **Offered:**
+  - The user puts the images in `studio/assets/channels/`.
+  - I resize them, set both banners through the API (channelBanners.insert, then brandingSettings.image), and read the result back.
+  - The API can't set profile pictures, so those stay manual.
+- **Also noted:** `channel_setup.py apply` keeps the existing brandingSettings.image, so applying the new description won't wipe a banner.
