@@ -2710,3 +2710,21 @@ added to github repo location as you asked
 - **Profile pictures:** 800×800, circle crop checked. The API can't set them, so the user uploads them; suggested the YouTube mobile app if Studio keeps dropping the upload.
 - **Found:** YouTube's Border Quirks description is my first rewrite (the one the user called 'too AI'), not the plainer second one. The user's text change saved; only the images didn't. Asked which they want.
 - **Dashboard:** review item `channel-art`.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+the banners did update, so did the text, and i used your profile picture updates, set them pressed publish, no change
+
+#### Claude · record
+
+- **Checked at 18:08 UTC**, through the API and the public channel pages: both avatars are unchanged.
+  - Border Quirks still has the old photo; Gut Gang the default 'G'.
+  - Both channels are public and linked.
+  - So Studio's profile-picture upload isn't saving, while banners and text do.
+- **Web search:** no official answer, only generic guides (wait up to about an hour, clear the cache, make sure you're switched to the brand account, change it through the Google Account photo).
+- **Told the user:**
+  - The API can't set avatars.
+  - Next steps: change it from the Google Account side while switched to each channel (myaccount.google.com → Personal info → Profile picture), or use the YouTube phone app.
+  - I'll check again through the API whenever asked.
