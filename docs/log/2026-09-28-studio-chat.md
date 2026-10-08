@@ -2612,3 +2612,13 @@ The images for border and gut turned out to be great, leaderflags were a big hit
 - **New Border Quirks description** (three short lines, 3 examples, no series list or posting days; the days were dropped because the month plan's cadence differs from 'Tue/Wed/Thu'):
   - Saved in `studio/channel_setup.json`.
   - Not yet sent to YouTube; asked the user before applying.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+I dont understand the middle part lisitng a few videos, also this is too ai and too perfect
+
+#### Claude · record
+
+- **Rewrote again:** no example list, no tidy three-beat structure; two plain sentences plus a note that sources are in each video. Saved in `studio/channel_setup.json`; still not applied on YouTube.

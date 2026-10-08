@@ -1,7 +1,7 @@
 {
  "_doc": "Channel setup applied through the YouTube Data API by studio/tools/channel_setup.py (description, keywords, language, series playlists, home-page sections). Pictures, links and the contact email are set by hand in YouTube Studio: see docs/channel-setup-2026-10.md.",
  "why-map": {
-  "description": "The world's weirdest borders, and the true stories behind them.\n\nA town you can only drive to through Canada. A war over a pig. An island that changes country every six months.\n\nReal maps, sourced facts, under a minute each.",
+  "description": "Why are borders so weird? Short videos about the strange lines on the map and how they ended up there.\n\nSources are in every video's description.",
   "keywords": "geography history maps borders \"weird borders\" \"border oddities\" \"geography facts\" \"history facts\" \"map facts\" exclaves \"animated history\" \"history shorts\"",
   "playlists": [
    {
