@@ -1,0 +1,151 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-08T10:35:19Z",
+   "reviewer": "worker (Border Quirks batch 2), contact sheet round 1",
+   "frames": [
+    8.74,
+    13.78,
+    18.84,
+    27.88,
+    32.36,
+    44.5
+   ],
+   "defects": [
+    {
+     "t": 13.78,
+     "issue": "middle/west/fix/swap/coast/zigzag: 250 m paper slabs on a 350 m island turned it into cliffs; border tubes floated 80 m up and read as loops; camera too close (island filled the frame)",
+     "fixed": true
+    },
+    {
+     "t": 8.74,
+     "issue": "rock: camera still above the near-map switch when the length is spoken: empty sea",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T10:35:19Z",
+   "reviewer": "worker (Border Quirks batch 2), round 2 after rescaling (4 m slab, lines on the ground, wider camera)",
+   "frames": [
+    8.74,
+    13.78,
+    18.84,
+    32.36,
+    44.5
+   ],
+   "defects": [
+    {
+     "t": 8.74,
+     "issue": "rock and others: island small and high in the frame; camera recentred and lowered",
+     "fixed": true
+    },
+    {
+     "t": 18.84,
+     "issue": "west: SWEDISH SIDE stamp over the lighthouse tag",
+     "fixed": true
+    },
+    {
+     "t": 32.36,
+     "issue": "swap: the two arrow labels overlapped",
+     "fixed": true
+    },
+    {
+     "t": 44.5,
+     "issue": "zigzag: POPULATION 0 stamp over the island",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T10:35:19Z",
+   "reviewer": "worker (Border Quirks batch 2), round 3: full contact sheet after fixes",
+   "frames": [
+    0.05,
+    4.18,
+    8.74,
+    13.78,
+    18.84,
+    22.0,
+    27.88,
+    32.36,
+    36.5,
+    40.72,
+    44.5,
+    49.6,
+    51.94,
+    52.97
+   ],
+   "defects": []
+  },
+  {
+   "at": "2026-10-08T10:42:12Z",
+   "reviewer": "worker (Border Quirks batch 2), round 4 after the first encode measured 10.2 s frozen per 30 s: wider camera orbits, gulls, a turning lighthouse beam, swaying report card",
+   "frames": [
+    0.05,
+    4.18,
+    8.74,
+    13.78,
+    18.84,
+    22.0,
+    27.88,
+    32.36,
+    36.5,
+    40.72,
+    44.5,
+    49.6,
+    51.94,
+    52.97
+   ],
+   "defects": [
+    {
+     "t": 22.0,
+     "issue": "why: a candle prop sat half off the right edge behind the card: removed",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T10:42:12Z",
+   "reviewer": "worker (Border Quirks batch 2), round 5: full sheet after removing the candle",
+   "frames": [
+    0.05,
+    4.18,
+    8.74,
+    13.78,
+    18.84,
+    22.0,
+    27.88,
+    32.36,
+    36.5,
+    40.72,
+    44.5,
+    49.6,
+    51.94,
+    52.97
+   ],
+   "defects": []
+  },
+  {
+   "at": "2026-10-08T10:47:40Z",
+   "reviewer": "worker (Border Quirks batch 2), round 6: sheet re-rendered after produce, frames from the encoded MP4 (2.5, 15.0, 21.5, 30.5, 47.0 s) and the thumbnail",
+   "frames": [
+    0.05,
+    4.18,
+    8.74,
+    13.78,
+    18.84,
+    22.0,
+    27.88,
+    32.36,
+    36.5,
+    40.72,
+    44.5,
+    49.6,
+    51.94,
+    52.97
+   ],
+   "defects": []
+  }
+ ]
+}

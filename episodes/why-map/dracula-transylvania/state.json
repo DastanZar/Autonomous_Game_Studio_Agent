@@ -45,6 +45,27 @@
     "storyboard.json": "d95b5d116c61"
    },
    "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-08T10:49:00Z",
+   "hashes": {
+    "storyboard.json": "d95b5d116c61",
+    "build/timeline.json": "d49ab2fd89a8",
+    "review.json": "ff5754eb2a22"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "fail",
+   "at": "2026-10-08T10:49:00Z",
+   "hashes": {
+    "review.json": "ff5754eb2a22",
+    "build/final_report.json": null
+   },
+   "failed": [
+    "build/final_report.json is missing: run python3 studio/tools/final_check.py <episode>"
+   ]
   }
  }
 }

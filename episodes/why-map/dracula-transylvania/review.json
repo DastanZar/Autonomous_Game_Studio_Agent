@@ -1,0 +1,54 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-08T10:49:00Z",
+   "reviewer": "worker (Border Quirks batch 2), contact sheet round 1",
+   "frames": [
+    4.38,
+    7.14,
+    15.72,
+    20.1,
+    29.82,
+    39.0
+   ],
+   "defects": [
+    {
+     "t": 7.14,
+     "issue": "hungary/then/border/union/vlad: camera far too close (1,500 km), the map read as two colour blobs with no recognisable shapes; no outline on the region",
+     "fixed": true
+    },
+    {
+     "t": 39.0,
+     "issue": "vlad: WALLACHIA pin under the captions",
+     "fixed": true
+    },
+    {
+     "t": 4.38,
+     "issue": "hook: NOT ROMANIA stamp over the TRANSYLVANIA tag and the castle towers",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T10:49:00Z",
+   "reviewer": "worker (Border Quirks batch 2), round 2: full contact sheet after widening the flight to 1,600-3,600 km, adding an ink outline on the region, moving the stamp and pin",
+   "frames": [
+    0.05,
+    4.38,
+    7.14,
+    11.02,
+    15.72,
+    20.1,
+    23.8,
+    29.82,
+    31.8,
+    39.0,
+    42.5,
+    45.26,
+    50.26,
+    51.32
+   ],
+   "defects": []
+  }
+ ]
+}

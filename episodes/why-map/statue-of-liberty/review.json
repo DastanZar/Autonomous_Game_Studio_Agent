@@ -153,6 +153,46 @@
     53.98
    ],
    "defects": []
+  },
+  {
+   "at": "2026-10-08T10:32:30Z",
+   "reviewer": "worker (Border Quirks batch 2), round 7: frames from the encoded MP4 (3.0, 12.5, 22.5, 31.0, 44.0 s) and the thumbnail",
+   "frames": [
+    3.0,
+    12.5,
+    22.5,
+    31.0,
+    44.0
+   ],
+   "defects": [
+    {
+     "t": 3.0,
+     "issue": "hook and end: the New Jersey ring was drawn over the NEW YORK tag (looked struck through, also on the thumbnail)",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T10:32:30Z",
+   "reviewer": "worker (Border Quirks batch 2), round 8: final sheet after re-render, plus MP4 frames 2.0, 17.0, 36.5, 47.5, 53.5 s and the new thumbnail",
+   "frames": [
+    0.05,
+    3.42,
+    9.54,
+    12.24,
+    15.6,
+    20.76,
+    22.86,
+    27.02,
+    30.87,
+    36.78,
+    40.08,
+    45.68,
+    49.14,
+    52.14,
+    53.98
+   ],
+   "defects": []
   }
  ]
 }

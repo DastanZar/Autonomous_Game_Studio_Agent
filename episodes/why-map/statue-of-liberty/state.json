@@ -48,24 +48,33 @@
   },
   "picture": {
    "result": "pass",
-   "at": "2026-10-08T10:18:13Z",
+   "at": "2026-10-08T10:32:30Z",
    "hashes": {
     "storyboard.json": "8fe539079699",
     "build/timeline.json": "b823a7bf3fd3",
-    "review.json": "cdb1cccb7480"
+    "review.json": "0918b9c90d26"
    },
    "failed": []
   },
   "final": {
-   "result": "fail",
-   "at": "2026-10-08T10:07:08Z",
+   "result": "pass",
+   "at": "2026-10-08T10:32:31Z",
    "hashes": {
-    "review.json": "ad7991230e23",
-    "build/final_report.json": "2a441ffb537f"
+    "review.json": "0918b9c90d26",
+    "build/final_report.json": "f22940685614"
    },
-   "failed": [
-    "true peak -0.9 dBTP (max \u22121)"
-   ]
+   "failed": []
+  },
+  "package": {
+   "result": "pass",
+   "at": "2026-10-08T10:32:31Z",
+   "hashes": {
+    "build/final_report.json": "f22940685614",
+    "dossier.json": "acb48cc1d695",
+    "script.json": "9bf48898ba95",
+    "package.json": "517ba5822b9a"
+   },
+   "failed": []
   }
  }
 }

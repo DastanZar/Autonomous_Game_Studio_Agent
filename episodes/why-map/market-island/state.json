@@ -45,6 +45,36 @@
     "storyboard.json": "33b6732c18f8"
    },
    "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-08T10:47:40Z",
+   "hashes": {
+    "storyboard.json": "33b6732c18f8",
+    "build/timeline.json": "8a8f2e0a4770",
+    "review.json": "7d342c59ee2a"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "pass",
+   "at": "2026-10-08T10:47:40Z",
+   "hashes": {
+    "review.json": "7d342c59ee2a",
+    "build/final_report.json": "04a96570e671"
+   },
+   "failed": []
+  },
+  "package": {
+   "result": "pass",
+   "at": "2026-10-08T10:47:40Z",
+   "hashes": {
+    "build/final_report.json": "04a96570e671",
+    "dossier.json": "6c53cc2b37de",
+    "script.json": "ff52272eb592",
+    "package.json": "05cc70882811"
+   },
+   "failed": []
   }
  }
 }

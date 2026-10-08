@@ -13,13 +13,13 @@ let REG = null;
 const F = makeFlight({
   origin: [24, 46], near: null, far: "s_hungary", switchKm: 1, sea: 0x8fb0aa,
   colors: { RO: 0xe8c27a, HU: 0xd9947c, default: 0xe2d6bb },
+  lines: [{ pts: GM.region[0][0], color: 0x2b2320, width: 2.2, layer: "far", height: 1.0, smooth: 0 }],
   keys: [
-    [at("hungary.start") - 0.2, 22.5, 45.4, 1500, 0, 8], [at("hungary.end") + 0.2, 23.0, 45.8, 1300, 0, 10],
-    [at("then.start"), 22.0, 46.0, 1350, 0, 10], [at("then.end") + 0.2, 22.6, 46.2, 1150, 0, 12],
-    [at("border.start"), 24.2, 45.6, 950, 0, 14], [at("border.end") + 0.2, 24.6, 45.4, 820, 0, 18],
-    [at("union.start"), 23.6, 45.9, 1150, 0, 12], [at("union.end") + 0.2, 23.8, 45.9, 1000, 0, 14],
-    [at("vlad.start"), 25.2, 45.3, 700, 0, 18], [at("vlad.end") + 0.2, 25.3, 45.4, 420, 0, 26],
-    [at("end.start"), 24.2, 45.8, 1100, 0, 12], [at("end.end") + 0.4, 24.4, 45.8, 950, 0, 14],
+    [at("hungary.start") - 0.2, 23.6, 45.6, 3900, -6, 8], [at("hungary.end") + 0.2, 23.8, 45.8, 3200, 2, 12],
+    [at("then.start"), 22.2, 46.1, 3400, 4, 10], [at("then.end") + 0.2, 22.8, 46.2, 2800, -6, 14],
+    [at("border.start"), 24.8, 45.2, 2600, -6, 14], [at("border.end") + 0.2, 25.1, 45.2, 2050, 6, 20],
+    [at("union.start"), 23.8, 45.7, 3100, 6, 12], [at("union.end") + 0.2, 24.1, 45.8, 2500, -6, 16],
+    [at("vlad.start"), 25.0, 45.0, 2000, -8, 18], [at("vlad.end") + 0.2, 25.2, 45.1, 1450, 8, 26],
   ],
   update: (t, o) => {
     if (!REG) {
@@ -63,7 +63,7 @@ function book(x, y, s, k, rot = -0.08) {
   if (k <= 0) return; ctx.save(); ctx.translate(x, y + (1 - k) * 200); ctx.rotate(rot); ctx.scale(s * k, s * k);
   piece(() => ctx.roundRect(-150, -210, 300, 420, 10), "#7b2a2a", { lw: 4.5, rim: 9, sx: 10, sy: 14 });
   piece(() => ctx.rect(-150, -210, 26, 420), "#5a1d1d", { lw: 3, light: false, shadow: false });
-  text("DRACULA", 12, -60, { size: 64, color: "#e8c56a", font: "Serif" }); rule(-90, 110, -30);
+  text("DRACULA", 12, -60, { size: 52, color: "#e8c56a", font: "Serif" }); rule(-90, 110, -30);
   text("BRAM STOKER", 12, 20, { size: 30, color: "#e8c56a", font: "Elite" }); text("1897", 12, 140, { size: 44, color: "#e8c56a" });
   ctx.restore();
 }
@@ -76,7 +76,7 @@ CU.hook = (t, S) => {
   piece(() => ctx.rect(-20, 1240, W + 40, H - 1240), "#3a3a48", { lw: 4, rim: 6, shadow: false });
   book(830, 760, 0.62, spring(pp(t, at("hook/eighteen") - 0.3, 0.6)), 0.1);
   popLabel("TRANSYLVANIA", 330, 360, t, 0, { size: 46, bg: KA.cream });
-  stamp("NOT ROMANIA", W / 2, 520, t - at("hook/wasn't") - 0.2, { size: 110, rot: -0.07, color: KA.red });
+  stamp("NOT ROMANIA", W / 2, 1150, t - at("hook/wasn't") - 0.2, { size: 110, rot: -0.07, color: KA.red });
   brandTag(BRAND);
 };
 // 2. HUNGARY: in 1897 the region was in the Kingdom of Hungary
@@ -89,7 +89,7 @@ CU.hungary = (t, S) => {
 };
 // 3. STOKER: he put the Count's castle there; he never went
 CU.stoker = (t, S) => {
-  desk();
+  desk(); candle(930, 1075);
   book(330, 760, 1.0, 1, -0.06);
   const k = spring(pp(t, at("stoker/castle") - 0.2, 0.6));
   card(760, 700, 470, 330, 0.05, k, (w, h) => { text("THE NOVEL'S SETTING", 0, -h / 2 + 60, { size: 26, font: "Elite", color: "#6b5a48" }); rule(-170, 170, -h / 2 + 78); text("Count Dracula's", 0, -10, { size: 40, font: "Serif" }); text("castle,", 0, 40, { size: 40, font: "Serif" }); text("TRANSYLVANIA", 0, 110, { size: 48, color: KA.red }); });
@@ -138,7 +138,8 @@ CU.union = (t, S) => {
 CU.treaty = (t, S) => {
   desk();
   const k = spring(pp(t, S.t0 + 0.05, 0.6));
-  card(540, 740, 800, 620, -0.02, k, (w, h) => {
+  candle(150, 1230);
+  card(540 + Math.sin(t * 0.9) * 12, 740, 800, 620, -0.02 + Math.sin(t * 0.7) * 0.01, k, (w, h) => {
     text("TREATY OF TRIANON", 0, -h / 2 + 90, { size: 58 }); rule(-300, 300, -h / 2 + 112);
     text("Transylvania: part of", 0, 20, { size: 44, font: "Serif" }); text("the Kingdom of Romania", 0, 80, { size: 44, font: "Serif" });
     text("1920", 0, 220, { size: 70, color: KA.red });
@@ -150,7 +151,7 @@ CU.treaty = (t, S) => {
 // 9. VLAD: the real Dracula ruled Wallachia, the other side of the mountains
 CU.vlad = (t, S) => {
   F.draw(t);
-  flightPin(F, "WALLACHIA", WAL[0], WAL[1], t, at("vlad/wallachia") - 0.1, { size: 38, bg: "#f6dfa0", h: 7.5, up: 70 });
+  flightPin(F, "WALLACHIA", WAL[0], WAL[1], t, at("vlad/wallachia") - 0.1, { size: 38, bg: "#f6dfa0", h: 7.5, up: 40 });
   flightPin(F, "TRANSYLVANIA", 24.6, 46.3, t, at("vlad/mountains") - 0.2, { size: 34, bg: "#f6dfa0", h: 7.5, up: 70 });
   const kc = spring(pp(t, at("vlad/vlad") - 0.1, 0.6));
   card(540, 470, 700, 220, -0.03, kc, (w, h) => { text("VLAD III · “THE IMPALER”", 0, -24, { size: 44 }); text("Voivode of Wallachia (1456–62 reign)", 0, 40, { size: 32, font: "Elite", color: "#6b5a48" }); });
@@ -160,7 +161,8 @@ CU.vlad = (t, S) => {
 CU.bran = (t, S) => {
   sky({ sunX: 840, sunY: 380, top: "#d6c3a0" }); ridge(900, 300, KA.mtnFar, 0, 6, 0, true); haze(560, 960, 0.4);
   castle(560, 940, 0.82, { rock: "#8a8478" });
-  grass(1100, 1300, 0, KA.moss);
+  for (let i = 0; i < 6; i++) bat(((i * 210 + t * 100) % (W + 200)) - 100, 420 + (i % 3) * 70 + Math.sin(t * 2 + i) * 25, 0.55, t, i);
+  grass(1100, 1300, t * 20, KA.moss);
   woodSign(260, 1030, [["DRACULA'S", 40], ["CASTLE", 48]], spring(pp(t, at("bran/sold") - 0.1, 0.6)), { w: 330, post: 120, rot: -0.05 });
   const kt = pp(t, at("bran/tourists") - 0.3, 0.8);
   for (let i = 0; i < 22; i++) { const x = lerp(W + 60, 520 + (i % 11) * 48, eout(clamp(kt * 1.3 - i * 0.03))), y = 1170 + Math.floor(i / 11) * 40; shopper({ x, y, col: ["#c0442c", "#3a6ea5", "#6d9a5b", "#e08a3c", "#7b5a3a"][i % 5], skin: [KA.skin, "#c99a72", "#8d5f3e"][i % 3], hat: i % 4 === 0 }, 1.5, Math.abs(Math.sin(t * 8 + i)) * -3); }
@@ -172,7 +174,8 @@ CU.bran = (t, S) => {
 CU.evidence = (t, S) => {
   sky({ sunX: 840, sunY: 380, top: "#d6c3a0" }); ridge(900, 300, KA.mtnFar, 0, 6, 0, true); haze(560, 960, 0.4);
   castle(560, 940, 0.82, { rock: "#8a8478" });
-  grass(1100, 1300, 0, KA.moss);
+  for (let i = 0; i < 6; i++) bat(((i * 210 + t * 100) % (W + 200)) - 100, 420 + (i % 3) * 70 + Math.sin(t * 2 + i) * 25, 0.55, t, i);
+  grass(1100, 1300, t * 20, KA.moss);
   book(820, 1030, 0.5, 1, 0.12);
   const kq = eio(pp(t, at("evidence/stoker") - 0.2, 0.6));       // the castle's absence from the book: a question mark pops over it
   if (kq > 0) { ctx.save(); ctx.translate(820, 760); ctx.scale(kq, kq); text("?", 0, 0, { size: 200, color: KA.red, stroke: 16 }); ctx.restore(); }
