@@ -2739,3 +2739,16 @@ worked through the app, all done, looking forward to seeing the videos on the ch
 
 - **Confirmed through the API:** both channels' avatars have changed (the YouTube app route worked where Studio's web upload didn't).
 - **Uploads:** neither channel has any upload yet, scheduled or live. Reminded the user that the first two slots are today, 16:00 and 17:00 ET, and that the kit has everything.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+Won't you be the one uploading them on a schedule?
+
+#### Claude · record
+
+- **Explained:** I can't upload, because YouTube locks every API upload from an unverified API project to private, permanently; it can't be made public later. That's why uploads stay manual until the YouTube API audit passes.
+  - Draft audit answers are at the end of the publish kit.
+  - The user has to submit the form, because it's their Google Cloud project.
+- **Offered:** once uploaded, I verify the schedule through the API and sort playlists; after the audit, `publish.py` uploads on schedule by itself.
