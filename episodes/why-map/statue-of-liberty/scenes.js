@@ -86,9 +86,9 @@ function jerseyRing(t, t0, o = {}) {
 // 1. HOOK: the statue in New York, ringed by New Jersey
 CU.hook = (t, S) => {
   harbour(t, { labels: false });
-  popLabel("NEW YORK", 540, 330, t, 0, { size: 46, bg: "#cfd8ef" });
   flagArt("US-NY", 70, 300, 150);
   jerseyRing(t, at("hook/surrounded") - 0.2);
+  popLabel("NEW YORK", 540, 330, t, 0, { size: 46, bg: "#cfd8ef" });
   brandTag(BRAND);
 };
 // 2. LINE: 1834, the border down the middle of the Hudson
@@ -202,8 +202,8 @@ CU.power = (t, S) => {
 // 13. END: she stays in New York, surrounded by New Jersey (echoes the first frame)
 CU.end = (t, S) => {
   harbour(t, { labels: false });
-  popLabel("NEW YORK", 540, 330, t, S.t0, { size: 46, bg: "#cfd8ef" });
   flagArt("US-NY", 70, 300, 150);
   jerseyRing(t, at("end/surrounded") - 0.2);
+  popLabel("NEW YORK", 540, 330, t, S.t0, { size: 46, bg: "#cfd8ef" });
   brandTag(BRAND);
 };
