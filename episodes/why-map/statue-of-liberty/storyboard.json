@@ -1,0 +1,284 @@
+{
+ "episode": "statue-of-liberty",
+ "kits": [
+  "paper",
+  "kinetic",
+  "flight",
+  "flagart"
+ ],
+ "flags": [
+  "US",
+  "US-NY"
+ ],
+ "flagship": "House method (user 2026-10-06): A's paper statue, harbour and props, B's 3D map flight over the real harbour (OSM coastline and NY-NJ boundary, data/geom.json), C's moving type for the 1834 line, the 3 acres and the 24.5 acres.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "dataset": "data/geom.json"
+   },
+   "events": [
+    {
+     "at": "hook/york",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "hook/surrounded",
+     "do": "draw",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_line",
+   "type": "custom",
+   "start": "line.start-0.15",
+   "params": {
+    "fn": "line",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "line/border",
+     "do": "draw",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "line/hudson",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_side",
+   "type": "custom",
+   "start": "side.start-0.1",
+   "params": {
+    "fn": "side",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "side/two",
+     "do": "highlight",
+     "sfx": "pop"
+    },
+    {
+     "at": "side/jersey's",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_keep",
+   "type": "custom",
+   "start": "keep.start-0.15",
+   "params": {
+    "fn": "keep",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "keep/kept",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "keep/written",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_statue",
+   "type": "custom",
+   "start": "statue.start-0.15",
+   "params": {
+    "fn": "statue",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "statue/october",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "statue/dedicated",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_fog",
+   "type": "custom",
+   "start": "statue/in-0.1",
+   "params": {
+    "fn": "fog",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "statue/fog",
+     "do": "emphasize",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_ellis",
+   "type": "custom",
+   "start": "ellis.start-0.15",
+   "params": {
+    "fn": "ellis",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "ellis/ellis",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "ellis/three",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_fill",
+   "type": "custom",
+   "start": "fill.start-0.1",
+   "params": {
+    "fn": "fill",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "fill/landfill",
+     "do": "draw",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "fill/twentyfour",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_court",
+   "type": "custom",
+   "start": "court.start-0.15",
+   "params": {
+    "fn": "court",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "court/sued",
+     "do": "reveal",
+     "sfx": "stamp"
+    },
+    {
+     "at": "court/gave",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_two",
+   "type": "custom",
+   "start": "two.start-0.15",
+   "params": {
+    "fn": "two",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "two/two",
+     "do": "highlight",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_ground",
+   "type": "custom",
+   "start": "ground.start-0.15",
+   "params": {
+    "fn": "ground",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "ground/landfill",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "ground/natural",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_power",
+   "type": "custom",
+   "start": "power.start-0.15",
+   "params": {
+    "fn": "power",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "power/power",
+     "do": "draw",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "power/jersey",
+     "do": "highlight",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_end",
+   "type": "custom",
+   "start": "end.start-0.15",
+   "params": {
+    "fn": "end",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "end/york",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "end/surrounded",
+     "do": "draw",
+     "sfx": "whoosh"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

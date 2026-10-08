@@ -1,0 +1,86 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-08T05:27:46Z",
+   "reviewer": "worker (Border Quirks batch 2), contact sheet round 1",
+   "frames": [
+    9.54,
+    12.24,
+    20.76,
+    27.02,
+    30.87,
+    40.08,
+    49.14
+   ],
+   "defects": [
+    {
+     "t": 9.54,
+     "issue": "line/side/ellis/fill/two: land slabs 250 m thick at harbour scale, Jersey City shore reads as a giant block; Ellis landfill a tall box",
+     "fixed": true
+    },
+    {
+     "t": 12.24,
+     "issue": "side: Bedloe's Island pin under the captions; Ellis pin under the title",
+     "fixed": true
+    },
+    {
+     "t": 20.76,
+     "issue": "statue: '140 years ago this month' stamp across the statue's face",
+     "fixed": true
+    },
+    {
+     "t": 49.14,
+     "issue": "power: utilities card over the NEW YORK tag; power line under the captions",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T05:27:46Z",
+   "reviewer": "worker (Border Quirks batch 2), round 2 after fixes (slab 12 m, camera moved, tags moved)",
+   "frames": [
+    6.0,
+    9.5,
+    12.2,
+    27.0,
+    30.9,
+    37.5,
+    40.1
+   ],
+   "defects": [
+    {
+     "t": 12.24,
+     "issue": "side: 'NEW JERSEY'S SIDE' title covered Ellis Island and repeated the caption: removed",
+     "fixed": true
+    },
+    {
+     "t": 49.14,
+     "issue": "power: lines raised clear of the captions",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T05:27:46Z",
+   "reviewer": "worker (Border Quirks batch 2), round 3: full contact sheet after the last fixes",
+   "frames": [
+    0.05,
+    3.42,
+    9.54,
+    12.24,
+    15.6,
+    20.76,
+    22.86,
+    27.02,
+    30.87,
+    36.78,
+    40.08,
+    45.68,
+    49.14,
+    52.14,
+    53.98
+   ],
+   "defects": []
+  }
+ ]
+}

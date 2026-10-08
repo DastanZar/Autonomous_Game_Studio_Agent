@@ -26,6 +26,46 @@
     "script.json": "9bf48898ba95"
    },
    "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-08T05:13:09Z",
+   "hashes": {
+    "script.json": "9bf48898ba95",
+    "build/timeline.json": "b823a7bf3fd3"
+   },
+   "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-08T05:13:15Z",
+   "hashes": {
+    "script.json": "9bf48898ba95",
+    "build/timeline.json": "b823a7bf3fd3",
+    "storyboard.json": "8fe539079699"
+   },
+   "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-08T05:27:46Z",
+   "hashes": {
+    "storyboard.json": "8fe539079699",
+    "build/timeline.json": "b823a7bf3fd3",
+    "review.json": "cd72b350c68d"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "fail",
+   "at": "2026-10-08T05:27:46Z",
+   "hashes": {
+    "review.json": "cd72b350c68d",
+    "build/final_report.json": null
+   },
+   "failed": [
+    "build/final_report.json is missing: run python3 studio/tools/final_check.py <episode>"
+   ]
   }
  }
 }

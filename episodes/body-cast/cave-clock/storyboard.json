@@ -1,0 +1,262 @@
+{
+ "episode": "cave-clock",
+ "theme": "flat-cast",
+ "kits": [
+  "body",
+  "kinetic"
+ ],
+ "flagship": "House method: organ cast and flat props carry a story with a turn; moving type for the one big number.",
+ "drift": 0.06,
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "hook/cave",
+     "do": "reveal",
+     "sfx": "drop"
+    },
+    {
+     "at": "hook/clocks",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_lost",
+   "type": "custom",
+   "start": "lost.start-0.15",
+   "params": {
+    "fn": "lost",
+    "label": "HIS OWN ACCOUNT",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "lost/twentyfive",
+     "do": "count_start",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_who",
+   "type": "custom",
+   "start": "who.start-0.15",
+   "params": {
+    "fn": "who",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "who/thirty",
+     "do": "count_start",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_rules",
+   "type": "custom",
+   "start": "who/no-0.15",
+   "params": {
+    "fn": "rules",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "who/watch",
+     "do": "verdict",
+     "sfx": "click"
+    },
+    {
+     "at": "who/sun",
+     "do": "verdict",
+     "sfx": "click"
+    },
+    {
+     "at": "who/slept",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_count",
+   "type": "custom",
+   "start": "count.start-0.15",
+   "params": {
+    "fn": "count",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "count/count",
+     "do": "count_start",
+     "sfx": "tick"
+    },
+    {
+     "at": "count/five",
+     "do": "count_stop",
+     "sfx": "ding"
+    }
+   ]
+  },
+  {
+   "id": "s_slow",
+   "type": "custom",
+   "start": "slow.start-0.15",
+   "params": {
+    "fn": "slow",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": []
+  },
+  {
+   "id": "s_date",
+   "type": "custom",
+   "start": "date.start-0.15",
+   "params": {
+    "fn": "date",
+    "label": "HIS OWN ACCOUNT",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "date/september",
+     "do": "reveal",
+     "sfx": "paper"
+    },
+    {
+     "at": "date/august",
+     "do": "reveal",
+     "sfx": "paper"
+    },
+    {
+     "at": "date/twentieth",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_cycle",
+   "type": "custom",
+   "start": "cycle.start-0.15",
+   "params": {
+    "fn": "cycle",
+    "label": "HIS OWN ACCOUNT",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "cycle/own",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "cycle/twentyfour",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_lamp",
+   "type": "custom",
+   "start": "lamp.start-0.15",
+   "params": {
+    "fn": "lamp",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "lamp/harvard",
+     "do": "reveal",
+     "sfx": "paper"
+    }
+   ]
+  },
+  {
+   "id": "s_lamp2",
+   "type": "custom",
+   "start": "lamp/in-0.15",
+   "params": {
+    "fn": "lamp2",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "lamp/switching",
+     "do": "reveal",
+     "sfx": "switch"
+    },
+    {
+     "at": "lamp/resets",
+     "do": "emphasize",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_real",
+   "type": "custom",
+   "start": "real.start-0.15",
+   "params": {
+    "fn": "real",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "real/twentyfour",
+     "do": "count_start",
+     "sfx": "stamp"
+    },
+    {
+     "at": "real/eleven",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_master",
+   "type": "custom",
+   "start": "master.start-0.15",
+   "params": {
+    "fn": "master",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "master/light",
+     "do": "reveal",
+     "sfx": "ding"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "toll/didn't",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ]
+}

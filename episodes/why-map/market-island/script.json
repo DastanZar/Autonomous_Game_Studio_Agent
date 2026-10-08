@@ -37,7 +37,7 @@
   },
   {
    "id": "rock",
-   "say": "The island is Märket. A bare rock in the Baltic Sea, just over three hundred metres long.",
+   "say": "The island is a bare rock in the Baltic Sea, just over three hundred metres long.",
    "kind": "fact",
    "claims": [
     "c_rock"
@@ -45,12 +45,12 @@
    "gap": 0.3,
    "caps": [
     [
-     "THE ISLAND IS MÄRKET.",
-     4
+     "THE ISLAND",
+     2
     ],
     [
-     "A BARE ROCK",
-     3
+     "IS A BARE ROCK",
+     4
     ],
     [
      "IN THE BALTIC SEA,",

@@ -88,7 +88,10 @@
     "focus": [
      "MH"
     ],
-    "nameSize": 70
+    "nameSize": 70,
+    "ring": [
+     "MH"
+    ]
    },
    "events": [
     {

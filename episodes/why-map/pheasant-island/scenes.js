@@ -206,7 +206,7 @@ CU.swap = (t, S) => {
 // 9. VICEROY: France's official in charge is the 'viceroy of Pheasant Island'
 CU.viceroy = (t, S) => {
   paperBG("#e7dcc4");
-  local({ x: 540, gy: 1290, s: 1.25, hat: "bowler", plaid: false, coat: "#2f3f5c", beard: false, mustache: "#5a4636", look: 0, blink: 0.7, id: 31, brow: t > at("viceroy/viceroy") ? 0.8 : 0 });
+  local({ x: 540, gy: 1210, s: 1.25, hat: "bowler", plaid: false, coat: "#2f3f5c", beard: false, mustache: "#5a4636", look: 0, blink: 0.7, id: 31, brow: t > at("viceroy/viceroy") ? 0.8 : 0 });
   piece(() => ctx.rect(-20, 1060, W + 40, 400), KA.wood, { lw: 4, rim: 10 });             // the desk, in front of him
   for (let i = 0; i < 6; i++) line(-20, 1100 + i * 50, W + 20, 1100 + i * 50, "rgba(30,15,5,0.25)", 3);
   piece(() => ctx.rect(-20, 1040, W + 40, 40), KA.wood2, { lw: 4, rim: 6 });

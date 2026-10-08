@@ -1,0 +1,32 @@
+{
+ "title": "Which country has the most nuclear weapons? It's not America.",
+ "description": "Russia has the most nuclear warheads, an estimated 5,420, ahead of the United States (5,042), in SIPRI's January 2026 estimates. Then China 620, France 370, the UK 225, India 190, Pakistan 170, Israel 90 and North Korea about 60.\n\nSources:\n- SIPRI Yearbook 2026, chapter 8: World nuclear forces (Kristensen and Korda), Table 8A.1 — SIPRI: https://www.sipri.org/sites/default/files/YB26%2008%20World%20Nuclear%20Forces.pdf\n- Increasing focus on nuclear weapons amid heightened escalation risks: new SIPRI Yearbook out now — SIPRI press release, 8 June 2026: https://www.sipri.org/media/press-release/2026/increasing-focus-nuclear-weapons-amid-heightened-escalation-risks-new-sipri-yearbook-out-now\n\nLabels: all counts are SIPRI estimates for January 2026, total inventory (stockpiled plus retired warheads awaiting dismantlement); the 83% share is of military stockpiles (usable warheads). Israel does not confirm its arsenal. Flags: official SVGs from Wikimedia Commons. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#geography",
+  "#countries",
+  "#data",
+  "#shorts"
+ ],
+ "pinned_comment": "Which number on this list surprised you most?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/most-nuclear-weapons.mp4",
+ "srt": "out/most-nuclear-weapons.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-21T17:00:00Z",
+ "tags": [
+  "country with the most nuclear weapons",
+  "nuclear weapons by country",
+  "russia nuclear weapons",
+  "sipri 2026",
+  "nuclear warheads",
+  "countries ranked",
+  "flags",
+  "geography facts"
+ ],
+ "related_video": "Which country has the most time zones? It's not Russia.",
+ "category": "Education"
+}

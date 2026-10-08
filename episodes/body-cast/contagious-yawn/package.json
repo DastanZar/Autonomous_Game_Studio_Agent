@@ -1,0 +1,32 @@
+{
+ "title": "Why is yawning contagious? (It isn't about oxygen)",
+ "description": "We don't yawn for oxygen: in 1987 psychologist Robert Provine had people breathe pure oxygen and air rich in carbon dioxide, and their yawning didn't change. What does trigger yawns is other yawns: 55% of his subjects yawned at a video of yawns (21% at smiles), and 30% yawned just reading about yawning (11% reading about hiccups).\n\nSources:\n- Yawning (Robert R. Provine), American Scientist 93(6), Nov-Dec 2005 — American Scientist / Sigma Xi: https://www.americanscientist.org/sites/americanscientist.org/files/200510314450_646.pdf\n- Yawning: no effect of 3-5% CO2, 100% O2, and exercise (Provine, Tate & Geldmacher, Behav Neural Biol 1987): PubMed record — National Library of Medicine (PubMed): https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3120687&rettype=abstract&retmode=text\n\nPercentages are from Provine's own lab tests. Robert Provine is named, not depicted. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#science",
+  "#biology",
+  "#yawning",
+  "#shorts"
+ ],
+ "pinned_comment": "Be honest: how many times did you yawn watching this?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/contagious-yawn.mp4",
+ "srt": "out/contagious-yawn.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-21T16:00:00Z",
+ "tags": [
+  "why is yawning contagious",
+  "contagious yawning",
+  "why do we yawn",
+  "yawning oxygen myth",
+  "robert provine",
+  "brain facts",
+  "human body facts",
+  "biology"
+ ],
+ "related_video": "Your brain runs on 12 watts, and it never turns off",
+ "category": "Education"
+}

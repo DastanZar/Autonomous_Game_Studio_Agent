@@ -84,16 +84,16 @@ CU.test = (t, S) => {                          // Cardiff, 2005, 180 volunteers
     text("Cardiff University, 2005", 0, 50, { size: 40, font: "Elite", color: "#6b5a48" });
   });
   if (t > tn) { for (let i = 0; i < 180; i++) { const c = i % 18, r = Math.floor(i / 18), k = clamp((t - tn - i * 0.006) / 0.2);
-      if (k <= 0) continue; ctx.globalAlpha = k; ctx.fillStyle = r < 5 ? BC.lymph : BC.sun; ctx.beginPath(); ctx.arc(150 + c * 38, 680 + r * 38 + (r >= 5 ? 20 : 0), 13, 0, 7); ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = BC.ink; ctx.stroke(); }
-    ctx.globalAlpha = 1; kText("180 VOLUNTEERS", 470, 1170, 96, t, tn + 0.4, { color: "#fff", stroke: 12, ink: BC.ink }); }
+      if (k <= 0) continue; ctx.globalAlpha = k; ctx.fillStyle = c < 9 ? ICE : BC.sun; ctx.beginPath(); ctx.arc(140 + c * 38 + (c >= 9 ? 30 : 0), 700 + r * 40, 13, 0, 7); ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = BC.ink; ctx.stroke(); }
+    ctx.globalAlpha = 1; popIn(260, 1150, popK(t, tn + 0.5), () => tag("90 CHILLED", 0, 0, { size: 40 })); popIn(680, 1150, popK(t, tn + 0.6), () => tag("90 NOT", 0, 0, { size: 40 })); }
 };
 CU.bucket = (t, S) => {                        // half: icy water, 20 minutes; half: empty bowl
   SETS.spotlight(t);
   const ti = cue("bucket/icy") - 0.2, tm = cue("bucket/twenty") - 0.2, te = cue("bucket/empty") - 0.2;
   const k1 = popK(t, ti), k2 = popK(t, te);
-  if (k1 > 0) { ctx.save(); ctx.translate(250, 0); ctx.scale(0.75, 0.75); ctx.translate(-470, 0); bucket(470, 1150, 1.1 * k1, t, {}); bucket(470, 1150, 1.1 * k1, t, { front: true, label: "ICY WATER" }); ctx.restore(); }
-  if (k2 > 0) { ctx.save(); ctx.translate(690, 0); ctx.scale(0.75, 0.75); ctx.translate(-470, 0); bucket(470, 1150, 1.1 * k2, t, { empty: true }); bucket(470, 1150, 1.1 * k2, t, { front: true, empty: true, label: "EMPTY BOWL" }); ctx.restore(); }
-  if (t > tm) { clockRing(250, 520, 130, eio(clamp((t - tm) / 1.5)) * 20 / 60, ""); text("20 MIN", 250, 720, { size: 64, color: "#fff", stroke: 12, ink: BC.ink }); }
+  if (k1 > 0) { ctx.save(); ctx.translate(250, 0); ctx.scale(0.75, 0.75); ctx.translate(-470, 0); bucket(470, 1380, 1.1 * k1, t, {}); bucket(470, 1380, 1.1 * k1, t, { front: true, label: "ICY WATER" }); ctx.restore(); }
+  if (k2 > 0) { ctx.save(); ctx.translate(690, 0); ctx.scale(0.75, 0.75); ctx.translate(-470, 0); bucket(470, 1380, 1.1 * k2, t, { empty: true }); bucket(470, 1380, 1.1 * k2, t, { front: true, empty: true, label: "EMPTY BOWL" }); ctx.restore(); }
+  if (t > tm) { clockRing(250, 500, 120, eio(clamp((t - tm) / 1.5)) * 20 / 60, ""); text("20 MIN", 250, 690, { size: 64, color: "#fff", stroke: 12, ink: BC.ink }); }
   popIn(250, 330, k1, () => tag("90 PEOPLE", 0, 0, { size: 46 }));
   popIn(690, 330, k2, () => tag("90 PEOPLE", 0, 0, { size: 46 }));
 };
@@ -107,23 +107,23 @@ CU.result = (t, S) => {                        // 13 of 90 chilled reported a co
   vgrad("#1a1440", "#3b1f8f");
   const tn = cue("result/thirteen") - 0.15;
   flatCard(470, 340, 680, 150, 0.02, popK(t, S.t0), () => text("REPORTED A COLD IN 4-5 DAYS", 0, 18, { size: 50, color: BC.ink }));
-  bar90(300, 1130, 560, 13, t, tn, ICE, "CHILLED");
-  bar90(660, 1130, 560, 0, t, 1e9, BC.sun, "DRY BOWL");
+  bar90(300, 1020, 480, 13, t, tn, ICE, "CHILLED");
+  bar90(660, 1020, 480, 0, t, 1e9, BC.sun, "DRY BOWL");
 };
 CU.result2 = (t, S) => {                       // ... against 5 of 90 in the dry bowls
   vgrad("#1a1440", "#3b1f8f");
   const tn = cue("result/five") - 0.15;
   flatCard(470, 340, 680, 150, 0.02, 1, () => text("REPORTED A COLD IN 4-5 DAYS", 0, 18, { size: 50, color: BC.ink }));
-  bar90(300, 1130, 560, 13, t, -10, ICE, "CHILLED");
-  bar90(660, 1130, 560, 5, t, tn, BC.sun, "DRY BOWL");
-  popIn(470, 1230, popK(t, tn + 0.3), () => tag("ONE STUDY, 180 PEOPLE", 0, 0, { size: 40 }));
+  bar90(300, 1020, 480, 13, t, -10, ICE, "CHILLED");
+  bar90(660, 1020, 480, 5, t, tn, BC.sun, "DRY BOWL");
+  popIn(470, 1150, popK(t, tn + 0.3), () => tag("ONE STUDY, 180 PEOPLE", 0, 0, { size: 40 }));
 };
 CU.turn = (t, S) => {                          // the cold water didn't bring the virus
   SETS.spotlight(t);
   const td = cue("turn/didn't") - 0.15;
-  heartInBucket(300, SB("heart") * 0.6, t, { shake: 0.4 });
-  for (let i = 0; i < 3; i++) withAlpha(0.9, () => text("❄", 700 + (i - 1) * 90, 600 + Math.sin(t * 2 + i) * 20, { size: 70, color: "#e6fbff", stroke: 8, ink: BC.ink }));
-  if (t > td) { stamp("NO VIRUS HERE", 680, 820, t - td, { size: 74, rot: -0.1, color: BC.blood }); }
+  heartInBucket(250, SB("heart") * 0.55, t, { shake: 0.4 });
+  for (let i = 0; i < 3; i++) withAlpha(0.9, () => text("❄", 700 + (i - 1) * 90, 880 + Math.sin(t * 2 + i) * 20, { size: 70, color: "#e6fbff", stroke: 8, ink: BC.ink }));
+  if (t > td) { stamp("NO VIRUS HERE", 640, 560, t - td, { size: 74, rot: -0.1, color: BC.blood }); }
 };
 CU.carry = (t, S) => {                         // the virus is already there, quietly
   noseSet(t, 0);
@@ -136,7 +136,7 @@ CU.carry = (t, S) => {                         // the virus is already there, qu
 CU.vessels = (t, S) => {                       // chilling squeezes the nose's blood vessels; the defenders can't get through
   const ts = cue("vessels/squeezes") - 0.2, tc = cue("vessels/cuts") - 0.2, sq = eio(clamp((t - ts) / 1.2));
   noseSet(t, sq);
-  for (let i = 0; i < 3; i++) defender(lerp(-120, 280 + i * 200, eout(clamp((t - S.t0) / 1.2))) - sq * 200 * (i + 1) * 0.6, 700 + i * 150, 0.9, t, sq > 0.5 ? "worried" : "happy", i + 4);
+  for (let i = 0; i < 3; i++) defender(lerp(-150, 230 + i * 240, eout(clamp((t - S.t0) / 1.2))), 640 + i * 170, 1.35, t, sq > 0.5 ? "worried" : "happy", i + 4);
   popIn(470, 380, popK(t, S.t0 + 0.1), () => tag("THE RESEARCHERS' THEORY", 0, 0, { size: 50 }));
   popIn(470, 1170, popK(t, tc), () => tag("FEWER DEFENDERS GET THROUGH", 0, 0, { size: 44 }));
 };

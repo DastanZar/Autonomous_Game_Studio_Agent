@@ -58,6 +58,62 @@
     48.1
    ],
    "defects": []
+  },
+  {
+   "at": "2026-10-08T05:10:13Z",
+   "reviewer": "Gut Gang worker (Claude), round 3: sheet re-rendered by produce.sh, plus frames from the encoded MP4 at 1.0, 15.5, 27.5, 38.0, 46.5 s and the thumbnail",
+   "frames": [
+    0.05,
+    1.0,
+    3.58,
+    5.57,
+    10.48,
+    15.5,
+    17.02,
+    21.66,
+    23.34,
+    27.5,
+    29.02,
+    32.98,
+    38.0,
+    39.95,
+    44.94,
+    46.5,
+    46.59,
+    48.1
+   ],
+   "defects": [
+    {
+     "t": 4.42,
+     "issue": "thumbnail at 4.42 s showed 'A SCIENTIST MEASURED IT' without the dare; re-made at 2.0 s ('READ THIS. DON'T YAWN.')",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T05:36:54Z",
+   "reviewer": "Gut Gang worker (Claude), final round: sheet re-rendered after produce.sh, every scene looked at",
+   "frames": [
+    0.05,
+    1.0,
+    3.58,
+    5.57,
+    10.48,
+    15.5,
+    17.02,
+    21.66,
+    23.34,
+    27.5,
+    29.02,
+    32.98,
+    38.0,
+    39.95,
+    44.94,
+    46.5,
+    46.59,
+    48.1
+   ],
+   "defects": []
   }
  ]
 }

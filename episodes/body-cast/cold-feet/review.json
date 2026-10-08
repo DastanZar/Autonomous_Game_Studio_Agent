@@ -1,0 +1,124 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-08T05:12:17Z",
+   "reviewer": "Gut Gang worker (Claude), contact sheet round 1",
+   "frames": [
+    0.05,
+    4.58,
+    8.44,
+    15.08,
+    22.66,
+    24.18,
+    27.64,
+    30.47,
+    34.16,
+    37.92,
+    43.54,
+    47.47,
+    49.94,
+    50.97
+   ],
+   "defects": [
+    {
+     "t": 15.08,
+     "issue": "test: '180 VOLUNTEERS' kinetic type duplicated and collided with the burned caption; replaced by two small group tags, dots split 90/90",
+     "fixed": true
+    },
+    {
+     "t": 22.66,
+     "issue": "bucket: the 20-minute clock sat on top of the ICY WATER bucket; buckets moved down, clock up",
+     "fixed": true
+    },
+    {
+     "t": 30.47,
+     "issue": "result: bar labels and the ONE STUDY tag fell into the caption block; bars raised and shortened",
+     "fixed": true
+    },
+    {
+     "t": 34.16,
+     "issue": "turn: NO VIRUS HERE stamp covered the Heart, then snowflakes covered the stamp; Heart moved left, stamp up, snowflakes down",
+     "fixed": true
+    },
+    {
+     "t": 43.54,
+     "issue": "vessels: the white cells were tiny and drifted off-screen; now larger and they stop when the vessels narrow",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T05:12:17Z",
+   "reviewer": "Gut Gang worker (Claude), contact sheet round 2 plus still at 34.16 s",
+   "frames": [
+    0.05,
+    4.58,
+    8.44,
+    15.08,
+    22.66,
+    24.18,
+    27.64,
+    30.47,
+    34.16,
+    37.92,
+    43.54,
+    47.47,
+    49.94,
+    50.97
+   ],
+   "defects": []
+  },
+  {
+   "at": "2026-10-08T05:17:18Z",
+   "reviewer": "Gut Gang worker (Claude), round 3: sheet re-rendered by produce.sh, frames from the encoded MP4 at 12.0, 19.5, 31.5, 41.0, 49.5 s and the thumbnail",
+   "frames": [
+    0.05,
+    4.58,
+    8.44,
+    12.0,
+    15.08,
+    19.5,
+    22.66,
+    24.18,
+    27.64,
+    30.47,
+    31.5,
+    34.16,
+    37.92,
+    41.0,
+    43.54,
+    47.47,
+    49.5,
+    49.94,
+    50.97
+   ],
+   "defects": []
+  },
+  {
+   "at": "2026-10-08T05:36:54Z",
+   "reviewer": "Gut Gang worker (Claude), final round: sheet re-rendered after produce.sh, every scene looked at",
+   "frames": [
+    0.05,
+    4.58,
+    8.44,
+    12.0,
+    15.08,
+    19.5,
+    22.66,
+    24.18,
+    27.64,
+    30.47,
+    31.5,
+    34.16,
+    37.92,
+    41.0,
+    43.54,
+    47.47,
+    49.5,
+    49.94,
+    50.97
+   ],
+   "defects": []
+  }
+ ]
+}

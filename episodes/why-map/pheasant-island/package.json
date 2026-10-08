@@ -1,0 +1,32 @@
+{
+ "title": "This island changes country every six months",
+ "description": "Pheasant Island, a 200-metre island in the Bidasoa river, is Spanish from February to July and French from August to January.\n\nSources:\n- Pheasant Island — Wikipedia: https://en.wikipedia.org/wiki/Pheasant_Island\n- Spanish or French? Pheasant Island is about to swap nationalities — again — Euronews (Inês Trindade Pereira, 30 July 2024): https://www.euronews.com/2024/07/30/spanish-or-french-pheasant-island-is-about-to-swap-nationalities-again\n- The little Spanish town that found itself in France — CNN Travel: https://www.cnn.com/travel/article/llivia-spain-france\n- Treaty of the Pyrenees — Wikipedia: https://en.wikipedia.org/wiki/Treaty_of_the_Pyrenees\n\nLabels: the origin of the name is uncertain (\"probably\" a mistranslation). Sources disagree on when the six-month swap began, so the video does not date it. Maps: Natural Earth (public domain) and OpenStreetMap contributors (ODbL; Bidasoa river and Pheasant Island outlines). Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#history",
+  "#geography",
+  "#maps",
+  "#shorts"
+ ],
+ "pinned_comment": "Would you rather be the Viceroy of Pheasant Island, or one of the pheasants that isn't there?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/pheasant-island.mp4",
+ "srt": "out/pheasant-island.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-21T15:00:00Z",
+ "tags": [
+  "pheasant island",
+  "isla de los faisanes",
+  "ile des faisans",
+  "france spain border",
+  "condominium",
+  "weird borders",
+  "treaty of the pyrenees",
+  "bidasoa"
+ ],
+ "related_video": "America and Britain nearly went to war over a pig",
+ "category": "Education"
+}

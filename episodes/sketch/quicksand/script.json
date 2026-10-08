@@ -1,0 +1,371 @@
+{
+ "channel": "sketch",
+ "episode": "quicksand",
+ "series": "whatif",
+ "working_title": "What would actually happen if you fell into quicksand?",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "In films, quicksand swallows people whole. Physics says you'd stop at your waist.",
+   "kind": "hook",
+   "claims": [
+    "c_waist"
+   ],
+   "gap": 1.2,
+   "caps": [
+    [
+     "In films,",
+     2
+    ],
+    [
+     "quicksand swallows people whole.",
+     4
+    ],
+    [
+     "Physics says",
+     2
+    ],
+    [
+     "you'd stop at your waist.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "mix",
+   "say": "Quicksand is fine sand, clay and salt water. Leave it alone, and it slowly thickens.",
+   "kind": "fact",
+   "claims": [
+    "c_recipe"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Quicksand is fine sand,",
+     4
+    ],
+    [
+     "clay and salt water.",
+     4
+    ],
+    [
+     "Leave it alone,",
+     3
+    ],
+    [
+     "and it slowly thickens.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "step",
+   "say": "Step on it, and it turns to liquid. The harder you push, the runnier it gets.",
+   "kind": "fact",
+   "claims": [
+    "c_liquefy"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Step on it,",
+     3
+    ],
+    [
+     "and it turns to liquid.",
+     5
+    ],
+    [
+     "The harder you push,",
+     4
+    ],
+    [
+     "the runnier it gets.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "sink",
+   "say": "So you sink. And thrashing makes you sink faster.",
+   "kind": "fact",
+   "claims": [
+    "c_liquefy"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "So you sink.",
+     3
+    ],
+    [
+     "And thrashing",
+     2
+    ],
+    [
+     "makes you sink faster.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "dense",
+   "say": "But here's the catch. Quicksand is about twice as dense as you are.",
+   "kind": "fact",
+   "claims": [
+    "c_density"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "But here's the catch.",
+     4
+    ],
+    [
+     "Quicksand is about",
+     3
+    ],
+    [
+     "twice as dense as you are.",
+     6
+    ]
+   ]
+  },
+  {
+   "id": "float",
+   "say": "So you float. You sink to about your waist. Then you stop.",
+   "kind": "fact",
+   "claims": [
+    "c_waist"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "So you float.",
+     3
+    ],
+    [
+     "You sink to about your waist.",
+     6
+    ],
+    [
+     "Then you stop.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "lab",
+   "say": "In the lab, a ball as dense as a person would not go under. However hard they shook it.",
+   "kind": "fact",
+   "claims": [
+    "c_bead"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "In the lab,",
+     3
+    ],
+    [
+     "a ball as dense as a person",
+     7
+    ],
+    [
+     "would not go under.",
+     4
+    ],
+    [
+     "However hard they shook it.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "stuck",
+   "say": "Getting out is the hard part. Around your legs, the sand packs down tight.",
+   "kind": "fact",
+   "claims": [
+    "c_packed"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Getting out",
+     2
+    ],
+    [
+     "is the hard part.",
+     4
+    ],
+    [
+     "Around your legs,",
+     3
+    ],
+    [
+     "the sand packs down tight.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "car",
+   "say": "The researchers' estimate: pulling one foot out, at one centimetre a second, takes about the force needed to lift a car.",
+   "kind": "fact",
+   "claims": [
+    "c_car"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "The researchers' estimate:",
+     3
+    ],
+    [
+     "pulling one foot out,",
+     4
+    ],
+    [
+     "at 1 cm a second,",
+     5
+    ],
+    [
+     "takes about the force",
+     4
+    ],
+    [
+     "needed to lift a car.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "pull",
+   "say": "So don't let your friends yank you out. One of the physicists warned they could pull you into two pieces.",
+   "kind": "fact",
+   "claims": [
+    "c_pieces"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "So don't let your friends",
+     5
+    ],
+    [
+     "yank you out.",
+     3
+    ],
+    [
+     "One of the physicists warned",
+     5
+    ],
+    [
+     "they could pull you",
+     4
+    ],
+    [
+     "into 2 pieces.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "wiggle",
+   "say": "Instead, wiggle your legs slowly. Water trickles down and loosens the sand. Lie back, and let your legs float free.",
+   "kind": "fact",
+   "claims": [
+    "c_wiggle"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Instead,",
+     1
+    ],
+    [
+     "wiggle your legs slowly.",
+     4
+    ],
+    [
+     "Water trickles down",
+     3
+    ],
+    [
+     "and loosens the sand.",
+     4
+    ],
+    [
+     "Lie back,",
+     2
+    ],
+    [
+     "and let your legs float free.",
+     6
+    ]
+   ]
+  },
+  {
+   "id": "tide",
+   "say": "The real risk isn't the sand. It's being stuck near the sea when the tide comes in.",
+   "kind": "fact",
+   "claims": [
+    "c_tide"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "The real risk",
+     3
+    ],
+    [
+     "isn't the sand.",
+     3
+    ],
+    [
+     "It's being stuck",
+     3
+    ],
+    [
+     "near the sea",
+     3
+    ],
+    [
+     "when the tide comes in.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "call",
+   "say": "Quicksand doesn't swallow you. It just holds on.",
+   "kind": "callback",
+   "claims": [
+    "c_waist"
+   ],
+   "gap": 0.2,
+   "caps": [
+    [
+     "Quicksand doesn't",
+     2
+    ],
+    [
+     "swallow you.",
+     2
+    ],
+    [
+     "It just holds on.",
+     4
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "call",
+  "connects_to": "hook",
+  "how": "Answers the hook's 'swallows people whole': it doesn't swallow you, it holds on; the page pulls back to the stick figure stuck at the waist."
+ }
+}

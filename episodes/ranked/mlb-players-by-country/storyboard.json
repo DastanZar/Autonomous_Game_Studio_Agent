@@ -1,0 +1,319 @@
+{
+ "episode": "mlb-players-by-country",
+ "theme": "data-flags",
+ "kits": [
+  "kinetic",
+  "flagart",
+  "rank"
+ ],
+ "flags": [
+  "CA",
+  "JP",
+  "US"
+ ],
+ "flagship": "House method (user 2026-10-06): C (kinetic infographic) is Leader Flags' default.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "region": [
+     -180.0,
+     -60.0,
+     180.0,
+     84.0
+    ],
+    "focus": [
+     "DO"
+    ]
+   },
+   "events": [
+    {
+     "at": "hook/dominican",
+     "do": "reveal",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_count",
+   "type": "custom",
+   "start": "count.start-0.15",
+   "params": {
+    "fn": "count",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "sub": "of 948 players on 2026 Opening Day rosters",
+    "focus": [
+     "DO"
+    ]
+   },
+   "events": [
+    {
+     "at": "count/ninetythree",
+     "do": "count_start",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_rest",
+   "type": "custom",
+   "start": "rest.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "y0": 470,
+    "rows": [
+     {
+      "rank": 1,
+      "code": "DO",
+      "name": "Dominican Rep.",
+      "value": 93
+     },
+     {
+      "rank": 2,
+      "code": "VE",
+      "name": "Venezuela",
+      "value": 60,
+      "at": "rest/venezuela",
+      "valueAt": "rest/sixty"
+     },
+     {
+      "rank": 3,
+      "code": "CU",
+      "name": "Cuba",
+      "value": 20,
+      "at": "rest/cuba",
+      "valueAt": "rest/twenty"
+     },
+     {
+      "rank": 4,
+      "code": "CA",
+      "name": "Canada",
+      "value": 19,
+      "at": "rest/canada",
+      "valueAt": "rest/nineteen"
+     }
+    ],
+    "focus": [
+     "VE"
+    ],
+    "focusAt": [
+     {
+      "at": "rest/cuba",
+      "codes": [
+       "CU"
+      ]
+     },
+     {
+      "at": "rest/canada",
+      "codes": [
+       "CA"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "rest/venezuela",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "rest/cuba",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "rest/canada",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_japan",
+   "type": "custom",
+   "start": "japan.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "y0": 380,
+    "dy": 125,
+    "rows": [
+     {
+      "rank": 1,
+      "code": "DO",
+      "name": "Dominican Rep.",
+      "value": 93
+     },
+     {
+      "rank": 2,
+      "code": "VE",
+      "name": "Venezuela",
+      "value": 60
+     },
+     {
+      "rank": 3,
+      "code": "CU",
+      "name": "Cuba",
+      "value": 20
+     },
+     {
+      "rank": 4,
+      "code": "CA",
+      "name": "Canada",
+      "value": 19
+     },
+     {
+      "rank": 5,
+      "code": "JP",
+      "name": "Japan",
+      "value": 14,
+      "at": "japan/japan",
+      "valueAt": "japan/fourteen"
+     },
+     {
+      "rank": 5,
+      "code": "PR",
+      "name": "Puerto Rico",
+      "value": 14,
+      "at": "japan/puerto",
+      "valueAt": "japan/fourteen"
+     }
+    ],
+    "focus": [
+     "JP"
+    ],
+    "focusAt": [
+     {
+      "at": "japan/puerto",
+      "codes": [
+       "PR"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "japan/japan",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "japan/puerto",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_pivot",
+   "type": "custom",
+   "start": "pivot.start-0.15",
+   "params": {
+    "fn": "pivot",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "DO"
+    ]
+   },
+   "events": [
+    {
+     "at": "pivot/smaller",
+     "do": "emphasize",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_curacao",
+   "type": "custom",
+   "start": "curacao.start-0.15",
+   "params": {
+    "fn": "curacao",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "sub": "from 155,967 people (World Bank, 2024)",
+    "focus": [
+     "CW"
+    ],
+    "ring": [
+     "CW"
+    ]
+   },
+   "events": [
+    {
+     "at": "curacao/curacao",
+     "do": "reveal",
+     "sfx": "stamp"
+    },
+    {
+     "at": "curacao/four",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_ratio",
+   "type": "custom",
+   "start": "ratio.start-0.15",
+   "params": {
+    "fn": "ratio",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "CW"
+    ],
+    "ring": [
+     "CW"
+    ],
+    "focusAt": [
+     {
+      "at": "ratio/dominican",
+      "codes": [
+       "DO"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "ratio/three",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "DO"
+    ],
+    "focusAt": [
+     {
+      "at": "toll/curacao",
+      "codes": [
+       "CW"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "toll/curacao",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

@@ -38,13 +38,54 @@
   },
   "storyboard": {
    "result": "pass",
-   "at": "2026-10-07T20:13:23Z",
+   "at": "2026-10-08T05:26:21Z",
    "hashes": {
     "script.json": "6be43a1168d2",
     "build/timeline.json": "7ef6d344ce96",
-    "storyboard.json": "1ce88d77c18c"
+    "storyboard.json": "dae643b0623a"
    },
    "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-08T05:26:21Z",
+   "hashes": {
+    "storyboard.json": "dae643b0623a",
+    "build/timeline.json": "7ef6d344ce96",
+    "review.json": "1c6b618642c9"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "pass",
+   "at": "2026-10-08T05:26:21Z",
+   "hashes": {
+    "review.json": "1c6b618642c9",
+    "build/final_report.json": "3e660724019e"
+   },
+   "failed": []
+  },
+  "package": {
+   "result": "pass",
+   "at": "2026-10-08T05:26:28Z",
+   "hashes": {
+    "build/final_report.json": "3e660724019e",
+    "dossier.json": "8d2e6960ed8f",
+    "script.json": "6be43a1168d2",
+    "package.json": "8c82cc56d80a"
+   },
+   "failed": []
+  },
+  "publish": {
+   "result": "fail",
+   "at": "2026-10-08T05:27:00Z",
+   "hashes": {
+    "package.json": "8c82cc56d80a",
+    "publish.json": null
+   },
+   "failed": [
+    "publish.json is missing"
+   ]
   }
  }
 }

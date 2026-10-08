@@ -7,6 +7,65 @@
     "topic.json": "1866d8e23a4e"
    },
    "failed": []
+  },
+  "research": {
+   "result": "pass",
+   "at": "2026-10-08T05:13:51Z",
+   "hashes": {
+    "topic.json": "1866d8e23a4e",
+    "dossier.json": "05a5609304c9"
+   },
+   "failed": []
+  },
+  "script": {
+   "result": "pass",
+   "at": "2026-10-08T05:20:09Z",
+   "hashes": {
+    "topic.json": "1866d8e23a4e",
+    "dossier.json": "05a5609304c9",
+    "script.json": "9632877c89fc"
+   },
+   "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-08T05:20:13Z",
+   "hashes": {
+    "script.json": "9632877c89fc",
+    "build/timeline.json": "b7afe5af65c7"
+   },
+   "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-08T05:22:18Z",
+   "hashes": {
+    "script.json": "9632877c89fc",
+    "build/timeline.json": "b7afe5af65c7",
+    "storyboard.json": "3f316de6edd1"
+   },
+   "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-08T05:23:40Z",
+   "hashes": {
+    "storyboard.json": "3f316de6edd1",
+    "build/timeline.json": "b7afe5af65c7",
+    "review.json": "99fe2f05a4a6"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "fail",
+   "at": "2026-10-08T05:32:09Z",
+   "hashes": {
+    "review.json": "99fe2f05a4a6",
+    "build/final_report.json": null
+   },
+   "failed": [
+    "build/final_report.json is missing: run python3 studio/tools/final_check.py <episode>"
+   ]
   }
  }
 }

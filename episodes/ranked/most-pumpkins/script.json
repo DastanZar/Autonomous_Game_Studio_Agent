@@ -1,0 +1,211 @@
+{
+ "channel": "ranked",
+ "episode": "most-pumpkins",
+ "series": "top",
+ "working_title": "Which country grows the most pumpkins? Not America.",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "The world's biggest pumpkin grower isn't America.",
+   "kind": "hook",
+   "claims": [
+    "c_india",
+    "c_usa"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "THE WORLD'S BIGGEST",
+     3
+    ],
+    [
+     "PUMPKIN GROWER",
+     2
+    ],
+    [
+     "ISN'T AMERICA.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "item",
+   "say": "Pumpkins, squash and gourds all count as one crop here.",
+   "kind": "fact",
+   "claims": [
+    "c_item"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "PUMPKINS, SQUASH",
+     2
+    ],
+    [
+     "AND GOURDS",
+     2
+    ],
+    [
+     "ALL COUNT AS",
+     3
+    ],
+    [
+     "ONE CROP HERE.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "sixth",
+   "say": "Sixth: the United States. Nine hundred thirty-five thousand metric tons.",
+   "kind": "fact",
+   "claims": [
+    "c_usa"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "SIXTH:",
+     1
+    ],
+    [
+     "THE UNITED STATES.",
+     3
+    ],
+    [
+     "935,000 TONNES.",
+     6
+    ]
+   ]
+  },
+  {
+   "id": "middle",
+   "say": "Ukraine and Russia, a little over a million each.",
+   "kind": "fact",
+   "claims": [
+    "c_ukraine",
+    "c_russia"
+   ],
+   "gap": 0.3,
+   "caps": [
+    [
+     "UKRAINE AND RUSSIA,",
+     3
+    ],
+    [
+     "A LITTLE OVER",
+     3
+    ],
+    [
+     "A MILLION EACH.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "egypt",
+   "say": "Egypt, one point three million.",
+   "kind": "fact",
+   "claims": [
+    "c_egypt"
+   ],
+   "gap": 0.35,
+   "caps": [
+    [
+     "EGYPT,",
+     1
+    ],
+    [
+     "1.3 MILLION.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "china",
+   "say": "China, seven point seven.",
+   "kind": "fact",
+   "claims": [
+    "c_china"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "CHINA,",
+     1
+    ],
+    [
+     "7.7.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "india",
+   "say": "And India: nine point three million metric tons.",
+   "kind": "fact",
+   "claims": [
+    "c_india"
+   ],
+   "gap": 0.4,
+   "caps": [
+    [
+     "AND INDIA:",
+     2
+    ],
+    [
+     "9.3 MILLION TONNES.",
+     6
+    ]
+   ]
+  },
+  {
+   "id": "ten",
+   "say": "That's about ten times America.",
+   "kind": "fact",
+   "claims": [
+    "c_usa",
+    "c_india"
+   ],
+   "gap": 0.45,
+   "caps": [
+    [
+     "THAT'S ABOUT",
+     2
+    ],
+    [
+     "10 TIMES AMERICA.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "toll",
+   "say": "Not America. India.",
+   "kind": "callback",
+   "claims": [
+    "c_india",
+    "c_usa"
+   ],
+   "gap": 0.0,
+   "caps": [
+    [
+     "NOT AMERICA.",
+     2
+    ],
+    [
+     "INDIA.",
+     1
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "toll",
+  "connects_to": "hook",
+  "how": "Answers the hook's 'isn't America' with India; the last frame is the India vs United States face-off that the first frame teases with the US flag."
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "title": "The Statue of Liberty is in New York. Surrounded by New Jersey.",
+ "description": "The Statue of Liberty turns 140 on 28 October 2026. Its island is in New York, but it sits on New Jersey's side of the state line, and Ellis Island next door is in both states.\n\nSources:\n- Frequently Asked Questions — U.S. National Park Service, Statue of Liberty National Monument: https://www.nps.gov/stli/faqs.htm\n- Liberty Island: A Chronology — U.S. National Park Service, Statue of Liberty National Monument: https://www.nps.gov/stli/learn/historyculture/liberty-island-a-chronology.htm\n- New Jersey v. New York, 523 U.S. 767 (1998) — Supreme Court of the United States, via Cornell Law School Legal Information Institute: https://www.law.cornell.edu/supremecourt/text/523/767\n- Liberty Island — Wikipedia: https://en.wikipedia.org/wiki/Liberty_Island\n- Statue of Liberty — Wikipedia: https://en.wikipedia.org/wiki/Statue_of_Liberty\n\nNote: 24.5 acres is the Supreme Court's figure (\"some 24.5 acres\") for the fill added to Ellis Island after 1891. Maps: OpenStreetMap contributors (ODbL; harbour coastline, New York-New Jersey boundary, Liberty Island and the 1857 Ellis Island boundary). Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#history",
+  "#geography",
+  "#newyork",
+  "#shorts"
+ ],
+ "pinned_comment": "Is the Statue of Liberty a New Yorker or a New Jerseyan? Make your case.",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/statue-of-liberty.mp4",
+ "srt": "out/statue-of-liberty.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-28T15:00:00Z",
+ "tags": [
+  "statue of liberty",
+  "liberty island",
+  "ellis island",
+  "new york vs new jersey",
+  "new jersey v new york",
+  "statue of liberty 140",
+  "weird borders",
+  "hudson river border"
+ ],
+ "related_video": "Why this US town's only road out goes through Canada",
+ "category": "Education"
+}

@@ -1,0 +1,32 @@
+{
+ "title": "Finland built a lighthouse in Sweden, so they bent the border",
+ "description": "On Märket, a bare Baltic rock shared by Sweden and Finland, the border zigzags around a Finnish lighthouse that was built on the Swedish side in 1885.\n\nSources:\n- Lagutskottets betänkande 1984/85:16 om ändring av riksgränsen mellan Sverige och Finland (committee report on changing the Sweden-Finland border, 29 January 1985) — Sveriges riksdag (Swedish Parliament): https://data.riksdagen.se/dokument/G801LU16.html\n- Märket — Wikipedia: https://en.wikipedia.org/wiki/M%C3%A4rket\n\nLabels: the official papers do not record why the lighthouse was built on the Swedish side; the swap figure (3,913 m² each way) is from the Swedish parliament's 1985 committee report. Maps: Natural Earth (public domain) and OpenStreetMap contributors (ODbL; Märket coastline, border and lighthouse). Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#history",
+  "#geography",
+  "#maps",
+  "#shorts"
+ ],
+ "pinned_comment": "Fair trade, or should Sweden have just sent Finland the bill for the land?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/market-island.mp4",
+ "srt": "out/market-island.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-22T15:00:00Z",
+ "tags": [
+  "market island",
+  "märket",
+  "sweden finland border",
+  "weird borders",
+  "lighthouse",
+  "aland",
+  "baltic sea",
+  "border swap"
+ ],
+ "related_video": "This island changes country every six months",
+ "category": "Education"
+}

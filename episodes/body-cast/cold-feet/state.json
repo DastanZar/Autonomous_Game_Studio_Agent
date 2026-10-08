@@ -45,6 +45,47 @@
     "storyboard.json": "44244cfc51a7"
    },
    "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-08T05:36:54Z",
+   "hashes": {
+    "storyboard.json": "44244cfc51a7",
+    "build/timeline.json": "2970b660f630",
+    "review.json": "bd501da8e620"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "pass",
+   "at": "2026-10-08T05:36:55Z",
+   "hashes": {
+    "review.json": "bd501da8e620",
+    "build/final_report.json": "9e7b6c2b8742"
+   },
+   "failed": []
+  },
+  "package": {
+   "result": "pass",
+   "at": "2026-10-08T05:17:28Z",
+   "hashes": {
+    "build/final_report.json": "9e7b6c2b8742",
+    "dossier.json": "9cd7bba799a5",
+    "script.json": "f96f0d56b498",
+    "package.json": "4890c6cf20d1"
+   },
+   "failed": []
+  },
+  "publish": {
+   "result": "fail",
+   "at": "2026-10-08T05:37:58Z",
+   "hashes": {
+    "package.json": "4890c6cf20d1",
+    "publish.json": null
+   },
+   "failed": [
+    "publish.json is missing"
+   ]
   }
  }
 }

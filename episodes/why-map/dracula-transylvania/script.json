@@ -227,7 +227,7 @@
   },
   {
    "id": "bran",
-   "say": "Today, Bran Castle is sold to tourists as Dracula's Castle.",
+   "say": "Today, a castle called Bran is sold to tourists as Dracula's Castle.",
    "kind": "fact",
    "claims": [
     "c_bran"
@@ -235,8 +235,8 @@
    "gap": 0.3,
    "caps": [
     [
-     "TODAY, BRAN CASTLE",
-     3
+     "TODAY, A CASTLE CALLED BRAN",
+     5
     ],
     [
      "IS SOLD TO TOURISTS",

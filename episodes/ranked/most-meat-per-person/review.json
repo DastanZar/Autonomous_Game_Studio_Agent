@@ -54,6 +54,53 @@
     33.9
    ],
    "defects": []
+  },
+  {
+   "at": "2026-10-08T05:26:19Z",
+   "reviewer": "worker, round 3 (frames pulled from the encoded MP4 with ffmpeg)",
+   "frames": [
+    0.05,
+    3.6,
+    9.1,
+    12.2,
+    15.9,
+    19.8,
+    22.9,
+    24.0,
+    26.6,
+    31.3,
+    33.9
+   ],
+   "defects": [
+    {
+     "t": 12.2,
+     "issue": "s_third: the Marshall Islands are scattered atolls, hidden under the flag on the globe and given no ring; added an episode ring (params.ring) at the globe position",
+     "fixed": true
+    },
+    {
+     "t": 24.0,
+     "issue": "s_supply: the first 0.8 s were an empty stage (SUPPLY waited for its word); it now lands with the scene",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T05:26:20Z",
+   "reviewer": "worker, round 4: fresh stills after re-production plus MP4 spot frames (23.8, 24.3, 26.0) and the thumbnail; no open defects",
+   "frames": [
+    0.05,
+    3.6,
+    9.1,
+    12.2,
+    15.9,
+    19.8,
+    22.9,
+    24.0,
+    26.6,
+    31.3,
+    33.9
+   ],
+   "defects": []
   }
  ]
 }

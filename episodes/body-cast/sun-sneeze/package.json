@@ -1,0 +1,32 @@
+{
+ "title": "Why does sunlight make you sneeze? Aristotle got it wrong",
+ "description": "About one in four people sneeze when they step into bright sunlight. Aristotle blamed the sun's heat on the nose; in the 1600s Francis Bacon faced the sun with his eyes shut, didn't sneeze, and showed it was the light, then blamed 'the moisture of the brain'. A 2010 EEG study found sneezers' visual cortex reacts more strongly to light, and a 2025 review says the mechanism is still unclear.\n\nSources:\n- Photic sneeze reflex — Wikipedia: https://en.wikipedia.org/wiki/Photic_sneeze_reflex\n- Aristotle: Problems with the Nose (from Barnes, The Complete Works of Aristotle, Princeton 1984) — Memorial University of Newfoundland: https://mun.ca/biology/scarr/Aristotle_on_Sneezing.html\n- Sneezing At The Sun (A Moment of Science) — Indiana Public Media / Indiana University: https://indianapublicmedia.org/amomentofscience/sneezing-at-the-sun/\n- When the Sun Prickles Your Nose: An EEG Study Identifying Neural Bases of Photic Sneezing (Langer, Beeli & Jäncke, 2010) — PLoS ONE: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0009208\n- Stimulus conditions eliciting sneezing in response to bright light (Exp Brain Res 2025): Europe PMC record — Europe PMC (EMBL-EBI): https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39893297%20AND%20SRC:MED&resultType=core&format=json\n\n'About one in four' is an estimate; studies range from about 18% to 35%. Aristotle and Bacon are named, not depicted. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#science",
+  "#biology",
+  "#sneeze",
+  "#shorts"
+ ],
+ "pinned_comment": "Are you a sun sneezer? Does anyone else in your family do it?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/sun-sneeze.mp4",
+ "srt": "out/sun-sneeze.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-27T16:00:00Z",
+ "tags": [
+  "why does sunlight make you sneeze",
+  "photic sneeze reflex",
+  "sun sneeze",
+  "achoo syndrome",
+  "why do we sneeze",
+  "brain facts",
+  "human body facts",
+  "biology"
+ ],
+ "related_video": "Why is yawning contagious? (It isn't about oxygen)",
+ "category": "Education"
+}

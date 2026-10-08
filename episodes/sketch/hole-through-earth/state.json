@@ -7,6 +7,54 @@
     "topic.json": "5025521d855f"
    },
    "failed": []
+  },
+  "research": {
+   "result": "pass",
+   "at": "2026-10-08T05:24:27Z",
+   "hashes": {
+    "topic.json": "5025521d855f",
+    "dossier.json": "89c2c53ed302"
+   },
+   "failed": []
+  },
+  "script": {
+   "result": "pass",
+   "at": "2026-10-08T05:28:44Z",
+   "hashes": {
+    "topic.json": "5025521d855f",
+    "dossier.json": "89c2c53ed302",
+    "script.json": "555f6ad3de6e"
+   },
+   "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-08T05:28:50Z",
+   "hashes": {
+    "script.json": "555f6ad3de6e",
+    "build/timeline.json": "ba8850d6d3bc"
+   },
+   "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-08T05:34:01Z",
+   "hashes": {
+    "script.json": "555f6ad3de6e",
+    "build/timeline.json": "ba8850d6d3bc",
+    "storyboard.json": "2b9a0265dfb4"
+   },
+   "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-08T05:35:35Z",
+   "hashes": {
+    "storyboard.json": "2b9a0265dfb4",
+    "build/timeline.json": "ba8850d6d3bc",
+    "review.json": "10890c3303c1"
+   },
+   "failed": []
   }
  }
 }

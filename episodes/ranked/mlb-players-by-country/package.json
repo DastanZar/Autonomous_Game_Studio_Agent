@@ -1,0 +1,32 @@
+{
+ "title": "Which country makes the most MLB players? Per person, it's Curaçao",
+ "description": "Nearly one in ten Major League players on 2026 Opening Day rosters was born in the Dominican Republic: 93 of 948. Then Venezuela 60, Cuba 20, Canada 19, Japan and Puerto Rico 14 each. Per person, Curaçao leads: 4 players from about 156,000 people, one in every 39,000, about three times the Dominican rate.\n\nSources:\n- Opening Day rosters feature 249 internationally born players (26 March 2026) — Major League Baseball: https://www.mlb.com/press-release/press-release-opening-day-rosters-feature-249-internationally-born-players\n- Population, total (SP.POP.TOTL), 2024 — World Bank World Development Indicators: https://api.worldbank.org/v2/country/DOM;VEN;CUB;CAN;JPN;PRI;MEX;CUW;PAN;COL;KOR;ABW;BHS;HND;NIC/indicator/SP.POP.TOTL?date=2024&format=json&per_page=50\n\nLabels: counts are birthplaces of players on 2026 Opening Day rosters and inactive lists (MLB's revised release), outside the 50 US states; MLB counts countries and territories, so Puerto Rico and Curaçao are listed as places. Per-person figures are players ÷ 2024 population. Flags: official SVGs from Wikimedia Commons. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#baseball",
+  "#mlb",
+  "#countries",
+  "#shorts"
+ ],
+ "pinned_comment": "Which place do you think is next to break into the Majors?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/mlb-players-by-country.mp4",
+ "srt": "out/mlb-players-by-country.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-27T17:00:00Z",
+ "tags": [
+  "mlb players by country",
+  "dominican republic baseball",
+  "curacao baseball",
+  "world series 2026",
+  "international mlb players",
+  "baseball facts",
+  "countries ranked",
+  "flags"
+ ],
+ "related_video": "Which country has the most World Cup titles? (after 2026)",
+ "category": "Education"
+}

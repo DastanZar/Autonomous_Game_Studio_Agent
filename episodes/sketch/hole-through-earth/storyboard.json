@@ -1,0 +1,220 @@
+{
+ "episode": "hole-through-earth",
+ "theme": "sketch",
+ "kits": [
+  "sketch"
+ ],
+ "drift": 0,
+ "flagship": "Hand-built page (the channel's one-page format, user-approved 2026-10-07): every scene is the sketch kit's page renderer; the middle of the page is one big Earth cross-section the camera travels down.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     50,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_dig",
+   "type": "custom",
+   "start": "dig.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     50,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_kola",
+   "type": "custom",
+   "start": "kola.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     1090,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_pretend",
+   "type": "custom",
+   "start": "pretend.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     1090,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_fall",
+   "type": "custom",
+   "start": "fall.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     590,
+     2140,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_speed",
+   "type": "custom",
+   "start": "speed.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     590,
+     2680,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_flip",
+   "type": "custom",
+   "start": "flip.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     590,
+     2900,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_top",
+   "type": "custom",
+   "start": "top.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     590,
+     3200,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_grab",
+   "type": "custom",
+   "start": "grab.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     120,
+     2150,
+     1960,
+     2080
+    ]
+   }
+  },
+  {
+   "id": "s_text",
+   "type": "custom",
+   "start": "text.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     4210,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_dense",
+   "type": "custom",
+   "start": "dense.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     4210,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_real",
+   "type": "custom",
+   "start": "real.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     4210,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_twist",
+   "type": "custom",
+   "start": "twist.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     4210,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_call",
+   "type": "custom",
+   "start": "call.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": "page",
+    "move": 1.8,
+    "lead": 0.1
+   }
+  }
+ ],
+ "pace": 1.2,
+ "hand": "photo"
+}

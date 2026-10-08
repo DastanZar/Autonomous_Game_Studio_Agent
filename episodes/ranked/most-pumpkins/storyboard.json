@@ -1,0 +1,373 @@
+{
+ "episode": "most-pumpkins",
+ "theme": "data-flags",
+ "kits": [
+  "kinetic",
+  "flagart",
+  "rank"
+ ],
+ "flags": [
+  "US",
+  "RU",
+  "CN",
+  "IN"
+ ],
+ "flagship": "House method (user 2026-10-06): C (kinetic infographic) is Leader Flags' default.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "region": [
+     -180.0,
+     -60.0,
+     180.0,
+     84.0
+    ],
+    "focus": [
+     "US"
+    ]
+   },
+   "events": [
+    {
+     "at": "hook/america",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_item",
+   "type": "custom",
+   "start": "item.start-0.15",
+   "params": {
+    "fn": "item",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "US"
+    ]
+   },
+   "events": [
+    {
+     "at": "item/pumpkins",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "item/one",
+     "do": "emphasize",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_sixth",
+   "type": "custom",
+   "start": "sixth.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "title": "2024 HARVEST",
+    "y0": 600,
+    "rows": [
+     {
+      "rank": 6,
+      "code": "US",
+      "name": "United States",
+      "value": 0.93,
+      "dec": 2,
+      "suffix": "M t",
+      "at": "sixth/united",
+      "valueAt": "sixth/nine"
+     }
+    ],
+    "focus": [
+     "US"
+    ]
+   },
+   "events": [
+    {
+     "at": "sixth/united",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_middle",
+   "type": "custom",
+   "start": "middle.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "title": "2024 HARVEST",
+    "y0": 600,
+    "rows": [
+     {
+      "rank": 6,
+      "code": "US",
+      "name": "United States",
+      "value": 0.93,
+      "dec": 2,
+      "suffix": "M t"
+     },
+     {
+      "rank": 5,
+      "code": "UA",
+      "name": "Ukraine",
+      "value": 1.11,
+      "dec": 2,
+      "suffix": "M t",
+      "at": "middle/ukraine",
+      "valueAt": "middle/little"
+     },
+     {
+      "rank": 4,
+      "code": "RU",
+      "name": "Russia",
+      "value": 1.16,
+      "dec": 2,
+      "suffix": "M t",
+      "at": "middle/russia",
+      "valueAt": "middle/little"
+     }
+    ],
+    "note": "Ukraine, Russia, Egypt, China: FAO estimate",
+    "noteAt": "middle/little",
+    "focus": [
+     "UA"
+    ],
+    "focusAt": [
+     {
+      "at": "middle/russia",
+      "codes": [
+       "RU"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "middle/ukraine",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "middle/russia",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_egypt",
+   "type": "custom",
+   "start": "egypt.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "title": "2024 HARVEST",
+    "y0": 600,
+    "rows": [
+     {
+      "rank": 6,
+      "code": "US",
+      "name": "United States",
+      "value": 0.93,
+      "dec": 2,
+      "suffix": "M t"
+     },
+     {
+      "rank": 5,
+      "code": "UA",
+      "name": "Ukraine",
+      "value": 1.11,
+      "dec": 2,
+      "suffix": "M t"
+     },
+     {
+      "rank": 4,
+      "code": "RU",
+      "name": "Russia",
+      "value": 1.16,
+      "dec": 2,
+      "suffix": "M t"
+     },
+     {
+      "rank": 3,
+      "code": "EG",
+      "name": "Egypt",
+      "value": 1.28,
+      "dec": 2,
+      "suffix": "M t",
+      "at": "egypt/egypt",
+      "valueAt": "egypt/one"
+     }
+    ],
+    "note": "Ukraine, Russia, Egypt, China: FAO estimate",
+    "noteAt": "egypt/egypt",
+    "focus": [
+     "EG"
+    ]
+   },
+   "events": [
+    {
+     "at": "egypt/egypt",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_china",
+   "type": "custom",
+   "start": "china.start-0.15",
+   "params": {
+    "fn": "rows",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "title": "2024 HARVEST",
+    "y0": 520,
+    "rows": [
+     {
+      "rank": 6,
+      "code": "US",
+      "name": "United States",
+      "value": 0.93,
+      "dec": 2,
+      "suffix": "M t"
+     },
+     {
+      "rank": 5,
+      "code": "UA",
+      "name": "Ukraine",
+      "value": 1.11,
+      "dec": 2,
+      "suffix": "M t"
+     },
+     {
+      "rank": 4,
+      "code": "RU",
+      "name": "Russia",
+      "value": 1.16,
+      "dec": 2,
+      "suffix": "M t"
+     },
+     {
+      "rank": 3,
+      "code": "EG",
+      "name": "Egypt",
+      "value": 1.28,
+      "dec": 2,
+      "suffix": "M t"
+     },
+     {
+      "rank": 2,
+      "code": "CN",
+      "name": "China",
+      "value": 7.65,
+      "dec": 2,
+      "suffix": "M t",
+      "at": "china/china",
+      "valueAt": "china/seven"
+     }
+    ],
+    "note": "Ukraine, Russia, Egypt, China: FAO estimate",
+    "noteAt": "china/china",
+    "focus": [
+     "CN"
+    ]
+   },
+   "events": [
+    {
+     "at": "china/china",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_india",
+   "type": "custom",
+   "start": "india.start-0.15",
+   "params": {
+    "fn": "india",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "sub": "official figure · FAOSTAT 2024",
+    "focus": [
+     "IN"
+    ]
+   },
+   "events": [
+    {
+     "at": "india/india",
+     "do": "reveal",
+     "sfx": "stamp"
+    },
+    {
+     "at": "india/nine",
+     "do": "count_start",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_ten",
+   "type": "custom",
+   "start": "ten.start-0.15",
+   "params": {
+    "fn": "ten",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "sub": "9.33 million ÷ 0.93 million tonnes",
+    "focus": [
+     "IN"
+    ],
+    "focusAt": [
+     {
+      "at": "ten/america",
+      "codes": [
+       "US"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "ten/ten",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "House method for Leader Flags (user 2026-10-06): C's kinetic infographic, official flag art, rolling numbers; the one big number in moving type.",
+    "focus": [
+     "US"
+    ],
+    "focusAt": [
+     {
+      "at": "toll/india",
+      "codes": [
+       "IN"
+      ]
+     }
+    ]
+   },
+   "events": [
+    {
+     "at": "toll/india",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

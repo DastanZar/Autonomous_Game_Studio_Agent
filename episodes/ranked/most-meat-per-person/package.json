@@ -1,0 +1,32 @@
+{
+ "title": "Which country has the most meat per person? It's not America.",
+ "description": "Tonga has the most meat per person: about 157 kg a year in FAO's 2023 food balances, ahead of Mongolia (136), the Marshall Islands (126) and the United States (122). India has about 8 kg; DR Congo, last of 176 countries, about 3.5.\n\nSources:\n- Meat supply per person (data download) — Our World in Data, from FAO Food Balances: https://ourworldindata.org/grapher/meat-supply-per-person.csv?v=1&csvType=full&useColumnShortNames=true\n- Meat supply per person: definition and notes — Our World in Data: https://ourworldindata.org/grapher/meat-supply-per-person.metadata.json\n\nLabels: FAO meat supply per person, 2023: meat available for consumption, not meat eaten; it does not correct for waste and excludes fish and seafood. 430 g a day is 157 kg ÷ 365. Flags: official SVGs from Wikimedia Commons. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#food",
+  "#countries",
+  "#data",
+  "#shorts"
+ ],
+ "pinned_comment": "Did you expect America to be in the top five, or higher?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/most-meat-per-person.mp4",
+ "srt": "out/most-meat-per-person.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-22T17:00:00Z",
+ "tags": [
+  "which country eats the most meat",
+  "meat consumption by country",
+  "meat per person",
+  "tonga",
+  "food facts",
+  "countries ranked",
+  "flags",
+  "fao data"
+ ],
+ "related_video": "Which country has the most nuclear weapons? It's not America.",
+ "category": "Education"
+}

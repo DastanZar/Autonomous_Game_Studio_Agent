@@ -14,10 +14,22 @@
   const G = cell(L, ROW[3]), Hh = cell(R, ROW[3]), I = cell(L, ROW[4]), J = cell(R, ROW[4]);
   const PACE = EP.storyboard.pace || 1;
   const T = (c, d = 0) => cue(c) + d;
-  // items run one after another (one hand): each starts on its word, or just after the previous one ends
-  let last = -1;
-  const item = (c, dur, o) => { const t = Math.max(typeof c === "number" ? c : T(c), last + 0.08); last = t + dur * PACE; return SK.item(t, dur, o); };
-  const by = (c, what) => { if (last > T(c) - 0.4) warn(`earth page: '${what}' still drawing at ${last.toFixed(2)}s, camera leaves at ${(T(c) - 0.4).toFixed(2)}s`); };
+  // items run one after another (one hand). Items are queued per page cell; flush(<cue of the next camera move>) lays
+  // them out: each starts on its word or just after the previous one, and the whole cell is drawn a little faster if
+  // needed so that every drawing is finished (and holds) before the camera leaves.
+  let Q = [], last = -1;
+  const item = (c, dur, o) => { const rec = [], px = new Proxy({}, { get: (_, k) => (...a) => { rec.push([k, a]); return px; } }); Q.push({ c, dur, o, rec }); return px; };
+  const flush = (c, what) => {
+    const dl = c === null ? 1e9 : T(c) - 0.45; let k = 1, plan;
+    for (; k >= 0.3; k -= 0.05) {
+      let t = last; plan = Q.map(q => { const s0 = Math.max(typeof q.c === "number" ? q.c : T(q.c), t + 0.08); t = s0 + q.dur * k * PACE; return s0; });
+      if (t <= dl) break;
+    }
+    if (k < 0.3) { k = 0.3; warn(`page: '${what}' cannot finish before the camera leaves`); }
+    Q.forEach((q, i) => { const it = SK.item(plan[i], q.dur * k, q.o); q.rec.forEach(([m, a]) => it[m](...a)); last = plan[i] + q.dur * k * PACE; });
+    Q = [];
+  };
+  const by = flush;
   const big = (size, c, align = "center") => ({ font: "Marker", size, c, align });
   const hand = (size, c, align = "center") => ({ font: "Hand", size, c, align });
   const rot = (cx, cy, a) => ([x, y]) => [cx + (x - cx) * Math.cos(a) - (y - cy) * Math.sin(a), cy + (x - cx) * Math.sin(a) + (y - cy) * Math.cos(a)];
@@ -90,15 +102,14 @@
   // ---------- C: the wind, drawn to scale ----------
   item("wind/that's", 0.6).text("WIND SPEED (to scale)", C.x(500), C.y(105), hand(60, "ink"));
   const KW = 860 / 1670;
-  { const it = item("wind/four", 0.5); it.line(C.x(70), C.y(200), C.x(70), C.y(760), { w: 5 }); }
-  { const it = item("wind/strongest", 0.75); it.rect(C.x(70), C.y(260), 408 * KW, 120, { w: 5 }); it.hatch([C.p(70, 260), C.p(70 + 408 * KW, 260), C.p(70 + 408 * KW, 380), C.p(70, 380)], { c: "blue", gap: 12, alpha: 0.5 });
-    it.text("408 km/h", C.x(100 + 408 * KW), C.y(345), big(64, "blue", "left")); }
-  item("wind/recorded", 0.5).text("strongest gust ever recorded", C.x(80), C.y(430), hand(40, "ink", "left"));
-  { const it = item("wind/recorded", 0.75); it.rect(C.x(70), C.y(520), 1670 * KW, 140, { w: 5 }); it.hatch([C.p(70, 520), C.p(70 + 1670 * KW, 520), C.p(70 + 1670 * KW, 660), C.p(70, 660)], { c: "red", gap: 12, alpha: 0.5, k: 0.6 });
-    it.text("1,670 km/h", C.x(500), C.y(615), big(76, "ink")); }
-  item("wind.end", 0.5, { sfx: false }).text("after the stop, at the equator", C.x(80), C.y(715), hand(40, "ink", "left"));
-  item("wind.end", 0.5).text("about 4x", C.x(500), C.y(860), big(110, "red"));
-  item("wind.end", 0.4, { sfx: false }).text("1,670 / 408 = 4.1   (IFLScience; Astronomy magazine)", C.x(500), C.y(940), hand(30, "grey"));
+  { const it = item("wind/wind", 0.8); it.line(C.x(70), C.y(200), C.x(70), C.y(760), { w: 5 }); it.rect(C.x(70), C.y(240), 1670 * KW, 140, { w: 5 }); it.hatch([C.p(70, 240), C.p(70 + 1670 * KW, 240), C.p(70 + 1670 * KW, 380), C.p(70, 380)], { c: "red", gap: 12, alpha: 0.5, k: 0.5 });
+    it.text("1,670 km/h", C.x(500), C.y(335), big(76, "ink")); }
+  item("wind/four", 0.45, { sfx: false }).text("after the stop, at the equator", C.x(80), C.y(435), hand(40, "ink", "left"));
+  { const it = item("wind/strongest", 0.6); it.rect(C.x(70), C.y(520), 408 * KW, 120, { w: 5 }); it.hatch([C.p(70, 520), C.p(70 + 408 * KW, 520), C.p(70 + 408 * KW, 640), C.p(70, 640)], { c: "blue", gap: 12, alpha: 0.5 });
+    it.text("408 km/h", C.x(100 + 408 * KW), C.y(605), big(64, "blue", "left")); }
+  item("wind/gust", 0.45).text("strongest gust ever recorded", C.x(80), C.y(690), hand(40, "ink", "left"));
+  item("wind/recorded", 0.45).text("about 4x", C.x(500), C.y(860), big(110, "red"));
+  item("wind/recorded", 0.3, { sfx: false }).text("1,670 / 408 = 4.1   (IFLScience; Astronomy magazine)", C.x(500), C.y(940), hand(30, "grey"));
   by("sea.start-0.2", "wind");
 
   // ---------- D: the oceans keep going ----------
@@ -134,20 +145,22 @@
   const GG = { cx: G.x(510), cy: G.y(520), r: 330, lon0: -8, lat0: 20 }, prG = ortho(GG.cx, GG.cy, GG.r, GG.lon0, GG.lat0);
   item("drain/without", 0.55).text("NO SPIN:", G.x(510), G.y(105), hand(62, "ink"));
   { const it = item("drain/spin", 0.9, { sfx: false }); it.circle(GG.cx, GG.cy, GG.r, { w: 6 }); coast(it, prG, 4, { w: 3 }); }
-  const cap = (lat, dir) => { const pts = latLine(prG, lat, GG.lon0), out = []; const n = 40;
-    const a0 = Math.atan2(pts[0][1] - GG.cy, pts[0][0] - GG.cx), a1 = Math.atan2(pts[pts.length - 1][1] - GG.cy, pts[pts.length - 1][0] - GG.cx);
-    let da = a1 - a0; if (dir < 0 && da > 0) da -= 2 * Math.PI; if (dir > 0 && da < 0) da += 2 * Math.PI;
-    for (let k = 0; k <= n; k++) { const a = a0 + da * k / n; out.push([GG.cx + Math.cos(a) * GG.r, GG.cy + Math.sin(a) * GG.r]); }
-    return pts.concat(out.reverse()); };
+  const cap = (lat, dir) => {      // the part of the disc beyond a latitude line: the line, then the limb arc on the pole's side
+    const pts = latLine(prG, lat, GG.lon0), n = 40;
+    const a0 = Math.atan2(pts[pts.length - 1][1] - GG.cy, pts[pts.length - 1][0] - GG.cx), a1 = Math.atan2(pts[0][1] - GG.cy, pts[0][0] - GG.cx);
+    const arc = da => { const o = []; for (let k = 0; k <= n; k++) { const a = a0 + da * k / n; o.push([GG.cx + Math.cos(a) * GG.r, GG.cy + Math.sin(a) * GG.r]); } return o; };
+    let d1 = a1 - a0; while (d1 <= 0) d1 += 2 * Math.PI; const d2 = d1 - 2 * Math.PI;
+    const A1 = arc(d1), A2 = arc(d2), mid = o => o[n >> 1][1];
+    return pts.concat(dir < 0 ? (mid(A1) < mid(A2) ? A1 : A2) : (mid(A1) > mid(A2) ? A1 : A2)); };
   { const it = item("drain/poles", 0.9); const n = cap(44, -1), s = cap(-44, 1);
     it.poly(latLine(prG, 44, GG.lon0), { c: "blue", w: 5 }); it.hatch(n, { c: "blue", gap: 13, angle: -0.4, alpha: 0.5, k: 0.5 });
     it.poly(latLine(prG, -44, GG.lon0), { c: "blue", w: 5 }); it.hatch(s, { c: "blue", gap: 13, angle: -0.4, alpha: 0.5, k: 0.5 }); }
-  item("drain/two", 0.5).text("polar ocean", G.x(830), G.y(250), hand(44, "blue"));
+  item("drain/two", 0.5).text("polar ocean", G.x(150), G.y(215), hand(44, "blue"));
   item("drain/one", 0.6).text("one belt of land", G.x(510), G.y(935), big(64, "ink"));
   item("drain/middle", 0.4, { sfx: false }).text("simplified model (BBC Science Focus; Esri via IFLScience)", G.x(510), G.y(990), hand(28, "grey"));
-  { const it = item("spain/everything", 0.6); const sp = prG([-4, 40.3]); it.circle(sp.x, sp.y, 26, { c: "red", w: 5 }); it.line(sp.x + 26, sp.y + 12, G.x(800), G.y(400), { c: "red", w: 4 }); }
-  item("spain/spain", 0.6).text("north of Spain:", G.x(820), G.y(445), hand(42, "red"));
-  item("spain/underwater", 0.55).text("UNDERWATER", G.x(800), G.y(510), big(64, "red"));
+  { const it = item("spain/everything", 0.6); const sp = prG([-4, 40.3]); it.circle(sp.x, sp.y, 26, { c: "red", w: 5 }); it.line(sp.x + 20, sp.y - 18, G.x(760), G.y(235), { c: "red", w: 4 }); }
+  item("spain/spain", 0.6).text("north of Spain:", G.x(800), G.y(150), hand(42, "red"));
+  item("spain/underwater", 0.55).text("UNDERWATER", G.x(800), G.y(215), big(56, "red"));
   by("day.start-0.2", "drain/spain");
 
   // ---------- H: one day = one year (and the heat) ----------
@@ -175,25 +188,23 @@
   item("real/day", 0.5).text("each century, a day gets", I.x(680), I.y(420), hand(44, "ink"));
   item("real/one", 0.8).text("+1.8 ms", I.x(680), I.y(530), big(110, "red"));
   item("real/second", 0.5).text("(thousandths of a second) longer", I.x(680), I.y(600), hand(38, "ink"));
-  { const it = item("real.end", 0.7); [0, 1, 2].forEach(k => { const x = I.x(170 + k * 140), y = I.y(790); it.circle(x, y, 40, { w: 4, c: "yellow" }); it.circle(x + 28 - k * 28, y, 40, { w: 4 }); }); }
-  item("real.end", 0.6, { sfx: false }).text("from ancient eclipse records, 720 BC to AD 2015", I.x(500), I.y(890), hand(36, "ink"));
-  item("real.end", 0.4, { sfx: false }).text("Stephenson, Morrison & Hohenkerk, Proc. R. Soc. A, 2016", I.x(500), I.y(945), hand(30, "grey"));
+  { const it = item("real/longer", 0.5, { sfx: false }); it.text("from ancient eclipse records, 720 BC to AD 2015", I.x(500), I.y(800), hand(36, "ink")); it.text("Stephenson, Morrison & Hohenkerk, Proc. R. Soc. A, 2016", I.x(500), I.y(860), hand(30, "grey")); }
   by("hour.start-0.2", "real");
 
   // ---------- J: one extra hour ----------
   item("hour/at", 0.5).text("TO ADD ONE HOUR:", J.x(500), J.y(105), hand(60, "ink"));
   item("hour/two", 0.9).text("200 MILLION", J.x(500), J.y(250), big(116, "red"));
   item("hour/years", 0.4).text("YEARS", J.x(500), J.y(360), big(100, "red"));
-  item("hour/add", 0.85, { sfx: false }).text("3,600 s / 0.0018 s per century", J.x(500), J.y(470), hand(46, "ink"));
-  item("hour/hour", 0.6, { sfx: false }).text("= 2,000,000 centuries", J.x(500), J.y(535), hand(46, "ink"));
-  item("hour.end", 0.4, { sfx: false }).text("our sum, at today's average rate", J.x(500), J.y(600), hand(36, "grey"));
-  { const it = item("hour.end", 0.6); snail(it, J.x(330), J.y(860), 0.9); }
+  { const it = item("hour/add", 0.8, { sfx: false }); it.text("3,600 s / 0.0018 s per century", J.x(500), J.y(470), hand(46, "ink")); it.text("= 2,000,000 centuries", J.x(500), J.y(535), hand(46, "ink")); }
+  item("hour/hour", 0.35, { sfx: false }).text("our sum, at today's average rate", J.x(500), J.y(600), hand(36, "grey"));
   by("call.start-0.2", "hour");
 
   // ---------- the callback: Earth isn't stopping, just taking its time ----------
   { const it = item("call/earth", 1.0); arcArrow(it, GA.cx, GA.cy, GA.r + 70, GA.r + 70, -0.55, -2.6, { c: "red", w: 9, head: 40 }); }
+  { const it = item("call/relax", 0.8); snail(it, J.x(330), J.y(860), 0.9); }
   item("call/taking", 0.8).text("still spinning", J.x(740), J.y(800), big(60, "red"));
 
+  flush(null, "callback");
   SK.done();
   window.CUSTOM = Object.assign(window.CUSTOM || {}, { page: t => SK.frame(t) });
 })();

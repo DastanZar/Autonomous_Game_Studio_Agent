@@ -1,0 +1,38 @@
+{
+ "title": "What would actually happen if the Earth stopped spinning?",
+ "description": "At the equator the ground moves at about 1,670 km/h. Stop the Earth and the ground stops, but you, the air and the oceans don't. Stop it slowly and the oceans drain to the poles and a day lasts a year. Meanwhile Earth really is slowing down: by about 1.8 thousandths of a second per day, per century.\n\nSources:\n- What happens if Earth stops rotating? — Astronomy magazine (Edward Herrick-Gleason, astronomy educator): https://www.astronomy.com/science/what-happens-if-earth-stops-rotating/\n- What Would Happen If The Earth Suddenly Stopped Spinning? — IFLScience (Dr. Alfredo Carpineti): https://www.iflscience.com/editors-blog/what-would-happen-if-the-earth-suddenly-stopped-spinning/\n- Earth Fact Sheet — NASA Goddard Space Flight Center (NSSDCA): https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html\n- The thought experiment: What would happen if the Earth stopped spinning? — BBC Science Focus Magazine: https://www.sciencefocus.com/planet-earth/the-thought-experiment-what-would-happen-if-the-earth-stopped-spinning/\n- Measurement of the Earth's rotation: 720 BC to AD 2015 (Proc. R. Soc. A 472: 20160404, 2016) — Stephenson, Morrison & Hohenkerk, Proceedings of the Royal Society A (open access via PubMed Central): https://pmc.ncbi.nlm.nih.gov/articles/PMC5247521/\n- Ancient Astronomers' Records Assist Modern Scientists — Archaeology magazine (Archaeological Institute of America): https://archaeology.org/?p=5775\n\nLabels: the polar-ocean map is a simplified model (BBC Science Focus; Esri's Witold Fraczek via IFLScience), drawn roughly; 'past 100°C' is BBC Science Focus's estimate; the 200 million years is our own sum at today's average rate (3,600 s / 0.0018 s per century = 2,000,000 centuries); the real rate fluctuates. The bulge on the page is exaggerated (the real difference is 21 km out of 6,378). Coastlines: Natural Earth (public domain). Simplified: a hypothetical, not a forecast.\nDrawn in code; narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; sound effects from Kenney (CC0).",
+ "hashtags": [
+  "#science",
+  "#whatif",
+  "#earth",
+  "#shorts"
+ ],
+ "pinned_comment": "Sudden stop or slow stop: which would you rather be around for?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/earth-stops-spinning.mp4",
+ "srt": "out/earth-stops-spinning.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-29T18:00:00Z",
+ "cross_post": [
+  "tiktok",
+  "instagram_reels",
+  "facebook_reels"
+ ],
+ "tags": [
+  "what if the earth stopped spinning",
+  "earth stops spinning",
+  "earth rotation",
+  "earth rotation speed",
+  "length of day",
+  "earth slowing down",
+  "what would happen if",
+  "science explained",
+  "hand drawn science"
+ ],
+ "related_video": "What would actually happen if you jumped into a hole through the Earth?",
+ "category": "Education"
+}

@@ -1,0 +1,172 @@
+{
+ "topic": "How long a fall through a hole through the Earth takes (Klotz 2015)",
+ "sources": [
+  {
+   "id": "klotz",
+   "title": "The Gravity Tunnel in a Non-Uniform Earth (arXiv:1308.1342; published in Am. J. Phys. 83, 231, 2015)",
+   "publisher": "Alexander R. Klotz, McGill University (arXiv)",
+   "url": "https://arxiv.org/abs/1308.1342",
+   "type": "scholarly",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "klotz_pdf",
+   "title": "The Gravity Tunnel in a Non-Uniform Earth (full text, arXiv v1)",
+   "publisher": "Alexander R. Klotz, McGill University (arXiv)",
+   "url": "https://arxiv.org/pdf/1308.1342",
+   "type": "scholarly",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "livesci",
+   "title": "How Long Would It Take to Fall Through the Earth?",
+   "publisher": "Live Science (Charles Q. Choi)",
+   "url": "https://www.livescience.com/50312-how-long-to-fall-through-earth.html",
+   "type": "journalism",
+   "accessed": "2026-10-07",
+   "cites": "Klotz, Am. J. Phys. 2015; interview with Alexander Klotz"
+  },
+  {
+   "id": "nasa_earth",
+   "title": "Earth Fact Sheet",
+   "publisher": "NASA Goddard Space Flight Center (NSSDCA)",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
+   "type": "official",
+   "accessed": "2026-10-07"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_38",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "klotz",
+    "livesci"
+   ],
+   "text": "Using Earth's real internal structure (from seismic data), a fall straight through the centre takes about 38 minutes (38 min 11 s).",
+   "quote": "using the internal structure of the Earth as ascertained by seismic data, and the dynamics are solved numerically. The time taken to fall along the diameter is found to be 38 rather than 42 minutes; Klotz finds the fall would take only about 38 minutes and 11 seconds"
+  },
+  {
+   "id": "c_42",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "klotz",
+    "livesci"
+   ],
+   "text": "The textbook answer, taught since 1966, is about 42 minutes; it assumes Earth has the same density all the way through.",
+   "quote": "Assuming a uniformly dense Earth, it would take 42 minutes; The answer taught for nearly a half-century for how long a fall through such a hole would take was about 42 minutes and 12 seconds; it assumed the planet was uniform in density throughout like a marble"
+  },
+  {
+   "id": "c_diam",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "livesci",
+    "nasa_earth"
+   ],
+   "text": "A hole straight through Earth's centre would be about 12,742 km long.",
+   "quote": "drilling a hole about 7,918 miles (12,742 kilometers) long through the Earth; Volumetric mean radius (km) 6371.000",
+   "note": "2 x 6,371 km = 12,742 km."
+  },
+  {
+   "id": "c_noair",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "livesci"
+   ],
+   "text": "The calculation assumes no air resistance in the tunnel.",
+   "quote": "The physicist assumed there was no air resistance in the gravity tunnel"
+  },
+  {
+   "id": "c_kola",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "livesci"
+   ],
+   "text": "The deepest hole ever dug (a Soviet project, 1970 to 1989) reached only 12 km, about 0.1 percent of the way through the Earth (Klotz's figures).",
+   "quote": "The Soviets tried digging as deep a hole as they could from 1970 to 1989 and only got 12 kilometers (7.5 miles) deep, about 0.1 percent of the way through the Earth"
+  },
+  {
+   "id": "c_speed",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "livesci",
+    "klotz_pdf"
+   ],
+   "text": "You would reach speeds over 8 km per second (at the centre).",
+   "quote": "takes you to speeds over 8 kilometers per second; The peak velocity at the center of the Earth is near 8 km/s"
+  },
+  {
+   "id": "c_flip",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "livesci"
+   ],
+   "text": "Halfway, at the centre, gravity switches direction: you start slowing down.",
+   "quote": "Halfway through the ride, gravity would switch directions and you'd go from right-side up to upside down",
+   "note": "Past the centre the pull points back toward the centre, against your motion, so you decelerate (basic mechanics of the gravity tunnel)."
+  },
+  {
+   "id": "c_grab",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "livesci"
+   ],
+   "text": "At the far end you'd have to grab the edge, or you'd fall back down, back and forth like a pendulum.",
+   "quote": "You'd have to grab onto the other end or else you'd fall back down the way you came; hurtling back and forth inside the gravity tunnel, like a weight swinging at the end of a pendulum"
+  },
+  {
+   "id": "c_density",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "livesci",
+    "nasa_earth"
+   ],
+   "text": "Earth's crust has a density under about 3 g per cubic cm; the centre is about 13; there is a sharp 50 percent jump at the core, about 2,900 km down.",
+   "quote": "While the Earth's crust has a density less than about 187 lbs. per cubic foot (3 grams per cubic centimeter), Earth's center has a density of about 811 lbs. per cubic foot (13 grams per cubic centimeter); there is a sharp 50 percent increase in density at the boundary of the planet's mantle and its outer core about 1,800 miles (2,900 km) below Earth's surface; Core radius (km) 3485",
+   "note": "NASA: core radius 3,485 km, so the core boundary is 6,371 - 3,485 = 2,886 km down (about 2,900 km)."
+  },
+  {
+   "id": "c_const",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "klotz_pdf",
+    "livesci"
+   ],
+   "text": "Pretending gravity keeps its surface strength all the way down gives almost exactly the same answer, about 38 minutes.",
+   "quote": "The time taken to fall through a tunnel through the center of the real Earth is almost exactly what it would be if the gravitational field were uniform throughout the Earth (Figure 2), about 38 minutes; Klotz found that he calculated almost the identical answer if he assumed the strength of Earth's gravitational pull was uniform throughout the planet and equal to its value on the surface"
+  },
+  {
+   "id": "c_why",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "livesci"
+   ],
+   "text": "Why: gravity only changes by about 10 percent for the first 3,000 km down, and by the time it changes much you are going so fast you spend little time there.",
+   "quote": "only changes by, like, 10 percent as you go deeper — first stronger, then weaker — for like the first 3,000 kilometers (1,865 miles),\" Klotz said. \"So if you start falling and picking up speed, by the time you reach a region in which gravity is significantly different from its surface value, you are going so fast that you spend very little time in this region"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "A fall through the Earth takes 42 minutes (the textbook answer).",
+   "truth": "That assumes uniform density; with the real Earth it is about 38 minutes (Klotz, Am. J. Phys. 2015).",
+   "sources": [
+    "klotz",
+    "livesci"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Earth's rotation (Coriolis) would push you into the wall of a pole-to-pole-free tunnel; not covered by the sources quoted, so the page says 'ignoring Earth's spin' as our own simplification."
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "title": "When Dracula came out, Transylvania wasn't in Romania",
+ "description": "When Bram Stoker's Dracula was published in 1897, Transylvania was part of the Kingdom of Hungary. It joined Romania in 1918-1920.\n\nSources:\n- Transylvania — Wikipedia: https://en.wikipedia.org/wiki/Transylvania\n- Romania: Romania Under Charles of Hohenzollern-Sigmaringen (Romania: A Country Study) — U.S. Library of Congress Country Studies, via countrystudies.us: https://countrystudies.us/romania/17.htm\n- Romania: The Balkan Wars and World War I (Romania: A Country Study) — U.S. Library of Congress Country Studies, via countrystudies.us: https://countrystudies.us/romania/18.htm\n- Romania: The Ottoman Invasions (Romania: A Country Study) — U.S. Library of Congress Country Studies, via countrystudies.us: https://countrystudies.us/romania/8.htm\n- Dracula — Wikipedia: https://en.wikipedia.org/wiki/Dracula\n- Dracula by Bram Stoker — Project Gutenberg: https://www.gutenberg.org/ebooks/345\n- Dracula's Castle in Romania (Amy Alipio, 28 September 2018) — National Geographic: https://www.nationalgeographic.com/travel/destinations/europe/romania/dracula-castle-things-to-do-brasov-transylvania/\n- Bran Castle — Wikipedia: https://en.wikipedia.org/wiki/Bran_Castle\n- Vlad the Impaler — Wikipedia: https://en.wikipedia.org/wiki/Vlad_the_Impaler\n\nLabels: borders on the map are approximate (the region is drawn from today's Romanian county boundaries). The 1960s marketing of Bran Castle is a local historian's account quoted by National Geographic. Maps: Natural Earth (public domain) and OpenStreetMap contributors (ODbL; Romanian county boundaries). Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#history",
+  "#geography",
+  "#halloween",
+  "#shorts"
+ ],
+ "pinned_comment": "Should Bran keep selling itself as Dracula's Castle, even with no evidence Stoker knew it existed?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/dracula-transylvania.mp4",
+ "srt": "out/dracula-transylvania.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-27T15:00:00Z",
+ "tags": [
+  "dracula",
+  "transylvania",
+  "bram stoker",
+  "bran castle",
+  "vlad the impaler",
+  "romania history",
+  "austria-hungary",
+  "halloween history"
+ ],
+ "related_video": "Russia sold Alaska for 2 cents an acre, and left a view of tomorrow",
+ "category": "Education"
+}

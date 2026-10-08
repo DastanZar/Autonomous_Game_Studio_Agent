@@ -1,0 +1,32 @@
+{
+ "title": "He lived in a cave with no clocks and lost 25 days",
+ "description": "In July 1962 French scientist Michel Siffre spent two months 130 m underground with no clock, calendar or sun. Counting to 120 took him five minutes, and when his team ended the experiment on 14 September he thought it was 20 August. His body still kept a near-daily rhythm. Harvard later found that switching on lamps resets the body clock in experiments like these; measured properly, your internal day is 24 hours 11 minutes, and light sets it.\n\nSources:\n- Caveman: An Interview with Michel Siffre (Joshua Foer), Cabinet issue 30, Summer 2008 — Cabinet Magazine: https://www.cabinetmagazine.org/issues/30/foer.php\n- Michel Siffre, scientist who explored solitude deep within caves, dies at 85 — The Boston Globe (Washington Post obituary): https://www.bostonglobe.com/2024/09/04/world/michel-siffre-scientist-solitude-deep-within-caves-dies-85/\n- Michel Siffre — Wikipedia: https://en.wikipedia.org/wiki/Michel_Siffre\n- Human biological clock set back an hour — Harvard Gazette (Harvard University): https://news.harvard.edu/gazette/story/1999/07/human-biological-clock-set-back-an-hour/\n- Circadian Rhythms fact sheet — National Institute of General Medical Sciences (NIH): https://www.nigms.nih.gov/education/fact-sheets/Pages/circadian-rhythms.aspx\n\nThe 25 days and the 24.5-hour cycle are Siffre's own account. Michel Siffre is named, not depicted. The clocks change on 25 October (UK) and 1 November (US). The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#science",
+  "#biology",
+  "#sleep",
+  "#shorts"
+ ],
+ "pinned_comment": "Could you last two months in a cave with no clock? How many days would you lose?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/cave-clock.mp4",
+ "srt": "out/cave-clock.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-28T16:00:00Z",
+ "tags": [
+  "michel siffre",
+  "cave experiment",
+  "body clock",
+  "circadian rhythm",
+  "daylight saving time",
+  "clocks go back",
+  "sleep science",
+  "brain facts"
+ ],
+ "related_video": "Your brain runs on 12 watts, and it never turns off",
+ "category": "Education"
+}

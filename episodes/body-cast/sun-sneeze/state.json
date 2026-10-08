@@ -35,6 +35,57 @@
     "build/timeline.json": "14f29f725f0c"
    },
    "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-08T05:13:32Z",
+   "hashes": {
+    "script.json": "6a40c0eaee0d",
+    "build/timeline.json": "14f29f725f0c",
+    "storyboard.json": "e6a01ba24737"
+   },
+   "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-08T05:36:55Z",
+   "hashes": {
+    "storyboard.json": "e6a01ba24737",
+    "build/timeline.json": "14f29f725f0c",
+    "review.json": "acd3bee74f8e"
+   },
+   "failed": []
+  },
+  "final": {
+   "result": "pass",
+   "at": "2026-10-08T05:36:55Z",
+   "hashes": {
+    "review.json": "acd3bee74f8e",
+    "build/final_report.json": "8d3957a61e29"
+   },
+   "failed": []
+  },
+  "package": {
+   "result": "pass",
+   "at": "2026-10-08T05:22:50Z",
+   "hashes": {
+    "build/final_report.json": "8d3957a61e29",
+    "dossier.json": "57aea033acad",
+    "script.json": "6a40c0eaee0d",
+    "package.json": "54ba42f142c8"
+   },
+   "failed": []
+  },
+  "publish": {
+   "result": "fail",
+   "at": "2026-10-08T05:38:00Z",
+   "hashes": {
+    "package.json": "54ba42f142c8",
+    "publish.json": null
+   },
+   "failed": [
+    "publish.json is missing"
+   ]
   }
  }
 }

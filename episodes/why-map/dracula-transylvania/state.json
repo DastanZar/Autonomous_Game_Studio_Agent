@@ -19,11 +19,30 @@
   },
   "script": {
    "result": "pass",
-   "at": "2026-10-07T20:10:40Z",
+   "at": "2026-10-08T05:21:19Z",
    "hashes": {
     "topic.json": "ebb5982d9726",
     "dossier.json": "351141e398f3",
-    "script.json": "51ff292ca266"
+    "script.json": "82f9f4d0985c"
+   },
+   "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-08T05:21:19Z",
+   "hashes": {
+    "script.json": "82f9f4d0985c",
+    "build/timeline.json": "d49ab2fd89a8"
+   },
+   "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-08T05:21:29Z",
+   "hashes": {
+    "script.json": "82f9f4d0985c",
+    "build/timeline.json": "d49ab2fd89a8",
+    "storyboard.json": "d95b5d116c61"
    },
    "failed": []
   }

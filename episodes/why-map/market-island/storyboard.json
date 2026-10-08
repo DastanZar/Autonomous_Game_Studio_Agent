@@ -1,0 +1,275 @@
+{
+ "episode": "market-island",
+ "kits": [
+  "paper",
+  "kinetic",
+  "flight",
+  "flagart"
+ ],
+ "flags": [
+  "SE",
+  "FI"
+ ],
+ "flagship": "House method (user 2026-10-06): A's paper lighthouse, rock and props, B's 3D map flight to the real island (OSM coastline and border, data/geom.json), C's moving type for the 3,913 square metres.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "dataset": "data/geom.json"
+   },
+   "events": [
+    {
+     "at": "hook/built",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "hook/sweden",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_rock",
+   "type": "custom",
+   "start": "rock.start-0.15",
+   "params": {
+    "fn": "rock",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "region": [
+     15.5,
+     58.8,
+     22.5,
+     61.8
+    ]
+   },
+   "events": [
+    {
+     "at": "rock/baltic",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "rock/three",
+     "do": "draw",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_middle",
+   "type": "custom",
+   "start": "middle.start-0.1",
+   "params": {
+    "fn": "middle",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "middle/border",
+     "do": "draw",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "middle/middle",
+     "do": "highlight",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_west",
+   "type": "custom",
+   "start": "west.start-0.1",
+   "params": {
+    "fn": "west",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "west/thirtyfive",
+     "do": "draw",
+     "sfx": "pop"
+    },
+    {
+     "at": "west/swedish",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_why",
+   "type": "custom",
+   "start": "why.start-0.15",
+   "params": {
+    "fn": "why",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "why/papers",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "why/say",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_fix",
+   "type": "custom",
+   "start": "fix.start-0.15",
+   "params": {
+    "fn": "fix",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "fix/fixed",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "fix/border",
+     "do": "draw",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_swap",
+   "type": "custom",
+   "start": "swap.start-0.1",
+   "params": {
+    "fn": "swap",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "swap/land",
+     "do": "highlight",
+     "sfx": "pop"
+    },
+    {
+     "at": "swap/back",
+     "do": "highlight",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_number",
+   "type": "custom",
+   "start": "number.start-0.15",
+   "params": {
+    "fn": "number",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "number/three",
+     "do": "count_start",
+     "sfx": "pop"
+    },
+    {
+     "at": "number/each",
+     "do": "emphasize",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_coast",
+   "type": "custom",
+   "start": "coast.start-0.15",
+   "params": {
+    "fn": "coast",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "coast/coastline",
+     "do": "highlight",
+     "sfx": "pop"
+    },
+    {
+     "at": "coast/fishing",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_zigzag",
+   "type": "custom",
+   "start": "zigzag.start-0.1",
+   "params": {
+    "fn": "zigzag",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
+    "cut": true
+   },
+   "events": [
+    {
+     "at": "zigzag/zigzag",
+     "do": "draw",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "zigzag/nobody",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_holes",
+   "type": "custom",
+   "start": "holes.start-0.15",
+   "params": {
+    "fn": "holes",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "holes/holes",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "holes/ice",
+     "do": "emphasize",
+     "sfx": "whoosh"
+    }
+   ]
+  },
+  {
+   "id": "s_end",
+   "type": "custom",
+   "start": "end.start-0.15",
+   "params": {
+    "fn": "end",
+    "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit)."
+   },
+   "events": [
+    {
+     "at": "end/lighthouse",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  }
+ ],
+ "drift": 0.06
+}

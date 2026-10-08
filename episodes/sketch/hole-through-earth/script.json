@@ -1,0 +1,373 @@
+{
+ "channel": "sketch",
+ "episode": "hole-through-earth",
+ "series": "whatif",
+ "working_title": "What would actually happen if you jumped into a hole through the Earth?",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Jump into a hole through the Earth, and you'd pop out in thirty-eight minutes.",
+   "kind": "hook",
+   "claims": [
+    "c_38"
+   ],
+   "gap": 1.2,
+   "caps": [
+    [
+     "Jump into a hole",
+     4
+    ],
+    [
+     "through the Earth,",
+     3
+    ],
+    [
+     "and you'd pop out",
+     4
+    ],
+    [
+     "in 38 minutes.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "dig",
+   "say": "The hole would be about twelve thousand seven hundred kilometers long.",
+   "kind": "fact",
+   "claims": [
+    "c_diam"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "The hole would be about",
+     5
+    ],
+    [
+     "12,700 km long.",
+     6
+    ]
+   ]
+  },
+  {
+   "id": "kola",
+   "say": "The deepest hole anyone has dug? Twelve kilometers. About a tenth of a percent of the way.",
+   "kind": "fact",
+   "claims": [
+    "c_kola"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "The deepest hole",
+     3
+    ],
+    [
+     "anyone has dug?",
+     3
+    ],
+    [
+     "12 km.",
+     2
+    ],
+    [
+     "About 0.1% of the way.",
+     9
+    ]
+   ]
+  },
+  {
+   "id": "pretend",
+   "say": "So let's pretend. No air, no lava, no spinning Earth.",
+   "kind": "transition",
+   "claims": [
+    "c_noair"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "So let's pretend.",
+     3
+    ],
+    [
+     "No air,",
+     2
+    ],
+    [
+     "no lava,",
+     2
+    ],
+    [
+     "no spinning Earth.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "fall",
+   "say": "You jump. Gravity pulls you down, faster and faster.",
+   "kind": "transition",
+   "claims": [],
+   "gap": 1.0,
+   "caps": [
+    [
+     "You jump.",
+     2
+    ],
+    [
+     "Gravity pulls you down,",
+     4
+    ],
+    [
+     "faster and faster.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "speed",
+   "say": "By the center, you're doing more than eight kilometers a second.",
+   "kind": "fact",
+   "claims": [
+    "c_speed"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "By the center,",
+     3
+    ],
+    [
+     "you're doing more than",
+     4
+    ],
+    [
+     "8 km a second.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "flip",
+   "say": "Then gravity flips. Now it's behind you, slowing you down.",
+   "kind": "fact",
+   "claims": [
+    "c_flip"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Then gravity flips.",
+     3
+    ],
+    [
+     "Now it's behind you,",
+     4
+    ],
+    [
+     "slowing you down.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "top",
+   "say": "You rise up the other side and stop, right at the top.",
+   "kind": "fact",
+   "claims": [
+    "c_grab"
+   ],
+   "gap": 0.9,
+   "caps": [
+    [
+     "You rise up the other side",
+     6
+    ],
+    [
+     "and stop,",
+     2
+    ],
+    [
+     "right at the top.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "grab",
+   "say": "Grab the edge. Miss it, and you fall all the way back. And back again.",
+   "kind": "fact",
+   "claims": [
+    "c_grab"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "Grab the edge.",
+     3
+    ],
+    [
+     "Miss it,",
+     2
+    ],
+    [
+     "and you fall all the way back.",
+     7
+    ],
+    [
+     "And back again.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "text",
+   "say": "Textbooks say the trip takes forty-two minutes. But that assumes Earth is the same density all the way through.",
+   "kind": "fact",
+   "claims": [
+    "c_42"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Textbooks say",
+     2
+    ],
+    [
+     "the trip takes 42 minutes.",
+     5
+    ],
+    [
+     "But that assumes Earth",
+     4
+    ],
+    [
+     "is the same density",
+     4
+    ],
+    [
+     "all the way through.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "dense",
+   "say": "It isn't. The crust is about three grams per cubic centimeter. The center, about thirteen.",
+   "kind": "fact",
+   "claims": [
+    "c_density"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "It isn't.",
+     2
+    ],
+    [
+     "The crust is about 3 grams",
+     6
+    ],
+    [
+     "per cubic centimeter.",
+     3
+    ],
+    [
+     "The center,",
+     2
+    ],
+    [
+     "about 13.",
+     2
+    ]
+   ]
+  },
+  {
+   "id": "real",
+   "say": "Redo the sum with the real Earth, measured by earthquakes, and you get thirty-eight minutes.",
+   "kind": "fact",
+   "claims": [
+    "c_38"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "Redo the sum",
+     3
+    ],
+    [
+     "with the real Earth,",
+     4
+    ],
+    [
+     "measured by earthquakes,",
+     3
+    ],
+    [
+     "and you get 38 minutes.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "twist",
+   "say": "Weirder still: pretend gravity never changes on the way down. You get almost the same answer.",
+   "kind": "fact",
+   "claims": [
+    "c_const",
+    "c_why"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "Weirder still:",
+     2
+    ],
+    [
+     "pretend gravity",
+     2
+    ],
+    [
+     "never changes on the way down.",
+     6
+    ],
+    [
+     "You get almost",
+     3
+    ],
+    [
+     "the same answer.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "call",
+   "say": "Thirty-eight minutes. Door to door.",
+   "kind": "callback",
+   "claims": [
+    "c_38"
+   ],
+   "gap": 0.2,
+   "caps": [
+    [
+     "38 minutes.",
+     2
+    ],
+    [
+     "Door to door.",
+     3
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "call",
+  "connects_to": "hook",
+  "how": "Repeats the hook's thirty-eight minutes as the punchline, 'door to door', while the page pulls back to the whole tunnel."
+ }
+}

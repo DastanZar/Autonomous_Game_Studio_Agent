@@ -1,0 +1,192 @@
+{
+ "topic": "What would happen to an unprotected human on Mars",
+ "sources": [
+  {
+   "id": "nasa_ask",
+   "title": "Ask an Astrophysicist: space travel archive (human exposure to vacuum; the 1965 suit-leak accident)",
+   "publisher": "NASA Goddard Space Flight Center, Imagine the Universe! (HEASARC)",
+   "url": "https://imagine.gsfc.nasa.gov/ask_astro/space_travel.html",
+   "type": "official",
+   "accessed": "2026-10-07",
+   "note": "Answers by NASA volunteers; the 1965 account is written by a scientist at NASA's Manned Spacecraft Center."
+  },
+  {
+   "id": "mars_sheet",
+   "title": "Mars Fact Sheet",
+   "publisher": "NASA Goddard Space Flight Center (NSSDCA)",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "earth_sheet",
+   "title": "Earth Fact Sheet",
+   "publisher": "NASA Goddard Space Flight Center (NSSDCA)",
+   "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "mars_facts",
+   "title": "Mars Facts",
+   "publisher": "NASA Science",
+   "url": "https://science.nasa.gov/mars/facts/",
+   "type": "official",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "armstrong",
+   "title": "Armstrong limit",
+   "publisher": "Wikipedia",
+   "url": "https://en.wikipedia.org/wiki/Armstrong_limit",
+   "type": "reference",
+   "accessed": "2026-10-07"
+  },
+  {
+   "id": "aero",
+   "title": "Human Exposure to the Vacuum of Space",
+   "publisher": "Aerospaceweb.org",
+   "url": "https://aerospaceweb.org/question/atmosphere/q0291.shtml",
+   "type": "secondary",
+   "accessed": "2026-10-07",
+   "cites": "NASA and US Air Force decompression research, 1950s-60s"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_pressure",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "mars_sheet",
+    "earth_sheet",
+    "mars_facts"
+   ],
+   "text": "Mars' surface air pressure is about 6.36 millibars, less than 1% of Earth's (1,014 mb): a very thin atmosphere.",
+   "quote": "Surface pressure: 6.36 mb at mean radius (variable from 4.0 to 8.7 mb depending on season); Surface pressure: 1014 mb; is a dusty, cold, desert world with a very thin atmosphere",
+   "note": "6.36 / 1014 = 0.63%."
+  },
+  {
+   "id": "c_co2",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "mars_sheet"
+   ],
+   "text": "Mars' air is about 95% carbon dioxide.",
+   "quote": "Carbon Dioxide (CO 2 ) - 95.1%"
+  },
+  {
+   "id": "c_boil",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "armstrong",
+    "nasa_ask",
+    "mars_sheet"
+   ],
+   "text": "Below about 6.3 kPa (47 mmHg, about a sixteenth of sea-level pressure), water boils at body temperature (37°C); Mars' surface pressure is about a tenth of that.",
+   "quote": "at an ambient pressure of 6.3 kilopascals (47 mmHg) , the boiling point of water is 37 °C (99 °F) . A pressure of 6.3 kPa—the Armstrong limit—is about 1/16 of the standard sea-level atmospheric pre; the vapor pressure of water at 37 C is 47 mm Hg; Surface pressure: 6.36 mb at mean radius",
+   "note": "6.36 mb = 0.636 kPa; 6.3 / 0.636 = 9.9, so Mars is about ten times below the Armstrong limit."
+  },
+  {
+   "id": "c_nearvac",
+   "key": false,
+   "status": "framed",
+   "label": "simplified: for your body, close to a vacuum",
+   "sources": [
+    "armstrong",
+    "mars_sheet"
+   ],
+   "text": "Because Mars' pressure is far below the Armstrong limit, exposed body fluids on Mars behave much as in a vacuum; we use NASA's vacuum-exposure accounts for it (simplified).",
+   "quote": "saliva , tears , urine , and the liquids wetting the alveoli within the lungs—but not vascular blood (blood within the circulatory system)—will boil away if the subject does not wear a full-body pressure suit"
+  },
+  {
+   "id": "c_blood",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nasa_ask",
+    "armstrong"
+   ],
+   "text": "Your blood would not boil, because your skin and circulatory system contain it (blood pressure keeps it above 47 mmHg).",
+   "quote": "You do not explode and your blood does not boil because of the containing effect of your skin and circulatory system; As long as you keep your blood-pressure above that (which you will unless you go deep into shock) your blood will not boil; but not vascular blood"
+  },
+  {
+   "id": "c_saliva",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nasa_ask",
+    "armstrong"
+   ],
+   "text": "The saliva on your tongue would start to boil.",
+   "quote": "The saliva on your tongue might boil, however; saliva , tears , urine , and the liquids wetting the alveoli within the lungs"
+  },
+  {
+   "id": "c_breath",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "nasa_ask"
+   ],
+   "text": "Holding your breath in a vacuum is likely to damage your lungs.",
+   "quote": "Holding your breath is likely to damage your lungs"
+  },
+  {
+   "id": "c_conscious",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "aero",
+    "nasa_ask"
+   ],
+   "text": "A person exposed to vacuum stays conscious for about 10 to 15 seconds, about the time oxygen-poor blood takes to reach the brain.",
+   "quote": "concluded that a human exposed to a vacuum will remain conscious for ten to fifteen seconds; He remained conscious for about 14 seconds, which is about the time it takes for O2 deprived blood to go from the lungs to the brain"
+  },
+  {
+   "id": "c_1965",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "nasa_ask"
+   ],
+   "text": "In 1965, at NASA's Manned Spacecraft Center, a test subject was exposed to near vacuum when a space suit leaked in a vacuum chamber; he stayed conscious about 14 seconds, his last memory was the water on his tongue beginning to boil, and he regained consciousness as the chamber was repressurised.",
+   "quote": "At NASA's Manned Spacecraft Center (now renamed Johnson Space Center) we had a test subject accidentally exposed to a near vacuum (less than 1 psi) in an incident involving a leaking space suit in a vacuum chamber back in '65. He remained conscious for about 14 seconds; we began repressurizing the chamber within 15 seconds. The subject regained consciousness at around 15,000 feet equivalent altitude; his last conscious memory was of the water on his tongue beginning to boil"
+  },
+  {
+   "id": "c_cold",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "mars_sheet"
+   ],
+   "text": "Mars' average temperature is about minus 59°C.",
+   "quote": "Average temperature: ~214 K (-59 C)"
+  },
+  {
+   "id": "c_freeze",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "nasa_ask"
+   ],
+   "text": "You would not instantly freeze: heat does not transfer away from a body quickly.",
+   "quote": "You do not instantly freeze because, although the space environment is typically very cold, heat does not transfer away from a body quickly"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "In a vacuum (or on Mars without a suit) your blood boils and you explode.",
+   "truth": "Your skin and circulatory system keep your blood under pressure: no boiling blood, no exploding; exposed fluids like saliva do boil (NASA).",
+   "sources": [
+    "nasa_ask",
+    "armstrong"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Mars is not a hard vacuum (about 0.6 kPa); the NASA accounts are for near vacuum. The page labels this as a simplification.",
+  "The 1965 test subject is not named or drawn."
+ ]
+}

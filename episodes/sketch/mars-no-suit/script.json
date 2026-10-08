@@ -1,0 +1,341 @@
+{
+ "channel": "sketch",
+ "episode": "mars-no-suit",
+ "series": "whatif",
+ "working_title": "What would actually happen if you stepped onto Mars without a suit?",
+ "lead_in": 0.3,
+ "tail": 0.8,
+ "gap": 0.3,
+ "paras": [
+  {
+   "id": "hook",
+   "say": "Step onto Mars without a suit. Your blood won't boil. Your spit will.",
+   "kind": "hook",
+   "claims": [
+    "c_blood",
+    "c_saliva"
+   ],
+   "gap": 1.2,
+   "caps": [
+    [
+     "Step onto Mars",
+     3
+    ],
+    [
+     "without a suit.",
+     3
+    ],
+    [
+     "Your blood won't boil.",
+     4
+    ],
+    [
+     "Your spit will.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "air",
+   "say": "Mars does have air. Less than one percent of the pressure on Earth. And mostly carbon dioxide.",
+   "kind": "fact",
+   "claims": [
+    "c_pressure",
+    "c_co2"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Mars does have air.",
+     4
+    ],
+    [
+     "Less than 1%",
+     4
+    ],
+    [
+     "of the pressure on Earth.",
+     5
+    ],
+    [
+     "And mostly carbon dioxide.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "boil",
+   "say": "Thin air makes water boil at lower temperatures. On Mars, it boils at body temperature.",
+   "kind": "fact",
+   "claims": [
+    "c_boil",
+    "c_nearvac"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "Thin air makes water boil",
+     5
+    ],
+    [
+     "at lower temperatures.",
+     3
+    ],
+    [
+     "On Mars,",
+     2
+    ],
+    [
+     "it boils at body temperature.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "blood",
+   "say": "So why not your blood? Your skin and blood vessels keep it under pressure.",
+   "kind": "fact",
+   "claims": [
+    "c_blood"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "So why not your blood?",
+     5
+    ],
+    [
+     "Your skin and blood vessels",
+     5
+    ],
+    [
+     "keep it under pressure.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "spit",
+   "say": "Your tongue is out in the open. The saliva on it starts to boil.",
+   "kind": "fact",
+   "claims": [
+    "c_saliva"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "Your tongue",
+     2
+    ],
+    [
+     "is out in the open.",
+     5
+    ],
+    [
+     "The saliva on it",
+     4
+    ],
+    [
+     "starts to boil.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "breath",
+   "say": "Don't hold your breath. That can damage your lungs.",
+   "kind": "fact",
+   "claims": [
+    "c_breath"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "Don't hold your breath.",
+     4
+    ],
+    [
+     "That can damage your lungs.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "clock",
+   "say": "You'd stay awake for about ten to fifteen seconds. That's how long oxygen-poor blood takes to reach your brain.",
+   "kind": "fact",
+   "claims": [
+    "c_conscious"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "You'd stay awake",
+     3
+    ],
+    [
+     "for about 10 to 15 seconds.",
+     6
+    ],
+    [
+     "That's how long",
+     3
+    ],
+    [
+     "oxygen-poor blood takes",
+     3
+    ],
+    [
+     "to reach your brain.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "real",
+   "say": "We know, because it happened. In nineteen sixty-five, a NASA test suit leaked in a vacuum chamber.",
+   "kind": "fact",
+   "claims": [
+    "c_1965"
+   ],
+   "gap": 1.0,
+   "caps": [
+    [
+     "We know,",
+     2
+    ],
+    [
+     "because it happened.",
+     3
+    ],
+    [
+     "In 1965,",
+     3
+    ],
+    [
+     "a NASA test suit leaked",
+     5
+    ],
+    [
+     "in a vacuum chamber.",
+     4
+    ]
+   ]
+  },
+  {
+   "id": "tongue",
+   "say": "The man inside stayed conscious about fourteen seconds. His last memory: the water on his tongue, beginning to boil.",
+   "kind": "fact",
+   "claims": [
+    "c_1965"
+   ],
+   "gap": 1.2,
+   "caps": [
+    [
+     "The man inside",
+     3
+    ],
+    [
+     "stayed conscious",
+     2
+    ],
+    [
+     "about 14 seconds.",
+     3
+    ],
+    [
+     "His last memory:",
+     3
+    ],
+    [
+     "the water on his tongue,",
+     5
+    ],
+    [
+     "beginning to boil.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "woke",
+   "say": "They pumped the air back in. He woke up.",
+   "kind": "fact",
+   "claims": [
+    "c_1965"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "They pumped the air back in.",
+     6
+    ],
+    [
+     "He woke up.",
+     3
+    ]
+   ]
+  },
+  {
+   "id": "cold",
+   "say": "And the cold? Mars averages minus fifty-nine degrees. But you wouldn't freeze fast. Heat leaves a body slowly.",
+   "kind": "fact",
+   "claims": [
+    "c_cold",
+    "c_freeze"
+   ],
+   "gap": 1.1,
+   "caps": [
+    [
+     "And the cold?",
+     3
+    ],
+    [
+     "Mars averages",
+     2
+    ],
+    [
+     "minus 59 degrees.",
+     3
+    ],
+    [
+     "But you wouldn't freeze fast.",
+     5
+    ],
+    [
+     "Heat leaves a body slowly.",
+     5
+    ]
+   ]
+  },
+  {
+   "id": "call",
+   "say": "So on Mars, keep your blood in, and your mouth shut.",
+   "kind": "callback",
+   "claims": [
+    "c_saliva",
+    "c_blood"
+   ],
+   "gap": 0.2,
+   "caps": [
+    [
+     "So on Mars,",
+     3
+    ],
+    [
+     "keep your blood in,",
+     4
+    ],
+    [
+     "and your mouth shut.",
+     4
+    ]
+   ]
+  }
+ ],
+ "loop": {
+  "last": "call",
+  "connects_to": "hook",
+  "how": "The hook's blood and spit come back as advice: keep your blood in and your mouth shut; the page pulls back to the whole Mars sheet."
+ }
+}

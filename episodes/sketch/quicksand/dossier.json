@@ -1,0 +1,167 @@
+{
+ "topic": "What really happens if you step into quicksand (Khaldoun et al. 2005)",
+ "sources": [
+  {
+   "id": "khaldoun",
+   "title": "Liquefaction of quicksand under stress (Nature 437, 635, 2005; doi:10.1038/437635a)",
+   "publisher": "Khaldoun, Eiser, Wegdam & Bonn, Nature; record in the University of Amsterdam repository (UvA-DARE)",
+   "url": "https://dare.uva.nl/id/8832cb7f-2014-4f2a-81a8-cef2beb39773",
+   "type": "scholarly",
+   "accessed": "2026-10-07",
+   "note": "The Nature full text is paywalled; the abstract is quoted from the university's repository record, details from two news reports of the study."
+  },
+  {
+   "id": "natgeo",
+   "title": "Quicksand Science: Why It Traps, How to Escape (28 Sep 2005)",
+   "publisher": "National Geographic (Nicholas Bakalar)",
+   "url": "https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/",
+   "type": "journalism",
+   "accessed": "2026-10-07",
+   "cites": "Khaldoun et al., Nature 2005; interview with Daniel Bonn"
+  },
+  {
+   "id": "livesci",
+   "title": "Quicksand Myth Debunked: You Can Float Free",
+   "publisher": "Live Science (Bjorn Carey)",
+   "url": "https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html",
+   "type": "journalism",
+   "accessed": "2026-10-07",
+   "cites": "Khaldoun et al., Nature 2005; interview with Daniel Bonn"
+  }
+ ],
+ "claims": [
+  {
+   "id": "c_waist",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "khaldoun",
+    "natgeo",
+    "livesci"
+   ],
+   "text": "A person in quicksand can't be sucked under completely: you sink to about your waist and no further.",
+   "quote": "A person trapped in salt-lake quicksand is not in any danger of being sucked under completely; You would descend about up to your waist, but you'd go no further; quicksand victims will float once they get about waist deep"
+  },
+  {
+   "id": "c_recipe",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "natgeo",
+    "livesci"
+   ],
+   "text": "The quicksand studied is a mix of fine sand, clay and salt water; left at rest it thickens with time.",
+   "quote": "a combination of fine sand, clay, and salt water. At rest, quicksand thickens with time; Quicksand is a mixture of fine sand, clay and saltwater"
+  },
+  {
+   "id": "c_liquefy",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "natgeo",
+    "livesci",
+    "khaldoun"
+   ],
+   "text": "Under stress quicksand liquefies, and the higher the stress the more fluid it becomes, so moving makes you sink faster.",
+   "quote": "At higher stresses, quicksand liquefies very quickly, and the higher the stress the more fluid it becomes; movement will make the victim sink faster; The higher the stress, the more liquid the quicksand becomes, so movement by a trapped body causes it to sink in deeply"
+  },
+  {
+   "id": "c_density",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "natgeo",
+    "livesci"
+   ],
+   "text": "Quicksand has a density of about 2 grams per millilitre; a human body is about 1, so quicksand is about twice as dense as you.",
+   "quote": "Quicksand has a density of about 2 grams per milliliter. But human density is only about 1 gram per milliliter; The density of an average human body is about 62 pounds per cubic foot, which is less than quicksand's 125 pounds per cubic foot",
+   "note": "Live Science's units agree: 125/62 = 2.0."
+  },
+  {
+   "id": "c_bead",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "livesci"
+   ],
+   "text": "In the lab, a ball with the density of a human body could not be sunk into quicksand however hard the container was shaken.",
+   "quote": "when they used an aluminum ball with a density equal to the human body, which is less than the density of quicksand, they found it impossible to sink the ball, no matter how hard they shook the pit"
+  },
+  {
+   "id": "c_packed",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "livesci",
+    "natgeo"
+   ],
+   "text": "After it liquefies, the sand settles into a densely packed layer around the legs, which is what makes them hard to pull out.",
+   "quote": "The wet sand sediment becomes so densely packed that it's harder to move than cold molasses; It's the difficulty of moving this dense sand that causes the problem"
+  },
+  {
+   "id": "c_car",
+   "key": true,
+   "status": "estimate",
+   "label": "the researchers' estimate",
+   "sources": [
+    "natgeo",
+    "livesci"
+   ],
+   "text": "The researchers estimate that pulling a foot out at one centimetre a second takes about the force needed to lift a car (medium-size per National Geographic, small per Live Science).",
+   "quote": "The authors estimate that the force needed for someone to pull their foot out of quicksand at a speed of a centimeter a second would be the equivalent of that required to lift a medium-size car; To pull one leg free requires the amount of force needed to lift a small car"
+  },
+  {
+   "id": "c_pieces",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "natgeo"
+   ],
+   "text": "Study co-author Daniel Bonn warned that friends pulling hard could pull you 'into two pieces'.",
+   "quote": "Don't ask your friends to tug on you; they're likely to pull you \"into two pieces if [they] try hard to pull [you] out,\" said Bonn"
+  },
+  {
+   "id": "c_wiggle",
+   "key": true,
+   "status": "confirmed",
+   "sources": [
+    "natgeo",
+    "livesci"
+   ],
+   "text": "To get out, wiggle your legs slowly so water can flow down and loosen the sand; lie back to spread your weight and let your legs come free.",
+   "quote": "The way to do it is to wriggle your legs around. This creates a space between the legs and the quicksand through which water can flow down to dilate [loosen] the sand; You can get out using this technique, if you do it slowly and progressively; Stretch out on your back to increase your surface area and wait until your legs pop free"
+  },
+  {
+   "id": "c_tide",
+   "key": false,
+   "status": "confirmed",
+   "sources": [
+    "natgeo"
+   ],
+   "text": "The real risk is being stuck in quicksand near the sea when the tide comes in.",
+   "quote": "it isn't struggling that can get you into trouble, but getting caught in quicksand near the sea, which is generally where quicksand is found. When the high tide comes in, you could drown"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "Quicksand swallows people whole (films).",
+   "truth": "Humans are about half as dense as quicksand, so you float at about waist depth (Khaldoun et al., Nature 2005).",
+   "sources": [
+    "khaldoun",
+    "natgeo",
+    "livesci"
+   ]
+  },
+  {
+   "myth": "Never move at all in quicksand.",
+   "truth": "Thrashing makes you sink faster, but slow leg wiggling is how you get out.",
+   "sources": [
+    "natgeo",
+    "livesci"
+   ]
+  }
+ ],
+ "open_questions": [
+  "Desert or dry 'quicksand' and other mixtures are not covered; the study is salt-lake quicksand."
+ ]
+}

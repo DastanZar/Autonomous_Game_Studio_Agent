@@ -1,0 +1,76 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-08T05:28:41Z",
+   "reviewer": "worker (Leader Flags batch), round 1: 15 stills, one or more per scene after each number lands",
+   "frames": [
+    0.05,
+    4.5,
+    8.5,
+    13.9,
+    16.9,
+    20.6,
+    25.9,
+    31.3,
+    34.0,
+    36.5
+   ],
+   "defects": [
+    {
+     "t": 13.9,
+     "issue": "source line wider than the frame in the ranked-list scenes",
+     "fixed": true
+    },
+    {
+     "t": 28.5,
+     "issue": "s_ratio: the crown overlaps the PLAYERS PER MILLION title",
+     "fixed": true
+    },
+    {
+     "t": 31.3,
+     "issue": "s_ratio: the 1 IN 39,000 tag sits on the bar baseline and against the captions; removed (the captions carry it)",
+     "fixed": true
+    },
+    {
+     "t": 20.6,
+     "issue": "s_pivot: small text repeated the caption word for word right above it; removed",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T05:28:42Z",
+   "reviewer": "worker, round 2: stills after the fixes; globe checked against each spoken place (DO, DO, VE then CU then CA, JP then PR, DO, CW, CW then DO, DO then CW); numbers checked against data/mlb_opening_day_2026_by_birthplace.csv (93, 60, 20, 19, 14, 14, 4, 155,967, 25.6 and 8.1 per million)",
+   "frames": [
+    0.05,
+    4.5,
+    8.5,
+    13.9,
+    16.9,
+    20.6,
+    25.9,
+    31.3,
+    34.0,
+    36.5
+   ],
+   "defects": []
+  },
+  {
+   "at": "2026-10-08T05:33:54Z",
+   "reviewer": "worker, round 3 (after production): fresh stills plus 9 frames pulled from the encoded MP4 and the thumbnail; no layout defects",
+   "frames": [
+    0.05,
+    4.5,
+    8.5,
+    13.9,
+    16.9,
+    20.6,
+    25.9,
+    31.3,
+    34.0,
+    36.5
+   ],
+   "defects": []
+  }
+ ]
+}
