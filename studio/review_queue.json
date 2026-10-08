@@ -2,6 +2,31 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "next-gut-gang",
+   "status": "open",
+   "kind": "video",
+   "title": "Gut Gang, next 4 (21, 22, 27, 28 Oct): yawning, cold feet, the sun sneeze, the cave clock",
+   "question": "All four pass every gate through packaging (sourced from NIH/PubMed, PLoS ONE, NHS; WER 0; -14.1/-14.2 LUFS). Flag anything to change before upload.",
+   "files": [
+    [
+     "2026-10-21 16:00 UTC · Why is yawning contagious? (It isn't about oxygen)",
+     "episodes/body-cast/contagious-yawn/out/contagious-yawn.mp4"
+    ],
+    [
+     "2026-10-22 16:00 UTC · Do cold feet give you a cold? Scientists tested it",
+     "episodes/body-cast/cold-feet/out/cold-feet.mp4"
+    ],
+    [
+     "2026-10-27 16:00 UTC · Why does sunlight make you sneeze? Aristotle got it wrong",
+     "episodes/body-cast/sun-sneeze/out/sun-sneeze.mp4"
+    ],
+    [
+     "2026-10-28 16:00 UTC · He lived in a cave with no clocks and lost 25 days",
+     "episodes/body-cast/cave-clock/out/cave-clock.mp4"
+    ]
+   ]
+  },
+  {
    "id": "voices-kokoro",
    "status": "open",
    "kind": "audio",

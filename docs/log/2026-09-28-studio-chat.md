@@ -2486,3 +2486,18 @@ Try again
   - Leader Flags: 2 through storyboard, 1 through script, most-pumpkins through topic only.
   - Pencil channel: earth-stops-spinning in progress, plus 3 started.
 - Told the workers to be economical with usage.
+
+### 🧑 User · 2026-10-08 UTC
+
+I hit my usage limit while you were working, but it has reset now. Please continue from where you left off.
+
+#### Claude · record
+
+- **Gut Gang next 4 finished** and checked by me: all gates through packaging; encoded frames spot-checked; added to the dashboard review queue (`next-gut-gang`).
+  - "Why is yawning contagious?" (21 Oct), "Do cold feet give you a cold?" (22 Oct), "Why does sunlight make you sneeze?" (27 Oct), "He lived in a cave with no clocks…" (28 Oct).
+  - 45–53 s, −14.1/−14.2 LUFS, WER 0.
+- **Session limit again:** the other three workers had stopped at the session limit (reset 10:00 UTC). Backed up (fff2319) and resumed.
+- **Progress at resume:**
+  - Border Quirks: Pheasant Island done; the Statue of Liberty's final gate failing; 2 through storyboard.
+  - Leader Flags: 3 through package; pumpkins through storyboard.
+  - Pencil channel: Earth-stops-spinning done; quicksand's final gate failing; hole through picture; Mars through script.
