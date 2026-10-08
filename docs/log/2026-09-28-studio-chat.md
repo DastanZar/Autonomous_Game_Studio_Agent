@@ -2668,3 +2668,4 @@ Where do we stand - lets start pushing border quirks on a schedule, wether its 2
   - Border Quirks needs new videos from 21 Oct and Gut Gang from 22 Oct.
   - Swiss-invades-Liechtenstein is ✓ through final and Baarle through picture.
   - Asked the user whether to start the next batches.
+- **Live check (087557b):** the four Hannah MP4s on the dashboard match the local files byte for byte; the review item `gut-gang-hannah` is live. The earlier deploy (ae00cf5) was cancelled because this push replaced it.
