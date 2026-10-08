@@ -2622,3 +2622,30 @@ I dont understand the middle part lisitng a few videos, also this is too ai and 
 #### Claude · record
 
 - **Rewrote again:** no example list, no tidy three-beat structure; two plain sentences plus a note that sources are in each video. Saved in `studio/channel_setup.json`; still not applied on YouTube.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+Where do we stand - lets start pushing border quirks on a schedule, wether its 2 a day or how many illleave upto research and data for best outputs, for gut gang also we are a go, just change gut gang voice to hannah for first 4 uploads, lets see the performance, leader flags is shelved for now
+
+#### Claude · record
+
+- **Gut Gang first 4 re-voiced with Fish 'Hannah':**
+  - Added a per-episode `voice` override in `episode.json`, read by `vo.py`, so only these 4 change; the bible stays on George.
+  - 43 Fish requests; every line passes. WER 0–1.8%; 'textbooks' was heard as 'textbook'.
+  - New lengths: 47.15, 46.41, 46.91 and 34.17 s; −14.1 LUFS; music 8 dB under the voice.
+- **Re-rendered and re-reviewed:**
+  - Looked at one frame per paragraph from each new MP4, and one per scene for the gum episode (11 scenes, 10 paragraphs; the gate caught my short round).
+  - Checked the brain '10% myth' stamp at full size against the Kokoro version: identical, not clipped.
+  - All four ✓ through package.
+  - Descriptions and `synthetic_media` now credit the Fish 'Hannah' voice.
+- **Border Quirks cadence:**
+  - Kept the content plan's research pick: 3 in launch week, then 4 a week, not 2 a day.
+  - Evidence (content plan §6):
+    - per-Short views peak at 2–4 a week (Metricool, 800k videos);
+    - the top geography Shorts channels post about once a week;
+    - high volume with one synthetic voice is the pattern YouTube's inauthentic-content rules target.
+- **Upload kit:** `studio/tools/publish_kit.py` (new) rebuilt `docs/publish-kit-2026-10.md` for the 16 Shorts (8 Border Quirks, 8 Gut Gang, 13–28 Oct), with a voice column. Leader Flags was removed from it; its review item is marked parked.
+- **Uploads stay manual:** the API project is still unverified, so API uploads would be locked private.
+- **Supply gap:** Border Quirks has videos through 28 Oct. Keeping 4 a week needs Fri 23 Oct, Thu 29 Oct and Fri 30 Oct, then 4 a week in November. Baarle is through picture. Asked the user before starting a new batch, because of the usage concern.

@@ -1,6 +1,6 @@
 {
  "title": "Your brain runs on 12 watts, and it never turns off",
- "description": "Your brain is about 2% of your weight but uses about 20% of your energy at rest: roughly 12 watts, a fifth of an old 60-watt bulb. Thinking hard barely adds to that; the cost is staying switched on. So no, you don't use only 10% of it.\n\nSources:\n- Human brain — Wikipedia: https://en.wikipedia.org/wiki/Human_brain\n- How much energy does your brain require? — FlipScience: https://www.flipscience.ph/flipfacts/how-much-energy-does-your-brain-require/\n- Power of a Human Brain — The Physics Factbook (hypertextbook.com): https://hypertextbook.com/facts/2001/JacquelineLing.shtml\n- Does Thinking Really Hard Burn More Calories? — Scientific American: https://www.scientificamerican.com/article/thinking-hard-calories/\n- Do People Only Use 10 Percent of Their Brains? — Scientific American: https://www.scientificamerican.com/article/do-people-only-use-10-percent-of-their-brains/\n\nLabels: 12 watts is Scientific American's estimate from a 1,300 kcal resting rate. The energy figures are for the body at rest. The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "description": "Your brain is about 2% of your weight but uses about 20% of your energy at rest: roughly 12 watts, a fifth of an old 60-watt bulb. Thinking hard barely adds to that; the cost is staying switched on. So no, you don't use only 10% of it.\n\nSources:\n- Human brain — Wikipedia: https://en.wikipedia.org/wiki/Human_brain\n- How much energy does your brain require? — FlipScience: https://www.flipscience.ph/flipfacts/how-much-energy-does-your-brain-require/\n- Power of a Human Brain — The Physics Factbook (hypertextbook.com): https://hypertextbook.com/facts/2001/JacquelineLing.shtml\n- Does Thinking Really Hard Burn More Calories? — Scientific American: https://www.scientificamerican.com/article/thinking-hard-calories/\n- Do People Only Use 10 Percent of Their Brains? — Scientific American: https://www.scientificamerican.com/article/do-people-only-use-10-percent-of-their-brains/\n\nLabels: 12 watts is Scientific American's estimate from a 1,300 kcal resting rate. The energy figures are for the body at rest. The characters are cartoons, not medical advice. Narration is a synthetic voice (Fish Audio S2.1, library voice \"Hannah\"). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
  "hashtags": [
   "#science",
   "#brain",
@@ -10,7 +10,7 @@
  "pinned_comment": "What's the hardest thing your brain did today?",
  "made_for_kids": false,
  "synthetic_media": {
-  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "voice": "Fish Audio S2.1 free (OpenRouter), library voice Hannah 9a9cf47702da476aa4629e2506d4a857; voice test on the first 4 uploads",
   "realistic": false
  },
  "video": "out/brain-energy.mp4",

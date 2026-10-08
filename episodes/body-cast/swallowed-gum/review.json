@@ -39,6 +39,24 @@
     47.79
    ],
    "defects": []
+  },
+  {
+   "at": "2026-10-08T17:28:31Z",
+   "reviewer": "orchestrator: Hannah (Fish) re-voice, one encoded-MP4 frame per paragraph; brain '10% myth' stamp checked at full size against the approved Kokoro version; one frame per scene (11) at each scene's landed time",
+   "frames": [
+    3.84,
+    5.4,
+    12.65,
+    17.84,
+    19.72,
+    26.28,
+    27.68,
+    33.0,
+    37.32,
+    39.84,
+    46.81
+   ],
+   "defects": []
   }
  ]
 }

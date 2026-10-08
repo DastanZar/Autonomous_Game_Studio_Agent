@@ -46,7 +46,8 @@ def fish_key():
 
 
 def pick_voice(para):
-    v = bible["voice"]
+    # episode.json "voice" overrides the bible's narrator for one episode (a voice test), keeping the bible's fallback
+    v = dict(bible["voice"], **meta["voice"]) if meta.get("voice") else bible["voice"]
     if para.get("speaker"):
         member = next((c for c in bible.get("cast", []) if c["id"] == para["speaker"]), None)
         if member and member.get("voice"):

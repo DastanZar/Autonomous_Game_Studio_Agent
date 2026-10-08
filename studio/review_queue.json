@@ -2,6 +2,31 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "gut-gang-hannah",
+   "status": "open",
+   "kind": "video",
+   "title": "Gut Gang first 4, re-voiced with Fish 'Hannah' (13, 14, 15, 20 Oct): the voice test",
+   "question": "Same pictures, new voice. Every line passes the transcript check (WER 0-1.8%), -14.1 LUFS, music 8 dB under the voice, every scene re-checked from the new MP4s. The other Gut Gang uploads stay on George, so the first 4 can be compared with the next 4. Listen and say if any line sounds off.",
+   "files": [
+    [
+     "2026-10-13 · Your gut isn't the size of a tennis court. Follow your lunch. (Hannah)",
+     "episodes/body-cast/food-journey/out/food-journey.mp4"
+    ],
+    [
+     "2026-10-14 · Why doesn't your stomach digest itself? (Hannah)",
+     "episodes/body-cast/stomach-acid/out/stomach-acid.mp4"
+    ],
+    [
+     "2026-10-15 · Does swallowed gum really stay in you for 7 years? (Hannah)",
+     "episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4"
+    ],
+    [
+     "2026-10-20 · Your brain runs on 12 watts, and it never turns off (Hannah)",
+     "episodes/body-cast/brain-energy/out/brain-energy.mp4"
+    ]
+   ]
+  },
+  {
    "id": "next-border-quirks",
    "status": "open",
    "kind": "video",
@@ -53,10 +78,10 @@
   },
   {
    "id": "next-leader-flags",
-   "status": "open",
+   "status": "parked",
    "kind": "video",
    "title": "Leader Flags, next 4 (21, 22, 27, 28 Oct): nuclear warheads, meat per person, MLB players, pumpkins",
-   "question": "All four pass every gate through packaging. Data: SIPRI Yearbook 2026, FAO food balances 2023 (via Our World in Data), MLB Opening Day 2026 and FAOSTAT 2024. The globe follows each place as it is named. Demand is thin for MLB and pumpkins; they are there for timing (World Series, Halloween). Flag anything before upload.",
+   "question": "Shelved by you on 8 Oct (rethinking the channel). All four pass every gate through packaging. Data: SIPRI Yearbook 2026, FAO food balances 2023 (via Our World in Data), MLB Opening Day 2026 and FAOSTAT 2024. The globe follows each place as it is named. Demand is thin for MLB and pumpkins; they are there for timing (World Series, Halloween). Flag anything before upload.",
    "files": [
     [
      "2026-10-21 17:00 UTC · Which country has the most nuclear weapons? It's not America.",

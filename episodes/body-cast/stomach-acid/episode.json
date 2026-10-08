@@ -1,5 +1,12 @@
 {
  "channel": "body-cast",
  "slug": "stomach-acid",
- "created": "2026-10-07T05:12:19Z"
+ "created": "2026-10-07T05:12:19Z",
+ "voice": {
+  "engine": "fish",
+  "model": "fish-audio/s2.1-pro-free:free",
+  "id": "9a9cf47702da476aa4629e2506d4a857",
+  "name": "Hannah (Fish Audio library)",
+  "note": "user's pick 2026-10-08: test on the first 4 Gut Gang uploads"
+ }
 }
