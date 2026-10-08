@@ -1,0 +1,24 @@
+# What would actually happen if you fell into quicksand?
+
+One page, six rows (the page height is raised in scenes.js): films vs physics, the recipe, liquefaction, density, the lab test (Khaldoun et al., Nature 2005), the car-lifting force, how to get out, and the tide.
+
+- Channel: `studio/channels/sketch/bible.json` (series `whatif`); kit: `studio/engine/kits/sketch.js` (unchanged)
+- Page content: `scenes.js` (items keyed to spoken words, laid out per camera view so each drawing finishes before the camera moves)
+- Voice: Kokoro-82M `bm_george` (local); music: the bible's current track (`detective`); no pencil-scratch sound
+
+## Facts (every number on the page)
+
+| Claim | Source |
+|---|---|
+| A person in quicksand can't be sucked under completely: you sink to about your waist and no further. | [Khaldoun, Eiser, Wegdam & Bonn, Nature; record in the University of Amsterdam repository (UvA-DARE)](https://dare.uva.nl/id/8832cb7f-2014-4f2a-81a8-cef2beb39773) (scholarly); [National Geographic (Nicholas Bakalar)](https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/) (journalism); [Live Science (Bjorn Carey)](https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html) (journalism) |
+| The quicksand studied is a mix of fine sand, clay and salt water; left at rest it thickens with time. | [National Geographic (Nicholas Bakalar)](https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/) (journalism); [Live Science (Bjorn Carey)](https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html) (journalism) |
+| Under stress quicksand liquefies, and the higher the stress the more fluid it becomes, so moving makes you sink faster. | [National Geographic (Nicholas Bakalar)](https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/) (journalism); [Live Science (Bjorn Carey)](https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html) (journalism); [Khaldoun, Eiser, Wegdam & Bonn, Nature; record in the University of Amsterdam repository (UvA-DARE)](https://dare.uva.nl/id/8832cb7f-2014-4f2a-81a8-cef2beb39773) (scholarly) |
+| Quicksand has a density of about 2 grams per millilitre; a human body is about 1, so quicksand is about twice as dense as you. Calculation/note: Live Science's units agree: 125/62 = 2.0. | [National Geographic (Nicholas Bakalar)](https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/) (journalism); [Live Science (Bjorn Carey)](https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html) (journalism) |
+| In the lab, a ball with the density of a human body could not be sunk into quicksand however hard the container was shaken. | [Live Science (Bjorn Carey)](https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html) (journalism) |
+| After it liquefies, the sand settles into a densely packed layer around the legs, which is what makes them hard to pull out. | [Live Science (Bjorn Carey)](https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html) (journalism); [National Geographic (Nicholas Bakalar)](https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/) (journalism) |
+| The researchers estimate that pulling a foot out at one centimetre a second takes about the force needed to lift a car (medium-size per National Geographic, small per Live Science). (label: the researchers' estimate) | [National Geographic (Nicholas Bakalar)](https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/) (journalism); [Live Science (Bjorn Carey)](https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html) (journalism) |
+| Study co-author Daniel Bonn warned that friends pulling hard could pull you 'into two pieces'. | [National Geographic (Nicholas Bakalar)](https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/) (journalism) |
+| To get out, wiggle your legs slowly so water can flow down and loosen the sand; lie back to spread your weight and let your legs come free. | [National Geographic (Nicholas Bakalar)](https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/) (journalism); [Live Science (Bjorn Carey)](https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html) (journalism) |
+| The real risk is being stuck in quicksand near the sea when the tide comes in. | [National Geographic (Nicholas Bakalar)](https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/) (journalism) |
+
+Every quote is machine-checked against the fetched source (`studio/tools/verify_quotes.py`: 0 NOT_FOUND).

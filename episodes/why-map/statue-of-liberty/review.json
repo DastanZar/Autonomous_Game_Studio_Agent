@@ -81,6 +81,78 @@
     53.98
    ],
    "defects": []
+  },
+  {
+   "at": "2026-10-08T10:07:07Z",
+   "reviewer": "worker (Border Quirks batch 2), round 4 after the first encode measured 10.2 s frozen per 30 s: moving water, swaying cards; drift 0.1 tried and rejected (pushed the brand tag off the left edge), back to 0.06",
+   "frames": [
+    0.05,
+    3.42,
+    9.54,
+    12.24,
+    15.6,
+    20.76,
+    22.86,
+    27.02,
+    30.87,
+    36.78,
+    40.08,
+    45.68,
+    49.14,
+    52.14,
+    53.98
+   ],
+   "defects": [
+    {
+     "t": 15.6,
+     "issue": "drift 0.1 cropped the BORDER QUIRKS tag at the left edge",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T10:07:07Z",
+   "reviewer": "worker (Border Quirks batch 2), round 5: sheet at drift 0.06 with the new motion",
+   "frames": [
+    0.05,
+    3.42,
+    9.54,
+    12.24,
+    15.6,
+    20.76,
+    22.86,
+    27.02,
+    30.87,
+    36.78,
+    40.08,
+    45.68,
+    49.14,
+    52.14,
+    53.98
+   ],
+   "defects": []
+  },
+  {
+   "at": "2026-10-08T10:18:13Z",
+   "reviewer": "worker (Border Quirks batch 2), round 6 after the second encode still measured 10.1 s frozen per 30 s: ferries and gulls in the harbour, candle on the desk, turning sunbeams behind the court, wider camera orbits on Ellis Island; full sheet checked",
+   "frames": [
+    0.05,
+    3.42,
+    9.54,
+    12.24,
+    15.6,
+    20.76,
+    22.86,
+    27.02,
+    30.87,
+    36.78,
+    40.08,
+    45.68,
+    49.14,
+    52.14,
+    53.98
+   ],
+   "defects": []
   }
  ]
 }

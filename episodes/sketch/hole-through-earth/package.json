@@ -1,0 +1,37 @@
+{
+ "title": "What would actually happen if you jumped into a hole through Earth?",
+ "description": "Jump into a hole straight through the Earth and you'd pop out the other side in about 38 minutes, not the textbook 42. The textbook assumes Earth has the same density all the way through; with the real, layered Earth you fall faster, and pretending gravity never changes gives almost the same answer.\n\nSources:\n- The Gravity Tunnel in a Non-Uniform Earth (arXiv:1308.1342; published in Am. J. Phys. 83, 231, 2015) — Alexander R. Klotz, McGill University (arXiv): https://arxiv.org/abs/1308.1342\n- How Long Would It Take to Fall Through the Earth? — Live Science (Charles Q. Choi): https://www.livescience.com/50312-how-long-to-fall-through-earth.html\n- Earth Fact Sheet — NASA Goddard Space Flight Center (NSSDCA): https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html\n- The Gravity Tunnel in a Non-Uniform Earth (full text, arXiv v1) — Alexander R. Klotz, McGill University (arXiv): https://arxiv.org/pdf/1308.1342\n\nLabels: a thought experiment, simplified on the page: no air (the paper's own assumption), no lava, no spin. The 12 km deepest hole and the quotes are Alexander Klotz's, via Live Science. The core on the page is drawn to scale (NASA radii: 3,485 of 6,371 km).\nDrawn in code; narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; sound effects from Kenney (CC0).",
+ "hashtags": [
+  "#science",
+  "#whatif",
+  "#physics",
+  "#shorts"
+ ],
+ "pinned_comment": "If the tunnel existed, would you take the 38-minute trip?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/hole-through-earth.mp4",
+ "srt": "out/hole-through-earth.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-11-03T19:00:00Z",
+ "cross_post": [
+  "tiktok",
+  "instagram_reels",
+  "facebook_reels"
+ ],
+ "tags": [
+  "hole through the earth",
+  "gravity tunnel",
+  "falling through the earth",
+  "how long to fall through the earth",
+  "38 minutes",
+  "physics explained",
+  "what would happen if",
+  "hand drawn science"
+ ],
+ "related_video": "What would actually happen if the Earth stopped spinning?",
+ "category": "Education"
+}

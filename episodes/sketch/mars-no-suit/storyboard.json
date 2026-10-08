@@ -1,0 +1,238 @@
+{
+ "episode": "mars-no-suit",
+ "theme": "sketch",
+ "kits": [
+  "sketch"
+ ],
+ "drift": 0,
+ "flagship": "Hand-built page (the channel's one-page format, user-approved 2026-10-07): every scene is the sketch kit's page renderer.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     50,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_air",
+   "type": "custom",
+   "start": "air.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     50,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_boil",
+   "type": "custom",
+   "start": "boil.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     1090,
+     1020,
+     1020
+    ],
+    "labels": [
+     "simplified: for your body, close to a vacuum"
+    ]
+   }
+  },
+  {
+   "id": "s_blood",
+   "type": "custom",
+   "start": "blood.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     1090,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_spit",
+   "type": "custom",
+   "start": "spit.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     2130,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_breath",
+   "type": "custom",
+   "start": "breath.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     2130,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_clock",
+   "type": "custom",
+   "start": "clock.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     2130,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_clock_blood",
+   "type": "custom",
+   "start": "clock/that's-0.3",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     2130,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_real",
+   "type": "custom",
+   "start": "real.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     3170,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_tongue",
+   "type": "custom",
+   "start": "tongue.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     3170,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_tongue_memory",
+   "type": "custom",
+   "start": "tongue/his-0.3",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     3170,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_woke",
+   "type": "custom",
+   "start": "woke.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     4210,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_cold",
+   "type": "custom",
+   "start": "cold.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     4210,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_cold_heat",
+   "type": "custom",
+   "start": "cold/but-0.3",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     4210,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_call",
+   "type": "custom",
+   "start": "call.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": "page",
+    "move": 2.2,
+    "lead": 0.1
+   }
+  }
+ ],
+ "pace": 1.2,
+ "hand": "photo"
+}

@@ -26,6 +26,35 @@
     "script.json": "cc246ca5163e"
    },
    "failed": []
+  },
+  "voice": {
+   "result": "pass",
+   "at": "2026-10-08T10:07:25Z",
+   "hashes": {
+    "script.json": "cc246ca5163e",
+    "build/timeline.json": "357160a61826"
+   },
+   "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-08T10:09:27Z",
+   "hashes": {
+    "script.json": "cc246ca5163e",
+    "build/timeline.json": "357160a61826",
+    "storyboard.json": "3c45dd0ed6f2"
+   },
+   "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-08T10:11:10Z",
+   "hashes": {
+    "storyboard.json": "3c45dd0ed6f2",
+    "build/timeline.json": "357160a61826",
+    "review.json": "e23865540c75"
+   },
+   "failed": []
   }
  }
 }

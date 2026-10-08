@@ -48,23 +48,23 @@
   },
   "picture": {
    "result": "pass",
-   "at": "2026-10-08T05:27:46Z",
+   "at": "2026-10-08T10:18:13Z",
    "hashes": {
     "storyboard.json": "8fe539079699",
     "build/timeline.json": "b823a7bf3fd3",
-    "review.json": "cd72b350c68d"
+    "review.json": "cdb1cccb7480"
    },
    "failed": []
   },
   "final": {
    "result": "fail",
-   "at": "2026-10-08T05:27:46Z",
+   "at": "2026-10-08T10:07:08Z",
    "hashes": {
-    "review.json": "cd72b350c68d",
-    "build/final_report.json": null
+    "review.json": "ad7991230e23",
+    "build/final_report.json": "2a441ffb537f"
    },
    "failed": [
-    "build/final_report.json is missing: run python3 studio/tools/final_check.py <episode>"
+    "true peak -0.9 dBTP (max \u22121)"
    ]
   }
  }

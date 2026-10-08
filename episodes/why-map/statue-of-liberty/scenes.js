@@ -20,9 +20,9 @@ const F = makeFlight({
   keys: [
     [at("line.start") - 0.2, -74.035, 40.70, 13, 0, 14], [at("line.end") + 0.2, -74.04, 40.695, 9, 0, 20],
     [at("side.start"), -74.043, 40.6915, 5.5, 0, 24], [at("side.end") + 0.3, -74.043, 40.6925, 3.8, -10, 30],
-    [at("ellis.start"), -74.0412, 40.6990, 1.6, 0, 30], [at("ellis.end"), -74.0412, 40.6991, 1.1, 10, 36],
-    [at("fill.start"), -74.0412, 40.6991, 1.1, 10, 36], [at("fill.end") + 0.2, -74.0414, 40.6990, 1.3, 20, 38],
-    [at("two.start"), -74.0414, 40.6990, 1.15, 20, 38], [at("two.end") + 0.3, -74.0414, 40.6990, 1.0, 35, 42],
+    [at("ellis.start"), -74.0412, 40.6990, 1.8, -15, 30], [at("ellis.end"), -74.0412, 40.6991, 1.05, 15, 38],
+    [at("fill.start"), -74.0412, 40.6991, 1.05, 15, 38], [at("fill.end") + 0.2, -74.0414, 40.6990, 1.35, 40, 40],
+    [at("two.start"), -74.0414, 40.6990, 1.25, 40, 38], [at("two.end") + 0.3, -74.0414, 40.6990, 0.95, 75, 44],
   ],
   update: (t, o) => {
     if (!ELNJ) ELNJ = slabOf(o, LY("ELNJ"), 0xd9c69a);
@@ -67,9 +67,11 @@ function harbour(t, o = {}) {
   skyline(560, W + 40, 930, 120, 420, 9, "#8d97a8");          // Manhattan, New York (right)
   skyline(-40, 420, 930, 60, 200, 4, "#b8a58a");               // Jersey City (left)
   haze(560, 960, 0.4);
-  seaBand(920, 1260, 0, KA.sea);
+  seaBand(920, 1260, t * 60, KA.sea);
   piece(() => { ctx.moveTo(250, 1150); ctx.bezierCurveTo(330, 1080, 750, 1070, 830, 1150); ctx.quadraticCurveTo(540, 1180, 250, 1150); ctx.closePath(); }, "#8fae62", { lw: 4.5, rim: 9 });
+  for (let i = 0; i < 2; i++) { const x = ((i * 640 + t * 110) % (W + 500)) - 250; ctx.save(); ctx.translate(x, 1235 - i * 60); ctx.scale(0.16, 0.16); warship({ x: 0, gy: 0, s: 1, dir: 1, id: 70 + i, smoke: true }); ctx.restore(); }
   liberty(540, 1120, o.s ?? 0.92);
+  for (let i = 0; i < 5; i++) { const x = ((i * 260 + t * 90) % (W + 300)) - 150, y = 560 + (i % 3) * 70 + Math.sin(t * 2 + i) * 18; ctx.save(); ctx.translate(x, y); ctx.strokeStyle = KA.ink; ctx.lineWidth = 4; const f = Math.sin(t * 9 + i) * 8; ctx.beginPath(); ctx.moveTo(-18, f); ctx.quadraticCurveTo(-8, -8, 0, 0); ctx.quadraticCurveTo(8, -8, 18, f); ctx.stroke(); ctx.restore(); }
   if (o.labels !== false) { tag("NEW JERSEY", 190, 860, { size: 32, bg: "#f2d29a" }); tag("NEW YORK", 880, 470, { size: 32, bg: "#cfd8ef" }); }
 }
 // the New Jersey ring: a dashed orange line that closes around the island
@@ -109,7 +111,8 @@ CU.side = (t, S) => {
 // 4. KEEP: the deal says New York keeps them
 CU.keep = (t, S) => {
   desk();
-  quoteCard(540, 700, 860, "New York shall retain its present jurisdiction of and over Bedlow's and Ellis's islands", "The 1834 compact, Article Second", t, at("keep/kept") - 0.2, { size: 50 });
+  candle(900, 1180);
+  quoteCard(540 + Math.sin(t * 0.9) * 14, 700 + Math.cos(t * 0.7) * 10, 860, "New York shall retain its present jurisdiction of and over Bedlow's and Ellis's islands", "The 1834 compact, Article Second", t, at("keep/kept") - 0.2, { size: 50 });
   flagArt("US-NY", 80, 300, 170);
   stamp("NEW YORK'S", 540, 1130, t - at("keep/written"), { size: 96, rot: -0.07, color: KA.red });
   brandTag(BRAND);
@@ -152,12 +155,13 @@ CU.fill = (t, S) => {
 // 9. COURT: New Jersey sued; in 1998 the Supreme Court gave it the new land
 CU.court = (t, S) => {
   paperBG("#e7dcc4");
+  ctx.save(); ctx.translate(540, 560); ctx.rotate(t * 0.5); ctx.fillStyle = "rgba(242,193,78,0.22)"; for (let i = 0; i < 12; i++) { ctx.rotate(Math.PI / 6); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(1400, -120); ctx.lineTo(1400, 120); ctx.closePath(); ctx.fill(); } ctx.restore();
   for (let i = 0; i < 6; i++) piece(() => ctx.rect(110 + i * 160, 560, 60, 520), "#ece4d2", { lw: 3.5, rim: 6 });    // columns
   piece(() => { ctx.moveTo(60, 560); ctx.lineTo(540, 330); ctx.lineTo(1020, 560); ctx.closePath(); }, "#ece4d2", { lw: 4, rim: 8 });
   piece(() => ctx.rect(60, 1080, 960, 60), "#d8cdb4", { lw: 4, rim: 6 });
   text("NEW JERSEY v. NEW YORK", 540, 520, { size: 44, color: KA.ink });
   const kc = spring(pp(t, at("court/nineteen") - 0.1, 0.6));
-  card(540, 820, 700, 300, -0.02, kc, (w, h) => { text("SUPREME COURT · 1998", 0, -h / 2 + 64, { size: 36, font: "Elite" }); rule(-260, 260, -h / 2 + 84); text("the filled land:", 0, 10, { size: 38, font: "Serif" }); text("NEW JERSEY", 0, 90, { size: 80, color: NJ_COL, stroke: 10, ink: KA.ink }); });
+  card(540 + Math.sin(t * 0.9) * 12, 820, 700, 300, -0.02 + Math.sin(t * 0.8) * 0.01, kc, (w, h) => { text("SUPREME COURT · 1998", 0, -h / 2 + 64, { size: 36, font: "Elite" }); rule(-260, 260, -h / 2 + 84); text("the filled land:", 0, 10, { size: 38, font: "Serif" }); text("NEW JERSEY", 0, 90, { size: 80, color: NJ_COL, stroke: 10, ink: KA.ink }); });
   stamp("SUED", 840, 380, t - at("court/sued") + 0.1, { size: 80, rot: 0.1, color: KA.red });
   stamp("NEW JERSEY WINS", W / 2, 1180, t - at("court/gave"), { size: 76, rot: -0.05, color: KA.red });
   brandTag(BRAND);
@@ -173,7 +177,7 @@ CU.two = (t, S) => {
 // 11. GROUND: landfill on Liberty Island's west shore, natural ground under the statue
 CU.ground = (t, S) => {
   sky({ sunX: 860, sunY: 360 }); haze(560, 960, 0.4);
-  seaBand(840, H, 0, KA.sea);
+  seaBand(840, H, t * 60, KA.sea);
   const tl = at("ground/landfill") - 0.1, tn = at("ground/natural") - 0.2;
   // the island in cross-section: rock under the statue, fill on the west (left) shore
   piece(() => { ctx.moveTo(120, 900); ctx.lineTo(960, 900); ctx.lineTo(900, 1240); ctx.lineTo(180, 1240); ctx.closePath(); }, "#8a7458", { lw: 4.5, rim: 8 });

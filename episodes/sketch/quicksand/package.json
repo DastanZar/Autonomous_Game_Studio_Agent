@@ -1,0 +1,37 @@
+{
+ "title": "What would actually happen if you fell into quicksand?",
+ "description": "In films, quicksand swallows people whole. Physics says you'd stop at your waist: quicksand is about twice as dense as a person, so you float. Getting a foot out is the hard part, and the trick is to wiggle slowly, not to be pulled.\n\nSources:\n- Liquefaction of quicksand under stress (Nature 437, 635, 2005; doi:10.1038/437635a) — Khaldoun, Eiser, Wegdam & Bonn, Nature; record in the University of Amsterdam repository (UvA-DARE): https://dare.uva.nl/id/8832cb7f-2014-4f2a-81a8-cef2beb39773\n- Quicksand Science: Why It Traps, How to Escape (28 Sep 2005) — National Geographic (Nicholas Bakalar): https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/\n- Quicksand Myth Debunked: You Can Float Free — Live Science (Bjorn Carey): https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html\n\nLabels: the force of lifting a car is the researchers' estimate (for pulling one foot out at 1 cm a second; National Geographic says a medium-size car, Live Science a small one). The 'into two pieces' warning is study co-author Daniel Bonn's, quoted by National Geographic. The study is of salt-lake quicksand (Khaldoun, Eiser, Wegdam & Bonn, Nature 437, 635, 2005; doi:10.1038/437635a).\nDrawn in code; narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; sound effects from Kenney (CC0).",
+ "hashtags": [
+  "#science",
+  "#whatif",
+  "#quicksand",
+  "#shorts"
+ ],
+ "pinned_comment": "Which film got quicksand the most wrong?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/quicksand.mp4",
+ "srt": "out/quicksand.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-31T18:00:00Z",
+ "cross_post": [
+  "tiktok",
+  "instagram_reels",
+  "facebook_reels"
+ ],
+ "tags": [
+  "quicksand",
+  "what if you fell into quicksand",
+  "can quicksand kill you",
+  "how to escape quicksand",
+  "quicksand myth",
+  "quicksand science",
+  "physics explained",
+  "hand drawn science"
+ ],
+ "related_video": "What would actually happen if the Earth stopped spinning?",
+ "category": "Education"
+}

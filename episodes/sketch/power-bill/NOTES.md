@@ -218,3 +218,125 @@ Apart from the work already assigned to you, i want you to do one more thing onc
  "defects": []
 }
 ```
+
+### Round 6
+```json
+{
+ "at": "2026-10-07T19:35:29Z",
+ "reviewer": "builder (orchestrator), round 6: photoreal hand (user-approved still)",
+ "frames": [
+  0.05,
+  4.36,
+  10.78,
+  15.74,
+  19.47,
+  26.48,
+  34.05,
+  39.96,
+  43.88,
+  51.38,
+  58.3,
+  64.01,
+  68.9,
+  75.69,
+  80.16,
+  80.51
+ ],
+ "defects": [
+  {
+   "t": 36.0,
+   "issue": "the sleeve's continuation below the photo showed as a hard dark block",
+   "fixed": true
+  }
+ ]
+}
+```
+
+### Round 7
+```json
+{
+ "at": "2026-10-07T19:35:29Z",
+ "reviewer": "builder (orchestrator), round 7: engine-drawn soft sleeve continuation; encoded frames spot-checked",
+ "frames": [
+  0.05,
+  4.36,
+  10.78,
+  15.74,
+  19.47,
+  26.48,
+  34.05,
+  39.96,
+  43.88,
+  51.38,
+  58.3,
+  64.01,
+  68.9,
+  75.69,
+  80.16,
+  80.51
+ ],
+ "defects": []
+}
+```
+
+### Round 8
+```json
+{
+ "at": "2026-10-07T20:22:59Z",
+ "reviewer": "builder (orchestrator), round 8: user flagged the arm at 9 s (stretched, unnatural)",
+ "frames": [
+  0.05,
+  4.36,
+  10.78,
+  15.74,
+  19.47,
+  26.48,
+  34.05,
+  39.96,
+  43.88,
+  51.38,
+  58.3,
+  64.01,
+  68.9,
+  75.69,
+  80.16,
+  80.51,
+  9.0,
+  9.2
+ ],
+ "defects": [
+  {
+   "t": 9.0,
+   "issue": "reaching up the page, the arm became a long flat stiff block",
+   "fixed": true
+  }
+ ]
+}
+```
+
+### Round 9
+```json
+{
+ "at": "2026-10-07T20:22:59Z",
+ "reviewer": "builder (orchestrator), round 9: the wrist turns toward an off-screen shoulder, the sleeve continues with the photo's knit texture and edge shading; checked at 9.0 and 9.2 s in the encoded MP4",
+ "frames": [
+  0.05,
+  4.36,
+  10.78,
+  15.74,
+  19.47,
+  26.48,
+  34.05,
+  39.96,
+  43.88,
+  51.38,
+  58.3,
+  64.01,
+  68.9,
+  75.69,
+  80.16,
+  80.51
+ ],
+ "defects": []
+}
+```

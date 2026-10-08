@@ -1,0 +1,88 @@
+# What would actually happen if you stepped onto Mars without a suit?: discussion and decisions
+
+Folder: `episodes/sketch/mars-no-suit`. Built by `studio/tools/notes.py`.
+
+## Notes
+
+_(add notes about this video here)_
+
+<!-- everything below this line is rebuilt by studio/tools/notes.py; write by hand above it -->
+
+## From the chat logs
+
+_No chat turns mention this video yet._
+
+
+## Review rounds (review.json)
+
+### Round 1
+```json
+{
+ "at": "2026-10-08T10:11:10Z",
+ "reviewer": "sketch worker (model with vision), contact sheet round 1",
+ "frames": [
+  0.05,
+  5.4,
+  12.54,
+  19.51,
+  24.77,
+  30.01,
+  34.07,
+  37.24,
+  42.26,
+  49.57,
+  53.24,
+  58.49,
+  62.11,
+  65.86,
+  70.4,
+  74.67,
+  75.03
+ ],
+ "defects": [
+  {
+   "t": 12.54,
+   "issue": "\"1,014 mb\" label written over the top of the Earth bar; chart rescaled so the label sits above it",
+   "fixed": true
+  },
+  {
+   "t": 5.4,
+   "issue": "hook: the spit pointer line crossed the blood drop and its label; blood moved down, spit label moved up beside the mouth",
+   "fixed": true
+  },
+  {
+   "t": 37.24,
+   "issue": "scenes s_clock, s_tongue, s_cold ran over 8 s; each split with the same camera",
+   "fixed": true
+  }
+ ]
+}
+```
+
+### Round 2
+```json
+{
+ "at": "2026-10-08T10:11:10Z",
+ "reviewer": "sketch worker (model with vision), contact sheet + 2 full-res frames after fixes, round 2: every cell finishes and holds before the camera moves (engine: no warnings)",
+ "frames": [
+  0.05,
+  5.4,
+  12.54,
+  19.51,
+  24.77,
+  30.01,
+  34.07,
+  37.24,
+  42.26,
+  49.57,
+  53.24,
+  58.49,
+  62.11,
+  65.86,
+  70.4,
+  74.67,
+  75.03
+ ],
+ "defects": []
+}
+```

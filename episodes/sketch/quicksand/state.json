@@ -48,24 +48,33 @@
   },
   "picture": {
    "result": "pass",
-   "at": "2026-10-08T05:23:40Z",
+   "at": "2026-10-08T10:07:03Z",
    "hashes": {
     "storyboard.json": "3f316de6edd1",
     "build/timeline.json": "b7afe5af65c7",
-    "review.json": "99fe2f05a4a6"
+    "review.json": "54c547e35108"
    },
    "failed": []
   },
   "final": {
-   "result": "fail",
-   "at": "2026-10-08T05:32:09Z",
+   "result": "pass",
+   "at": "2026-10-08T10:07:04Z",
    "hashes": {
-    "review.json": "99fe2f05a4a6",
-    "build/final_report.json": null
+    "review.json": "54c547e35108",
+    "build/final_report.json": "3820b00a8512"
    },
-   "failed": [
-    "build/final_report.json is missing: run python3 studio/tools/final_check.py <episode>"
-   ]
+   "failed": []
+  },
+  "package": {
+   "result": "pass",
+   "at": "2026-10-08T10:07:08Z",
+   "hashes": {
+    "build/final_report.json": "3820b00a8512",
+    "dossier.json": "05a5609304c9",
+    "script.json": "9632877c89fc",
+    "package.json": "0bce44f24ae8"
+   },
+   "failed": []
   }
  }
 }
