@@ -1,0 +1,27 @@
+{
+ "slug": "hole-through-earth",
+ "channel": "sketch",
+ "series": "whatif",
+ "hook": "Jump into a hole through the Earth, and you'd pop out in thirty-eight minutes.",
+ "twist": "The textbook answer is 42 minutes, but it assumes Earth has the same density all the way through; with the real, layered Earth (seismic data), Klotz (Am. J. Phys. 2015) gets 38 minutes, and pretending gravity never changes gives almost the same answer.",
+ "angle": "How long would a fall through the Earth take, and why is the textbook answer wrong?",
+ "candidate_sources": [
+  "https://arxiv.org/abs/1308.1342",
+  "https://www.livescience.com/50312-how-long-to-fall-through-earth.html",
+  "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 4,
+  "visual": 5,
+  "sourceability": 5,
+  "timeliness": 1,
+  "series_fit": 5
+ },
+ "risks": [
+  "Pure thought experiment: the page says 'no air, no heat, no spin (simplified)', the paper's own assumptions.",
+  "No real person is drawn; the physicist is named in the description only."
+ ],
+ "approved_by": "user (2026-10-07: 'include the pencil ones … 4 videos ready to go'); topics from docs/content-plan-2026-10-21_to_11-20.md",
+ "approved_at": "2026-10-07"
+}

@@ -57,6 +57,25 @@
     42.18
    ],
    "defects": []
+  },
+  {
+   "at": "2026-10-07T20:24:25Z",
+   "reviewer": "worker, round 3 (after production): fresh contact sheet plus 9 frames pulled from out/most-nuclear-weapons.mp4 with ffmpeg and the thumbnail; no layout defects; North Korea is small on the globe and is marked by the pulsing ring",
+   "frames": [
+    0.05,
+    3.72,
+    6.56,
+    11.3,
+    16.58,
+    20.84,
+    23.44,
+    27.32,
+    31.63,
+    35.25,
+    39.66,
+    42.18
+   ],
+   "defects": []
   }
  ]
 }

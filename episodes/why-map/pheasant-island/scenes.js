@@ -12,12 +12,12 @@ const ES_RED = "#c8452d", ES_YEL = "#f2c14e", FR_BLUE = "#3a5a9c", FR_RED = "#c8
 
 // ---------- the flight: from the Bay of Biscay down to the island ----------
 const F = makeFlight({
-  origin: ISL, near: "ph_near", far: "s_river", switchKm: 30, sea: 0x8fb0aa,
-  colors: { FR: 0xc9d3e6, ES: 0xead6a4, PH: 0x8fae62, default: 0xe2cfa2 },
+  origin: ISL, near: "ph_near", far: "s_river", switchKm: 14, sea: 0x8fb0aa,
+  colors: { FR: 0xa9bfe8, ES: 0xead6a4, PH: 0x8fae62, default: 0xe2cfa2 },
   trees: { iso: ["PH"], n: 60, scale: 0.35, span: [0.5, 0.3] },
   keys: [
-    [at("river.start") - 0.2, -1.9, 43.25, 420, 0, 8], [at("river/spain") + 0.2, -1.78, 43.33, 60, 0, 18], [at("river.end") + 0.2, -1.766, 43.341, 9, 0, 26],
-    [at("size.start"), -1.7655, 43.3424, 4.2, 0, 30], [at("size.end") + 0.3, -1.7655, 43.3426, 0.9, -12, 40],
+    [at("river.start") - 0.2, -1.7, 43.3, 520, 0, 8], [at("river/spain") + 0.35, -1.72, 43.32, 380, 0, 12], [at("size.start") + 0.1, -1.766, 43.341, 4.5, 0, 26],
+    [at("size/two") - 0.3, -1.7655, 43.3424, 2.4, 0, 30], [at("size.end") + 0.3, -1.7655, 43.3426, 0.65, -12, 40],
     [at("share.start"), -1.7655, 43.3427, 0.75, -20, 44], [at("share.end") + 0.3, -1.7655, 43.3427, 0.62, 20, 46],
   ],
 });
@@ -66,7 +66,7 @@ function islandScene(t, o = {}) {
   piece(() => ctx.rect(518, 1046, 68, 16), "#bdb4a3", { lw: 3, rim: 3, shadow: false });
   // near bank (Spain), in the foreground
   piece(() => { ctx.moveTo(-20, H + 20); ctx.lineTo(-20, 1250); for (let x = 0; x <= W + 40; x += 40) ctx.lineTo(x, 1250 + Math.sin(x * 0.01) * 10); ctx.lineTo(W + 20, H + 20); ctx.closePath(); }, "#9fae6a", { lw: 4.5, rim: 10, shadow: false });
-  if (o.labels !== false) { tag("FRANCE · HENDAYE", W / 2 + 160, 820, { size: 30, bg: "#cfd8ef" }); tag("SPAIN · IRUN", 240, 1290, { size: 30, bg: "#f6dfa0" }); }
+  if (o.labels !== false) { tag("FRANCE · HENDAYE", 300, 820, { size: 30, bg: "#cfd8ef" }); tag("SPAIN · IRUN", 250, 1205, { size: 30, bg: "#f6dfa0" }); }
 }
 function calendarTile(x, y, w, h, label, fill, k, o = {}) {
   if (k <= 0) return;
@@ -109,9 +109,9 @@ CU.hook = (t, S) => {
 // 2. RIVER: fly in from the Bay of Biscay to the Bidasoa
 CU.river = (t, S) => {
   const c = F.draw(t);
-  if (c.h > 30) { flightPin(F, "FRANCE", -1.45, 43.42, t, at("river/france") - 0.05, { size: 40, bg: "#cfd8ef", h: 6.5, up: 60 }); flightPin(F, "SPAIN", -2.05, 43.18, t, at("river/spain") - 0.05, { size: 40, bg: "#f6dfa0", h: 6.5, up: 60 }); }
+  if (c.h > 14) { flightPin(F, "FRANCE", -1.3, 43.55, t, at("river/france") - 0.05, { size: 40, bg: "#cfd8ef", h: 6.5, up: 60 }); flightPin(F, "SPAIN", -2.02, 43.12, t, at("river/spain") - 0.05, { size: 40, bg: "#f6dfa0", h: 6.5, up: 60 }); }
   else { flightPin(F, "HENDAYE (FRANCE)", -1.758, 43.352, t, at("river/border"), { size: 30, bg: "#cfd8ef", up: 90 }); flightPin(F, "IRUN (SPAIN)", -1.775, 43.336, t, at("river/border"), { size: 30, bg: "#f6dfa0", up: 70 }); }
-  if (c.h < 30) flightPin(F, "THE BIDASOA RIVER", -1.772, 43.3445, t, at("river/border") + 0.2, { size: 30, bg: KA.cream, up: 150 });
+  if (c.h < 14) flightPin(F, "THE BIDASOA RIVER", -1.7705, 43.3425, t, at("river/border") + 0.2, { size: 30, bg: KA.cream, up: 260 });
   brandTag(BRAND);
 };
 // 3. SIZE: 200 metres long, nobody lives there
@@ -125,8 +125,8 @@ CU.size = (t, S) => {
     for (const xx of [x0, x1]) if (k > 0.95) { ctx.beginPath(); ctx.moveTo(xx, ym - 22); ctx.lineTo(xx, ym + 22); ctx.stroke(); } ctx.restore();
     popLabel("≈200 M LONG", xm, ym - 70, t, t2 + 0.3, { size: 44, bg: KA.mustard });
   }
-  flightPin(F, "PHEASANT ISLAND", ISL[0], ISL[1], t, S.t0 + 0.3, { size: 34, bg: KA.cream, up: 330 });
-  stamp("POPULATION: 0", W / 2, 470, t - at("size/nobody"), { size: 96, rot: -0.07, color: KA.red });
+  flightPin(F, "PHEASANT ISLAND", ISL[0], ISL[1], t, S.t0 + 0.3, { size: 34, bg: KA.cream, up: 420 });
+  stamp("POPULATION: 0", W / 2, 1130, t - at("size/nobody"), { size: 96, rot: -0.07, color: KA.red });
   brandTag(BRAND);
 };
 // 4. TREATY: 1659, the peace signed on the island
@@ -138,10 +138,10 @@ CU.treaty = (t, S) => {
     text(typed("France · Spain · peace", pp(t, at("treaty/france") - 0.1, 0.8)), 0, -h / 2 + 200, { size: 42, font: "Serif" });
     text("signed on Pheasant Island", 0, -h / 2 + 260, { size: 32, font: "Elite", color: "#6b5a48" });
     flagArt("ES", -300, 20, 200); flagArt("FR", 100, 20, 200);
-    text("7 NOVEMBER", 0, 260, { size: 40, font: "Elite" });
+    text("7 NOVEMBER 1659", 0, 260, { size: 40, font: "Elite" });
   }, { bg: "#f1e6cc" });
   quill(820, 1180, -0.5 + Math.sin(t * 6) * 0.04 * (t < at("treaty/peace") ? 1 : 0));
-  stamp("1659", 540, 420, t - at("treaty/sixteen"), { size: 120, rot: -0.06, color: KA.red });
+  stamp("1659", 540, 1190, t - at("treaty/sixteen"), { size: 80, rot: -0.04, color: KA.red });
   stamp("PEACE", 540, 1060, t - at("treaty/peace"), { size: 110, rot: -0.1, color: KA.moss2 });
   brandTag(BRAND);
 };
@@ -164,7 +164,6 @@ CU.brides = (t, S) => {
   islandScene(t, { labels: false });
   const kr = eio(pp(t, at("brides/royal") - 0.2, 0.8));
   // a striped pavilion on the island and a red carpet from bank to bank
-  piece(() => { ctx.moveTo(-20, 1300 - 0 * kr); ctx.lineTo(W * kr, 1080); ctx.lineTo(W * kr, 1100); ctx.lineTo(-20, 1330); ctx.closePath(); }, KA.red, { lw: 3, rim: 4, shadow: false, alpha: kr > 0 ? 1 : 0 });
   ctx.save(); ctx.translate(380, 1050);
   piece(() => ctx.rect(-120, -150, 240, 150), KA.cream, { lw: 4, rim: 6 });
   ctx.save(); ctx.beginPath(); ctx.rect(-120, -150, 240, 150); ctx.clip(); ctx.fillStyle = "#3a5a9c"; for (let x = -120; x < 120; x += 48) ctx.fillRect(x, -150, 24, 150); ctx.restore();
@@ -195,21 +194,21 @@ CU.swap = (t, S) => {
   const M = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
   const tE = at("swap/february") - 0.1, tF = at("swap/august") - 0.1;
   for (let i = 0; i < 12; i++) {
-    const c = i % 3, r = Math.floor(i / 3), x = 120 + c * 290, y = 520 + r * 150, es = i >= 1 && i <= 6;
+    const c = i % 3, r = Math.floor(i / 3), x = 120 + c * 290, y = 490 + r * 150, es = i >= 1 && i <= 6;
     const k0 = spring(pp(t, S.t0 + i * 0.03, 0.4)), kc = es ? pp(t, tE + (i - 1) * 0.08, 0.3) : pp(t, tF + ((i + 5) % 12) * 0.08, 0.3);
     calendarTile(x, y, 260, 120, M[i], kc > 0.5 ? (es ? ES_RED : FR_BLUE) : KA.cream, k0, kc > 0.5 ? (es ? { stripe: ES_YEL, color: KA.ink } : { color: KA.cream, stroke: 8 }) : {});
   }
   const showES = t > tE && t < tF;
   if (t > tE) { const k = spring(pp(t, showES ? tE : tF, 0.6)); popIn(W / 2, 360, k, () => { flagArt(showES ? "ES" : "FR", -130, -80, 260); }); }
-  kText(showES ? "SPAIN" : t > tF ? "FRANCE" : "", W / 2, 1180, 90, t, showES ? tE + 0.3 : tF + 0.3, { color: showES ? ES_RED : FR_BLUE, stroke: 12, ink: KA.ink, ls: 6 });
+  kText(showES ? "SPAIN" : t > tF ? "FRANCE" : "", W / 2, 1150, 90, t, showES ? tE + 0.3 : tF + 0.3, { color: showES ? ES_RED : FR_BLUE, stroke: 12, ink: KA.ink, ls: 6 });
   brandTag(BRAND);
 };
 // 9. VICEROY: France's official in charge is the 'viceroy of Pheasant Island'
 CU.viceroy = (t, S) => {
   paperBG("#e7dcc4");
-  piece(() => ctx.rect(-20, 1060, W + 40, 400), KA.wood, { lw: 4, rim: 10 });             // the desk
+  local({ x: 540, gy: 1290, s: 1.25, hat: "bowler", plaid: false, coat: "#2f3f5c", beard: false, mustache: "#5a4636", look: 0, blink: 0.7, id: 31, brow: t > at("viceroy/viceroy") ? 0.8 : 0 });
+  piece(() => ctx.rect(-20, 1060, W + 40, 400), KA.wood, { lw: 4, rim: 10 });             // the desk, in front of him
   for (let i = 0; i < 6; i++) line(-20, 1100 + i * 50, W + 20, 1100 + i * 50, "rgba(30,15,5,0.25)", 3);
-  local({ x: 540, gy: 1080, s: 1.25, hat: "bowler", plaid: false, coat: "#2f3f5c", beard: false, mustache: "#5a4636", look: 0, blink: 0.7, id: 31, brow: t > at("viceroy/viceroy") ? 0.8 : 0 });
   piece(() => ctx.rect(-20, 1040, W + 40, 40), KA.wood2, { lw: 4, rim: 6 });
   const kp = spring(pp(t, at("viceroy/official") - 0.1, 0.6));      // the nameplate on the desk
   card(540, 1130, 760, 150, 0, kp, (w, h) => { text(typed("DEPUTY DIRECTOR, SEA AND COAST", pp(t, at("viceroy/official"), 0.6)), 0, -16, { size: 34, font: "Elite" }); text("Pyrénées-Atlantiques and Landes", 0, 34, { size: 26, font: "Elite", color: "#6b5a48" }); }, { bg: "#d9c08f", tape: false });

@@ -1,0 +1,28 @@
+{
+ "slug": "mars-no-suit",
+ "channel": "sketch",
+ "series": "whatif",
+ "hook": "Step onto Mars without a suit. Your blood won't boil. Your spit will.",
+ "twist": "Mars' air is under 1% of Earth's pressure, low enough for water to boil at body temperature, but your skin and blood vessels keep your blood under pressure; NASA's 1965 chamber accident subject stayed conscious about 14 seconds and remembered the water on his tongue beginning to boil.",
+ "angle": "What would really happen to a human body on Mars without a suit, and which film myths are wrong?",
+ "candidate_sources": [
+  "https://imagine.gsfc.nasa.gov/ask_astro/space_travel.html",
+  "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html",
+  "https://aerospaceweb.org/question/atmosphere/q0291.shtml"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 5,
+  "visual": 4,
+  "sourceability": 5,
+  "timeliness": 1,
+  "series_fit": 5
+ },
+ "risks": [
+  "Body topic: kept to physics (pressure, boiling point), no gore; the bible keeps the channel out of body topics like food and sleep, and this is an environment question.",
+  "The 1965 test subject is a real person: he is not named or drawn; only NASA's account is used.",
+  "No scare claims: NASA's own statement that about half a minute is unlikely to cause permanent injury is labelled as NASA's estimate."
+ ],
+ "approved_by": "user (2026-10-07: 'include the pencil ones … 4 videos ready to go'); topics from docs/content-plan-2026-10-21_to_11-20.md",
+ "approved_at": "2026-10-07"
+}

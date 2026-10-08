@@ -35,6 +35,16 @@
     "build/timeline.json": "28bc35143c9b"
    },
    "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-07T20:24:27Z",
+   "hashes": {
+    "script.json": "b56b8baf0d0c",
+    "build/timeline.json": "28bc35143c9b",
+    "storyboard.json": "fe54dbf3fc43"
+   },
+   "failed": []
   }
  }
 }

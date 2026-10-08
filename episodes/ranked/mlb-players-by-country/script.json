@@ -124,7 +124,7 @@
   },
   {
    "id": "curacao",
-   "say": "Curacao. Four Major Leaguers, from about a hundred fifty-six thousand people.",
+   "say": "It's Curacao. Four Major Leaguers, from about a hundred fifty-six thousand people.",
    "kind": "fact",
    "claims": [
     "c_small",
@@ -133,8 +133,8 @@
    "gap": 0.35,
    "caps": [
     [
-     "CURAÇAO.",
-     1
+     "IT'S CURAÇAO.",
+     2
     ],
     [
      "4 MAJOR LEAGUERS,",
@@ -180,7 +180,7 @@
   },
   {
    "id": "toll",
-   "say": "Most players: Dominican Republic. Per person: Curacao.",
+   "say": "Most players: Dominican Republic. Per person, it's Curacao.",
    "kind": "callback",
    "claims": [
     "c_dr",
@@ -197,12 +197,12 @@
      2
     ],
     [
-     "PER PERSON:",
+     "PER PERSON,",
      2
     ],
     [
-     "CURAÇAO.",
-     1
+     "IT'S CURAÇAO.",
+     2
     ]
    ]
   }

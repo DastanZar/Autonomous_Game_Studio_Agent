@@ -1,0 +1,28 @@
+{
+ "slug": "quicksand",
+ "channel": "sketch",
+ "series": "whatif",
+ "hook": "In films, quicksand swallows people whole. Physics says you'd stop at your waist.",
+ "twist": "Quicksand is about twice as dense as a person, so you float: a 2005 Nature study found you can't be sucked under. The hard part is pulling a foot out, which takes about the force needed to lift a car.",
+ "angle": "What really happens if you step into quicksand, and how do you get out?",
+ "why_now": "Publishes on Halloween (31 Oct): quicksand is a horror and adventure-film staple, and Halloween week is the busiest search week of October.",
+ "candidate_sources": [
+  "https://dare.uva.nl/id/8832cb7f-2014-4f2a-81a8-cef2beb39773",
+  "https://www.nationalgeographic.com/science/article/quicksand-science-why-it-traps-how-to-escape/",
+  "https://www.livescience.com/9373-quicksand-myth-debunked-float-free.html"
+ ],
+ "scores": {
+  "hook": 5,
+  "surprise": 5,
+  "visual": 4,
+  "sourceability": 4,
+  "timeliness": 3,
+  "series_fit": 5
+ },
+ "risks": [
+  "Safety: the advice comes from the study's author (via National Geographic and Live Science); the tide risk is mentioned plainly, without scare framing.",
+  "The Nature paper's full text is paywalled; its abstract is quoted from the University of Amsterdam repository and the details from two news reports of the study."
+ ],
+ "approved_by": "user (2026-10-07: 'include the pencil ones … 4 videos ready to go'); topics from docs/content-plan-2026-10-21_to_11-20.md",
+ "approved_at": "2026-10-07"
+}

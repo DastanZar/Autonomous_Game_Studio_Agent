@@ -1,0 +1,225 @@
+{
+ "episode": "cold-feet",
+ "theme": "flat-cast",
+ "kits": [
+  "body",
+  "kinetic"
+ ],
+ "flagship": "House method: organ cast and flat props carry a story with a turn; moving type for the one big number.",
+ "drift": 0.06,
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "hook/feet",
+     "do": "highlight",
+     "sfx": "pop"
+    },
+    {
+     "at": "hook/folklore",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_virus",
+   "type": "custom",
+   "start": "virus.start-0.15",
+   "params": {
+    "fn": "virus",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "virus/viruses",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "virus/studies",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_test",
+   "type": "custom",
+   "start": "test.start-0.15",
+   "params": {
+    "fn": "test",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "test/cardiff",
+     "do": "reveal",
+     "sfx": "click"
+    },
+    {
+     "at": "test/hundred",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_bucket",
+   "type": "custom",
+   "start": "bucket.start-0.15",
+   "params": {
+    "fn": "bucket",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "bucket/icy",
+     "do": "reveal",
+     "sfx": "drop"
+    },
+    {
+     "at": "bucket/twenty",
+     "do": "count_start",
+     "sfx": "tick"
+    },
+    {
+     "at": "bucket/empty",
+     "do": "reveal",
+     "sfx": "clunk"
+    }
+   ]
+  },
+  {
+   "id": "s_brr",
+   "type": "custom",
+   "start": "brr.start-0.15",
+   "params": {
+    "fn": "brr",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": []
+  },
+  {
+   "id": "s_result",
+   "type": "custom",
+   "start": "result.start-0.15",
+   "params": {
+    "fn": "result",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "result/thirteen",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_result2",
+   "type": "custom",
+   "start": "result/in-0.15",
+   "params": {
+    "fn": "result2",
+    "label": "ONE STUDY, 180 PEOPLE",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "result/five",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_turn",
+   "type": "custom",
+   "start": "turn.start-0.15",
+   "params": {
+    "fn": "turn",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "turn/didn't",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_carry",
+   "type": "custom",
+   "start": "turn/researchers-0.15",
+   "params": {
+    "fn": "carry",
+    "label": "THE RESEARCHERS' THEORY",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "turn/carry",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_vessels",
+   "type": "custom",
+   "start": "vessels.start-0.15",
+   "params": {
+    "fn": "vessels",
+    "label": "THE RESEARCHERS' THEORY",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "vessels/squeezes",
+     "do": "emphasize",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "vessels/cuts",
+     "do": "reveal",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_cue",
+   "type": "custom",
+   "start": "cue.start-0.15",
+   "params": {
+    "fn": "cue",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": []
+  },
+  {
+   "id": "s_toll",
+   "type": "custom",
+   "start": "toll.start-0.15",
+   "params": {
+    "fn": "toll",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "toll/half",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  }
+ ]
+}

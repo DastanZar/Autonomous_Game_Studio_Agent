@@ -1,0 +1,245 @@
+{
+ "episode": "earth-stops-spinning",
+ "theme": "sketch",
+ "kits": [
+  "sketch"
+ ],
+ "drift": 0,
+ "flagship": "Channel launch (user 2026-10-07: 4 pencil videos ready to go; this one launches the channel): the whole video is one hand-drawn page, so every scene is the sketch kit's page renderer.",
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     50,
+     1020,
+     1020
+    ],
+    "dataset": "data/land.json"
+   }
+  },
+  {
+   "id": "s_stop",
+   "type": "custom",
+   "start": "stop.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     50,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_east",
+   "type": "custom",
+   "start": "east.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     50,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_wind",
+   "type": "custom",
+   "start": "wind.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     1090,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_sea",
+   "type": "custom",
+   "start": "sea.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     1090,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_slow",
+   "type": "custom",
+   "start": "slow.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     2130,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_bulge",
+   "type": "custom",
+   "start": "bulge.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     2130,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_drain",
+   "type": "custom",
+   "start": "drain.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     3170,
+     1020,
+     1020
+    ],
+    "labels": [
+     "simplified model"
+    ]
+   }
+  },
+  {
+   "id": "s_spain",
+   "type": "custom",
+   "start": "spain.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     3170,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_day",
+   "type": "custom",
+   "start": "day.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     3170,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_heat",
+   "type": "custom",
+   "start": "heat.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     3170,
+     1020,
+     1020
+    ],
+    "labels": [
+     "BBC Science Focus estimate"
+    ]
+   }
+  },
+  {
+   "id": "s_real",
+   "type": "custom",
+   "start": "real.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     4210,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_real_rate",
+   "type": "custom",
+   "start": "real/every-0.3",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     50,
+     4210,
+     1020,
+     1020
+    ]
+   }
+  },
+  {
+   "id": "s_hour",
+   "type": "custom",
+   "start": "hour.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": [
+     1130,
+     4210,
+     1020,
+     1020
+    ],
+    "labels": [
+     "our sum, at today's average rate"
+    ]
+   }
+  },
+  {
+   "id": "s_call",
+   "type": "custom",
+   "start": "call.start-0.2",
+   "params": {
+    "fn": "page",
+    "why": "The format itself (the channel's one-page hand-drawn look, user-approved 2026-10-07): one continuous page drawn by the sketch kit; no catalog type draws strokes by hand.",
+    "cam": "page",
+    "move": 2.2,
+    "lead": 0.1
+   }
+  }
+ ],
+ "pace": 1.2,
+ "hand": "photo"
+}

@@ -35,6 +35,26 @@
     "build/timeline.json": "858f76bc2be6"
    },
    "failed": []
+  },
+  "storyboard": {
+   "result": "pass",
+   "at": "2026-10-07T20:22:39Z",
+   "hashes": {
+    "script.json": "71845921aad6",
+    "build/timeline.json": "858f76bc2be6",
+    "storyboard.json": "66a73014d4b2"
+   },
+   "failed": []
+  },
+  "picture": {
+   "result": "pass",
+   "at": "2026-10-07T20:22:43Z",
+   "hashes": {
+    "storyboard.json": "66a73014d4b2",
+    "build/timeline.json": "858f76bc2be6",
+    "review.json": "a31e5503dce3"
+   },
+   "failed": []
   }
  }
 }

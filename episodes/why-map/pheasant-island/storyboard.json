@@ -42,10 +42,10 @@
     "fn": "river",
     "why": "House method: paper characters and props (paper kit), 3D map flights for geography (flight kit), moving type for the one big number (kinetic kit).",
     "region": [
-     -2.4,
-     42.95,
-     -1.0,
-     43.6
+     -4.0,
+     42.0,
+     1.0,
+     44.6
     ]
    },
    "events": [

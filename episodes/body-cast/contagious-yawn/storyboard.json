@@ -1,0 +1,229 @@
+{
+ "episode": "contagious-yawn",
+ "theme": "flat-cast",
+ "kits": [
+  "body",
+  "kinetic"
+ ],
+ "flagship": "House method: organ cast and flat props carry a story with a turn; moving type for the one big number.",
+ "drift": 0.06,
+ "scenes": [
+  {
+   "id": "s_hook",
+   "type": "custom",
+   "start": "0",
+   "params": {
+    "fn": "hook",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "hook/yawn",
+     "do": "highlight",
+     "sfx": "pop"
+    },
+    {
+     "at": "hook/scientist",
+     "do": "reveal",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_nope",
+   "type": "character_dialog",
+   "start": "nope.start-0.15",
+   "params": {
+    "cast": [
+     "brain"
+    ],
+    "setting": "neurons",
+    "moods": {
+     "brain": "smug"
+    },
+    "bubbles": {
+     "nope": "NOT ME. I ONLY YAWN WHEN I NEED OXYGEN."
+    }
+   },
+   "events": []
+  },
+  {
+   "id": "s_myth",
+   "type": "custom",
+   "start": "myth.start-0.15",
+   "params": {
+    "fn": "myth",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "myth/classic",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "myth/nineteen",
+     "do": "reveal",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_oxygen",
+   "type": "custom",
+   "start": "oxygen.start-0.15",
+   "params": {
+    "fn": "oxygen",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "oxygen/oxygen",
+     "do": "reveal",
+     "sfx": "pop"
+    },
+    {
+     "at": "oxygen/kept",
+     "do": "emphasize",
+     "sfx": "ding"
+    }
+   ]
+  },
+  {
+   "id": "s_co2",
+   "type": "custom",
+   "start": "co2.start-0.15",
+   "params": {
+    "fn": "co2",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "co2/harder",
+     "do": "reveal",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "co2/not",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_huh",
+   "type": "character_dialog",
+   "start": "huh.start-0.15",
+   "params": {
+    "cast": [
+     "brain"
+    ],
+    "setting": "neurons",
+    "moods": {
+     "brain": "worried"
+    },
+    "bubbles": {
+     "huh": "THEN WHY AM I YAWNING?"
+    }
+   },
+   "events": []
+  },
+  {
+   "id": "s_video",
+   "type": "custom",
+   "start": "video.start-0.15",
+   "params": {
+    "fn": "video",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "video/faces",
+     "do": "reveal",
+     "sfx": "click"
+    },
+    {
+     "at": "video/fiftyfive",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_smiles",
+   "type": "custom",
+   "start": "smiles.start-0.15",
+   "params": {
+    "fn": "smiles",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "smiles/twentyone",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_read",
+   "type": "custom",
+   "start": "read.start-0.15",
+   "params": {
+    "fn": "read",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "read/thirty",
+     "do": "count_start",
+     "sfx": "pop"
+    },
+    {
+     "at": "read/eleven",
+     "do": "count_start",
+     "sfx": "pop"
+    }
+   ]
+  },
+  {
+   "id": "s_half",
+   "type": "custom",
+   "start": "half.start-0.15",
+   "params": {
+    "fn": "half",
+    "why": "Gut Gang house method (user 2026-10-06; rewrite 2026-10-07): the organ cast and flat props tell the story, moving type for the one big number."
+   },
+   "events": [
+    {
+     "at": "half/stop",
+     "do": "emphasize",
+     "sfx": "whoosh"
+    },
+    {
+     "at": "half/half",
+     "do": "verdict",
+     "sfx": "stamp"
+    }
+   ]
+  },
+  {
+   "id": "s_toll",
+   "type": "character_dialog",
+   "start": "toll.start-0.15",
+   "params": {
+    "cast": [
+     "brain"
+    ],
+    "setting": "spotlight",
+    "moods": {
+     "brain": "tired"
+    },
+    "bubbles": {
+     "toll": "NOPE. JUST OXYGEN."
+    }
+   },
+   "events": []
+  }
+ ]
+}
