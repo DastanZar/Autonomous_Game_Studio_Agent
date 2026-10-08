@@ -2528,5 +2528,5 @@ I hit my usage limit while you were working, but it has reset now. Please contin
 - **Worker notes passed on:**
   - The 1,670 km/h hook line is the weakest take (WER 0.077, under the 0.08 gate), so worth a listen.
   - The music is the borrowed 'detective' bed.
-  - I couldn't fetch the full text of the Nature quicksand paper; the claim is checked against its abstract and press coverage.
+  - I couldn't fetch the full text of the Nature quicksand paper; the claims cite its University of Amsterdam repository record plus National Geographic and Live Science.
 - **Still running:** the Border Quirks worker (Statue of Liberty, Market Island, Dracula's castle).
