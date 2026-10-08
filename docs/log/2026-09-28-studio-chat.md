@@ -2728,3 +2728,14 @@ the banners did update, so did the text, and i used your profile picture updates
   - The API can't set avatars.
   - Next steps: change it from the Google Account side while switched to each channel (myaccount.google.com → Personal info → Profile picture), or use the YouTube phone app.
   - I'll check again through the API whenever asked.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+worked through the app, all done, looking forward to seeing the videos on the channel and praying for banger views!
+
+#### Claude · record
+
+- **Confirmed through the API:** both channels' avatars have changed (the YouTube app route worked where Studio's web upload didn't).
+- **Uploads:** neither channel has any upload yet, scheduled or live. Reminded the user that the first two slots are today, 16:00 and 17:00 ET, and that the kit has everything.
