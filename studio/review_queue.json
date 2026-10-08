@@ -2,6 +2,31 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "channel-art",
+   "status": "open",
+   "kind": "image",
+   "title": "Channel art: Border Quirks and Gut Gang (banners live on YouTube; profile pictures to upload)",
+   "question": "Banners resized to 2560×1440 and set on both channels through the API on 8 Oct (read back from YouTube). Gut Gang's artwork was moved down 180 px so the title fits the phone strip. Profile pictures are 800×800 and checked in a circle; upload them in Studio or the YouTube app.",
+   "files": [
+    [
+     "Border Quirks banner (live)",
+     "studio/assets/channels/border-quirks-banner.jpg"
+    ],
+    [
+     "Border Quirks profile, 800×800",
+     "studio/assets/channels/border-quirks-profile.jpg"
+    ],
+    [
+     "Gut Gang banner (live)",
+     "studio/assets/channels/gut-gang-banner.jpg"
+    ],
+    [
+     "Gut Gang profile, 800×800",
+     "studio/assets/channels/gut-gang-profile.jpg"
+    ]
+   ]
+  },
+  {
    "id": "gut-gang-hannah",
    "status": "open",
    "kind": "video",

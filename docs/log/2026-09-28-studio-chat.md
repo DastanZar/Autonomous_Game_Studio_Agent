@@ -2691,3 +2691,22 @@ my changes to the picture and banner arent visible, and each time i refresh yt s
   - I resize them, set both banners through the API (channelBanners.insert, then brandingSettings.image), and read the result back.
   - The API can't set profile pictures, so those stay manual.
 - **Also noted:** `channel_setup.py apply` keeps the existing brandingSettings.image, so applying the new description won't wipe a banner.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+i did click publish, and no wrong channel wasnt selected
+added to github repo location as you asked
+
+#### Claude · record
+
+- **Images arrived** (commit a9005e5, in `studio/assets/`). They were 2752×1536 banners and 2048×2048 profiles, so size wasn't why Studio failed to save them. Moved to `studio/assets/channels/` with plain names; sources kept.
+- **Banners:**
+  - Scaled to exactly 2560×1440 and checked against the 1546×423 strip every device shows.
+  - Border Quirks fits as is.
+  - Gut Gang's title sat above the strip, so I moved the artwork down 180 px, filling the gap by mirroring the plain purple sky (visible only on TVs).
+  - Set on both channels through the API (channelBanners.insert, then brandingSettings.image), keeping the existing description and keywords. Read back from YouTube: both live, image downloaded and viewed.
+- **Profile pictures:** 800×800, circle crop checked. The API can't set them, so the user uploads them; suggested the YouTube mobile app if Studio keeps dropping the upload.
+- **Found:** YouTube's Border Quirks description is my first rewrite (the one the user called 'too AI'), not the plainer second one. The user's text change saved; only the images didn't. Asked which they want.
+- **Dashboard:** review item `channel-art`.
