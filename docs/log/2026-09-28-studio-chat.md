@@ -2471,3 +2471,18 @@ Also research about another 5th niche for a 5th channel, something totally diffe
   - Runner-up: physics simulations that answer a question (cheap, but satisfying-sim views are flat at ×0.62 and template-crowded). Third: true scale in 3D.
 - **Not measured:** API search quota was exhausted (429), so channel uploads were pulled through non-search endpoints (94 channels). TikTok and Reels per-niche data was unavailable.
 - **The user's hand note** ("pause at 9 seconds… the hand looking unnatural due to the stretch"): fixed. The wrist now turns toward an off-screen shoulder, and the sleeve continues with the photo's own knit texture and edge shading.
+
+### 🧑 User · 2026-10-08 UTC
+
+Try again
+
+#### Claude · record
+
+- **Pencil pilot, arm fix:** re-rendered and live on the dashboard. The live file matches the render (50,485,010 bytes). Review rounds 8 and 9 logged; all gates pass.
+- **Usage limit:** all four workers had stopped at the weekly usage limit (reset 05:00 UTC). Their progress was backed up (38a3040) and each was resumed.
+- **Progress when resumed:**
+  - Border Quirks: 1 of 4 through storyboard, 3 through script.
+  - Gut Gang: contagious-yawn through picture; cold-feet through storyboard; 2 through voice.
+  - Leader Flags: 2 through storyboard, 1 through script, most-pumpkins through topic only.
+  - Pencil channel: earth-stops-spinning in progress, plus 3 started.
+- Told the workers to be economical with usage.
