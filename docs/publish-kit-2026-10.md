@@ -14,26 +14,26 @@ exact). After each goes live, post the pinned comment and pin it, and set the re
 
 | # | When (ET) | UTC | Channel | Title | Length | Voice |
 |---|---|---|---|---|---|---|
-| 1 | Tue 13 Oct, 11:00 | 2026-10-13T15:00:00Z | Border Quirks | Why this US town's only road out goes through Canada | 59.75 s | George (Kokoro) |
-| 2 | Tue 13 Oct, 12:00 | 2026-10-13T16:00:00Z | Gut Gang | Your gut isn't the size of a tennis court. Follow your lunch. | 47.15 s | Hannah (Fish) |
-| 3 | Wed 14 Oct, 11:00 | 2026-10-14T15:00:00Z | Border Quirks | America and Britain nearly went to war over a pig | 54.0 s | George (Kokoro) |
-| 4 | Wed 14 Oct, 12:00 | 2026-10-14T16:00:00Z | Gut Gang | Why doesn't your stomach digest itself? | 46.41 s | Hannah (Fish) |
-| 5 | Thu 15 Oct, 11:00 | 2026-10-15T15:00:00Z | Border Quirks | Russia sold Alaska for 2 cents an acre, and left a view of tomorrow | 55.33 s | George (Kokoro) |
-| 6 | Thu 15 Oct, 12:00 | 2026-10-15T16:00:00Z | Gut Gang | Does swallowed gum really stay in you for 7 years? | 46.91 s | Hannah (Fish) |
-| 7 | Tue 20 Oct, 11:00 | 2026-10-20T15:00:00Z | Border Quirks | Why Chile is so long, and Bolivia has a navy with no sea | 49.36 s | George (Kokoro) |
-| 8 | Tue 20 Oct, 12:00 | 2026-10-20T16:00:00Z | Gut Gang | Your brain runs on 12 watts, and it never turns off | 34.17 s | Hannah (Fish) |
-| 9 | Wed 21 Oct, 11:00 | 2026-10-21T15:00:00Z | Border Quirks | This island changes country every six months | 43.82 s | George (Kokoro) |
-| 10 | Wed 21 Oct, 12:00 | 2026-10-21T16:00:00Z | Gut Gang | Why is yawning contagious? (It isn't about oxygen) | 48.15 s | George (Kokoro) |
-| 11 | Thu 22 Oct, 11:00 | 2026-10-22T15:00:00Z | Border Quirks | Finland built a lighthouse in Sweden, so they bent the border | 53.0 s | George (Kokoro) |
-| 12 | Thu 22 Oct, 12:00 | 2026-10-22T16:00:00Z | Gut Gang | Do cold feet give you a cold? Scientists tested it | 51.02 s | George (Kokoro) |
-| 13 | Tue 27 Oct, 11:00 | 2026-10-27T15:00:00Z | Border Quirks | When Dracula came out, Transylvania wasn't in Romania | 51.37 s | George (Kokoro) |
-| 14 | Tue 27 Oct, 12:00 | 2026-10-27T16:00:00Z | Gut Gang | Why does sunlight make you sneeze? Aristotle got it wrong | 45.53 s | George (Kokoro) |
-| 15 | Wed 28 Oct, 11:00 | 2026-10-28T15:00:00Z | Border Quirks | The Statue of Liberty is in New York. Surrounded by New Jersey. | 54.03 s | George (Kokoro) |
-| 16 | Wed 28 Oct, 12:00 | 2026-10-28T16:00:00Z | Gut Gang | He lived in a cave with no clocks and lost 25 days | 53.29 s | George (Kokoro) |
+| 1 | Thu 8 Oct, 16:00 | 2026-10-08T20:00:00Z | Border Quirks | Why this US town's only road out goes through Canada | 59.75 s | George (Kokoro) |
+| 2 | Thu 8 Oct, 17:00 | 2026-10-08T21:00:00Z | Gut Gang | Your gut isn't the size of a tennis court. Follow your lunch. | 47.15 s | Hannah (Fish) |
+| 3 | Fri 9 Oct, 11:00 | 2026-10-09T15:00:00Z | Border Quirks | America and Britain nearly went to war over a pig | 54.0 s | George (Kokoro) |
+| 4 | Fri 9 Oct, 12:00 | 2026-10-09T16:00:00Z | Gut Gang | Why doesn't your stomach digest itself? | 46.41 s | Hannah (Fish) |
+| 5 | Tue 13 Oct, 11:00 | 2026-10-13T15:00:00Z | Border Quirks | Russia sold Alaska for 2 cents an acre, and left a view of tomorrow | 55.33 s | George (Kokoro) |
+| 6 | Tue 13 Oct, 12:00 | 2026-10-13T16:00:00Z | Gut Gang | Does swallowed gum really stay in you for 7 years? | 46.91 s | Hannah (Fish) |
+| 7 | Wed 14 Oct, 11:00 | 2026-10-14T15:00:00Z | Border Quirks | Why Chile is so long, and Bolivia has a navy with no sea | 49.36 s | George (Kokoro) |
+| 8 | Wed 14 Oct, 12:00 | 2026-10-14T16:00:00Z | Gut Gang | Your brain runs on 12 watts, and it never turns off | 34.17 s | Hannah (Fish) |
+| 9 | Thu 15 Oct, 11:00 | 2026-10-15T15:00:00Z | Border Quirks | This island changes country every six months | 43.82 s | George (Kokoro) |
+| 10 | Thu 15 Oct, 12:00 | 2026-10-15T16:00:00Z | Gut Gang | Why is yawning contagious? (It isn't about oxygen) | 48.15 s | George (Kokoro) |
+| 11 | Fri 16 Oct, 11:00 | 2026-10-16T15:00:00Z | Border Quirks | Finland built a lighthouse in Sweden, so they bent the border | 53.0 s | George (Kokoro) |
+| 12 | Fri 16 Oct, 12:00 | 2026-10-16T16:00:00Z | Gut Gang | Do cold feet give you a cold? Scientists tested it | 51.02 s | George (Kokoro) |
+| 13 | Tue 20 Oct, 11:00 | 2026-10-20T15:00:00Z | Border Quirks | When Dracula came out, Transylvania wasn't in Romania | 51.37 s | George (Kokoro) |
+| 14 | Tue 20 Oct, 12:00 | 2026-10-20T16:00:00Z | Gut Gang | Why does sunlight make you sneeze? Aristotle got it wrong | 45.53 s | George (Kokoro) |
+| 15 | Wed 21 Oct, 12:00 | 2026-10-21T16:00:00Z | Gut Gang | He lived in a cave with no clocks and lost 25 days | 53.29 s | George (Kokoro) |
+| 16 | Wed 28 Oct, 11:00 | 2026-10-28T15:00:00Z | Border Quirks | The Statue of Liberty is in New York. Surrounded by New Jersey. | 54.03 s | George (Kokoro) |
 
 ## 1. Border Quirks: Why this US town's only road out goes through Canada
 
-- **Schedule:** Tue 13 Oct, 11:00 ET (2026-10-13T15:00:00Z)
+- **Schedule:** Thu 8 Oct, 16:00 ET (2026-10-08T20:00:00Z)
 - **Video:** `episodes/why-map/point-roberts/out/point-roberts.mp4`  **Captions:** `episodes/why-map/point-roberts/out/point-roberts.srt`  **Thumbnail:** `episodes/why-map/point-roberts/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #geography #history #maps #shorts
 - **Tags** (Studio → Show more → Tags): point roberts, point roberts washington, exclave, us canada border, weird borders, geography facts, 49th parallel, oregon treaty
@@ -60,7 +60,7 @@ Labels: the 80 percent figure is the Border Policy Research Institute's estimate
 
 ## 2. Gut Gang: Your gut isn't the size of a tennis court. Follow your lunch.
 
-- **Schedule:** Tue 13 Oct, 12:00 ET (2026-10-13T16:00:00Z)
+- **Schedule:** Thu 8 Oct, 17:00 ET (2026-10-08T21:00:00Z)
 - **Video:** `episodes/body-cast/food-journey/out/food-journey.mp4`  **Captions:** `episodes/body-cast/food-journey/out/food-journey.srt`  **Thumbnail:** `episodes/body-cast/food-journey/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #science #biology #digestion #shorts
 - **Tags** (Studio → Show more → Tags): digestion, digestive system, small intestine, gut surface area, how digestion works, human body facts, biology, science shorts
@@ -89,7 +89,7 @@ Labels: about 30 m² for the small intestine (Wikipedia) and about 32 m² for th
 
 ## 3. Border Quirks: America and Britain nearly went to war over a pig
 
-- **Schedule:** Wed 14 Oct, 11:00 ET (2026-10-14T15:00:00Z)
+- **Schedule:** Fri 9 Oct, 11:00 ET (2026-10-09T15:00:00Z)
 - **Video:** `episodes/why-map/pig-war/out/pig-war.mp4`  **Captions:** `episodes/why-map/pig-war/out/pig-war.srt`  **Thumbnail:** `episodes/why-map/pig-war/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #history #geography #maps #shorts
 - **Tags** (Studio → Show more → Tags): pig war, pig war 1859, san juan island, us britain war, weird history, history facts, oregon treaty, haro strait
@@ -114,7 +114,7 @@ Labels: the British force total is Wikipedia's summary figure. Maps: Natural Ear
 
 ## 4. Gut Gang: Why doesn't your stomach digest itself?
 
-- **Schedule:** Wed 14 Oct, 12:00 ET (2026-10-14T16:00:00Z)
+- **Schedule:** Fri 9 Oct, 12:00 ET (2026-10-09T16:00:00Z)
 - **Video:** `episodes/body-cast/stomach-acid/out/stomach-acid.mp4`  **Captions:** `episodes/body-cast/stomach-acid/out/stomach-acid.srt`  **Thumbnail:** `episodes/body-cast/stomach-acid/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #science #biology #body #shorts
 - **Tags** (Studio → Show more → Tags): stomach acid, why doesn't the stomach digest itself, h pylori, barry marshall, stomach ulcers, human body facts, biology, science history
@@ -145,7 +145,7 @@ Labels: 'can dissolve zinc' is IFLScience's claim. Barry Marshall is named, not 
 
 ## 5. Border Quirks: Russia sold Alaska for 2 cents an acre, and left a view of tomorrow
 
-- **Schedule:** Thu 15 Oct, 11:00 ET (2026-10-15T15:00:00Z)
+- **Schedule:** Tue 13 Oct, 11:00 ET (2026-10-13T15:00:00Z)
 - **Video:** `episodes/why-map/alaska-sale/out/alaska-sale.mp4`  **Captions:** `episodes/why-map/alaska-sale/out/alaska-sale.srt`  **Thumbnail:** `episodes/why-map/alaska-sale/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #history #geography #alaska #shorts
 - **Tags** (Studio → Show more → Tags): alaska purchase, why russia sold alaska, seward's folly, diomede islands, international date line, alaska day, history facts, geography facts
@@ -174,7 +174,7 @@ Labels: 'Seward's Folly' was what critics called it; the purchase was approved b
 
 ## 6. Gut Gang: Does swallowed gum really stay in you for 7 years?
 
-- **Schedule:** Thu 15 Oct, 12:00 ET (2026-10-15T16:00:00Z)
+- **Schedule:** Tue 13 Oct, 12:00 ET (2026-10-13T16:00:00Z)
 - **Video:** `episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4`  **Captions:** `episodes/body-cast/swallowed-gum/out/swallowed-gum.srt`  **Thumbnail:** `episodes/body-cast/swallowed-gum/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #science #biology #mythbusting #shorts
 - **Tags** (Studio → Show more → Tags): swallowed gum, does gum stay in your stomach 7 years, gum myth, digestion, body myths, human body facts, biology, science shorts
@@ -199,7 +199,7 @@ The case report is Milov et al., Pediatrics 1998, as described by Scientific Ame
 
 ## 7. Border Quirks: Why Chile is so long, and Bolivia has a navy with no sea
 
-- **Schedule:** Tue 20 Oct, 11:00 ET (2026-10-20T15:00:00Z)
+- **Schedule:** Wed 14 Oct, 11:00 ET (2026-10-14T15:00:00Z)
 - **Video:** `episodes/why-map/chile-long/out/chile-long.mp4`  **Captions:** `episodes/why-map/chile-long/out/chile-long.srt`  **Thumbnail:** `episodes/why-map/chile-long/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #geography #history #maps #shorts
 - **Tags** (Studio → Show more → Tags): why is chile so long, chile geography, war of the pacific, bolivia navy, bolivia landlocked, andes, geography facts, south america
@@ -231,7 +231,7 @@ Labels: Chile's length is 4,270 km in one source and 'over 4,300 km' in another.
 
 ## 8. Gut Gang: Your brain runs on 12 watts, and it never turns off
 
-- **Schedule:** Tue 20 Oct, 12:00 ET (2026-10-20T16:00:00Z)
+- **Schedule:** Wed 14 Oct, 12:00 ET (2026-10-14T16:00:00Z)
 - **Video:** `episodes/body-cast/brain-energy/out/brain-energy.mp4`  **Captions:** `episodes/body-cast/brain-energy/out/brain-energy.srt`  **Thumbnail:** `episodes/body-cast/brain-energy/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #science #brain #biology #shorts
 - **Tags** (Studio → Show more → Tags): brain energy, how many watts does the brain use, 10 percent brain myth, brain facts, human body facts, neuroscience, biology, science shorts
@@ -259,7 +259,7 @@ Labels: 12 watts is Scientific American's estimate from a 1,300 kcal resting rat
 
 ## 9. Border Quirks: This island changes country every six months
 
-- **Schedule:** Wed 21 Oct, 11:00 ET (2026-10-21T15:00:00Z)
+- **Schedule:** Thu 15 Oct, 11:00 ET (2026-10-15T15:00:00Z)
 - **Video:** `episodes/why-map/pheasant-island/out/pheasant-island.mp4`  **Captions:** `episodes/why-map/pheasant-island/out/pheasant-island.srt`  **Thumbnail:** `episodes/why-map/pheasant-island/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #history #geography #maps #shorts
 - **Tags** (Studio → Show more → Tags): pheasant island, isla de los faisanes, ile des faisans, france spain border, condominium, weird borders, treaty of the pyrenees, bidasoa
@@ -286,7 +286,7 @@ Labels: the origin of the name is uncertain ("probably" a mistranslation). Sourc
 
 ## 10. Gut Gang: Why is yawning contagious? (It isn't about oxygen)
 
-- **Schedule:** Wed 21 Oct, 12:00 ET (2026-10-21T16:00:00Z)
+- **Schedule:** Thu 15 Oct, 12:00 ET (2026-10-15T16:00:00Z)
 - **Video:** `episodes/body-cast/contagious-yawn/out/contagious-yawn.mp4`  **Captions:** `episodes/body-cast/contagious-yawn/out/contagious-yawn.srt`  **Thumbnail:** `episodes/body-cast/contagious-yawn/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #science #biology #yawning #shorts
 - **Tags** (Studio → Show more → Tags): why is yawning contagious, contagious yawning, why do we yawn, yawning oxygen myth, robert provine, brain facts, human body facts, biology
@@ -311,7 +311,7 @@ Percentages are from Provine's own lab tests. Robert Provine is named, not depic
 
 ## 11. Border Quirks: Finland built a lighthouse in Sweden, so they bent the border
 
-- **Schedule:** Thu 22 Oct, 11:00 ET (2026-10-22T15:00:00Z)
+- **Schedule:** Fri 16 Oct, 11:00 ET (2026-10-16T15:00:00Z)
 - **Video:** `episodes/why-map/market-island/out/market-island.mp4`  **Captions:** `episodes/why-map/market-island/out/market-island.srt`  **Thumbnail:** `episodes/why-map/market-island/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #history #geography #maps #shorts
 - **Tags** (Studio → Show more → Tags): market island, märket, sweden finland border, weird borders, lighthouse, aland, baltic sea, border swap
@@ -336,7 +336,7 @@ Labels: the official papers do not record why the lighthouse was built on the Sw
 
 ## 12. Gut Gang: Do cold feet give you a cold? Scientists tested it
 
-- **Schedule:** Thu 22 Oct, 12:00 ET (2026-10-22T16:00:00Z)
+- **Schedule:** Fri 16 Oct, 12:00 ET (2026-10-16T16:00:00Z)
 - **Video:** `episodes/body-cast/cold-feet/out/cold-feet.mp4`  **Captions:** `episodes/body-cast/cold-feet/out/cold-feet.srt`  **Thumbnail:** `episodes/body-cast/cold-feet/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #science #biology #commoncold #shorts
 - **Tags** (Studio → Show more → Tags): does cold weather give you a cold, cold feet cold, common cold, catching a cold, cold and flu season, immune system, human body facts, biology
@@ -363,7 +363,7 @@ This is one study of 180 people; the mechanism is the researchers' theory, and t
 
 ## 13. Border Quirks: When Dracula came out, Transylvania wasn't in Romania
 
-- **Schedule:** Tue 27 Oct, 11:00 ET (2026-10-27T15:00:00Z)
+- **Schedule:** Tue 20 Oct, 11:00 ET (2026-10-20T15:00:00Z)
 - **Video:** `episodes/why-map/dracula-transylvania/out/dracula-transylvania.mp4`  **Captions:** `episodes/why-map/dracula-transylvania/out/dracula-transylvania.srt`  **Thumbnail:** `episodes/why-map/dracula-transylvania/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #history #geography #halloween #shorts
 - **Tags** (Studio → Show more → Tags): dracula, transylvania, bram stoker, bran castle, vlad the impaler, romania history, austria-hungary, halloween history
@@ -395,7 +395,7 @@ Labels: borders on the map are approximate (the region is drawn from today's Rom
 
 ## 14. Gut Gang: Why does sunlight make you sneeze? Aristotle got it wrong
 
-- **Schedule:** Tue 27 Oct, 12:00 ET (2026-10-27T16:00:00Z)
+- **Schedule:** Tue 20 Oct, 12:00 ET (2026-10-20T16:00:00Z)
 - **Video:** `episodes/body-cast/sun-sneeze/out/sun-sneeze.mp4`  **Captions:** `episodes/body-cast/sun-sneeze/out/sun-sneeze.srt`  **Thumbnail:** `episodes/body-cast/sun-sneeze/out/thumbnail.jpg`
 - **Hashtags** (already at the end of the description): #science #biology #sneeze #shorts
 - **Tags** (Studio → Show more → Tags): why does sunlight make you sneeze, photic sneeze reflex, sun sneeze, achoo syndrome, why do we sneeze, brain facts, human body facts, biology
@@ -421,7 +421,35 @@ Sources:
 #science #biology #sneeze #shorts
 ```
 
-## 15. Border Quirks: The Statue of Liberty is in New York. Surrounded by New Jersey.
+## 15. Gut Gang: He lived in a cave with no clocks and lost 25 days
+
+- **Schedule:** Wed 21 Oct, 12:00 ET (2026-10-21T16:00:00Z)
+- **Video:** `episodes/body-cast/cave-clock/out/cave-clock.mp4`  **Captions:** `episodes/body-cast/cave-clock/out/cave-clock.srt`  **Thumbnail:** `episodes/body-cast/cave-clock/out/thumbnail.jpg`
+- **Hashtags** (already at the end of the description): #science #biology #sleep #shorts
+- **Tags** (Studio → Show more → Tags): michel siffre, cave experiment, body clock, circadian rhythm, daylight saving time, clocks go back, sleep science, brain facts
+- **Category:** Education · **Language:** English · **Made for kids:** No
+- **Related video** (Studio → the Short → Related video, once both are up): Your brain runs on 12 watts, and it never turns off
+- **Pinned comment:** Could you last two months in a cave with no clock? How many days would you lose?
+- **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
+
+**Description:**
+
+```
+In July 1962 French scientist Michel Siffre spent two months 130 m underground with no clock, calendar or sun. Counting to 120 took him five minutes, and when his team ended the experiment on 14 September he thought it was 20 August. His body still kept a near-daily rhythm. Harvard later found that switching on lamps resets the body clock in experiments like these; measured properly, your internal day is 24 hours 11 minutes, and light sets it.
+
+Sources:
+- Caveman: An Interview with Michel Siffre (Joshua Foer), Cabinet issue 30, Summer 2008 — Cabinet Magazine: https://www.cabinetmagazine.org/issues/30/foer.php
+- Michel Siffre, scientist who explored solitude deep within caves, dies at 85 — The Boston Globe (Washington Post obituary): https://www.bostonglobe.com/2024/09/04/world/michel-siffre-scientist-solitude-deep-within-caves-dies-85/
+- Michel Siffre — Wikipedia: https://en.wikipedia.org/wiki/Michel_Siffre
+- Human biological clock set back an hour — Harvard Gazette (Harvard University): https://news.harvard.edu/gazette/story/1999/07/human-biological-clock-set-back-an-hour/
+- Circadian Rhythms fact sheet — National Institute of General Medical Sciences (NIH): https://www.nigms.nih.gov/education/fact-sheets/Pages/circadian-rhythms.aspx
+
+The 25 days and the 24.5-hour cycle are Siffre's own account. Michel Siffre is named, not depicted. The clocks change on 25 October (UK) and 1 November (US). The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
+
+#science #biology #sleep #shorts
+```
+
+## 16. Border Quirks: The Statue of Liberty is in New York. Surrounded by New Jersey.
 
 - **Schedule:** Wed 28 Oct, 11:00 ET (2026-10-28T15:00:00Z)
 - **Video:** `episodes/why-map/statue-of-liberty/out/statue-of-liberty.mp4`  **Captions:** `episodes/why-map/statue-of-liberty/out/statue-of-liberty.srt`  **Thumbnail:** `episodes/why-map/statue-of-liberty/out/thumbnail.jpg`
@@ -447,34 +475,6 @@ Sources:
 Note: 24.5 acres is the Supreme Court's figure ("some 24.5 acres") for the fill added to Ellis Island after 1891. Maps: OpenStreetMap contributors (ODbL; harbour coastline, New York-New Jersey boundary, Liberty Island and the 1857 Ellis Island boundary). Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
 
 #history #geography #newyork #shorts
-```
-
-## 16. Gut Gang: He lived in a cave with no clocks and lost 25 days
-
-- **Schedule:** Wed 28 Oct, 12:00 ET (2026-10-28T16:00:00Z)
-- **Video:** `episodes/body-cast/cave-clock/out/cave-clock.mp4`  **Captions:** `episodes/body-cast/cave-clock/out/cave-clock.srt`  **Thumbnail:** `episodes/body-cast/cave-clock/out/thumbnail.jpg`
-- **Hashtags** (already at the end of the description): #science #biology #sleep #shorts
-- **Tags** (Studio → Show more → Tags): michel siffre, cave experiment, body clock, circadian rhythm, daylight saving time, clocks go back, sleep science, brain facts
-- **Category:** Education · **Language:** English · **Made for kids:** No
-- **Related video** (Studio → the Short → Related video, once both are up): Your brain runs on 12 watts, and it never turns off
-- **Pinned comment:** Could you last two months in a cave with no clock? How many days would you lose?
-- **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.0
-
-**Description:**
-
-```
-In July 1962 French scientist Michel Siffre spent two months 130 m underground with no clock, calendar or sun. Counting to 120 took him five minutes, and when his team ended the experiment on 14 September he thought it was 20 August. His body still kept a near-daily rhythm. Harvard later found that switching on lamps resets the body clock in experiments like these; measured properly, your internal day is 24 hours 11 minutes, and light sets it.
-
-Sources:
-- Caveman: An Interview with Michel Siffre (Joshua Foer), Cabinet issue 30, Summer 2008 — Cabinet Magazine: https://www.cabinetmagazine.org/issues/30/foer.php
-- Michel Siffre, scientist who explored solitude deep within caves, dies at 85 — The Boston Globe (Washington Post obituary): https://www.bostonglobe.com/2024/09/04/world/michel-siffre-scientist-solitude-deep-within-caves-dies-85/
-- Michel Siffre — Wikipedia: https://en.wikipedia.org/wiki/Michel_Siffre
-- Human biological clock set back an hour — Harvard Gazette (Harvard University): https://news.harvard.edu/gazette/story/1999/07/human-biological-clock-set-back-an-hour/
-- Circadian Rhythms fact sheet — National Institute of General Medical Sciences (NIH): https://www.nigms.nih.gov/education/fact-sheets/Pages/circadian-rhythms.aspx
-
-The 25 days and the 24.5-hour cycle are Siffre's own account. Michel Siffre is named, not depicted. The clocks change on 25 October (UK) and 1 November (US). The characters are cartoons, not medical advice. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
-
-#science #biology #sleep #shorts
 ```
 
 ## YouTube API audit: draft answers

@@ -75,6 +75,17 @@
     "package.json": "517ba5822b9a"
    },
    "failed": []
+  },
+  "publish": {
+   "result": "fail",
+   "at": "2026-10-08T17:40:36Z",
+   "hashes": {
+    "package.json": "517ba5822b9a",
+    "publish.json": null
+   },
+   "failed": [
+    "publish.json is missing"
+   ]
   }
  }
 }

@@ -2649,3 +2649,22 @@ Where do we stand - lets start pushing border quirks on a schedule, wether its 2
 - **Upload kit:** `studio/tools/publish_kit.py` (new) rebuilt `docs/publish-kit-2026-10.md` for the 16 Shorts (8 Border Quirks, 8 Gut Gang, 13–28 Oct), with a voice column. Leader Flags was removed from it; its review item is marked parked.
 - **Uploads stay manual:** the API project is still unverified, so API uploads would be locked private.
 - **Supply gap:** Border Quirks has videos through 28 Oct. Keeping 4 a week needs Fri 23 Oct, Thu 29 Oct and Fri 30 Oct, then 4 a week in November. Baarle is through picture. Asked the user before starting a new batch, because of the usage concern.
+
+#### 🧑 User (mid-turn) · 2026-10-08 UTC
+
+> I would like to begin uploads from today itself, not waiting further, we have a lot more channles and things to do ahead
+
+#### Claude · record
+
+- **Rescheduled all 16 to start today (17:40 UTC when asked):** 4 a week per channel, weekdays.
+  - Today: Point Roberts at 16:00 ET, food journey (Hannah) at 17:00 ET.
+  - Then 11:00 ET (Border Quirks) and 12:00 ET (Gut Gang).
+- **Date-tied scripts checked:**
+  - The Statue of Liberty stays on 28 Oct (its 140th-anniversary line).
+  - Alaska moved before Alaska Day (18 Oct); Dracula stays before Halloween.
+  - "Today" in Pheasant Island and Dracula means the present day, not a date.
+- **Package gates re-run:** all pass. The kit was regenerated.
+- **Supply:**
+  - Border Quirks needs new videos from 21 Oct and Gut Gang from 22 Oct.
+  - Swiss-invades-Liechtenstein is ✓ through final and Baarle through picture.
+  - Asked the user whether to start the next batches.

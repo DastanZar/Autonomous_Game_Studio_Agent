@@ -67,12 +67,12 @@
   },
   "package": {
    "result": "pass",
-   "at": "2026-10-07T13:59:54Z",
+   "at": "2026-10-08T17:40:44Z",
    "hashes": {
     "build/final_report.json": "e08bfe36877a",
     "dossier.json": "6582c537bb03",
     "script.json": "5074b1013e5d",
-    "package.json": "1b06c3b8caec"
+    "package.json": "3b2e96cf82b7"
    },
    "failed": []
   },
