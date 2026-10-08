@@ -63,6 +63,30 @@
     75.03
    ],
    "defects": []
+  },
+  {
+   "at": "2026-10-08T10:22:54Z",
+   "reviewer": "sketch worker (model with vision), final round after produce: sheet re-rendered, 12 frames pulled from the encoded MP4 (ffmpeg -ss 3 ... 74.5) and the thumbnail (moved to 5.5 s, hand clear) checked",
+   "frames": [
+    0.05,
+    5.4,
+    12.54,
+    19.51,
+    24.77,
+    30.01,
+    34.07,
+    37.24,
+    42.26,
+    49.57,
+    53.24,
+    58.49,
+    62.11,
+    65.86,
+    70.4,
+    74.67,
+    75.03
+   ],
+   "defects": []
   }
  ]
 }

@@ -2,6 +2,31 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "next-sketch",
+   "status": "open",
+   "kind": "video",
+   "title": "Pencil channel, first 4 (29 Oct launch, 31 Oct, 3 Nov, 5 Nov): Earth stops spinning, quicksand, a hole through Earth, Mars without a suit",
+   "question": "The hand-drawn 'What would actually happen if…' launch set, drawn with the approved photoreal hand. All four pass every gate through packaging (WER ≤ 0.08 per paragraph, -14 LUFS). Worth a listen: the 1,670 km/h hook line in Earth-stops-spinning (WER 0.077). Music is the borrowed 'detective' bed for now. Still needed from you: the channel name and the go for the 29 Oct launch.",
+   "files": [
+    [
+     "2026-10-29 18:00 UTC · What would actually happen if the Earth stopped spinning?",
+     "episodes/sketch/earth-stops-spinning/out/earth-stops-spinning.mp4"
+    ],
+    [
+     "2026-10-31 18:00 UTC · What would actually happen if you fell into quicksand?",
+     "episodes/sketch/quicksand/out/quicksand.mp4"
+    ],
+    [
+     "2026-11-03 19:00 UTC · What would actually happen if you jumped into a hole through Earth?",
+     "episodes/sketch/hole-through-earth/out/hole-through-earth.mp4"
+    ],
+    [
+     "2026-11-05 19:00 UTC · What would actually happen if you stepped onto Mars without a suit?",
+     "episodes/sketch/mars-no-suit/out/mars-no-suit.mp4"
+    ]
+   ]
+  },
+  {
    "id": "next-leader-flags",
    "status": "open",
    "kind": "video",

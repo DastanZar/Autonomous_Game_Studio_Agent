@@ -2513,3 +2513,20 @@ I hit my usage limit while you were working, but it has reset now. Please contin
 - **Leader Flags next 4 finished** (worker report) and added to the review queue:
   - nuclear warheads (SIPRI 2026), meat per person (FAO 2023), MLB players by country (Opening Day 2026), pumpkins (FAOSTAT 2024);
   - 30–42 s, WER 0, −14.1/−14.2 LUFS.
+
+#### Claude · record (pencil channel first 4)
+
+- **Pencil worker finished.** All four 'What would actually happen if…' Shorts pass every gate through packaging:
+  - Earth stops spinning: 29 Oct launch, 80.95 s, −14.1 LUFS, WER 0.011.
+  - Quicksand: 31 Oct, 78.9 s.
+  - A hole through Earth: 3 Nov, 76.9 s.
+  - Mars without a suit: 5 Nov, 75.1 s.
+- **My checks:**
+  - Ran `studio.py status` (all ✓ through package).
+  - Pulled frames at 12, 40 and 74 s from each encoded MP4 and looked at them: the hand looks natural and the pages read.
+- **Dashboard:** added review item `next-sketch` and force-added the three MP4s that were untracked.
+- **Worker notes passed on:**
+  - The 1,670 km/h hook line is the weakest take (WER 0.077, under the 0.08 gate), so worth a listen.
+  - The music is the borrowed 'detective' bed.
+  - I couldn't fetch the full text of the Nature quicksand paper; the claim is checked against its abstract and press coverage.
+- **Still running:** the Border Quirks worker (Statue of Liberty, Market Island, Dracula's castle).

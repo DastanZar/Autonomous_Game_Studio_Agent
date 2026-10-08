@@ -1,0 +1,37 @@
+{
+ "title": "What would actually happen if you stepped onto Mars without a suit?",
+ "description": "Step onto Mars without a suit and your blood won't boil, but the saliva on your tongue will. Mars' air is under 1% of Earth's pressure, low enough for water to boil at body temperature; your skin and blood vessels keep your blood under pressure. NASA knows partly from a 1965 vacuum-chamber accident.\n\nSources:\n- Mars Fact Sheet — NASA Goddard Space Flight Center (NSSDCA): https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html\n- Earth Fact Sheet — NASA Goddard Space Flight Center (NSSDCA): https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html\n- Mars Facts — NASA Science: https://science.nasa.gov/mars/facts/\n- Armstrong limit — Wikipedia: https://en.wikipedia.org/wiki/Armstrong_limit\n- Ask an Astrophysicist: space travel archive (human exposure to vacuum; the 1965 suit-leak accident) — NASA Goddard Space Flight Center, Imagine the Universe! (HEASARC): https://imagine.gsfc.nasa.gov/ask_astro/space_travel.html\n- Human Exposure to the Vacuum of Space — Aerospaceweb.org: https://aerospaceweb.org/question/atmosphere/q0291.shtml\n\nLabels: simplified: Mars (about 0.64 kPa) is not a perfect vacuum, but it is about ten times below the Armstrong limit (6.3 kPa), so for your body we use NASA's vacuum-exposure accounts. The 1965 account (14 seconds, the water on his tongue beginning to boil) is from a scientist at NASA's Manned Spacecraft Center, on NASA's Imagine the Universe! site; the test subject is not drawn. 10 to 15 seconds of consciousness: 1950s-60s decompression research via Aerospaceweb, and NASA.\nDrawn in code; narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; sound effects from Kenney (CC0).",
+ "hashtags": [
+  "#science",
+  "#whatif",
+  "#mars",
+  "#shorts"
+ ],
+ "pinned_comment": "Which space film got this the most wrong?",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/mars-no-suit.mp4",
+ "srt": "out/mars-no-suit.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-11-05T19:00:00Z",
+ "cross_post": [
+  "tiktok",
+  "instagram_reels",
+  "facebook_reels"
+ ],
+ "tags": [
+  "mars without a spacesuit",
+  "what happens in a vacuum",
+  "does blood boil in space",
+  "armstrong limit",
+  "mars atmosphere",
+  "space science",
+  "what would happen if",
+  "hand drawn science"
+ ],
+ "related_video": "What would actually happen if you fell into quicksand?",
+ "category": "Education"
+}
