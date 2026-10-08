@@ -2530,3 +2530,4 @@ I hit my usage limit while you were working, but it has reset now. Please contin
   - The music is the borrowed 'detective' bed.
   - I couldn't fetch the full text of the Nature quicksand paper; the claims cite its University of Amsterdam repository record plus National Geographic and Live Science.
 - **Still running:** the Border Quirks worker (Statue of Liberty, Market Island, Dracula's castle).
+- **Live check (a2e32d9):** all four MP4s on the dashboard match the local file sizes byte for byte.
