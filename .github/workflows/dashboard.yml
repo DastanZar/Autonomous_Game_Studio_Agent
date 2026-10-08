@@ -28,7 +28,7 @@ jobs:
       - name: media
         run: |
           add() { f="$1"; [ -f "$f" ] || return 0; mkdir -p "_site/media/$(dirname "$f")"; cp "$f" "_site/media/$f"; }
-          for f in $(find episodes shorts videos -path '*/out/*' -type f | grep -v '/variants/.*/out/point-roberts.mp4$'); do add "$f"; done
+          # only the budgeted list (studio/dashboard.py keeps the site under the 1 GB Pages limit; the rest streams from the repo)
           while read -r f; do add "$f"; done < docs/site-media.txt
           du -sh _site
       # full-quality masters of every episode with a package.json, as downloads on the "masters" release

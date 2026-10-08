@@ -2,6 +2,31 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "next-leader-flags",
+   "status": "open",
+   "kind": "video",
+   "title": "Leader Flags, next 4 (21, 22, 27, 28 Oct): nuclear warheads, meat per person, MLB players, pumpkins",
+   "question": "All four pass every gate through packaging. Data: SIPRI Yearbook 2026, FAO food balances 2023 (via Our World in Data), MLB Opening Day 2026 and FAOSTAT 2024. The globe follows each place as it is named. Demand is thin for MLB and pumpkins; they are there for timing (World Series, Halloween). Flag anything before upload.",
+   "files": [
+    [
+     "2026-10-21 17:00 UTC · Which country has the most nuclear weapons? It's not America.",
+     "episodes/ranked/most-nuclear-weapons/out/most-nuclear-weapons.mp4"
+    ],
+    [
+     "2026-10-22 17:00 UTC · Which country has the most meat per person? It's not America.",
+     "episodes/ranked/most-meat-per-person/out/most-meat-per-person.mp4"
+    ],
+    [
+     "2026-10-27 17:00 UTC · Which country makes the most MLB players? Per person, it's Curaçao",
+     "episodes/ranked/mlb-players-by-country/out/mlb-players-by-country.mp4"
+    ],
+    [
+     "2026-10-28 17:00 UTC · Which country grows the most pumpkins? It's not America.",
+     "episodes/ranked/most-pumpkins/out/most-pumpkins.mp4"
+    ]
+   ]
+  },
+  {
    "id": "next-gut-gang",
    "status": "open",
    "kind": "video",

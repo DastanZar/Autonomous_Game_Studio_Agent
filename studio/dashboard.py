@@ -124,9 +124,34 @@ def build(root):
     _sys.path.insert(0, os.path.join(studio_dir, "tools"))
     import notes; notes.build_all()   # per-video discussion files, rebuilt from the chat logs
     GH = "https://github.com/DastanZar/Autonomous_Game_Studio_Agent/blob/main/"
+    RAW = "https://raw.githubusercontent.com/DastanZar/Autonomous_Game_Studio_Agent/main/"
+    # GitHub Pages sites are capped at 1 GB, so the site carries a budget of full-quality copies: everything small, then
+    # the files under review (newest review items first), then the newest finished videos. Anything over the budget is
+    # streamed from the repo itself (raw.githubusercontent.com), still the exact rendered file. Nothing is re-encoded.
+    BUDGET = 950 * 1024 * 1024
+    rq_all = [i for i in (json.load(open(os.path.join(studio_dir, "review_queue.json")))["items"] if os.path.exists(os.path.join(studio_dir, "review_queue.json")) else []) if i.get("status", "open") == "open"]
+    want = []
+    for it in rq_all:
+        want += [p for _, p in it["files"]]
+    outs = [os.path.relpath(f, root) for f in glob.glob(os.path.join(root, "*", "*", "*", "out", "*")) + glob.glob(os.path.join(root, "*", "*", "out", "*")) + glob.glob(os.path.join(root, "*", "*", "out", "*", "*"))]
+    outs = [f for f in outs if os.path.isfile(os.path.join(root, f)) and "/variants/" not in f.replace(os.sep, "/")]
+    small = [f for f in outs if os.path.getsize(os.path.join(root, f)) < 2 * 1024 * 1024]
+    big_new = sorted((f for f in outs if f not in small), key=lambda f: -os.path.getmtime(os.path.join(root, f)))
+    site, used = set(), 0
+    for f in small + want + big_new:
+        fp = os.path.join(root, f)
+        if f in site or not os.path.isfile(fp):
+            continue
+        sz = os.path.getsize(fp)
+        if used + sz > BUDGET and f not in small:
+            continue
+        site.add(f.replace(os.sep, "/")); used += sz
+    def src_for(path):
+        path = path.replace(os.sep, "/")
+        return ("media/" + path) if path in site else (RAW + path)
     def media_card(folder, title, channel, script_paras):
         out = os.path.join(root, folder, "out")
-        rel = lambda f: "media/" + os.path.relpath(f, root).replace(os.sep, "/")
+        rel = lambda f: src_for(os.path.relpath(f, root))
         vids = sorted(glob.glob(os.path.join(out, "*.mp4")))
         thumb = os.path.join(out, "thumbnail.jpg")
         srts = sorted(glob.glob(os.path.join(out, "*.srt")))
@@ -167,7 +192,7 @@ def build(root):
     media_list = set()
     def player(kind, path):
         media_list.add(path)
-        src = "media/" + path
+        src = src_for(path)
         if kind == "audio":
             return f"<audio controls preload='none' src='{src}'></audio>"
         if kind == "video":
@@ -229,7 +254,7 @@ code{{font-size:13px;background:var(--line);padding:0 4px;border-radius:4px;over
 <h2>Decisions</h2>{dec_html}
 </div>
 </body></html>"""
-    open(os.path.join(root, "docs", "site-media.txt"), "w").write("".join(p + "\n" for p in sorted(media_list)))
+    open(os.path.join(root, "docs", "site-media.txt"), "w").write("".join(p + "\n" for p in sorted(site)))   # what the workflow copies to the site
     out = os.path.join(root, "docs", "dashboard.html")
     open(out, "w").write(page)
     return os.path.relpath(out, root)

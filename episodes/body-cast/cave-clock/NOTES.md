@@ -1,0 +1,121 @@
+# He lived in a cave without clocks and lost 25 days: discussion and decisions
+
+Folder: `episodes/body-cast/cave-clock`. Built by `studio/tools/notes.py`.
+
+## Notes
+
+_(add notes about this video here)_
+
+<!-- everything below this line is rebuilt by studio/tools/notes.py; write by hand above it -->
+
+## From the chat logs
+
+_No chat turns mention this video yet._
+
+
+## Review rounds (review.json)
+
+### Round 1
+```json
+{
+ "at": "2026-10-08T05:23:51Z",
+ "reviewer": "Gut Gang worker (Claude), contact sheet round 1",
+ "frames": [
+  0.05,
+  4.24,
+  5.5,
+  9.05,
+  13.04,
+  20.06,
+  21.73,
+  27.4,
+  33.07,
+  35.78,
+  40.96,
+  46.03,
+  49.68,
+  52.36,
+  53.25
+ ],
+ "defects": [
+  {
+   "t": 0.05,
+   "issue": "cave floor and background too dark: the Brain's ink legs vanished; lightened the ground and the cave gradient",
+   "fixed": true
+  },
+  {
+   "t": 5.5,
+   "issue": "lost: 'his own account' label was 30 px and unreadable; now a 52 px tag",
+   "fixed": true
+  },
+  {
+   "t": 33.07,
+   "issue": "cycle: '24\u00bd H DAYS' type ran across the Brain; Brain smaller and left, type moved right",
+   "fixed": true
+  },
+  {
+   "t": 9.05,
+   "issue": "who: depth counter still rolling (114 M) when the beat lands; roll shortened so it reads 130",
+   "fixed": true
+  }
+ ]
+}
+```
+
+### Round 2
+```json
+{
+ "at": "2026-10-08T05:23:51Z",
+ "reviewer": "Gut Gang worker (Claude), contact sheet round 2",
+ "frames": [
+  0.05,
+  4.24,
+  5.5,
+  9.05,
+  13.04,
+  20.06,
+  21.73,
+  27.4,
+  33.07,
+  35.78,
+  40.96,
+  46.03,
+  49.68,
+  52.36,
+  53.25
+ ],
+ "defects": []
+}
+```
+
+### Round 3
+```json
+{
+ "at": "2026-10-08T05:36:54Z",
+ "reviewer": "Gut Gang worker (Claude), final round: sheet re-rendered after produce.sh, every scene looked at",
+ "frames": [
+  0.05,
+  4.24,
+  5.5,
+  9.05,
+  13.04,
+  20.06,
+  21.73,
+  27.4,
+  33.07,
+  35.78,
+  40.96,
+  46.03,
+  49.68,
+  52.36,
+  53.25
+ ],
+ "defects": [
+  {
+   "t": 44.0,
+   "issue": "real: frame from the encoded MP4 was an empty blob for ~2.5 s before '24 hours' is spoken (also frozen time 8.2 s/30 s); added a 'YOUR REAL BODY CLOCK:' title, the Brain, and moving dust and lamp flicker in the cave; re-produced (6.8 s/30 s); re-checked at 43.0 and 48.5 s in the new MP4",
+   "fixed": true
+  }
+ ]
+}
+```

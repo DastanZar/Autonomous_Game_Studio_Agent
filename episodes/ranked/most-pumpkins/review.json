@@ -1,0 +1,74 @@
+{
+ "rounds": [
+  {
+   "at": "2026-10-08T10:06:57Z",
+   "reviewer": "worker (Leader Flags batch), round 1: 12 stills, one or more per scene",
+   "frames": [
+    0.05,
+    3.4,
+    7.5,
+    12.5,
+    16.3,
+    18.5,
+    20.7,
+    23.0,
+    24.9,
+    26.4,
+    28.9
+   ],
+   "defects": [
+    {
+     "t": 7.5,
+     "issue": "s_item: the = sign is not in Anton and rendered as a dash; title is now ONE FAO CROP",
+     "fixed": true
+    },
+    {
+     "t": 24.6,
+     "issue": "s_ten: the stage was empty for 0.5 s before the pumpkins arrived; they now land with the scene",
+     "fixed": true
+    },
+    {
+     "t": 23.0,
+     "issue": "s_india: 9.33M showed its last digit stuck mid-roll (the odometer rolls on the fractional part); rolling digits off",
+     "fixed": true
+    }
+   ]
+  },
+  {
+   "at": "2026-10-08T10:06:58Z",
+   "reviewer": "worker, round 2: stills after the fixes; globe checked against each spoken place (US, US, US, UA then RU, EG, CN, IN, IN then US, US then IN); numbers checked against data/faostat_pumpkins_squash_gourds_2024.csv (0.93, 1.11, 1.16, 1.28, 7.65, 9.33 million t)",
+   "frames": [
+    0.05,
+    3.4,
+    7.5,
+    12.5,
+    16.3,
+    18.5,
+    20.7,
+    23.0,
+    24.9,
+    26.4,
+    28.9
+   ],
+   "defects": []
+  },
+  {
+   "at": "2026-10-08T10:12:16Z",
+   "reviewer": "worker, round 3 (after production): fresh stills plus 9 frames pulled from the encoded MP4 and the thumbnail; no layout defects",
+   "frames": [
+    0.05,
+    3.4,
+    7.5,
+    12.5,
+    16.3,
+    18.5,
+    20.7,
+    23.0,
+    24.9,
+    26.4,
+    28.9
+   ],
+   "defects": []
+  }
+ ]
+}

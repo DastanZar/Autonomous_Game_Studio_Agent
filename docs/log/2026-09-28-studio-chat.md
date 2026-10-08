@@ -2501,3 +2501,15 @@ I hit my usage limit while you were working, but it has reset now. Please contin
   - Border Quirks: Pheasant Island done; the Statue of Liberty's final gate failing; 2 through storyboard.
   - Leader Flags: 3 through package; pumpkins through storyboard.
   - Pencil channel: Earth-stops-spinning done; quicksand's final gate failing; hole through picture; Mars through script.
+
+#### Claude · record (dashboard fix)
+
+- **Found:** the new videos were not on the dashboard. `.gitignore` excludes MP4s, and only `closeout.py` force-adds them; my path-limited commits (needed so the workers' unfinished files stayed out) skipped them. The live check after the Gut Gang deploy caught it (404).
+- **Also found:** the media folder would be 1.1 GB, over the 1 GB GitHub Pages limit.
+- **Fix, without downgrading anything:**
+  - `studio/dashboard.py` now plans the site media under a 950 MB budget: every small file, then files in open review items, then the newest finished videos. Anything over budget plays from the repo's raw file URL (the same file, full quality).
+  - The workflow copies only that list.
+  - Over budget now: the old pilots, the Point Roberts method variants and the Swiss draft.
+- **Leader Flags next 4 finished** (worker report) and added to the review queue:
+  - nuclear warheads (SIPRI 2026), meat per person (FAO 2023), MLB players by country (Opening Day 2026), pumpkins (FAOSTAT 2024);
+  - 30–42 s, WER 0, −14.1/−14.2 LUFS.

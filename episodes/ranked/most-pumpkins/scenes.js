@@ -78,21 +78,21 @@ CU.item = (t, S) => {
     ctx.save(); ctx.translate(x, 640); ctx.scale(kk, kk); gourd(0, 0, 95, t, k, i); ctx.restore();
     kText(n, x, 820, 54, t, cue(c) - 0.05, { color: LF.fg, stroke: 9, ink: LF.ink, ls: 2 });
   });
-  kText("= ONE FAO CROP", W / 2 - 70, 1010, 84, t, cue("item/one") - 0.15, { color: LF.gold, stroke: 12, ink: LF.ink, ls: 3 });
+  kText("ONE FAO CROP", W / 2 - 70, 1010, 84, t, cue("item/one") - 0.15, { color: LF.gold, stroke: 12, ink: LF.ink, ls: 3 });
   srcLine(SRC);
 };
 CU.india = (t, S) => {
   rankBG(t, { bg1: "#3a2f10" });
   rankChip(1, t, S.t0);
   flagRow(["IN"], 560, t, S.t0 + 0.05, { halo: LF.gold, labels: ["INDIA"], labelSize: 64 });
-  bigNumber(t, cue("india/nine") - 0.15, { value: 9.33, fmt: v => v.toFixed(2), suffix: "M", label: "TONNES, 2024", sub: S.p.sub, stroke: 16, size: 210, y: 1080, roll: 1.0, labelSize: 56, colors: { fg: LF.gold, accent: LF.fg, ink: LF.ink }, subColor: LF.fg });
+  bigNumber(t, cue("india/nine") - 0.15, { value: 9.33, fmt: v => v.toFixed(2), rollDigits: false, suffix: "M", label: "TONNES, 2024", sub: S.p.sub, stroke: 16, size: 210, y: 1080, roll: 1.0, labelSize: 56, colors: { fg: LF.gold, accent: LF.fg, ink: LF.ink }, subColor: LF.fg });
   srcLine(SRC);
 };
 CU.ten = (t, S) => {
   rankBG(t);
   const t1 = S.t0 + 0.05, t2 = cue("ten/america") - 0.2;
   flagBadge("IN", 140, 520, 56); kText("INDIA", 140, 640, 44, t, t1, { color: LF.fg, stroke: 8, ink: LF.ink });
-  for (let i = 0; i < 10; i++) { const k = kSpring(kpp(t, cue("ten/ten") - 0.25 + i * 0.06, 0.4)); if (k <= 0) continue;
+  for (let i = 0; i < 10; i++) { const k = kSpring(kpp(t, S.t0 + 0.05 + i * 0.06, 0.4)); if (k <= 0) continue;
     ctx.save(); ctx.translate(260 + (i % 5) * 140, 470 + Math.floor(i / 5) * 130); ctx.scale(k, k); gourd(0, 0, 52, t, 0, i); ctx.restore(); }
   if (t > t2) { const k = kSpring(kpp(t, t2, 0.5)); flagBadge("US", 140, 900, 56); kText("USA", 140, 1020, 44, t, t2, { color: LF.fg, stroke: 8, ink: LF.ink });
     ctx.save(); ctx.translate(260, 900); ctx.scale(k, k); gourd(0, 0, 52, t, 0, 11); ctx.restore(); }

@@ -1,0 +1,32 @@
+{
+ "title": "Which country grows the most pumpkins? It's not America.",
+ "description": "India grows the most pumpkins: 9.33 million tonnes of pumpkins, squash and gourds in 2024, by FAO's count. China is second (7.65), then Egypt, Russia and Ukraine; the United States is sixth with 0.93 million tonnes, about a tenth of India. Happy Halloween.\n\nSources:\n- FAOSTAT Production: Crops and livestock products, item Pumpkins, squash and gourds, 2024 (bulk download) — Food and Agriculture Organization of the United Nations: https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_All_Data_(Normalized).zip\n\nLabels: FAO counts pumpkins, squash and gourds as one crop. India's and the US figures are official; China's and Ukraine's are FAO estimates, and Egypt's and Russia's are imputed by FAO. China means mainland China. Flags: official SVGs from Wikimedia Commons. Narration is a synthetic voice (Kokoro-82M). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).",
+ "hashtags": [
+  "#halloween",
+  "#countries",
+  "#data",
+  "#shorts"
+ ],
+ "pinned_comment": "Would you have guessed India? Be honest.",
+ "made_for_kids": false,
+ "synthetic_media": {
+  "voice": "Kokoro-82M bm_george (local, Apache-2.0); draft voice while the Fish key is rotated",
+  "realistic": false
+ },
+ "video": "out/most-pumpkins.mp4",
+ "srt": "out/most-pumpkins.srt",
+ "thumbnail": "out/thumbnail.jpg",
+ "schedule": "2026-10-28T17:00:00Z",
+ "tags": [
+  "which country grows the most pumpkins",
+  "pumpkin production by country",
+  "halloween facts",
+  "india pumpkins",
+  "pumpkins",
+  "countries ranked",
+  "flags",
+  "fao data"
+ ],
+ "related_video": "Which country has the most meat per person? It's not America.",
+ "category": "Education"
+}
