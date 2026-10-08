@@ -2564,3 +2564,24 @@ I hit my usage limit while you were working, but it has reset now. Please contin
   - a harder true-peak margin in encode.py;
   - `map_history` in the bible's scene types.
 - **Live check (397c98e):** all four Border Quirks MP4s on the dashboard match the local file sizes byte for byte. All 16 next-batch videos (4 per channel) are now live for review.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+I liked hannah by fish audio, but before we go about changing any of the audios on the completed videos i want to know what would be the usage cost of my claude plan to do that, how much of my 5h usage you expect to be spent on that, also did you update the channel details like i aksed you to for the 3 channels?
+
+#### Claude · record
+
+- **No audio changed.** The user asked for a cost estimate first.
+- **Counted the re-voice job:**
+  - 28 finished videos (12 launch plus 16 next), 300 paragraphs. The power-bill pilot is extra (16).
+  - The 12 launch videos alone are 125 paragraphs.
+  - Fish S2.1 free allows 50 requests a day, so the full set takes at least 6–7 days of quota; the launch 12 alone take about 3 days.
+- **Claude usage estimate (rough):**
+  - I can't see the plan's usage meter, so I gave a range: about 30–60% of one 5-hour window for all 28, spread over a week by the Fish cap.
+  - I recommended re-voicing one launch video first so the user can read the real cost on the meter.
+- **Channel details:**
+  - Applied through the API on 7 Oct for all three channels and read back then: descriptions, keywords, language, series playlists and home shelves.
+  - Still the user's job in Studio: pictures, links, contact email, country.
+- **Gap found:** `docs/publish-kit-2026-10.md` covers only the 12 launch videos. The 16 new videos have titles, descriptions and tags in their package.json but are not in the kit yet. Offered to add them.
