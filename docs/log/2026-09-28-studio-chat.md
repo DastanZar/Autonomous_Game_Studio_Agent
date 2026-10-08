@@ -2585,3 +2585,17 @@ I liked hannah by fish audio, but before we go about changing any of the audios 
   - Applied through the API on 7 Oct for all three channels and read back then: descriptions, keywords, language, series playlists and home shelves.
   - Still the user's job in Studio: pictures, links, contact email, country.
 - **Gap found:** `docs/publish-kit-2026-10.md` covers only the 12 launch videos. The 16 new videos have titles, descriptions and tags in their package.json but are not in the kit yet. Offered to add them.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+so you've given me the profile picture as 800 cross 800 and banner as 2560 cross 1440 but in nano banana i just see 16 is to 9 9 is to 16 1 is to 1 and these sort of ratios for generating an image so which one should i pick
+
+#### Claude · record
+
+- **Answer:**
+  - Profile picture: 1:1.
+  - Banner: 16:9 (2560×1440 is exactly 16:9). Keep everything important in the middle strip (about 60% of the width and 30% of the height); a phone shows only that strip.
+  - Nano Banana's 16:9 output is smaller than YouTube's 2048×1152 banner minimum.
+- **Offered:** the user drops the images into `studio/assets/channels/`; I upscale them to exact size (2560×1440 and 800×800) and check the safe areas before upload.
