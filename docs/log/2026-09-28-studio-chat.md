@@ -2599,3 +2599,16 @@ so you've given me the profile picture as 800 cross 800 and banner as 2560 cross
   - Banner: 16:9 (2560×1440 is exactly 16:9). Keep everything important in the middle strip (about 60% of the width and 30% of the height); a phone shows only that strip.
   - Nano Banana's 16:9 output is smaller than YouTube's 2048×1152 banner minimum.
 - **Offered:** the user drops the images into `studio/assets/channels/`; I upscale them to exact size (2560×1440 and 800×800) and check the safe areas before upload.
+
+---
+
+### 🧑 User · 2026-10-08 UTC
+
+The images for border and gut turned out to be great, leaderflags were a big hit and miss, shelve that for now, i have to rethink that, give me a better description fo rborder quirks chnnael, this is too ai and too verbose
+
+#### Claude · record
+
+- **Pictures:** Border Quirks and Gut Gang approved; Leader Flags pictures shelved (decision log).
+- **New Border Quirks description** (three short lines, 3 examples, no series list or posting days; the days were dropped because the month plan's cadence differs from 'Tue/Wed/Thu'):
+  - Saved in `studio/channel_setup.json`.
+  - Not yet sent to YouTube; asked the user before applying.

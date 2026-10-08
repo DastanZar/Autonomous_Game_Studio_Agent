@@ -1,30 +1,66 @@
 {
  "_doc": "Channel setup applied through the YouTube Data API by studio/tools/channel_setup.py (description, keywords, language, series playlists, home-page sections). Pictures, links and the contact email are set by hand in YouTube Studio: see docs/channel-setup-2026-10.md.",
  "why-map": {
-  "description": "Strange borders, accidental wars and the history hiding in the map, explained in under a minute.\n\nBorder Quirks tells geography's weirdest true stories: the US town you can only drive to through Canada, the war fought over a pig, why Chile is 4,000 km long and why Russia sold Alaska for two cents an acre. Paper-cutout animation on real maps, and every fact is sourced (links in each video's description).\n\nNew Shorts every Tuesday, Wednesday and Thursday.\n\nSeries: The time a country… · Why does…? · How did…? · Border oddities",
+  "description": "The world's weirdest borders, and the true stories behind them.\n\nA town you can only drive to through Canada. A war over a pig. An island that changes country every six months.\n\nReal maps, sourced facts, under a minute each.",
   "keywords": "geography history maps borders \"weird borders\" \"border oddities\" \"geography facts\" \"history facts\" \"map facts\" exclaves \"animated history\" \"history shorts\"",
   "playlists": [
-   {"series": "the_time", "title": "The time a country…", "description": "Absurd but true moments in history, from wars over pigs to battles lost to birds. Every fact sourced."},
-   {"series": "why", "title": "Why does…?", "description": "Strange places on the map and the real reasons behind them, in under a minute."},
-   {"series": "how_did", "title": "How did…? (history that shaped the map)", "description": "The deals, wars and mistakes that drew today's borders."},
-   {"series": "border", "title": "Border oddities", "description": "Enclaves, exclaves and the weirdest borders on Earth."}
+   {
+    "series": "the_time",
+    "title": "The time a country…",
+    "description": "Absurd but true moments in history, from wars over pigs to battles lost to birds. Every fact sourced."
+   },
+   {
+    "series": "why",
+    "title": "Why does…?",
+    "description": "Strange places on the map and the real reasons behind them, in under a minute."
+   },
+   {
+    "series": "how_did",
+    "title": "How did…? (history that shaped the map)",
+    "description": "The deals, wars and mistakes that drew today's borders."
+   },
+   {
+    "series": "border",
+    "title": "Border oddities",
+    "description": "Enclaves, exclaves and the weirdest borders on Earth."
+   }
   ]
  },
  "body-cast": {
   "description": "Your organs as a cast of cartoon characters, explaining what really goes on inside you, in under a minute.\n\nMeet the Gut Gang: a worried Stomach, an overworked Liver, a show-off Brain, a tireless Heart and the Microbes. Body facts, busted myths and the true stories behind the science, with every fact sourced in the description. Made to entertain and explain, not medical advice.\n\nNew Shorts every Tuesday, Wednesday and Thursday.\n\nSeries: What happens if…? · A day in the life of your organs · Organ vs organ",
   "keywords": "\"human body\" \"body facts\" biology anatomy digestion \"science facts\" \"health myths\" \"how the body works\" \"animated science\" \"gut health\" brain",
   "playlists": [
-   {"series": "what_if", "title": "What happens if…?", "description": "What really happens inside you: swallowed gum, your lunch's journey and more, told by the Gut Gang."},
-   {"series": "day_in_life", "title": "A day in the life of your organs", "description": "Your stomach, brain, heart and liver at work, and what they put up with."},
-   {"series": "versus", "title": "Organ vs organ", "description": "Two organs, one question, one sourced answer."}
+   {
+    "series": "what_if",
+    "title": "What happens if…?",
+    "description": "What really happens inside you: swallowed gum, your lunch's journey and more, told by the Gut Gang."
+   },
+   {
+    "series": "day_in_life",
+    "title": "A day in the life of your organs",
+    "description": "Your stomach, brain, heart and liver at work, and what they put up with."
+   },
+   {
+    "series": "versus",
+    "title": "Organ vs organ",
+    "description": "Two organs, one question, one sourced answer."
+   }
   ]
  },
  "ranked": {
   "description": "Countries ranked by real numbers, in under a minute: who has the most, the biggest and the strangest.\n\nLeader Flags turns data into fast countdowns with official flags on a spinning globe: most World Cup titles, most islands, most time zones, and US states that out-earn whole countries. Every number is sourced in the description.\n\nNew rankings every Tuesday, Wednesday and Thursday.\n\nSeries: Which country has the most…? · State vs country · Race through time",
   "keywords": "countries flags rankings \"countries ranked\" \"country comparison\" \"flags of the world\" \"world records\" geography data \"fun facts\" \"top 10\"",
   "playlists": [
-   {"series": "top", "title": "Which country has the most…?", "description": "Countdowns of the world's records by country, with sources on every number."},
-   {"series": "versus", "title": "State vs country", "description": "US states and whole countries, head to head on the numbers."}
+   {
+    "series": "top",
+    "title": "Which country has the most…?",
+    "description": "Countdowns of the world's records by country, with sources on every number."
+   },
+   {
+    "series": "versus",
+    "title": "State vs country",
+    "description": "US states and whole countries, head to head on the numbers."
+   }
   ]
  }
 }
