@@ -2531,3 +2531,35 @@ I hit my usage limit while you were working, but it has reset now. Please contin
   - I couldn't fetch the full text of the Nature quicksand paper; the claims cite its University of Amsterdam repository record plus National Geographic and Live Science.
 - **Still running:** the Border Quirks worker (Statue of Liberty, Market Island, Dracula's castle).
 - **Live check (a2e32d9):** all four MP4s on the dashboard match the local file sizes byte for byte.
+
+#### User
+
+> I hit my usage limit while you were working, but it has reset now. Please continue from where you left off.
+
+#### Claude · record (Border Quirks next 4)
+
+- **Worker resumed** after the session limit. It finished Dracula: the final gate had failed only because the check ran before the production report existed. Now 11/11 final, 9/9 package.
+- **All four Border Quirks Shorts done:**
+
+  | Episode | Slot | Length | Loudness | True peak | WER |
+  |---|---|---|---|---|---|
+  | Pheasant Island | 21 Oct | 43.8 s | −14.2 LUFS | −2.0 dBTP | 0 |
+  | Märket | 22 Oct | 53.0 s | −14.1 | −1.5 | 0 |
+  | Dracula's Transylvania | 27 Oct | 51.4 s | −14.1 | −2.1 | 0.009 |
+  | Statue of Liberty | 28 Oct | 54.0 s | −14.0 | −1.5 | 0 |
+
+- **My checks:**
+  - `studio.py status` (all ✓ through package).
+  - ffprobe: 1080×1920, 24 fps.
+  - ebur128 on each encoded MP4: numbers above.
+  - Frames at 8, 25 and 42 s from each MP4: no layout defects.
+- **Caveats from the worker:**
+  - Statue of Liberty: the first encode peaked at −0.9 dBTP. It was fixed with a gentle lowpass and compressor on that mix; the 13 dB music-under-voice figure was not re-measured afterwards.
+  - Two lines were reworded because Whisper misheard names ('Märket' → 'meerkat', 'Bran Castle' → 'brandcastle').
+  - Transylvania's outline is approximate (16 merged OSM counties) and labelled so on screen.
+- **Dashboard:** added review item `next-border-quirks`; force-added the four MP4s.
+- **Engine wishes logged by the worker:**
+  - a custom land split in geo.py;
+  - a slab height that scales with the region;
+  - a harder true-peak margin in encode.py;
+  - `map_history` in the bible's scene types.

@@ -2,6 +2,31 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "next-border-quirks",
+   "status": "open",
+   "kind": "video",
+   "title": "Border Quirks, next 4 (21, 22, 27, 28 Oct): Pheasant Island, Märket, Dracula's Transylvania, the Statue of Liberty",
+   "question": "All four pass every gate through packaging (real OSM geometry; WER ≤ 0.009; -14.0 to -14.2 LUFS). The Statue of Liberty lands on the 140th anniversary of its dedication; Dracula sits 4 days before Halloween, with Transylvania's 1918 outline marked 'borders approximate'. Flag anything to change before upload.",
+   "files": [
+    [
+     "2026-10-21 15:00 UTC · This island changes country every six months",
+     "episodes/why-map/pheasant-island/out/pheasant-island.mp4"
+    ],
+    [
+     "2026-10-22 15:00 UTC · Finland built a lighthouse in Sweden, so they bent the border",
+     "episodes/why-map/market-island/out/market-island.mp4"
+    ],
+    [
+     "2026-10-27 15:00 UTC · When Dracula came out, Transylvania wasn't in Romania",
+     "episodes/why-map/dracula-transylvania/out/dracula-transylvania.mp4"
+    ],
+    [
+     "2026-10-28 15:00 UTC · The Statue of Liberty is in New York. Surrounded by New Jersey.",
+     "episodes/why-map/statue-of-liberty/out/statue-of-liberty.mp4"
+    ]
+   ]
+  },
+  {
    "id": "next-sketch",
    "status": "open",
    "kind": "video",
