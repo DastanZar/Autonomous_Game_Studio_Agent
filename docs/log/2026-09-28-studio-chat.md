@@ -2779,3 +2779,19 @@ the studio only has the .mp4 file right, where do i get the thumbnail and .srt?
 
 - **Answer:** the thumbnail and SRT were already on the dashboard site, but only as plain paths in the kit. I checked that both return 200.
 - **Change:** `publish_kit.py` now puts direct download links for the MP4, SRT and thumbnail in every video's section of the kit.
+
+---
+
+### 🧑 User · 2026-10-10 UTC
+
+should we try a better thumbnail, one which is current trend witth pulling views, generated with image gen, just a thought?
+also, the tags, do i upload them with a # or just as words?
+
+#### Claude · record
+
+- **Thumbnails:** advised against for now.
+  - In the Shorts feed, the video plays itself and no thumbnail is shown; thumbnails only appear on the channel's Shorts tab, in search and in suggestions.
+  - Desktop Studio often doesn't offer a custom Shorts thumbnail.
+  - Our first frame (the hook) is what earns views. Worth revisiting for long-form.
+  - Any image-gen thumbnail would carry no generated text; text gets typeset in code.
+- **Tags:** plain words, no #, pasted comma-separated into the Tags box exactly as in the kit. Hashtags are already at the end of each description.
