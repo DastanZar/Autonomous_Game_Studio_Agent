@@ -2752,3 +2752,19 @@ Won't you be the one uploading them on a schedule?
   - Draft audit answers are at the end of the publish kit.
   - The user has to submit the form, because it's their Google Cloud project.
 - **Offered:** once uploaded, I verify the schedule through the API and sort playlists; after the audit, `publish.py` uploads on schedule by itself.
+
+---
+
+### 🧑 User · 2026-10-10 UTC
+
+wait so please outline the part im supoosed to do wrt starting video uploads, steps clearly, aslso re share dashboard link
+
+#### Claude · record
+
+- **Checked (11:05 UTC Sat 10 Oct):** no uploads on either channel, so the 8 and 9 Oct slots had passed unused.
+- **Rescheduled all 16 to start today:**
+  - Point Roberts at 12:00 ET and food journey at 13:00 ET.
+  - Then 4 a week from Tue 13 Oct.
+  - The Statue of Liberty stays on 28 Oct; Alaska is still before Alaska Day and Dracula before Halloween.
+- **Gates and kit:** package gates pass and the kit was regenerated.
+- **Gave the user:** numbered upload steps and the dashboard link.

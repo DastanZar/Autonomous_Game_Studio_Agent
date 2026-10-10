@@ -78,7 +78,7 @@
   },
   "publish": {
    "result": "fail",
-   "at": "2026-10-08T17:40:36Z",
+   "at": "2026-10-10T11:06:41Z",
    "hashes": {
     "package.json": "517ba5822b9a",
     "publish.json": null
