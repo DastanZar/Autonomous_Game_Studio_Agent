@@ -2795,3 +2795,19 @@ also, the tags, do i upload them with a # or just as words?
   - Our first frame (the hook) is what earns views. Worth revisiting for long-form.
   - Any image-gen thumbnail would carry no generated text; text gets typeset in code.
 - **Tags:** plain words, no #, pasted comma-separated into the Tags box exactly as in the kit. Hashtags are already at the end of each description.
+
+---
+
+### 🧑 User · 2026-10-10 UTC
+
+(pasted the Studio 'Show more' settings for Point Roberts) everything fine, do we need more tags, would it increase reach to put generic tags or something like bts or kpop?
+
+#### Claude · record
+
+- **Tags:** no more needed. Unrelated tags (e.g. bts, kpop) break YouTube's spam/misleading-metadata policy, which can remove the video or strike the channel. Studio itself says tags play a minimal role.
+- **Fixes in the pasted settings:**
+  - Category is People & Blogs; should be Education.
+  - Video language is unset; set English.
+- **The rest:**
+  - AI use: No (stylised animation; the synthetic voice isn't a real person; the music is background, not the focus).
+  - Paid promotion: No; not for kids: correct; remixing allowed; automatic chapters/places/concepts are fine either way.
