@@ -2826,3 +2826,13 @@ does the category matter for reach? do any of these toggles matter for reach/vie
   - Notify subscribers, comments, remixing and like counts: on.
   - Video language: set to English.
 - **No effect on Shorts:** chapters, places, concepts, licence, recording date.
+
+---
+
+### 🧑 User · 2026-10-10 UTC
+
+(pasted the Education category fields: Type, Problems, Academic system, Level, Exam)
+
+#### Claude · record
+
+- **Advised:** set Type to "Concept overview" if it is offered, otherwise None. Leave Problems empty (it is for worked-problem tutorials) and leave Academic system, Level and Exam as None. These fields have little effect on reach.
