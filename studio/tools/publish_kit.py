@@ -40,6 +40,7 @@ def et(utc):
     return t.strftime("%a %-d %b, %H:%M")
 
 
+SITE = "https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/"
 rel = lambda c, s, f: f"episodes/{c}/{s}/{f}"
 L = [f"# Publish kit: {' and '.join(names[c] for c in chans)} ({len(eps)} Shorts, October-November 2026)", "",
      "Everything needed to upload each video by hand in YouTube Studio. API uploads stay off until the API audit passes",
@@ -59,7 +60,7 @@ for n, (s, c, slug, pkg, fr) in enumerate(eps, 1):
     desc = pkg["description"] + ("\n\n" + " ".join(pkg["hashtags"]) if pkg.get("hashtags") else "")
     L += ["", f"## {n}. {names[c]}: {pkg['title']}", "",
           f"- **Schedule:** {et(s)} ET ({s})",
-          f"- **Video:** `{rel(c, slug, pkg['video'])}`  **Captions:** `{rel(c, slug, pkg['srt'])}`  **Thumbnail:** `{rel(c, slug, pkg['thumbnail'])}`",
+          f"- **Download:** [video (MP4)]({SITE}{rel(c, slug, pkg['video'])}) · [captions (SRT)]({SITE}{rel(c, slug, pkg['srt'])}) · [thumbnail (JPG)]({SITE}{rel(c, slug, pkg['thumbnail'])}) (right-click → Save link as)",
           f"- **Hashtags** (already at the end of the description): {' '.join(pkg.get('hashtags', []))}",
           f"- **Tags** (Studio → Show more → Tags): {', '.join(pkg.get('tags', []))}",
           f"- **Category:** {pkg.get('category', 'Education')} · **Language:** English · **Made for kids:** No",

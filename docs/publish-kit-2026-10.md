@@ -34,7 +34,7 @@ exact). After each goes live, post the pinned comment and pin it, and set the re
 ## 1. Border Quirks: Why this US town's only road out goes through Canada
 
 - **Schedule:** Sat 10 Oct, 12:00 ET (2026-10-10T16:00:00Z)
-- **Video:** `episodes/why-map/point-roberts/out/point-roberts.mp4`  **Captions:** `episodes/why-map/point-roberts/out/point-roberts.srt`  **Thumbnail:** `episodes/why-map/point-roberts/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/point-roberts/out/point-roberts.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/point-roberts/out/point-roberts.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/point-roberts/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #geography #history #maps #shorts
 - **Tags** (Studio → Show more → Tags): point roberts, point roberts washington, exclave, us canada border, weird borders, geography facts, 49th parallel, oregon treaty
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -61,7 +61,7 @@ Labels: the 80 percent figure is the Border Policy Research Institute's estimate
 ## 2. Gut Gang: Your gut isn't the size of a tennis court. Follow your lunch.
 
 - **Schedule:** Sat 10 Oct, 13:00 ET (2026-10-10T17:00:00Z)
-- **Video:** `episodes/body-cast/food-journey/out/food-journey.mp4`  **Captions:** `episodes/body-cast/food-journey/out/food-journey.srt`  **Thumbnail:** `episodes/body-cast/food-journey/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/food-journey/out/food-journey.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/food-journey/out/food-journey.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/food-journey/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #science #biology #digestion #shorts
 - **Tags** (Studio → Show more → Tags): digestion, digestive system, small intestine, gut surface area, how digestion works, human body facts, biology, science shorts
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -90,7 +90,7 @@ Labels: about 30 m² for the small intestine (Wikipedia) and about 32 m² for th
 ## 3. Border Quirks: America and Britain nearly went to war over a pig
 
 - **Schedule:** Tue 13 Oct, 11:00 ET (2026-10-13T15:00:00Z)
-- **Video:** `episodes/why-map/pig-war/out/pig-war.mp4`  **Captions:** `episodes/why-map/pig-war/out/pig-war.srt`  **Thumbnail:** `episodes/why-map/pig-war/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/pig-war/out/pig-war.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/pig-war/out/pig-war.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/pig-war/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #history #geography #maps #shorts
 - **Tags** (Studio → Show more → Tags): pig war, pig war 1859, san juan island, us britain war, weird history, history facts, oregon treaty, haro strait
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -115,7 +115,7 @@ Labels: the British force total is Wikipedia's summary figure. Maps: Natural Ear
 ## 4. Gut Gang: Why doesn't your stomach digest itself?
 
 - **Schedule:** Tue 13 Oct, 12:00 ET (2026-10-13T16:00:00Z)
-- **Video:** `episodes/body-cast/stomach-acid/out/stomach-acid.mp4`  **Captions:** `episodes/body-cast/stomach-acid/out/stomach-acid.srt`  **Thumbnail:** `episodes/body-cast/stomach-acid/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/stomach-acid/out/stomach-acid.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/stomach-acid/out/stomach-acid.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/stomach-acid/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #science #biology #body #shorts
 - **Tags** (Studio → Show more → Tags): stomach acid, why doesn't the stomach digest itself, h pylori, barry marshall, stomach ulcers, human body facts, biology, science history
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -146,7 +146,7 @@ Labels: 'can dissolve zinc' is IFLScience's claim. Barry Marshall is named, not 
 ## 5. Border Quirks: Russia sold Alaska for 2 cents an acre, and left a view of tomorrow
 
 - **Schedule:** Wed 14 Oct, 11:00 ET (2026-10-14T15:00:00Z)
-- **Video:** `episodes/why-map/alaska-sale/out/alaska-sale.mp4`  **Captions:** `episodes/why-map/alaska-sale/out/alaska-sale.srt`  **Thumbnail:** `episodes/why-map/alaska-sale/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/alaska-sale/out/alaska-sale.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/alaska-sale/out/alaska-sale.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/alaska-sale/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #history #geography #alaska #shorts
 - **Tags** (Studio → Show more → Tags): alaska purchase, why russia sold alaska, seward's folly, diomede islands, international date line, alaska day, history facts, geography facts
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -175,7 +175,7 @@ Labels: 'Seward's Folly' was what critics called it; the purchase was approved b
 ## 6. Gut Gang: Does swallowed gum really stay in you for 7 years?
 
 - **Schedule:** Wed 14 Oct, 12:00 ET (2026-10-14T16:00:00Z)
-- **Video:** `episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4`  **Captions:** `episodes/body-cast/swallowed-gum/out/swallowed-gum.srt`  **Thumbnail:** `episodes/body-cast/swallowed-gum/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/swallowed-gum/out/swallowed-gum.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/swallowed-gum/out/swallowed-gum.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/swallowed-gum/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #science #biology #mythbusting #shorts
 - **Tags** (Studio → Show more → Tags): swallowed gum, does gum stay in your stomach 7 years, gum myth, digestion, body myths, human body facts, biology, science shorts
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -200,7 +200,7 @@ The case report is Milov et al., Pediatrics 1998, as described by Scientific Ame
 ## 7. Border Quirks: Why Chile is so long, and Bolivia has a navy with no sea
 
 - **Schedule:** Thu 15 Oct, 11:00 ET (2026-10-15T15:00:00Z)
-- **Video:** `episodes/why-map/chile-long/out/chile-long.mp4`  **Captions:** `episodes/why-map/chile-long/out/chile-long.srt`  **Thumbnail:** `episodes/why-map/chile-long/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/chile-long/out/chile-long.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/chile-long/out/chile-long.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/chile-long/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #geography #history #maps #shorts
 - **Tags** (Studio → Show more → Tags): why is chile so long, chile geography, war of the pacific, bolivia navy, bolivia landlocked, andes, geography facts, south america
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -232,7 +232,7 @@ Labels: Chile's length is 4,270 km in one source and 'over 4,300 km' in another.
 ## 8. Gut Gang: Your brain runs on 12 watts, and it never turns off
 
 - **Schedule:** Thu 15 Oct, 12:00 ET (2026-10-15T16:00:00Z)
-- **Video:** `episodes/body-cast/brain-energy/out/brain-energy.mp4`  **Captions:** `episodes/body-cast/brain-energy/out/brain-energy.srt`  **Thumbnail:** `episodes/body-cast/brain-energy/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/brain-energy/out/brain-energy.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/brain-energy/out/brain-energy.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/brain-energy/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #science #brain #biology #shorts
 - **Tags** (Studio → Show more → Tags): brain energy, how many watts does the brain use, 10 percent brain myth, brain facts, human body facts, neuroscience, biology, science shorts
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -260,7 +260,7 @@ Labels: 12 watts is Scientific American's estimate from a 1,300 kcal resting rat
 ## 9. Border Quirks: This island changes country every six months
 
 - **Schedule:** Fri 16 Oct, 11:00 ET (2026-10-16T15:00:00Z)
-- **Video:** `episodes/why-map/pheasant-island/out/pheasant-island.mp4`  **Captions:** `episodes/why-map/pheasant-island/out/pheasant-island.srt`  **Thumbnail:** `episodes/why-map/pheasant-island/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/pheasant-island/out/pheasant-island.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/pheasant-island/out/pheasant-island.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/pheasant-island/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #history #geography #maps #shorts
 - **Tags** (Studio → Show more → Tags): pheasant island, isla de los faisanes, ile des faisans, france spain border, condominium, weird borders, treaty of the pyrenees, bidasoa
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -287,7 +287,7 @@ Labels: the origin of the name is uncertain ("probably" a mistranslation). Sourc
 ## 10. Gut Gang: Why is yawning contagious? (It isn't about oxygen)
 
 - **Schedule:** Fri 16 Oct, 12:00 ET (2026-10-16T16:00:00Z)
-- **Video:** `episodes/body-cast/contagious-yawn/out/contagious-yawn.mp4`  **Captions:** `episodes/body-cast/contagious-yawn/out/contagious-yawn.srt`  **Thumbnail:** `episodes/body-cast/contagious-yawn/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/contagious-yawn/out/contagious-yawn.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/contagious-yawn/out/contagious-yawn.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/contagious-yawn/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #science #biology #yawning #shorts
 - **Tags** (Studio → Show more → Tags): why is yawning contagious, contagious yawning, why do we yawn, yawning oxygen myth, robert provine, brain facts, human body facts, biology
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -312,7 +312,7 @@ Percentages are from Provine's own lab tests. Robert Provine is named, not depic
 ## 11. Border Quirks: Finland built a lighthouse in Sweden, so they bent the border
 
 - **Schedule:** Tue 20 Oct, 11:00 ET (2026-10-20T15:00:00Z)
-- **Video:** `episodes/why-map/market-island/out/market-island.mp4`  **Captions:** `episodes/why-map/market-island/out/market-island.srt`  **Thumbnail:** `episodes/why-map/market-island/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/market-island/out/market-island.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/market-island/out/market-island.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/market-island/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #history #geography #maps #shorts
 - **Tags** (Studio → Show more → Tags): market island, märket, sweden finland border, weird borders, lighthouse, aland, baltic sea, border swap
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -337,7 +337,7 @@ Labels: the official papers do not record why the lighthouse was built on the Sw
 ## 12. Gut Gang: Do cold feet give you a cold? Scientists tested it
 
 - **Schedule:** Tue 20 Oct, 12:00 ET (2026-10-20T16:00:00Z)
-- **Video:** `episodes/body-cast/cold-feet/out/cold-feet.mp4`  **Captions:** `episodes/body-cast/cold-feet/out/cold-feet.srt`  **Thumbnail:** `episodes/body-cast/cold-feet/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/cold-feet/out/cold-feet.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/cold-feet/out/cold-feet.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/cold-feet/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #science #biology #commoncold #shorts
 - **Tags** (Studio → Show more → Tags): does cold weather give you a cold, cold feet cold, common cold, catching a cold, cold and flu season, immune system, human body facts, biology
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -364,7 +364,7 @@ This is one study of 180 people; the mechanism is the researchers' theory, and t
 ## 13. Border Quirks: When Dracula came out, Transylvania wasn't in Romania
 
 - **Schedule:** Wed 21 Oct, 11:00 ET (2026-10-21T15:00:00Z)
-- **Video:** `episodes/why-map/dracula-transylvania/out/dracula-transylvania.mp4`  **Captions:** `episodes/why-map/dracula-transylvania/out/dracula-transylvania.srt`  **Thumbnail:** `episodes/why-map/dracula-transylvania/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/dracula-transylvania/out/dracula-transylvania.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/dracula-transylvania/out/dracula-transylvania.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/dracula-transylvania/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #history #geography #halloween #shorts
 - **Tags** (Studio → Show more → Tags): dracula, transylvania, bram stoker, bran castle, vlad the impaler, romania history, austria-hungary, halloween history
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -396,7 +396,7 @@ Labels: borders on the map are approximate (the region is drawn from today's Rom
 ## 14. Gut Gang: Why does sunlight make you sneeze? Aristotle got it wrong
 
 - **Schedule:** Wed 21 Oct, 12:00 ET (2026-10-21T16:00:00Z)
-- **Video:** `episodes/body-cast/sun-sneeze/out/sun-sneeze.mp4`  **Captions:** `episodes/body-cast/sun-sneeze/out/sun-sneeze.srt`  **Thumbnail:** `episodes/body-cast/sun-sneeze/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/sun-sneeze/out/sun-sneeze.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/sun-sneeze/out/sun-sneeze.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/sun-sneeze/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #science #biology #sneeze #shorts
 - **Tags** (Studio → Show more → Tags): why does sunlight make you sneeze, photic sneeze reflex, sun sneeze, achoo syndrome, why do we sneeze, brain facts, human body facts, biology
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -424,7 +424,7 @@ Sources:
 ## 15. Gut Gang: He lived in a cave with no clocks and lost 25 days
 
 - **Schedule:** Thu 22 Oct, 12:00 ET (2026-10-22T16:00:00Z)
-- **Video:** `episodes/body-cast/cave-clock/out/cave-clock.mp4`  **Captions:** `episodes/body-cast/cave-clock/out/cave-clock.srt`  **Thumbnail:** `episodes/body-cast/cave-clock/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/cave-clock/out/cave-clock.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/cave-clock/out/cave-clock.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/cave-clock/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #science #biology #sleep #shorts
 - **Tags** (Studio → Show more → Tags): michel siffre, cave experiment, body clock, circadian rhythm, daylight saving time, clocks go back, sleep science, brain facts
 - **Category:** Education · **Language:** English · **Made for kids:** No
@@ -452,7 +452,7 @@ The 25 days and the 24.5-hour cycle are Siffre's own account. Michel Siffre is n
 ## 16. Border Quirks: The Statue of Liberty is in New York. Surrounded by New Jersey.
 
 - **Schedule:** Wed 28 Oct, 11:00 ET (2026-10-28T15:00:00Z)
-- **Video:** `episodes/why-map/statue-of-liberty/out/statue-of-liberty.mp4`  **Captions:** `episodes/why-map/statue-of-liberty/out/statue-of-liberty.srt`  **Thumbnail:** `episodes/why-map/statue-of-liberty/out/thumbnail.jpg`
+- **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/statue-of-liberty/out/statue-of-liberty.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/statue-of-liberty/out/statue-of-liberty.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/why-map/statue-of-liberty/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #history #geography #newyork #shorts
 - **Tags** (Studio → Show more → Tags): statue of liberty, liberty island, ellis island, new york vs new jersey, new jersey v new york, statue of liberty 140, weird borders, hudson river border
 - **Category:** Education · **Language:** English · **Made for kids:** No

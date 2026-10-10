@@ -2768,3 +2768,14 @@ wait so please outline the part im supoosed to do wrt starting video uploads, st
   - The Statue of Liberty stays on 28 Oct; Alaska is still before Alaska Day and Dracula before Halloween.
 - **Gates and kit:** package gates pass and the kit was regenerated.
 - **Gave the user:** numbered upload steps and the dashboard link.
+
+---
+
+### 🧑 User · 2026-10-10 UTC
+
+the studio only has the .mp4 file right, where do i get the thumbnail and .srt?
+
+#### Claude · record
+
+- **Answer:** the thumbnail and SRT were already on the dashboard site, but only as plain paths in the kit. I checked that both return 200.
+- **Change:** `publish_kit.py` now puts direct download links for the MP4, SRT and thumbnail in every video's section of the kit.
