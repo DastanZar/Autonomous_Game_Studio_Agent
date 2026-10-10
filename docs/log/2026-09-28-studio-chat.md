@@ -2811,3 +2811,18 @@ also, the tags, do i upload them with a # or just as words?
 - **The rest:**
   - AI use: No (stylised animation; the synthetic voice isn't a real person; the music is background, not the focus).
   - Paid promotion: No; not for kids: correct; remixing allowed; automatic chapters/places/concepts are fine either way.
+
+---
+
+### 🧑 User · 2026-10-10 UTC
+
+does the category matter for reach? do any of these toggles matter for reach/viewership/engagement?
+
+#### Claude · record
+
+- **Category:** minor (topic classification).
+- **Settings that matter:**
+  - Made for kids = No (Yes kills comments and notifications).
+  - Notify subscribers, comments, remixing and like counts: on.
+  - Video language: set to English.
+- **No effect on Shorts:** chapters, places, concepts, licence, recording date.
