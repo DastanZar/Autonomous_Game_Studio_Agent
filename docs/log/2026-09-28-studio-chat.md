@@ -2836,3 +2836,16 @@ does the category matter for reach? do any of these toggles matter for reach/vie
 #### Claude · record
 
 - **Advised:** set Type to "Concept overview" if it is offered, otherwise None. Leave Problems empty (it is for worked-problem tutorials) and leave Academic system, Level and Exam as None. These fields have little effect on reach.
+
+---
+
+### 🧑 User · 2026-10-10 UTC
+
+(pasted the Video elements page) also when uploadint .srt file do we select with timing or without timing?
+
+#### Claude · record
+
+- **Advised:**
+  - Choose "With timing": the SRT holds the timestamps.
+  - Add our file even though YouTube made automatic English captions; ours match the script exactly.
+  - Related video: skip for this first upload (there is nothing to link yet) and set it later as the kit lists.
