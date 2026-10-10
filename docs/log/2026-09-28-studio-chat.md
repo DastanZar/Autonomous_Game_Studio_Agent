@@ -2849,3 +2849,13 @@ does the category matter for reach? do any of these toggles matter for reach/vie
   - Choose "With timing": the SRT holds the timestamps.
   - Add our file even though YouTube made automatic English captions; ours match the script exactly.
   - Related video: skip for this first upload (there is nothing to link yet) and set it later as the kit lists.
+
+---
+
+### 🧑 User · 2026-10-10 UTC
+
+is 9:30pm the best next slot?
+
+#### Claude · record
+
+- **Confirmed:** 16:00 UTC (12:00 ET, 9:30 pm IST) is the right slot. The audience is mostly US/UK; benchmark channels post at 14–15 UTC and ours sit at 15–18 UTC.
