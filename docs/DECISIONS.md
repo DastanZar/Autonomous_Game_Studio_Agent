@@ -30,6 +30,8 @@ what is still open. It is updated with every step we take; newest entries are at
 
 ## Blocked (needs something from outside this container)
 
+- **Phone verification (links in descriptions):** verification is per channel, and one phone number covers at most 2 channels a year (YouTube Help 171664). Gut Gang is done; Border Quirks next with the same number. The pencil channel will need a second number.
+
 
 - **Fish voice:** there is no OpenRouter key in the container, so every episode so far uses a local draft
   voice (Kokoro George, the user's pick). To unblock, add `OPENROUTER_API_KEY` as an environment secret.

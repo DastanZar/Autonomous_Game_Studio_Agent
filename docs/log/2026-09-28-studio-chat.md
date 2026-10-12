@@ -2877,3 +2877,16 @@ go gut gang video uh, when I'm uploading it I have a question of again when I se
   - AI use: No (the synthetic Hannah voice is not a real person).
   - Upload food-journey.srt "With timing".
   - Use the Gut Gang texts from the kit.
+
+---
+
+### 🧑 User · 2026-10-12 UTC
+
+So when uploading the description for the CutCam video, the first one, it said the links can't be put in there until I uh, verify my mobile number. So I did that. But do I have to then verify it again and again for border quirks and, and any other channels from the same Gmail ID or does it work across brand channels and the Gmail ID?
+
+#### Claude · record
+
+- **Answer (YouTube Help 171664):** verification is per channel, not per Gmail.
+  - Each brand channel is verified separately, at youtube.com/verify while switched to it.
+  - One phone number can verify at most 2 channels a year, so Gut Gang plus Border Quirks uses up this number.
+  - A third channel (the pencil channel, Leader Flags) needs a second number, e.g. a family member's.
