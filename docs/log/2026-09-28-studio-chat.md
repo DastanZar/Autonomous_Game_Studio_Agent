@@ -2890,3 +2890,17 @@ So when uploading the description for the CutCam video, the first one, it said t
   - Each brand channel is verified separately, at youtube.com/verify while switched to it.
   - One phone number can verify at most 2 channels a year, so Gut Gang plus Border Quirks uses up this number.
   - A third channel (the pencil channel, Leader Flags) needs a second number, e.g. a family member's.
+
+---
+
+### 🧑 User · 2026-10-12 UTC
+
+well thats a major bottleneck to be running multiple channels isnt it
+
+#### Claude · record
+
+- **Answer:** smaller than it looks.
+  - Unverified channels still post Shorts normally; verification only unlocks things like clickable links and custom thumbnails, which Shorts barely use.
+  - Fixes: a second real number covers 2 more channels; or descriptions with sources as plain text (no URLs).
+  - Offered a links-free description option in the kit for unverified channels.
+  - Advised against virtual or burner numbers, which YouTube often rejects.
