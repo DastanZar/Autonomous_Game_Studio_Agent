@@ -15,7 +15,7 @@ exact). After each goes live, post the pinned comment and pin it, and set the re
 | # | When (ET) | UTC | Channel | Title | Length | Voice |
 |---|---|---|---|---|---|---|
 | 1 | Sat 10 Oct, 12:00 | 2026-10-10T16:00:00Z | Border Quirks | Why this US town's only road out goes through Canada | 59.75 s | George (Kokoro) |
-| 2 | Sat 10 Oct, 13:00 | 2026-10-10T17:00:00Z | Gut Gang | Your gut isn't the size of a tennis court. Follow your lunch. | 47.15 s | Hannah (Fish) |
+| 2 | Mon 12 Oct, 12:00 | 2026-10-12T16:00:00Z | Gut Gang | Your gut isn't the size of a tennis court. Follow your lunch. | 47.15 s | Hannah (Fish) |
 | 3 | Tue 13 Oct, 11:00 | 2026-10-13T15:00:00Z | Border Quirks | America and Britain nearly went to war over a pig | 54.0 s | George (Kokoro) |
 | 4 | Tue 13 Oct, 12:00 | 2026-10-13T16:00:00Z | Gut Gang | Why doesn't your stomach digest itself? | 46.41 s | Hannah (Fish) |
 | 5 | Wed 14 Oct, 11:00 | 2026-10-14T15:00:00Z | Border Quirks | Russia sold Alaska for 2 cents an acre, and left a view of tomorrow | 55.33 s | George (Kokoro) |
@@ -60,7 +60,7 @@ Labels: the 80 percent figure is the Border Policy Research Institute's estimate
 
 ## 2. Gut Gang: Your gut isn't the size of a tennis court. Follow your lunch.
 
-- **Schedule:** Sat 10 Oct, 13:00 ET (2026-10-10T17:00:00Z)
+- **Schedule:** Mon 12 Oct, 12:00 ET (2026-10-12T16:00:00Z)
 - **Download:** [video (MP4)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/food-journey/out/food-journey.mp4) · [captions (SRT)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/food-journey/out/food-journey.srt) · [thumbnail (JPG)](https://dastanzar.github.io/Autonomous_Game_Studio_Agent/media/episodes/body-cast/food-journey/out/thumbnail.jpg) (right-click → Save link as)
 - **Hashtags** (already at the end of the description): #science #biology #digestion #shorts
 - **Tags** (Studio → Show more → Tags): digestion, digestive system, small intestine, gut surface area, how digestion works, human body facts, biology, science shorts

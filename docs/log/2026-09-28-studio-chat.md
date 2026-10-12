@@ -2859,3 +2859,21 @@ is 9:30pm the best next slot?
 #### Claude · record
 
 - **Confirmed:** 16:00 UTC (12:00 ET, 9:30 pm IST) is the right slot. The audience is mostly US/UK; benchmark channels post at 14–15 UTC and ours sit at 15–18 UTC.
+
+---
+
+### 🧑 User · 2026-10-12 UTC
+
+go gut gang video uh, when I'm uploading it I have a question of again when I select education what type shall I select from the drop down and apart from that anything different that I have to do while uploading it any of the other options that have to be different about
+
+#### Claude · record
+
+- **API check (14:40 UTC Mon 12 Oct):**
+  - Point Roberts went public on 10 Oct at 16:20 UTC with 10 views; category Education, language English.
+  - The Gut Gang food-journey video is uploading now (private, not scheduled).
+- **Moved food journey to today,** Mon 12 Oct 16:00 UTC (12:00 ET, 9:30 pm IST); the rest of the schedule is unchanged. Kit regenerated.
+- **Advised:**
+  - Same settings as Border Quirks; Type "Concept overview".
+  - AI use: No (the synthetic Hannah voice is not a real person).
+  - Upload food-journey.srt "With timing".
+  - Use the Gut Gang texts from the kit.
