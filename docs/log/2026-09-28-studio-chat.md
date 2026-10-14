@@ -3057,3 +3057,17 @@ can i give you my cookies or something, will that help?
 - **Answer:** no. The block is per-IP rate limiting (HTTP 429) on Wikimedia's file servers, not a login problem, so cookies wouldn't lift it.
 - Advised never to share browser cookies: they are a full login to the user's accounts.
 - Options repeated: upload the 15 files, or wait for the block to lift (the downloader keeps retrying).
+
+---
+
+### 🧑 User · 2026-10-14 UTC
+
+is this the only site that can provide this? wont a normal google images earch also give you this, or unsplash or some other place
+
+#### Claude · record
+
+- **Tested alternatives:**
+  - News sites work from this machine. NPR article images (AP and Getty archive photos at 1400 px) and History.com (Getty) are reachable.
+  - Google Images: no image-search tool here, and scraping Google is blocked.
+  - Unsplash: modern stock only, no 1972 archive.
+- **Proposed** using news-site archive photos for the internal-only test (never published, never committed); waiting for the user's go to resume the build.
