@@ -2922,3 +2922,23 @@ I want to test out some more audio models, unconvinced by hannah, after getting 
 - **MiniMax:** the free plan is web-app only (10k credits); the API is paid. Not usable in the pipeline.
 - **Gemini TTS:** may be free in AI Studio; needs the user's key.
 - **Dashboard:** review item `voices-round2`, with Hannah and George for comparison.
+
+---
+
+### 🧑 User · 2026-10-14 UTC
+
+didnt end up liking any tbh, i want specific emotions, pauses, tonality, inflection points all this to reflect in the clips, try again with maybe passing some different parameters, even try fish free with emotions and all that i specified
+
+#### Claude · record
+
+- **Round 3:** one 6-line Point Roberts hook with acting direction per line, saved as `studio/voices/catalog/round3/direction.json`.
+- **Fish S2.1 free:**
+  - Inline emotion tags (bracket direction plus (break)/(long-break)) in 5 voices, plus a plain Felix take for comparison; 6 requests.
+  - Tags were never spoken.
+  - The pause tags look ignored: plain Felix pauses more on Every. Single. Day.
+  - Book Record added a stray sound (heard as Quark!).
+- **VoxCPM2:** per-line instruction, 2 designed voices, stitched with set pauses; the US voice gives Washington a question inflection.
+- **Chatterbox:** per-line exaggeration, cloning the VoxCPM2 British voice; it merged Every Single Day and dropped the final it.
+- **Checks:** all transcripts match apart from those flaws.
+- **Stitch fix:** the first stitch had a 3.3 s gap (one VoxCPM2 line began with 2.3 s of breath); fixed with RMS trim and per-line loudness matching.
+- **Dashboard:** `voices-round3`.

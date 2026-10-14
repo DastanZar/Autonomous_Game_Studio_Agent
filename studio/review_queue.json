@@ -2,6 +2,51 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "voices-round3",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voices round 3: the same 20-second hook acted with direction (emotion, pauses, inflection), 9 takes",
+   "question": "One Point Roberts hook, directed line by line: curious → deadpan 'Every. Single. Day.' → warm → conspiratorial → building → dry punchline. Fish takes use inline emotion tags; VoxCPM2 and Chatterbox take a direction per line and I set the pauses between lines. All transcripts match the script. Known flaws: Book Record adds a stray sound before 'That's normal life'; Chatterbox runs 'Every Single Day' together and drops the last 'it'; the VoxCPM2 American voice turns 'Washington' into a question. Fish's pause tags seem to be ignored: Felix without tags pauses more between 'Every. Single. Day.' than with them. Tell me the best one or two and what's still off, and I'll tune from there.",
+   "files": [
+    [
+     "Fish S2.1 · Felix, with emotion tags",
+     "studio/voices/catalog/round3/fish_felix_tagged.mp3"
+    ],
+    [
+     "Fish S2.1 · Felix, no tags (to compare)",
+     "studio/voices/catalog/round3/fish_felix_plain.mp3"
+    ],
+    [
+     "Fish S2.1 · Laura, tagged",
+     "studio/voices/catalog/round3/fish_laura_tagged.mp3"
+    ],
+    [
+     "Fish S2.1 · Jordan, tagged",
+     "studio/voices/catalog/round3/fish_jordan_tagged.mp3"
+    ],
+    [
+     "Fish S2.1 · Adrian, tagged",
+     "studio/voices/catalog/round3/fish_adrian_tagged.mp3"
+    ],
+    [
+     "Fish S2.1 · Book Record (deep), tagged — stray sound",
+     "studio/voices/catalog/round3/fish_bookrecord_tagged.mp3"
+    ],
+    [
+     "VoxCPM2 · British male, directed per line",
+     "studio/voices/catalog/round3/voxuk_stitched.mp3"
+    ],
+    [
+     "VoxCPM2 · American woman, directed per line",
+     "studio/voices/catalog/round3/voxus_stitched.mp3"
+    ],
+    [
+     "Chatterbox · British clone, emotion per line",
+     "studio/voices/catalog/round3/chat_stitched.mp3"
+    ]
+   ]
+  },
+  {
    "id": "voices-round2",
    "status": "open",
    "kind": "audio",

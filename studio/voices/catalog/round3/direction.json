@@ -1,0 +1,8 @@
+[
+ {"say": "Imagine having to cross an international border, just to get to school.", "dir": "curious and intrigued, leaning in, rising inflection on 'school'", "fish": "[curious, leaning in] Imagine having to cross an international border... (break) just to get to school.", "exag": 0.6, "pause": 0.45},
+ {"say": "Every. Single. Day.", "dir": "deadpan, slow and deliberate, a beat between each word", "fish": "[deadpan, slow] Every. (break) Single. (break) Day.", "exag": 0.3, "pause": 0.9},
+ {"say": "That's normal life for the kids of Point Roberts, Washington.", "dir": "warm and matter-of-fact, relaxed", "fish": "(long-break) [warm, matter-of-fact] That's normal life for the kids of Point Roberts, Washington.", "exag": 0.45, "pause": 0.5},
+ {"say": "And the reason is almost embarrassing.", "dir": "conspiratorial, quieter, a hint of a smile", "fish": "[conspiratorial, softer] And the reason is almost embarrassing.", "exag": 0.55, "pause": 0.55},
+ {"say": "In eighteen forty-six, two empires drew a perfectly straight line along the forty-ninth parallel,", "dir": "building momentum, storytelling energy, slightly faster", "fish": "[building excitement] In eighteen forty-six, two empires drew a perfectly straight line along the forty-ninth parallel...", "exag": 0.7, "pause": 0.35},
+ {"say": "and nobody checked what was underneath it.", "dir": "dry punchline, amused, falling inflection, slow at the end", "fish": "[dry, amused] and nobody checked what was underneath it. [chuckle]", "exag": 0.5, "pause": 0.0}
+]
