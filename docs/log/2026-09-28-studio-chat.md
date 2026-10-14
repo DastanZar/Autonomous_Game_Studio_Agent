@@ -3141,4 +3141,4 @@ There are some major uh, things with this video that I actually like, and there 
   - **Paid tools deferred:** Resolve 21.1's MCP is Studio-only (€305); After Effects plus GEOlayers is skipped for now.
   - **Encoding:** no AV1 NVENC on the 3060.
 - **Not verified:** all speeds and VRAM figures are reported by others; the first laptop session should measure them.
-- **Dashboard:** new open decision 0f (laptop setup, RAM, country for H3).
+- **Dashboard:** new open decision 0f (laptop setup, RAM, country for H3). The dashboard did not show the Vision board, so the parked pile was invisible; `studio/dashboard.py` now renders it between the open decisions and the blocked list.

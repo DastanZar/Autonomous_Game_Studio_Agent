@@ -100,7 +100,8 @@ def build(root):
     sec = _sections(open(dm).read()) if os.path.exists(dm) else {}
     op = next((k for k in sec if k.startswith("Open decisions")), None)
     bk = next((k for k in sec if k.startswith("Blocked")), None)
-    dec_html = "".join(f"<h4>{e(k)}</h4>{_md_block(sec[k])}" for k in (op, bk) if k)
+    vb = next((k for k in sec if k.startswith("Vision board")), None)   # the parked "get back to" pile
+    dec_html = "".join(f"<h4>{e(k)}</h4>{_md_block(sec[k])}" for k in (op, vb, bk) if k)
 
     # summary first: what needs the user, what the models are on
     backlog = load_backlog()
