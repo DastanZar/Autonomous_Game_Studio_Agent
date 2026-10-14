@@ -57,3 +57,23 @@ video is delivered privately, never on the public dashboard.
 - **Internal** (`assets/internal/`, git-ignored; sources in `assets/internal/cand/sources.tsv`): AP/Getty/press photos collected from
   NPR, History.com, Jewish News, Patrick Witty's essay and HistoryCollection galleries; the official film "München '72 – Die Spiele der
   XX. Olympiade" (Internet Archive item `youtube-sKNoXef6vhI`).
+
+## Delivery and verification (14 Oct 2026)
+
+| Check | Result |
+|---|---|
+| Render | HyperFrames 0.8.156, 1920×1080, 30 fps, 247.0 s, H.264 about 4 Mbps (`renders/`, git-ignored) |
+| Audio | Re-mixed onto the picture by `tools/remix.sh -10`: VO, score at −10 dB, sidechain-ducked under the VO with a −4 dB dip at 1.6 kHz, plus SFX. The HyperFrames carve alone left the music 19 dB under the voice. |
+| Music vs voice | 8.7 dB under the voice in the VO gaps, and ducked further while Felix speaks (`tools/music_gap.py`) |
+| Loudness | −14.6 LUFS integrated, peak −0.8 dBFS |
+| Transcript vs script | Whisper `small.en` on the final mix: WER 4.4% with numerals and spelling normalised. Nearly all of it is names (Gutfreund, Connollystraße, Fürstenfeldbruck, Fliegerbauer), "gunmen"→"gunman" (×4) and "too"→"to"; one real miss is "early"→"only" under the music. |
+| Picture | `hyperframes check` passed (0 errors); 41 stills from the composition and 9 from the encoded MP4, checked by eye |
+| Deliverables | 720p preview (27 MB), 1080p master in 6 parts with a `join.txt`, SRT (`tools/make_srt.py`), and a thumbnail (title card), all sent privately |
+
+Not verified: listening, since I can't hear audio; levels are measured, not judged by ear. The `preview --background` Studio handoff
+was skipped because the user can't reach a container-local preview.
+
+Known gaps:
+- The group portrait shows 10 of the 11 faces; the names are typed in code, all 11 plus Anton Fliegerbauer.
+- One gallery captions `roof_police_b` as a gunman; the widely used AP/Getty caption says a police officer in a tracksuit, so it is labelled POLICE.
+- GSAP is vendored in `assets/vendor/`, because headless Chrome here rejects the CDN certificate.

@@ -3114,3 +3114,14 @@ Please continue
   - `roof_police_b` is captioned as a gunman by one gallery but as a police officer in a tracksuit by AP/Getty; it is kept as POLICE.
 - **Skipped:** the `preview --background` Studio handoff. The user can't reach a container-local preview, so the render goes straight to them.
 - **Render:** started at 30 fps, quality "looks".
+- **Render:** 247.0 s, 1080p30, 34 min wall time (about 0.43 s per frame).
+- **Loudness:** first pass −19.4 LUFS.
+- **Music level:** the HyperFrames carve left the music 19 dB under the voice, so it was barely there. Re-mixed with `tools/remix.sh` (sidechain duck, 1.6 kHz dip, SFX at their cues). The score gain was tried at +6, −2, −7 and −10 dB; −10 gives the music 8.7 dB under the voice. Master −14.6 LUFS, peak −0.8.
+- **Transcript:** Whisper on the master gives WER 4.4% (numerals normalised). Nearly all errors are names and gunmen→gunman; one real miss is "early"→"only".
+- **Delivered privately via SendUserFile:**
+  - 720p preview (27 MB);
+  - master in 6 parts, cut at keyframes, rejoin tested to 247.07 s;
+  - SRT (74 cues);
+  - thumbnail (title card).
+  Nothing is on the dashboard (internal assets).
+- **Failure:** a cleanup `rm` of an old parts folder was blocked by the safety check. It was skipped, and the leftover `renders/parts*` folders are git-ignored.
