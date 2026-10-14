@@ -11,7 +11,7 @@ import numpy as np, soundfile as sf
 
 SR = 44100
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DUR = float(sys.argv[1]) if len(sys.argv) > 1 else 181.0
+DUR = float(sys.argv[1]) if len(sys.argv) > 1 else 247.0
 rng = np.random.default_rng(1972)
 N = int(DUR * SR); out = np.zeros((N, 2))
 t_all = np.arange(N) / SR
@@ -34,8 +34,11 @@ def place(y, at, pan=0.0):
 # act 1: cheerful major figure, C major / F / G / Am, quarter notes at 96 bpm
 beat = 60 / 96
 prog = [[60, 64, 67, 72], [57, 60, 65, 69], [55, 59, 62, 67], [57, 60, 64, 69]]
-t = 0.4
-while t < 25.5:
+# cold open (0-27.4): low pulse, like a slow heartbeat, under a dark drone
+for k in range(int(26.5 / 1.1)):
+    place(piano(33, 1.2, 0.30), 0.6 + k * 1.1); place(piano(33, 0.8, 0.16), 0.6 + k * 1.1 + 0.28)
+t = 27.6
+while t < 53.0:
     ch = prog[int(t / (beat * 4)) % 4]
     for k, m in enumerate(ch):
         place(piano(m + 12, 2.2, 0.16 if k else 0.22), t + k * beat, pan=(k - 1.5) * 0.25)
@@ -53,18 +56,20 @@ def strings(freqs, a, b, gain):
     env *= 0.75 + 0.25 * np.sin(2 * np.pi * tt / 11.0)
     y = y / np.abs(y).max() * gain * env
     out[i:j, 0] += y; out[i:j, 1] += np.roll(y, 300)
-strings([midi(45), midi(52)], 26.0, 72.0, 0.10)          # Am (A2, E3)
-strings([midi(41), midi(48)], 70.0, 108.0, 0.12)         # F
-strings([midi(43), midi(50), midi(55)], 106.0, 128.0, 0.13)  # G, rising dread
-strings([midi(45), midi(52), midi(57)], 127.0, 154.0, 0.09)  # Am, grief
-for at, m in [(27.0, 69), (41.0, 72), (47.0, 71), (57.0, 69), (66.5, 76), (82.8, 72), (90.0, 71), (107.6, 69), (118.4, 76), (127.9, 69), (134.7, 72), (142.6, 69)]:
+strings([midi(38), midi(45)], 0.0, 27.6, 0.09)           # cold open drone (D2, A2)
+strings([midi(45), midi(52)], 53.5, 110.0, 0.10)         # Am (A2, E3)
+strings([midi(41), midi(48)], 108.0, 147.0, 0.12)        # F
+strings([midi(43), midi(50), midi(55)], 145.0, 172.0, 0.13)  # G, rising dread
+strings([midi(45), midi(52), midi(57)], 170.0, 228.0, 0.09)  # Am, grief
+for at, m in [(54.3, 69), (68.8, 72), (74.4, 71), (91.4, 69), (108.9, 76), (124.2, 72), (146.6, 72), (153.7, 71), (171.4, 69), (182.0, 76), (191.6, 69), (198.4, 72), (206.2, 69), (217.7, 76)]:
     place(piano(m, 4.5, 0.20), at, pan=0.1)
 # names: single high notes, one per name, then silence
 for k in range(11):
-    place(piano([81, 79, 76, 81, 84, 79, 76, 74, 76, 79, 81][k], 3.0, 0.11), 162.2 + k * 0.95, pan=((k % 3) - 1) * 0.3)
+    place(piano([81, 79, 76, 81, 84, 79, 76, 74, 76, 79, 81][k], 3.0, 0.11), 228.5 + k * 0.95, pan=((k % 3) - 1) * 0.3)
 # simple reverb: decaying noise impulse response
 ir_n = int(2.6 * SR); ir = rng.standard_normal(ir_n) * np.exp(-np.arange(ir_n) / SR * 2.4); ir /= np.abs(ir).sum() / 6
-wet = np.stack([np.convolve(out[:, c], ir)[:N] for c in range(2)], 1)
+from scipy.signal import fftconvolve
+wet = np.stack([fftconvolve(out[:, c], ir)[:N] for c in range(2)], 1)
 mix = out * 0.7 + wet * 0.5
 fade = np.ones(N); fl = int(3 * SR); fade[-fl:] = np.linspace(1, 0, fl)
 mix *= fade[:, None]; mix = mix / np.abs(mix).max() * 0.7

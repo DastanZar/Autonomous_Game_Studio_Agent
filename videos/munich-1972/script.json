@@ -7,6 +7,44 @@
  },
  "paras": [
   {
+   "id": "n01",
+   "say": "Four thirty in the morning. Wrestling referee Yossef Gutfreund hears a faint scratching at his door.",
+   "tag": "[hushed, slow, tense]",
+   "gap": 0.6,
+   "claims": [
+    "c_gutfreund"
+   ]
+  },
+  {
+   "id": "n02",
+   "say": "The door begins to open... and he sees rifles.",
+   "tag": "[whispering, urgent]",
+   "gap": 0.7,
+   "claims": [
+    "c_gutfreund"
+   ]
+  },
+  {
+   "id": "n03",
+   "say": "He throws all three hundred pounds of himself against it, and screams a warning. Behind him, a coach smashes a window and runs.",
+   "tag": "[intense, rising, breathless]",
+   "gap": 0.9,
+   "claims": [
+    "c_gutfreund",
+    "c_escape"
+   ]
+  },
+  {
+   "id": "n05",
+   "say": "By the next morning, Gutfreund and ten of his teammates would be dead. And the whole world would watch it happen.",
+   "tag": "[grave, very quiet]",
+   "gap": 1.6,
+   "claims": [
+    "c_deaths",
+    "c_viewers"
+   ]
+  },
+  {
    "id": "p01",
    "say": "In nineteen seventy-two, West Germany threw a party for the whole world.",
    "tag": "[warm, inviting]",
@@ -72,12 +110,31 @@
    ]
   },
   {
-   "id": "p08",
-   "say": "Wrestling coach Moshe Weinberg fought back, and was killed. So was weightlifter Yossef Romano. Nine more were taken hostage.",
-   "tag": "[solemn]",
-   "gap": 0.9,
+   "id": "n08a",
+   "say": "Wrestling coach Moshe Weinberg was shot through the face, and forced to lead the gunmen to more Israelis.",
+   "tag": "[solemn, tense]",
+   "gap": 0.6,
+   "claims": [
+    "c_weinberg"
+   ]
+  },
+  {
+   "id": "n08b",
+   "say": "He walked them past one apartment, and took them to the strongest men on the team. Wrestlers. Weightlifters. Maybe hoping they could fight back.",
+   "tag": "[hushed, deliberate]",
+   "gap": 0.8,
+   "claims": [
+    "c_weinberg"
+   ]
+  },
+  {
+   "id": "n08c",
+   "say": "They were asleep. Weinberg fought again, and was killed. Weightlifter Yossef Romano wounded one of the gunmen... before he was shot too. They left his body at his teammates' feet. Nine men were tied up, wrist to ankle, to each other.",
+   "tag": "[grave, slow, controlled]",
+   "gap": 1.0,
    "claims": [
     "c_first_dead",
+    "c_romano",
     "c_hostages"
    ]
   },
@@ -97,6 +154,15 @@
    "gap": 0.6,
    "claims": [
     "c_viewers"
+   ]
+  },
+  {
+   "id": "n10b",
+   "say": "At one point, fencing coach Andre Spitzer was brought to the window to speak to negotiators. When he tried to answer, a gunman hit him with his rifle... on live television.",
+   "tag": "[restrained, bitter]",
+   "gap": 0.8,
+   "claims": [
+    "c_spitzer"
    ]
   },
   {

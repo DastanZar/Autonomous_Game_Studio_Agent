@@ -3071,3 +3071,28 @@ is this the only site that can provide this? wont a normal google images earch a
   - Google Images: no image-search tool here, and scraping Google is blocked.
   - Unsplash: modern stock only, no 1972 archive.
 - **Proposed** using news-site archive photos for the internal-only test (never published, never committed); waiting for the user's go to resume the build.
+
+---
+
+### 🧑 User · 2026-10-14 UTC (several messages)
+
+go for the best quaity pictures
+
+try and speed it up by using multiple sub agents or some other thingy, idk
+
+one thing you need to make sure i dont want a collage running with narration, nothing that basic, an actual youtube style video is what i want
+
+It has to be told as the gut wrenching story it is / it needs that flow, and that feel through the video graphics / the narration, the storyline / everything
+
+Can i get a rough eta?
+
+#### Claude · record
+
+- **Photos:** 59 large images scraped from news galleries (NPR, History.com, Jewish News, Patrick Witty, HistoryCollection); 18 picked into `assets/internal/` (git-ignored).
+- **Footage:** 45-min 1972 Games film indexed into 9 timestamped sheets.
+- **Story rewrite:** cold open at the door at 04:30 (Gutfreund), Weinberg's choice, Romano, the bound hostages, Spitzer at the window; 27 paragraphs. 8 new Fish takes; unchanged lines reused from cache. VO 226.7 s; video 247 s (4:07).
+- **Plan:** STORYBOARD rebuilt for 10 scenes, cued by spoken word with local word-timing tables (`tools/build_storyboard.py`); DIRECTION.md adds the user's documentary-grammar requirement (no static photo + narration).
+- **Workers:** 3 frame workers dispatched in parallel (s0–s2, s3–s5, s6–s9) via HyperFrames frame packets.
+- **Audio:** score retimed (cold-open heartbeat pulse); reverb switched to FFT convolution.
+- **README:** fact table with sources.
+- **ETA given:** about 1.5–2 h (estimate).
