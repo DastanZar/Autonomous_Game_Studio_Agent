@@ -527,3 +527,20 @@ I hit my usage limit while you were working, but it has reset now. Please contin
   - `save_item` showed no accuracy gain at this list size.
   - Its page check catches invented values, not shortened ones.
 - Tests 14/14. Pushed beed05e and e528fdb. Updated README/ENGINEERING (Fast mode is no longer the default).
+
+---
+
+### 2026-10-14 · Can console-only tools (MiniMax Audio free TTS) be automated?
+
+#### User (verbatim)
+
+i have another use case right now - minimax audio gives daily free credits for its tts, more than enough for me to generate the few clips i need, but for free users there is no api/sdk access everything is through the console, and i dont want to type click download the audio do all that one by one, can things like this be automated too?
+
+#### Claude · record
+
+- Answered: yes, technically. For a fixed, repetitive flow, a recorded script (Playwright: record once with
+  `codegen`, replay over a list of lines) beats the AI agent: it's faster, has no model cost and is
+  deterministic. The AI agent stays the fallback for when the page changes.
+- Flagged the account risk: automating a free tier that is deliberately console-only may break MiniMax's
+  terms. Advised keeping to a human pace and checking their terms.
+- Offered to build it; not built yet. It needs the owner's logged-in agent Chrome, so it can't be tested here.
