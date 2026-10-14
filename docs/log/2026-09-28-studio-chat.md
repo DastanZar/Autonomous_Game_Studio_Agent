@@ -2942,3 +2942,37 @@ didnt end up liking any tbh, i want specific emotions, pauses, tonality, inflect
 - **Checks:** all transcripts match apart from those flaws.
 - **Stitch fix:** the first stitch had a 3.3 s gap (one VoxCPM2 line began with 2.3 s of breath); fixed with RMS trim and per-line loudness matching.
 - **Dashboard:** `voices-round3`.
+
+---
+
+### 🧑 User · 2026-10-14 UTC
+
+some of them are decent but the female ones are a letdown and those are the ones i was looking at primarily, arent there any other ones you can try?
+
+#### Claude · record
+
+- **Round 4, female voices only:**
+  - Fish Sarah, Paula and Hannah, with pauses written as punctuation (ellipses, dashes, line breaks) instead of the ignored pause tags. Hannah now hits every directed beat.
+  - A VoxCPM2-designed British alto, directed line by line.
+- **Couldn't run:**
+  - Orpheus (5 female voices): Hugging Face anonymous ZeroGPU limit.
+  - Higgs Audio v2: the Space errored.
+  - A free HF token would lift the limit.
+- **Dashboard:** `voices-round4`.
+
+---
+
+### 🧑 User (mid-turn) · 2026-10-14 UTC
+
+ive seen videos create by opus 5.5 on my timeline that dont seem to have the stick figure character type ones weve made, they have incredible flow, real pictures and such, mostly product launch videos, can you make one like that by seeing a few examples of the famous ones that blew up, just on any of our topics and see as a tester if we can achieve some different graphics too, try it on the berlin oolympics masscre
+
+#### Claude · record
+
+- **Routed through the hyperframes skill** (general-video, companion).
+- **User's answers:** Munich 1972 (there was no Berlin massacre), 16:9 at 2–3 min, no storyboard, companion.
+- **Style research:** what makes the viral Claude/Opus motion videos work: huge kinetic type, smooth long-tail easing, a new payoff every 3–5 s, real assets only, sound synced to cuts, self-critique loops.
+- **Facts:** sourced from Wikipedia, History.com, Euronews, NPR and Britannica, plus Al-Monitor and Jewish News for the 2022 settlement.
+- **Photos from Wikimedia Commons, licences checked:**
+  - CC BY / CC BY-SA: Bundesarchiv and Kiel memorial photos (1972), GPO memorial (1972), Connollystraße 31 today, Fürstenfeldbruck aerial, memorial site.
+  - The balcony balaclava photo (AP/Kurt Strumpf) and the police-on-roof photo are PD-US-no-notice only, possibly still copyrighted in Germany; flagged to the user.
+- **Concept:** open in Otl Aicher's 1972 cheerful-Games palette, then drain to monochrome.
