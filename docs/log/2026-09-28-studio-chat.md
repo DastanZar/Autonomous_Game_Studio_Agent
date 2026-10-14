@@ -3045,3 +3045,15 @@ how can i help unblock wikimedia downloads or help in anyway with it
   - Wikimedia still returns 429 for this IP, even through the weserv proxy.
 - **Help offered:** a table of 15 Commons pages and filenames for the user to download and upload to `videos/munich-1972/assets/open/`.
 - **Paused:** the footage scan, at the user's request.
+
+---
+
+### 🧑 User · 2026-10-14 UTC
+
+can i give you my cookies or something, will that help?
+
+#### Claude · record
+
+- **Answer:** no. The block is per-IP rate limiting (HTTP 429) on Wikimedia's file servers, not a login problem, so cookies wouldn't lift it.
+- Advised never to share browser cookies: they are a full login to the user's accounts.
+- Options repeated: upload the 15 files, or wait for the block to lift (the downloader keeps retrying).
