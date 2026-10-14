@@ -3003,3 +3003,24 @@ i want you to test voice cloning with the audio clip at - studio/assets/Sharks A
   - Sped-up versions (atempo, pitch kept) to match 172 wpm.
 - **Blocked:** IndexTTS-2 (emotion-only transfer) by the HF anonymous ZeroGPU limit.
 - **Dashboard:** `voices-round5`; the shark clip itself is not on it.
+
+---
+
+### 🧑 User (mid-turn) · 2026-10-14 UTC
+
+Fish freindly flatter looked the least worst out of all, do we not have any other good opensource tts or free/freemium tts we can use for this
+
+### 🧑 User (mid-turn) · 2026-10-14 UTC
+
+can you get yourself familiar with minimax audio console and direct me on how i can test that out too for our use case?
+
+#### Claude · record
+
+- **MiniMax guide:** `docs/research/minimax-test-guide.md`.
+  - Free plan: 10k credits a month; commercial use is listed for songs only, so test only.
+  - Speech 2.8 HD, with `<#x#>` pause markers and (laughs)/(chuckle) interjections.
+  - The passage is pre-written in MiniMax syntax, with 4 variants.
+  - The user uploads the results to `studio/voices/catalog/minimax/` and I measure them.
+  - Warned against using Voice Clone on the shark clip.
+- **Remaining free options:** Gemini 3.1 Flash TTS (AI Studio free tier, natural-language direction plus inline tags; needs the user's free key); IndexTTS-2, Orpheus and Higgs (need an HF token, or the RTX 3060).
+- **Munich photo downloads:** Wikimedia 429s on originals; switched to 1920 px thumbnails, slowly. A pkill pattern killed its own shell again (logged trap).
