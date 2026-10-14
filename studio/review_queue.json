@@ -2,6 +2,43 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "voices-round5",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voices round 5: excited, witty female for Gut Gang (matched to your shark clip's delivery)",
+   "question": "Your shark clip measured 173 words a minute, a bright 269 Hz pitch and 15-semitone pitch swings. Each take reads real lines from our yawning episode with excited, teasing, deadpan and whisper direction. Fish 'energetic' (a generic library voice) swings even more than the clip (16.8 semitones); the 'fast' versions are sped up to the clip's pace with pitch kept. Not a clone: the shark narrator's own voice wasn't copied. IndexTTS-2, which copies only the emotion of a clip, and Orpheus are blocked by Hugging Face's free GPU limit until we have a free HF account token.",
+   "files": [
+    [
+     "Fish · 'energetic', sped to 172 wpm",
+     "studio/voices/catalog/round5/fish_energetic_fast.mp3"
+    ],
+    [
+     "Fish · 'energetic', natural speed",
+     "studio/voices/catalog/round5/fish_energetic.mp3"
+    ],
+    [
+     "Fish · Hannah, excited, sped to 170 wpm",
+     "studio/voices/catalog/round5/fish_hannah_excited_fast.mp3"
+    ],
+    [
+     "Fish · Hannah, excited, natural speed",
+     "studio/voices/catalog/round5/fish_hannah_excited.mp3"
+    ],
+    [
+     "Fish · 'friendly' (flatter)",
+     "studio/voices/catalog/round5/fish_friendly.mp3"
+    ],
+    [
+     "VoxCPM2 · designed bubbly American (very high pitch)",
+     "studio/voices/catalog/round5/vox_excited_a.mp3"
+    ],
+    [
+     "VoxCPM2 · designed lively British",
+     "studio/voices/catalog/round5/vox_excited_b.mp3"
+    ]
+   ]
+  },
+  {
    "id": "voices-round4",
    "status": "open",
    "kind": "audio",

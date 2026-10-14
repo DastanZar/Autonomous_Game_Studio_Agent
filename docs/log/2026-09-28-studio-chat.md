@@ -2976,3 +2976,30 @@ ive seen videos create by opus 5.5 on my timeline that dont seem to have the sti
   - CC BY / CC BY-SA: Bundesarchiv and Kiel memorial photos (1972), GPO memorial (1972), Connollystraße 31 today, Fürstenfeldbruck aerial, memorial site.
   - The balcony balaclava photo (AP/Kurt Strumpf) and the police-on-roof photo are PD-US-no-notice only, possibly still copyrighted in Germany; flagged to the user.
 - **Concept:** open in Otl Aicher's 1972 cheerful-Games palette, then drain to monochrome.
+
+---
+
+### 🧑 User · 2026-10-14 UTC
+
+this will not be used commercially, so you can expand your sources for photos, videos anything that you need and use anything because this is just for our internal quality check
+
+#### Claude · record
+
+- **Munich test:** sourcing widened to any material; anything not openly licensed goes in the git-ignored `videos/munich-1972/assets/internal/`, because the repo and dashboard are public. The test video will be sent privately, not put on the dashboard.
+- **Project:** HyperFrames project scaffolded at `videos/munich-1972` with BRIEF.md; prefs recorded.
+
+### 🧑 User (mid-turn) · 2026-10-14 UTC
+
+i want you to test voice cloning with the audio clip at - studio/assets/Sharks Are WAY OLDER Than You Think.mp3 and add it to the dashboard, im not gatting the excitedness that gut gang videos need, they a funny witthy excited with emotions female voice
+
+#### Claude · record
+
+- **Declined cloning** the clip's narrator: a real creator's voice, so impersonation (hard rule). Transferred her delivery instead.
+- **Measured her delivery:** 173 wpm, 269 Hz median pitch, 15.1-semitone swing.
+- **New takes on real yawning-episode lines:**
+  - Fish library voices found through the public Fish model API: "energetic" (generic, 16.8 st swing) and "friendly". Skipped character clones (Bubble Guppies etc.) and personal-sounding recordings.
+  - Hannah with excited direction.
+  - VoxCPM2 designs from the measured profile.
+  - Sped-up versions (atempo, pitch kept) to match 172 wpm.
+- **Blocked:** IndexTTS-2 (emotion-only transfer) by the HF anonymous ZeroGPU limit.
+- **Dashboard:** `voices-round5`; the shark clip itself is not on it.
