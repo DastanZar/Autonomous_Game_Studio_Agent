@@ -3024,3 +3024,24 @@ can you get yourself familiar with minimax audio console and direct me on how i 
   - Warned against using Voice Clone on the shark clip.
 - **Remaining free options:** Gemini 3.1 Flash TTS (AI Studio free tier, natural-language direction plus inline tags; needs the user's free key); IndexTTS-2, Orpheus and Higgs (need an HF token, or the RTX 3060).
 - **Munich photo downloads:** Wikimedia 429s on originals; switched to 1920 px thumbnails, slowly. A pkill pattern killed its own shell again (logged trap).
+
+---
+
+### 🧑 User · 2026-10-14 UTC
+
+do i need to enable billing to be able to access gemini 3.1 tts? hf key is added to cloud environemnt variables
+
+can i watch the munic video or is it still processing?
+
+how can i help unblock wikimedia downloads or help in anyway with it
+
+#### Claude · record
+
+- **Gemini:** no billing needed for the AI Studio free tier; told the user not to enable it.
+- **HF token:** works (token file present, whoami OK), but the free account's ZeroGPU daily quota is also exhausted for IndexTTS-2 and Orpheus; it resets daily.
+- **Munich status:**
+  - Done: script (20 paragraphs, sourced), Fish Felix narration (162.95 s; one Fuerstenfeldbruck retake), deterministic score and sfx (`tools/score.py`), OSM map SVG (Connollystraße 31 to air base, 20.7 km), fonts (Archivo, IBM Plex Mono, DM Serif Display), 1972 Games colour film from the Internet Archive.
+  - The DW documentary download returned 401.
+  - Wikimedia still returns 429 for this IP, even through the weserv proxy.
+- **Help offered:** a table of 15 Commons pages and filenames for the user to download and upload to `videos/munich-1972/assets/open/`.
+- **Paused:** the footage scan, at the user's request.

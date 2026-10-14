@@ -1,0 +1,32 @@
+{
+ "connolly31": {
+  "lat": 48.1797122,
+  "lon": 11.5490729,
+  "name": "31, Connollystra\u00dfe, Olympia-Dorf, Am Riesenfeld, Milbertshofen-Am Hart, M\u00fcnchen,",
+  "geojson": null
+ },
+ "airbase": {
+  "lat": 48.1985558,
+  "lon": 11.2718352,
+  "name": "Fliegerhorst F\u00fcrstenfeldbruck, Alte Brucker Stra\u00dfe, Gewerbegebiet Hasenheide Nor",
+  "geojson": null
+ },
+ "stadium": {
+  "lat": 48.1731314,
+  "lon": 11.5464786,
+  "name": "Olympiastadion M\u00fcnchen, 27, Spiridon-Louis-Ring, Milbertshofen-Am Hart, M\u00fcnchen,",
+  "geojson": null
+ },
+ "munich": {
+  "lat": 48.1371079,
+  "lon": 11.5753822,
+  "name": "M\u00fcnchen, Bayern, Deutschland",
+  "geojson": "MultiPolygon"
+ },
+ "ffb": {
+  "lat": 48.1794705,
+  "lon": 11.2547202,
+  "name": "F\u00fcrstenfeldbruck, Landkreis F\u00fcrstenfeldbruck, Bayern, 82256, Deutschland",
+  "geojson": "Polygon"
+ }
+}

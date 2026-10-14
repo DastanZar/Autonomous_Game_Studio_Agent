@@ -1,0 +1,198 @@
+{
+ "voice": {
+  "engine": "fish",
+  "model": "fish-audio/s2.1-pro-free:free",
+  "id": "8062e83481fe4165a2a92cd753f9c06b",
+  "name": "Felix (Fish library)"
+ },
+ "paras": [
+  {
+   "id": "p01",
+   "say": "In nineteen seventy-two, West Germany threw a party for the whole world.",
+   "tag": "[warm, inviting]",
+   "gap": 0.5,
+   "claims": [
+    "c_cheerful"
+   ]
+  },
+  {
+   "id": "p02",
+   "say": "It was meant to bury a memory.",
+   "tag": "[quiet, ominous]",
+   "gap": 0.9,
+   "claims": [
+    "c_cheerful"
+   ]
+  },
+  {
+   "id": "p03",
+   "say": "The last time Germany had hosted the Summer Olympics was Berlin, nineteen thirty-six. Hitler's Games.",
+   "tag": "[grave, measured]",
+   "gap": 0.6,
+   "claims": [
+    "c_1936"
+   ]
+  },
+  {
+   "id": "p04",
+   "say": "So Munich would be the opposite. The Cheerful Games. Soft colours... a dachshund mascot... and guards in light blue, most of them unarmed.",
+   "tag": "[lighter, almost smiling]",
+   "gap": 0.9,
+   "claims": [
+    "c_cheerful",
+    "c_waldi",
+    "c_security"
+   ]
+  },
+  {
+   "id": "p05",
+   "say": "Then, at about four thirty in the morning, on the fifth of September... eight men climbed the fence into the Olympic Village.",
+   "tag": "[tense, slow]",
+   "gap": 0.5,
+   "claims": [
+    "c_entry"
+   ]
+  },
+  {
+   "id": "p06",
+   "say": "Athletes coming home from a night out helped them over. They thought they were fellow Olympians.",
+   "tag": "[matter-of-fact, quietly bitter]",
+   "gap": 0.6,
+   "claims": [
+    "c_fence"
+   ]
+  },
+  {
+   "id": "p07",
+   "say": "They went to Connollystrasse thirty-one. The building where Israel's team was staying.",
+   "tag": "[low, deliberate]",
+   "gap": 0.6,
+   "claims": [
+    "c_building"
+   ]
+  },
+  {
+   "id": "p08",
+   "say": "Wrestling coach Moshe Weinberg fought back, and was killed. So was weightlifter Yossef Romano. Nine more were taken hostage.",
+   "tag": "[solemn]",
+   "gap": 0.9,
+   "claims": [
+    "c_first_dead",
+    "c_hostages"
+   ]
+  },
+  {
+   "id": "p09",
+   "say": "The gunmen, from a Palestinian group called Black September, demanded the release of more than two hundred prisoners held in Israel.",
+   "tag": "[neutral, factual]",
+   "gap": 0.6,
+   "claims": [
+    "c_demands"
+   ]
+  },
+  {
+   "id": "p10",
+   "say": "And the world was watching. By some estimates, nine hundred million people.",
+   "tag": "[hushed, wide]",
+   "gap": 0.6,
+   "claims": [
+    "c_viewers"
+   ]
+  },
+  {
+   "id": "p11",
+   "say": "Police crept across the rooftops to storm the building... live on television. The gunmen were watching the same broadcast. The raid was called off.",
+   "tag": "[building tension, then flat]",
+   "gap": 0.9,
+   "claims": [
+    "c_rooftop"
+   ]
+  },
+  {
+   "id": "p12",
+   "say": "That night, hostages and captors were flown by helicopter to Fuerstenfeldbruck air base, west of Munich.",
+   "tag": "[steady, ominous]",
+   "gap": 0.5,
+   "claims": [
+    "c_helis"
+   ],
+   "display": "That night, hostages and captors were flown by helicopter to Fürstenfeldbruck air base, west of Munich."
+  },
+  {
+   "id": "p13",
+   "say": "The rescue plan was waiting. Five police snipers. No telescopic sights. No night vision. No radios. And they had been told there were five gunmen. There were eight.",
+   "tag": "[clipped, listing, rising dread]",
+   "gap": 0.6,
+   "claims": [
+    "c_snipers",
+    "c_count"
+   ]
+  },
+  {
+   "id": "p14",
+   "say": "The officers hidden on the waiting plane decided the plan was suicide, and left.",
+   "tag": "[flat, disbelieving]",
+   "gap": 0.9,
+   "claims": [
+    "c_plane"
+   ]
+  },
+  {
+   "id": "p15",
+   "say": "The shooting lasted more than an hour. By midnight, all nine hostages were dead. So was a German police officer, Anton Fliegerbauer.",
+   "tag": "[very quiet, grave]",
+   "gap": 1.1,
+   "claims": [
+    "c_deaths"
+   ]
+  },
+  {
+   "id": "p16",
+   "say": "Early reports said the hostages had been saved. Then, after three in the morning, ABC's Jim McKay told America... They're all gone.",
+   "tag": "[restrained, breaking]",
+   "gap": 1.3,
+   "claims": [
+    "c_false_report",
+    "c_mckay"
+   ]
+  },
+  {
+   "id": "p17",
+   "say": "The Games stopped for thirty-four hours. Eighty thousand people filled the stadium for a memorial.",
+   "tag": "[sombre]",
+   "gap": 0.5,
+   "claims": [
+    "c_suspend",
+    "c_memorial"
+   ]
+  },
+  {
+   "id": "p18",
+   "say": "Then the head of the Olympic Committee, Avery Brundage, told them: the Games must go on.",
+   "tag": "[cold, quoting]",
+   "gap": 1.0,
+   "claims": [
+    "c_brundage"
+   ]
+  },
+  {
+   "id": "p19",
+   "say": "It took fifty years for Germany to apologise. In twenty twenty-two, its president called it a triple failure. The families received twenty-eight million euros.",
+   "tag": "[measured, reflective]",
+   "gap": 1.0,
+   "claims": [
+    "c_apology",
+    "c_comp"
+   ]
+  },
+  {
+   "id": "p20",
+   "say": "Munich was meant to make the world forget Berlin. Instead... it gave the world eleven names to remember.",
+   "tag": "[soft, final]",
+   "gap": 2.0,
+   "claims": [
+    "c_names"
+   ]
+  }
+ ]
+}

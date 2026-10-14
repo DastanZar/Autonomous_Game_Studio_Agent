@@ -1,0 +1,9 @@
+assets/internal/
+renders/
+.hyperframes/
+node_modules/
+*.mp4
+# regenerable: tools/score.py and tools/vo.py (the paid-quota Fish takes stay cached in build/tts/)
+assets/*.wav
+build/*
+!build/tts/
