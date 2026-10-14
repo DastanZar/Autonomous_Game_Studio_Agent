@@ -2,6 +2,31 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "voices-round4",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voices round 4: female voices only, same directed hook",
+   "question": "Fish takes now use punctuation (ellipses, dashes, line breaks) for pauses instead of the ignored pause tags, and Hannah now hits every beat (Every… Single… Day). New: Sarah, Paula, and a VoxCPM2-designed British alto directed line by line. Couldn't run today: Orpheus (5 female voices with sigh and laugh tags) hit Hugging Face's anonymous free GPU limit, and the Higgs Audio demo errored. A free Hugging Face account token would raise that limit.",
+   "files": [
+    [
+     "Fish S2.1 · Sarah",
+     "studio/voices/catalog/round4/fish_sarah.mp3"
+    ],
+    [
+     "Fish S2.1 · Paula",
+     "studio/voices/catalog/round4/fish_paula.mp3"
+    ],
+    [
+     "Fish S2.1 · Hannah, re-directed",
+     "studio/voices/catalog/round4/fish_hannah.mp3"
+    ],
+    [
+     "VoxCPM2 · British alto, designed, per line",
+     "studio/voices/catalog/round4/voxf_stitched.mp3"
+    ]
+   ]
+  },
+  {
    "id": "voices-round3",
    "status": "open",
    "kind": "audio",
