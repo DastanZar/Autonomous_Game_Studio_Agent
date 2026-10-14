@@ -1,0 +1,219 @@
+<template>
+  <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-400.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-500.woff2") format("woff2"); font-weight: 500; }
+    @font-face { font-family: "DM Serif"; src: url("assets/fonts/dmserif.woff2") format("woff2"); font-weight: 400; }
+
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #ECE8DF; font-family: "Archivo", sans-serif; }
+    #s7-bg { position: absolute; inset: 0; background: #16181C; overflow: hidden; }
+
+    /* archival footage wrappers (clips are graded grayscale in the encode) */
+    .s7-vwrap { position: absolute; left: -24px; top: -14px; width: 1968px; height: 1108px; overflow: hidden; }
+    .s7-vwrap video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.06) brightness(0.86); }
+    .s7-vshade { position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 55% 45%, rgba(22,24,28,0) 45%, rgba(22,24,28,0.7) 100%); }
+    #s7-v1shade { background: linear-gradient(90deg, rgba(22,24,28,0.86) 0%, rgba(22,24,28,0.55) 42%, rgba(22,24,28,0.05) 75%),
+                               radial-gradient(ellipse at 60% 40%, rgba(22,24,28,0) 45%, rgba(22,24,28,0.6) 100%); }
+
+    /* memorial photo, 2.5D planes */
+    #s7-photo { position: absolute; inset: 0; overflow: hidden; opacity: 0; }
+    .s7-plane { position: absolute; left: -60px; top: -92px; width: 2040px; height: 1264px; }
+    .s7-plane .s7-img { position: absolute; inset: 0; background: url("assets/internal/memorial_stadium.jpg") 50% 50% / cover no-repeat; }
+    #s7-pl-bg .s7-img { filter: grayscale(1) contrast(1.05) brightness(0.74) blur(2.5px); }
+    #s7-pl-flag .s7-img { filter: grayscale(1) contrast(1.08) brightness(0.92); }
+    #s7-pl-crowd .s7-img { filter: grayscale(1) contrast(1.08) brightness(0.88); }
+    #s7-pl-flag { -webkit-mask-image: radial-gradient(ellipse 15% 23% at 75% 47%, #000 62%, transparent 100%);
+                  mask-image: radial-gradient(ellipse 15% 23% at 75% 47%, #000 62%, transparent 100%); }
+    #s7-pl-crowd { -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 57%, #000 67%, #000 100%);
+                   mask-image: linear-gradient(180deg, transparent 0%, transparent 57%, #000 67%, #000 100%); }
+    #s7-pshade { position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(90deg, rgba(22,24,28,0.84) 0%, rgba(22,24,28,0.5) 38%, rgba(22,24,28,0) 62%),
+                  radial-gradient(ellipse at 60% 45%, rgba(22,24,28,0) 50%, rgba(22,24,28,0.55) 100%); }
+    #s7-annot { position: absolute; left: -60px; top: -92px; width: 2040px; height: 1264px; pointer-events: none; }
+    #s7-annot svg { position: absolute; inset: 0; overflow: visible; }
+    #s7-annot-label { position: absolute; left: 1110px; top: 250px; font-family: "Plex Mono"; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; color: #ECE8DF; white-space: nowrap; }
+
+    /* slug */
+    #s7-slug { position: absolute; left: 120px; top: 70px; font-family: "Plex Mono"; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; color: #B9BEC4; white-space: pre; }
+    #s7-rule { position: absolute; left: 120px; top: 118px; width: 1680px; height: 1px; background: rgba(185,190,196,0.45); transform-origin: left center; }
+
+    /* beat 1: suspended / 34 hours */
+    #s7-stamp { position: absolute; left: 120px; top: 196px; padding: 10px 18px 8px; border: 2px solid #ECE8DF; font-family: "Plex Mono"; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #ECE8DF; white-space: nowrap; transform-origin: 0% 50%; }
+    #s7-h-wrap { position: absolute; left: 112px; top: 290px; width: 760px; height: 300px; display: flex; align-items: baseline; }
+    #s7-h-num { display: inline-block; width: 340px; font-family: "Archivo"; font-weight: 800; font-size: 300px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; transform-origin: 0% 80%; }
+    #s7-h-unit { font-family: "Plex Mono"; font-weight: 500; font-size: 44px; letter-spacing: 0.08em; color: #ECE8DF; margin-left: 18px; }
+    #s7-ticks { position: absolute; left: 120px; top: 640px; width: 760px; height: 56px; }
+    .s7-tick { position: absolute; top: 0; width: 4px; height: 56px; background: #5BB3E6; transform-origin: bottom center; }
+
+    /* beat 2: 80,000 */
+    #s7-p-wrap { position: absolute; left: 112px; top: 300px; width: 900px; height: 240px; }
+    #s7-p-num { display: inline-block; font-family: "Archivo"; font-weight: 800; font-size: 210px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; transform-origin: 0% 80%; white-space: nowrap; }
+    #s7-p-label { position: absolute; left: 120px; top: 540px; font-family: "Plex Mono"; font-weight: 500; font-size: 36px; letter-spacing: 0.08em; color: #ECE8DF; }
+    #s7-p-rule { position: absolute; left: 120px; top: 526px; width: 560px; height: 3px; background: #5BB3E6; transform-origin: left center; }
+    #s7-p-sub { position: absolute; left: 120px; top: 596px; font-family: "Plex Mono"; font-weight: 400; font-size: 24px; letter-spacing: 0.08em; color: #B9BEC4; }
+
+    /* beat 3: Brundage */
+    #s7-ioc-rule { position: absolute; left: 120px; top: 600px; width: 620px; height: 3px; background: #5BB3E6; transform-origin: left center; }
+    #s7-ioc { position: absolute; left: 120px; top: 618px; font-family: "Plex Mono"; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #B9BEC4; white-space: nowrap; }
+    #s7-name { position: absolute; left: 112px; top: 470px; font-family: "Archivo"; font-weight: 800; font-size: 120px; line-height: 0.95; letter-spacing: -0.03em; color: #ECE8DF; white-space: nowrap; }
+
+    /* the quote */
+    #s7-quote { position: absolute; left: 0; right: 0; top: 380px; text-align: center; font-family: "DM Serif"; font-size: 132px; line-height: 1.05; color: #ECE8DF; white-space: nowrap; }
+    .s7-w { display: inline-block; }
+    #s7-attr { position: absolute; left: 0; right: 0; top: 576px; text-align: center; font-family: "Plex Mono"; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; color: #B9BEC4; }
+    #s7-qrule { position: absolute; left: 900px; top: 556px; width: 120px; height: 2px; background: #5BB3E6; transform-origin: center center; }
+    #s7-dim { position: absolute; inset: 0; background: #16181C; opacity: 0; pointer-events: none; }
+  </style>
+
+  <div id="root" data-composition-id="s7" data-start="0" data-duration="14.8" data-width="1920" data-height="1080">
+    <div id="s7-bg" class="clip" data-start="0" data-duration="14.8" data-track-index="0"></div>
+
+    <div id="s7-v1wrap" class="s7-vwrap">
+      <video id="s7-v1" class="clip" src="assets/internal/footage/clips/s7_flags_row.mp4" muted playsinline data-start="0" data-duration="3.8" data-media-start="0" data-track-index="1"></video>
+      <div id="s7-v1shade" class="s7-vshade"></div>
+    </div>
+
+    <div id="s7-photo">
+      <div id="s7-pl-bg" class="s7-plane"><div class="s7-img"></div></div>
+      <div id="s7-pl-flag" class="s7-plane"><div class="s7-img"></div></div>
+      <div id="s7-pl-crowd" class="s7-plane"><div class="s7-img"></div></div>
+      <div id="s7-pshade"></div>
+      <div id="s7-annot">
+        <svg width="2040" height="1264" viewBox="0 0 2040 1264">
+          <path id="s7-ring" d="M 1530 330 C 1660 330 1760 455 1760 594 C 1760 735 1660 858 1530 858 C 1400 858 1300 735 1300 594 C 1300 455 1400 330 1530 330 Z" fill="none" stroke="#5BB3E6" stroke-width="4" stroke-linecap="round" />
+          <path id="s7-leader" d="M 1440 344 L 1380 300 L 1110 300" fill="none" stroke="#5BB3E6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div id="s7-annot-label">OLYMPIC FLAG · HALF-MAST</div>
+      </div>
+    </div>
+
+    <div id="s7-v2wrap" class="s7-vwrap">
+      <video id="s7-v2" class="clip" src="assets/internal/footage/clips/s7_israel_flag.mp4" muted playsinline data-start="7.7" data-duration="2.72" data-media-start="0" data-track-index="2"></video>
+      <div class="s7-vshade" style="background: linear-gradient(0deg, rgba(22,24,28,0.8) 0%, rgba(22,24,28,0.2) 45%, rgba(22,24,28,0) 70%), radial-gradient(ellipse at 55% 45%, rgba(22,24,28,0) 45%, rgba(22,24,28,0.65) 100%);"></div>
+    </div>
+
+    <div id="s7-v3wrap" class="s7-vwrap">
+      <video id="s7-v3" class="clip" src="assets/internal/footage/clips/s7_stadium_wide.mp4" muted playsinline data-start="10.42" data-duration="4.38" data-media-start="0" data-track-index="3"></video>
+      <div class="s7-vshade" style="background: linear-gradient(90deg, rgba(22,24,28,0.85) 0%, rgba(22,24,28,0.4) 45%, rgba(22,24,28,0.1) 75%), radial-gradient(ellipse at 55% 45%, rgba(22,24,28,0) 45%, rgba(22,24,28,0.6) 100%);"></div>
+    </div>
+
+    <div id="s7-dim"></div>
+
+    <div id="s7-stamp">COMPETITION SUSPENDED</div>
+    <div id="s7-h-wrap"><span id="s7-h-num">0</span><span id="s7-h-unit">HOURS</span></div>
+    <div id="s7-ticks"></div>
+
+    <div id="s7-p-wrap"><span id="s7-p-num">0</span></div>
+    <div id="s7-p-rule"></div>
+    <div id="s7-p-label">PEOPLE</div>
+    <div id="s7-p-sub">MEMORIAL SERVICE · OLYMPIASTADION</div>
+
+    <div id="s7-ioc-rule"></div>
+    <div id="s7-name">Avery Brundage</div>
+    <div id="s7-ioc">IOC PRESIDENT</div>
+
+    <div id="s7-quote"><span class="s7-w" id="s7-w0">&#8220;The</span> <span class="s7-w" id="s7-w1">Games</span> <span class="s7-w" id="s7-w2">must</span> <span class="s7-w" id="s7-w3">go</span> <span class="s7-w" id="s7-w4">on.&#8221;</span></div>
+    <div id="s7-qrule"></div>
+    <div id="s7-attr">AVERY BRUNDAGE · IOC PRESIDENT · 06·09·1972</div>
+
+    <div id="s7-slug">06·09·1972  MUNICH</div>
+    <div id="s7-rule"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      const DUR = 14.8;
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+
+      // 34 hour ticks
+      const ticksEl = $("s7-ticks");
+      for (let i = 0; i < 34; i++) {
+        const d = document.createElement("div");
+        d.className = "s7-tick";
+        d.style.left = (i * 22) + "px";
+        if (i % 6 === 5) d.style.height = "56px"; else { d.style.height = "36px"; d.style.top = "20px"; }
+        ticksEl.appendChild(d);
+      }
+      const ticks = ticksEl.querySelectorAll(".s7-tick");
+
+      // ring / leader path lengths (measured)
+      const ring = $("s7-ring"), leader = $("s7-leader");
+      const RL = ring.getTotalLength(), LL = leader.getTotalLength();
+      ring.style.strokeDasharray = RL; leader.style.strokeDasharray = LL;
+
+      // ===== Beat 1 (0 – 3.8): the Games stop; 34 hours =====
+      tl.fromTo("#s7-v1wrap", { scale: 1.0, x: 0 }, { scale: 1.08, x: -30, duration: 3.8, ease: "power1.in" }, 0);
+      tl.fromTo("#s7-slug", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.2);
+      tl.fromTo("#s7-rule", { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power3.out" }, 0.2);
+      tl.fromTo("#s7-stamp", { opacity: 0, scale: 1.25, filter: "blur(6px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 1.14);
+      const hrs = { v: 0 };
+      tl.to(hrs, { v: 34, duration: 1.2, ease: "power3.out", onUpdate: () => { $("s7-h-num").textContent = Math.round(hrs.v); } }, 2.42);
+      tl.fromTo("#s7-h-num", { scale: 0.55, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: "power3.out" }, 2.42);
+      tl.fromTo("#s7-h-unit", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 3.0);
+      tl.fromTo(ticks, { scaleY: 0 }, { scaleY: 1, duration: 0.4, ease: "power3.out", stagger: 1.0 / 34 }, 2.42);
+
+      // ===== Cut (3.8): zoom-through into the memorial photo, velocity matched =====
+      tl.to("#s7-v1wrap", { scale: 1.32, opacity: 0, filter: "blur(8px)", duration: 0.32, ease: "power2.in" }, 3.62);
+      tl.to(["#s7-stamp", "#s7-h-wrap", "#s7-ticks"], { opacity: 0, scale: 1.15, duration: 0.3, ease: "power2.in" }, 3.62);
+      tl.fromTo("#s7-photo", { opacity: 0, scale: 0.9, filter: "blur(8px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 3.8);
+      // 2.5D: three planes, three speeds (push in the first half only)
+      tl.fromTo("#s7-pl-bg", { scale: 1.08, x: 20, y: 0 }, { scale: 1.03, x: -10, y: -4, duration: 2.2, ease: "power2.out" }, 3.8);
+      tl.fromTo(["#s7-pl-flag", "#s7-annot"], { scale: 1.12, x: 60, y: 6 }, { scale: 1.05, x: -30, y: -6, duration: 2.2, ease: "power2.out" }, 3.8);
+      tl.fromTo("#s7-pl-crowd", { scale: 1.18, x: 90, y: 40 }, { scale: 1.06, x: -50, y: -8, duration: 2.2, ease: "power2.out" }, 3.8);
+      // 80,000 people
+      const ppl = { v: 0 };
+      tl.to(ppl, { v: 80000, duration: 1.4, ease: "power3.out", onUpdate: () => { $("s7-p-num").textContent = Math.round(ppl.v / 10) * 10 >= 80000 ? "80,000" : (Math.round(ppl.v / 10) * 10).toLocaleString("en-US"); } }, 3.8);
+      tl.fromTo("#s7-p-num", { scale: 0.55, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.4, ease: "power3.out" }, 3.8);
+      tl.fromTo("#s7-p-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.out" }, 4.44);
+      tl.fromTo("#s7-p-label", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 4.44);
+      tl.fromTo("#s7-p-sub", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 5.32);
+      // annotation on "memorial"
+      tl.fromTo(ring, { strokeDashoffset: RL }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut" }, 6.28);
+      tl.fromTo(leader, { strokeDashoffset: LL }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 6.7);
+      tl.fromTo("#s7-annot-label", { opacity: 0, x: 16 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 6.9);
+
+      // ===== Whip (7.7): photo whips left, the Israeli flag at half-mast arrives from the right =====
+      tl.to("#s7-photo", { x: -420, filter: "blur(14px)", opacity: 0, duration: 0.3, ease: "power2.in" }, 7.5);
+      tl.to(["#s7-p-wrap", "#s7-p-rule", "#s7-p-label", "#s7-p-sub"], { x: -420, opacity: 0, duration: 0.3, ease: "power2.in" }, 7.5);
+      tl.fromTo("#s7-v2wrap", { opacity: 0, x: 420, filter: "blur(14px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 7.7);
+      tl.fromTo("#s7-v2wrap", { scale: 1.0 }, { scale: 1.06, duration: 2.7, ease: "none", immediateRender: false }, 7.7);
+      tl.fromTo("#s7-ioc-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.out" }, 8.68);
+      tl.fromTo("#s7-ioc", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 9.02);
+
+      // ===== Zoom-through (10.42): the stadium; Avery Brundage =====
+      tl.to("#s7-v2wrap", { scale: 1.25, opacity: 0, filter: "blur(8px)", duration: 0.3, ease: "power2.in" }, 10.24);
+      tl.fromTo("#s7-v3wrap", { opacity: 0, scale: 0.94, filter: "blur(8px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 10.42);
+      tl.to("#s7-v3wrap", { scale: 1.05, duration: 2.4, ease: "power1.out" }, 10.97);
+      tl.fromTo("#s7-name", { clipPath: "inset(0 100% 0 0)", x: -20 }, { clipPath: "inset(0 0% 0 0)", x: 0, duration: 0.8, ease: "power3.out" }, 10.42);
+
+      // ===== The quote (12.84 – end): everything recedes; word by word; then stillness =====
+      tl.to("#s7-dim", { opacity: 0.72, duration: 0.8, ease: "power2.inOut" }, 12.5);
+      tl.to("#s7-v3wrap", { filter: "blur(5px)", duration: 0.8, ease: "power2.inOut" }, 12.5);
+      tl.to(["#s7-name", "#s7-ioc", "#s7-ioc-rule"], { opacity: 0, y: 30, duration: 0.5, ease: "power2.in" }, 12.4);
+      const words = [["#s7-w0", 12.84], ["#s7-w1", 12.9], ["#s7-w2", 13.2], ["#s7-w3", 13.56], ["#s7-w4", 13.86]];
+      words.forEach(([sel, at]) => tl.fromTo(sel, { opacity: 0, y: 26, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, at));
+      tl.fromTo("#s7-qrule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, 14.0);
+      tl.fromTo("#s7-attr", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power3.out" }, 14.1);
+
+      // gate weave on archival footage: tiny seeded sine offsets, written per frame
+      const weave = { t: 0 };
+      const vids = [$("s7-v1"), $("s7-v2"), $("s7-v3")];
+      const slugEl = $("s7-slug"); let lastSlug = null;
+      tl.to(weave, { t: DUR, duration: DUR, ease: "none", onUpdate: () => {
+        const f = Math.floor(weave.t * 24);
+        const dx = Math.sin(f * 1.7) * 1.2 + Math.sin(f * 0.31) * 0.8;
+        const dy = Math.sin(f * 2.3 + 1.1) * 1.0 + Math.sin(f * 0.23) * 0.9;
+        const tf = "translate(" + dx.toFixed(2) + "px," + dy.toFixed(2) + "px)";
+        for (let i = 0; i < vids.length; i++) vids[i].style.transform = tf;
+        const sl = weave.t < 3.8 ? "06·09·1972  MUNICH" : "06·09·1972  OLYMPIASTADION";
+        if (sl !== lastSlug) { slugEl.textContent = sl; lastSlug = sl; }
+      } }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s7"] = tl;
+    })();
+  </script>
+</template>

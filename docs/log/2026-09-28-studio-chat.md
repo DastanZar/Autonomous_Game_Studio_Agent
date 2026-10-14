@@ -3096,3 +3096,13 @@ Can i get a rough eta?
 - **Audio:** score retimed (cold-open heartbeat pulse); reverb switched to FFT convolution.
 - **README:** fact table with sources.
 - **ETA given:** about 1.5–2 h (estimate).
+
+### 2026-10-14 · user
+
+Please continue
+
+#### Claude · record
+
+- **Workers:** the 3 Munich frame workers stopped at the session limit (10:30 UTC reset). 5 of 10 scenes were on disk (s0, s1, s3, s6, s7). All three were resumed with SendMessage at 12:21 UTC to finish s2, s4, s5, s8 and s9, with lint and snapshot checks.
+- **Audio:** installed `@hyperframes/core@0.8.156` (dev dependency) and ran the `/hyperframes-audio` carve on `score` under `vo`, strength 0.8. Result: −7.4 dB across 400 Hz–4 kHz, −14.8 dB at 1.6 kHz, and a 390-point level envelope.
+- **Commits:** work in progress committed (only the scene HTML; the internal assets stay git-ignored).

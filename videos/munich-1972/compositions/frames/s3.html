@@ -1,0 +1,350 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-400.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-500.woff2") format("woff2"); font-weight: 500; }
+    @font-face { font-family: "DM Serif"; src: url("assets/fonts/dmserif.woff2") format("woff2"); font-weight: 400; }
+
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #ECE8DF; font-family: "Archivo", sans-serif; }
+    #s3-bg { position: absolute; inset: 0; background: #0F1114; }
+    #s3-stage { position: absolute; inset: 0; overflow: hidden; }
+    .s3-layer { position: absolute; inset: 0; overflow: hidden; }
+    .s3-weave { position: absolute; inset: 0; }
+    .s3-back { position: absolute; inset: -80px; background-size: cover; background-position: center;
+      filter: grayscale(1) blur(16px) brightness(0.42); }
+    .s3-card { position: absolute; overflow: hidden; outline: 2px solid #B9BEC4; outline-offset: -2px; background: #0F1114;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.65); }
+    .s3-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05) brightness(1.04); }
+    .s3-vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(15,17,20,0) 50%, rgba(15,17,20,0.55) 100%); }
+    .s3-ann { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .s3-ann path, .s3-ann rect, .s3-ann line, .s3-ann circle { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .s3-mono { font-family: "Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* slug */
+    #s3-slug { position: absolute; left: 120px; top: 84px; font-size: 24px; color: #B9BEC4; z-index: 30; white-space: nowrap; }
+    #s3-rule { position: absolute; left: 120px; top: 124px; width: 520px; height: 2px; background: #B9BEC4; opacity: 0.55; transform-origin: 0 50%; z-index: 30; }
+
+    /* door phase */
+    #s3-door-card { left: 170px; top: 0px; width: 1580px; height: 1056px; }
+    #s3-door-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,17,20,0.92) 0%, rgba(15,17,20,0.55) 38%, rgba(15,17,20,0) 62%); }
+    #s3-door-dim { position: absolute; inset: 0; background: #0F1114; opacity: 0; }
+    .s3-name { position: absolute; left: 120px; }
+    .s3-name .s3-bar { position: absolute; left: 0; top: 6px; width: 6px; height: 100%; background: #5BB3E6; transform-origin: 50% 0; }
+    .s3-name .s3-mask { overflow: hidden; padding-left: 32px; }
+    .s3-name .s3-nm { font-family: "DM Serif", serif; font-weight: 400; line-height: 1.04; white-space: nowrap; color: #ECE8DF; }
+    .s3-name .s3-role { padding-left: 34px; margin-top: 10px; font-size: 26px; color: #5BB3E6; white-space: nowrap; }
+    #s3-name0 { top: 600px; }
+    #s3-name0 .s3-nm { font-size: 112px; }
+
+    /* plan phase */
+    #s3-plan-cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #s3-plan-pan { position: absolute; inset: 0; }
+    #s3-plan-tilt { position: absolute; inset: 0; transform-origin: 50% 60%; }
+    #s3-plan svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .s3-box { stroke: #ECE8DF; stroke-width: 3; fill: none; }
+    .s3-num { font-family: "Archivo"; font-weight: 800; font-size: 150px; fill: #ECE8DF; opacity: 0.22; letter-spacing: -0.03em; }
+    .s3-apt { font-family: "Plex Mono"; font-weight: 500; font-size: 24px; fill: #B9BEC4; letter-spacing: 0.08em; }
+    .s3-svgtxt { font-family: "Plex Mono"; font-weight: 500; letter-spacing: 0.06em; white-space: pre; }
+    #s3-corr { stroke: #B9BEC4; stroke-width: 2; stroke-dasharray: 2 12; opacity: 0.6; fill: none; }
+    #s3-route1, #s3-route2 { stroke: #5BB3E6; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    #s3-glow { stroke: #5BB3E6; stroke-width: 14; fill: none; filter: url(#s3-blur); }
+
+    /* apartment phase */
+    #s3-apt-card { left: 760px; top: 140px; width: 1060px; height: 774px; }
+    #s3-apt-dim { position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(15,17,20,0.2) 20%, rgba(15,17,20,0.85) 100%); opacity: 0; }
+    #s3-name1 { top: 230px; }
+    #s3-name2 { top: 520px; }
+    #s3-name1 .s3-nm, #s3-name2 .s3-nm { font-size: 74px; }
+    .s3-killed { display: inline-block; margin: 18px 0 0 34px; padding: 6px 16px 4px; border: 2px solid #ECE8DF; font-size: 26px; letter-spacing: 0.24em; color: #ECE8DF; transform-origin: 0 50%; }
+
+    /* nine phase */
+    #s3-nine-cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #s3-nine svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .s3-fig { stroke: #ECE8DF; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .s3-tie { stroke: #5BB3E6; stroke-width: 3; fill: none; }
+    #s3-chain { stroke: #B9BEC4; stroke-width: 2.5; fill: none; stroke-linejoin: round; }
+    #s3-count { position: absolute; left: 120px; top: 150px; display: flex; align-items: baseline; gap: 26px; }
+    #s3-count-n { font-family: "Archivo"; font-weight: 800; font-size: 150px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; width: 110px; display: inline-block; }
+    #s3-count-l { font-size: 30px; color: #B9BEC4; }
+
+    #s3-flash { position: absolute; inset: 0; background: #ECE8DF; opacity: 0; z-index: 40; pointer-events: none; }
+  </style>
+
+  <div data-hf-id="hf-3xc5" id="root" data-composition-id="s3" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-30fi" id="s3-bg" class="clip" data-start="0" data-duration="34.3" data-track-index="0"></div>
+    <div data-hf-id="hf-2kyy" id="s3-stage" class="clip" data-start="0" data-duration="34.3" data-track-index="1">
+
+      <!-- A · the door (0 – 4.6) -->
+      <div data-hf-id="hf-phnf" id="s3-door" class="s3-layer">
+        <div data-hf-id="hf-29hf" class="s3-weave">
+          <div data-hf-id="hf-vx7g" id="s3-door-back" class="s3-back" style="background-image:url('assets/internal/negotiators_door.jpg')"></div>
+          <div data-hf-id="hf-tn6l" id="s3-door-card" class="s3-card">
+            <img data-hf-id="hf-7z1n" src="assets/internal/negotiators_door.jpg" alt="">
+            <div data-hf-id="hf-h8ob" class="s3-vig"></div>
+            <svg data-hf-id="hf-c195" class="s3-ann" viewBox="0 0 1502 1004" preserveAspectRatio="none">
+              <path data-hf-id="hf-76ig" id="s3-door-br" stroke="#5BB3E6" stroke-width="5" d="M1085,150 L1085,96 L1139,96 M1311,96 L1365,96 L1365,150 M1365,690 L1365,744 L1311,744 M1139,744 L1085,744 L1085,690" />
+            </svg>
+            <div data-hf-id="hf-8ai5" id="s3-door-dim"></div>
+          </div>
+        </div>
+        <div data-hf-id="hf-bkv8" id="s3-door-shade"></div>
+        <div data-hf-id="hf-uv65" id="s3-door-tag" class="s3-mono" style="position:absolute; left:1290px; top:800px; padding:8px 14px 6px; background:rgba(15,17,20,0.82); font-size:24px; color:#ECE8DF; white-space:nowrap;">The door</div>
+        <div data-hf-id="hf-jh6m" id="s3-name0" class="s3-name">
+          <div data-hf-id="hf-0wjm" class="s3-bar"></div>
+          <div data-hf-id="hf-isbj" class="s3-mask"><div data-hf-id="hf-ly5n" class="s3-nm">Moshe Weinberg</div></div>
+          <div data-hf-id="hf-rzz6" class="s3-role s3-mono">Wrestling coach</div>
+        </div>
+      </div>
+
+      <!-- B · the floor plan (4.44 – 17.6) -->
+      <div data-hf-id="hf-ysj2" id="s3-plan" class="s3-layer">
+        <div data-hf-id="hf-07nv" id="s3-plan-cam"><div data-hf-id="hf-ueuj" id="s3-plan-pan"><div data-hf-id="hf-jbmj" id="s3-plan-tilt">
+          <svg data-hf-id="hf-ff52" viewBox="0 0 1920 1080">
+            <defs data-hf-id="hf-mh0t"><filter data-hf-id="hf-629o" id="s3-blur" x="-20%" y="-20%" width="140%" height="140%"><fegaussianblur data-hf-id="hf-sfiv" stdDeviation="9" /></filter></defs>
+            <path data-hf-id="hf-5nie" id="s3-corr" d="M170,690 L1760,690" />
+            <rect data-hf-id="hf-zsva" id="s3-glow" x="1240" y="250" width="480" height="340" rx="4" opacity="0" />
+            <rect data-hf-id="hf-m1lt" class="s3-box" id="s3-box1" x="200" y="250" width="480" height="340" rx="4" />
+            <rect data-hf-id="hf-gu3b" class="s3-box" id="s3-box2" x="720" y="250" width="480" height="340" rx="4" />
+            <rect data-hf-id="hf-vd1c" class="s3-box" id="s3-box3" x="1240" y="250" width="480" height="340" rx="4" />
+            <text data-hf-id="hf-bhp8" class="s3-apt" id="s3-apt1" x="200" y="228">APARTMENT</text>
+            <text data-hf-id="hf-5od0" class="s3-apt" id="s3-apt2" x="720" y="228">APARTMENT</text>
+            <text data-hf-id="hf-9f6z" class="s3-apt" id="s3-apt3" x="1240" y="228">APARTMENT</text>
+            <text data-hf-id="hf-gr19" class="s3-num" id="s3-n1" x="226" y="392">1</text>
+            <text data-hf-id="hf-yia0" class="s3-num" id="s3-n2" x="746" y="392">2</text>
+            <text data-hf-id="hf-4dag" class="s3-num" id="s3-n3" x="1266" y="392">3</text>
+            <text data-hf-id="hf-bix0" class="s3-svgtxt" id="s3-sch" x="170" y="740" font-size="20" fill="#B9BEC4" opacity="0.8">SCHEMATIC · NOT TO SCALE</text>
+            <!-- route -->
+            <path data-hf-id="hf-ltbl" id="s3-route1" d="M440,470 L440,650 Q440,690 480,690 L1250,690 Q1290,690 1290,650" />
+            <path data-hf-id="hf-qiur" id="s3-route2" d="M1290,650 L1290,540" />
+            <circle data-hf-id="hf-24zv" id="s3-ring" cx="440" cy="470" r="16" fill="none" stroke="#5BB3E6" stroke-width="3" />
+            <circle data-hf-id="hf-l57l" id="s3-dot" cx="440" cy="470" r="13" fill="#5BB3E6" />
+            <text data-hf-id="hf-1nln" class="s3-svgtxt" id="s3-who1" x="440" y="528" font-size="24" fill="#ECE8DF" text-anchor="middle">WEINBERG</text>
+            <text data-hf-id="hf-oclc" class="s3-svgtxt" id="s3-who2" x="440" y="560" font-size="22" fill="#B9BEC4" text-anchor="middle">+ GUNMEN</text>
+            <text data-hf-id="hf-itbf" class="s3-svgtxt" id="s3-a2a" x="752" y="470" font-size="29" fill="#ECE8DF">“NO ISRAELIS HERE,”</text>
+            <text data-hf-id="hf-znen" class="s3-svgtxt" id="s3-a2b" x="752" y="512" font-size="29" fill="#B9BEC4">HE SAID</text>
+            <text data-hf-id="hf-8s60" class="s3-svgtxt" id="s3-a3a" x="1330" y="452" font-size="32" fill="#ECE8DF">WRESTLERS</text>
+            <text data-hf-id="hf-zjvr" class="s3-svgtxt" id="s3-a3b" x="1330" y="496" font-size="32" fill="#ECE8DF">WEIGHTLIFTERS</text>
+            <text data-hf-id="hf-hv39" id="s3-a3c" x="1330" y="560" font-size="27" fill="#B9BEC4" font-family="Archivo" font-weight="500" font-style="italic">(his motive is not known)</text>
+          </svg>
+        </div></div></div>
+      </div>
+
+      <!-- C · the apartment afterwards (17.6 – 30.6) -->
+      <div data-hf-id="hf-3jp4" id="s3-apt" class="s3-layer">
+        <div data-hf-id="hf-67lv" class="s3-weave">
+          <div data-hf-id="hf-8fp8" id="s3-apt-back" class="s3-back" style="background-image:url('assets/internal/apartment_after.jpg')"></div>
+          <div data-hf-id="hf-hnb2" id="s3-apt-card" class="s3-card">
+            <img data-hf-id="hf-wd9s" src="assets/internal/apartment_after.jpg" alt="">
+            <div data-hf-id="hf-hibv" class="s3-vig"></div>
+          </div>
+        </div>
+        <div data-hf-id="hf-y0b4" id="s3-apt-dim"></div>
+        <div data-hf-id="hf-pmwf" id="s3-name1" class="s3-name">
+          <div data-hf-id="hf-s7qe" class="s3-bar"></div>
+          <div data-hf-id="hf-7ucf" class="s3-mask"><div data-hf-id="hf-1csr" class="s3-nm">Moshe Weinberg</div></div>
+          <div data-hf-id="hf-0gcm" class="s3-role s3-mono">Wrestling coach</div>
+          <div data-hf-id="hf-4ib6" class="s3-killed s3-mono" id="s3-k1">Killed</div>
+        </div>
+        <div data-hf-id="hf-eres" id="s3-name2" class="s3-name">
+          <div data-hf-id="hf-sm1f" class="s3-bar"></div>
+          <div data-hf-id="hf-7g1e" class="s3-mask"><div data-hf-id="hf-znw5" class="s3-nm">Yossef Romano</div></div>
+          <div data-hf-id="hf-6gvz" class="s3-role s3-mono">Weightlifter</div>
+          <div data-hf-id="hf-y5hl" class="s3-killed s3-mono" id="s3-k2">Killed</div>
+        </div>
+      </div>
+
+      <!-- D · nine men (30.6 – 34.3) -->
+      <div data-hf-id="hf-4p13" id="s3-nine" class="s3-layer">
+        <div data-hf-id="hf-f6dm" id="s3-nine-cam">
+          <svg data-hf-id="hf-uupe" viewBox="0 0 1920 1080" id="s3-nine-svg" />
+          <div data-hf-id="hf-id59" id="s3-count"><span data-hf-id="hf-9b8d" id="s3-count-n">0</span><span data-hf-id="hf-sk2a" id="s3-count-l" class="s3-mono">Hostages</span></div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-47yz" id="s3-slug" class="s3-mono">05·09·1972 · Connollystrasse 31</div>
+      <div data-hf-id="hf-9bga" id="s3-rule"></div>
+      <div data-hf-id="hf-s8me" id="s3-flash"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const $ = (s) => document.querySelector(s);
+      const $$ = (s) => Array.prototype.slice.call(document.querySelectorAll(s));
+      const SVGNS = "http://www.w3.org/2000/svg";
+      const tl = gsap.timeline({ paused: true });
+      const D = 34.3;
+
+      function prep(el) {
+        const L = el.getTotalLength() * 1.02;
+        el.style.strokeDasharray = L + " " + L;
+        el.style.strokeDashoffset = L;
+        return L;
+      }
+      function draw(el, t, d, ease) {
+        if (typeof el === "string") el = $(el);
+        const L = prep(el);
+        tl.fromTo(el, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: d, ease: ease || "power2.out", immediateRender: true }, t);
+        tl.fromTo(el, { visibility: "hidden" }, { visibility: "visible", duration: 0.01, immediateRender: true }, t);
+      }
+      function svgType(el, t, cps) {
+        const txt = el.textContent; el.textContent = "";
+        const spans = Array.from(txt).map((c) => { const s = document.createElementNS(SVGNS, "tspan"); s.textContent = c; el.appendChild(s); return s; });
+        tl.fromTo(spans, { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 1 / (cps || 30), ease: "none" }, t);
+      }
+      function htmlType(el, t, cps) {
+        const txt = el.textContent; el.textContent = "";
+        const spans = Array.from(txt).map((c) => { const s = document.createElement("span"); s.textContent = c; s.style.whiteSpace = "pre"; el.appendChild(s); return s; });
+        tl.fromTo(spans, { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 1 / (cps || 30), ease: "none" }, t);
+      }
+      function nameIn(card, t) {
+        tl.fromTo(card.querySelector(".s3-bar"), { scaleY: 0 }, { scaleY: 1, duration: 0.45, ease: "power3.out" }, t);
+        tl.fromTo(card.querySelector(".s3-nm"), { yPercent: 105 }, { yPercent: 0, duration: 0.6, ease: "power3.out" }, t + 0.05);
+      }
+      function flash(t, peak) {
+        tl.to("#s3-flash", { opacity: peak || 0.55, duration: 0.03, ease: "none" }, t);
+        tl.to("#s3-flash", { opacity: 0, duration: 0.28, ease: "power2.out" }, t + 0.03);
+      }
+      tl.set("#s3-flash", { opacity: 0 }, 0);
+
+      /* ---------- slug ---------- */
+      tl.fromTo("#s3-slug", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.05);
+      tl.fromTo("#s3-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.out" }, 0.1);
+
+      /* ---------- A · door (0 – 4.6) ---------- */
+      tl.fromTo("#s3-door", { autoAlpha: 1 }, { autoAlpha: 1, duration: 0.01 }, 0);
+      tl.fromTo("#s3-door-card", { transformPerspective: 1600, rotationY: 11, rotationX: 2, z: -140, x: 70 },
+        { rotationY: 3, rotationX: 0, z: 10, x: -10, duration: 4.4, ease: "power2.out" }, 0);
+      tl.fromTo("#s3-door-back", { x: 40, scale: 1.12 }, { x: -30, scale: 1.08, duration: 4.6, ease: "power1.out" }, 0);
+      draw("#s3-door-br", 0.25, 0.7, "power2.out");
+      htmlType($("#s3-door-tag"), 0.5, 34);
+      nameIn($("#s3-name0"), 1.1);
+      tl.fromTo("#s3-name0 .s3-role", { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 1.6);
+      tl.fromTo("#s3-door-dim", { opacity: 0 }, { opacity: 0.38, duration: 1.2, ease: "power2.out" }, 2.62);
+      // zoom-through out at the cut on "forced"
+      tl.to("#s3-door .s3-weave", { scale: 1.32, filter: "blur(10px)", opacity: 0, duration: 0.32, ease: "power2.in" }, 4.18);
+      tl.to(["#s3-name0", "#s3-door-tag", "#s3-door-shade"], { opacity: 0, duration: 0.22, ease: "power2.in" }, 4.24);
+      tl.set("#s3-door", { autoAlpha: 0 }, 4.56);
+
+      /* ---------- B · floor plan (4.44 – 17.6) ---------- */
+      tl.fromTo("#s3-plan", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12, ease: "none" }, 4.44);
+      tl.fromTo("#s3-plan-cam", { scale: 0.82, filter: "blur(8px)" }, { scale: 1, filter: "blur(0px)", duration: 0.9, ease: "expo.out" }, 4.44);
+      tl.fromTo("#s3-plan-tilt", { transformPerspective: 1500, rotationX: 36 }, { rotationX: 14, duration: 3.6, ease: "power3.out" }, 4.44);
+      // boxes draw: 1 · 2 · 3
+      draw("#s3-box1", 4.44, 0.6); draw("#s3-box2", 4.78, 0.6); draw("#s3-box3", 5.1, 0.6);
+      [["#s3-n1", "#s3-apt1", 4.6], ["#s3-n2", "#s3-apt2", 4.94], ["#s3-n3", "#s3-apt3", 5.26]].forEach(([n, a, t]) => {
+        tl.fromTo(n, { opacity: 0, y: 30 }, { opacity: 0.22, y: 0, duration: 0.5, ease: "power3.out" }, t);
+        tl.fromTo(a, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, t);
+      });
+      draw("#s3-corr", 5.0, 1.2, "power1.inOut");
+      tl.fromTo("#s3-sch", { opacity: 0 }, { opacity: 0.8, duration: 0.4 }, 5.6);
+      // Weinberg + gunmen marker in apartment 1 ("lead" / "gunman")
+      tl.fromTo("#s3-dot", { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "expo.out" }, 5.02);
+      tl.fromTo("#s3-ring", { scale: 1, opacity: 0.9, transformOrigin: "50% 50%" }, { scale: 3.2, opacity: 0, duration: 1.0, ease: "power2.out" }, 5.02);
+      tl.fromTo("#s3-who1", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 5.08);
+      tl.fromTo("#s3-who2", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 5.44);
+      // route with travelling dot: "walked" -> past apt 2 -> "strongest" into apt 3
+      const r1 = $("#s3-route1"), r2 = $("#s3-route2"), dot = $("#s3-dot");
+      const L1 = r1.getTotalLength(), L2 = r2.getTotalLength();
+      r1.style.strokeDasharray = L1 + " " + L1; r1.style.strokeDashoffset = L1;
+      r2.style.strokeDasharray = L2 + " " + L2; r2.style.strokeDashoffset = L2;
+      const rp = { a: 0, b: 0 };
+      const routeWrite = () => {
+        r1.style.strokeDashoffset = L1 * (1 - rp.a);
+        r2.style.strokeDashoffset = L2 * (1 - rp.b);
+        const p = rp.b > 0 ? r2.getPointAtLength(L2 * rp.b) : r1.getPointAtLength(L1 * rp.a);
+        dot.setAttribute("cx", p.x.toFixed(2)); dot.setAttribute("cy", p.y.toFixed(2));
+      };
+      tl.fromTo(r1, { visibility: "hidden" }, { visibility: "visible", duration: 0.01 }, 7.46);
+      tl.fromTo(r2, { visibility: "hidden" }, { visibility: "visible", duration: 0.01 }, 10.76);
+      tl.fromTo(rp, { a: 0 }, { a: 1, duration: 2.6, ease: "power1.inOut", onUpdate: routeWrite, immediateRender: false }, 7.46);
+      tl.fromTo(rp, { b: 0 }, { b: 1, duration: 0.8, ease: "power2.out", onUpdate: routeWrite, immediateRender: false }, 10.76);
+      tl.to(["#s3-who1", "#s3-who2"], { opacity: 0.35, duration: 0.5 }, 7.6);
+      // apartment 2: "past one apartment"
+      svgType($("#s3-a2a"), 8.46, 30);
+      svgType($("#s3-a2b"), 9.1, 30);
+      tl.to(["#s3-box2", "#s3-n2"], { opacity: 0.45, duration: 0.6, ease: "power2.out" }, 10.04);
+      tl.to(["#s3-a2a", "#s3-a2b"], { opacity: 0.55, duration: 0.6, ease: "power2.out" }, 10.04);
+      // camera push toward apartment 3 (coordinate target: outer scale, inner counter-translate)
+      tl.to("#s3-plan-cam", { scale: 1.22, duration: 2.4, ease: "power3.inOut" }, 10.04);
+      tl.to("#s3-plan-pan", { x: -330, y: 70, duration: 2.4, ease: "power3.inOut" }, 10.04);
+      // apartment 3 labels: "Wrestlers," / "weightlifters,"
+      svgType($("#s3-a3a"), 12.64, 30);
+      svgType($("#s3-a3b"), 13.6, 30);
+      // "maybe hoping" — box 3 glows Munich blue
+      tl.to("#s3-box3", { stroke: "#5BB3E6", duration: 0.5, ease: "power2.out" }, 14.86);
+      tl.fromTo("#s3-glow", { opacity: 0 }, { opacity: 0.85, duration: 0.7, ease: "power2.out" }, 14.86);
+      tl.fromTo("#s3-a3c", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 15.18);
+      tl.to("#s3-plan-cam", { scale: 1.28, duration: 2.2, ease: "power2.out" }, 15.2);
+      tl.set("#s3-plan", { autoAlpha: 0 }, 17.6);
+
+      /* ---------- C · the apartment afterwards (17.6 – 30.6) ---------- */
+      flash(17.6, 0.5);
+      tl.fromTo("#s3-apt", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }, 17.6);
+      tl.fromTo("#s3-apt-card", { transformPerspective: 1700, rotationY: -15, rotationX: 3, z: -160, x: 90 },
+        { rotationY: -5, rotationX: 0, z: 0, x: 0, duration: 6.2, ease: "power2.out" }, 17.6);
+      tl.fromTo("#s3-apt-back", { x: -60, scale: 1.14 }, { x: 20, scale: 1.08, duration: 6.4, ease: "power1.out" }, 17.6);
+      // Weinberg returns: "Weinberg fought again" ... "killed."
+      nameIn($("#s3-name1"), 18.94);
+      tl.fromTo("#s3-name1 .s3-role", { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 19.2);
+      tl.fromTo("#s3-k1", { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.35, ease: "expo.out" }, 20.94);
+      tl.to("#s3-name1", { opacity: 0.55, duration: 0.6, ease: "power2.out" }, 22.22);
+      // Romano: "Weightlifter Yossef Romano" ... "shot too."
+      nameIn($("#s3-name2"), 23.34);
+      tl.fromTo("#s3-name2 .s3-role", { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 23.6);
+      tl.fromTo("#s3-k2", { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.35, ease: "expo.out" }, 26.28);
+      // "They left his body at his teammates' feet." — restraint: slow push + light closes in
+      tl.fromTo("#s3-apt-dim", { opacity: 0 }, { opacity: 1, duration: 2.4, ease: "power2.inOut" }, 27.68);
+      tl.to("#s3-apt-card", { z: 70, duration: 2.8, ease: "power2.inOut" }, 27.68);
+      // zoom-through out
+      tl.to("#s3-apt .s3-weave", { scale: 1.25, filter: "blur(10px)", opacity: 0, duration: 0.32, ease: "power2.in" }, 30.34);
+      tl.to(["#s3-name1", "#s3-name2"], { opacity: 0, duration: 0.24, ease: "power2.in" }, 30.38);
+      tl.set("#s3-apt", { autoAlpha: 0 }, 30.66);
+
+      /* ---------- D · nine men tied (30.6 – 34.3) ---------- */
+      const svg = $("#s3-nine-svg");
+      const X0 = 260, DX = 175, HEAD_Y = 392;
+      const mk = (tag, attrs, cls) => { const e = document.createElementNS(SVGNS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (cls) e.setAttribute("class", cls); svg.appendChild(e); return e; };
+      let chainD = "";
+      const figs = [], ties = [];
+      for (let i = 0; i < 9; i++) {
+        const x = X0 + i * DX;
+        const head = mk("circle", { cx: x, cy: HEAD_Y, r: 30 }, "s3-fig");
+        const torso = mk("path", { d: `M${x - 46},560 L${x - 46},478 Q${x - 46},446 ${x - 16},446 L${x + 16},446 Q${x + 46},446 ${x + 46},478 L${x + 46},560` }, "s3-fig");
+        const legs = mk("path", { d: `M${x - 20},520 L${x - 20},664 M${x + 20},520 L${x + 20},664` }, "s3-fig");
+        figs.push([head, torso, legs]);
+        ties.push(mk("circle", { cx: x + 46, cy: 552, r: 9 }, "s3-tie"));
+        ties.push(mk("circle", { cx: x - 20, cy: 652, r: 9 }, "s3-tie"));
+        if (i < 8) chainD += (i === 0 ? `M${x + 46},552` : ` L${x + 46},552`) + ` L${x + DX - 20},652`;
+      }
+      chainD += ` L${X0 + 8 * DX + 46},552`;
+      const chain = mk("path", { d: chainD, id: "s3-chain" });
+      svg.insertBefore(chain, svg.firstChild);
+
+      flash(30.6, 0.35);
+      tl.fromTo("#s3-nine", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }, 30.6);
+      tl.fromTo("#s3-nine-cam", { scale: 0.9, filter: "blur(8px)" }, { scale: 1, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 30.6);
+      tl.to("#s3-nine-cam", { scale: 1.05, duration: 3.0, ease: "power1.out" }, 31.3);
+      figs.forEach((f, i) => { f.forEach((p, j) => draw(p, 30.6 + i * 0.085 + j * 0.06, 0.5, "power2.out")); });
+      const cnt = { v: 0 }, cntEl = $("#s3-count-n");
+      tl.fromTo(cnt, { v: 0 }, { v: 9, duration: 0.85, ease: "none", onUpdate: () => { const n = String(Math.max(1, Math.ceil(cnt.v))); if (cntEl.textContent !== n) cntEl.textContent = n; }, immediateRender: false }, 30.6);
+      tl.fromTo("#s3-count", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 30.6);
+      // "tied up" — a tie at every wrist and ankle; "wrist to ankle to each other" — one line binds the row
+      ties.forEach((c, i) => draw(c, 31.28 + i * 0.03, 0.35, "power2.out"));
+      draw(chain, 32.2, 1.35, "none");
+
+      /* ---------- gate weave on photo planes (seeded sine, deterministic) ---------- */
+      const weaves = $$("#s3-stage .s3-weave");
+      const wv = { t: 0 };
+      tl.fromTo(wv, { t: 0 }, { t: D, duration: D, ease: "none", immediateRender: false, onUpdate: () => {
+        const f = Math.floor(wv.t * 24);
+        const dx = Math.sin(f * 12.9898) * 0.9, dy = Math.sin(f * 78.233 + 1.3) * 0.7;
+        weaves.forEach((w) => { w.style.translate = dx.toFixed(2) + "px " + dy.toFixed(2) + "px"; });
+      } }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s3"] = tl;
+    })();
+  </script>
+</template>

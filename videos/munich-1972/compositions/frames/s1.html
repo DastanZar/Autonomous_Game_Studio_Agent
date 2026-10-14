@@ -1,0 +1,372 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-400.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-500.woff2") format("woff2"); font-weight: 500; }
+    @font-face { font-family: "DM Serif"; src: url("assets/fonts/dmserif.woff2") format("woff2"); font-weight: 400; }
+
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #16181C; }
+    #s1-ground { position: absolute; inset: 0; background: #F4F1EA; }
+    .s1-layer { position: absolute; inset: 0; overflow: hidden; }
+
+    /* ---------- archival footage ---------- */
+    #s1-foot { }
+    .s1-vwrap { position: absolute; inset: -60px; }
+    .s1-vwrap video { position: absolute; left: 60px; top: 60px; width: 1920px; height: 1080px; object-fit: cover; }
+    #s1-foot-shade { position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(12,13,15,0.62) 0%, rgba(12,13,15,0.25) 45%, rgba(12,13,15,0) 70%),
+                  linear-gradient(180deg, rgba(12,13,15,0.35) 0%, rgba(12,13,15,0) 22%); }
+
+    #s1-1972 { position: absolute; left: 120px; top: 230px; display: flex; transform-origin: 0 0;
+      font-family: "Archivo"; font-weight: 800; font-size: 380px; line-height: 0.95; letter-spacing: -0.03em; }
+    #s1-1972 span { display: inline-block; text-shadow: 0 6px 30px rgba(0,0,0,0.25); }
+
+    #s1-party { position: absolute; left: 120px; top: 560px; width: 1300px; font-family: "Archivo"; font-weight: 800;
+      font-size: 112px; line-height: 0.98; letter-spacing: -0.03em; color: #ECE8DF; text-shadow: 0 4px 24px rgba(0,0,0,0.35); }
+    #s1-party span { display: inline-block; margin-right: 0.22em; }
+
+    /* ---------- the year ruler ---------- */
+    #s1-ruler { opacity: 0; }
+    #s1-strip { position: absolute; left: 0; top: 0; width: 1px; height: 1080px; }
+    .s1-tick { position: absolute; top: 560px; width: 2px; height: 26px; background: #16181C; }
+    .s1-tick.s1-dec { height: 70px; top: 530px; width: 3px; }
+    .s1-ylab { position: absolute; top: 470px; width: 200px; margin-left: -100px; text-align: center;
+      font-family: "Plex Mono"; font-weight: 500; font-size: 30px; letter-spacing: 0.08em; color: #16181C; }
+    #s1-axis { position: absolute; left: 0; right: 0; top: 586px; height: 2px; background: #16181C; }
+    #s1-playhead { position: absolute; left: 958px; top: 420px; width: 4px; height: 250px; background: #5BB3E6; }
+    #s1-playhead::after { content: ""; position: absolute; left: -12px; top: -20px; border: 14px solid transparent; border-top: 20px solid #5BB3E6; }
+    #s1-ruler-label { position: absolute; left: 120px; top: 700px; font-family: "Plex Mono"; font-weight: 500; font-size: 30px;
+      letter-spacing: 0.08em; color: #16181C; }
+
+    /* ---------- Berlin 1936 ---------- */
+    #s1-berlin { opacity: 0; background: #1a1b1d; }
+    .s1-bplane { position: absolute; inset: 0; transform-origin: 1100px 520px; }
+    .s1-bplane img { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #s1-bp-bg img { filter: grayscale(1) contrast(1.08) brightness(0.82) blur(2.5px); }
+    #s1-bp-subj img { filter: grayscale(1) contrast(1.12) brightness(0.92);
+      clip-path: polygon(576px 346px, 1114px 326px, 1459px 202px, 1920px 326px, 1920px 1080px, 576px 1080px); }
+    #s1-bp-shade { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 55% 50%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%); }
+    #s1-hitler-ring { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    #s1-hitler-lab { position: absolute; left: 1160px; top: 268px; font-family: "Plex Mono"; font-weight: 500; font-size: 24px;
+      letter-spacing: 0.08em; color: #ECE8DF; background: rgba(15,17,20,0.72); padding: 6px 12px; }
+
+    #s1-card { position: absolute; left: 120px; top: 200px; width: 620px; height: 470px; transform-origin: 0 0;
+      background: #F4F1EA; box-shadow: 0 24px 60px rgba(0,0,0,0.45), 0 2px 6px rgba(0,0,0,0.3);
+      clip-path: polygon(0 0, 100% 0, 100% 92%, 96% 95%, 91% 92.5%, 85% 96%, 79% 93%, 72% 96.5%, 66% 93%, 59% 96%, 52% 92.5%, 46% 96%, 39% 93.5%, 33% 96.5%, 26% 93%, 19% 96%, 12% 92.5%, 6% 95.5%, 0 93%); }
+    #s1-card-lab { position: absolute; left: 44px; top: 40px; font-family: "Plex Mono"; font-weight: 500; font-size: 24px; letter-spacing: 0.08em; color: #16181C; }
+    #s1-card-rule { position: absolute; left: 44px; top: 82px; width: 532px; height: 2px; background: #16181C; transform-origin: 0 50%; }
+    #s1-card-year { position: absolute; left: 36px; top: 98px; font-family: "Archivo"; font-weight: 800; font-size: 210px; line-height: 0.95; letter-spacing: -0.03em; color: #16181C; }
+    #s1-card-quote { position: absolute; left: 44px; top: 318px; font-family: "DM Serif"; font-size: 72px; line-height: 1; color: #16181C; }
+
+    /* ---------- the rainbow wipe ---------- */
+    #s1-wipe { position: absolute; left: -900px; top: -900px; width: 6000px; height: 2880px; display: flex;
+      transform-origin: 0 0; pointer-events: none; }
+    #s1-wipe div { height: 100%; }
+
+    /* ---------- the Cheerful Games (paper) ---------- */
+    #s1-title { position: absolute; left: 120px; top: 230px; font-family: "Archivo"; font-weight: 800; font-size: 150px;
+      line-height: 0.95; letter-spacing: -0.03em; color: #16181C; white-space: nowrap; }
+    #s1-title span { display: inline-block; margin-right: 0.2em; }
+    #s1-sub { position: absolute; left: 124px; top: 405px; font-family: "Plex Mono"; font-weight: 500; font-size: 32px;
+      letter-spacing: 0.12em; color: #16181C; }
+    #s1-swatches { position: absolute; left: 120px; top: 500px; display: flex; gap: 22px; }
+    .s1-sw { width: 150px; }
+    .s1-sw-chip { width: 150px; height: 150px; }
+    .s1-sw-lab { margin-top: 14px; font-family: "Plex Mono"; font-weight: 500; font-size: 22px; letter-spacing: 0.08em; color: #16181C; white-space: nowrap; }
+
+    #s1-waldi { position: absolute; left: 1170px; top: 300px; width: 660px; height: 380px; }
+    #s1-waldi div { position: absolute; }
+    #s1-waldi-lab { position: absolute; left: 1240px; top: 720px; font-family: "Plex Mono"; font-weight: 500; font-size: 26px;
+      letter-spacing: 0.08em; color: #16181C; }
+    #s1-waldi-name { position: absolute; left: 1236px; top: 760px; font-family: "Archivo"; font-weight: 800; font-size: 80px; line-height: 1;
+      letter-spacing: -0.03em; color: #16181C; }
+
+    #s1-host { position: absolute; left: 930px; top: 250px; width: 868px; height: 469px; background: #FFFFFF; padding: 14px;
+      box-shadow: 0 30px 70px rgba(22,24,28,0.35), 0 2px 6px rgba(22,24,28,0.25); transform-origin: 50% 50%; }
+    #s1-host img { width: 840px; height: 441px; display: block; }
+    #s1-host-ring { position: absolute; left: 0; top: 0; width: 868px; height: 469px; overflow: visible; }
+    #s1-host-lab { position: absolute; left: 930px; top: 752px; font-family: "Plex Mono"; font-weight: 500; font-size: 26px;
+      letter-spacing: 0.08em; color: #16181C; background: #F4F1EA; padding: 6px 10px 6px 0; }
+
+    /* ---------- Israel, opening ceremony ---------- */
+    #s1-israel { opacity: 0; background: #202124; }
+    .s1-iplane { position: absolute; inset: 0; transform-origin: 1300px 200px; }
+    .s1-iplane img { position: absolute; left: -260px; top: -40px; width: 2200px; height: 1648px; }
+    #s1-ip-bg img { filter: grayscale(1) contrast(1.05) brightness(0.86) blur(1.5px); }
+    #s1-ip-subj img { filter: grayscale(1) contrast(1.08);
+      clip-path: polygon(939px 75px, 1665px 75px, 1665px 301px, 1400px 301px, 1400px 430px, 1410px 470px, 1440px 1080px, 1040px 1080px, 1050px 470px, 1130px 430px, 1240px 301px, 939px 301px); }
+    #s1-ip-shade { position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,11,13,0.55) 0%, rgba(10,11,13,0) 24%), radial-gradient(ellipse 75% 75% at 60% 35%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%); }
+    #s1-israel-ring { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    #s1-israel-lab { position: absolute; left: 1290px; top: 372px; font-family: "Plex Mono"; font-weight: 500; font-size: 24px;
+      letter-spacing: 0.08em; color: #ECE8DF; background: rgba(15,17,20,0.75); padding: 6px 12px; }
+
+    /* ---------- slug + flash ---------- */
+    #s1-slug { position: absolute; left: 120px; top: 90px; display: flex; align-items: center; white-space: nowrap;
+      font-family: "Plex Mono"; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #ECE8DF; }
+    #s1-slug-text { white-space: pre; }
+    #s1-cursor { display: inline-block; width: 13px; height: 28px; background: currentColor; margin-left: 6px; }
+    #s1-rule { position: absolute; left: 120px; top: 140px; width: 1680px; height: 1px; background: currentColor; opacity: 0.45; color: #ECE8DF; transform-origin: 0 50%; }
+    #s1-flash { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }
+  </style>
+
+  <div id="root" data-composition-id="s1" data-width="1920" data-height="1080">
+    <div id="s1-ground" class="clip" data-start="0" data-duration="26.7" data-track-index="0"></div>
+
+    <!-- 1972 Games colour footage -->
+    <div id="s1-foot" class="s1-layer">
+      <div id="s1-w-roof" class="s1-vwrap"><video id="s1-v-roof" src="assets/internal/footage/clips/s1_roof.mp4" muted playsinline data-start="0" data-duration="2.6" data-media-start="0" data-track-index="1"></video></div>
+      <div id="s1-w-march" class="s1-vwrap"><video id="s1-v-march" src="assets/internal/footage/clips/s1_march.mp4" muted playsinline data-start="2.6" data-duration="1.05" data-media-start="0" data-track-index="1"></video></div>
+      <div id="s1-w-dancers" class="s1-vwrap"><video id="s1-v-dancers" src="assets/internal/footage/clips/s1_dancers.mp4" muted playsinline data-start="3.65" data-duration="1.05" data-media-start="0" data-track-index="1"></video></div>
+      <div id="s1-w-redhats" class="s1-vwrap"><video id="s1-v-redhats" src="assets/internal/footage/clips/s1_redhats.mp4" muted playsinline data-start="4.7" data-duration="1.04" data-media-start="0" data-track-index="1"></video></div>
+      <div id="s1-w-slow" class="s1-vwrap"><video id="s1-v-slow" src="assets/internal/footage/clips/s1_stadium_slow.mp4" muted playsinline data-start="5.74" data-duration="2.96" data-media-start="0" data-track-index="1"></video></div>
+      <div id="s1-foot-shade"></div>
+    </div>
+
+    <!-- year ruler: 1972 back towards the 1930s -->
+    <div id="s1-ruler" class="s1-layer">
+      <div id="s1-axis"></div>
+      <div id="s1-strip"></div>
+      <div id="s1-playhead"></div>
+      <div id="s1-ruler-label">LAST SUMMER GAMES IN GERMANY</div>
+    </div>
+
+    <!-- 1972 rainbow digits + per-word line (over footage and ruler) -->
+    <div id="s1-1972"><span style="color:#5BB3E6">1</span><span style="color:#4FB477">9</span><span style="color:#F2C230">7</span><span style="color:#EE8A37">2</span></div>
+    <div id="s1-party"><span>A</span><span>party</span><span>for</span><br /><span>the</span><span>whole</span><span>world.</span></div>
+
+    <!-- Berlin 1936 (2.5D planes) -->
+    <div id="s1-berlin" class="s1-layer">
+      <div id="s1-bp-bg" class="s1-bplane"><img src="assets/internal/berlin1936.jpg" alt="" /></div>
+      <div id="s1-bp-subj" class="s1-bplane">
+        <img src="assets/internal/berlin1936.jpg" alt="" />
+        <svg id="s1-hitler-ring" viewBox="0 0 1920 1080"><path id="s1-hring" d="M 1008 336 C 1090 334 1140 400 1136 470 C 1132 548 1070 596 1000 594 C 924 592 872 532 876 462 C 880 392 936 338 1012 340" fill="none" stroke="#5BB3E6" stroke-width="6" stroke-linecap="round" /></svg>
+        <div id="s1-hitler-lab">ADOLF HITLER</div>
+      </div>
+      <div id="s1-bp-shade"></div>
+      <div id="s1-card">
+        <div id="s1-card-lab">BERLIN · OLYMPIASTADION</div>
+        <div id="s1-card-rule"></div>
+        <div id="s1-card-year">1936</div>
+        <div id="s1-card-quote">Hitler’s Games.</div>
+      </div>
+    </div>
+
+    <!-- the Cheerful Games -->
+    <div id="s1-cheer" class="s1-layer" style="opacity:0">
+      <div id="s1-title"><span>The</span><span>Cheerful</span><span>Games</span></div>
+      <div id="s1-sub">DIE HEITEREN SPIELE</div>
+      <div id="s1-swatches">
+        <div class="s1-sw"><div class="s1-sw-chip" style="background:#5BB3E6"></div><div class="s1-sw-lab">LIGHT BLUE</div></div>
+        <div class="s1-sw"><div class="s1-sw-chip" style="background:#4FB477"></div><div class="s1-sw-lab">GREEN</div></div>
+        <div class="s1-sw"><div class="s1-sw-chip" style="background:#F2C230"></div><div class="s1-sw-lab">YELLOW</div></div>
+        <div class="s1-sw"><div class="s1-sw-chip" style="background:#EE8A37"></div><div class="s1-sw-lab">ORANGE</div></div>
+        <div class="s1-sw"><div class="s1-sw-chip" style="background:#B9BEC4"></div><div class="s1-sw-lab">SILVER</div></div>
+      </div>
+      <div id="s1-waldi">
+        <div style="left:0;top:96px;width:110px;height:22px;border-radius:11px;background:#5BB3E6;transform:rotate(-28deg);transform-origin:100% 50%;"></div>
+        <div style="left:96px;top:110px;width:430px;height:140px;border-radius:70px;background:linear-gradient(90deg,#5BB3E6 0 18%,#4FB477 18% 36%,#F2C230 36% 54%,#EE8A37 54% 72%,#4FB477 72% 86%,#5BB3E6 86% 100%);"></div>
+        <div style="left:140px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
+        <div style="left:200px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
+        <div style="left:400px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
+        <div style="left:460px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
+        <div style="left:470px;top:40px;width:120px;height:150px;border-radius:50px 50px 30px 30px;background:#5BB3E6;"></div>
+        <div style="left:540px;top:70px;width:110px;height:70px;border-radius:30px 36px 36px 20px;background:#5BB3E6;"></div>
+        <div style="left:478px;top:70px;width:52px;height:110px;border-radius:26px;background:#3E7FA6;"></div>
+        <div style="left:566px;top:76px;width:16px;height:16px;border-radius:8px;background:#16181C;"></div>
+        <div style="left:634px;top:82px;width:22px;height:22px;border-radius:11px;background:#16181C;"></div>
+      </div>
+      <div id="s1-waldi-lab">OFFICIAL MASCOT</div>
+      <div id="s1-waldi-name">Waldi</div>
+      <div id="s1-host">
+        <img src="assets/internal/hostesses_blue.jpg" alt="" />
+        <svg id="s1-host-ring" viewBox="0 0 868 469"><path id="s1-hostring" d="M 128 70 C 196 66 232 150 230 250 C 228 360 196 450 126 452 C 60 454 26 360 28 250 C 30 150 64 72 132 74" fill="none" stroke="#16181C" stroke-width="5" stroke-linecap="round" /></svg>
+      </div>
+      <div id="s1-host-lab">OLYMPIC STAFF IN AICHER BLUE</div>
+    </div>
+
+    <!-- Israel, opening ceremony, 26 Aug 1972 -->
+    <div id="s1-israel" class="s1-layer">
+      <div id="s1-ip-bg" class="s1-iplane"><img src="assets/internal/israel_team_opening.jpg" alt="" /></div>
+      <div id="s1-ip-subj" class="s1-iplane"><img src="assets/internal/israel_team_opening.jpg" alt="" /></div>
+      <div id="s1-ip-shade"></div>
+      <svg id="s1-israel-ring" viewBox="0 0 1920 1080"><path id="s1-iring" d="M 1310 46 C 1560 44 1716 108 1712 190 C 1708 276 1540 336 1300 334 C 1060 332 904 272 908 188 C 912 104 1070 46 1320 50" fill="none" stroke="#5BB3E6" stroke-width="6" stroke-linecap="round" /></svg>
+      <div id="s1-israel-lab">ISRAEL · OPENING CEREMONY · 26·08·1972</div>
+    </div>
+
+    <!-- rainbow wipe (erases 1936) -->
+    <div id="s1-wipe"><div style="width:240px;background:#5BB3E6"></div><div style="width:240px;background:#4FB477"></div><div style="width:240px;background:#F2C230"></div><div style="width:240px;background:#EE8A37"></div><div style="width:5040px;background:#F4F1EA"></div></div>
+
+    <div id="s1-slug"><span id="s1-slug-text"></span><span id="s1-cursor"></span></div>
+    <div id="s1-rule"></div>
+    <div id="s1-flash"></div>
+  </div>
+
+  <script>
+    (function () {
+      const DUR = 26.7;
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => document.querySelector(s);
+      const qa = (s) => Array.from(document.querySelectorAll(s));
+      const BONE = "#ECE8DF", INK = "#16181C";
+
+      // ---------- slug: discrete text states ----------
+      const SEQ = [{ t: 0, text: "" }];
+      function typeLine(str, at, per) { let t = at; for (let i = 1; i <= str.length; i++) { t += per; SEQ.push({ t, text: str.slice(0, i) }); } return t; }
+      typeLine("MUNICH 1972 · GAMES OF THE XX OLYMPIAD", 0.2, 0.03);
+      SEQ.push({ t: 12.34, text: "" });
+      typeLine("BERLIN 1936 · GAMES OF THE XI OLYMPIAD", 12.36, 0.018);
+      SEQ.push({ t: 18.9, text: "" });
+      typeLine("MUNICH 1972 · DESIGN: OTL AICHER", 18.92, 0.02);
+      SEQ.push({ t: 25.04, text: "" });
+      typeLine("SECURITY: MOSTLY UNARMED", 25.6, 0.022);
+      const textAt = (time) => { for (let i = SEQ.length - 1; i >= 0; i--) if (time >= SEQ[i].t) return SEQ[i].text; return ""; };
+      const slugText = q("#s1-slug-text"), cursor = q("#s1-cursor");
+      const gateEls = qa(".s1-vwrap").map((el) => el);
+      let last = null;
+      const driver = { t: 0 };
+      tl.to(driver, {
+        t: DUR, duration: DUR, ease: "none",
+        onUpdate: () => {
+          const t = driver.t;
+          const s = textAt(t);
+          if (s !== last) { slugText.textContent = s; last = s; }
+          cursor.style.opacity = Math.sin(t * Math.PI * 2 / 0.7) > 0 ? "1" : "0";
+          const gx = Math.sin(t * 23.1) * 1.3 + Math.sin(t * 7.3 + 1.7) * 0.8;
+          const gy = Math.sin(t * 19.7 + 0.6) * 1.0 + Math.sin(t * 5.9) * 0.6;
+          gateEls.forEach((el) => { el.style.translate = gx.toFixed(2) + "px " + gy.toFixed(2) + "px"; });
+        }
+      }, 0);
+
+      // slug colour per act
+      tl.set(["#s1-slug", "#s1-rule"], { color: BONE }, 0);
+      tl.set(["#s1-slug", "#s1-rule"], { color: INK }, 8.7);
+      tl.set(["#s1-slug", "#s1-rule"], { color: BONE }, 12.34);
+      tl.set(["#s1-slug", "#s1-rule"], { color: INK }, 18.6);
+      tl.set(["#s1-slug", "#s1-rule"], { color: BONE }, 25.04);
+      tl.fromTo("#s1-rule", { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: "power3.out" }, 0.15);
+
+      // ---------- A. flash cut into colour footage ----------
+      tl.set("#s1-flash", { opacity: 1 }, 0);
+      tl.to("#s1-flash", { opacity: 0, duration: 0.3, ease: "power2.out" }, 0.04);
+      // each shot pans leftwards (velocity-matched cuts: same direction, cut at speed)
+      const shots = [["#s1-w-roof", 0, 2.6], ["#s1-w-march", 2.6, 1.05], ["#s1-w-dancers", 3.65, 1.05], ["#s1-w-redhats", 4.7, 1.04]];
+      shots.forEach(([sel, at, d], i) => {
+        tl.fromTo(sel, { x: 70, scale: i === 0 ? 1.14 : 1.1 }, { x: -50, scale: i === 0 ? 1.06 : 1.08, duration: d, ease: "none" }, at);
+      });
+      tl.fromTo("#s1-w-slow", { x: 50, scale: 1.08 }, { x: -20, scale: 1.14, duration: 2.96, ease: "power2.out" }, 5.74);
+      // "memory." — the footage drains of colour
+      tl.fromTo("#s1-w-slow", { filter: "saturate(1) brightness(1)" }, { filter: "saturate(0.08) brightness(0.86)", duration: 1.6, ease: "power2.inOut" }, 6.4);
+      tl.to("#s1-foot-shade", { opacity: 0.6, duration: 1.2 }, 6.8);
+
+      // "1972," (1.32): rainbow digits slam in
+      qa("#s1-1972 span").forEach((el, i) => {
+        tl.fromTo(el, { opacity: 0, scale: 1.5, y: -40, filter: "blur(12px)" }, { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", duration: 0.32, ease: "expo.out" }, 1.32 + i * 0.06);
+      });
+      // "West" (2.60): digits shrink into a stamp under the slug
+      tl.fromTo("#s1-1972", { scale: 1, y: 0 }, { scale: 0.3, y: -50, duration: 0.6, ease: "power3.inOut" }, 2.6);
+      // "a party for the whole world" — per-word
+      const pw = qa("#s1-party span");
+      const pwT = [3.82, 4.0, 4.36, 4.64, 4.74, 4.96];
+      pw.forEach((el, i) => {
+        tl.fromTo(el, { opacity: 0, y: 50, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, pwT[i]);
+      });
+      // "memory." the line holds while colour drains; it greys with the film
+      tl.to("#s1-party", { color: "#C9C6BF", duration: 1.4, ease: "power2.inOut" }, 6.6);
+
+      // ---------- B. the year ruler (8.70 – 12.34) ----------
+      const strip = q("#s1-strip");
+      const PX = 64, Y0 = 1925;
+      for (let y = Y0; y <= 1980; y++) {
+        const tk = document.createElement("div");
+        tk.className = "s1-tick" + (y % 10 === 0 ? " s1-dec" : "");
+        tk.style.left = ((y - Y0) * PX) + "px";
+        strip.appendChild(tk);
+        if (y % 10 === 0 || y === 1972) {
+          const lb = document.createElement("div");
+          lb.className = "s1-ylab";
+          lb.style.left = ((y - Y0) * PX) + "px";
+          lb.textContent = String(y);
+          if (y === 1972) { lb.style.color = "#5BB3E6"; lb.style.top = "618px"; }
+          strip.appendChild(lb);
+        }
+      }
+      tl.set("#s1-foot", { opacity: 0 }, 8.7);
+      tl.set("#s1-party", { opacity: 0 }, 8.7);
+      tl.set("#s1-ruler", { opacity: 1 }, 8.7);
+      tl.set("#s1-1972", { scale: 0.3, y: -50 }, 8.7);
+      // rewind: 1972 at the playhead → late 1930s, accelerating into the cut
+      tl.fromTo(strip, { x: 960 - (1972 - Y0) * PX }, { x: 960 - (1939.5 - Y0) * PX, duration: 3.64, ease: "power2.in" }, 8.7);
+      tl.fromTo("#s1-axis", { scaleX: 0, transformOrigin: "100% 50%" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 8.7);
+      tl.fromTo("#s1-playhead", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.4, ease: "power3.out" }, 8.75);
+      tl.fromTo("#s1-ruler-label", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 10.2);
+
+      // ---------- C. "Berlin." (12.34): hard cut to 1936 ----------
+      tl.set(["#s1-ruler", "#s1-1972"], { opacity: 0 }, 12.34);
+      tl.set("#s1-berlin", { opacity: 1 }, 12.34);
+      tl.set("#s1-flash", { opacity: 0.85 }, 12.34);
+      tl.to("#s1-flash", { opacity: 0, duration: 0.18, ease: "power2.out" }, 12.38);
+      // 2.5D push: subject plane outpaces the blurred stands (first half only)
+      tl.fromTo("#s1-bp-bg", { scale: 1.08, x: 50 }, { scale: 1.12, x: 0, duration: 3.0, ease: "power2.out" }, 12.34);
+      tl.fromTo("#s1-bp-subj", { scale: 1.04, x: 90 }, { scale: 1.16, x: 0, duration: 3.0, ease: "power2.out" }, 12.34);
+      // "1936," (13.99): the clipping card slams down
+      tl.fromTo("#s1-card", { opacity: 0, scale: 1.25, rotation: -7, y: -30 }, { opacity: 1, scale: 1, rotation: -2.5, y: 0, duration: 0.35, ease: "expo.out" }, 13.99);
+      tl.fromTo("#s1-card-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 14.1);
+      // "Hitler's" (15.44): ring + label + the line on the card
+      const hring = q("#s1-hring"); const hl = hring.getTotalLength();
+      tl.fromTo(hring, { strokeDasharray: hl, strokeDashoffset: hl }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 15.44);
+      tl.fromTo("#s1-hitler-lab", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 15.7);
+      tl.fromTo("#s1-card-quote", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 15.44);
+      // "So Munich" (17.06): the 1936 image starts to sink back
+      tl.to("#s1-bp-bg", { filter: "brightness(0.7)", duration: 1.0, ease: "power1.inOut" }, 17.06);
+
+      // ---------- D. "opposite." (18.14): diagonal rainbow wipe ----------
+      tl.set("#s1-wipe", { rotation: 22 }, 0);
+      tl.fromTo("#s1-wipe", { x: -1400 }, { x: 900, duration: 0.8, ease: "power3.inOut" }, 18.14);
+      tl.set("#s1-berlin", { opacity: 0 }, 18.94);
+      tl.set("#s1-cheer", { opacity: 1 }, 18.94);
+      tl.set("#s1-wipe", { opacity: 0 }, 18.95);
+
+      // ---------- E. the Cheerful Games ----------
+      const tw = qa("#s1-title span");
+      [18.96, 19.08, 19.4].forEach((at, i) => {
+        tl.fromTo(tw[i], { opacity: 0, y: 70, rotationX: -70, transformPerspective: 800, transformOrigin: "50% 100%" },
+          { opacity: 1, y: 0, rotationX: 0, duration: 0.45, ease: "power3.out" }, Math.max(at, 18.98));
+      });
+      tl.fromTo("#s1-sub", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 19.7);
+      // "colors," (20.68): swatches flip in
+      qa(".s1-sw").forEach((el, i) => {
+        tl.fromTo(el, { opacity: 0, rotationX: -90, transformPerspective: 700, transformOrigin: "50% 0%" },
+          { opacity: 1, rotationX: 0, duration: 0.45, ease: "power3.out" }, 20.68 + i * 0.08);
+      });
+      // "dachshund" (21.84): Waldi trots in
+      tl.fromTo("#s1-waldi", { opacity: 0, x: 380 }, { opacity: 1, x: 0, duration: 0.8, ease: "power3.out" }, 21.84);
+      tl.fromTo("#s1-waldi-lab", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 22.1);
+      tl.fromTo("#s1-waldi-name", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 22.26);
+      // "guards" (23.44): the hostess card swings in, 3D
+      tl.fromTo("#s1-host", { opacity: 0, rotationY: -55, rotation: 0, x: 300, transformPerspective: 1500 },
+        { opacity: 1, rotationY: -6, rotation: -2, x: 0, duration: 0.7, ease: "power3.out" }, 23.44);
+      tl.set(["#s1-waldi", "#s1-waldi-lab", "#s1-waldi-name"], { opacity: 0 }, 23.8);
+      tl.fromTo("#s1-host-lab", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 23.7);
+      // "light blue" (24.06–24.32): ring a blue uniform
+      const hr = q("#s1-hostring"); const hrl = hr.getTotalLength();
+      tl.fromTo(hr, { strokeDasharray: hrl, strokeDashoffset: hrl }, { strokeDashoffset: 0, duration: 0.55, ease: "power2.inOut" }, 24.06);
+      tl.to("#s1-host", { rotationY: 0, duration: 1.2, ease: "power2.out" }, 24.15);
+
+      // ---------- F. "most" (25.04): Israel's team, the one we will lose ----------
+      tl.set("#s1-israel", { opacity: 1 }, 25.04);
+      tl.set("#s1-cheer", { opacity: 0 }, 25.04);
+      tl.set("#s1-flash", { opacity: 0.7 }, 25.04);
+      tl.to("#s1-flash", { opacity: 0, duration: 0.2, ease: "power2.out" }, 25.08);
+      tl.fromTo("#s1-ip-bg", { scale: 1.03 }, { scale: 1.05, duration: 0.9, ease: "power3.out" }, 25.04);
+      tl.fromTo("#s1-ip-subj", { scale: 1.0 }, { scale: 1.06, duration: 0.9, ease: "power3.out" }, 25.04);
+      const ir = q("#s1-iring"); const irl = ir.getTotalLength();
+      tl.fromTo(ir, { strokeDasharray: irl, strokeDashoffset: irl }, { strokeDashoffset: 0, duration: 0.55, ease: "power2.inOut" }, 25.75);
+      tl.fromTo("#s1-israel-lab", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 26.0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s1"] = tl;
+    })();
+  </script>
+</template>

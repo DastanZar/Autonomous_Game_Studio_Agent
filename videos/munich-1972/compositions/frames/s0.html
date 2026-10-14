@@ -1,0 +1,340 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-400.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-500.woff2") format("woff2"); font-weight: 500; }
+    @font-face { font-family: "DM Serif"; src: url("assets/fonts/dmserif.woff2") format("woff2"); font-weight: 400; }
+
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #ECE8DF; }
+    #s0-ground { position: absolute; inset: 0; background: #08090B; }
+    #s0-shake { position: absolute; inset: 0; }
+    .s0-layer { position: absolute; inset: 0; overflow: hidden; }
+
+    /* --- archival night aerial --- */
+    #s0-night { opacity: 0; filter: grayscale(1) brightness(0.55) contrast(1.3); }
+    #s0-night-move { position: absolute; inset: -40px; }
+    #s0-v-night { position: absolute; left: 40px; top: 40px; width: 1920px; height: 1080px; object-fit: cover; }
+
+    /* --- the door (2.5D planes) --- */
+    #s0-door { opacity: 0; }
+    #s0-stage { position: absolute; inset: 0; transform-origin: 1000px 450px; }
+    .s0-plane { position: absolute; inset: 0; transform-origin: 1000px 450px; }
+    .s0-plane img { position: absolute; left: -1205px; top: -99px; width: 2704px; height: 1807px; }
+    #s0-bg-img { position: absolute; left: -1205px; top: -99px; width: 2704px; height: 1807px; background: url("assets/internal/negotiators_door.jpg") center / 100% 100% no-repeat; filter: grayscale(1) brightness(0.22) contrast(1.6) blur(3px); }
+    #s0-p-mid img { filter: grayscale(1) brightness(0.34) contrast(1.55);
+      clip-path: inset(144px 247px 853px 1953px); }
+    #s0-p-fg { pointer-events: none; }
+    #s0-fg-edge { position: absolute; left: -80px; top: -60px; width: 420px; height: 1200px;
+      background: linear-gradient(90deg, #030304 0%, #050607 62%, rgba(5,6,7,0) 100%); filter: blur(10px); }
+    #s0-fg-floor { position: absolute; left: -100px; right: -100px; top: 905px; height: 260px;
+      background: linear-gradient(180deg, rgba(4,5,6,0) 0%, #040506 55%); }
+    /* light from the room behind the door */
+    #s0-sill { position: absolute; left: 790px; top: 840px; width: 420px; height: 5px; border-radius: 3px;
+      background: #F6DFA8; box-shadow: 0 0 18px 6px rgba(246, 210, 140, 0.55), 0 0 60px 18px rgba(246, 200, 120, 0.22); }
+    #s0-slit { position: absolute; left: 1196px; top: 70px; width: 40px; height: 774px; transform-origin: 0% 50%;
+      background: linear-gradient(90deg, #FFF0C8 0%, #F6DFA8 60%, rgba(246,223,168,0.0) 100%);
+      box-shadow: 0 0 30px 10px rgba(246, 210, 140, 0.35); }
+    #s0-spill { position: absolute; left: 1150px; top: 844px; width: 900px; height: 240px; transform-origin: 46px 0%;
+      background: linear-gradient(180deg, rgba(246, 214, 150, 0.42) 0%, rgba(246, 214, 150, 0) 100%);
+      clip-path: polygon(46px 0, 90px 0, 100% 100%, 0 100%); }
+    #s0-door-vig { position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 52% 45%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.78) 100%); }
+
+    /* --- archival building (next morning) --- */
+    #s0-bldg { opacity: 0; filter: grayscale(1) brightness(0.42) contrast(1.3); }
+    #s0-bldg-move { position: absolute; inset: -60px; }
+    #s0-v-bldg { position: absolute; left: 60px; top: 60px; width: 1920px; height: 1080px; object-fit: cover; }
+    #s0-bldg-vig { position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(8,9,11,0.88) 0%, rgba(8,9,11,0.35) 55%, rgba(8,9,11,0.6) 100%); }
+
+    /* --- foreground type --- */
+    #s0-slug { position: absolute; left: 120px; top: 90px; display: flex; align-items: center; white-space: nowrap;
+      font-family: "Plex Mono"; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; text-transform: uppercase; color: #B9BEC4; }
+    #s0-slug-text { display: inline-block; white-space: pre; }
+    #s0-cursor { display: inline-block; width: 13px; height: 28px; background: #B9BEC4; margin-left: 6px; }
+    #s0-rule { position: absolute; left: 120px; top: 140px; width: 1680px; height: 1px; background: rgba(185,190,196,0.45); transform-origin: 0 50%; }
+
+    #s0-name { position: absolute; left: 120px; top: 610px; }
+    #s0-name-label { font-family: "Plex Mono"; font-weight: 500; font-size: 24px; letter-spacing: 0.08em; color: #B9BEC4; }
+    #s0-name-bar { width: 64px; height: 2px; background: #5BB3E6; margin: 14px 0 18px; transform-origin: 0 50%; }
+    #s0-name-text { font-family: "DM Serif"; font-size: 84px; line-height: 1; color: #ECE8DF; }
+
+    #s0-kg { position: absolute; left: 120px; top: 300px; }
+    #s0-kg-num { font-family: "Archivo"; font-weight: 800; font-size: 210px; line-height: 0.95; letter-spacing: -0.03em; color: #ECE8DF; }
+    #s0-kg-sub { font-family: "Plex Mono"; font-weight: 500; font-size: 30px; letter-spacing: 0.08em; color: #B9BEC4; margin-top: 18px; }
+
+    #s0-streak { position: absolute; left: 0; top: 560px; width: 520px; height: 3px;
+      background: linear-gradient(90deg, rgba(236,232,223,0) 0%, #ECE8DF 100%); opacity: 0; }
+
+    #s0-tally { position: absolute; left: 120px; top: 520px; display: flex; gap: 22px; align-items: flex-end; }
+    .s0-mark { width: 6px; height: 150px; background: #ECE8DF; transform-origin: 50% 100%; opacity: 0; }
+    .s0-mark.s0-first { height: 170px; }
+    #s0-tally-label { position: absolute; left: 120px; top: 700px; font-family: "Plex Mono"; font-weight: 500; font-size: 24px;
+      letter-spacing: 0.08em; color: #B9BEC4; opacity: 0; }
+
+    /* --- the end card --- */
+    #s0-black { position: absolute; inset: 0; background: #050607; opacity: 0; }
+    #s0-eleven { position: absolute; left: 0; width: 1920px; top: 250px; text-align: center; font-family: "DM Serif";
+      font-size: 320px; line-height: 1; color: #ECE8DF; opacity: 0; transform-origin: 50% 50%; }
+    #s0-title { position: absolute; left: 0; width: 1920px; top: 395px; text-align: center; white-space: nowrap;
+      font-family: "Archivo"; font-weight: 800; font-size: 150px; line-height: 1; letter-spacing: 0.16em; color: #ECE8DF; }
+    #s0-title span { display: inline-block; opacity: 0; }
+    #s0-title .s0-dot { color: #5BB3E6; }
+    #s0-title-rule-l, #s0-title-rule-r { position: absolute; top: 620px; height: 1px; width: 520px; background: rgba(185,190,196,0.6); }
+    #s0-title-rule-l { left: 300px; transform-origin: 100% 50%; }
+    #s0-title-rule-r { left: 1100px; transform-origin: 0% 50%; }
+
+    /* --- flashes --- */
+    #s0-flash { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }
+    #s0-shards { position: absolute; inset: 0; }
+    .s0-shard { position: absolute; left: 960px; top: 450px; background: #F4F1EA; opacity: 0; }
+  </style>
+
+  <div data-hf-id="hf-8rfs" id="root" data-composition-id="s0" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-7u4y" id="s0-ground" class="clip" data-start="0" data-duration="27.4" data-track-index="0"></div>
+
+    <div data-hf-id="hf-d4zx" id="s0-shake">
+      <!-- night aerial of the Olympic village (1972 Games film) -->
+      <div data-hf-id="hf-hhxb" id="s0-night" class="s0-layer">
+        <div data-hf-id="hf-0ff1" id="s0-night-move">
+          <video data-hf-id="hf-gf34" id="s0-v-night" src="assets/internal/footage/clips/s0_night_aerial.mp4" muted playsinline data-start="0" data-duration="5.45" data-media-start="0" data-track-index="1"></video>
+        </div>
+      </div>
+
+      <!-- the door -->
+      <div data-hf-id="hf-0ypz" id="s0-door" class="s0-layer">
+        <div data-hf-id="hf-9ovx" id="s0-stage">
+          <div data-hf-id="hf-7tsw" id="s0-p-bg" class="s0-plane"><div data-hf-id="hf-h0py" id="s0-bg-img"></div></div>
+          <div data-hf-id="hf-lp5t" id="s0-p-mid" class="s0-plane">
+            <img data-hf-id="hf-7z1n" src="assets/internal/negotiators_door.jpg" alt="">
+            <div data-hf-id="hf-bso1" id="s0-spill"></div>
+            <div data-hf-id="hf-36ub" id="s0-slit"></div>
+            <div data-hf-id="hf-63fd" id="s0-sill"></div>
+          </div>
+          <div data-hf-id="hf-ywxo" id="s0-p-fg" class="s0-plane"><div data-hf-id="hf-lvtl" id="s0-fg-floor"></div><div data-hf-id="hf-u8km" id="s0-fg-edge"></div></div>
+        </div>
+        <div data-hf-id="hf-2nco" id="s0-door-vig"></div>
+      </div>
+
+      <!-- the building, next morning (1972 Games film) -->
+      <div data-hf-id="hf-r7jy" id="s0-bldg" class="s0-layer">
+        <div data-hf-id="hf-qm6u" id="s0-bldg-move">
+          <video data-hf-id="hf-4j25" id="s0-v-bldg" src="assets/internal/footage/clips/s0_building.mp4" muted playsinline data-start="18.0" data-duration="6.14" data-media-start="0" data-track-index="2"></video>
+        </div>
+        <div data-hf-id="hf-dsid" id="s0-bldg-vig"></div>
+      </div>
+
+      <div data-hf-id="hf-lo6f" id="s0-streak"></div>
+
+      <div data-hf-id="hf-6nh4" id="s0-name">
+        <div data-hf-id="hf-h9ro" id="s0-name-label">WRESTLING REFEREE</div>
+        <div data-hf-id="hf-49rs" id="s0-name-bar"></div>
+        <div data-hf-id="hf-l149" id="s0-name-text">Yossef Gutfreund</div>
+      </div>
+
+      <div data-hf-id="hf-o5rj" id="s0-kg">
+        <div data-hf-id="hf-1vwf" id="s0-kg-num">135 KG</div>
+        <div data-hf-id="hf-6wx2" id="s0-kg-sub">300 LB · AGAINST THE DOOR</div>
+      </div>
+
+      <div data-hf-id="hf-gy6d" id="s0-tally">
+        <div data-hf-id="hf-ml0j" class="s0-mark s0-first"></div>
+        <div data-hf-id="hf-2hm1" class="s0-mark"></div><div data-hf-id="hf-cxi5" class="s0-mark"></div><div data-hf-id="hf-e4f8" class="s0-mark"></div><div data-hf-id="hf-dq47" class="s0-mark"></div><div data-hf-id="hf-ex1a" class="s0-mark"></div>
+        <div data-hf-id="hf-eiq9" class="s0-mark"></div><div data-hf-id="hf-fpnc" class="s0-mark"></div><div data-hf-id="hf-fbcb" class="s0-mark"></div><div data-hf-id="hf-gi9e" class="s0-mark"></div><div data-hf-id="hf-g3yd" class="s0-mark"></div>
+      </div>
+      <div data-hf-id="hf-8wn3" id="s0-tally-label">GUTFREUND + 10 TEAMMATES</div>
+
+      <div data-hf-id="hf-vf92" id="s0-black"></div>
+      <div data-hf-id="hf-ktrc" id="s0-eleven">11</div>
+      <div data-hf-id="hf-ykrd" id="s0-title"><span data-hf-id="hf-i0hw">M</span><span data-hf-id="hf-eu1o">U</span><span data-hf-id="hf-gtkt">N</span><span data-hf-id="hf-jlq0">I</span><span data-hf-id="hf-lzk6">C</span><span data-hf-id="hf-j7ez">H</span><span data-hf-id="hf-uckh">&#160;</span><span data-hf-id="hf-qa7z" class="s0-dot">·</span><span data-hf-id="hf-l73p">&#160;</span><span data-hf-id="hf-ikog">1</span><span data-hf-id="hf-fe88">9</span><span data-hf-id="hf-g6ua">7</span><span data-hf-id="hf-hdrd">2</span></div>
+      <div data-hf-id="hf-ho5z" id="s0-title-rule-l"></div>
+      <div data-hf-id="hf-dtjd" id="s0-title-rule-r"></div>
+
+      <div data-hf-id="hf-i7ws" id="s0-slug"><span data-hf-id="hf-nd3b" id="s0-slug-text"></span><span data-hf-id="hf-5v36" id="s0-cursor"></span></div>
+      <div data-hf-id="hf-g1e7" id="s0-rule"></div>
+
+      <div data-hf-id="hf-s6e6" id="s0-shards"></div>
+      <div data-hf-id="hf-39qp" id="s0-flash"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const DUR = 27.4;
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => document.querySelector(s);
+
+      // ---------- slug: discrete text sequence (type, hold, backspace, retype) ----------
+      const L1 = "05·09·1972 · 04:30 · CONNOLLYSTRASSE 31";
+      const L2 = "06·09·1972 · MORNING";
+      const SEQ = [{ t: 0, text: "" }];
+      let tt = 0.06;
+      for (let i = 1; i <= L1.length; i++) {
+        const ch = L1[i - 1];
+        tt += ch === " " ? 0.07 : ch === "·" ? 0.12 : 0.038;
+        SEQ.push({ t: tt, text: L1.slice(0, i) });
+      }
+      // "By the next morning" (20.48): backspace to the day digit, then retype
+      let bt = 20.48;
+      for (let i = L1.length - 1; i >= 1; i--) { bt += 0.012; SEQ.push({ t: bt, text: L1.slice(0, i) }); }
+      bt += 0.1;
+      for (let i = 2; i <= L2.length; i++) { bt += 0.045; SEQ.push({ t: bt, text: L2.slice(0, i) }); }
+      const textAt = (time) => { for (let i = SEQ.length - 1; i >= 0; i--) if (time >= SEQ[i].t) return SEQ[i].text; return ""; };
+
+      const slugText = q("#s0-slug-text");
+      const cursor = q("#s0-cursor");
+      const shake = q("#s0-shake");
+      const nightMove = q("#s0-night-move");
+      const bldgMove = q("#s0-bldg-move");
+      let lastText = null;
+
+      // camera shake on "screams" (15.12): one decaying seeded wobble
+      const SHAKE_AT = 15.12, SHAKE_DUR = 0.42;
+      // slam jolt on "it" (14.16)
+      const JOLT_AT = 14.2;
+
+      const driver = { t: 0 };
+      tl.to(driver, {
+        t: DUR, duration: DUR, ease: "none",
+        onUpdate: () => {
+          const t = driver.t;
+          const s = textAt(t);
+          if (s !== lastText) {
+            slugText.textContent = s;
+            lastText = s;
+          }
+          // cursor blink (sin square wave); hidden on the black end card
+          cursor.style.opacity = (t < 24.14 && Math.sin(t * Math.PI * 2 / 0.7) > 0) ? "1" : "0";
+          // gate weave on archival (tiny, seeded sines)
+          const gx = Math.sin(t * 23.1) * 1.4 + Math.sin(t * 7.3 + 1.7) * 0.9;
+          const gy = Math.sin(t * 19.7 + 0.6) * 1.1 + Math.sin(t * 5.9) * 0.7;
+          nightMove.style.translate = gx.toFixed(2) + "px " + gy.toFixed(2) + "px";
+          bldgMove.style.translate = (gx * 0.9).toFixed(2) + "px " + (gy * 1.1).toFixed(2) + "px";
+          // shake / jolt
+          let sx = 0, sy = 0;
+          const ds = t - SHAKE_AT;
+          if (ds > 0 && ds < SHAKE_DUR) {
+            const k = 1 - ds / SHAKE_DUR;
+            sx = Math.sin(ds * 92) * 9 * k * k;
+            sy = Math.sin(ds * 71 + 1.3) * 6 * k * k;
+          }
+          const dj = t - JOLT_AT;
+          if (dj > 0 && dj < 0.3) { const k = 1 - dj / 0.3; sy += Math.sin(dj * 60) * 7 * k * k; }
+          shake.style.translate = sx.toFixed(2) + "px " + sy.toFixed(2) + "px";
+        }
+      }, 0);
+
+      // rule draws on with the slug
+      tl.fromTo("#s0-rule", { scaleX: 0 }, { scaleX: 1, duration: 1.6, ease: "power3.out" }, 0.1);
+
+      // ---------- phase 1: night (0 – 5.28) ----------
+      tl.fromTo("#s0-night", { opacity: 0 }, { opacity: 1, duration: 1.6, ease: "power2.out" }, 1.28);
+      tl.fromTo("#s0-night-move", { scale: 1.04, x: 30 }, { scale: 1.14, x: -30, duration: 5.4, ease: "none" }, 0);
+      // name card: "wrestling referee" 2.42, "Josef" 3.18
+      tl.fromTo("#s0-name-label", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 2.42);
+      tl.fromTo("#s0-name-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 2.5);
+      tl.fromTo("#s0-name-text", { opacity: 0, y: 26, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out" }, 3.18);
+      tl.set("#s0-name", { opacity: 0 }, 5.28);
+
+      // ---------- phase 2: the door (5.28 – 17.88) ----------
+      tl.set("#s0-night", { opacity: 0 }, 5.28);
+      tl.fromTo("#s0-door", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 5.28);
+      // 2.5D push: planes at different speeds + a slow perspective swing (first half only)
+      tl.fromTo("#s0-stage", { rotationY: 7, transformPerspective: 1400, x: 60 }, { rotationY: 0, x: 0, duration: 4.8, ease: "power3.out" }, 5.28);
+      tl.fromTo("#s0-p-bg", { scale: 1.0 }, { scale: 1.07, duration: 4.8, ease: "power2.out" }, 5.28);
+      tl.fromTo("#s0-p-mid", { scale: 0.96 }, { scale: 1.12, duration: 4.8, ease: "power2.out" }, 5.28);
+      tl.fromTo("#s0-p-fg", { x: 0, scale: 1.0 }, { x: -140, scale: 1.08, duration: 4.8, ease: "power2.out" }, 5.28);
+      // light under the door, faint
+      tl.fromTo("#s0-sill", { opacity: 0, scaleX: 0.6 }, { opacity: 0.55, scaleX: 1, duration: 1.4, ease: "power2.out" }, 5.5);
+      tl.set("#s0-slit", { scaleX: 0, opacity: 0 }, 0);
+      tl.set("#s0-spill", { scaleX: 0.05, opacity: 0 }, 0);
+      // "The door begins to open" (7.58 begins, 8.16 open)
+      tl.to("#s0-slit", { scaleX: 0.12, opacity: 0.85, duration: 0.55, ease: "power2.out" }, 7.58);
+      tl.to("#s0-slit", { scaleX: 0.3, opacity: 1, duration: 1.6, ease: "power1.inOut" }, 8.16);
+      tl.to("#s0-spill", { scaleX: 0.25, opacity: 0.6, duration: 1.6, ease: "power1.inOut" }, 8.16);
+      tl.to("#s0-sill", { opacity: 0.9, duration: 1.0 }, 8.16);
+      // "rifles" (10.08): flash frame + hard cut tighter, the light floods
+      tl.set("#s0-flash", { opacity: 0.95 }, 10.08);
+      tl.to("#s0-flash", { opacity: 0, duration: 0.16, ease: "power2.out" }, 10.12);
+      tl.set("#s0-stage", { scale: 1.32, x: -70, y: -40, rotationZ: -1.6 }, 10.08);
+      tl.set("#s0-slit", { scaleX: 1.6, opacity: 1 }, 10.08);
+      tl.set("#s0-spill", { scaleX: 1, opacity: 1 }, 10.08);
+      tl.to("#s0-stage", { scale: 1.4, x: -100, duration: 1.3, ease: "power2.out" }, 10.1);
+      // "throws" (11.76): the light starts to narrow
+      tl.to("#s0-slit", { scaleX: 1.0, duration: 0.6, ease: "power2.inOut" }, 11.76);
+      // "three" hundred pounds (12.40): 135 KG slams in
+      tl.fromTo("#s0-kg-num", { opacity: 0, scale: 1.55, transformOrigin: "0% 50%", filter: "blur(10px)" },
+        { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.28, ease: "expo.out" }, 12.4);
+      tl.fromTo("#s0-kg-sub", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 12.98);
+      // "against it" (13.74 → 14.16): the door is slammed shut, the light dies
+      tl.to("#s0-slit", { scaleX: 0, duration: 0.4, ease: "expo.in" }, 13.8);
+      tl.to("#s0-spill", { scaleX: 0.02, opacity: 0, duration: 0.4, ease: "expo.in" }, 13.8);
+      tl.to("#s0-sill", { opacity: 0.35, duration: 0.4, ease: "expo.in" }, 13.8);
+      tl.to("#s0-stage", { scale: 1.44, duration: 0.4, ease: "expo.in" }, 13.8);
+      // "behind him" (16.66): camera whips right, accelerating into the window smash
+      tl.to("#s0-stage", { x: -620, scale: 1.6, duration: 1.22, ease: "power3.in" }, 16.66);
+      tl.to("#s0-kg", { x: -260, opacity: 0, duration: 1.22, ease: "power3.in" }, 16.66);
+
+      // ---------- "smashes" (17.88): white shard flash ----------
+      const shardsEl = q("#s0-shards");
+      const SH = [
+        [0, 0, 140, 30, 60, 210], [0, 0, 220, 60, 90, 160], [0, 40, 160, 0, 120, 190], [0, 0, 260, 40, 40, 120],
+        [30, 0, 180, 110, 0, 170], [0, 0, 120, 20, 70, 240], [0, 60, 200, 0, 150, 140], [0, 0, 170, 80, 20, 150], [0, 0, 240, 20, 120, 110]
+      ];
+      SH.forEach((p, i) => {
+        const d = document.createElement("div");
+        d.className = "s0-shard";
+        const w = Math.max(p[0], p[2], p[4]) + 1, h = Math.max(p[1], p[3], p[5]) + 1;
+        d.style.width = w + "px"; d.style.height = h + "px";
+        d.style.clipPath = "polygon(" + p[0] + "px " + p[1] + "px," + p[2] + "px " + p[3] + "px," + p[4] + "px " + p[5] + "px)";
+        shardsEl.appendChild(d);
+        const ang = -0.5 + i * (Math.PI * 2 / SH.length) + 0.3 * Math.sin(i * 12.9898);
+        const dist = 700 + 260 * ((i * 37) % 5) / 5;
+        tl.fromTo(d, { opacity: 0, x: 0, y: 0, rotation: i * 40, scale: 0.4 },
+          { opacity: 1, duration: 0.01 }, 17.88);
+        tl.to(d, { x: Math.cos(ang) * dist + 300, y: Math.sin(ang) * dist * 0.7, rotation: i * 40 + 160 * (i % 2 ? 1 : -1), scale: 1.3,
+          duration: 0.55, ease: "power3.out" }, 17.89);
+        tl.to(d, { opacity: 0, duration: 0.3, ease: "power2.in" }, 18.15);
+      });
+      tl.set("#s0-flash", { opacity: 1 }, 17.88);
+      tl.to("#s0-flash", { opacity: 0, duration: 0.32, ease: "power2.out" }, 17.96);
+      tl.set("#s0-door", { opacity: 0 }, 17.95);
+
+      // ---------- phase 3: the building, next morning (18.0 – 24.14) ----------
+      tl.set("#s0-bldg", { opacity: 1 }, 17.95);
+      // velocity-matched: arrives still travelling left from the whip, then settles
+      tl.fromTo("#s0-bldg-move", { x: 260, scale: 1.12 }, { x: 0, scale: 1.04, duration: 3.0, ease: "power3.out" }, 17.95);
+      // "runs" (19.16): a streak races across the frame
+      tl.fromTo("#s0-streak", { x: -560, opacity: 0 }, { x: 1300, opacity: 1, duration: 0.55, ease: "power2.in" }, 19.16);
+      tl.to("#s0-streak", { x: 2000, opacity: 0, duration: 0.25, ease: "none" }, 19.71);
+      // "Godfroind" (22.04): one mark; "10" (22.70): ten more
+      const marks = document.querySelectorAll(".s0-mark");
+      tl.fromTo(marks[0], { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.45, ease: "power3.out" }, 22.04);
+      for (let i = 1; i < marks.length; i++) {
+        tl.fromTo(marks[i], { opacity: 0, scaleY: 0 }, { opacity: 0.85, scaleY: 1, duration: 0.4, ease: "power3.out" }, 22.7 + (i - 1) * 0.06);
+      }
+      tl.fromTo("#s0-tally-label", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 22.75);
+      tl.to("#s0-bldg-move", { scale: 1.1, duration: 3.0, ease: "power1.inOut" }, 21.0);
+
+      // ---------- "dead" (24.14): cut to black, 11 ----------
+      tl.set("#s0-black", { opacity: 1 }, 24.14);
+      tl.set(["#s0-bldg", "#s0-tally", "#s0-tally-label", "#s0-slug", "#s0-rule"], { opacity: 0 }, 24.14);
+      tl.fromTo("#s0-eleven", { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 24.14);
+      // "watch" (25.72): 11 recedes into a ghost, the title builds
+      tl.to("#s0-eleven", { opacity: 0.07, scale: 2.4, filter: "blur(6px)", duration: 1.0, ease: "power3.out" }, 25.72);
+      const letters = document.querySelectorAll("#s0-title span");
+      letters.forEach((el, i) => {
+        tl.fromTo(el, { opacity: 0, y: 30, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 25.72 + i * 0.035);
+      });
+      // tracking collapse done with per-glyph x (no letter-spacing tween)
+      letters.forEach((el, i) => {
+        tl.fromTo(el, { x: (i - (letters.length - 1) / 2) * 26 }, { x: 0, duration: 1.1, ease: "power3.out" }, 25.72);
+      });
+      tl.fromTo(["#s0-title-rule-l", "#s0-title-rule-r"], { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power3.out" }, 26.0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s0"] = tl;
+    })();
+  </script>
+</template>
