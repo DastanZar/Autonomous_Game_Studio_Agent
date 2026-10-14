@@ -1,0 +1,7 @@
+{
+  "scene": "s7",
+  "duration_s": 14.8,
+  "rules": ["counting-dynamic-scale", "multi-phase-camera", "stat-bars-and-fills", "svg-path-draw", "motion-blur-streak"],
+  "exit": { "vector": "static — quote held from 14.6 s (archival clip under a 72% dim, gate weave only, ~1 px)", "still_moving": false },
+  "entry": { "vector": "archival push-in from rest: scale 1.00 -> 1.08 and x 0 -> -30 px over 3.62 s, power1.in (≈0 px/s at t=0)", "from_rest": true }
+}

@@ -1,0 +1,16 @@
+{
+  "scene": "s0",
+  "duration_s": 27.4,
+  "rules": [
+    "discrete-text-sequence",
+    "multi-phase-camera"
+  ],
+  "exit": {
+    "vector": "none: title card MUNICH · 1972 settled by 26.82 s, held to 27.4",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "none: near-black, slug types from 0.06 s; night aerial fades in from 1.28 s with a slow push (scale 1.04 to 1.14, x +30 to -30 px over 5.4 s, about 11 px/s leftward)",
+    "from_rest": true
+  }
+}

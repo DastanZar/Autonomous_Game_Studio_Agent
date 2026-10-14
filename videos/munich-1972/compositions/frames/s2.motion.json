@@ -1,0 +1,16 @@
+{
+  "scene": "s2",
+  "duration_s": 20.0,
+  "rules": [
+    "discrete-text-sequence",
+    "coordinate-target-zoom"
+  ],
+  "exit": {
+    "vector": "slow push-in on the building photo, both planes scale 1.04 to 1.07 from 18.8 s to 19.95 s (about 2.6 %/s, no lateral motion)",
+    "still_moving": true
+  },
+  "entry": {
+    "vector": "aerial footage drifting left, x +40 to -40 px over 5.45 s (about 15 px/s) with a push (scale 1.04 to 1.16); ground colour drains paper to night from 0.1 s",
+    "from_rest": false
+  }
+}

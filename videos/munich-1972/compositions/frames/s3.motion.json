@@ -1,0 +1,7 @@
+{
+  "scene": "s3",
+  "duration_s": 34.3,
+  "rules": ["svg-path-draw", "coordinate-target-zoom", "dynamic-content-sequencing"],
+  "exit": { "vector": "slow push-in (nine-cam scale 1.00->1.05 over 31.3-34.3s, power1.out), ~6 px/s radial at last frame; lateral 0", "still_moving": true },
+  "entry": { "vector": "door photo card drifting left ~36 px/s (x +70 -> -10, power2.out) with rotateY 11deg -> 3deg; backdrop drifts left ~25 px/s", "from_rest": false }
+}

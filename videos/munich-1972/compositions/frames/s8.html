@@ -1,0 +1,183 @@
+<template>
+  <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-400.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-500.woff2") format("woff2"); font-weight: 500; }
+    @font-face { font-family: "DM Serif"; src: url("assets/fonts/dmserif.woff2") format("woff2"); font-weight: 400; }
+
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #ECE8DF; font-family: "Archivo", sans-serif; }
+    #s8-bg { position: absolute; inset: 0; background: #16181C; overflow: hidden; }
+
+    /* the team going home: grayscale, low opacity, two depth planes */
+    #s8-photo { position: absolute; left: -200px; top: -120px; width: 2400px; height: 1460px; opacity: 0.24; }
+    .s8-plane { position: absolute; inset: 0; background: url("assets/internal/israeli_team_leaving.jpg") 50% 40% / cover no-repeat; }
+    #s8-pl-bg { filter: grayscale(1) contrast(1.05) brightness(0.8) blur(4px); }
+    #s8-pl-fg { filter: grayscale(1) contrast(1.08);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 22%, #000 34%, #000 78%, transparent 90%);
+      mask-image: linear-gradient(180deg, transparent 0%, transparent 22%, #000 34%, #000 78%, transparent 90%); }
+    #s8-shade { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, rgba(22,24,28,0.15) 30%, rgba(22,24,28,0.85) 100%); }
+
+    /* the virtual camera: one oversized world, panned */
+    #s8-world { position: absolute; left: 0; top: 0; width: 3400px; height: 2160px; }
+    #s8-track { position: absolute; left: 240px; top: 638px; width: 2400px; height: 4px; background: rgba(185,190,196,0.28); transform-origin: left center; }
+    #s8-fill { position: absolute; left: 240px; top: 637px; width: 2400px; height: 6px; background: #5BB3E6; transform-origin: left center; }
+    .s8-tick { position: absolute; top: 620px; width: 2px; height: 40px; background: rgba(185,190,196,0.55); }
+    .s8-tlabel { position: absolute; top: 672px; width: 120px; margin-left: -60px; text-align: center; font-family: "Plex Mono"; font-weight: 500; font-size: 22px; letter-spacing: 0.08em; color: #B9BEC4; }
+    #s8-y72 { position: absolute; left: 236px; top: 520px; font-family: "Archivo"; font-weight: 800; font-size: 96px; line-height: 1; letter-spacing: -0.03em; color: #ECE8DF; }
+    #s8-y72s { position: absolute; left: 240px; top: 676px; font-family: "Plex Mono"; font-weight: 500; font-size: 24px; letter-spacing: 0.08em; color: #B9BEC4; }
+    #s8-head { position: absolute; left: 240px; top: 584px; opacity: 0; width: 140px; margin-left: -70px; text-align: center; font-family: "Plex Mono"; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; color: #5BB3E6; font-variant-numeric: tabular-nums; }
+    #s8-pin { position: absolute; left: 2622px; top: 622px; width: 36px; height: 36px; border-radius: 50%; background: #5BB3E6; }
+    #s8-pinring { position: absolute; left: 2604px; top: 604px; width: 72px; height: 72px; border-radius: 50%; border: 2px solid #5BB3E6; }
+    #s8-y22 { position: absolute; left: 2440px; top: 452px; width: 400px; text-align: center; font-family: "Archivo"; font-weight: 800; font-size: 136px; line-height: 1; letter-spacing: -0.03em; color: #ECE8DF; }
+    #s8-apology { position: absolute; left: 2640px; top: 370px; padding: 8px 16px 6px; margin-left: -110px; width: 220px; text-align: center; border: 2px solid #ECE8DF; font-family: "Plex Mono"; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; color: #ECE8DF; }
+    #s8-pres { position: absolute; right: 520px; top: 700px; font-family: "Plex Mono"; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #B9BEC4; white-space: nowrap; text-align: right; }
+    #s8-quote { position: absolute; right: 520px; top: 740px; font-family: "DM Serif"; font-size: 104px; line-height: 1.05; color: #ECE8DF; white-space: nowrap; text-align: right; }
+    .s8-w { display: inline-block; }
+    #s8-qline { position: absolute; right: 520px; top: 858px; width: 560px; height: 3px; background: #5BB3E6; transform-origin: right center; }
+    #s8-drop { position: absolute; left: 2639px; top: 676px; width: 2px; height: 964px; background: rgba(91,179,230,0.7); transform-origin: top center; }
+
+    /* station 3 (world y + 1080) */
+    #s8-c-kick { position: absolute; left: 1320px; top: 1340px; font-family: "Plex Mono"; font-weight: 500; font-size: 28px; letter-spacing: 0.08em; color: #B9BEC4; white-space: nowrap; }
+    #s8-c-wrap { position: absolute; left: 1312px; top: 1390px; width: 1500px; height: 220px; }
+    #s8-c-num { display: inline-block; font-family: "Archivo"; font-weight: 800; font-size: 200px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; transform-origin: 0% 80%; }
+    #s8-c-track { position: absolute; left: 1320px; top: 1640px; width: 1320px; height: 4px; background: rgba(185,190,196,0.28); }
+    #s8-c-fill { width: 100%; height: 100%; background: #5BB3E6; transform-origin: left center; }
+    #s8-c-dot { position: absolute; left: 2628px; top: 1630px; width: 24px; height: 24px; border-radius: 50%; background: #5BB3E6; }
+    #s8-c-sub { position: absolute; left: 1320px; top: 1666px; font-family: "Plex Mono"; font-weight: 400; font-size: 24px; letter-spacing: 0.08em; color: #B9BEC4; white-space: nowrap; }
+
+    /* screen-space HUD */
+    #s8-hud { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #s8-cnt-wrap { position: absolute; left: 112px; top: 168px; width: 900px; height: 230px; display: flex; align-items: baseline; }
+    #s8-cnt { display: inline-block; width: 260px; font-family: "Archivo"; font-weight: 800; font-size: 210px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; transform-origin: 0% 80%; }
+    #s8-cnt-unit { font-family: "Plex Mono"; font-weight: 500; font-size: 46px; letter-spacing: 0.08em; color: #ECE8DF; margin-left: 22px; }
+    #s8-slug { position: absolute; left: 120px; top: 70px; font-family: "Plex Mono"; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; color: #B9BEC4; white-space: pre; }
+    #s8-rule { position: absolute; left: 120px; top: 118px; width: 1680px; height: 1px; background: rgba(185,190,196,0.45); transform-origin: left center; }
+  </style>
+
+  <div data-hf-id="hf-55y1" id="root" data-composition-id="s8" data-start="0" data-duration="11.5" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-erfg" id="s8-bg" class="clip" data-start="0" data-duration="11.5" data-track-index="0">
+      <div data-hf-id="hf-5uzj" id="s8-photo">
+        <div data-hf-id="hf-162k" id="s8-pl-bg" class="s8-plane"></div>
+        <div data-hf-id="hf-iy5c" id="s8-pl-fg" class="s8-plane"></div>
+      </div>
+      <div data-hf-id="hf-2868" id="s8-shade"></div>
+
+      <div data-hf-id="hf-akmb" id="s8-world">
+        <div data-hf-id="hf-nasm" id="s8-track"></div>
+        <div data-hf-id="hf-w175" id="s8-ticks"></div>
+        <div data-hf-id="hf-c1ha" id="s8-fill"></div>
+        <div data-hf-id="hf-gagi" id="s8-y72">1972</div>
+        <div data-hf-id="hf-9t20" id="s8-y72s">MUNICH</div>
+        <div data-hf-id="hf-pjwc" id="s8-head">1972</div>
+        <div data-hf-id="hf-3db2" id="s8-drop"></div>
+        <div data-hf-id="hf-uhgg" id="s8-pinring"></div>
+        <div data-hf-id="hf-lxfy" id="s8-pin"></div>
+        <div data-hf-id="hf-zksh" id="s8-apology">APOLOGY</div>
+        <div data-hf-id="hf-706w" id="s8-y22">2022</div>
+        <div data-hf-id="hf-bddd" id="s8-pres">FRANK-WALTER STEINMEIER · 2022</div>
+        <div data-hf-id="hf-uxj3" id="s8-quote"><span data-hf-id="hf-gy18" class="s8-w" id="s8-q0">&#8220;A triple</span> <span data-hf-id="hf-twdp" class="s8-w" id="s8-q1">failure.&#8221;</span></div>
+        <div data-hf-id="hf-sfkc" id="s8-qline"></div>
+
+        <div data-hf-id="hf-cdcw" id="s8-c-kick">COMPENSATION TO THE FAMILIES · 2022</div>
+        <div data-hf-id="hf-rt7p" id="s8-c-wrap"><span data-hf-id="hf-0evg" id="s8-c-num">€0</span></div>
+        <div data-hf-id="hf-uvuq" id="s8-c-track"><div data-hf-id="hf-rjky" id="s8-c-fill"></div></div>
+        <div data-hf-id="hf-xf4e" id="s8-c-dot"></div>
+        <div data-hf-id="hf-if45" id="s8-c-sub">EUROS</div>
+      </div>
+
+      <div data-hf-id="hf-g3r4" id="s8-hud">
+        <div data-hf-id="hf-1yt3" id="s8-cnt-wrap"><span data-hf-id="hf-02ef" id="s8-cnt">0</span><span data-hf-id="hf-7y8u" id="s8-cnt-unit">YEARS</span></div>
+        <div data-hf-id="hf-a9yd" id="s8-slug">1972 → 2022</div>
+        <div data-hf-id="hf-epw7" id="s8-rule"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script>
+    (function () {
+      const DUR = 11.5;
+      const tl = gsap.timeline({ paused: true });
+      const $ = (id) => document.getElementById(id);
+
+      // decade ticks (1982 … 2012) on the 1972→2022 axis: 48 px per year
+      const tw = $("s8-ticks");
+      [1982, 1992, 2002, 2012].forEach((y) => {
+        const x = 240 + (y - 1972) * 48;
+        const t = document.createElement("div"); t.className = "s8-tick"; t.style.left = x + "px"; tw.appendChild(t);
+        const l = document.createElement("div"); l.className = "s8-tlabel"; l.style.left = x + "px"; l.textContent = y; tw.appendChild(l);
+      });
+
+      // ---- camera (world pan) ----
+      const cam = { x: 0, y: 0 };
+      const world = $("s8-world"), hud = $("s8-hud"), photo = $("s8-photo");
+      // ---- the 50-year fill: one proxy drives bar, head readout and counter (same ease = one beat) ----
+      const fp = { p: 0 };
+      const fill = $("s8-fill"), head = $("s8-head"), cnt = $("s8-cnt");
+      const money = { v: 0 };
+      const cnum = $("s8-c-num");
+      let lastHead = null, lastCnt = null, lastMoney = null;
+
+      // ===== Station 1 (0 – 0.82): 1972 =====
+      tl.fromTo("#s8-slug", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 0.1);
+      tl.fromTo("#s8-rule", { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power3.out" }, 0.1);
+      tl.fromTo("#s8-track", { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: "power3.out" }, 0.0);
+      tl.fromTo(["#s8-y72", "#s8-y72s"], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.12 }, 0.2);
+      tl.fromTo("#s8-ticks", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "power2.out" }, 0.6);
+      tl.fromTo("#s8-photo", { x: 0 }, { x: -160, duration: 5.6, ease: "power2.out" }, 0);
+      tl.fromTo("#s8-pl-fg", { x: 0 }, { x: -120, duration: 5.6, ease: "power2.out" }, 0);
+
+      // ===== Pan (0.82 – 2.60): the bar fills fifty years while the camera tracks the head =====
+      tl.fromTo("#s8-cnt", { scale: 0.55, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.78, ease: "power2.inOut" }, 0.82);
+      tl.fromTo("#s8-cnt-unit", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 1.32);
+      // "apologize." — the stamp lands at the end of the bar
+      tl.fromTo("#s8-pin", { scale: 0 }, { scale: 1, duration: 0.45, ease: "power3.out" }, 2.5);
+      tl.fromTo("#s8-pinring", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: "power3.out" }, 2.55);
+      tl.fromTo("#s8-apology", { opacity: 0, scale: 1.25, filter: "blur(6px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 2.60);
+      // "2022,"
+      tl.fromTo("#s8-y22", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 3.92);
+      // "its president" / "a triple failure."
+      tl.fromTo("#s8-pres", { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 5.50);
+      tl.fromTo("#s8-q0", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 6.74);
+      tl.fromTo("#s8-q1", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 7.12);
+      tl.fromTo("#s8-qline", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power3.out" }, 7.45);
+
+      // ===== Pan down (8.18 – 9.2): the line drops to the families; €28,000,000 =====
+      tl.fromTo("#s8-drop", { scaleY: 0 }, { scaleY: 1, duration: 1.0, ease: "power2.inOut" }, 8.18);
+      tl.to("#s8-cnt-wrap", { opacity: 0, duration: 0.4, ease: "power2.in" }, 8.18);
+      tl.fromTo("#s8-c-kick", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 8.6);
+      tl.fromTo("#s8-c-dot", { scale: 0 }, { scale: 1, duration: 0.4, ease: "power3.out" }, 9.1);
+      tl.fromTo("#s8-c-num", { scale: 0.55, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: "power3.out" }, 9.22);
+      tl.fromTo("#s8-c-fill", { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power3.out" }, 9.22);
+      tl.fromTo("#s8-c-sub", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power3.out" }, 10.22);
+
+      // ===== single writer for camera + proxy-driven text, added LAST so it reads post-seek values =====
+      const drv = { t: 0 };
+      const E_IO2 = gsap.parseEase("power2.inOut"), E_IO1 = gsap.parseEase("power1.inOut"), E_IO3 = gsap.parseEase("power3.inOut"), E_O3 = gsap.parseEase("power3.out");
+      const seg = (t, t0, d, e) => e(Math.max(0, Math.min(1, (t - t0) / d)));
+      tl.to(drv, { t: DUR, duration: DUR, ease: "none", onUpdate: () => {
+        const t = drv.t;
+        // camera + proxies computed from t (order-independent under seeking)
+        fp.p = seg(t, 0.82, 1.78, E_IO2);                                   // 50-year fill, lands on "apologize."
+        cam.x = -1080 * seg(t, 0.82, 1.78, E_IO2) - 40 * seg(t, 3.0, 4.2, E_IO1) - 80 * seg(t, 8.18, 1.0, E_IO3);
+        cam.y = -1080 * seg(t, 8.18, 1.0, E_IO3);                           // drop to the families
+        money.v = 28000000 * seg(t, 9.22, 1.2, E_O3);                        // "28 million euros."
+        world.style.transform = "translate(" + cam.x.toFixed(2) + "px," + cam.y.toFixed(2) + "px)";
+        hud.style.transform = "translate(0px," + (cam.y * 1.0).toFixed(2) + "px)";
+        photo.style.top = (-120 + cam.y * 0.12).toFixed(2) + "px";
+        fill.style.transform = "scaleX(" + fp.p.toFixed(4) + ")";
+        head.style.left = (240 + 2400 * fp.p).toFixed(1) + "px";
+        head.style.opacity = Math.max(0, Math.min(1, (fp.p - 0.07) / 0.06, (2.9 - drv.t) / 0.3)).toFixed(3);
+        const y = String(1972 + Math.round(50 * fp.p));
+        if (y !== lastHead) { head.textContent = y; lastHead = y; }
+        const c = String(Math.round(50 * fp.p));
+        if (c !== lastCnt) { cnt.textContent = c; lastCnt = c; }
+        const m = "€" + (Math.round(money.v / 1000) * 1000).toLocaleString("en-US");
+        if (m !== lastMoney) { cnum.textContent = m; lastMoney = m; }
+      } }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s8"] = tl;
+    })();
+  </script>
+</template>

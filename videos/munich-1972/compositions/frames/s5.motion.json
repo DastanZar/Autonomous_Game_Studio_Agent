@@ -1,0 +1,7 @@
+{
+  "scene": "s5",
+  "duration_s": 24.7,
+  "rules": ["svg-path-draw", "coordinate-target-zoom", "spatial-pan-stations"],
+  "exit": { "vector": "static: plane diagram settled (last tween ends 24.3s); 0 px/s", "still_moving": false },
+  "entry": { "vector": "map camera slow push-in on the Connollystrasse pin (scale 2.40 -> 2.62 over 3.18s, power1.out), lateral ~3 px/s", "from_rest": false }
+}

@@ -1,0 +1,7 @@
+{
+  "scene": "s9",
+  "duration_s": 29.8,
+  "rules": ["dynamic-content-sequencing"],
+  "exit": { "vector": "static — end card held from 27.4 s to the last frame (final scene)", "still_moving": false },
+  "entry": { "vector": "'Munich' rises 40 px upward at 0.08 s (expo.out); slow rightward drift ≈5 px/s", "from_rest": true }
+}

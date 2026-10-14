@@ -1,0 +1,17 @@
+{
+  "scene": "s1",
+  "duration_s": 26.7,
+  "rules": [
+    "kinetic-type-beats",
+    "dynamic-content-sequencing",
+    "discrete-text-sequence"
+  ],
+  "exit": {
+    "vector": "none: Israel photo push (scale 1.0 to 1.06) ended at 25.94 s; ring and label settled by 26.35 s",
+    "still_moving": false
+  },
+  "entry": {
+    "vector": "white flash frame at 0 s into footage panning left, x +70 to -50 px over 2.6 s (about 46 px/s), scale 1.14 to 1.06",
+    "from_rest": false
+  }
+}

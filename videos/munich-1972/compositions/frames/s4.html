@@ -1,0 +1,335 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-400.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-500.woff2") format("woff2"); font-weight: 500; }
+    @font-face { font-family: "DM Serif"; src: url("assets/fonts/dmserif.woff2") format("woff2"); font-weight: 400; }
+
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #ECE8DF; font-family: "Archivo", sans-serif; }
+    #s4-bg { position: absolute; inset: 0; background: #0F1114; }
+    #s4-stage { position: absolute; inset: 0; overflow: hidden; }
+    .s4-layer { position: absolute; inset: 0; overflow: hidden; }
+    .s4-weave { position: absolute; inset: 0; }
+    .s4-mono { font-family: "Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+    .s4-back { position: absolute; inset: -80px; background-size: cover; background-position: center; filter: grayscale(1) blur(16px) brightness(0.4); }
+    .s4-plane { position: absolute; overflow: hidden; }
+    .s4-plane img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05) brightness(1.04); }
+    .s4-card { outline: 2px solid #B9BEC4; outline-offset: -2px; box-shadow: 0 40px 120px rgba(0,0,0,0.65); }
+    .s4-bgimg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: grayscale(1) contrast(1.05) brightness(1.04); }
+    .s4-vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(15,17,20,0) 50%, rgba(15,17,20,0.55) 100%); }
+    .s4-ann { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .s4-ann path, .s4-ann rect, .s4-ann circle { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .s4-ann text { font-family: "Plex Mono"; font-weight: 500; letter-spacing: 0.08em; }
+
+    #s4-slug { position: absolute; left: 120px; top: 84px; font-size: 24px; color: #B9BEC4; z-index: 30; white-space: nowrap; text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.9); }
+    #s4-rule { position: absolute; left: 120px; top: 124px; width: 520px; height: 2px; background: #B9BEC4; opacity: 0.55; transform-origin: 0 50%; z-index: 30; }
+
+    /* A — facade, Black September, 234 */
+    #s4-fa-plane { left: -90px; top: -165px; width: 2100px; height: 1411px; }
+    #s4-fa-dim { position: absolute; inset: 0; background: #0F1114; opacity: 0.35; }
+    #s4-bs { position: absolute; left: 120px; top: 290px; transform-origin: 0 0; }
+    .s4-bsw { font-family: "Archivo"; font-weight: 800; font-size: 190px; line-height: 0.95; letter-spacing: -0.03em; white-space: nowrap; display: block; }
+    #s4-bs-sub { position: absolute; left: 124px; top: 680px; font-size: 30px; color: #5BB3E6; white-space: nowrap; }
+    #s4-dem { position: absolute; left: 124px; top: 420px; font-size: 30px; color: #B9BEC4; white-space: nowrap; }
+    #s4-c234 { position: absolute; left: 112px; top: 455px; font-family: "Archivo"; font-weight: 800; font-size: 320px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; width: 620px; transform-origin: 0 100%; }
+    #s4-c234-l1 { position: absolute; left: 760px; top: 560px; font-size: 44px; white-space: nowrap; }
+    #s4-c234-l2 { position: absolute; left: 760px; top: 620px; font-size: 44px; color: #B9BEC4; white-space: nowrap; }
+    #s4-c234-fn { position: absolute; left: 124px; top: 812px; font-size: 22px; color: #B9BEC4; white-space: nowrap; font-weight: 400; }
+
+    /* B — the world's press */
+    #s4-pr-card { left: 320px; top: 120px; width: 1280px; height: 899px; }
+    #s4-c900 { position: absolute; left: 960px; top: 400px; width: 840px; text-align: right; font-family: "Archivo"; font-weight: 800; font-size: 126px; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; white-space: nowrap; transform-origin: 100% 100%; }
+    #s4-c900-l { position: absolute; right: 120px; top: 548px; font-size: 32px; color: #5BB3E6; white-space: nowrap; }
+
+    /* TV sets */
+    .s4-tv { position: absolute; left: 430px; top: 70px; width: 1060px; height: 820px; transform-origin: 530px 410px; }
+    .s4-bezel { position: absolute; inset: 0; border-radius: 52px; background: linear-gradient(180deg, #262a30 0%, #15181c 100%); border: 2px solid #B9BEC4; box-shadow: 0 50px 140px rgba(0,0,0,0.7); }
+    .s4-knob { position: absolute; bottom: 18px; width: 30px; height: 30px; border-radius: 50%; border: 2px solid #B9BEC4; opacity: 0.6; }
+    .s4-screen { position: absolute; left: 70px; top: 65px; width: 920px; height: 690px; border-radius: 34px; overflow: hidden; background: #000; }
+    .s4-scan { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 2px, rgba(0,0,0,0) 2px, rgba(0,0,0,0) 4px); pointer-events: none; }
+    .s4-glare { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(236,232,223,0.14) 0%, rgba(236,232,223,0) 45%), radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(0,0,0,0.6) 100%); pointer-events: none; }
+    .s4-live { position: absolute; left: 30px; top: 26px; padding: 7px 14px 5px 34px; background: #5BB3E6; color: #0F1114; font-size: 24px; font-weight: 500; }
+    .s4-live::before { content: ""; position: absolute; left: 13px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: #0F1114; }
+    #s4-sp-shade { position: absolute; inset: 0; opacity: 0; background: linear-gradient(90deg, rgba(15,17,20,0.9) 0%, rgba(15,17,20,0.6) 34%, rgba(15,17,20,0) 58%); }
+    .s4-name { position: absolute; left: 120px; top: 590px; }
+    .s4-name .s4-bar { position: absolute; left: 0; top: 6px; width: 6px; height: 100%; background: #5BB3E6; transform-origin: 50% 0; }
+    .s4-name .s4-mask { overflow: hidden; padding-left: 32px; }
+    .s4-name .s4-nm { font-family: "DM Serif"; font-size: 104px; line-height: 1.04; white-space: nowrap; }
+    .s4-name .s4-role { padding-left: 34px; margin-top: 10px; font-size: 28px; color: #5BB3E6; white-space: nowrap; }
+
+    /* D — rooftops */
+    #s4-ra-plane { left: 0; top: -110px; width: 1920px; height: 1300px; }
+
+    /* E/F — balcony */
+    #s4-bc-plane { left: 0; top: -149px; width: 1920px; height: 1378px; }
+    #s4-bw-plane { left: -90px; top: -165px; width: 2100px; height: 1411px; }
+    #s4-off { position: absolute; left: 120px; top: 168px; padding: 10px 20px 8px; border: 2px solid #ECE8DF; background: rgba(15,17,20,0.78); font-size: 44px; letter-spacing: 0.16em; white-space: nowrap; transform-origin: 0 50%; }
+
+    #s4-flash { position: absolute; inset: 0; background: #ECE8DF; opacity: 0; z-index: 40; pointer-events: none; }
+  </style>
+
+  <div data-hf-id="hf-2tvg" id="root" data-composition-id="s4" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-k80f" id="s4-bg" class="clip" data-start="0" data-duration="37.8" data-track-index="0"></div>
+    <div data-hf-id="hf-bpst" id="s4-stage" class="clip" data-start="0" data-duration="37.8" data-track-index="1">
+
+      <!-- A · facade, Black September, the demand -->
+      <div data-hf-id="hf-s8bc" id="s4-A" class="s4-layer">
+        <div data-hf-id="hf-bwnz" class="s4-weave" id="s4-fa-wv">
+          <div data-hf-id="hf-go42" id="s4-fa-plane" class="s4-plane">
+            <div class="s4-bgimg" style="background-image:url('assets/internal/balcony_wide.jpg')"></div>
+            <div data-hf-id="hf-qa98" class="s4-vig"></div>
+            <svg data-hf-id="hf-ts78" class="s4-ann" viewBox="0 0 2400 1613" preserveAspectRatio="none">
+              <circle data-hf-id="hf-uidy" id="s4-fa-pin" cx="1500" cy="560" r="14" stroke="#5BB3E6" stroke-width="6" />
+              <path data-hf-id="hf-nkhi" id="s4-fa-lead" stroke="#5BB3E6" stroke-width="4" d="M1512,548 L1720,360 L2060,360" />
+              <text data-hf-id="hf-jjp4" id="s4-fa-lab" x="1724" y="340" font-size="36" fill="#ECE8DF">CONNOLLYSTRASSE 31</text>
+            </svg>
+          </div>
+        </div>
+        <div data-hf-id="hf-8yf3" id="s4-fa-dim"></div>
+        <div data-hf-id="hf-yoo4" id="s4-bs"><span data-hf-id="hf-lvdw" class="s4-bsw" id="s4-bs1">Black</span><span data-hf-id="hf-faip" class="s4-bsw" id="s4-bs2">September</span></div>
+        <div data-hf-id="hf-jvt2" id="s4-bs-sub" class="s4-mono">Palestinian militant group</div>
+        <div data-hf-id="hf-65q7" id="s4-dem" class="s4-mono">Demand · release of</div>
+        <div data-hf-id="hf-pod1" id="s4-c234">0</div>
+        <div data-hf-id="hf-zhpy" id="s4-c234-l1" class="s4-mono">Prisoners</div>
+        <div data-hf-id="hf-3fy0" id="s4-c234-l2" class="s4-mono">held in Israel</div>
+        <div data-hf-id="hf-7na8" id="s4-c234-fn" class="s4-mono">Reported as 234 · historians later counted 328 names</div>
+      </div>
+
+      <!-- B · the world was watching -->
+      <div data-hf-id="hf-33sz" id="s4-B" class="s4-layer">
+        <div data-hf-id="hf-iea8" class="s4-weave">
+          <div data-hf-id="hf-cjw9" id="s4-pr-back" class="s4-back" style="background-image:url('assets/internal/press_pack.jpg')"></div>
+          <div data-hf-id="hf-s5yd" id="s4-pr-card" class="s4-plane s4-card">
+            <img data-hf-id="hf-tn8u" src="assets/internal/press_pack.jpg" alt="" />
+            <div data-hf-id="hf-i22s" class="s4-vig"></div>
+            <svg data-hf-id="hf-qx1o" class="s4-ann" viewBox="0 0 2600 1826" preserveAspectRatio="none">
+              <circle data-hf-id="hf-7s4d" id="s4-cam1" cx="400" cy="215" r="120" stroke="#5BB3E6" stroke-width="9" />
+              <circle data-hf-id="hf-jhap" id="s4-cam2" cx="1200" cy="584" r="110" stroke="#5BB3E6" stroke-width="9" />
+              <path data-hf-id="hf-tihk" id="s4-cam-lead" stroke="#5BB3E6" stroke-width="6" d="M1296,530 L1560,330 L1960,330" />
+              <text data-hf-id="hf-11ze" id="s4-cam-lab" x="1568" y="300" font-size="62" fill="#ECE8DF">CAMERAS</text>
+            </svg>
+          </div>
+        </div>
+        <div data-hf-id="hf-nk6f" id="s4-c900">0</div>
+        <div data-hf-id="hf-fybk" id="s4-c900-l" class="s4-mono">Estimated TV audience</div>
+      </div>
+
+      <!-- C · Spitzer at the window, on television -->
+      <div data-hf-id="hf-z5oy" id="s4-C" class="s4-layer">
+        <div data-hf-id="hf-0l7r" id="s4-tv1" class="s4-tv">
+          <div data-hf-id="hf-qn3i" class="s4-bezel"><div data-hf-id="hf-db8n" class="s4-knob" style="right:70px"></div><div data-hf-id="hf-3hfl" class="s4-knob" style="right:120px"></div></div>
+          <div data-hf-id="hf-ezvq" class="s4-screen">
+            <div data-hf-id="hf-1drl" id="s4-tv1-plane" class="s4-plane" style="left:-53px; top:0; width:1027px; height:690px; transform-origin: 812px 375px;">
+              <img data-hf-id="hf-utav" src="assets/internal/balcony_wide.jpg" alt="" />
+              <svg data-hf-id="hf-gk70" class="s4-ann" viewBox="0 0 2400 1613" preserveAspectRatio="none">
+                <rect data-hf-id="hf-ubmw" id="s4-win" x="1772" y="648" width="250" height="462" stroke="#5BB3E6" stroke-width="7" />
+                <text data-hf-id="hf-v7wq" id="s4-win-lab" x="1772" y="622" font-size="38" fill="#ECE8DF">WINDOW</text>
+              </svg>
+            </div>
+            <div data-hf-id="hf-iabl" class="s4-scan"></div><div data-hf-id="hf-emav" class="s4-glare"></div>
+            <div data-hf-id="hf-t6dm" class="s4-live s4-mono" id="s4-live1">Live</div>
+          </div>
+        </div>
+        <div data-hf-id="hf-5it4" id="s4-sp-shade"></div>
+        <div data-hf-id="hf-g148" id="s4-sp" class="s4-name">
+          <div data-hf-id="hf-3lnh" class="s4-bar"></div>
+          <div data-hf-id="hf-mdxe" class="s4-mask"><div data-hf-id="hf-x2c4" class="s4-nm">Andre Spitzer</div></div>
+          <div data-hf-id="hf-t0o7" class="s4-role s4-mono">Fencing coach</div>
+        </div>
+      </div>
+
+      <!-- D · police on the rooftops -->
+      <div data-hf-id="hf-gdz9" id="s4-D" class="s4-layer">
+        <div data-hf-id="hf-zlvn" class="s4-weave" id="s4-ra-wv">
+          <div data-hf-id="hf-lwgm" id="s4-ra-plane" class="s4-plane">
+            <img data-hf-id="hf-sthm" src="assets/internal/roof_police_a.jpg" alt="" />
+            <div data-hf-id="hf-gv5p" class="s4-vig"></div>
+            <svg data-hf-id="hf-qmbn" class="s4-ann" viewBox="0 0 1480 1002" preserveAspectRatio="none">
+              <path data-hf-id="hf-9vhc" id="s4-ra-arrow" stroke="#5BB3E6" stroke-width="5" d="M1200,262 Q1060,250 958,372" />
+              <path data-hf-id="hf-9tnh" id="s4-ra-head" stroke="#5BB3E6" stroke-width="5" d="M948,336 L956,376 L994,362" />
+              <text data-hf-id="hf-7eic" id="s4-ra-lab" x="1215" y="270" font-size="36" fill="#ECE8DF">POLICE</text>
+            </svg>
+          </div>
+        </div>
+        <div data-hf-id="hf-ppq4" id="s4-tv2" class="s4-tv">
+          <div data-hf-id="hf-qiya" class="s4-bezel"><div data-hf-id="hf-cczr" class="s4-knob" style="right:70px"></div><div data-hf-id="hf-91qt" class="s4-knob" style="right:120px"></div></div>
+          <div data-hf-id="hf-kf56" class="s4-screen">
+            <div data-hf-id="hf-db45" id="s4-tv2-plane" class="s4-plane" style="left:-178px; top:-110px; width:1277px; height:800px;">
+              <img data-hf-id="hf-gg4l" src="assets/internal/roof_police_b.jpg" alt="" />
+              <svg data-hf-id="hf-w4qg" class="s4-ann" viewBox="0 0 1976 1238" preserveAspectRatio="none">
+                <path data-hf-id="hf-q6ca" id="s4-rb-arrow" stroke="#5BB3E6" stroke-width="7" d="M1340,560 Q1120,560 900,760" />
+                <path data-hf-id="hf-5o9h" id="s4-rb-head" stroke="#5BB3E6" stroke-width="7" d="M893,712 L898,764 L948,752" />
+                <text data-hf-id="hf-8lhl" id="s4-rb-lab" x="1356" y="570" font-size="46" fill="#ECE8DF">POLICE</text>
+              </svg>
+            </div>
+            <div data-hf-id="hf-5sr9" class="s4-scan"></div><div data-hf-id="hf-wsnb" class="s4-glare"></div>
+            <div data-hf-id="hf-djxt" class="s4-live s4-mono" id="s4-live2">Live</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E · the balcony, held still -->
+      <div data-hf-id="hf-fmbg" id="s4-E" class="s4-layer">
+        <div data-hf-id="hf-laeo" id="s4-bc-plane" class="s4-plane"><img data-hf-id="hf-4rlg" src="assets/internal/balcony_close.jpg" alt="" /><div data-hf-id="hf-h9gq" class="s4-vig"></div></div>
+      </div>
+      <!-- F · raid called off -->
+      <div data-hf-id="hf-oa7b" id="s4-F" class="s4-layer">
+        <div data-hf-id="hf-mbfw" id="s4-bw-plane" class="s4-plane"><div class="s4-bgimg" style="background-image:url('assets/internal/balcony_wide.jpg')"></div><div data-hf-id="hf-j8zv" class="s4-vig"></div></div>
+        <div data-hf-id="hf-rjlo" id="s4-off" class="s4-mono">Raid called off</div>
+      </div>
+
+      <div data-hf-id="hf-1lrt" id="s4-slug" class="s4-mono">05·09·1972 · Olympic Village</div>
+      <div data-hf-id="hf-2k83" id="s4-rule"></div>
+      <div data-hf-id="hf-dgl1" id="s4-flash"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const $ = (s) => document.querySelector(s);
+      const $$ = (s) => Array.prototype.slice.call(document.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const D = 37.8;
+
+      function draw(sel, t, d, ease) {
+        const el = typeof sel === "string" ? $(sel) : sel;
+        const L = el.getTotalLength() * 1.02;
+        el.style.strokeDasharray = L + " " + L;
+        tl.fromTo(el, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: d, ease: ease || "power2.out" }, t);
+        tl.fromTo(el, { visibility: "hidden" }, { visibility: "visible", duration: 0.01 }, t);
+      }
+      function fadeUp(sel, t, d) { tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d || 0.45, ease: "power3.out" }, t); }
+      function htmlType(el, t, cps) {
+        const txt = el.textContent; el.textContent = "";
+        const spans = Array.from(txt).map((c) => { const s = document.createElement("span"); s.textContent = c; s.style.whiteSpace = "pre"; el.appendChild(s); return s; });
+        tl.fromTo(spans, { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 1 / (cps || 30), ease: "none" }, t);
+      }
+      function slam(sel, t) { tl.fromTo(sel, { opacity: 0, scale: 1.25, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, t); }
+      function flash(t, peak) {
+        tl.to("#s4-flash", { opacity: peak || 0.5, duration: 0.03, ease: "none" }, t);
+        tl.to("#s4-flash", { opacity: 0, duration: 0.28, ease: "power2.out" }, t + 0.03);
+      }
+      function show(sel, t) { tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }, t); }
+      function counter(el, to, t, d) {
+        const st = { v: 0 };
+        tl.fromTo(st, { v: 0 }, { v: to, duration: d, ease: "power3.out", immediateRender: false,
+          onUpdate: () => { const s = Math.round(st.v).toLocaleString("en-US"); if (el.textContent !== s) el.textContent = s; } }, t);
+      }
+      tl.set("#s4-flash", { opacity: 0 }, 0);
+
+      /* slug */
+      tl.fromTo("#s4-slug", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.05);
+      tl.fromTo("#s4-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.out" }, 0.1);
+
+      /* ---------- A (0 – 10.2) ---------- */
+      tl.fromTo("#s4-fa-plane", { transformPerspective: 1800, rotationY: -7, rotationX: 2, z: -80, x: 30 },
+        { rotationY: -1.5, rotationX: 0, z: 0, x: -20, duration: 9.6, ease: "power2.out" }, 0);
+      draw("#s4-fa-pin", 0.6, 0.45);
+      draw("#s4-fa-lead", 0.85, 0.6);
+      tl.fromTo("#s4-fa-lab", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.3);
+      // "Black" "September" slam over a darkening field
+      tl.to("#s4-fa-dim", { opacity: 0.84, duration: 0.6, ease: "power2.out" }, 3.7);
+      tl.to(["#s4-fa-lab", "#s4-fa-lead", "#s4-fa-pin"], { opacity: 0, duration: 0.3 }, 3.7);
+      slam("#s4-bs1", 3.88);
+      slam("#s4-bs2", 4.28);
+      fadeUp("#s4-bs-sub", 4.6);
+      // "demanded": the headline yields to the top-left, the stat takes the space it vacates
+      tl.to("#s4-bs", { scale: 0.4, y: -125, duration: 0.8, ease: "power3.inOut" }, 5.6);
+      tl.to("#s4-bs-sub", { y: -355, scale: 0.8, transformOrigin: "0 50%", duration: 0.8, ease: "power3.inOut" }, 5.6);
+      htmlType($("#s4-dem"), 6.2, 32);
+      tl.fromTo("#s4-c234", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 1.4, ease: "power3.out" }, 7.12);
+      counter($("#s4-c234"), 234, 7.12, 1.4);
+      fadeUp("#s4-c234-l1", 7.48);
+      fadeUp("#s4-c234-l2", 8.22);
+      fadeUp("#s4-c234-fn", 8.9, 0.6);
+      // zoom-through out on "world"
+      tl.to("#s4-A", { scale: 1.3, filter: "blur(12px)", opacity: 0, duration: 0.3, ease: "power2.in" }, 9.95);
+      tl.set("#s4-A", { autoAlpha: 0 }, 10.26);
+
+      /* ---------- B (10.2 – 15.8) ---------- */
+      flash(10.2, 0.45);
+      show("#s4-B", 10.2);
+      tl.fromTo("#s4-pr-card", { transformPerspective: 1700, rotationY: 13, rotationX: -3, z: -180, x: 60 },
+        { rotationY: 4, rotationX: 0, z: 0, x: 0, duration: 2.2, ease: "power3.out" }, 10.2);
+      tl.fromTo("#s4-pr-back", { x: 50, scale: 1.14 }, { x: -20, scale: 1.08, duration: 5.6, ease: "power1.out" }, 10.2);
+      draw("#s4-cam1", 10.68, 0.5);
+      draw("#s4-cam2", 10.95, 0.5);
+      draw("#s4-cam-lead", 11.3, 0.45);
+      tl.fromTo("#s4-cam-lab", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 11.6);
+      tl.to("#s4-pr-card", { z: 60, duration: 1.1, ease: "power2.inOut" }, 12.4);
+      // yield: the photo slides aside, the audience number fills the space it vacates
+      tl.to("#s4-pr-card", { x: -420, z: 0, scale: 0.55, rotationY: 8, duration: 0.9, ease: "power3.inOut" }, 13.55);
+      tl.to("#s4-pr-back", { opacity: 0.55, duration: 0.9 }, 13.55);
+      tl.fromTo("#s4-c900", { opacity: 0, scale: 0.55 }, { opacity: 1, scale: 1, duration: 1.4, ease: "power3.out" }, 13.82);
+      counter($("#s4-c900"), 900000000, 13.82, 1.4);
+      fadeUp("#s4-c900-l", 14.1);
+      tl.to("#s4-B", { scale: 1.25, filter: "blur(12px)", opacity: 0, duration: 0.3, ease: "power2.in" }, 15.55);
+      tl.set("#s4-B", { autoAlpha: 0 }, 15.86);
+
+      /* ---------- C (15.8 – 27.22) ---------- */
+      show("#s4-C", 15.8);
+      // TV starts so its screen fills the frame (bezel outside), then pulls back on "hit"
+      tl.fromTo("#s4-tv1", { scale: 2.087, y: 60 }, { scale: 2.087, y: 60, duration: 0.01 }, 15.8);
+      tl.fromTo("#s4-tv1-plane", { scale: 0.98, filter: "blur(8px)" }, { scale: 1.3, filter: "blur(0px)", duration: 6.0, ease: "power2.out" }, 15.8);
+      tl.fromTo("#s4-sp-shade", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 17.7);
+      tl.fromTo("#s4-sp .s4-bar", { scaleY: 0 }, { scaleY: 1, duration: 0.45, ease: "power3.out" }, 17.88);
+      tl.fromTo("#s4-sp .s4-nm", { yPercent: 105 }, { yPercent: 0, duration: 0.6, ease: "power3.out" }, 17.93);
+      tl.fromTo("#s4-sp .s4-role", { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 18.2);
+      draw("#s4-win", 19.44, 0.7, "power2.out");
+      tl.fromTo("#s4-win-lab", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 19.9);
+      tl.to("#s4-tv1-plane", { scale: 1.42, duration: 1.8, ease: "power2.inOut" }, 22.06);
+      tl.to(["#s4-sp", "#s4-sp-shade"], { opacity: 0, duration: 0.5, ease: "power2.in" }, 23.5);
+      tl.to("#s4-tv1", { scale: 0.94, y: 30, duration: 1.4, ease: "power3.inOut" }, 24.08);
+      tl.fromTo("#s4-live1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out" }, 25.68);
+      // whip out to the left
+      tl.to("#s4-tv1", { x: -700, filter: "blur(14px)", duration: 0.24, ease: "power2.in" }, 27.0);
+      tl.set("#s4-C", { autoAlpha: 0 }, 27.24);
+
+      /* ---------- D (27.22 – 34.88) ---------- */
+      show("#s4-D", 27.22);
+      tl.set("#s4-tv2", { autoAlpha: 0 }, 0);
+      tl.fromTo("#s4-ra-plane", { transformPerspective: 1800, x: 700, rotationY: 6, filter: "blur(14px)" }, { x: 40, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 27.22);
+      tl.to("#s4-ra-plane", { x: -40, rotationY: 1, duration: 1.1, ease: "power1.inOut" }, 27.72);
+      draw("#s4-ra-arrow", 27.74, 0.5);
+      draw("#s4-ra-head", 28.2, 0.2);
+      tl.fromTo("#s4-ra-lab", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 27.8);
+      // whip pan, velocity matched: A exits left, B arrives from the right
+      tl.to("#s4-ra-plane", { x: -760, filter: "blur(14px)", duration: 0.22, ease: "power2.in" }, 28.82);
+      tl.set("#s4-ra-wv", { autoAlpha: 0 }, 29.04);
+      tl.to("#s4-tv2", { autoAlpha: 1, duration: 0.01 }, 29.02);
+      tl.fromTo("#s4-tv2", { scale: 2.087, y: 60, x: 760, filter: "blur(14px)" }, { x: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out", immediateRender: false }, 29.02);
+      tl.fromTo("#s4-tv2-plane", { x: 30 }, { x: -30, duration: 2.1, ease: "power1.out" }, 29.02);
+      draw("#s4-rb-arrow", 29.45, 0.5);
+      draw("#s4-rb-head", 29.9, 0.2);
+      tl.fromTo("#s4-rb-lab", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 29.55);
+      // "live on television": pull back to the set
+      tl.to("#s4-tv2", { scale: 0.94, y: 30, duration: 1.3, ease: "power3.inOut" }, 31.16);
+      tl.fromTo("#s4-live2", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out" }, 32.08);
+      // "the gunmen were watching the same broadcast": push back into the screen
+      tl.to("#s4-tv2", { scale: 2.6, y: 60, duration: 1.6, ease: "power2.in" }, 33.28);
+      tl.set("#s4-D", { autoAlpha: 0 }, 34.88);
+
+      /* ---------- E (34.88 – 36.96): held still, no motion at all ---------- */
+      flash(34.88, 0.55);
+      show("#s4-E", 34.88);
+
+      /* ---------- F (36.96 – 37.8): raid called off, pull back to the wide ---------- */
+      tl.fromTo("#s4-F", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25, ease: "power1.out" }, 36.96);
+      tl.fromTo("#s4-bw-plane", { scale: 1.22 }, { scale: 1.05, duration: 0.84, ease: "power3.out" }, 36.96);
+      tl.fromTo("#s4-off", { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "expo.out" }, 36.96);
+
+      /* gate weave on the moving photo planes */
+      const weaves = $$("#s4-stage .s4-weave");
+      const wv = { t: 0 };
+      tl.fromTo(wv, { t: 0 }, { t: D, duration: D, ease: "none", immediateRender: false, onUpdate: () => {
+        const f = Math.floor(wv.t * 24);
+        const dx = Math.sin(f * 12.9898) * 0.9, dy = Math.sin(f * 78.233 + 1.3) * 0.7;
+        weaves.forEach((w) => { w.style.translate = dx.toFixed(2) + "px " + dy.toFixed(2) + "px"; });
+      } }, 0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s4"] = tl;
+    })();
+  </script>
+</template>

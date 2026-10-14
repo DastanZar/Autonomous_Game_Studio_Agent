@@ -1,0 +1,7 @@
+{
+  "scene": "s4",
+  "duration_s": 37.8,
+  "rules": ["multi-phase-camera", "counting-dynamic-scale", "svg-path-draw", "video-text-pivot"],
+  "exit": { "vector": "pull-back on balcony_wide (scale 1.22 -> 1.05 over 36.96-37.80s, power3.out); ~0 px/s at last frame, held", "still_moving": false },
+  "entry": { "vector": "facade plane drifting left ~10 px/s (x +30 -> -20 over 9.6s, power2.out) with rotateY -7deg -> -1.5deg", "from_rest": false }
+}

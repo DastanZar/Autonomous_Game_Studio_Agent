@@ -43,9 +43,11 @@
     #s1-berlin { opacity: 0; background: #1a1b1d; }
     .s1-bplane { position: absolute; inset: 0; transform-origin: 1100px 520px; }
     .s1-bplane img { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
-    #s1-bp-bg img { filter: grayscale(1) contrast(1.08) brightness(0.82) blur(2.5px); }
-    #s1-bp-subj img { filter: grayscale(1) contrast(1.12) brightness(0.92);
-      clip-path: polygon(576px 346px, 1114px 326px, 1459px 202px, 1920px 326px, 1920px 1080px, 576px 1080px); }
+    #s1-bp-bg img { filter: grayscale(1) contrast(1.1) brightness(0.88) blur(2px); }
+    #s1-bp-subj img { filter: grayscale(1) contrast(1.1) brightness(0.9);
+      -webkit-mask-image: linear-gradient(90deg, transparent 27%, #000 36%), linear-gradient(180deg, transparent 14%, #000 30%);
+      mask-image: linear-gradient(90deg, transparent 27%, #000 36%), linear-gradient(180deg, transparent 14%, #000 30%);
+      -webkit-mask-composite: source-in; mask-composite: intersect; }
     #s1-bp-shade { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 55% 50%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%); }
     #s1-hitler-ring { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
     #s1-hitler-lab { position: absolute; left: 1160px; top: 268px; font-family: "Plex Mono"; font-weight: 500; font-size: 24px;
@@ -60,8 +62,8 @@
     #s1-card-quote { position: absolute; left: 44px; top: 318px; font-family: "DM Serif"; font-size: 72px; line-height: 1; color: #16181C; }
 
     /* ---------- the rainbow wipe ---------- */
-    #s1-wipe { position: absolute; left: -900px; top: -900px; width: 6000px; height: 2880px; display: flex;
-      transform-origin: 0 0; pointer-events: none; }
+    #s1-wipe { position: absolute; left: -840px; top: -600px; width: 3600px; height: 2280px; display: flex;
+      transform-origin: 50% 50%; pointer-events: none; opacity: 0; }
     #s1-wipe div { height: 100%; }
 
     /* ---------- the Cheerful Games (paper) ---------- */
@@ -82,11 +84,11 @@
     #s1-waldi-name { position: absolute; left: 1236px; top: 760px; font-family: "Archivo"; font-weight: 800; font-size: 80px; line-height: 1;
       letter-spacing: -0.03em; color: #16181C; }
 
-    #s1-host { position: absolute; left: 930px; top: 250px; width: 868px; height: 469px; background: #FFFFFF; padding: 14px;
+    #s1-host { position: absolute; left: 1060px; top: 462px; width: 760px; height: 412px; background: #FFFFFF; padding: 14px;
       box-shadow: 0 30px 70px rgba(22,24,28,0.35), 0 2px 6px rgba(22,24,28,0.25); transform-origin: 50% 50%; }
-    #s1-host img { width: 840px; height: 441px; display: block; }
-    #s1-host-ring { position: absolute; left: 0; top: 0; width: 868px; height: 469px; overflow: visible; }
-    #s1-host-lab { position: absolute; left: 930px; top: 752px; font-family: "Plex Mono"; font-weight: 500; font-size: 26px;
+    #s1-host img { width: 732px; height: 384px; display: block; }
+    #s1-host-ring { position: absolute; left: 0; top: 0; width: 760px; height: 412px; overflow: visible; }
+    #s1-host-lab { position: absolute; left: 1060px; top: 412px; font-family: "Plex Mono"; font-weight: 500; font-size: 26px;
       letter-spacing: 0.08em; color: #16181C; background: #F4F1EA; padding: 6px 10px 6px 0; }
 
     /* ---------- Israel, opening ceremony ---------- */
@@ -99,7 +101,7 @@
     #s1-ip-shade { position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(10,11,13,0.55) 0%, rgba(10,11,13,0) 24%), radial-gradient(ellipse 75% 75% at 60% 35%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 100%); }
     #s1-israel-ring { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
-    #s1-israel-lab { position: absolute; left: 1290px; top: 372px; font-family: "Plex Mono"; font-weight: 500; font-size: 24px;
+    #s1-israel-lab { position: absolute; left: 1150px; top: 372px; white-space: nowrap; font-family: "Plex Mono"; font-weight: 500; font-size: 24px;
       letter-spacing: 0.08em; color: #ECE8DF; background: rgba(15,17,20,0.75); padding: 6px 12px; }
 
     /* ---------- slug + flash ---------- */
@@ -111,96 +113,96 @@
     #s1-flash { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }
   </style>
 
-  <div id="root" data-composition-id="s1" data-width="1920" data-height="1080">
-    <div id="s1-ground" class="clip" data-start="0" data-duration="26.7" data-track-index="0"></div>
+  <div data-hf-id="hf-3pu3" id="root" data-composition-id="s1" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-yfdn" id="s1-ground" class="clip" data-start="0" data-duration="26.7" data-track-index="0"></div>
 
     <!-- 1972 Games colour footage -->
-    <div id="s1-foot" class="s1-layer">
-      <div id="s1-w-roof" class="s1-vwrap"><video id="s1-v-roof" src="assets/internal/footage/clips/s1_roof.mp4" muted playsinline data-start="0" data-duration="2.6" data-media-start="0" data-track-index="1"></video></div>
-      <div id="s1-w-march" class="s1-vwrap"><video id="s1-v-march" src="assets/internal/footage/clips/s1_march.mp4" muted playsinline data-start="2.6" data-duration="1.05" data-media-start="0" data-track-index="1"></video></div>
-      <div id="s1-w-dancers" class="s1-vwrap"><video id="s1-v-dancers" src="assets/internal/footage/clips/s1_dancers.mp4" muted playsinline data-start="3.65" data-duration="1.05" data-media-start="0" data-track-index="1"></video></div>
-      <div id="s1-w-redhats" class="s1-vwrap"><video id="s1-v-redhats" src="assets/internal/footage/clips/s1_redhats.mp4" muted playsinline data-start="4.7" data-duration="1.04" data-media-start="0" data-track-index="1"></video></div>
-      <div id="s1-w-slow" class="s1-vwrap"><video id="s1-v-slow" src="assets/internal/footage/clips/s1_stadium_slow.mp4" muted playsinline data-start="5.74" data-duration="2.96" data-media-start="0" data-track-index="1"></video></div>
-      <div id="s1-foot-shade"></div>
+    <div data-hf-id="hf-85zj" id="s1-foot" class="s1-layer">
+      <div data-hf-id="hf-jo4y" id="s1-w-roof" class="s1-vwrap"><video data-hf-id="hf-oupp" id="s1-v-roof" src="assets/internal/footage/clips/s1_roof.mp4" muted playsinline data-start="0" data-duration="2.6" data-media-start="0" data-track-index="1"></video></div>
+      <div data-hf-id="hf-bzvl" id="s1-w-march" class="s1-vwrap"><video data-hf-id="hf-x28n" id="s1-v-march" src="assets/internal/footage/clips/s1_march.mp4" muted playsinline data-start="2.6" data-duration="1.05" data-media-start="0" data-track-index="1"></video></div>
+      <div data-hf-id="hf-xhfg" id="s1-w-dancers" class="s1-vwrap"><video data-hf-id="hf-a97j" id="s1-v-dancers" src="assets/internal/footage/clips/s1_dancers.mp4" muted playsinline data-start="3.65" data-duration="1.05" data-media-start="0" data-track-index="1"></video></div>
+      <div data-hf-id="hf-pllv" id="s1-w-redhats" class="s1-vwrap"><video data-hf-id="hf-br9p" id="s1-v-redhats" src="assets/internal/footage/clips/s1_redhats.mp4" muted playsinline data-start="4.7" data-duration="1.04" data-media-start="0" data-track-index="1"></video></div>
+      <div data-hf-id="hf-zlrb" id="s1-w-slow" class="s1-vwrap"><video data-hf-id="hf-203u" id="s1-v-slow" src="assets/internal/footage/clips/s1_stadium_slow.mp4" muted playsinline data-start="5.74" data-duration="2.96" data-media-start="0" data-track-index="1"></video></div>
+      <div data-hf-id="hf-o2aa" id="s1-foot-shade"></div>
     </div>
 
     <!-- year ruler: 1972 back towards the 1930s -->
-    <div id="s1-ruler" class="s1-layer">
-      <div id="s1-axis"></div>
-      <div id="s1-strip"></div>
-      <div id="s1-playhead"></div>
-      <div id="s1-ruler-label">LAST SUMMER GAMES IN GERMANY</div>
+    <div data-hf-id="hf-2knh" id="s1-ruler" class="s1-layer">
+      <div data-hf-id="hf-dnw9" id="s1-axis"></div>
+      <div data-hf-id="hf-pj2w" id="s1-strip"></div>
+      <div data-hf-id="hf-lsu6" id="s1-playhead"></div>
+      <div data-hf-id="hf-y1if" id="s1-ruler-label">LAST SUMMER GAMES IN GERMANY</div>
     </div>
 
     <!-- 1972 rainbow digits + per-word line (over footage and ruler) -->
-    <div id="s1-1972"><span style="color:#5BB3E6">1</span><span style="color:#4FB477">9</span><span style="color:#F2C230">7</span><span style="color:#EE8A37">2</span></div>
-    <div id="s1-party"><span>A</span><span>party</span><span>for</span><br /><span>the</span><span>whole</span><span>world.</span></div>
+    <div data-hf-id="hf-zser" id="s1-1972"><span data-hf-id="hf-n38s" style="color:#5BB3E6">1</span><span data-hf-id="hf-dint" style="color:#4FB477">9</span><span data-hf-id="hf-j3g3" style="color:#F2C230">7</span><span data-hf-id="hf-ew2h" style="color:#EE8A37">2</span></div>
+    <div data-hf-id="hf-2wy6" id="s1-party"><span data-hf-id="hf-ms68">A</span><span data-hf-id="hf-i80j">party</span><span data-hf-id="hf-p210">for</span><br data-hf-id="hf-x5px" /><span data-hf-id="hf-3tds">the</span><span data-hf-id="hf-fsw8">whole</span><span data-hf-id="hf-cby3">world.</span></div>
 
     <!-- Berlin 1936 (2.5D planes) -->
-    <div id="s1-berlin" class="s1-layer">
-      <div id="s1-bp-bg" class="s1-bplane"><img src="assets/internal/berlin1936.jpg" alt="" /></div>
-      <div id="s1-bp-subj" class="s1-bplane">
-        <img src="assets/internal/berlin1936.jpg" alt="" />
-        <svg id="s1-hitler-ring" viewBox="0 0 1920 1080"><path id="s1-hring" d="M 1008 336 C 1090 334 1140 400 1136 470 C 1132 548 1070 596 1000 594 C 924 592 872 532 876 462 C 880 392 936 338 1012 340" fill="none" stroke="#5BB3E6" stroke-width="6" stroke-linecap="round" /></svg>
-        <div id="s1-hitler-lab">ADOLF HITLER</div>
+    <div data-hf-id="hf-acnb" id="s1-berlin" class="s1-layer">
+      <div data-hf-id="hf-h04e" id="s1-bp-bg" class="s1-bplane"><img data-hf-id="hf-x6rs" src="assets/internal/berlin1936.jpg" alt="" /></div>
+      <div data-hf-id="hf-kik3" id="s1-bp-subj" class="s1-bplane">
+        <img data-hf-id="hf-zgn4" src="assets/internal/berlin1936.jpg" alt="" />
+        <svg data-hf-id="hf-vsqc" id="s1-hitler-ring" viewBox="0 0 1920 1080"><path data-hf-id="hf-xh51" id="s1-hring" d="M 1008 336 C 1090 334 1140 400 1136 470 C 1132 548 1070 596 1000 594 C 924 592 872 532 876 462 C 880 392 936 338 1012 340" fill="none" stroke="#5BB3E6" stroke-width="6" stroke-linecap="round" /></svg>
+        <div data-hf-id="hf-1wfo" id="s1-hitler-lab">ADOLF HITLER</div>
       </div>
-      <div id="s1-bp-shade"></div>
-      <div id="s1-card">
-        <div id="s1-card-lab">BERLIN · OLYMPIASTADION</div>
-        <div id="s1-card-rule"></div>
-        <div id="s1-card-year">1936</div>
-        <div id="s1-card-quote">Hitler’s Games.</div>
+      <div data-hf-id="hf-p4j4" id="s1-bp-shade"></div>
+      <div data-hf-id="hf-kgys" id="s1-card">
+        <div data-hf-id="hf-8xu2" id="s1-card-lab">BERLIN · OLYMPIASTADION</div>
+        <div data-hf-id="hf-3myn" id="s1-card-rule"></div>
+        <div data-hf-id="hf-xb7p" id="s1-card-year">1936</div>
+        <div data-hf-id="hf-0g6m" id="s1-card-quote">Hitler’s Games.</div>
       </div>
     </div>
 
     <!-- the Cheerful Games -->
-    <div id="s1-cheer" class="s1-layer" style="opacity:0">
-      <div id="s1-title"><span>The</span><span>Cheerful</span><span>Games</span></div>
-      <div id="s1-sub">DIE HEITEREN SPIELE</div>
-      <div id="s1-swatches">
-        <div class="s1-sw"><div class="s1-sw-chip" style="background:#5BB3E6"></div><div class="s1-sw-lab">LIGHT BLUE</div></div>
-        <div class="s1-sw"><div class="s1-sw-chip" style="background:#4FB477"></div><div class="s1-sw-lab">GREEN</div></div>
-        <div class="s1-sw"><div class="s1-sw-chip" style="background:#F2C230"></div><div class="s1-sw-lab">YELLOW</div></div>
-        <div class="s1-sw"><div class="s1-sw-chip" style="background:#EE8A37"></div><div class="s1-sw-lab">ORANGE</div></div>
-        <div class="s1-sw"><div class="s1-sw-chip" style="background:#B9BEC4"></div><div class="s1-sw-lab">SILVER</div></div>
+    <div data-hf-id="hf-z35v" id="s1-cheer" class="s1-layer" style="opacity:0">
+      <div data-hf-id="hf-6rtc" id="s1-title"><span data-hf-id="hf-sxk0">The</span><span data-hf-id="hf-x3c1">Cheerful</span><span data-hf-id="hf-c748">Games</span></div>
+      <div data-hf-id="hf-btni" id="s1-sub">DIE HEITEREN SPIELE</div>
+      <div data-hf-id="hf-z09u" id="s1-swatches">
+        <div data-hf-id="hf-6i37" class="s1-sw"><div data-hf-id="hf-5unu" class="s1-sw-chip" style="background:#5BB3E6"></div><div data-hf-id="hf-3nqp" class="s1-sw-lab">LIGHT BLUE</div></div>
+        <div data-hf-id="hf-f14j" class="s1-sw"><div data-hf-id="hf-jsrd" class="s1-sw-chip" style="background:#4FB477"></div><div data-hf-id="hf-qguo" class="s1-sw-lab">GREEN</div></div>
+        <div data-hf-id="hf-emti" class="s1-sw"><div data-hf-id="hf-sbyh" class="s1-sw-chip" style="background:#F2C230"></div><div data-hf-id="hf-q04d" class="s1-sw-lab">YELLOW</div></div>
+        <div data-hf-id="hf-e8ih" class="s1-sw"><div data-hf-id="hf-sege" class="s1-sw-chip" style="background:#EE8A37"></div><div data-hf-id="hf-aj7r" class="s1-sw-lab">ORANGE</div></div>
+        <div data-hf-id="hf-du7g" class="s1-sw"><div data-hf-id="hf-rqhu" class="s1-sw-chip" style="background:#B9BEC4"></div><div data-hf-id="hf-jtd0" class="s1-sw-lab">SILVER</div></div>
       </div>
-      <div id="s1-waldi">
-        <div style="left:0;top:96px;width:110px;height:22px;border-radius:11px;background:#5BB3E6;transform:rotate(-28deg);transform-origin:100% 50%;"></div>
-        <div style="left:96px;top:110px;width:430px;height:140px;border-radius:70px;background:linear-gradient(90deg,#5BB3E6 0 18%,#4FB477 18% 36%,#F2C230 36% 54%,#EE8A37 54% 72%,#4FB477 72% 86%,#5BB3E6 86% 100%);"></div>
-        <div style="left:140px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
-        <div style="left:200px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
-        <div style="left:400px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
-        <div style="left:460px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
-        <div style="left:470px;top:40px;width:120px;height:150px;border-radius:50px 50px 30px 30px;background:#5BB3E6;"></div>
-        <div style="left:540px;top:70px;width:110px;height:70px;border-radius:30px 36px 36px 20px;background:#5BB3E6;"></div>
-        <div style="left:478px;top:70px;width:52px;height:110px;border-radius:26px;background:#3E7FA6;"></div>
-        <div style="left:566px;top:76px;width:16px;height:16px;border-radius:8px;background:#16181C;"></div>
-        <div style="left:634px;top:82px;width:22px;height:22px;border-radius:11px;background:#16181C;"></div>
+      <div data-hf-id="hf-pwm7" id="s1-waldi">
+        <div data-hf-id="hf-urrw" style="left:0;top:96px;width:110px;height:22px;border-radius:11px;background:#5BB3E6;transform:rotate(-28deg);transform-origin:100% 50%;"></div>
+        <div data-hf-id="hf-z0v4" style="left:96px;top:110px;width:430px;height:140px;border-radius:70px;background:linear-gradient(90deg,#5BB3E6 0 18%,#4FB477 18% 36%,#F2C230 36% 54%,#EE8A37 54% 72%,#4FB477 72% 86%,#5BB3E6 86% 100%);"></div>
+        <div data-hf-id="hf-sgxs" style="left:140px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
+        <div data-hf-id="hf-x04d" style="left:200px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
+        <div data-hf-id="hf-auwz" style="left:400px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
+        <div data-hf-id="hf-ptqp" style="left:460px;top:230px;width:40px;height:90px;border-radius:0 0 14px 14px;background:#5BB3E6;"></div>
+        <div data-hf-id="hf-qael" style="left:470px;top:40px;width:120px;height:150px;border-radius:50px 50px 30px 30px;background:#5BB3E6;"></div>
+        <div data-hf-id="hf-k7xz" style="left:540px;top:70px;width:110px;height:70px;border-radius:30px 36px 36px 20px;background:#5BB3E6;"></div>
+        <div data-hf-id="hf-dy3r" style="left:478px;top:70px;width:52px;height:110px;border-radius:26px;background:#3E7FA6;"></div>
+        <div data-hf-id="hf-kjza" style="left:566px;top:76px;width:16px;height:16px;border-radius:8px;background:#16181C;"></div>
+        <div data-hf-id="hf-4t0t" style="left:634px;top:82px;width:22px;height:22px;border-radius:11px;background:#16181C;"></div>
       </div>
-      <div id="s1-waldi-lab">OFFICIAL MASCOT</div>
-      <div id="s1-waldi-name">Waldi</div>
-      <div id="s1-host">
-        <img src="assets/internal/hostesses_blue.jpg" alt="" />
-        <svg id="s1-host-ring" viewBox="0 0 868 469"><path id="s1-hostring" d="M 128 70 C 196 66 232 150 230 250 C 228 360 196 450 126 452 C 60 454 26 360 28 250 C 30 150 64 72 132 74" fill="none" stroke="#16181C" stroke-width="5" stroke-linecap="round" /></svg>
+      <div data-hf-id="hf-yg6r" id="s1-waldi-lab">OFFICIAL MASCOT</div>
+      <div data-hf-id="hf-q9ug" id="s1-waldi-name">Waldi</div>
+      <div data-hf-id="hf-0ezs" id="s1-host">
+        <img data-hf-id="hf-n2dt" src="assets/internal/hostesses_blue.jpg" alt="" />
+        <svg data-hf-id="hf-rr1g" id="s1-host-ring" viewBox="0 0 868 469" preserveAspectRatio="none"><path data-hf-id="hf-sh76" id="s1-hostring" d="M 128 70 C 196 66 232 150 230 250 C 228 360 196 450 126 452 C 60 454 26 360 28 250 C 30 150 64 72 132 74" fill="none" stroke="#16181C" stroke-width="5" stroke-linecap="round" /></svg>
       </div>
-      <div id="s1-host-lab">OLYMPIC STAFF IN AICHER BLUE</div>
+      <div data-hf-id="hf-jka8" id="s1-host-lab">OLYMPIC STAFF IN AICHER BLUE</div>
     </div>
 
     <!-- Israel, opening ceremony, 26 Aug 1972 -->
-    <div id="s1-israel" class="s1-layer">
-      <div id="s1-ip-bg" class="s1-iplane"><img src="assets/internal/israel_team_opening.jpg" alt="" /></div>
-      <div id="s1-ip-subj" class="s1-iplane"><img src="assets/internal/israel_team_opening.jpg" alt="" /></div>
-      <div id="s1-ip-shade"></div>
-      <svg id="s1-israel-ring" viewBox="0 0 1920 1080"><path id="s1-iring" d="M 1310 46 C 1560 44 1716 108 1712 190 C 1708 276 1540 336 1300 334 C 1060 332 904 272 908 188 C 912 104 1070 46 1320 50" fill="none" stroke="#5BB3E6" stroke-width="6" stroke-linecap="round" /></svg>
-      <div id="s1-israel-lab">ISRAEL · OPENING CEREMONY · 26·08·1972</div>
+    <div data-hf-id="hf-cwnf" id="s1-israel" class="s1-layer">
+      <div data-hf-id="hf-253o" id="s1-ip-bg" class="s1-iplane"><img data-hf-id="hf-h7og" src="assets/internal/israel_team_opening.jpg" alt="" /></div>
+      <div data-hf-id="hf-w9mt" id="s1-ip-subj" class="s1-iplane"><img data-hf-id="hf-u0wo" src="assets/internal/israel_team_opening.jpg" alt="" /></div>
+      <div data-hf-id="hf-gps5" id="s1-ip-shade"></div>
+      <svg data-hf-id="hf-2l7o" id="s1-israel-ring" viewBox="0 0 1920 1080"><path data-hf-id="hf-dm5o" id="s1-iring" d="M 1310 46 C 1560 44 1716 108 1712 190 C 1708 276 1540 336 1300 334 C 1060 332 904 272 908 188 C 912 104 1070 46 1320 50" fill="none" stroke="#5BB3E6" stroke-width="6" stroke-linecap="round" /></svg>
+      <div data-hf-id="hf-cr8f" id="s1-israel-lab">ISRAEL · OPENING CEREMONY · 26·08·1972</div>
     </div>
 
     <!-- rainbow wipe (erases 1936) -->
-    <div id="s1-wipe"><div style="width:240px;background:#5BB3E6"></div><div style="width:240px;background:#4FB477"></div><div style="width:240px;background:#F2C230"></div><div style="width:240px;background:#EE8A37"></div><div style="width:5040px;background:#F4F1EA"></div></div>
+    <div data-hf-id="hf-ilc7" id="s1-wipe"><div data-hf-id="hf-8re0" style="width:2640px;background:#F4F1EA"></div><div data-hf-id="hf-tkxy" style="width:240px;background:#EE8A37"></div><div data-hf-id="hf-fbyp" style="width:240px;background:#F2C230"></div><div data-hf-id="hf-j6jl" style="width:240px;background:#4FB477"></div><div data-hf-id="hf-dkte" style="width:240px;background:#5BB3E6"></div></div>
 
-    <div id="s1-slug"><span id="s1-slug-text"></span><span id="s1-cursor"></span></div>
-    <div id="s1-rule"></div>
-    <div id="s1-flash"></div>
+    <div data-hf-id="hf-xtxn" id="s1-slug"><span data-hf-id="hf-rubu" id="s1-slug-text"></span><span data-hf-id="hf-w9up" id="s1-cursor"></span></div>
+    <div data-hf-id="hf-7r4g" id="s1-rule"></div>
+    <div data-hf-id="hf-6ck4" id="s1-flash"></div>
   </div>
 
   <script>
@@ -319,11 +321,12 @@
       tl.fromTo("#s1-hitler-lab", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 15.7);
       tl.fromTo("#s1-card-quote", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 15.44);
       // "So Munich" (17.06): the 1936 image starts to sink back
-      tl.to("#s1-bp-bg", { filter: "brightness(0.7)", duration: 1.0, ease: "power1.inOut" }, 17.06);
+      tl.fromTo("#s1-berlin", { filter: "brightness(1)" }, { filter: "brightness(0.72)", duration: 1.0, ease: "power1.inOut" }, 17.06);
 
       // ---------- D. "opposite." (18.14): diagonal rainbow wipe ----------
-      tl.set("#s1-wipe", { rotation: 22 }, 0);
-      tl.fromTo("#s1-wipe", { x: -1400 }, { x: 900, duration: 0.8, ease: "power3.inOut" }, 18.14);
+      tl.set("#s1-wipe", { rotation: 22, x: -3200, opacity: 0 }, 0);
+      tl.set("#s1-wipe", { opacity: 1 }, 18.14);
+      tl.fromTo("#s1-wipe", { x: -3200 }, { x: 500, duration: 0.8, ease: "power3.inOut" }, 18.14);
       tl.set("#s1-berlin", { opacity: 0 }, 18.94);
       tl.set("#s1-cheer", { opacity: 1 }, 18.94);
       tl.set("#s1-wipe", { opacity: 0 }, 18.95);

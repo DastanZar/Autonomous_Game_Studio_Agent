@@ -22,7 +22,7 @@
     .s3-mono { font-family: "Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
 
     /* slug */
-    #s3-slug { position: absolute; left: 120px; top: 84px; font-size: 24px; color: #B9BEC4; z-index: 30; white-space: nowrap; }
+    #s3-slug { position: absolute; left: 120px; top: 84px; font-size: 24px; color: #B9BEC4; z-index: 30; white-space: nowrap; text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.9); }
     #s3-rule { position: absolute; left: 120px; top: 124px; width: 520px; height: 2px; background: #B9BEC4; opacity: 0.55; transform-origin: 0 50%; z-index: 30; }
 
     /* door phase */
@@ -218,6 +218,7 @@
         { rotationY: 3, rotationX: 0, z: 10, x: -10, duration: 4.4, ease: "power2.out" }, 0);
       tl.fromTo("#s3-door-back", { x: 40, scale: 1.12 }, { x: -30, scale: 1.08, duration: 4.6, ease: "power1.out" }, 0);
       draw("#s3-door-br", 0.25, 0.7, "power2.out");
+      tl.fromTo("#s3-door-tag", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power1.out" }, 0.5);
       htmlType($("#s3-door-tag"), 0.5, 34);
       nameIn($("#s3-name0"), 1.1);
       tl.fromTo("#s3-name0 .s3-role", { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 1.6);

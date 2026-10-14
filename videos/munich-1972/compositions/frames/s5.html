@@ -1,0 +1,279 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-400.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-500.woff2") format("woff2"); font-weight: 500; }
+    @font-face { font-family: "DM Serif"; src: url("assets/fonts/dmserif.woff2") format("woff2"); font-weight: 400; }
+
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #ECE8DF; font-family: "Archivo", sans-serif; }
+    #s5-bg { position: absolute; inset: 0; background: #0F1114; }
+    #s5-stage { position: absolute; inset: 0; overflow: hidden; }
+    #s5-shake { position: absolute; inset: 0; }
+    .s5-layer { position: absolute; inset: 0; overflow: hidden; }
+    .s5-mono { font-family: "Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+    #s5-slug { position: absolute; left: 120px; top: 84px; font-size: 24px; color: #B9BEC4; z-index: 30; white-space: nowrap; text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.9); }
+    #s5-rule { position: absolute; left: 120px; top: 124px; width: 520px; height: 2px; background: #B9BEC4; opacity: 0.55; transform-origin: 0 50%; z-index: 30; }
+
+    /* A — map */
+    #s5-tilt { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #s5-world { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+    #s5-world svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .s5-grid { stroke: #B9BEC4; stroke-opacity: 0.09; stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .s5-area { fill: #ECE8DF; fill-opacity: 0.05; stroke: #B9BEC4; stroke-opacity: 0.7; stroke-width: 1.6; vector-effect: non-scaling-stroke; }
+    #s5-route { fill: none; stroke: #5BB3E6; stroke-width: 3.4; stroke-linecap: round; }
+    #s5-dim { fill: none; stroke: #ECE8DF; stroke-width: 1.4; }
+    .s5-wt { font-family: "Plex Mono"; font-weight: 500; letter-spacing: 0.08em; fill: #ECE8DF; }
+    #s5-scale { position: absolute; right: 120px; top: 92px; text-align: right; font-size: 20px; color: #B9BEC4; }
+    #s5-scale-bar { height: 2px; margin-top: 8px; margin-left: auto; background: #B9BEC4; width: 200px; }
+
+    /* B — air base */
+    #s5-heli { position: absolute; inset: -60px; background: url('assets/internal/helicopters_ffb.jpg') center / cover; filter: grayscale(1) contrast(1.05); opacity: 0.35; }
+    #s5-aer { position: absolute; left: 1060px; top: 190px; width: 740px; height: 554px; overflow: hidden; outline: 2px solid #B9BEC4; outline-offset: -2px; box-shadow: 0 40px 120px rgba(0,0,0,0.65); }
+    #s5-aer img { position: absolute; inset: 0; width: 100%; height: 100%; filter: grayscale(1) contrast(1.1) brightness(0.95); }
+    #s5-aer svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    #s5-aer-cap { position: absolute; left: 1060px; top: 768px; font-size: 20px; color: #B9BEC4; white-space: nowrap; }
+    #s5-list { position: absolute; left: 120px; top: 200px; }
+    #s5-hd { display: flex; align-items: baseline; gap: 26px; }
+    #s5-hd-n { font-family: "Archivo"; font-weight: 800; font-size: 180px; line-height: 1; letter-spacing: -0.03em; }
+    #s5-hd-l { font-size: 38px; white-space: nowrap; }
+    .s5-row { position: absolute; left: 0; display: flex; align-items: center; gap: 28px; white-space: nowrap; }
+    .s5-row svg { width: 50px; height: 50px; overflow: visible; }
+    .s5-row span { font-size: 38px; }
+    .s5-box { fill: none; stroke: #B9BEC4; stroke-width: 2.5; }
+    .s5-x { fill: none; stroke: #ECE8DF; stroke-width: 4; stroke-linecap: round; }
+    #s5-big5, #s5-big8 { position: absolute; top: 200px; font-family: "Archivo"; font-weight: 800; font-size: 440px; line-height: 1; letter-spacing: -0.03em; transform-origin: 50% 60%; }
+    #s5-big5 { left: 520px; }
+    #s5-big8 { left: 1110px; color: #5BB3E6; }
+    #s5-strike { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    #s5-l5, #s5-l8 { position: absolute; top: 700px; font-size: 32px; white-space: nowrap; }
+    #s5-l5 { left: 528px; color: #B9BEC4; }
+    #s5-l8 { left: 1118px; color: #5BB3E6; }
+
+    /* C — the waiting plane */
+    #s5-log { position: absolute; left: 120px; top: 176px; padding: 14px 24px 12px 26px; border-left: 4px solid #5BB3E6; background: rgba(236,232,223,0.05); }
+    #s5-log div { font-size: 34px; white-space: pre; line-height: 1.5; }
+    #s5-log2 { color: #5BB3E6; }
+    #s5-plane-tilt { position: absolute; inset: 0; transform-origin: 50% 55%; }
+    #s5-plane-svg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .s5-pl { fill: none; stroke: #ECE8DF; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    #s5-cabin { fill: #5BB3E6; fill-opacity: 0; stroke: #5BB3E6; stroke-width: 3; }
+    #s5-sui { position: absolute; left: 1240px; top: 330px; font-family: "DM Serif"; font-size: 124px; line-height: 1; white-space: nowrap; }
+
+    #s5-flash { position: absolute; inset: 0; background: #ECE8DF; opacity: 0; z-index: 40; pointer-events: none; }
+  </style>
+
+  <div id="root" data-composition-id="s5" data-width="1920" data-height="1080">
+    <div id="s5-bg" class="clip" data-start="0" data-duration="24.7" data-track-index="0"></div>
+    <div id="s5-stage" class="clip" data-start="0" data-duration="24.7" data-track-index="1">
+     <div id="s5-shake">
+
+      <!-- A · the map flight -->
+      <div id="s5-A" class="s5-layer">
+        <div id="s5-tilt"><div id="s5-world">
+          <svg viewBox="0 0 1920 1080">
+            <g id="s5-grid"></g>
+            <path class="s5-area" id="s5-munich" fill-rule="evenodd" d="M700.4,614.6 L730.7,613.1 L726.8,620.0 L741.6,623.7 L742.3,625.9 L738.5,625.7 L740.1,632.0 L737.7,631.5 L738.6,634.3 L750.6,635.8 L750.7,633.1 L755.0,633.1 L764.8,636.4 L765.6,651.2 L768.0,650.8 L768.1,654.1 L772.4,651.3 L777.4,661.4 L783.0,658.8 L789.2,685.2 L784.1,688.1 L791.8,708.0 L780.2,717.0 L783.7,729.7 L781.7,738.1 L784.3,746.3 L794.2,743.4 L798.3,756.6 L821.2,758.1 L852.0,747.9 L880.4,726.1 L890.9,708.5 L901.8,704.1 L919.4,710.4 L920.4,708.0 L926.7,713.6 L925.5,716.9 L952.6,721.4 L951.4,723.6 L954.5,732.0 L959.3,724.3 L963.3,726.2 L964.0,722.7 L969.8,723.3 L989.5,728.1 L987.6,733.1 L999.8,737.3 L1003.6,744.7 L1003.0,767.1 L1005.6,787.1 L1003.8,803.6 L999.0,804.5 L997.7,844.8 L1017.1,845.0 L1017.3,842.3 L1032.3,847.7 L1020.7,870.4 L1030.1,887.9 L1024.2,910.8 L1036.6,916.6 L1020.9,940.9 L1027.7,945.3 L1023.8,946.9 L1026.7,949.5 L1028.0,945.5 L1067.7,970.7 L1064.1,980.0 L1068.0,981.9 L1070.6,976.7 L1066.6,974.9 L1068.3,971.1 L1115.8,1001.4 L1113.0,1011.7 L1116.1,1018.1 L1117.7,1031.5 L1130.9,1034.8 L1138.9,1022.7 L1150.8,1027.3 L1155.0,1014.2 L1160.2,1010.0 L1169.8,1009.9 L1169.7,1013.4 L1172.2,1013.8 L1174.9,1005.4 L1187.6,1002.8 L1190.0,989.9 L1197.2,971.6 L1202.8,964.9 L1228.7,964.2 L1226.9,978.4 L1232.3,983.0 L1230.9,985.1 L1233.4,989.9 L1233.6,1005.7 L1237.6,1006.5 L1248.1,978.3 L1250.7,978.1 L1248.5,977.2 L1262.5,932.9 L1287.2,939.1 L1288.5,932.3 L1358.3,894.4 L1363.1,896.3 L1374.9,932.7 L1401.5,922.8 L1406.6,932.8 L1415.3,925.2 L1431.2,924.2 L1430.4,919.5 L1445.1,917.3 L1465.5,919.5 L1465.3,922.9 L1492.5,928.8 L1492.5,936.2 L1587.1,962.6 L1605.1,963.3 L1610.8,960.1 L1645.5,965.7 L1640.9,958.5 L1639.3,948.3 L1631.9,938.3 L1637.2,903.4 L1642.2,900.5 L1654.5,901.6 L1649.8,895.8 L1655.4,893.8 L1654.9,889.8 L1714.5,856.5 L1724.2,846.5 L1729.7,820.5 L1713.2,805.7 L1718.3,799.9 L1669.9,783.4 L1680.2,775.4 L1670.4,767.1 L1680.7,757.3 L1699.7,774.3 L1713.0,769.1 L1718.5,763.0 L1722.1,767.6 L1727.8,762.0 L1734.3,745.0 L1729.5,738.7 L1726.2,740.9 L1721.3,736.7 L1729.1,731.0 L1723.0,722.2 L1729.3,719.4 L1731.7,724.8 L1746.7,718.1 L1744.5,712.8 L1753.9,706.0 L1746.8,697.5 L1739.6,703.4 L1728.5,699.2 L1716.7,685.3 L1724.4,679.5 L1719.1,673.3 L1726.4,669.3 L1716.7,657.7 L1623.7,674.7 L1628.5,635.6 L1611.4,621.6 L1645.5,573.5 L1648.7,563.9 L1645.9,554.9 L1667.7,560.1 L1675.9,543.9 L1660.2,527.0 L1674.3,519.0 L1663.9,507.9 L1655.2,506.8 L1655.3,511.0 L1649.0,517.3 L1577.3,506.4 L1573.9,511.6 L1574.0,520.3 L1587.0,532.0 L1587.0,535.6 L1544.6,540.8 L1529.8,546.5 L1516.6,545.4 L1515.7,547.8 L1505.7,543.9 L1500.8,541.1 L1504.6,534.5 L1487.7,528.2 L1484.9,531.6 L1477.0,530.7 L1480.8,515.8 L1488.1,505.6 L1481.5,500.1 L1506.3,441.0 L1510.2,415.3 L1516.5,405.2 L1536.2,389.1 L1543.2,373.3 L1543.3,357.4 L1510.3,336.7 L1507.7,326.2 L1511.2,319.8 L1509.8,318.3 L1468.0,304.0 L1461.4,306.2 L1461.8,311.4 L1437.6,309.8 L1434.0,320.0 L1423.7,320.1 L1420.0,319.7 L1418.3,312.5 L1422.8,311.1 L1422.2,307.6 L1416.9,308.8 L1418.2,312.4 L1413.0,314.8 L1430.1,348.1 L1414.4,347.9 L1414.6,351.4 L1410.4,351.7 L1410.9,355.4 L1401.7,358.1 L1401.7,373.4 L1359.9,372.9 L1359.0,326.9 L1344.9,307.0 L1281.7,313.6 L1241.7,313.3 L1236.4,309.9 L1234.2,303.9 L1226.7,305.8 L1204.2,298.6 L1204.4,294.5 L1196.0,294.8 L1191.6,288.3 L1179.3,251.3 L1144.1,232.0 L1108.9,221.6 L1078.4,233.3 L1078.1,242.0 L1080.9,248.9 L1078.9,253.2 L1081.9,258.2 L1080.7,264.9 L1075.0,265.9 L1076.5,279.6 L1069.8,291.6 L1073.1,329.2 L1079.5,330.9 L1019.0,350.9 L994.3,368.5 L982.1,393.3 L941.1,403.9 L908.7,406.6 L908.9,408.8 L871.1,416.4 L869.3,419.6 L863.6,418.0 L819.0,427.5 L787.9,429.7 L781.2,471.6 L792.1,477.3 L789.1,494.7 L794.9,499.5 L788.0,512.9 L771.8,529.6 L759.5,521.8 L730.5,526.5 L724.5,534.6 L726.3,543.7 L721.0,569.2 L714.0,587.2 L706.2,592.9 L700.4,614.6 Z M1078.5,979.8 L1077.2,981.9 L1079.2,980.5 L1078.5,979.8 Z M1268.6,955.1 L1271.1,957.5 L1273.5,956.6 L1269.5,952.9 L1268.6,955.1 Z" />
+            <path class="s5-area" id="s5-ffb" fill-rule="evenodd" d="M152.1,513.2 L154.0,524.8 L161.9,522.8 L164.2,532.5 L159.1,533.6 L161.3,546.8 L168.6,546.0 L170.2,551.3 L167.5,553.9 L173.7,551.1 L174.9,554.3 L189.3,559.2 L182.1,571.1 L196.8,585.7 L200.6,586.2 L203.7,594.1 L206.7,591.3 L208.7,593.0 L207.4,595.0 L230.2,607.8 L234.2,605.2 L245.7,635.1 L248.6,636.4 L274.0,621.4 L273.6,618.9 L279.4,618.6 L274.1,635.5 L263.3,652.1 L267.4,653.3 L286.9,632.1 L325.2,626.3 L325.6,629.1 L315.4,637.1 L317.9,638.6 L312.3,650.8 L312.2,663.6 L321.8,666.8 L324.5,661.7 L322.0,658.2 L323.0,654.2 L335.8,644.7 L337.1,647.8 L347.6,650.7 L342.2,654.6 L345.5,657.8 L343.1,661.4 L350.3,666.4 L354.9,655.1 L351.0,650.6 L362.6,646.1 L358.2,638.2 L381.2,634.0 L386.2,624.2 L399.2,609.2 L400.0,596.4 L411.2,585.9 L446.4,587.7 L448.8,593.4 L452.5,594.8 L454.5,594.4 L457.3,582.2 L470.1,593.6 L477.7,589.4 L460.3,577.9 L454.2,579.7 L464.5,562.1 L459.7,556.5 L463.6,549.0 L460.2,541.8 L452.5,544.8 L450.0,536.2 L452.9,535.1 L447.2,524.5 L435.6,527.3 L435.0,533.4 L428.9,531.8 L428.0,528.7 L410.9,530.8 L430.8,520.4 L426.8,512.5 L432.7,506.9 L427.2,494.1 L424.0,472.1 L468.8,452.4 L480.6,439.7 L470.8,428.2 L437.2,427.5 L427.5,433.9 L417.3,435.0 L414.5,423.5 L374.2,422.1 L374.3,416.1 L351.2,420.8 L322.5,419.8 L230.9,446.2 L237.6,450.0 L235.6,456.0 L221.0,463.0 L214.9,460.4 L206.8,475.1 L192.9,476.0 L191.8,471.2 L179.3,479.5 L177.1,474.6 L169.6,475.5 L170.2,487.2 L176.8,486.9 L177.7,500.7 L166.6,504.9 L167.9,511.6 L152.1,513.2 Z" />
+            <text class="s5-wt" id="s5-lab-mu" x="1300" y="690" font-size="34" fill-opacity="0.75" letter-spacing="0.3em" text-anchor="middle">MUNICH</text>
+            <path id="s5-route" d="M1248.2,520.2 Q850,318 441.7,438.0" />
+            <path id="s5-dim" d="M435.6,485.7 L435.6,509.7 M435.6,497.7 L1242.1,579.9 M1242.1,567.9 L1242.1,591.9" />
+            <text class="s5-wt" id="s5-lab-km" x="0" y="0" font-size="30" text-anchor="middle" transform="translate(834,574) rotate(5.8)">20.7 KM</text>
+            <circle id="s5-pin-c-ring" cx="1248.2" cy="520.2" r="7" fill="none" stroke="#5BB3E6" stroke-width="1.6" />
+            <circle id="s5-pin-c" cx="1248.2" cy="520.2" r="5" fill="#5BB3E6" />
+            <text class="s5-wt" id="s5-lab-c" x="1260" y="514" font-size="11">CONNOLLYSTRASSE 31</text>
+            <circle id="s5-pin-a-ring" cx="441.7" cy="438.0" r="9" fill="none" stroke="#5BB3E6" stroke-width="2" />
+            <circle id="s5-pin-a" cx="441.7" cy="438.0" r="6.5" fill="#0F1114" stroke="#5BB3E6" stroke-width="3" />
+            <text class="s5-wt" id="s5-lab-a" x="441.7" y="412" font-size="19" text-anchor="middle">FÜRSTENFELDBRUCK AIR BASE</text>
+            <circle id="s5-dot" cx="1248.2" cy="520.2" r="6" fill="#ECE8DF" stroke="#5BB3E6" stroke-width="3" />
+          </svg>
+        </div></div>
+        <div id="s5-scale" class="s5-mono"><div id="s5-scale-t">5 km</div><div id="s5-scale-bar"></div></div>
+      </div>
+
+      <!-- B · the rescue plan -->
+      <div id="s5-B" class="s5-layer">
+        <div id="s5-heli"></div>
+        <div id="s5-Bpanel" class="s5-layer">
+          <div id="s5-aer">
+            <img src="assets/open/ffb_aerial.jpg" alt="" />
+            <svg viewBox="0 0 913 684" preserveAspectRatio="none">
+              <path id="s5-rwy" d="M138,196 L806,231 L804,258 L136,223 Z" fill="none" stroke="#5BB3E6" stroke-width="4" stroke-linejoin="round" />
+              <text id="s5-rwy-l" x="140" y="180" font-family="Plex Mono" font-weight="500" font-size="22" letter-spacing="2" fill="#ECE8DF">RUNWAY</text>
+            </svg>
+          </div>
+          <div id="s5-aer-cap" class="s5-mono">The air base · present-day aerial</div>
+          <div id="s5-list">
+            <div id="s5-hd"><span id="s5-hd-n">5</span><span id="s5-hd-l" class="s5-mono">Police snipers</span></div>
+            <div class="s5-row s5-mono" id="s5-r1" style="top:270px"><svg viewBox="0 0 50 50"><rect class="s5-box" x="1" y="1" width="48" height="48" /><path class="s5-x" d="M12,12 L38,38 M38,12 L12,38" /></svg><span>No telescopic sights</span></div>
+            <div class="s5-row s5-mono" id="s5-r2" style="top:360px"><svg viewBox="0 0 50 50"><rect class="s5-box" x="1" y="1" width="48" height="48" /><path class="s5-x" d="M12,12 L38,38 M38,12 L12,38" /></svg><span>No night vision</span></div>
+            <div class="s5-row s5-mono" id="s5-r3" style="top:450px"><svg viewBox="0 0 50 50"><rect class="s5-box" x="1" y="1" width="48" height="48" /><path class="s5-x" d="M12,12 L38,38 M38,12 L12,38" /></svg><span>No radios</span></div>
+          </div>
+        </div>
+        <div id="s5-big5">5</div>
+        <div id="s5-big8">8</div>
+        <svg id="s5-strike" viewBox="0 0 1920 1080"><path id="s5-strike-p" d="M500,650 L860,250" fill="none" stroke="#ECE8DF" stroke-width="16" stroke-linecap="round" /></svg>
+        <div id="s5-l5" class="s5-mono">Gunmen expected</div>
+        <div id="s5-l8" class="s5-mono">Actual</div>
+      </div>
+
+      <!-- C · the waiting plane -->
+      <div id="s5-C" class="s5-layer">
+        <div id="s5-plane-tilt">
+          <svg id="s5-plane-svg" viewBox="0 0 1920 1080">
+            <rect id="s5-cabin" x="560" y="571" width="770" height="38" rx="6" />
+            <path class="s5-pl" id="s5-fus" d="M1430,590 Q1424,561 1380,560 L380,560 Q346,562 330,590 Q346,618 380,620 L1380,620 Q1424,619 1430,590 Z" />
+            <path class="s5-pl" id="s5-wing1" d="M1010,560 L800,360 L756,360 L884,560" />
+            <path class="s5-pl" id="s5-wing2" d="M1010,620 L800,820 L756,820 L884,620" />
+            <path class="s5-pl" id="s5-tail1" d="M480,560 L404,474 L374,474 L424,560" />
+            <path class="s5-pl" id="s5-tail2" d="M480,620 L404,706 L374,706 L424,620" />
+            <rect class="s5-pl" id="s5-eng1" x="420" y="530" width="96" height="24" rx="12" />
+            <rect class="s5-pl" id="s5-eng2" x="420" y="626" width="96" height="24" rx="12" />
+          </svg>
+          <div id="s5-sui">suicide</div>
+        </div>
+        <div id="s5-log" class="s5-mono"><div id="s5-log1">Police team on the Boeing 727</div><div id="s5-log2">→ Abandoned post</div></div>
+      </div>
+
+     </div>
+      <div id="s5-slug" class="s5-mono"><span>05·09·1972 · </span><span id="s5-time">22:00</span></div>
+      <div id="s5-rule"></div>
+      <div id="s5-flash"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const $ = (s) => document.querySelector(s);
+      const SVGNS = "http://www.w3.org/2000/svg";
+      const tl = gsap.timeline({ paused: true });
+      const D = 24.7, PXKM = 39.18;
+
+      function draw(sel, t, d, ease) {
+        const el = typeof sel === "string" ? $(sel) : sel;
+        const L = el.getTotalLength() * 1.02;
+        el.style.strokeDasharray = L + " " + L;
+        tl.fromTo(el, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: d, ease: ease || "power2.out" }, t);
+        tl.fromTo(el, { visibility: "hidden" }, { visibility: "visible", duration: 0.01 }, t);
+      }
+      function typeIn(el, t, cps) {
+        const txt = el.textContent; el.textContent = "";
+        const spans = Array.from(txt).map((c) => { const s = document.createElement("span"); s.textContent = c; el.appendChild(s); return s; });
+        tl.fromTo(spans, { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 1 / (cps || 30), ease: "none" }, t);
+      }
+      function fadeUp(sel, t, d) { tl.fromTo(sel, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: d || 0.45, ease: "power3.out" }, t); }
+      function slam(sel, t) { tl.fromTo(sel, { opacity: 0, scale: 1.3, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, t); }
+      function show(sel, t) { tl.fromTo(sel, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01 }, t); }
+      function flash(t, peak) {
+        tl.to("#s5-flash", { opacity: peak || 0.5, duration: 0.03, ease: "none" }, t);
+        tl.to("#s5-flash", { opacity: 0, duration: 0.28, ease: "power2.out" }, t + 0.03);
+      }
+      tl.set("#s5-flash", { opacity: 0 }, 0);
+
+      /* slug: the time types on "night," */
+      tl.fromTo("#s5-slug", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.05);
+      tl.fromTo("#s5-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.out" }, 0.1);
+      typeIn($("#s5-time"), 0.6, 14);
+
+      /* ---------- A · map (0 – 7.6) ---------- */
+      const grid = $("#s5-grid");
+      for (let x = 0; x <= 1920; x += 80) { const l = document.createElementNS(SVGNS, "line"); l.setAttribute("x1", x); l.setAttribute("x2", x); l.setAttribute("y1", -400); l.setAttribute("y2", 1480); l.setAttribute("class", "s5-grid"); grid.appendChild(l); }
+      for (let y = -400; y <= 1480; y += 80) { const l = document.createElementNS(SVGNS, "line"); l.setAttribute("y1", y); l.setAttribute("y2", y); l.setAttribute("x1", -200); l.setAttribute("x2", 2120); l.setAttribute("class", "s5-grid"); grid.appendChild(l); }
+
+      // one camera writer: world transform from {cx, cy, s}; the scale bar follows s
+      const world = $("#s5-world"), bar = $("#s5-scale-bar");
+      const cam = { cx: 1248.2, cy: 520.2, s: 2.4 };
+      const camWrite = () => {
+        world.style.transform = "translate(" + (960 - cam.cx * cam.s).toFixed(2) + "px," + (540 - cam.cy * cam.s).toFixed(2) + "px) scale(" + cam.s.toFixed(4) + ")";
+        bar.style.width = (5 * PXKM * cam.s).toFixed(1) + "px";
+      };
+      tl.fromTo(cam, { cx: 1248.2, cy: 520.2, s: 2.4 }, { cx: 1238, cy: 512, s: 2.62, duration: 3.18, ease: "power1.out", onUpdate: camWrite }, 0);
+      tl.to(cam, { cx: 760, cy: 470, s: 1.8, duration: 1.25, ease: "power2.inOut", onUpdate: camWrite }, 3.18);
+      tl.to(cam, { cx: 845, cy: 505, s: 1.32, duration: 1.5, ease: "power2.inOut", onUpdate: camWrite }, 4.45);
+      tl.to(cam, { cx: 441.7, cy: 438, s: 7, duration: 0.55, ease: "power3.in", onUpdate: camWrite }, 7.05);
+      tl.fromTo("#s5-tilt", { transformPerspective: 1600, rotationX: 0 }, { rotationX: 24, duration: 1.8, ease: "power2.inOut" }, 1.46);
+      tl.to("#s5-tilt", { rotationX: 6, duration: 2.6, ease: "power2.inOut" }, 3.3);
+      tl.to("#s5-tilt", { rotationX: 0, duration: 1.0, ease: "power2.inOut" }, 6.0);
+      tl.fromTo("#s5-lab-c", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.2);
+      tl.fromTo("#s5-pin-c-ring", { scale: 1, opacity: 0.9, transformOrigin: "50% 50%" }, { scale: 4, opacity: 0, duration: 1.1, ease: "power2.out" }, 1.46);
+      // "helicopter": the route draws itself with a travelling dot
+      const route = $("#s5-route"), dot = $("#s5-dot");
+      const RL = route.getTotalLength();
+      route.style.strokeDasharray = RL + " " + RL;
+      const fl = { p: 0 };
+      const flWrite = () => {
+        route.style.strokeDashoffset = (RL * (1 - fl.p)).toFixed(2);
+        const pt = route.getPointAtLength(RL * fl.p);
+        dot.setAttribute("cx", pt.x.toFixed(2)); dot.setAttribute("cy", pt.y.toFixed(2));
+      };
+      tl.fromTo(fl, { p: 0 }, { p: 1, duration: 1.3, ease: "power2.inOut", onUpdate: flWrite }, 3.18);
+      tl.fromTo(route, { visibility: "hidden" }, { visibility: "visible", duration: 0.01 }, 3.18);
+      tl.fromTo("#s5-pin-a", { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "expo.out" }, 3.9);
+      tl.fromTo("#s5-lab-a", { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 4.08);
+      tl.fromTo("#s5-pin-a-ring", { scale: 1, opacity: 0.9, transformOrigin: "50% 50%" }, { scale: 4, opacity: 0, duration: 1.1, ease: "power2.out" }, 4.5);
+      // "west": straight-line distance
+      draw("#s5-dim", 6.06, 0.6, "power2.out");
+      tl.fromTo("#s5-lab-km", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 6.2);
+      // "Munich."
+      tl.fromTo("#s5-lab-mu", { opacity: 0 }, { opacity: 0.75, duration: 0.5 }, 6.44);
+      tl.fromTo("#s5-scale", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.3);
+      // zoom-through into the air base pin
+      tl.to("#s5-A", { filter: "blur(10px)", opacity: 0, duration: 0.25, ease: "power2.in" }, 7.38);
+      tl.set("#s5-A", { autoAlpha: 0 }, 7.64);
+
+      /* ---------- B · the rescue plan (7.58 – 18.66) ---------- */
+      flash(7.58, 0.45);
+      show("#s5-B", 7.58);
+      tl.fromTo("#s5-heli", { x: 50, scale: 1.12 }, { x: -40, scale: 1.05, duration: 11, ease: "power1.out" }, 7.58);
+      tl.fromTo("#s5-aer", { transformPerspective: 1600, rotationY: -16, z: -160, x: 80, opacity: 0 }, { rotationY: -5, z: 0, x: 0, opacity: 1, duration: 1.2, ease: "power3.out" }, 7.6);
+      tl.to("#s5-aer", { rotationY: -2, duration: 6, ease: "power1.out" }, 8.8);
+      draw("#s5-rwy", 8.2, 0.7);
+      tl.fromTo("#s5-rwy-l", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 8.6);
+      fadeUp("#s5-aer-cap", 8.4);
+      // "Five police snipers," then the checklist on its words
+      slam("#s5-hd-n", 9.38);
+      fadeUp("#s5-hd-l", 9.6);
+      [["#s5-r1", 11.0], ["#s5-r2", 12.64], ["#s5-r3", 13.86]].forEach(([r, t]) => {
+        tl.fromTo(r, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, t);
+        draw(document.querySelector(r + " .s5-x"), t + 0.12, 0.35, "power2.out");
+      });
+      // "and they had been told..." the panel recedes
+      tl.to("#s5-Bpanel", { opacity: 0.12, duration: 0.7, ease: "power2.inOut" }, 15.12);
+      tl.to("#s5-heli", { opacity: 0.16, duration: 0.7, ease: "power2.inOut" }, 15.12);
+      slam("#s5-big5", 16.42);
+      fadeUp("#s5-l5", 16.76);
+      // "There were eight."
+      draw("#s5-strike-p", 17.92, 0.22, "power2.out");
+      tl.to("#s5-big5", { opacity: 0.35, duration: 0.3 }, 17.95);
+      tl.to("#s5-l5", { opacity: 0.45, duration: 0.3 }, 17.95);
+      slam("#s5-big8", 17.92);
+      fadeUp("#s5-l8", 18.1, 0.35);
+      const sh = { k: 0 }, shEl = $("#s5-shake");
+      tl.fromTo(sh, { k: 0 }, { k: 1, duration: 0.5, ease: "none", immediateRender: false, onUpdate: () => {
+        const a = (1 - sh.k) * 12; const dx = Math.sin(sh.k * 47) * a, dy = Math.cos(sh.k * 39) * a * 0.6;
+        shEl.style.translate = dx.toFixed(2) + "px " + dy.toFixed(2) + "px";
+      } }, 17.92);
+      tl.to("#s5-B", { scale: 1.2, filter: "blur(10px)", opacity: 0, duration: 0.28, ease: "power2.in" }, 18.42);
+      tl.set("#s5-B", { autoAlpha: 0 }, 18.72);
+
+      /* ---------- C · the waiting plane (18.66 – 24.7) ---------- */
+      show("#s5-C", 18.66);
+      tl.fromTo("#s5-plane-tilt", { transformPerspective: 1600, rotationX: 30, scale: 0.86 }, { rotationX: 12, scale: 0.96, duration: 2.4, ease: "power3.out" }, 18.66);
+      ["#s5-fus", "#s5-wing1", "#s5-wing2", "#s5-tail1", "#s5-tail2", "#s5-eng1", "#s5-eng2"].forEach((p, i) => draw(p, 18.7 + i * 0.12, 0.7, "power2.out"));
+      tl.fromTo("#s5-log", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 19.1);
+      typeIn($("#s5-log1"), 19.14, 34);
+      typeIn($("#s5-log2"), 23.8, 30);
+      // "hidden on the waiting plane": the team inside
+      draw("#s5-cabin", 19.88, 0.5);
+      tl.to("#s5-cabin", { fillOpacity: 0.4, duration: 0.5, ease: "power1.out" }, 20.2);
+      // "decided": camera lifts; "suicide"
+      tl.to("#s5-plane-tilt", { rotationX: 0, scale: 1.0, duration: 1.6, ease: "power2.inOut" }, 21.24);
+      tl.fromTo("#s5-sui", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 22.54);
+      // "and left."
+      tl.to("#s5-cabin", { fillOpacity: 0, stroke: "#B9BEC4", strokeDasharray: "6 10", duration: 0.5, ease: "power2.out" }, 23.8);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s5"] = tl;
+    })();
+  </script>
+</template>

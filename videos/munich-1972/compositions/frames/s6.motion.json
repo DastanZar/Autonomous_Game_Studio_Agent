@@ -1,0 +1,7 @@
+{
+  "scene": "s6",
+  "duration_s": 20.0,
+  "rules": ["discrete-text-sequence", "context-sensitive-cursor", "counting-dynamic-scale", "stat-bars-and-fills"],
+  "exit": { "vector": "static — deliberate held beat on the retyped headline (last tween ends 19.2 s; card push ends 18.7 s)", "still_moving": false },
+  "entry": { "vector": "static dark field; first move at 0.6 s (clock rises 40 px up, expo.out)", "from_rest": true }
+}

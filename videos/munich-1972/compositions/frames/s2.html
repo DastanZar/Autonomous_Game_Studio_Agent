@@ -1,0 +1,310 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-400.woff2") format("woff2"); font-weight: 400; }
+    @font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-500.woff2") format("woff2"); font-weight: 500; }
+    @font-face { font-family: "DM Serif"; src: url("assets/fonts/dmserif.woff2") format("woff2"); font-weight: 400; }
+
+    #root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #ECE8DF; }
+    #s2-ground { position: absolute; inset: 0; background: #0F1114; }
+    .s2-layer { position: absolute; inset: 0; overflow: hidden; }
+    .s2-mono { font-family: "Plex Mono"; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* A. aerial footage, draining */
+    #s2-aerial-move { position: absolute; inset: -60px; }
+    #s2-v-aerial { position: absolute; left: 60px; top: 60px; width: 1920px; height: 1080px; object-fit: cover; }
+    #s2-aerial-shade { position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(15,17,20,0.8) 0%, rgba(15,17,20,0.35) 50%, rgba(15,17,20,0.1) 100%); }
+    #s2-clock { position: absolute; left: 112px; top: 300px; font-family: "Archivo"; font-weight: 800; font-size: 230px;
+      line-height: 0.95; letter-spacing: -0.03em; color: #ECE8DF; }
+    #s2-date { position: absolute; left: 122px; top: 545px; font-size: 32px; color: #B9BEC4; }
+
+    /* B. eight / the fence */
+    #s2-eight-layer { opacity: 0; }
+    #s2-eight { position: absolute; left: 110px; top: 150px; font-family: "Archivo"; font-weight: 800; font-size: 620px;
+      line-height: 0.95; letter-spacing: -0.03em; color: #ECE8DF; transform-origin: 30% 60%; }
+    #s2-men { position: absolute; left: 130px; top: 780px; font-size: 32px; color: #B9BEC4; }
+    #s2-fence { position: absolute; left: 820px; top: 330px; width: 980px; height: 440px; }
+    .s2-post { position: absolute; bottom: 0; width: 3px; height: 360px; background: #B9BEC4; transform-origin: 50% 100%; }
+    #s2-wire { position: absolute; left: 0; top: 80px; width: 980px; height: 2px; background: #B9BEC4; transform-origin: 0 50%; }
+    #s2-wire2 { position: absolute; left: 0; top: 230px; width: 980px; height: 1px; background: rgba(185,190,196,0.6); transform-origin: 0 50%; }
+    #s2-ground-line { position: absolute; left: 0; bottom: 0; width: 980px; height: 2px; background: rgba(185,190,196,0.5); transform-origin: 0 50%; }
+    .s2-man { position: absolute; left: 0; top: 0; width: 14px; height: 44px; border-radius: 7px; background: #5BB3E6; opacity: 0; }
+    #s2-fence-lab { position: absolute; left: 820px; top: 800px; font-size: 26px; color: #B9BEC4; }
+
+    /* C. the village photo, 2.5D */
+    #s2-village { opacity: 0; }
+    .s2-vplane { position: absolute; inset: 0; transform-origin: 260px 760px; }
+    .s2-vplane img { position: absolute; left: -60px; top: -110px; width: 2040px; height: 1251px; }
+    #s2-vp-bg img { filter: saturate(0.6) brightness(0.68) contrast(1.06) blur(1.5px); }
+    #s2-vp-fg img { filter: saturate(0.6) brightness(0.68) contrast(1.06);
+      clip-path: polygon(-60px 262px, 190px 262px, 300px 340px, 340px 440px, 560px 440px, 670px 640px, 800px 900px, 820px 1141px, -60px 1141px); }
+    #s2-vp-shade { position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(15,17,20,0.55) 0%, rgba(15,17,20,0) 25%, rgba(15,17,20,0) 60%, rgba(15,17,20,0.6) 100%); }
+    #s2-anno { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    #s2-anno-lab { position: absolute; left: 1290px; top: 470px; font-size: 26px; color: #ECE8DF; background: rgba(15,17,20,0.75); padding: 6px 12px; white-space: nowrap; }
+    #s2-oly { position: absolute; left: 120px; top: 700px; font-family: "Archivo"; font-weight: 500; font-size: 56px; line-height: 1.05; color: #ECE8DF;
+      text-shadow: 0 3px 18px rgba(0,0,0,0.5); }
+    #s2-oly-lab { position: absolute; left: 122px; top: 652px; font-size: 24px; color: #B9BEC4; }
+
+    /* D. the map flight */
+    #s2-map { opacity: 0; }
+    #s2-zoom-outer { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #s2-zoom-inner { position: absolute; inset: 0; }
+    #s2-mapsvg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    #s2-city-lab { position: absolute; left: 1000px; top: 760px; font-size: 26px; color: #B9BEC4; }
+    #s2-pin { position: absolute; left: 948px; top: 528px; width: 24px; height: 24px; border-radius: 12px; background: #5BB3E6; opacity: 0;
+      box-shadow: 0 0 0 4px rgba(15,17,20,0.9); }
+    .s2-ring { position: absolute; left: 920px; top: 500px; width: 80px; height: 80px; border-radius: 40px; border: 3px solid #5BB3E6; opacity: 0; }
+    #s2-pin-line { position: absolute; left: 972px; top: 539px; width: 150px; height: 2px; background: #ECE8DF; transform-origin: 0 50%; }
+    #s2-pin-lab { position: absolute; left: 1140px; top: 516px; font-size: 32px; color: #ECE8DF; white-space: nowrap; }
+    #s2-pin-sub { position: absolute; left: 1140px; top: 562px; font-size: 22px; color: #B9BEC4; white-space: nowrap; }
+    #s2-stad-dot { position: absolute; left: 932px; top: 613px; width: 14px; height: 14px; border-radius: 7px; border: 2px solid #B9BEC4; opacity: 0; }
+    #s2-stad-lab { position: absolute; left: 700px; top: 646px; font-size: 22px; color: #B9BEC4; opacity: 0; white-space: nowrap; }
+
+    /* E. the building */
+    #s2-bldg { opacity: 0; }
+    .s2-bplane { position: absolute; inset: 0; transform-origin: 770px 600px; }
+    .s2-bplane img { position: absolute; left: -2px; top: -100px; width: 1924px; height: 1286px; }
+    #s2-bp-bg img { filter: grayscale(1) brightness(0.64) contrast(1.18) blur(1.5px); }
+    #s2-bp-fg img { filter: grayscale(1) brightness(0.64) contrast(1.18);
+      -webkit-mask-image: radial-gradient(ellipse 34% 46% at 40% 56%, #000 60%, transparent 100%);
+      mask-image: radial-gradient(ellipse 34% 46% at 40% 56%, #000 60%, transparent 100%); }
+    #s2-bp-shade { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 60% 40%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.6) 100%); }
+    #s2-box { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    #s2-box-line { position: absolute; left: 700px; top: 560px; width: 696px; height: 2px; background: #5BB3E6; transform-origin: 0% 50%; }
+    #s2-box-lab { position: absolute; left: 120px; top: 520px; }
+    #s2-box-lab .s2-big { font-family: "Archivo"; font-weight: 800; font-size: 76px; line-height: 0.95; letter-spacing: -0.03em; color: #ECE8DF; }
+    #s2-box-lab .s2-small { margin-top: 14px; font-size: 24px; color: #B9BEC4; }
+
+    /* slug */
+    #s2-slug { position: absolute; left: 120px; top: 90px; display: flex; align-items: center; white-space: nowrap; font-size: 28px; color: #B9BEC4; }
+    #s2-slug-text { white-space: pre; }
+    #s2-cursor { display: inline-block; width: 13px; height: 28px; background: #B9BEC4; margin-left: 6px; }
+    #s2-rule { position: absolute; left: 120px; top: 140px; width: 1680px; height: 1px; background: rgba(185,190,196,0.45); transform-origin: 0 50%; }
+    #s2-flash { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }
+  </style>
+
+  <div id="root" data-composition-id="s2" data-width="1920" data-height="1080">
+    <div id="s2-ground" class="clip" data-start="0" data-duration="20" data-track-index="0"></div>
+
+    <!-- A. the village from the air (1972 Games film), colour draining -->
+    <div id="s2-aerial" class="s2-layer">
+      <div id="s2-aerial-move">
+        <video id="s2-v-aerial" src="assets/internal/footage/clips/s2_aerial.mp4" muted playsinline
+          data-start="0" data-duration="5.45" data-media-start="0" data-track-index="1"></video>
+      </div>
+      <div id="s2-aerial-shade"></div>
+      <div id="s2-clock">04:30</div>
+      <div id="s2-date" class="s2-mono">TUESDAY · 5 SEPTEMBER 1972</div>
+    </div>
+
+    <!-- B. eight men / the fence -->
+    <div id="s2-eight-layer" class="s2-layer">
+      <div id="s2-eight">8</div>
+      <div id="s2-men" class="s2-mono">MEN</div>
+      <div id="s2-fence">
+        <div id="s2-wire"></div><div id="s2-wire2"></div><div id="s2-ground-line"></div>
+      </div>
+      <div id="s2-fence-lab" class="s2-mono">OLYMPIC VILLAGE PERIMETER FENCE</div>
+    </div>
+
+    <!-- C. the village (2.5D) -->
+    <div id="s2-village" class="s2-layer">
+      <div id="s2-vp-bg" class="s2-vplane"><img src="assets/internal/village_view.jpg" alt="" /></div>
+      <div id="s2-vp-fg" class="s2-vplane"><img src="assets/internal/village_view.jpg" alt="" /></div>
+      <div id="s2-vp-shade"></div>
+      <svg id="s2-anno" viewBox="0 0 1920 1080">
+        <path id="s2-fenceline" d="M 470 560 L 820 646 L 1160 735 L 1520 806 L 1900 862" fill="none" stroke="#5BB3E6" stroke-width="4" stroke-dasharray="14 10" />
+        <path id="s2-hop" d="M 1180 860 C 1200 600 1330 520 1420 640" fill="none" stroke="#ECE8DF" stroke-width="4" stroke-linecap="round" />
+        <path id="s2-hop-head" d="M 1394 618 L 1422 646 L 1430 606" fill="none" stroke="#ECE8DF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <div id="s2-anno-lab" class="s2-mono">HELPED OVER THE FENCE</div>
+      <div id="s2-oly-lab" class="s2-mono">THEY ASSUMED</div>
+      <div id="s2-oly">“Fellow Olympians.”</div>
+    </div>
+
+    <!-- D. the real map: camera flight to Connollystrasse 31 -->
+    <div id="s2-map" class="s2-layer">
+      <div id="s2-zoom-outer">
+        <div id="s2-zoom-inner">
+          <svg id="s2-mapsvg" viewBox="0 0 1920 1080">
+            <g id="s2-grid" stroke="rgba(185,190,196,0.10)" stroke-width="1" vector-effect="non-scaling-stroke"></g>
+            <path id="s2-munich" d="M700.4,614.6 L730.7,613.1 L726.8,620.0 L741.6,623.7 L742.3,625.9 L738.5,625.7 L740.1,632.0 L737.7,631.5 L738.6,634.3 L750.6,635.8 L750.7,633.1 L755.0,633.1 L764.8,636.4 L765.6,651.2 L768.0,650.8 L768.1,654.1 L772.4,651.3 L777.4,661.4 L783.0,658.8 L789.2,685.2 L784.1,688.1 L791.8,708.0 L780.2,717.0 L783.7,729.7 L781.7,738.1 L784.3,746.3 L794.2,743.4 L798.3,756.6 L821.2,758.1 L852.0,747.9 L880.4,726.1 L890.9,708.5 L901.8,704.1 L919.4,710.4 L920.4,708.0 L926.7,713.6 L925.5,716.9 L952.6,721.4 L951.4,723.6 L954.5,732.0 L959.3,724.3 L963.3,726.2 L964.0,722.7 L969.8,723.3 L989.5,728.1 L987.6,733.1 L999.8,737.3 L1003.6,744.7 L1003.0,767.1 L1005.6,787.1 L1003.8,803.6 L999.0,804.5 L997.7,844.8 L1017.1,845.0 L1017.3,842.3 L1032.3,847.7 L1020.7,870.4 L1030.1,887.9 L1024.2,910.8 L1036.6,916.6 L1020.9,940.9 L1027.7,945.3 L1023.8,946.9 L1026.7,949.5 L1028.0,945.5 L1067.7,970.7 L1064.1,980.0 L1068.0,981.9 L1070.6,976.7 L1066.6,974.9 L1068.3,971.1 L1115.8,1001.4 L1113.0,1011.7 L1116.1,1018.1 L1117.7,1031.5 L1130.9,1034.8 L1138.9,1022.7 L1150.8,1027.3 L1155.0,1014.2 L1160.2,1010.0 L1169.8,1009.9 L1169.7,1013.4 L1172.2,1013.8 L1174.9,1005.4 L1187.6,1002.8 L1190.0,989.9 L1197.2,971.6 L1202.8,964.9 L1228.7,964.2 L1226.9,978.4 L1232.3,983.0 L1230.9,985.1 L1233.4,989.9 L1233.6,1005.7 L1237.6,1006.5 L1248.1,978.3 L1250.7,978.1 L1248.5,977.2 L1262.5,932.9 L1287.2,939.1 L1288.5,932.3 L1358.3,894.4 L1363.1,896.3 L1374.9,932.7 L1401.5,922.8 L1406.6,932.8 L1415.3,925.2 L1431.2,924.2 L1430.4,919.5 L1445.1,917.3 L1465.5,919.5 L1465.3,922.9 L1492.5,928.8 L1492.5,936.2 L1587.1,962.6 L1605.1,963.3 L1610.8,960.1 L1645.5,965.7 L1640.9,958.5 L1639.3,948.3 L1631.9,938.3 L1637.2,903.4 L1642.2,900.5 L1654.5,901.6 L1649.8,895.8 L1655.4,893.8 L1654.9,889.8 L1714.5,856.5 L1724.2,846.5 L1729.7,820.5 L1713.2,805.7 L1718.3,799.9 L1669.9,783.4 L1680.2,775.4 L1670.4,767.1 L1680.7,757.3 L1699.7,774.3 L1713.0,769.1 L1718.5,763.0 L1722.1,767.6 L1727.8,762.0 L1734.3,745.0 L1729.5,738.7 L1726.2,740.9 L1721.3,736.7 L1729.1,731.0 L1723.0,722.2 L1729.3,719.4 L1731.7,724.8 L1746.7,718.1 L1744.5,712.8 L1753.9,706.0 L1746.8,697.5 L1739.6,703.4 L1728.5,699.2 L1716.7,685.3 L1724.4,679.5 L1719.1,673.3 L1726.4,669.3 L1716.7,657.7 L1623.7,674.7 L1628.5,635.6 L1611.4,621.6 L1645.5,573.5 L1648.7,563.9 L1645.9,554.9 L1667.7,560.1 L1675.9,543.9 L1660.2,527.0 L1674.3,519.0 L1663.9,507.9 L1655.2,506.8 L1655.3,511.0 L1649.0,517.3 L1577.3,506.4 L1573.9,511.6 L1574.0,520.3 L1587.0,532.0 L1587.0,535.6 L1544.6,540.8 L1529.8,546.5 L1516.6,545.4 L1515.7,547.8 L1505.7,543.9 L1500.8,541.1 L1504.6,534.5 L1487.7,528.2 L1484.9,531.6 L1477.0,530.7 L1480.8,515.8 L1488.1,505.6 L1481.5,500.1 L1506.3,441.0 L1510.2,415.3 L1516.5,405.2 L1536.2,389.1 L1543.2,373.3 L1543.3,357.4 L1510.3,336.7 L1507.7,326.2 L1511.2,319.8 L1509.8,318.3 L1468.0,304.0 L1461.4,306.2 L1461.8,311.4 L1437.6,309.8 L1434.0,320.0 L1423.7,320.1 L1420.0,319.7 L1418.3,312.5 L1422.8,311.1 L1422.2,307.6 L1416.9,308.8 L1418.2,312.4 L1413.0,314.8 L1430.1,348.1 L1414.4,347.9 L1414.6,351.4 L1410.4,351.7 L1410.9,355.4 L1401.7,358.1 L1401.7,373.4 L1359.9,372.9 L1359.0,326.9 L1344.9,307.0 L1281.7,313.6 L1241.7,313.3 L1236.4,309.9 L1234.2,303.9 L1226.7,305.8 L1204.2,298.6 L1204.4,294.5 L1196.0,294.8 L1191.6,288.3 L1179.3,251.3 L1144.1,232.0 L1108.9,221.6 L1078.4,233.3 L1078.1,242.0 L1080.9,248.9 L1078.9,253.2 L1081.9,258.2 L1080.7,264.9 L1075.0,265.9 L1076.5,279.6 L1069.8,291.6 L1073.1,329.2 L1079.5,330.9 L1019.0,350.9 L994.3,368.5 L982.1,393.3 L941.1,403.9 L908.7,406.6 L908.9,408.8 L871.1,416.4 L869.3,419.6 L863.6,418.0 L819.0,427.5 L787.9,429.7 L781.2,471.6 L792.1,477.3 L789.1,494.7 L794.9,499.5 L788.0,512.9 L771.8,529.6 L759.5,521.8 L730.5,526.5 L724.5,534.6 L726.3,543.7 L721.0,569.2 L714.0,587.2 L706.2,592.9 L700.4,614.6 Z M1078.5,979.8 L1077.2,981.9 L1079.2,980.5 L1078.5,979.8 Z M1268.6,955.1 L1271.1,957.5 L1273.5,956.6 L1269.5,952.9 L1268.6,955.1 Z" fill="rgba(185,190,196,0.07)" fill-rule="evenodd" stroke="#B9BEC4" stroke-width="2" vector-effect="non-scaling-stroke" />
+          </svg>
+        </div>
+      </div>
+      <div id="s2-city-lab" class="s2-mono">MUNICH · CITY LIMITS</div>
+      <div id="s2-stad-dot"></div>
+      <div id="s2-stad-lab" class="s2-mono">OLYMPIASTADION</div>
+      <div class="s2-ring"></div><div class="s2-ring"></div><div class="s2-ring"></div>
+      <div id="s2-pin"></div>
+      <div id="s2-pin-line"></div>
+      <div id="s2-pin-lab" class="s2-mono">CONNOLLYSTRASSE 31</div>
+      <div id="s2-pin-sub" class="s2-mono">OLYMPIC VILLAGE · MUNICH</div>
+    </div>
+
+    <!-- E. the building, 5 Sept 1972 -->
+    <div id="s2-bldg" class="s2-layer">
+      <div id="s2-bp-bg" class="s2-bplane"><img src="assets/internal/negotiators_door.jpg" alt="" /></div>
+      <div id="s2-bp-fg" class="s2-bplane"><img src="assets/internal/negotiators_door.jpg" alt="" /></div>
+      <div id="s2-bp-shade"></div>
+      <svg id="s2-box" viewBox="0 0 1920 1080">
+        <path id="s2-boxpath" d="M 1396 14 L 1744 14 L 1744 580 L 1396 580 Z" fill="none" stroke="#5BB3E6" stroke-width="4" stroke-linejoin="miter" />
+      </svg>
+      <div id="s2-box-line"></div>
+      <div id="s2-box-lab"><div class="s2-big">Israeli team<br />quarters</div><div class="s2-small s2-mono">CONNOLLYSTRASSE 31 · 5 SEPT 1972</div></div>
+    </div>
+
+    <div id="s2-slug" class="s2-mono"><span id="s2-slug-text"></span><span id="s2-cursor"></span></div>
+    <div id="s2-rule"></div>
+    <div id="s2-flash"></div>
+  </div>
+
+  <script>
+    (function () {
+      const DUR = 20.0;
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => document.querySelector(s);
+      const qa = (s) => Array.from(document.querySelectorAll(s));
+
+      // ---------- slug: discrete states, each part typed on its spoken cue ----------
+      const SEQ = [{ t: 0, text: "" }];
+      function typeTo(full, fromLen, at, per) { let t = at; for (let i = fromLen + 1; i <= full.length; i++) { t += per; SEQ.push({ t, text: full.slice(0, i) }); } }
+      const A = "05·09·1972", B = A + "  04:30", C = B + " · CONNOLLYSTRASSE 31";
+      typeTo(A, 0, 0.2, 0.035);        // "Then,"
+      typeTo(B, A.length, 1.68, 0.035); // "4:30"
+      typeTo(C, B.length, 16.22, 0.02); // "31"
+      const textAt = (time) => { for (let i = SEQ.length - 1; i >= 0; i--) if (time >= SEQ[i].t) return SEQ[i].text; return ""; };
+      const slugText = q("#s2-slug-text"), cursor = q("#s2-cursor"), aerialMove = q("#s2-aerial-move");
+      let last = null;
+      const driver = { t: 0 };
+      tl.to(driver, {
+        t: DUR, duration: DUR, ease: "none",
+        onUpdate: () => {
+          const t = driver.t;
+          const s = textAt(t);
+          if (s !== last) { slugText.textContent = s; last = s; }
+          cursor.style.opacity = Math.sin(t * Math.PI * 2 / 0.7) > 0 ? "1" : "0";
+          const gx = Math.sin(t * 23.1) * 1.3 + Math.sin(t * 7.3 + 1.7) * 0.8;
+          const gy = Math.sin(t * 19.7 + 0.6) * 1.0 + Math.sin(t * 5.9) * 0.6;
+          aerialMove.style.translate = gx.toFixed(2) + "px " + gy.toFixed(2) + "px";
+        }
+      }, 0);
+      tl.fromTo("#s2-rule", { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: "power3.out" }, 0.2);
+
+      // ---------- A. "Then," (0.20): the colour drains out of the village ----------
+      tl.fromTo("#s2-ground", { backgroundColor: "#F4F1EA" }, { backgroundColor: "#0F1114", duration: 1.6, ease: "power2.inOut" }, 0.1);
+      tl.fromTo("#s2-aerial", { filter: "saturate(1) brightness(1)" }, { filter: "saturate(0.3) brightness(0.62)", duration: 2.6, ease: "power2.inOut" }, 0.2);
+      tl.fromTo("#s2-aerial-move", { scale: 1.04, x: 40, y: 20 }, { scale: 1.16, x: -40, y: -10, duration: 5.45, ease: "none" }, 0);
+      tl.fromTo("#s2-aerial-shade", { opacity: 0 }, { opacity: 1, duration: 1.4, ease: "power2.out" }, 0.4);
+      // "4:30" (1.68)
+      tl.fromTo("#s2-clock", { opacity: 0, scale: 1.3, transformOrigin: "0% 50%", filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 1.68);
+      // "5th of September" (4.10)
+      tl.fromTo("#s2-date", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 4.1);
+
+      // ---------- B. "eight" (5.42) ----------
+      tl.set("#s2-aerial", { opacity: 0 }, 5.42);
+      tl.set("#s2-eight-layer", { opacity: 1 }, 5.42);
+      tl.set("#s2-flash", { opacity: 0.5 }, 5.42);
+      tl.to("#s2-flash", { opacity: 0, duration: 0.16 }, 5.45);
+      tl.fromTo("#s2-eight", { scale: 1.45, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, 5.42);
+      tl.fromTo("#s2-men", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 5.54);
+      tl.to("#s2-eight", { scale: 0.96, duration: 2.0, ease: "power1.out" }, 5.75);
+      // "fence" (6.54): posts and wire draw on
+      const fence = q("#s2-fence");
+      const NPOST = 14;
+      for (let i = 0; i < NPOST; i++) {
+        const p = document.createElement("div");
+        p.className = "s2-post";
+        p.style.left = (i * (977 / (NPOST - 1))) + "px";
+        fence.appendChild(p);
+        tl.fromTo(p, { scaleY: 0 }, { scaleY: 1, duration: 0.35, ease: "power3.out" }, 6.54 + i * 0.012);
+      }
+      tl.fromTo(["#s2-wire", "#s2-wire2", "#s2-ground-line"], { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 6.54);
+      tl.fromTo("#s2-fence-lab", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 6.7);
+      // eight figures cross over the top (arc), staggered
+      for (let i = 0; i < 8; i++) {
+        const m = document.createElement("div");
+        m.className = "s2-man";
+        fence.appendChild(m);
+        const x0 = 330 + i * 26, x1 = 640 + i * 30;
+        const st = { p: 0 };
+        const at = 6.72 + i * 0.07;
+        tl.fromTo(st, { p: 0 }, {
+          p: 1, duration: 0.55, ease: "power2.inOut",
+          onUpdate: () => {
+            const p = st.p;
+            const x = x0 + (x1 - x0) * p;
+            const y = 396 - 44 - Math.sin(p * Math.PI) * 360 + (p > 0.5 ? 0 : 0);
+            m.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px) rotate(" + (p * 50 - 25).toFixed(1) + "deg)";
+            m.style.opacity = p > 0 ? "1" : "0";
+          }
+        }, at);
+      }
+
+      // ---------- C. "village." (7.56): the photo, 2.5D ----------
+      tl.set("#s2-eight-layer", { opacity: 0 }, 7.56);
+      tl.set("#s2-village", { opacity: 1 }, 7.56);
+      // velocity-matched entry: the stack arrives still moving left, then the planes separate
+      tl.fromTo("#s2-vp-bg", { x: 160, scale: 1.12 }, { x: 0, scale: 1.03, duration: 3.4, ease: "power3.out" }, 7.56);
+      tl.fromTo("#s2-vp-fg", { x: 160, scale: 1.2 }, { x: 0, scale: 1.08, duration: 3.4, ease: "power3.out" }, 7.56);
+      // "helped them over" (10.66): fence traced, a hop arrow, a label
+      const fl = q("#s2-fenceline"), hop = q("#s2-hop"), head = q("#s2-hop-head");
+      const hl = hop.getTotalLength(), hdl = head.getTotalLength();
+      tl.fromTo("#s2-fenceline", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 10.66);
+      tl.fromTo(hop, { strokeDasharray: hl, strokeDashoffset: hl }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 10.9);
+      tl.fromTo(head, { strokeDasharray: hdl, strokeDashoffset: hdl }, { strokeDashoffset: 0, duration: 0.18, ease: "power2.out" }, 11.48);
+      tl.fromTo("#s2-anno-lab", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 11.26);
+      // "thought" (12.50) / "Olympians." (13.28)
+      tl.fromTo("#s2-oly-lab", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 12.5);
+      tl.fromTo("#s2-oly", { opacity: 0, y: 24, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, 13.28);
+      tl.to("#s2-vp-bg", { scale: 1.05, x: -30, duration: 3.2, ease: "power1.inOut" }, 11.4);
+      tl.to("#s2-vp-fg", { scale: 1.13, x: -30, duration: 3.2, ease: "power1.inOut" }, 11.4);
+
+      // ---------- D. "They went" (14.70): the map; "Connelly" (15.30): fly to the pin ----------
+      const grid = q("#s2-grid");
+      for (let x = 0; x <= 1920; x += 48) { const l = document.createElementNS("http://www.w3.org/2000/svg", "line"); l.setAttribute("x1", x); l.setAttribute("x2", x); l.setAttribute("y1", -400); l.setAttribute("y2", 1480); l.setAttribute("vector-effect", "non-scaling-stroke"); grid.appendChild(l); }
+      for (let y = -400; y <= 1480; y += 48) { const l = document.createElementNS("http://www.w3.org/2000/svg", "line"); l.setAttribute("y1", y); l.setAttribute("y2", y); l.setAttribute("x1", -200); l.setAttribute("x2", 2120); l.setAttribute("vector-effect", "non-scaling-stroke"); grid.appendChild(l); }
+      tl.set("#s2-village", { opacity: 0 }, 14.7);
+      tl.set("#s2-map", { opacity: 1 }, 14.7);
+      const mp = q("#s2-munich"); const ml = mp.getTotalLength();
+      tl.fromTo(mp, { strokeDasharray: ml, strokeDashoffset: ml, fillOpacity: 0 }, { strokeDashoffset: 0, fillOpacity: 1, duration: 0.7, ease: "power2.out" }, 14.7);
+      tl.fromTo("#s2-city-lab", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 14.9);
+      tl.to("#s2-city-lab", { opacity: 0, duration: 0.2 }, 15.3);
+      // coordinate-target zoom: outer scales, inner counter-translates by -offset (pin at 1248.2, 520.2)
+      const OX = 1248.2 - 960, OY = 520.2 - 540, ZS = 2.8;
+      tl.fromTo("#s2-zoom-outer", { scale: 1 }, { scale: ZS, duration: 1.0, ease: "power3.inOut" }, 15.3);
+      tl.fromTo("#s2-zoom-inner", { x: 0, y: 0 }, { x: -OX, y: -OY, duration: 1.0, ease: "power3.inOut" }, 15.3);
+      tl.fromTo("#s2-pin", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 16.1);
+      qa(".s2-ring").forEach((r, i) => {
+        tl.fromTo(r, { opacity: 0.95, scale: 0.35 }, { opacity: 0, scale: 2.4, duration: 0.55, ease: "power2.out" }, 16.22 + i * 0.42);
+      });
+      tl.fromTo("#s2-pin-line", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 16.22);
+      tl.fromTo("#s2-pin-lab", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 16.3);
+      tl.fromTo("#s2-pin-sub", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 16.55);
+      tl.fromTo(["#s2-stad-dot", "#s2-stad-lab"], { opacity: 0 }, { opacity: 1, duration: 0.35 }, 16.7);
+      // zoom-through into the building (velocity-matched push)
+      tl.to("#s2-zoom-outer", { scale: ZS * 1.6, duration: 0.45, ease: "power3.in" }, 17.13);
+      tl.to(["#s2-pin", "#s2-pin-line", "#s2-pin-lab", "#s2-pin-sub", "#s2-stad-dot", "#s2-stad-lab"], { scale: 1.3, opacity: 0, duration: 0.45, ease: "power3.in" }, 17.13);
+
+      // ---------- E. "building" (17.58): the building itself ----------
+      tl.set("#s2-map", { opacity: 0 }, 17.58);
+      tl.set("#s2-bldg", { opacity: 1 }, 17.58);
+      tl.set("#s2-flash", { opacity: 0.6 }, 17.58);
+      tl.to("#s2-flash", { opacity: 0, duration: 0.18 }, 17.62);
+      tl.fromTo("#s2-bp-bg", { scale: 1.2 }, { scale: 1.04, duration: 1.2, ease: "expo.out" }, 17.58);
+      tl.fromTo("#s2-bp-fg", { scale: 1.25 }, { scale: 1.04, duration: 1.2, ease: "expo.out" }, 17.58);
+      const bp = q("#s2-boxpath"); const bl = bp.getTotalLength();
+      tl.fromTo(bp, { strokeDasharray: bl, strokeDashoffset: bl }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 17.8);
+      // "Israel's" (18.18): the callout
+      tl.fromTo("#s2-box-line", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 18.18);
+      tl.fromTo("#s2-box-lab", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, 18.18);
+      tl.to(["#s2-bp-bg", "#s2-bp-fg"], { scale: 1.07, duration: 1.15, ease: "power1.out" }, 18.8);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s2"] = tl;
+    })();
+  </script>
+</template>

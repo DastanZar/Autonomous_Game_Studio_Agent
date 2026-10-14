@@ -114,7 +114,7 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
   <script>
     (function () {
       const DUR = 20.0;
@@ -181,7 +181,6 @@
       tl.fromTo("#s6-track", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power3.out" }, 0.94);
       tl.fromTo("#s6-trackl", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power3.out" }, 0.94);
       tl.fromTo("#s6-fill", { scaleX: 0 }, { scaleX: 1, duration: 2.48, ease: "power2.inOut" }, 0.94);
-      tl.to(clockState, { m: END_MIN, duration: 2.48, ease: "power2.inOut" }, 0.94);   // lands on "midnight" @3.42
       tl.fromTo("#s6-trackr", { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 3.42);
       tl.fromTo("#s6-clock", { color: "#ECE8DF" }, { color: "#5BB3E6", duration: 0.3, ease: "power2.out", immediateRender: false }, 3.42);
       // nine hostages, one mark each, on "nine hostages"
@@ -210,7 +209,6 @@
       // "after three in the morning" — the clock jumps to 03:24
       tl.fromTo("#s6-rdate", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 14.82);
       tl.fromTo("#s6-rclock", { opacity: 0, scale: 0.6, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: 1.0, ease: "power3.out" }, 15.14);
-      tl.to(rclock, { m: 3 * 60 + 24, duration: 1.0, ease: "power3.out" }, 15.14);
       tl.fromTo("#s6-rrule", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power3.out" }, 16.46);
       tl.fromTo("#s6-rname", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 17.02);
       tl.fromTo("#s6-rnote", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power3.out" }, 17.44);
@@ -219,12 +217,17 @@
       tl.to("#s6-card-kicker", { opacity: 0.25, duration: 0.6, ease: "power2.inOut" }, 17.84);
       tl.to("#s6-photo", { opacity: 0.1, duration: 0.8, ease: "power2.inOut" }, 18.4);
 
+      const E_IO2 = gsap.parseEase("power2.inOut"), E_O3 = gsap.parseEase("power3.out");
+      const seg = (t, t0, d, e) => e(Math.max(0, Math.min(1, (t - t0) / d)));
       // master driver added LAST so it reads tween-driven proxies after they update on a seek
       const drv = { t: 0 };
       tl.to(drv, {
         t: DUR, duration: DUR, ease: "none",
         onUpdate: () => {
           const t = drv.t;
+          // proxies computed straight from t (order-independent under seeking)
+          clockState.m = START_MIN + (END_MIN - START_MIN) * seg(t, 0.94, 2.48, E_IO2);   // lands on "midnight" @3.42
+          rclock.m = (3 * 60 + 24) * seg(t, 15.14, 1.0, E_O3);
           // faint seeded light flicker (distant floodlights), only in the first beat
           const fr = Math.floor(t * 30);
           let fo = 0;
