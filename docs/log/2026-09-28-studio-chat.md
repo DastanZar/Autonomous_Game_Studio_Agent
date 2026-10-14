@@ -3125,3 +3125,20 @@ Please continue
   - thumbnail (title card).
   Nothing is on the dashboard (internal assets).
 - **Failure:** a cleanup `rm` of an old parts folder was blocked by the safety check. It was skipped, and the leftover `renders/parts*` folders are git-ignored.
+
+### 2026-10-14 · user
+
+There are some major uh, things with this video that I actually like, and there are some major issues as well. Uh, flag this as something that we have to get back to. I remember we had flagged a few other things as well in the past of things we have to get back to. Uh, put this on that pile and we will get back to it. For now, I want you to research uh, how we can use uh, basically uh, softwares uh, and better uh, video editing stuff that you can control yourself. Uh, how we can use that because uh, you have access to my RTX 3060 6GB graphics card on my laptop and 16GB of uh, fast RAM. So yeah. Uh, just look into things of what more can be done, how we can expand the horizons and how we can get it even more, let's say, studio quality and like top, top YouTube quality. I want like a very, very clear and deep dive on this.
+
+#### Claude · record
+
+- **Munich parked:** added to the Vision board in `docs/DECISIONS.md` (the "get back to" pile, alongside the video-model channel and long-form items). When we return, get the user's list of likes and issues first. Task #31 closed.
+- **Research written:** `docs/research/local-studio-stack-2026-10.md`, from about 30 web searches and fetches. Findings:
+  - **Access:** this cloud session can't reach the laptop. Claude Code has to run on the laptop (native Windows plus Git, then `claude remote-control`) to use the GPU.
+  - **RAM:** 16 GB is the real limit (offloading); 32 GB recommended.
+  - **Adopt first:** Blender with BlenderMCP, ComfyUI / Wan2GP v18, local voices (Chatterbox, Qwen3-TTS VoiceDesign, IndexTTS-2) with Resemble Enhance, ACE-Step (Tier 2 on 6 GB), Stable Audio.
+  - **AI video:** Wan 2.2 GGUF / LTX-2 / MiniMax H3 (480p in about 5–6 GB via Wan2GP; licence bars the US, EU, UK and South Korea) for b-roll only, about 10–15 min per clip (reported).
+  - **Paid tools deferred:** Resolve 21.1's MCP is Studio-only (€305); After Effects plus GEOlayers is skipped for now.
+  - **Encoding:** no AV1 NVENC on the 3060.
+- **Not verified:** all speeds and VRAM figures are reported by others; the first laptop session should measure them.
+- **Dashboard:** new open decision 0f (laptop setup, RAM, country for H3).
