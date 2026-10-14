@@ -2,6 +2,43 @@
  "_doc": "Things waiting for the user to watch, listen to or decide. The dashboard shows them first, with players. Agents: add an item whenever you need the user's eyes or ears; never ask them to open files in GitHub or chat. Remove (or set status: done) once decided, and record the decision in docs/DECISIONS.md. kind: audio | video | image. files: repo paths.",
  "items": [
   {
+   "id": "voices-round2",
+   "status": "open",
+   "kind": "audio",
+   "title": "Voices round 2: VoxCPM2 (designed voices), Chatterbox; Hannah and George for comparison",
+   "question": "Same sentence for each. All read perfectly by transcript (WER 0), loudness matched. VoxCPM2 voices are designed from a text description (no real person). The Chatterbox clone copies the VoxCPM2 British voice, which gives one stable voice for every video. Both are free open models (Apache-2.0 / MIT) via Hugging Face demos today, and can run on your RTX 3060 later. Tell me which ones sound least AI.",
+   "files": [
+    [
+     "VoxCPM2: British male narrator (designed)",
+     "studio/voices/catalog/round2/vox_uk_male.mp3"
+    ],
+    [
+     "VoxCPM2: American woman, science explainer (designed)",
+     "studio/voices/catalog/round2/vox_us_female.mp3"
+    ],
+    [
+     "VoxCPM2: deep American storyteller (designed)",
+     "studio/voices/catalog/round2/vox_us_male_deep.mp3"
+    ],
+    [
+     "Chatterbox: default voice",
+     "studio/voices/catalog/round2/chatterbox_default.mp3"
+    ],
+    [
+     "Chatterbox: clone of the VoxCPM2 British voice",
+     "studio/voices/catalog/round2/chatterbox_clone_of_vox_uk.mp3"
+    ],
+    [
+     "For comparison: Fish Hannah (current Gut Gang test)",
+     "studio/voices/catalog/fish-free/Hannah.mp3"
+    ],
+    [
+     "For comparison: Kokoro George (current default)",
+     "studio/voices/catalog/kokoro/bm_george.mp3"
+    ]
+   ]
+  },
+  {
    "id": "channel-art",
    "status": "open",
    "kind": "image",

@@ -2904,3 +2904,21 @@ well thats a major bottleneck to be running multiple channels isnt it
   - Fixes: a second real number covers 2 more channels; or descriptions with sources as plain text (no URLs).
   - Offered a links-free description option in the kit for unverified channels.
   - Advised against virtual or burner numbers, which YouTube often rejects.
+
+---
+
+### 🧑 User · 2026-10-14 UTC
+
+I want to test out some more audio models, unconvinced by hannah, after getting feedback of her voice sounding ai like, fish 2.1 pro, then one free through openrouter still has me interested, but i want you to look into minimax audio free tier, voxcpm2 any free endpoint if you can dig one up (slow is fine too) and any other free/freemium tts as close to eleven labs as possible
+
+#### Claude · record
+
+- **Researched:** MiniMax, VoxCPM2, ElevenLabs alternatives, Gemini TTS. Details in `docs/research/voices-round2-2026-10.md`.
+- **Made 5 samples through free Hugging Face Spaces (gradio_client):**
+  - VoxCPM2: 3 voices designed from a text description.
+  - Chatterbox: the default voice, plus a clone of the VoxCPM2 British voice.
+  - All WER 0.00 on Whisper; loudness matched to -16 LUFS.
+- **Qwen3-TTS:** its Space errored on all 8 voices.
+- **MiniMax:** the free plan is web-app only (10k credits); the API is paid. Not usable in the pipeline.
+- **Gemini TTS:** may be free in AI Studio; needs the user's key.
+- **Dashboard:** review item `voices-round2`, with Hannah and George for comparison.
