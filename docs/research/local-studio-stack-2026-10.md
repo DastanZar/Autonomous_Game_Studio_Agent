@@ -12,6 +12,8 @@
    system RAM, so 16 GB is the real limit. Guides put 24 GB as the minimum for local video generation and recommend 32 GB.
    In one report, an 8 GB laptop card took 56 minutes for a 5-second clip because it ran out of RAM. **Going to 32 GB is
    the one hardware change worth making**, if the laptop has free or swappable RAM slots (check the model).
+   **Update, 14 Oct: the user says the RAM can't be upgraded**, so the ladder starts with the small models (Wan 2.1 1.3B,
+   Wan 2.2 5B), and the 14B and LTX-2 runs are tests that may abort.
 3. **The biggest quality gains aren't AI video.** They come from three free, scriptable tools that fit the card easily:
    - **Blender:** real 3D, terrain and maps, driven by Claude through an MCP connector.
    - **Local expressive voices:** Chatterbox, Qwen3-TTS voice design and IndexTTS-2, with no daily quota.

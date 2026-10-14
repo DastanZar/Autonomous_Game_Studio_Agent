@@ -1,0 +1,25 @@
+{
+  "note": "AI b-roll test for the Munich 1972 internal video. Every shot is an anonymous, atmospheric RECONSTRUCTION: no identifiable real people, no faces, no visible violence, no blood, no text or logos in frame (all text is set in code). Published use would carry an on-screen RECONSTRUCTION label. Aspect 16:9, about 5 s, no audio needed.",
+  "style_suffix": "1972 documentary reconstruction, 16mm film, heavy grain, muted colour, high contrast, natural motivated light, slow deliberate camera move, no text, no logos, no faces",
+  "negative": "text, letters, subtitles, watermark, logo, faces, close-up face, blood, gore, gunfire muzzle flash, cartoon, CGI look, oversaturated, modern cars, smartphones",
+  "shots": [
+    {"id": "A_door", "scene": "s0", "replaces": "code-lit door photo", "cue": "n01 'scratching at his door' (global 3.0–7.3)",
+     "prompt": "A dark apartment hallway at night, a closed plain wooden door, a thin line of warm light under the door, the camera slowly pushes in toward the door, deep shadows, silence"},
+    {"id": "B_door_opens", "scene": "s0", "replaces": "light-sliver widening", "cue": "n02 'The door begins to open' (global 7.3–10.9)",
+     "prompt": "Inside a dark room, a wooden door opens a few centimetres, a hard blade of light spills across the floor, then the door is shoved shut again from inside, tense, handheld camera"},
+    {"id": "C_fence", "scene": "s2", "replaces": "fence lines and eight tick marks", "cue": "p05 'eight men climbed the fence' (global 58.5–62.4)",
+     "prompt": "Night, a tall chain-link fence beside a footpath under orange sodium streetlights, in the distance several dark anonymous figures in tracksuits climb over the fence carrying sports bags, wide shot, the camera is still"},
+    {"id": "D_tv_living_room", "scene": "s4", "replaces": "code TV-frame treatment (as a cutaway)", "cue": "p10 'and the world was watching' (global 118.4–123.6)",
+     "prompt": "A 1970s living room at night, a family seen from behind as dark silhouettes on a sofa, lit only by the cold blue glow of a small CRT television set, the camera slowly drifts closer, smoke from a cigarette"},
+    {"id": "E_helicopters", "scene": "s5", "replaces": "map flight (as an insert before it)", "cue": "p12 'flown by helicopter' (global 146.6–153.2)",
+     "prompt": "Two military Bell helicopters fly low over dark flat farmland at night, navigation lights blinking, rotor blur, seen from far away, a faint city glow on the horizon"},
+    {"id": "F_airfield_727", "scene": "s5", "replaces": "checklist backdrop", "cue": "p13 'The rescue plan was waiting' (global 153.7–156.5)",
+     "prompt": "A military airfield at night, a parked 1970s three-engine airliner with its door open and stairs down, lit by harsh floodlights, light ground fog, empty tarmac, wide establishing shot, the camera slowly tracks sideways"},
+    {"id": "G_airfield_smoke", "scene": "s6", "replaces": "dark field with seeded flicker", "cue": "p15 'The shooting lasted more than an hour' (global 171.4–176.0)",
+     "prompt": "A dark airfield at night seen from far away, floodlights cutting through drifting smoke, a helicopter silhouette on the tarmac, distant searchlights sweeping, nobody visible, ominous and still"},
+    {"id": "H_teletype", "scene": "s6", "replaces": "torn paper wire card (as the backdrop behind the code-typed text)", "cue": "p16 'Early reports' (global 182.0–186.0)",
+     "prompt": "Close-up of a 1970s newsroom teletype machine at night printing onto a long roll of blank paper, the paper feeding out and curling, warm desk lamp light, shallow depth of field"},
+    {"id": "I_candles", "scene": "s9", "replaces": "plain ink background behind the names", "cue": "p20 'eleven names to remember' (global 221.0–226.7)",
+     "prompt": "Eleven small candles burning in a row in complete darkness, gentle flicker, the camera slowly pushes in, shallow depth of field, solemn"}
+  ]
+}

@@ -3142,3 +3142,19 @@ There are some major uh, things with this video that I actually like, and there 
   - **Encoding:** no AV1 NVENC on the 3060.
 - **Not verified:** all speeds and VRAM figures are reported by others; the first laptop session should measure them.
 - **Dashboard:** new open decision 0f (laptop setup, RAM, country for H3). The dashboard did not show the Vision board, so the parked pile was invisible; `studio/dashboard.py` now renders it between the open decisions and the blocked list.
+
+### 2026-10-14 · user
+
+RAM cannot be upgraded. Laptop is connected via remote control , you can reach it if you start a new local session. I want to first just run the ai video softwares and see if those can help us fill the gaps in the munich video where we used code based generated parts replacing those with video generated ones, end goal would be to generate a cleo abrams/vox/johnny harris type of shorts
+
+#### Claude · record
+
+- **Reaching the laptop:** checked `list_environments` (2 cloud environments only), `list_sessions` (all cloud, no laptop session) and `ListAgents` (no reachable peers); there are no remote-device tools. This session can't start or reach a session on the laptop, so the user has to give the job to the laptop session.
+- **Runbook written** (`videos/munich-1972/ai-broll/`):
+  - `shots.json`: 9 anonymous reconstruction shots, each with its cue and the code part it replaces;
+  - `LAPTOP.md`: install Wan2GP; model ladder Wan 2.1 1.3B → Wan 2.2 5B → 14B quantised / LTX-2 as abort-able tests; H3 skipped until the user's country is known;
+  - measurements go to `assets/ai/runs.json` and `REPORT.md`; clips are pushed to `main` (text-to-video only, so no copyrighted inputs).
+- **Why the split:** the cloud session composites, because the archival photos stay off GitHub.
+- **Ethics choice:** AI shots are anonymous and atmospheric (no faces, no violence, no text); published use would carry a RECONSTRUCTION label. They are not used to animate real archival photos of real people.
+- **Backup:** the 35 MB of internal assets the scenes use were sent privately to the user as a 2-part zip, in case this container is reclaimed.
+- **Research doc updated:** the RAM can't be upgraded.
