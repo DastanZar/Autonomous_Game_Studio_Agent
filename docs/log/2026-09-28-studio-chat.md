@@ -3106,3 +3106,11 @@ Please continue
 - **Workers:** the 3 Munich frame workers stopped at the session limit (10:30 UTC reset). 5 of 10 scenes were on disk (s0, s1, s3, s6, s7). All three were resumed with SendMessage at 12:21 UTC to finish s2, s4, s5, s8 and s9, with lint and snapshot checks.
 - **Audio:** installed `@hyperframes/core@0.8.156` (dev dependency) and ran the `/hyperframes-audio` carve on `score` under `vo`, strength 0.8. Result: −7.4 dB across 400 Hz–4 kHz, −14.8 dB at 1.6 kHz, and a 390-point level envelope.
 - **Commits:** work in progress committed (only the scene HTML; the internal assets stay git-ignored).
+- **Scenes:** all 10 workers' scenes are in (s0–s9). Lint 0 errors; `hyperframes check` passed (0 errors; 18 info-level overflow notes, all intended camera worlds). Two contrast warnings fixed: a dark halo on s4's "CAMERAS" label and on s2's slug.
+- **GSAP:** headless Chrome rejects the jsdelivr certificate through the proxy, so every scene snapshotted frozen. gsap 3.14.2 is vendored at `assets/vendor/gsap.min.js`, and the host and all 10 scenes load it locally. Real-project snapshots now animate.
+- **Review:** 41 stills across the film, checked by eye. No bottom-15% intrusions. The s9 dissolve overlaps the Munich/Berlin text with the portraits for about 1 s (accepted).
+- **Known gaps:**
+  - the portrait grid shows 10 of the 11 faces (the only group image found);
+  - `roof_police_b` is captioned as a gunman by one gallery but as a police officer in a tracksuit by AP/Getty; it is kept as POLICE.
+- **Skipped:** the `preview --background` Studio handoff. The user can't reach a container-local preview, so the render goes straight to them.
+- **Render:** started at 30 fps, quality "looks".
