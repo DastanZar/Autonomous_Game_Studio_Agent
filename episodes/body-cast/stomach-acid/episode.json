@@ -5,8 +5,8 @@
  "voice": {
   "engine": "fish",
   "model": "fish-audio/s2.1-pro-free:free",
-  "id": "9a9cf47702da476aa4629e2506d4a857",
-  "name": "Hannah (Fish Audio library)",
-  "note": "user's pick 2026-10-08: test on the first 4 Gut Gang uploads"
+  "id": "42c08dbc77674347901301d32a2efd61",
+  "name": "'friendly' (Fish Audio library)",
+  "note": "user's pick 2026-10-15: Fish 'friendly' (flatter) from voice round 5, for Gut Gang upload 2"
  }
 }
