@@ -3249,3 +3249,12 @@ approved, apply the setup
   - a "Models" note in `studio/sop/00-rules.md`.
 - **Left as they were:** effort stays at each model's default; no env vars or user-level settings were touched.
 - **Takes effect** in new sessions. The Opus advisor attaches only when the main model ranks at or below Opus; on an Opus main it is an Opus second opinion.
+
+### 2026-10-15 · user
+
+would you suggest moving to another session and leaving this one here itself?
+
+#### Claude · record
+
+- **Recommended a new session:** this thread's context is very large, so every turn re-reads it. That is the main cost driver found in the token-economy research.
+- **Handover:** wrote `docs/HANDOVER.md` with what's in flight, the open decisions, how to run, and recent outputs, so a fresh session can start from it without rereading this log.
