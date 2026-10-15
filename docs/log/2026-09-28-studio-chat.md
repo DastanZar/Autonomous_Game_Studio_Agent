@@ -3193,3 +3193,21 @@ try and create as many films, animated and non animated in the next 10 minutes b
 - **Dashboard:** added review item `experiments-2026-10-15`.
 - **Not verified:** listening (levels are peak-normalised only).
 - **Stopped by the user ("okay funs over")** while the murmuration render was still running. Its file is incomplete, so it was left out of git and the review item; rebuild it with `python3 films.py murmuration`. The harmonograph got a second title fix (shorter "Listen" card) and was sent along with the fixed ink film.
+
+### 2026-10-15 · user
+
+recompile the next gutgang upload (episode 2) with the Fish · 'friendly' (flatter)
+that was selected
+
+#### Claude · record
+
+- **Voice:** episode 2 (`body-cast/stomach-acid`) switched to Fish 'friendly' (`42c08dbc77674347901301d32a2efd61`, voice round 5) via the `episode.json` voice override; `package.json` now credits "friendly" instead of Hannah.
+- **Re-voice:** 11 Fish requests. Two lines failed the gate:
+  - `coat`, heard as "I'll wear";
+  - `turn`, "corkscrew" for "corkscrews".
+
+  They were retaken (2 more requests) and both now score WER 0.00.
+- **Price check:** the free Fish model isn't in OpenRouter's public `/models` list, so its price couldn't be read there; the same free model ID was used as before.
+- **Result:** 48.86 s, −14.2 LUFS, transcript WER 0.026, music 8.0 dB under the voice, 1.05 s still per 30 s.
+- **Review:** one encoded frame per paragraph, no defects; the "2004" frame is the year counter mid-roll, and it settles on 2005.
+- **Gates:** pass through package; publish (manual upload) is pending. Publish kit regenerated.

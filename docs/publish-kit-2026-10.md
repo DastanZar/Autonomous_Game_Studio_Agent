@@ -17,7 +17,7 @@ exact). After each goes live, post the pinned comment and pin it, and set the re
 | 1 | Sat 10 Oct, 12:00 | 2026-10-10T16:00:00Z | Border Quirks | Why this US town's only road out goes through Canada | 59.75 s | George (Kokoro) |
 | 2 | Mon 12 Oct, 12:00 | 2026-10-12T16:00:00Z | Gut Gang | Your gut isn't the size of a tennis court. Follow your lunch. | 47.15 s | Hannah (Fish) |
 | 3 | Tue 13 Oct, 11:00 | 2026-10-13T15:00:00Z | Border Quirks | America and Britain nearly went to war over a pig | 54.0 s | George (Kokoro) |
-| 4 | Tue 13 Oct, 12:00 | 2026-10-13T16:00:00Z | Gut Gang | Why doesn't your stomach digest itself? | 46.41 s | Hannah (Fish) |
+| 4 | Tue 13 Oct, 12:00 | 2026-10-13T16:00:00Z | Gut Gang | Why doesn't your stomach digest itself? | 48.86 s | George (Kokoro) |
 | 5 | Wed 14 Oct, 11:00 | 2026-10-14T15:00:00Z | Border Quirks | Russia sold Alaska for 2 cents an acre, and left a view of tomorrow | 55.33 s | George (Kokoro) |
 | 6 | Wed 14 Oct, 12:00 | 2026-10-14T16:00:00Z | Gut Gang | Does swallowed gum really stay in you for 7 years? | 46.91 s | Hannah (Fish) |
 | 7 | Thu 15 Oct, 11:00 | 2026-10-15T15:00:00Z | Border Quirks | Why Chile is so long, and Bolivia has a navy with no sea | 49.36 s | George (Kokoro) |
@@ -121,7 +121,7 @@ Labels: the British force total is Wikipedia's summary figure. Maps: Natural Ear
 - **Category:** Education · **Language:** English · **Made for kids:** No
 - **Related video** (Studio → the Short → Related video, once both are up): Your gut isn't the size of a tennis court. Follow your lunch.
 - **Pinned comment:** Would you have drunk the beaker?
-- **Measured:** 1080×1920, 24.0 fps, -14.1 LUFS, transcript WER 0.018
+- **Measured:** 1080×1920, 24.0 fps, -14.2 LUFS, transcript WER 0.026
 
 **Description:**
 
@@ -138,7 +138,7 @@ Sources:
 - Barry Marshall and the bacteria nobody believed in — James Clear: https://jamesclear.com/barry-marshall
 - The Nobel Prize in Physiology or Medicine 2005: press release — Nobel Prize Outreach / Karolinska Institutet: https://www.nobelprize.org/prizes/medicine/2005/press-release/
 
-Labels: 'can dissolve zinc' is IFLScience's claim. Barry Marshall is named, not depicted. Don't try his experiment. The characters are cartoons, not medical advice. Narration is a synthetic voice (Fish Audio S2.1, library voice "Hannah"). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
+Labels: 'can dissolve zinc' is IFLScience's claim. Barry Marshall is named, not depicted. Don't try his experiment. The characters are cartoons, not medical advice. Narration is a synthetic voice (Fish Audio S2.1, library voice "friendly"). Music generated with ACE-Step 1.5; Some sound effects generated with Stable Audio Open (Stability AI).
 
 #science #biology #body #shorts
 ```
