@@ -1,5 +1,8 @@
 # MiniMax H3: licence, size and fit for this studio (15 Oct 2026)
 
+> **Update, 15 Oct 2026:** the user reports that MiniMax cleared their use (India, publishing to Western viewers).
+> Keep MiniMax's written confirmation on file. The recommendation below is superseded.
+
 Context: the user is in India; the audience is English-speaking viewers in the US, UK and EU.
 Gathered by the researcher subagent. The licence was read through a summarising fetch, so re-check the raw
 file before quoting it in public.
