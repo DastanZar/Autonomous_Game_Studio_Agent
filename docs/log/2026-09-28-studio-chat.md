@@ -3174,3 +3174,21 @@ also, all these video models like seedance 2.5, is there a way for us to get the
 - **Findings:** Blender 3D, not AI video (contractor Chris Reilly's portfolio: Blender, Cascadeur, BlenderKit, After Effects, EmberGen, Flamenco). Semi-real characters, sky-blue backdrops, x-ray cutaways, symbolic props, thought bubbles, 1–3-word captions.
 - **Seedance:** on the AA text-to-video board, MiniMax H3 768p (open) scores 1158 against Seedance 2.5's 1159. On 6 GB it runs at 480p (Wan2GP), with region licence limits. Wan's weights stopped at 2.2. Dreamina free daily credits are watermarked; Kling about 66 a day, non-commercial.
 - **Written:** `docs/research/zackdfilms-style-2026-10.md`. Open decision 0g: a Gut Gang pilot in this style on the laptop; the user's country is still needed for H3.
+
+### 2026-10-15 · user
+
+try and create as many films, animated and non animated in the next 10 minutes before weekly usage runs out, try osmething different to what we have done before, giving you full creative freeodm to explore literally anything
+
+#### Claude · record
+
+- **Interrupted:** the user stopped the dashboard-deploy check for the Zack D. Films research, so that deploy wasn't verified live (the commit was pushed).
+- **Five films, all made in code** (`videos/experiments-2026-10-15/films.py`, rendered in parallel; no voice, no AI models; each soundtrack is synthesised from the same maths as the picture):
+  - pendulum wave (30 s);
+  - murmuration (boids, 1,400 birds);
+  - ink flow field (3,000 particles);
+  - harmonograph (3:2);
+  - **non-animated:** one day of real NASA EPIC photographs of the whole Earth (12 Oct 2026, public domain).
+- **Review:** stills checked. The ink and harmonograph titles were near-invisible on paper and the harmonograph subtitle overflowed; fixed with dark titles and a shorter subtitle, then re-rendered.
+- **Sent:** pendulum, earth and ink (the first version, with a faint title).
+- **Dashboard:** added review item `experiments-2026-10-15`.
+- **Not verified:** listening (levels are peak-normalised only).
