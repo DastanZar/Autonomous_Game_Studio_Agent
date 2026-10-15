@@ -3158,3 +3158,19 @@ RAM cannot be upgraded. Laptop is connected via remote control , you can reach i
 - **Ethics choice:** AI shots are anonymous and atmospheric (no faces, no violence, no text); published use would carry a RECONSTRUCTION label. They are not used to animate real archival photos of real people.
 - **Backup:** the 35 MB of internal assets the scenes use were sent privately to the user as a 2-part zip, in case this container is reclaimed.
 - **Research doc updated:** the RAM can't be upgraded.
+
+### 2026-10-15 · user
+
+I want you to analyse @zackdfilms on youtobe, and see how can we cahieve animations like those
+
+also, all these video models like seedance 2.5, is there a way for us to get their level of output just by using some other resources or by you creating it somehow
+
+#### Claude · record
+
+- **Check-ins (no user action needed):** the 22:56 and 01:59 UTC checks found no laptop clips on `main` (`videos/munich-1972/assets/ai/` absent); the check-ins stopped as planned.
+- **Data:** YouTube Data API (OAuth token, read-only): 29.1 M subscribers, 79.8 B views, 4,073 videos; last 400 uploads at 4.8 a day, median 35 s, median 9.6 M views. Saved to `docs/research/zackdfilms/uploads.json`.
+- **Frames:** yt-dlp video download is blocked ("sign in to confirm you're not a bot"; no cookies, per policy). Storyboard sprites (about 1 frame a second, 101×180) came through the mweb client for 6 top Shorts and were viewed as contact sheets; they are kept out of git.
+  - The cut-detector numbers in `storyboard_metrics.json` overcount: camera moves register as cuts. Only the "no static second" finding (0–1 near-identical pairs per video) is used.
+- **Findings:** Blender 3D, not AI video (contractor Chris Reilly's portfolio: Blender, Cascadeur, BlenderKit, After Effects, EmberGen, Flamenco). Semi-real characters, sky-blue backdrops, x-ray cutaways, symbolic props, thought bubbles, 1–3-word captions.
+- **Seedance:** on the AA text-to-video board, MiniMax H3 768p (open) scores 1158 against Seedance 2.5's 1159. On 6 GB it runs at 480p (Wan2GP), with region licence limits. Wan's weights stopped at 2.2. Dreamina free daily credits are watermarked; Kling about 66 a day, non-commercial.
+- **Written:** `docs/research/zackdfilms-style-2026-10.md`. Open decision 0g: a Gut Gang pilot in this style on the laptop; the user's country is still needed for H3.
