@@ -3192,3 +3192,4 @@ try and create as many films, animated and non animated in the next 10 minutes b
 - **Sent:** pendulum, earth and ink (the first version, with a faint title).
 - **Dashboard:** added review item `experiments-2026-10-15`.
 - **Not verified:** listening (levels are peak-normalised only).
+- **Stopped by the user ("okay funs over")** while the murmuration render was still running. Its file is incomplete, so it was left out of git and the review item; rebuild it with `python3 films.py murmuration`. The harmonograph got a second title fix (shorter "Listen" card) and was sent along with the fixed ink film.

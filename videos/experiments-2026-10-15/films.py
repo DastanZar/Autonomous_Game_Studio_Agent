@@ -142,7 +142,7 @@ def harmonograph():
             pts = list(zip(X[:n:2], Y[:n:2])); d.line(pts, fill=(30, 60, 120), width=1)
             d.ellipse([X[n - 1] - 6, Y[n - 1] - 6, X[n - 1] + 6, Y[n - 1] + 6], fill=(200, 60, 40))
         img = title(img, "Harmonograph", "two pendulums a fifth apart", tt, t1=6, y=120, dark=True)
-        img = title(img, "You are hearing the drawing", "220 Hz and 330 Hz", tt, t0=6.5, t1=11, y=1120, dark=True)
+        img = title(img, "Listen", "you are hearing the drawing (220 and 330 Hz)", tt, t0=6.5, t1=11, y=1120, dark=True)
         p.stdin.write(img.tobytes())
     p.stdin.close(); p.wait()
 

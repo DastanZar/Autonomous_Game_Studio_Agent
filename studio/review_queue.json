@@ -5,16 +5,12 @@
    "id": "experiments-2026-10-15",
    "status": "open",
    "kind": "video",
-   "title": "Five experiments: physics, flocking, ink, a harmonograph, and the whole Earth from NASA photos",
+   "title": "Four experiments: physics, ink, a harmonograph, and the whole Earth from NASA photos",
    "question": "Made in one go, all in code with no AI models: four generative films whose sound comes from the same maths as the picture, plus one non-animated film of one day of real NASA EPIC photographs of the whole Earth. Which of these directions is worth a channel or a series?",
    "files": [
     [
      "Pendulum wave (30 s): you hear each pendulum cross the centre",
      "videos/experiments-2026-10-15/out/pendulum.mp4"
-    ],
-    [
-     "Murmuration: 1,400 starlings, three rules",
-     "videos/experiments-2026-10-15/out/murmuration.mp4"
     ],
     [
      "Ink in a current: 3,000 drops",
