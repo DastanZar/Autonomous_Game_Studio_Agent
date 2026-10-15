@@ -28,6 +28,17 @@ real creator, by the repo's hard rules). So the measurements matter as much as t
 ## Steps
 
 1. **Repo:** run `git pull origin main`. All work goes to `main`.
+   - **Hardware survey first** (an ASUS TUF; the exact model isn't known). Record the output in `REPORT.md`:
+     ```powershell
+     Get-CimInstance Win32_ComputerSystem | Select Manufacturer,Model
+     Get-CimInstance Win32_PhysicalMemory | Select DeviceLocator,Capacity,Speed,ConfiguredClockSpeed,PartNumber
+     Get-PhysicalDisk | Select FriendlyName,MediaType,BusType,Size
+     nvidia-smi --query-gpu=name,memory.total,power.limit --format=csv
+     ```
+     Also note Task Manager → Performance → Memory → "Slots used" (1 of 2 means single-channel, and a free slot).
+     Use Armoury Crate's **Turbo** mode, raise the laptop at the back for airflow, and log GPU temperature and clock
+     during runs (`nvidia-smi --query-gpu=temperature.gpu,clocks.sm --format=csv -l 5`). A thermally throttled 3070
+     Laptop in FreeVideo's results took 6× longer.
 2. **Before each heavy run, free memory:** RAM is the hard limit on this laptop.
    - Close browsers and other GPU apps; `nvidia-smi` shows what is holding VRAM.
    - Plug in mains power and use the Windows high-performance (Best performance) power mode.
