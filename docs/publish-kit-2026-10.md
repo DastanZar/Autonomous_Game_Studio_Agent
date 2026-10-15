@@ -17,7 +17,7 @@ exact). After each goes live, post the pinned comment and pin it, and set the re
 | 1 | Sat 10 Oct, 12:00 | 2026-10-10T16:00:00Z | Border Quirks | Why this US town's only road out goes through Canada | 59.75 s | George (Kokoro) |
 | 2 | Mon 12 Oct, 12:00 | 2026-10-12T16:00:00Z | Gut Gang | Your gut isn't the size of a tennis court. Follow your lunch. | 47.15 s | Hannah (Fish) |
 | 3 | Tue 13 Oct, 11:00 | 2026-10-13T15:00:00Z | Border Quirks | America and Britain nearly went to war over a pig | 54.0 s | George (Kokoro) |
-| 4 | Tue 13 Oct, 12:00 | 2026-10-13T16:00:00Z | Gut Gang | Why doesn't your stomach digest itself? | 48.86 s | George (Kokoro) |
+| 4 | Tue 13 Oct, 12:00 | 2026-10-13T16:00:00Z | Gut Gang | Why doesn't your stomach digest itself? | 48.86 s | 'friendly' (Fish) |
 | 5 | Wed 14 Oct, 11:00 | 2026-10-14T15:00:00Z | Border Quirks | Russia sold Alaska for 2 cents an acre, and left a view of tomorrow | 55.33 s | George (Kokoro) |
 | 6 | Wed 14 Oct, 12:00 | 2026-10-14T16:00:00Z | Gut Gang | Does swallowed gum really stay in you for 7 years? | 46.91 s | Hannah (Fish) |
 | 7 | Thu 15 Oct, 11:00 | 2026-10-15T15:00:00Z | Border Quirks | Why Chile is so long, and Bolivia has a navy with no sea | 49.36 s | George (Kokoro) |

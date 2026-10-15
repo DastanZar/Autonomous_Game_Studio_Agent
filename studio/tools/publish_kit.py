@@ -54,7 +54,8 @@ L = [f"# Publish kit: {' and '.join(names[c] for c in chans)} ({len(eps)} Shorts
      "`python3 studio/tools/channel_setup.py sort` (or ask me) to file each Short into its series playlist.", "",
      "| # | When (ET) | UTC | Channel | Title | Length | Voice |", "|---|---|---|---|---|---|---|"]
 for n, (s, c, slug, pkg, fr) in enumerate(eps, 1):
-    voice = "Hannah (Fish)" if "Hannah" in pkg.get("synthetic_media", {}).get("voice", "") else "George (Kokoro)"
+    sv = pkg.get("synthetic_media", {}).get("voice", "")
+    voice = "Hannah (Fish)" if "Hannah" in sv else "'friendly' (Fish)" if "friendly" in sv else "George (Kokoro)"
     L.append(f"| {n} | {et(s)} | {s} | {names[c]} | {pkg['title']} | {fr.get('duration', '?')} s | {voice} |")
 for n, (s, c, slug, pkg, fr) in enumerate(eps, 1):
     desc = pkg["description"] + ("\n\n" + " ".join(pkg["hashtags"]) if pkg.get("hashtags") else "")
