@@ -1,5 +1,38 @@
 # Can H3 run on the laptop (RTX 3060 6 GB, 16 GB RAM)? And can three laptops pool RAM? (15 Oct 2026)
 
+## Update 2 (15 Oct 2026): FreeVideo is the purpose-built answer. It supersedes the ComfyUI `--fast-disk` plan below
+
+The user asked about "freevideo/vdn-h3". That repo id doesn't exist on Hugging Face; the projects are
+[FlashML-org/FreeVideo](https://github.com/FlashML-org/FreeVideo) (engine) and
+[OpenVDN/vdn-minimax-h3](https://huggingface.co/OpenVDN/vdn-minimax-h3) (model).
+
+- **VDN-H3** (OpenVDN; paper arXiv 2609.20744; 6 Sep 2026) adds a frame-wise linear-attention branch and LoRA adapters
+  to H3 and distils it to 8 steps. On one H200: dense H3 32.7 s per model evaluation, VDN-H3 FP8 11.2 s (about 2.9×);
+  8 steps take 90.5 s against 27.3 min for dense H3 at 50 steps (768p, 14.4 s clip). Weights: H3 base 72 GB plus
+  4.3–5.1 GB for VDN; the FreeVideo "edge" pack is 22.9 GB, int8 or FP8.
+- **FreeVideo** (open source 2 Oct 2026, v0.4.x): "runs MiniMax H3 in as little as 8 GB of VRAM and 16 GB of RAM".
+  Its planner places each of the 50 blocks (432.5 MB each) in VRAM, pinned RAM or on disk (re-read every step). At
+  least 8 blocks stay resident. It uses int8 on every Ampere card, runs the text encoder in a separate process that
+  exits first, streams the VAE, and stages activations in RAM below a 10 GiB VRAM budget. `freevideo plan --vram-gib
+  --ram-gib` prints the plan without loading weights. v0.4.0 adds agent control (an MCP server in `freevideo_engine/agent/`).
+- **Community results** ([docs/community-results.md](https://github.com/FlashML-org/FreeVideo/blob/main/docs/community-results.md),
+  end to end, Light quality):
+  - 3070 Laptop 8 GB / 24 GB, 864×480, 5 s: 645 s;
+  - 4060 Laptop 8 / 16, 1312×768, 10 s: 1024 s;
+  - 5060 Laptop 8 / 16, 960×544, 3 s: 820 s;
+  - 4060 Ti 8 / 16, 672×1184, 6.6 s: 887 s, about 460 s of it waiting on the drive;
+  - 5050 Laptop 8 / 16 (drive at about 80 MB/s): 2130 s for a half-resolution preview.
+
+  With 16 GB of RAM, "most of the model is read from the drive at every step", so **SSD speed decides the time**.
+  Max quality costs roughly 3–10× Light.
+- **Our laptop (6 GB / 16 GB, RTX 3060 Laptop):** below the advertised 8 GB. The minimum of 8 resident blocks is about
+  3.5 GB, which leaves about 2 GB for activations, so short 480p clips look plausible. **Unverified.** Estimate by analogy
+  (not measured): about 15–30 min per 5 s 480p clip at Light on a fast NVMe; much longer on a slow drive.
+- **Licence:** the VDN and FreeVideo weights carry the same H3 licence; per the user, MiniMax has cleared our use.
+
+The runbook (`videos/munich-1972/ai-broll/LAPTOP.md`) now makes FreeVideo the first H3 route. The ComfyUI and
+stable-diffusion.cpp rungs are fallbacks.
+
 ## Update, 15 Oct 2026 (later the same day): the RAM wall is a software problem. This section supersedes the verdicts below
 
 **Why streaming from the SSD works here.** A diffusion model reads all its weights once per denoising step. H3's Turbo
