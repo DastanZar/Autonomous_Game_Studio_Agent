@@ -3211,3 +3211,25 @@ that was selected
 - **Result:** 48.86 s, −14.2 LUFS, transcript WER 0.026, music 8.0 dB under the voice, 1.05 s still per 30 s.
 - **Review:** one encoded frame per paragraph, no defects; the "2004" frame is the year counter mid-roll, and it settles on 2005.
 - **Gates:** pass through package; publish (manual upload) is pending. Publish kit regenerated.
+
+### 2026-10-15 · user
+
+These are few resources I found that would optimize our token usage, give us more bang for the buck without harming our current output quality, I think it's about delegation but I don't understand it much, I want you to read it and see if it's useful and research more about such techniques especially with revised prices of current 5.5 family of claude models of how we can run everything better across the board
+
+(Three pasted posts: an Opus/Sonnet/Haiku/Fable role split with a Fable advisor; a Sonnet-main + Opus-advisor + Haiku-subagents setup; and `/autocompact 100k` for Haiku. Kept verbatim in the chat; summarised here.)
+
+#### Claude · record
+
+- **Checked against:** the Claude Code docs (advisor, sub-agents, model-config) and the API price table (Opus 5.5 $4/$20, Sonnet 5.5 $2/$10, Haiku 5.5 $0.10/$0.50 up to 100K, Fable 5.1 $10/$50). Claude Code here is 2.1.300; no env overrides are set.
+- **True:**
+  - the advisor (it re-reads the full transcript each call, uncached);
+  - the Sonnet-main + Opus-advisor pairing;
+  - the `modelSettings` effort rule for Opus 5.5;
+  - the Explore override;
+  - the Haiku alias;
+  - the env vars;
+  - `/autocompact` per model.
+- **False or hype:** the `--subagents` flag, the "3x dispatcher pool", the "JEV micro-fork layer", and forced advisor calls.
+- **Caution:** a Fable advisor bills to usage credits on some plans.
+- **Own usage:** this session is about 1.19 B cache-read tokens, about $475 at API rates. The main lever is smaller contexts and per-job sessions.
+- **Written:** `docs/research/token-economy-2026-10.md`, with a proposed `.claude/` diff that has NOT been applied. Open decision 0h.
