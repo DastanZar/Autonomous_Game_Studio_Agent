@@ -52,7 +52,21 @@ real creator, by the repo's hard rules). So the measurements matter as much as t
    | 3 | **Wan 2.2 T2V 14B**, quantised (GGUF Q3 or Q4, or Wan2GP's own quantisation), text encoder on the CPU | 480p | `A_door` only. **Abort if it pages heavily or passes 30 minutes**, and record that |
    | 4 | **LTX-2 / 2.3**, a low-VRAM variant (optional, if its licence allows) | 480p | `A_door` and `E_helicopters` |
 
-   **Then the MiniMax H3 ladder (rungs 5–8).** These runs work because diffusion reads the full weights only once per
+   **H3, first choice: FreeVideo** (github.com/FlashML-org/FreeVideo, Apache-2.0 code; H3 licence for the weights).
+   It's a ComfyUI plugin plus launcher that runs **VDN-H3**, OpenVDN's 8-step hybrid-attention H3. Its planner splits
+   the 50 transformer blocks across VRAM, pinned RAM and the SSD for each request, and it picks int8 on RTX 30 cards.
+   It's advertised for "as little as 8 GB of VRAM and 16 GB of RAM". **This laptop's 6 GB is below that**: untested,
+   so start small.
+   - Install: download `FreeVideo.exe` from the project's Releases page, choose "install a new ComfyUI", then Install &
+     launch. Models are downloaded automatically (budget about 60 GB of disk).
+   - Before generating, print the plan without loading weights:
+     `freevideo plan --vram-gib 6 --ram-gib 16 --width 864 --height 480 --seconds 3`. Save its output in `REPORT.md`.
+   - Rungs, Light quality, `A_door`: (a) 864×480, 3 s, preview first; (b) 864×480, 5 s; (c) 1344×768, 5 s.
+     Stop at the first one that fails or takes more than 60 minutes.
+   - Each run writes `<output>.request.json` with the plan, stage times and memory peaks: commit it next to the clip.
+   - If a rung fails, attach the FreeVideo diagnostic report to the run's notes; the authors publish community results.
+
+   **H3 fallback (rungs 5–8), only if FreeVideo won't run on 6 GB.** These runs work because diffusion reads the full weights only once per
    denoising step, and the H3 Turbo LoRA cuts that to 4 steps. With `--fast-disk`, weights larger than RAM stream from
    the SSD; expect roughly 4 × file size ÷ SSD speed of extra time per clip (21 GB at 0.65–3 GB/s: about 30 s to
    2 min). An LLM is the opposite case: it re-reads its weights for every word, which is why disk streaming is hopeless
