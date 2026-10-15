@@ -16,3 +16,5 @@ log (newest first), update its open and blocked lists, and commit it with the wo
 Keep `docs/log/<date>-<topic>.md` current too: at the end of every turn, append the user's message
 (verbatim, with secrets redacted) and a short record of what was done, decided, found or skipped, including
 minor choices and failures. Commit it with the work.
+
+Model use: consult the advisor before committing to a big plan, when the same error shows up twice, and before declaring a long task done. Send reading-heavy work (repo searches, web research, logs, big files) to the `Explore` or `researcher` subagents and keep only their summaries; give bounded implementation jobs to `worker`. Prefer one session per job (an episode, a research brief) over one long thread. See `docs/research/token-economy-2026-10.md`.

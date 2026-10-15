@@ -3233,3 +3233,19 @@ These are few resources I found that would optimize our token usage, give us mor
 - **Caution:** a Fable advisor bills to usage credits on some plans.
 - **Own usage:** this session is about 1.19 B cache-read tokens, about $475 at API rates. The main lever is smaller contexts and per-job sessions.
 - **Written:** `docs/research/token-economy-2026-10.md`, with a proposed `.claude/` diff that has NOT been applied. Open decision 0h.
+
+### 2026-10-15 · user
+
+approved, apply the setup
+
+#### Claude · record
+
+- **Added:**
+  - `.claude/agents/Explore.md` (haiku, low; Read/Grep/Glob/Bash; paths and excerpts only);
+  - `researcher.md` (haiku, low; WebSearch/WebFetch/Read; claim → URL rows);
+  - `worker.md` (sonnet, medium; closed-spec jobs, never pushes);
+  - `.claude/settings.json` with `advisorModel: opus`;
+  - a model-use line in `CLAUDE.md`;
+  - a "Models" note in `studio/sop/00-rules.md`.
+- **Left as they were:** effort stays at each model's default; no env vars or user-level settings were touched.
+- **Takes effect** in new sessions. The Opus advisor attaches only when the main model ranks at or below Opus; on an Opus main it is an Opus second opinion.
