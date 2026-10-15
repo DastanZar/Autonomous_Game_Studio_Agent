@@ -1,5 +1,54 @@
 # Can H3 run on the laptop (RTX 3060 6 GB, 16 GB RAM)? And can three laptops pool RAM? (15 Oct 2026)
 
+## Update, 15 Oct 2026 (later the same day): the RAM wall is a software problem. This section supersedes the verdicts below
+
+**Why streaming from the SSD works here.** A diffusion model reads all its weights once per denoising step. H3's Turbo
+LoRA (lightx2v, FL2V v1.2, Apache-2.0) needs 4 steps, so a clip reads the weights about 4 times. An LLM re-reads its
+weights for every token, which is why disk streaming kills LLMs and costs video models little.
+
+| What streams | File | Extra time at 0.65 GB/s | At 3 GB/s |
+|---|---|---|---|
+| Text encoder, once per prompt | int8_convrot 27.1 GB | about 42 s | about 9 s |
+| Pruned denoiser, 4 steps | int8_convrot 21.0 GB | about 2 min | about 28 s |
+| Unpruned denoiser, 4 steps | int8_convrot 34.0 GB | about 3.5 min | about 45 s |
+
+These are upper bounds: part of each file stays in the page cache. Sizes are from the Comfy-Org HF listing; the
+speeds are a range because the laptop's SSD hasn't been measured.
+
+**Engines (sourced):**
+- **ComfyUI `--fast-disk`:** "Force disk-backed dynamic loading and offload over unpinned RAM. Can be faster for users
+  with fast NVME disks" ([cli_args.py](https://raw.githubusercontent.com/comfyanonymous/ComfyUI/master/comfy/cli_args.py)).
+  Safetensors load with mmap by default (there's a `--disable-mmap` flag). Dynamic VRAM: NVIDIA on Windows and Linux,
+  not WSL ([Comfy blog, 25 Mar 2026](https://blog.comfy.org/p/dynamic-vram-in-comfyui-saving-local)). H3 is supported in
+  ComfyUI since 3 Aug 2026.
+- **stable-diffusion.cpp `sd-cli`:** the unsloth model card's own command (`--mode vid_gen --steps 4 --cfg-scale 1.0
+  --backend te=cpu`, plus `--offload-to-cpu` for small GPUs). Whether it memory-maps the weights isn't documented.
+- **Wan2GP was the wrong choice.** mmgp's README: "RAM: minimum 24 GB"; "These RAM requirements are for Linux
+  systems"; "Windows will require an extra 16 GB of RAM" ([mmgp](https://github.com/deepbeepmeep/mmgp)).
+
+**Formats on an RTX 3060 (Ampere):** prefer int8 (Ampere has INT8 tensor cores; whether the ConvRot kernels use them
+there isn't verified). fp8 is only upcast (no FP8 hardware), and NVFP4 needs Blackwell. Because streaming makes size
+cost seconds, not feasibility, **the unpruned 34 GB int8 model is now testable**. The pruned and GGUF builds become
+fallbacks rather than requirements.
+
+**No pagefile needed.** Memory-mapped weights are read-only and file-backed: Windows drops them and re-reads them
+from the SSD, so nothing is swapped or written. The earlier "40 GB pagefile" advice is withdrawn.
+
+**Still unknown (the test measures these):**
+- Compute time per step: H3's VAE factors and patch size weren't found, so token counts can't be estimated.
+- Whether activations for 3–5 s clips fit in 6 GB of VRAM (start at 1 s and 640×384, with tiled VAE decode).
+- The SSD's real speed.
+
+**The spare laptops:** pooling their RAM is still not practical. Running the text encoder on them would need
+conditioning to be saved and loaded between machines, which is unverified. Their honest use is parallel CPU jobs.
+
+**Free extra GPUs (third-party figures, unverified):** Kaggle about 30 GPU-hours a week (P100 16 GB or 2× T4);
+Lightning AI about 80 GPU-hours a month; Modal about $30 a month in credits.
+
+The runbook is `videos/munich-1972/ai-broll/LAPTOP.md`, rungs 5–8.
+
+---
+
 Gathered by the researcher subagent from Hugging Face file listings and the Wan2GP README. File sizes are exact
 byte counts from the HF API, shown here in GB (10^9). The licence question is in `minimax-h3-licence-2026-10.md`.
 
