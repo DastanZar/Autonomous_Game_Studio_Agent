@@ -105,3 +105,10 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 **Found:** the page's request arrived (`requests/session_013vs7U4UG8bfw2uk6GVR6Fk`, 06:35:42), but the session's container was asleep and only restarted at 06:36:47 when the user wrote, so the mod's 60-second check never ran. The mod's panel write did work after the fix (06:24, ok, version 2).
 
 **Done:** deleted the request (to stop a double handover), wrote `docs/handover/2026-10-22-orchestration.md` with enforced delegation as the next session's first task (a tool.call deny hook on Opus main threads, agents shipped in the plugin, requests checked on wake), linked it from `docs/HANDOVER.md`, and started the new session with create_session (Sonnet 5.5, same repo).
+
+---
+
+**User:** "the mod hasnt loaded into the new sessions, why isnt it working as persistent"
+
+**Found:** the new session's init event (`session_01CG8ruxqMZxeRhc2CYTos2e`) lists only built-in plugins (`plugins_sync_install_ms: 0`). The cloud runtime did not install the marketplace and plugin that `.claude/settings.json` declares (`extraKnownMarketplaces`, `enabledPlugins`). The mod I ran here loaded only from this container's own mods folder, which no other session has. The repo's agents (Explore, researcher, worker) did load there, and its first action was an `Explore` (Haiku) call, so delegation is happening in that session.
+**Fix:** two lines in the cloud environment's setup script (user action; it runs before Claude starts in every session). Not done by me: environment settings aren't reachable from a session.
