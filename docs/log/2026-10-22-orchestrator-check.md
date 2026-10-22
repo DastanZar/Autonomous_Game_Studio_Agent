@@ -44,3 +44,17 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 - The alert now comes through the conversation: when a limit is crossed, a `prompt.submit` hook attaches a note, and Claude tells the user in one line at the start of the reply (once per level) and points to `/meter handover`.
 - The pane and band stay, for the desktop app, terminal and IDE. A `session.attach` hook opens the pane when such a surface attaches.
 - Temporary diagnostics removed. Test extended to `/meter`'s text. tsc clean, test passes.
+
+---
+
+**User:** (ran `/meter`, saw the text meter) "first of all this isnt aesthetic at all and i want it as an ever present across every chat mod in the chat itself on one side of the screen, not osmething that only comes after running slash meter"
+
+**Done:**
+- A mod can't draw a side panel in the claude.ai web view (no surface attaches). What can sit beside the chat on claude.ai is an artifact. Built **Session Meter** as a live artifact (https://claude.ai/artifact/DJi4GZJYZrKox92i9cqdCx), pinned to the sidebar so it's one click from any chat. It reads every session through the Claude Code Remote connector (`list_sessions`, which returns context use, token counts, cost and plan-limit status) and refreshes every 30 s.
+  - The session in focus gets a dial of context against the limit, plus spend, the cost of re-reading the context on each request, plan status and reset time, two limit bars, and a spend line while watched.
+  - All sessions are listed below as rows with a colour state.
+  - **Continue in a new session** (with an in-page confirm) sends the session a handover request through `send_message`.
+- Limits (context 250K, cost $60) are set in the page and kept per browser.
+- Source kept at `.claude/mods/session-meter/panel.html`. The in-chat mod (`/meter`, in-chat alert) stays as the fallback.
+- Chose a plain page over the Dashboard type: it needs a narrow side-panel layout and an action button.
+- Not verified: the page's own connector calls. The response shape was checked with a direct `list_sessions` call from this session; the page can only be exercised in the user's browser. Costs without a ledger figure are list-price estimates.
