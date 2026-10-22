@@ -55,6 +55,17 @@ test('the meter draws, crosses its limit and hands over, on every surface', asyn
     await ui.unmount()
   }
 
+  for (const surface of ['terminal', 'desktop', 'mobile'] as const) {
+    const band = await $.ui.mount({
+      plugin: 'session-meter',
+      component: 'AbovePrompt',
+      surface,
+      props: { hasSurvey: false, bodyColumns: 100 },
+    } as never)
+    expect((await band.find({ type: 'Text', text: /Too expensive/ }))?.text).toContain('Too expensive')
+    await band.unmount()
+  }
+
   ui = await $.ui.mount({ ...PANE, surface: 'desktop' })
   await ui.press({ key: 'handover' })
   expect(prompts[0]).toContain('handover note')

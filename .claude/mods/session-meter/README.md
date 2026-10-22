@@ -15,5 +15,24 @@ fresh session when it gets too expensive to keep going.
 
 Dollar figures are the session ledger's list-price estimates; on a subscription they measure how fast the limits go.
 
-Load it locally with `claude --plugin-dir .claude/mods/session-meter`, or add the folder to `CLAUDE_CODE_PLUGIN_DIRS`.
+## Install
+
+This repo is a plugin marketplace (`.claude-plugin/marketplace.json`), and `.claude/settings.json` declares it and turns
+the mod on for anyone who opens the project (Claude Code asks once to trust the marketplace).
+
+At the prompt of a terminal session:
+
+```
+/plugin install session-meter --marketplace DastanZar/Autonomous_Game_Studio_Agent
+```
+
+For every cloud session, add these lines to the cloud environment's setup script (environment menu in the session's
+title bar → Edit → Setup script):
+
+```
+claude plugin marketplace add DastanZar/Autonomous_Game_Studio_Agent
+claude plugin install session-meter@studio-mods
+```
+
+While developing it, run `claude --plugin-dir .claude/mods/session-meter`.
 Check it with `claude plugin validate` and `claude plugin test` in this folder.
