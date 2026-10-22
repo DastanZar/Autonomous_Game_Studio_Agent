@@ -119,3 +119,16 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 **Fix:** two lines in the cloud environment's setup script (user action; it runs before Claude starts in every session). Not done by me: environment settings aren't reachable from a session.
 
 **Follow-up:** user added the setup lines; this session (started earlier) still had no plugin loaded (`claude plugin list` empty, hook never ran) and had lost the researcher and worker agents because I had moved the repo copies into the plugin. Restored the repo copies in `.claude/agents/` as a fallback for sessions without the plugin.
+
+---
+
+**User:** "isnt there a better way other than editing cloud env, i did that for now, but can we not make this a marketplace plugin and just install across the entire claude account?"
+
+**Found (claude-code-guide agent, code.claude.com docs):**
+- Account-wide install exists only for Team/Enterprise orgs: owners add `extraKnownMarketplaces` and `enabledPlugins` in Organization settings → Claude Code → Managed settings, which cloud sessions apply (docs: plugins/org, server-managed-settings).
+- Personal accounts have nothing equivalent.
+- claude.ai "Plugins & skills" sync to Cowork and terminal sessions, not cloud sessions.
+- Project `.claude/settings.json` marketplaces are ignored in cloud sessions, because they need a trust dialog that cloud never shows (plugins/loading, plugins/install).
+- Desktop-installed plugins don't reach cloud sessions.
+
+**Conclusion:** on a personal plan, the environment setup script (which the user has now added) is the supported way. It's one per environment, not one per repo.
