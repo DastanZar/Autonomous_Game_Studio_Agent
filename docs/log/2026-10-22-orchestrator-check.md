@@ -139,3 +139,11 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 
 **User:** "i have to type the command out, it doesnt show up in slash commands list"
 **Done:** 0.2.2 registers a separate `/orchestration` command (same output as `/meter orchestration`) so it appears in the slash menu. `/meter orchestration` still works. Not yet seen live.
+
+---
+
+**User:** "/orchestration"
+
+**Found:** the command didn't exist in this session. The plugin here was 0.2.0 (installed 06:56 from commit a1e471b), but `/orchestration` arrived in 0.2.2 (07:46). This container started at 08:32, yet its plugin install is from 06:56: the environment reuses a cached result of the setup script, so new sessions don't pick up newer plugin versions.
+**Done:** ran `claude plugin marketplace update studio-mods` and `claude plugin update` for both scopes; both now 0.2.2, which takes effect only from the next session start. Added the two update lines to the README's setup snippet.
+**User action:** edit the environment's setup script to add the update lines (an edit also forces a fresh setup run).

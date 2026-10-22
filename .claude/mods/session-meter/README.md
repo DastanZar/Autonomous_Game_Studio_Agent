@@ -41,7 +41,12 @@ title bar → Edit → Setup script):
 ```
 claude plugin marketplace add DastanZar/Autonomous_Game_Studio_Agent
 claude plugin install session-meter@studio-mods
+claude plugin marketplace update studio-mods
+claude plugin update session-meter@studio-mods
 ```
+
+The environment caches the setup result, so a new plugin version reaches sessions only after the setup script is edited
+(any edit forces a fresh run).
 
 While developing it, run `claude --plugin-dir .claude/mods/session-meter`.
 Check it with `claude plugin validate` and `claude plugin test` in this folder.
