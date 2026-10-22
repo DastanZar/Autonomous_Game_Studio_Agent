@@ -15,6 +15,7 @@ const handover = atom({ plugin: 'session-meter', key: 'handover' } as const, { s
 const lastUsd = atom({ plugin: 'session-meter', key: 'lastUsd' } as const, -1)
 const announced = atom({ plugin: 'session-meter', key: 'announced' } as const, 'calm')
 const panelVersion = atom({ plugin: 'session-meter', key: 'panelVersion' } as const, 0)
+const handledRequest = atom({ plugin: 'session-meter', key: 'handledRequest' } as const, 0)
 const isBandHidden = atom({ plugin: 'session-meter', key: 'isBandHidden' } as const, false)
 
 const COLORS = { calm: '#3fb68b', warm: '#e0a03a', over: '#e5534b', track: '#8b8b8b33', ink: '#9aa0a6' }
@@ -200,6 +201,19 @@ async function report2panel($: EngineInterface, s: Snapshot) {
   await $.fs.write(PANEL_LOG, JSON.stringify({ at: data.updated, id, ok: !ran.deny && !ran.isError, deny: ran.deny, text: ran.text?.slice(0, 400) }, null, 2)).catch(() => undefined)
 }
 
+// The page's "Continue in a new session" button leaves {handover: <ms>} in requests/<session id>; a session picks it up here.
+async function checkHandover($: EngineInterface) {
+  const cse = await $.env.get('CLAUDE_CODE_REMOTE_SESSION_ID')
+  if (!cse) return
+  const got = await $.tool.call({ tool: 'ArtifactData', action: 'get', url: PANEL, collection: 'requests', doc_id: cse.replace(/^cse_/, 'session_') } as never)
+  if (got.deny || got.isError) return
+  const asked = Number((got.text ?? JSON.stringify(got.result ?? '')).match(/handover\\?"?\s*:\s*(\d+)/)?.[1] ?? 0)
+  if (asked > (await read($, handledRequest))) {
+    await update($, handledRequest, () => asked)
+    await startHandover($)
+  }
+}
+
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     const stored = (await $.store.get('limits')) as Limits | undefined
@@ -211,6 +225,7 @@ export const register: Register = on => {
     const first = await measure($)
     if ((await read($, lastUsd)) < 0) await update($, lastUsd, () => first.usd)
     void $.ui.open({ id: PANE, title: TITLE })
+    $.clock.every(60_000, () => void checkHandover($).catch(() => undefined))
     return next(e)
   })
 
