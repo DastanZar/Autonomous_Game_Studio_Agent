@@ -117,3 +117,5 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 
 **Found:** the new session's init event (`session_01CG8ruxqMZxeRhc2CYTos2e`) lists only built-in plugins (`plugins_sync_install_ms: 0`). The cloud runtime did not install the marketplace and plugin that `.claude/settings.json` declares (`extraKnownMarketplaces`, `enabledPlugins`). The mod I ran here loaded only from this container's own mods folder, which no other session has. The repo's agents (Explore, researcher, worker) did load there, and its first action was an `Explore` (Haiku) call, so delegation is happening in that session.
 **Fix:** two lines in the cloud environment's setup script (user action; it runs before Claude starts in every session). Not done by me: environment settings aren't reachable from a session.
+
+**Follow-up:** user added the setup lines; this session (started earlier) still had no plugin loaded (`claude plugin list` empty, hook never ran) and had lost the researcher and worker agents because I had moved the repo copies into the plugin. Restored the repo copies in `.claude/agents/` as a fallback for sessions without the plugin.
