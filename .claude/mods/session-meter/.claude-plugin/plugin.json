@@ -1,6 +1,6 @@
 {
   "name": "session-meter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Context, cost and rate-limit meter beside the chat; warns when the session gets too expensive and hands it over to a fresh one.",
   "types": "./types/index.d.ts"
 }

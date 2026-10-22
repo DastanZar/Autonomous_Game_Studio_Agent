@@ -237,6 +237,15 @@ async function checkHandover($: EngineInterface) {
   }
 }
 
+// Counts for /meter orchestration live in $.store, keyed by session, so the command reads them whichever loop wrote them.
+async function bump($: EngineInterface, field: 'denied' | 'agents', key?: string) {
+  const k = `orch:${await $.session.id()}`
+  const cur = ((await $.store.get(k)) as { denied: number; agents: Record<string, number> } | undefined) ?? { denied: 0, agents: {} }
+  if (field === 'denied') cur.denied += 1
+  else if (key) cur.agents[key] = (cur.agents[key] ?? 0) + 1
+  await $.store.set(k, cur)
+}
+
 const isCostlyMain = (model: string) => /opus|fable/i.test(model)
 
 export const register: Register = on => {
@@ -314,7 +323,7 @@ export const register: Register = on => {
     const tool = e.tool
     if (tool === 'Agent') {
       const key = e.model ?? AGENT_MODEL[e.subagent_type ?? ''] ?? 'inherit'
-      await update($, orch, o => ({ ...o, agents: { ...o.agents, [key]: (o.agents[key] ?? 0) + 1 } }))
+      await bump($, 'agents', key)
       return next(e)
     }
     if (tool === 'Edit' || tool === 'Write') {
@@ -327,7 +336,7 @@ export const register: Register = on => {
     if (!isWeb && !isRead) return next(e)
     if (!isCostlyMain(await $.session.model())) return next(e)
     const deny = async (reason: string) => {
-      await update($, orch, o => ({ ...o, denied: o.denied + 1 }))
+      await bump($, 'denied')
       return { deny: reason }
     }
     if (isWeb) return deny(WEB_DENY)
@@ -342,7 +351,7 @@ export const register: Register = on => {
   on('command.run', { command: 'meter' }, async ($, e) => {
     const [verb, ...rest] = (e.args ?? '').trim().split(/\s+/)
     if (verb === 'orchestration') {
-      const o = await read($, orch)
+      const o = ((await $.store.get(`orch:${await $.session.id()}`)) as { denied: number; agents: Record<string, number> } | undefined) ?? { denied: 0, agents: {} }
       const by = Object.entries(o.agents).map(([m, n]) => `${m} ${n}`).join(', ') || 'none'
       return { text: `Subagent calls this session: ${by}. Main-thread reads denied (sent to Haiku): ${o.denied}.` }
     }
