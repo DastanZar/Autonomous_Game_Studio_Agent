@@ -31,6 +31,7 @@ declare module 'claude-code' {
       isBandHidden: boolean
       lastUsd: number
       announced: Level
+      panelVersion: number
     }
   }
 }

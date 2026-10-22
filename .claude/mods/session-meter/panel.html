@@ -137,7 +137,7 @@ summary { cursor: pointer; font-size: 13px; font-weight: 500; }
     </div>
     <p class="foot">At 70% of a limit the session turns amber; past it, red, and the handover button comes first. Every request re-reads the whole context, so context is the limit that matters most.</p>
   </details>
-  <p class="foot">Reads your Claude Code sessions through the Claude Code Remote connector every 30 seconds. Costs without a ledger figure are estimated from token counts at list prices.</p>
+  <p class="foot">Each session with the session-meter mod reports here after every turn. Where claude.ai allows it, the page also reads your sessions through the Claude Code Remote connector every 30 seconds. Costs without a ledger figure are estimated at list prices.</p>
 </div>
 
 <script>
@@ -158,7 +158,7 @@ const store = {
   set(k, v) { try { localStorage.setItem("meter:" + k, JSON.stringify(v)); } catch {} },
 };
 const state = {
-  sessions: [], error: null, updatedAt: null,
+  sessions: [], fromConnector: [], fromSessions: [], error: null, updatedAt: null, canSend: false,
   focusId: store.get("focus", null),
   limits: store.get("limits", { contextK: 250, usd: 60 }),
   history: store.get("history", {}),
@@ -207,6 +207,27 @@ function normalize(raw) {
     reread: tokens * p[2] / 1e6, rate: x.rate_limit_info || null,
     summary: raw.post_turn_summary?.status_detail || x.task_summary || raw.task_summary || "",
   };
+}
+
+// A document a session's session-meter mod writes after each turn (collection "sessions").
+function fromDoc(id, d) {
+  const model = String(d.model || "");
+  const p = PRICES[family(model)];
+  const tokens = Number(d.tokens) || 0;
+  return {
+    id, title: String(d.title || "Untitled session"), model, family: family(model),
+    status: "", isRunning: Date.now() - (Number(d.updated) || 0) < 15 * 60e3, connected: true,
+    updated: Number(d.updated) || 0, created: Number(d.startedAt) || 0, tokens, window: Number(d.window) || 0,
+    usd: Number(d.usd) || 0, isEstimate: false, reread: tokens * p[2] / 1e6,
+    rate: d.rate && typeof d.rate === "object" ? { status: String(d.rate.status || "allowed"), rateLimitType: String(d.rate.kind || "five_hour"), resetsAt: Number(d.rate.resetsAt) || 0, percent: Number(d.rate.percentUsed) } : null,
+    summary: "", turns: Number(d.turns) || 0,
+  };
+}
+
+function merge() {
+  const byId = new Map(state.fromSessions.map(s => [s.id, s]));
+  for (const s of state.fromConnector) byId.set(s.id, { ...(byId.get(s.id) || {}), ...s, turns: byId.get(s.id)?.turns });
+  state.sessions = [...byId.values()].sort((a, b) => (b.isRunning - a.isRunning) || (b.updated - a.updated));
 }
 
 function pressures(s) {
@@ -322,7 +343,7 @@ function renderFocus(s) {
       el("div", { class: "stat" }, el("span", { class: "label", text: "Spent" }), el("b", { text: fmtUsd(s.usd) }), el("span", { text: s.isEstimate ? "estimated" : "session ledger" })),
       el("div", { class: "stat" }, el("span", { class: "label", text: "Each request" }), el("b", { text: fmtUsd(s.reread) }), el("span", { text: "to re-read context" })),
       el("div", { class: "stat" }, el("span", { class: "label", text: "Plan" }),
-        el("b", { text: !s.rate ? "n/a" : s.rate.status === "allowed" ? "OK" : s.rate.status === "allowed_warning" ? "Near limit" : "Limited", style: s.rate && s.rate.status !== "allowed" ? "color:var(--warm)" : "" }),
+        el("b", { text: !s.rate ? "n/a" : Number.isFinite(s.rate.percent) ? Math.round(s.rate.percent) + "%" : s.rate.status === "allowed" ? "OK" : s.rate.status === "allowed_warning" ? "Near limit" : "Limited", style: s.rate && (s.rate.status !== "allowed" || s.rate.percent >= 70) ? "color:var(--warm)" : "" }),
         el("span", { text: s.rate?.resetsAt ? `${s.rate.rateLimitType === "seven_day" ? "weekly" : "5-hour"} resets in ${until(s.rate.resetsAt * 1000 - Date.now())}` : "no reading" }))),
     el("div", { class: "meters" }, ...pressures(s).map(p => meterRow(p.name, p.ratio, p.val))),
     spark(s));
@@ -337,7 +358,9 @@ function renderFocus(s) {
         el("button", { text: "Cancel", disabled: state.sending, onclick: () => { state.confirm = false; render(); } }))));
   } else {
     if (lv === "over") actions.append(el("p", { class: "note" }, el("strong", { text: "Past its limit. " }), "Every request re-reads " + fmtK(s.tokens) + " tokens. A fresh session starting from a handover note costs a fraction of that."));
-    actions.append(el("button", { class: lv === "over" ? "primary" : "", text: sentAt ? `Handover requested ${ago(Date.now() - sentAt)}` : "Continue in a new session", disabled: !!sentAt && Date.now() - sentAt < 10 * 60e3, onclick: () => { state.confirm = true; state.notice = null; render(); } }));
+    if (!state.canSend) {
+      actions.append(el("p", { class: "note" }, "To hand over, send ", el("strong", { text: "/meter handover" }), " in that session."));
+    } else actions.append(el("button", { class: lv === "over" ? "primary" : "", text: sentAt ? `Handover requested ${ago(Date.now() - sentAt)}` : "Continue in a new session", disabled: !!sentAt && Date.now() - sentAt < 10 * 60e3, onclick: () => { state.confirm = true; state.notice = null; render(); } }));
   }
   actions.append(el("a", { class: "btn-link", href: `https://claude.ai/code/${encodeURIComponent(s.id)}`, target: "_blank", rel: "noopener", text: "Open this session ↗" }));
   card.append(actions);
@@ -392,20 +415,34 @@ const ERRORS = {
 async function start() {
   render();
   setupLimits();
+  claude.use("db").then(db => {
+    if (!db) return;
+    db.collection("sessions").onSnapshot(snap => {
+      state.fromSessions = snap.docs.map(d => fromDoc(d.id, d.data() || {}));
+      const at = Math.max(0, ...state.fromSessions.map(s => s.updated));
+      if (state.fromSessions.length) { state.updatedAt = Math.max(state.updatedAt || 0, at); state.error = null; }
+      recordHistory(state.fromSessions, Date.now());
+      merge(); render();
+    }, () => {});
+  });
   const mcp = await claude.use("mcp");
-  if (!mcp) { state.error = { title: "Open this inside claude.ai", text: "The meter needs claude.ai to read your sessions, so it can't run in this view." }; render(); return; }
+  if (!mcp) { if (!state.sessions.length) state.error = { title: "Waiting for your sessions", text: "Sessions report here after each turn once the session-meter mod is installed." }; render(); return; }
   mcp.watchTool(SERVER, "list_sessions", { limit: 25 }, ev => {
     if (ev.type === "data") {
       const payload = ev.result.payload || {};
       const rows = (payload.ccr && payload.ccr.data) || payload.data || [];
       const at = ev.result.cache?.storedAt || Date.now();
-      state.sessions = rows.map(normalize).sort((a, b) => (b.isRunning - a.isRunning) || (b.updated - a.updated));
+      state.fromConnector = rows.map(normalize);
+      state.canSend = true;
       state.updatedAt = at; state.error = null;
-      recordHistory(state.sessions, at);
+      recordHistory(state.fromConnector, at);
+      merge();
     } else {
       const code = ev.error && ev.error.code;
       const known = ERRORS[code];
-      if (known) { state.sessions = []; state.error = { title: known[0], text: known[1] }; }
+      state.fromConnector = []; state.canSend = false; merge();
+      if (state.sessions.length) state.error = null;
+      else if (known) state.error = { title: "Waiting for your sessions", text: "Sessions report here after each turn once the session-meter mod is installed. (" + known[0] + ".)" };
       else if (!state.sessions.length) state.error = { title: "Couldn't reach your sessions", text: "Claude Code Remote didn't answer. The meter tries again every 30 seconds." };
       else state.error = { title: "", text: "" };
     }

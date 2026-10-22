@@ -14,6 +14,7 @@ const alerted = atom({ plugin: 'session-meter', key: 'alerted' } as const, 'calm
 const handover = atom({ plugin: 'session-meter', key: 'handover' } as const, { status: 'idle' })
 const lastUsd = atom({ plugin: 'session-meter', key: 'lastUsd' } as const, -1)
 const announced = atom({ plugin: 'session-meter', key: 'announced' } as const, 'calm')
+const panelVersion = atom({ plugin: 'session-meter', key: 'panelVersion' } as const, 0)
 const isBandHidden = atom({ plugin: 'session-meter', key: 'isBandHidden' } as const, false)
 
 const COLORS = { calm: '#3fb68b', warm: '#e0a03a', over: '#e5534b', track: '#8b8b8b33', ink: '#9aa0a6' }
@@ -170,6 +171,35 @@ async function report($: EngineInterface) {
   return '```\n' + lines.join('\n') + '\n```'
 }
 
+const PANEL = 'https://claude.ai/artifact/DJi4GZJYZrKox92i9cqdCx'
+const PANEL_LOG = '/tmp/claude-0/-home-user/a0c53fe4-4e70-5b3c-a4fb-23fcabbfce94/scratchpad/meter-diag/panel.json'
+
+// Reports this session's figures to the Session Meter page (its "sessions" collection), which claude.ai shows beside the chat.
+async function report2panel($: EngineInterface, s: Snapshot) {
+  const cse = await $.env.get('CLAUDE_CODE_REMOTE_SESSION_ID')
+  const id = cse ? cse.replace(/^cse_/, 'session_') : `local_${await $.session.id()}`
+  const five = s.rateLimits.find(r => r.kind === 'five_hour') ?? s.rateLimits[0]
+  const repo = await $.session.repo().catch(() => null)
+  const data = {
+    title: (repo ? `${repo.name ?? ''}` : '') || (await $.session.cwd()).split('/').pop() || 'Claude Code session',
+    model: s.model, tokens: s.tokens, window: s.window, usd: s.usd, turns: s.turns,
+    updated: await $.clock.now(), startedAt: s.startedAt,
+    rate: five ? { kind: five.kind, percentUsed: five.percentUsed, status: five.percentUsed >= 100 ? 'limited' : 'allowed', resetsAt: five.resetsAt ? Date.parse(five.resetsAt) / 1000 : 0 } : null,
+  }
+  const send = (version: number) =>
+    $.tool.call({ tool: 'ArtifactData', action: 'set', url: PANEL, collection: 'sessions', doc_id: id, data, ...(version > 0 ? { if_version: version } : {}) } as never)
+  const versionIn = (r: { text?: string; result?: unknown }) => Number((r.text ?? JSON.stringify(r.result ?? '')).match(/version (?:is )?(\d+)/)?.[1] ?? 0)
+  let ran = await send(await read($, panelVersion))
+  if (ran.deny || ran.isError) {
+    // Unknown or stale version: read the document's current one and try once more.
+    const got = await $.tool.call({ tool: 'ArtifactData', action: 'get', url: PANEL, collection: 'sessions', doc_id: id } as never)
+    ran = await send(versionIn(got))
+  }
+  const version = versionIn(ran)
+  if (version) await update($, panelVersion, () => version)
+  await $.fs.write(PANEL_LOG, JSON.stringify({ at: data.updated, id, ok: !ran.deny && !ran.isError, deny: ran.deny, text: ran.text?.slice(0, 400) }, null, 2)).catch(() => undefined)
+}
+
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     const stored = (await $.store.get('limits')) as Limits | undefined
@@ -219,6 +249,7 @@ export const register: Register = on => {
     if (before >= 0 && s.usd > before) await update($, turnCosts, xs => [...xs, s.usd - before].slice(-48))
     await update($, lastUsd, () => s.usd)
     await judge($, s)
+    await report2panel($, s).catch(() => undefined)
     return done
   })
 
