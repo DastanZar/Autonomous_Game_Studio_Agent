@@ -134,3 +134,5 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 - Desktop-installed plugins don't reach cloud sessions.
 
 **Conclusion:** on a personal plan, the environment setup script (which the user has now added) is the supported way. It's one per environment, not one per repo.
+
+**Live confirmation (0.2.1, new Opus session):** reads 1-3 passed (3rd was a harness "already in context" note), read 4 and the web search were refused with the hook messages, and `/meter orchestration` showed 2 denied. Enforcement and the counter both work. Note the count includes web denials though its label says reads. Still unmeasured: subagent calls by model, and the cost saving.
