@@ -222,11 +222,17 @@ async function report2panel($: EngineInterface, s: Snapshot) {
 async function checkHandover($: EngineInterface) {
   const cse = await $.env.get('CLAUDE_CODE_REMOTE_SESSION_ID')
   if (!cse) return
-  const got = await $.tool.call({ tool: 'ArtifactData', action: 'get', url: PANEL, collection: 'requests', doc_id: cse.replace(/^cse_/, 'session_') } as never)
+  const doc_id = cse.replace(/^cse_/, 'session_')
+  const got = await $.tool.call({ tool: 'ArtifactData', action: 'get', url: PANEL, collection: 'requests', doc_id } as never)
   if (got.deny || got.isError) return
-  const asked = Number((got.text ?? JSON.stringify(got.result ?? '')).match(/handover\\?"?\s*:\s*(\d+)/)?.[1] ?? 0)
+  const body = got.text ?? JSON.stringify(got.result ?? '')
+  const asked = Number(body.match(/handover\\?"?\s*:\s*(\d+)/)?.[1] ?? 0)
+  if (!asked) return
   if (asked > (await read($, handledRequest))) {
     await update($, handledRequest, () => asked)
+    // Consume the request so a later session start does not repeat it; if_version keeps a newer request safe.
+    const version = Number(body.match(/version\\?"?\s*:?\s*(\d+)/)?.[1] ?? 0)
+    await $.tool.call({ tool: 'ArtifactData', action: 'delete', url: PANEL, collection: 'requests', doc_id, ...(version > 0 ? { if_version: version } : {}) } as never).catch(() => undefined)
     await startHandover($)
   }
 }
@@ -244,6 +250,7 @@ export const register: Register = on => {
     const first = await measure($)
     if ((await read($, lastUsd)) < 0) await update($, lastUsd, () => first.usd)
     void $.ui.open({ id: PANE, title: TITLE })
+    void checkHandover($).catch(() => undefined)
     $.clock.every(60_000, () => void checkHandover($).catch(() => undefined))
     return next(e)
   })

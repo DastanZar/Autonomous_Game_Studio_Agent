@@ -328,7 +328,7 @@ async function handover(s) {
     }
     state.sent[s.id] = Date.now(); store.set("sent", state.sent);
     state.confirm = false;
-    state.notice = { kind: "ok", text: state.canSend ? "Sent. The session is writing its handover now." : "Requested. The session picks it up within a minute, writes its handover and opens a new session." };
+    state.notice = { kind: "ok", text: state.canSend ? "Sent. The session is writing its handover now." : "Requested. Picked up when that session is next active; it then writes its handover and opens a new session." };
   } catch (e) {
     const code = e && e.code;
     state.notice = { kind: "err", text:
