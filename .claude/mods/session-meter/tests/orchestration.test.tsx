@@ -24,5 +24,5 @@ test('three reads pass, the fourth is denied, a subagent read passes', async ($,
   expect((await $.tool.call({ tool: 'Read', file_path: '/x/e.md', agentId: 'sub' } as never)).deny).toBeUndefined()
   expect((await $.tool.call({ tool: 'WebSearch', query: 'q' } as never)).deny).toContain('researcher')
 
-  expect((await $.command.run({ command: 'meter', args: 'orchestration' })).text).toContain('denied (sent to Haiku): 2')
+  expect((await $.command.run({ command: 'orchestration', args: '' })).text).toContain('denied (sent to Haiku): 2')
 })

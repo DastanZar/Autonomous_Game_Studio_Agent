@@ -246,6 +246,12 @@ async function bump($: EngineInterface, field: 'denied' | 'agents', key?: string
   await $.store.set(k, cur)
 }
 
+async function orchestrationText($: EngineInterface) {
+  const o = ((await $.store.get(`orch:${await $.session.id()}`)) as { denied: number; agents: Record<string, number> } | undefined) ?? { denied: 0, agents: {} }
+  const by = Object.entries(o.agents).map(([m, n]) => `${m} ${n}`).join(', ') || 'none'
+  return `Subagent calls this session: ${by}. Main-thread reads denied (sent to Haiku): ${o.denied}.`
+}
+
 const isCostlyMain = (model: string) => /opus|fable/i.test(model)
 
 export const register: Register = on => {
@@ -256,6 +262,7 @@ export const register: Register = on => {
       name: 'meter',
       description: 'Session meter: show the figures, set limits (/meter limits <contextK> <turnUsd> <totalUsd>), or hand over now (/meter handover)',
     })
+    await $.command.register({ name: 'orchestration', description: 'Delegation check: subagent calls by model and calls denied this session' })
     const first = await measure($)
     if ((await read($, lastUsd)) < 0) await update($, lastUsd, () => first.usd)
     void $.ui.open({ id: PANE, title: TITLE })
@@ -348,13 +355,11 @@ export const register: Register = on => {
     return next(e)
   })
 
+  on('command.run', { command: 'orchestration' }, async $ => ({ text: await orchestrationText($) }))
+
   on('command.run', { command: 'meter' }, async ($, e) => {
     const [verb, ...rest] = (e.args ?? '').trim().split(/\s+/)
-    if (verb === 'orchestration') {
-      const o = ((await $.store.get(`orch:${await $.session.id()}`)) as { denied: number; agents: Record<string, number> } | undefined) ?? { denied: 0, agents: {} }
-      const by = Object.entries(o.agents).map(([m, n]) => `${m} ${n}`).join(', ') || 'none'
-      return { text: `Subagent calls this session: ${by}. Main-thread reads denied (sent to Haiku): ${o.denied}.` }
-    }
+    if (verb === 'orchestration') return { text: await orchestrationText($) }
     if (verb === 'handover') {
       await startHandover($)
       return { text: 'Handover started.' }
