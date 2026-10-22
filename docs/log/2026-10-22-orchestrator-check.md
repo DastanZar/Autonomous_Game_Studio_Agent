@@ -122,3 +122,15 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 
 **User:** (pasted) the hook refused the 4th read and a web search live, but `/meter orchestration` still said 0 denied.
 **Found:** the hook works on the Opus session. The deny counter, kept in `$.state`, was not seen by the command. **Done:** counts now live in `$.store` keyed by session (0.2.1). Unverified live until reinstalled.
+---
+
+**User:** "isnt there a better way other than editing cloud env, i did that for now, but can we not make this a marketplace plugin and just install across the entire claude account?"
+
+**Found (claude-code-guide agent, code.claude.com docs):**
+- Account-wide install exists only for Team/Enterprise orgs: owners add `extraKnownMarketplaces` and `enabledPlugins` in Organization settings → Claude Code → Managed settings, which cloud sessions apply (docs: plugins/org, server-managed-settings).
+- Personal accounts have nothing equivalent.
+- claude.ai "Plugins & skills" sync to Cowork and terminal sessions, not cloud sessions.
+- Project `.claude/settings.json` marketplaces are ignored in cloud sessions, because they need a trust dialog that cloud never shows (plugins/loading, plugins/install).
+- Desktop-installed plugins don't reach cloud sessions.
+
+**Conclusion:** on a personal plan, the environment setup script (which the user has now added) is the supported way. It's one per environment, not one per repo.
