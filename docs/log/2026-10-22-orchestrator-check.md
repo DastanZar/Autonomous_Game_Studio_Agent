@@ -22,3 +22,13 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 - The agents now run at `effort: high`, with descriptions that say when to use each one. New `docs/orchestration.md` holds the routing rule (six questions in order, how to brief, when Opus takes work back, which main model per session). CLAUDE.md's model-use line and SOP 00 point to it.
 - Choices: limits are absolute (tokens, dollars), not a percentage of the window, because cost scales with tokens re-read, and the window is 1M on Opus. The advisor stays on for every session (settings can't switch it per model); the doc says to use it sparingly on an Opus main.
 - Not done: the `/usage` measurement is still outstanding. `browser-agent` is unchanged.
+
+---
+
+**User:** (ran `/meter`, which said "Session meter opened.") "Shouldnt the mod be turned on by default in each chat, always visible? i cant see it"
+
+**Done:**
+- Likely cause: the app this session is viewed in did not seat the pane, and `/meter` did not check. `/meter` now reports whether the pane was drawn, and if not, why and on which surfaces.
+- Added an always-on one-line summary above the prompt (context, spent, cost per turn, 5-hour %). It works where panes don't, and gains the alert and buttons past a limit. Fixed a bug in the old band: a variable named `h` shadowed the JSX factory and would have crashed the draw. The test now draws the band on terminal, desktop and mobile.
+- "Every chat": the repo is now a plugin marketplace (`.claude-plugin/marketplace.json`, name `studio-mods`), and `.claude/settings.json` declares it and enables `session-meter@studio-mods`. Tested in a throwaway config: marketplace add from GitHub, then install, both succeed. For cloud sessions the dependable route is two lines in the environment's setup script (README). That's a user-side setting I can't change.
+- Not verified: whether the cloud runtime auto-installs project-declared marketplaces without the setup-script lines.
