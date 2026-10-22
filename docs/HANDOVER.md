@@ -4,6 +4,7 @@ Start a new session by reading this, then `docs/DECISIONS.md` (open decisions, V
 `python3 studio/studio.py next`. The full history is in `docs/log/2026-09-28-studio-chat.md`; don't reread it unless needed.
 
 ## In flight
+- **Orchestration and Session Meter (22 Oct):** see `docs/handover/2026-10-22-orchestration.md`. Next: enforce delegation in the mod, ship the agents in the plugin, handle panel handover requests on wake.
 - **Uploads (manual, by the user):** Border Quirks and Gut Gang, per `docs/publish-kit-2026-10.md`.
   - Gut Gang episode 2 (`body-cast/stomach-acid`) was re-voiced with Fish 'friendly' on 15 Oct. Its kit slot (13 Oct)
     has passed; the user picks the new time.

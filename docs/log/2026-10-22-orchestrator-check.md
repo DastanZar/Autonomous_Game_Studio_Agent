@@ -97,3 +97,11 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 **Found (orchestration):** this session's transcript has 264 model requests, **all Opus 5.5**, and **zero subagent calls** (no Explore, researcher or worker). Token totals: 51.9M cache-read, 0.59M cache-write, 0.27M output, 536 fresh input. At list prices that's about $10.4 for cache reads, $3.0 for cache writes and $5.5 for output. The ledger the meter reads says less, so treat these as list-price estimates. Cache reads, meaning the whole conversation re-read on every request (now about 290K tokens), are the biggest cost. The routing rule exists only as instructions, and Opus (me) didn't follow it: I did all the reading, the 14K-line type-file searches and the doc reads myself, and that work belonged with Explore. Nothing in the setup enforces delegation.
 
 **Also:** the mod's panel write at the end of the previous turn still ran the old module (the fix loads only after the turn it was made in). Still to confirm.
+
+---
+
+**User:** "i pressed handover on the page but nothing seemed to happen and make sure the orchestraion always works everywhere, pleae"
+
+**Found:** the page's request arrived (`requests/session_013vs7U4UG8bfw2uk6GVR6Fk`, 06:35:42), but the session's container was asleep and only restarted at 06:36:47 when the user wrote, so the mod's 60-second check never ran. The mod's panel write did work after the fix (06:24, ok, version 2).
+
+**Done:** deleted the request (to stop a double handover), wrote `docs/handover/2026-10-22-orchestration.md` with enforced delegation as the next session's first task (a tool.call deny hook on Opus main threads, agents shipped in the plugin, requests checked on wake), linked it from `docs/HANDOVER.md`, and started the new session with create_session (Sonnet 5.5, same repo).
