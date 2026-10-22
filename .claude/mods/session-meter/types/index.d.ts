@@ -33,6 +33,7 @@ declare module 'claude-code' {
       announced: Level
       panelVersion: number
       handledRequest: number
+      sessionTitle: string
     }
   }
 }

@@ -16,6 +16,7 @@ const lastUsd = atom({ plugin: 'session-meter', key: 'lastUsd' } as const, -1)
 const announced = atom({ plugin: 'session-meter', key: 'announced' } as const, 'calm')
 const panelVersion = atom({ plugin: 'session-meter', key: 'panelVersion' } as const, 0)
 const handledRequest = atom({ plugin: 'session-meter', key: 'handledRequest' } as const, 0)
+const sessionTitle = atom({ plugin: 'session-meter', key: 'sessionTitle' } as const, '')
 const isBandHidden = atom({ plugin: 'session-meter', key: 'isBandHidden' } as const, false)
 
 const COLORS = { calm: '#3fb68b', warm: '#e0a03a', over: '#e5534b', track: '#8b8b8b33', ink: '#9aa0a6' }
@@ -180,16 +181,21 @@ async function report2panel($: EngineInterface, s: Snapshot) {
   const cse = await $.env.get('CLAUDE_CODE_REMOTE_SESSION_ID')
   const id = cse ? cse.replace(/^cse_/, 'session_') : `local_${await $.session.id()}`
   const five = s.rateLimits.find(r => r.kind === 'five_hour') ?? s.rateLimits[0]
-  const repo = await $.session.repo().catch(() => null)
+  if (!(await read($, sessionTitle))) {
+    // The session's own title, as the claude.ai sidebar shows it.
+    const got = await $.mcp.call('claude-code-remote', 'get_session', {}).catch(() => null)
+    const title = JSON.stringify(got ?? '').match(/\\?"title\\?"\s*:\s*\\?"((?:[^"\\]|\\.)*?)\\?"/)?.[1]
+    if (title) await update($, sessionTitle, () => title.replace(/\\(.)/g, '$1'))
+  }
   const data = {
-    title: (repo ? `${repo.name ?? ''}` : '') || (await $.session.cwd()).split('/').pop() || 'Claude Code session',
+    title: (await read($, sessionTitle)) || (await $.session.cwd()).split('/').pop() || 'Claude Code session',
     model: s.model, tokens: s.tokens, window: s.window, usd: s.usd, turns: s.turns,
     updated: await $.clock.now(), startedAt: s.startedAt,
     rate: five ? { kind: five.kind, percentUsed: five.percentUsed, status: five.percentUsed >= 100 ? 'limited' : 'allowed', resetsAt: five.resetsAt ? Date.parse(five.resetsAt) / 1000 : 0 } : null,
   }
   const send = (version: number) =>
     $.tool.call({ tool: 'ArtifactData', action: 'set', url: PANEL, collection: 'sessions', doc_id: id, data, ...(version > 0 ? { if_version: version } : {}) } as never)
-  const versionIn = (r: { text?: string; result?: unknown }) => Number((r.text ?? JSON.stringify(r.result ?? '')).match(/version (?:is )?(\d+)/)?.[1] ?? 0)
+  const versionIn = (r: { text?: string; result?: unknown }) => Number((r.text ?? JSON.stringify(r.result ?? '')).match(/version\\?"?\s*:?\s*(\d+)/)?.[1] ?? 0)
   let ran = await send(await read($, panelVersion))
   if (ran.deny || ran.isError) {
     // Unknown or stale version: read the document's current one and try once more.

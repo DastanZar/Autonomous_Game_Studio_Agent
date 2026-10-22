@@ -85,3 +85,5 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 - Handover button without the connector: the page writes `requests/<session id>` with `{handover: <ms>}`. The mod checks that document every 60 s (timer started in `session.start`) and, on a new request, submits the handover prompt, which wakes an idle session.
 - Auto-open: claude.ai has no way to open an artifact by itself when a chat starts. The page is pinned in the sidebar; told the user so.
 - Still unverified: whether the mod's ArtifactData calls run without approval prompts (first write is at the end of this turn; a background check is waiting on it).
+
+**Background result (no user message):** the mod's first ArtifactData write ran without any approval prompt, so the route works. It was refused with `version_mismatch` because the version parser expected "version 1" and the read returns `"version":1`. Fixed the parser (tested on both forms). The mod now also takes the session's real title from `get_session` instead of the repo name.
