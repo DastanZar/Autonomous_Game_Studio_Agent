@@ -42,22 +42,21 @@ body {
 .top { display: flex; flex-direction: column; gap: 6px; }
 .top-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .page-icon { font-size: 34px; line-height: 1; }
-h1 { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin: 6px 0 0; }
+h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; margin: 0; }
 .top p { margin: 0; color: var(--muted); }
-.live { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); padding: 3px 10px 3px 8px; border-radius: 999px; background: var(--surface); white-space: nowrap; }
+.live { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); white-space: nowrap; }
 .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--calm); }
 .live.off i { background: var(--muted); }
 
-.focus { display: flex; flex-direction: column; gap: 24px; padding: 22px; border-radius: 16px; background: var(--bg); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.focus { display: flex; flex-direction: column; gap: 24px; padding: 20px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); }
 .focus-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .focus-titles { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .eyebrow { font-size: 12px; color: var(--muted); font-weight: 500; }
 h2 { font-size: 18px; font-weight: 600; margin: 0; line-height: 1.35; text-wrap: balance; overflow-wrap: anywhere; }
 .focus-titles .muted { font-size: 12.5px; }
-.tag { font-size: 12.5px; font-weight: 500; padding: 2px 8px; border-radius: 6px; white-space: nowrap; }
-.tag.calm { background: var(--calm-bg); color: var(--calm-fg); }
-.tag.warm { background: var(--warm-bg); color: var(--warm-fg); }
-.tag.over { background: var(--over-bg); color: var(--over-fg); }
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; white-space: nowrap; color: var(--muted); }
+.tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.tag.calm { color: var(--calm-fg); } .tag.warm { color: var(--warm-fg); } .tag.over { color: var(--over-fg); }
 
 .overview { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 24px; align-items: center; }
 @media (max-width: 420px) { .overview { grid-template-columns: 1fr; justify-items: center; } .props { width: 100%; } }
@@ -70,7 +69,7 @@ h2 { font-size: 18px; font-weight: 600; margin: 0; line-height: 1.35; text-wrap:
 .ring-cap { font-size: 12px; color: var(--muted); }
 
 .props { display: flex; flex-direction: column; }
-.prop { display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 8px; padding: 6px 0; align-items: baseline; }
+.prop { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 8px; padding: 6px 0; align-items: baseline; }
 .prop-name { color: var(--muted); display: inline-flex; gap: 8px; align-items: baseline; }
 .prop-icon { width: 14px; text-align: center; opacity: .75; font-size: 13px; }
 .prop-val { display: flex; flex-wrap: wrap; gap: 0 8px; align-items: baseline; font-variant-numeric: tabular-nums; }
@@ -84,13 +83,13 @@ h2 { font-size: 18px; font-weight: 600; margin: 0; line-height: 1.35; text-wrap:
 .limit { display: flex; flex-direction: column; gap: 6px; }
 .limit-row { display: flex; justify-content: space-between; gap: 12px; }
 .limit-row .muted { font-variant-numeric: tabular-nums; font-size: 13px; }
-.bar { height: 6px; border-radius: 999px; background: var(--track); overflow: hidden; }
+.bar { height: 4px; border-radius: 999px; background: var(--track); overflow: hidden; }
 .bar i { display: block; height: 100%; border-radius: 999px; transition: width .6s ease; }
 .spark svg { width: 100%; height: 44px; display: block; }
 
 .actions { display: flex; flex-direction: column; gap: 10px; }
-.callout { display: flex; gap: 10px; padding: 14px 16px; border-radius: var(--r); background: var(--surface); }
-.callout.over { background: var(--over-bg); }
+.callout { padding: 12px 14px; border-radius: 8px; border: 1px solid var(--line); color: var(--muted); }
+.callout.over { border-left: 2px solid var(--over); border-radius: 0 8px 8px 0; }
 .callout p { margin: 0; }
 .callout strong { display: block; margin-bottom: 2px; }
 .callout-icon { font-size: 16px; line-height: 1.4; }
@@ -102,7 +101,7 @@ h2 { font-size: 18px; font-weight: 600; margin: 0; line-height: 1.35; text-wrap:
   border: 1px solid var(--line); background: var(--bg); color: var(--fg); transition: background .15s ease;
 }
 .btn:hover { background: var(--hover); }
-.btn.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+.btn.primary { background: var(--fg); border-color: var(--fg); color: var(--bg); }
 .btn.primary:hover { filter: brightness(0.95); }
 .btn.ghost { border-color: transparent; color: var(--muted); }
 .btn:disabled { opacity: .55; cursor: default; }
@@ -143,10 +142,9 @@ details[open] summary::before { transform: rotate(90deg); }
 <div class="page">
   <header class="top">
     <div class="top-row">
-      <span class="page-icon" aria-hidden="true">⏱️</span>
+      <h1>Session Meter</h1>
       <span class="live off" id="live"><i></i><span id="live-text">Waiting</span></span>
     </div>
-    <h1>Session Meter</h1>
     <p>How heavy each Claude Code session has become, and when to move on to a fresh one.</p>
   </header>
   <main id="focus"></main>
@@ -307,8 +305,8 @@ function spark(s) {
     el("div", { class: "spark" }, svg));
 }
 
-function prop(icon, name, value, sub) {
-  return el("div", { class: "prop" }, el("span", { class: "prop-name" }, el("span", { class: "prop-icon", "aria-hidden": "true", text: icon }), name),
+function prop(name, value, sub) {
+  return el("div", { class: "prop" }, el("span", { class: "prop-name", text: name }),
     el("span", { class: "prop-val" }, el("span", { text: value }), sub ? el("span", { class: "muted", text: sub }) : null));
 }
 
@@ -345,7 +343,7 @@ function renderFocus(s) {
   const box = $("focus");
   box.replaceChildren();
   if (!s) {
-    box.append(el("div", { class: "callout" }, el("span", { class: "callout-icon", "aria-hidden": "true", text: "⏳" }),
+    box.append(el("div", { class: "callout" },
       el("div", {}, el("strong", { text: state.error ? state.error.title : "Looking for your sessions" }),
         el("p", { text: state.error ? state.error.text : "Sessions report here after each turn once the session-meter mod is installed." }))));
     return;
@@ -362,17 +360,17 @@ function renderFocus(s) {
 
   const over = el("div", { class: "overview" }, ring(s),
     el("div", { class: "props" },
-      prop("$", "Spent", fmtUsd(s.usd), s.isEstimate ? "estimate" : null),
-      prop("↻", "Each request", fmtUsd(s.reread), "re-reads context"),
-      prop("◷", "Plan", !s.rate ? "—" : Number.isFinite(s.rate.percent) ? `${Math.round(s.rate.percent)}% used` : s.rate.status === "allowed" ? "OK" : "Near limit",
+      prop("Spent", fmtUsd(s.usd), s.isEstimate ? "estimate" : null),
+      prop("Each request", fmtUsd(s.reread), "re-reads context"),
+      prop("Plan", !s.rate ? "—" : Number.isFinite(s.rate.percent) ? `${Math.round(s.rate.percent)}% used` : s.rate.status === "allowed" ? "OK" : "Near limit",
         s.rate?.resetsAt ? `resets in ${until(s.rate.resetsAt * 1000 - Date.now())}` : null),
-      s.window ? prop("▤", "Window", `${Math.round((s.tokens / s.window) * 100)}%`, `of ${fmtK(s.window)}`) : null));
+      s.window ? prop("Window", `${Math.round((s.tokens / s.window) * 100)}%`, `of ${fmtK(s.window)}`) : null));
 
   const limits = el("div", { class: "block" }, el("div", { class: "block-head" }, el("span", { class: "h3", text: "Against your limits" })),
     ...ps.map(p => el("div", { class: "limit" }, el("div", { class: "limit-row" }, el("span", { text: p.name }), el("span", { class: "muted", text: p.val })), bar(p.ratio))));
 
   const actions = el("div", { class: "actions" });
-  if (lv === "over" && !state.confirm) actions.append(el("div", { class: "callout over" }, el("span", { class: "callout-icon", "aria-hidden": "true", text: "💡" }),
+  if (lv === "over" && !state.confirm) actions.append(el("div", { class: "callout over" },
     el("p", { text: `Every request re-reads ${fmtK(s.tokens)} tokens. A fresh session that starts from a handover note costs a fraction of that.` })));
   if (state.notice) actions.append(el("p", { class: "notice " + state.notice.kind, text: state.notice.text }));
   if (state.confirm) {
