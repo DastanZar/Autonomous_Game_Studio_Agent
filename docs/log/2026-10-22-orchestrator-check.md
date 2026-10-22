@@ -32,3 +32,15 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 - Added an always-on one-line summary above the prompt (context, spent, cost per turn, 5-hour %). It works where panes don't, and gains the alert and buttons past a limit. Fixed a bug in the old band: a variable named `h` shadowed the JSX factory and would have crashed the draw. The test now draws the band on terminal, desktop and mobile.
 - "Every chat": the repo is now a plugin marketplace (`.claude-plugin/marketplace.json`, name `studio-mods`), and `.claude/settings.json` declares it and enables `session-meter@studio-mods`. Tested in a throwaway config: marketplace add from GitHub, then install, both succeed. For cloud sessions the dependable route is two lines in the environment's setup script (README). That's a user-side setting I can't change.
 - Not verified: whether the cloud runtime auto-installs project-declared marketplaces without the setup-script lines.
+
+---
+
+**User:** "I dont even see a single one, and youre asking me about a copy! hilarious!"
+
+**Found:** the mod ran and measured correctly (191K context, $4.36, 5-hour 10%), but `$.session.surfaces()` was empty and `ui.open` returned `no-surface`. The claude.ai view of this cloud session doesn't attach as a mod surface, so no pane, band, toast or notification can reach the user there. Slash-command output does reach them. I should have checked placement before telling the user to look.
+
+**Done:**
+- `/meter` now prints the whole meter as text (verdict, context, spend, cost-per-turn sparkline, three limit bars, plan limits, next step).
+- The alert now comes through the conversation: when a limit is crossed, a `prompt.submit` hook attaches a note, and Claude tells the user in one line at the start of the reply (once per level) and points to `/meter handover`.
+- The pane and band stay, for the desktop app, terminal and IDE. A `session.attach` hook opens the pane when such a surface attaches.
+- Temporary diagnostics removed. Test extended to `/meter`'s text. tsc clean, test passes.

@@ -13,6 +13,7 @@ const limits = atom({ plugin: 'session-meter', key: 'limits' } as const, DEFAULT
 const alerted = atom({ plugin: 'session-meter', key: 'alerted' } as const, 'calm')
 const handover = atom({ plugin: 'session-meter', key: 'handover' } as const, { status: 'idle' })
 const lastUsd = atom({ plugin: 'session-meter', key: 'lastUsd' } as const, -1)
+const announced = atom({ plugin: 'session-meter', key: 'announced' } as const, 'calm')
 const isBandHidden = atom({ plugin: 'session-meter', key: 'isBandHidden' } as const, false)
 
 const COLORS = { calm: '#3fb68b', warm: '#e0a03a', over: '#e5534b', track: '#8b8b8b33', ink: '#9aa0a6' }
@@ -133,18 +134,76 @@ async function startHandover($: EngineInterface) {
   await $.prompt.submit({ text: HANDOVER_PROMPT })
 }
 
+// The meter as text: what /meter prints, for clients that draw no pane (the claude.ai web and mobile views).
+async function report($: EngineInterface) {
+  const s = await read($, snap)
+  if (!s) return 'Session meter: no response measured yet.'
+  const l = await read($, limits)
+  const costs = await read($, turnCosts)
+  const now = await $.clock.now()
+  const ps = pressures(s, costs, l)
+  const level = levelOf(worstOf(ps).ratio)
+  const icon = (lv: Level) => (lv === 'over' ? '🔴' : lv === 'warm' ? '🟡' : '🟢')
+  const verdict = level === 'over' ? 'Too expensive to keep going' : level === 'warm' ? 'Getting heavy' : 'Healthy'
+  const row = (label: string, ratio: number, detail: string) =>
+    `${icon(levelOf(ratio))} ${label.padEnd(14)} ${bar(ratio, 20)} ${String(Math.round(ratio * 100)).padStart(3)}%  ${detail}`
+  const lines = [
+    `${icon(level)} ${verdict}  ·  ${s.model} · ${s.turns} turns · ${fmtAge(now - s.startedAt)}`,
+    '',
+    `Context window   ${fmtK(s.tokens)} of ${fmtK(s.window)} (${s.percent}%)`,
+    `Spent so far     ${fmtUsd(s.usd)}${costs.length ? `  ·  last turn ${fmtUsd(costs[costs.length - 1] ?? 0)}  ·  average ${fmtUsd(avg(costs))}` : ''}`,
+    costs.length >= 2
+      ? `Cost per turn    ${costs.slice(-30).map(c => '▁▂▃▄▅▆▇█'[Math.min(7, Math.floor((c / Math.max(l.turnUsd, ...costs)) * 8))]).join('')}`
+      : '',
+    '',
+    'Against your limits',
+    ...ps.map(p => row(p.label, p.ratio, p.detail)),
+    ...(s.rateLimits.length
+      ? ['', 'Plan limits', ...s.rateLimits.map(r =>
+          row(r.kind === 'five_hour' ? '5-hour' : r.kind === 'seven_day' ? 'Weekly' : r.kind, r.percentUsed / 100, fmtReset(r.resetsAt, now)))]
+      : []),
+    '',
+    level === 'over'
+      ? 'Run /meter handover to write the handover and continue in a new session.'
+      : 'Commands: /meter handover · /meter limits <contextK> <turnUsd> <totalUsd>',
+  ].filter((x, i, a) => !(x === '' && a[i - 1] === ''))
+  return '```\n' + lines.join('\n') + '\n```'
+}
+
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     const stored = (await $.store.get('limits')) as Limits | undefined
     if (stored) await update($, limits, () => ({ ...DEFAULT_LIMITS, ...stored }))
     await $.command.register({
       name: 'meter',
-      description: 'Session meter: open it, set limits (/meter limits <contextK> <turnUsd> <totalUsd>), or hand over now (/meter handover)',
+      description: 'Session meter: show the figures, set limits (/meter limits <contextK> <turnUsd> <totalUsd>), or hand over now (/meter handover)',
     })
     const first = await measure($)
     if ((await read($, lastUsd)) < 0) await update($, lastUsd, () => first.usd)
     void $.ui.open({ id: PANE, title: TITLE })
     return next(e)
+  })
+
+  // A surface that attaches later (desktop app, terminal, IDE) gets the pane.
+  on('session.attach', async ($, e, next) => {
+    const done = await next(e)
+    void $.ui.open({ id: PANE, title: TITLE })
+    return done
+  })
+
+  // No pane reaches the web and mobile views, so the alert goes through the conversation: once per level, Claude says it.
+  on('prompt.submit', async ($, e, next) => {
+    if (e.origin.kind === 'plugin') return next(e)
+    const level = await read($, alerted)
+    const said = await read($, announced)
+    if (level === 'calm' || level === said || (level === 'warm' && said === 'over')) return next(e)
+    await update($, announced, () => level)
+    const s = await read($, snap)
+    const note =
+      level === 'over'
+        ? `[session-meter] This session is past its cost limits (${s ? `${fmtK(s.tokens)} context, ${fmtUsd(s.usd)} spent` : ''}). Before anything else in your reply, tell the user in one line that the session has become expensive to continue, and that /meter shows the figures and /meter handover moves the work to a fresh session. Then answer their message as usual.`
+        : `[session-meter] This session is at 70% of a cost limit. At the end of your reply, add one short line telling the user, and that /meter shows the figures.`
+    return next({ ...e, context: [...(e.context ?? []), note] })
   })
 
   on('session.measure', async ($, e, next) => {
@@ -176,7 +235,7 @@ export const register: Register = on => {
   })
 
   on('command.run', { command: 'meter' }, async ($, e) => {
-    const [verb, ...rest] = e.args.trim().split(/\s+/)
+    const [verb, ...rest] = (e.args ?? '').trim().split(/\s+/)
     if (verb === 'handover') {
       await startHandover($)
       return { text: 'Handover started.' }
@@ -192,13 +251,8 @@ export const register: Register = on => {
       await judge($, await measure($))
       return { text: `Limits set: context ${contextK}K tokens, ${fmtUsd(turnUsd)} per turn, ${fmtUsd(totalUsd)} per session.` }
     }
-    const opened = await $.ui.open({ id: PANE, title: TITLE, focus: true })
-    const surfaces = await $.session.surfaces()
-    return {
-      text: opened.isPlaced
-        ? 'Session meter opened.'
-        : `Session meter is open but not drawn here (${opened.reason}; surfaces: ${surfaces.join(', ') || 'none'}). The summary line above the prompt shows the same figures.`,
-    }
+    void $.ui.open({ id: PANE, title: TITLE, focus: true })
+    return { text: await report($) }
   })
 
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {
