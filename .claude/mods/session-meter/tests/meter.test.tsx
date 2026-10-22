@@ -66,6 +66,10 @@ test('the meter draws, crosses its limit and hands over, on every surface', asyn
     await band.unmount()
   }
 
+  const printed = await $.command.run({ command: 'meter', args: '' })
+  expect(printed.text).toContain('Too expensive to keep going')
+  expect(printed.text).toContain('5-hour')
+
   ui = await $.ui.mount({ ...PANE, surface: 'desktop' })
   await ui.press({ key: 'handover' })
   expect(prompts[0]).toContain('handover note')

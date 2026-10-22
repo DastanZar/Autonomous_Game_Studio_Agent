@@ -30,6 +30,7 @@ declare module 'claude-code' {
       handover: Handover
       isBandHidden: boolean
       lastUsd: number
+      announced: Level
     }
   }
 }

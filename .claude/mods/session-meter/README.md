@@ -1,7 +1,16 @@
 # session-meter
 
-A Claude Code mod: a pane beside the chat that shows how heavy the session has become, and moves the work to a
-fresh session when it gets too expensive to keep going.
+A Claude Code mod that shows how heavy the session has become, and moves the work to a fresh session when it gets
+too expensive to keep going.
+
+**Where it shows.** The claude.ai web and mobile views of a cloud session attach no surface for mods, so no pane or band
+can draw there (checked 22 Oct: `$.session.surfaces()` was empty). There:
+- `/meter` prints the whole meter as text in the chat;
+- the alert comes through the conversation: when a limit is crossed, Claude says so in one line at the start of its
+  next reply and points to `/meter handover`.
+
+In the Claude Code desktop app, the terminal or an IDE, it also draws a pane beside the chat and a summary line above
+the prompt.
 
 - **Context:** tokens re-read on every turn, against the model's window (ring gauge on desktop and mobile, text in the terminal).
 - **Spend:** session total, cost of each turn (sparkline), and the average of the last three turns.
