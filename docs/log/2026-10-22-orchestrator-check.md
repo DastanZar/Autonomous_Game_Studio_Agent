@@ -105,3 +105,15 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 **Found:** the page's request arrived (`requests/session_013vs7U4UG8bfw2uk6GVR6Fk`, 06:35:42), but the session's container was asleep and only restarted at 06:36:47 when the user wrote, so the mod's 60-second check never ran. The mod's panel write did work after the fix (06:24, ok, version 2).
 
 **Done:** deleted the request (to stop a double handover), wrote `docs/handover/2026-10-22-orchestration.md` with enforced delegation as the next session's first task (a tool.call deny hook on Opus main threads, agents shipped in the plugin, requests checked on wake), linked it from `docs/HANDOVER.md`, and started the new session with create_session (Sonnet 5.5, same repo).
+
+---
+
+**User:** "Read docs/handover/2026-10-22-orchestration.md and continue from its Next steps, in order. Follow CLAUDE.md and docs/orchestration.md: delegate reading to the Explore subagent and keep only its summary. Load the plugin-authoring skill before editing the mod. Commit and push when each step passes its checks, and tell me what you verified."
+
+**Done:** (1) `tool.call` hook for enforced delegation, `/meter orchestration`, test `tests/orchestration.test.tsx`; (2) agents moved to the plugin's `agents/`, version 0.2.0 (name kept, since the settings and the page refer to it); (3) request check at session start and on each prompt, request deleted with `if_version`, page wording changed (page version 5); (4) docs.
+**Verified:** `claude plugin test` 2 pass; `claude plugin validate` passes (icon/licence warnings only). **Not verified:** `tsc` (types not laid until the mod loads); the hook in a live session; the `ArtifactData` delete with `if_version` and the version parsing, which are untested against the real page.
+**Limit:** the edit-target exemption only covers files already edited this session; Edit needs a prior Read, so a first read of a file to be edited counts toward the three.
+**User:** "the mod hasnt loaded into the new sessions, why isnt it working as persistent"
+
+**Found:** the new session's init event (`session_01CG8ruxqMZxeRhc2CYTos2e`) lists only built-in plugins (`plugins_sync_install_ms: 0`). The cloud runtime did not install the marketplace and plugin that `.claude/settings.json` declares (`extraKnownMarketplaces`, `enabledPlugins`). The mod I ran here loaded only from this container's own mods folder, which no other session has. The repo's agents (Explore, researcher, worker) did load there, and its first action was an `Explore` (Haiku) call, so delegation is happening in that session.
+**Fix:** two lines in the cloud environment's setup script (user action; it runs before Claude starts in every session). Not done by me: environment settings aren't reachable from a session.

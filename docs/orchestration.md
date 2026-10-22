@@ -67,3 +67,12 @@ Most of the spend is the conversation being re-read on every turn, not which mod
 per job. The **session meter** mod (`.claude/mods/session-meter/`) shows context, cost per turn and plan limits beside
 the chat. It warns when a session passes its limits and offers **Continue in a new session**: Opus writes the handover,
 pushes it and opens a fresh session that starts from it.
+
+## Enforcement (22 Oct 2026)
+
+The rule above is no longer only advice. The `session-meter` mod (`.claude/mods/session-meter/`, plugin 0.2.0) has a
+`tool.call` hook on the main thread of an Opus or Fable session: web lookups are denied ("send to researcher"), and
+read-only exploration is denied from the fourth call of a user turn ("delegate to Explore"). Exempt: `.claude/`,
+this file, files edited in the session, all subagent calls, and Sonnet mains. `/meter orchestration` prints subagent
+calls by model and the deny count. The agents ship inside the plugin, so any repo that installs it gets them.
+Each cloud environment needs the two setup-script lines in the mod's README (the user's action).
