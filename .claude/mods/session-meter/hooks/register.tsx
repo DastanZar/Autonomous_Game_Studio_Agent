@@ -1,7 +1,7 @@
 import { atom, read, update } from 'claude-code'
 import type { EngineInterface, Register } from 'claude-code'
 
-import type { Handover, Level, Limits, Snapshot } from '../types'
+import type { Handover, Level, Limits, Orchestration, Snapshot } from '../types'
 
 const PANE = 'session-meter'
 const TITLE = 'Session meter'
@@ -18,6 +18,17 @@ const panelVersion = atom({ plugin: 'session-meter', key: 'panelVersion' } as co
 const handledRequest = atom({ plugin: 'session-meter', key: 'handledRequest' } as const, 0)
 const sessionTitle = atom({ plugin: 'session-meter', key: 'sessionTitle' } as const, '')
 const isBandHidden = atom({ plugin: 'session-meter', key: 'isBandHidden' } as const, false)
+
+const NO_ORCH: Orchestration = { reads: 0, denied: 0, agents: {}, edited: [] }
+const orch = atom({ plugin: 'session-meter', key: 'orchestration' } as const, NO_ORCH)
+
+// Reading the main thread may do per user turn before it must hand the rest to the Explore subagent.
+const READS_PER_TURN = 3
+const EXPLORE_DENY = 'Delegate this reading to the Explore subagent (Haiku) and keep only its summary; see docs/orchestration.md'
+const WEB_DENY = 'Send web lookups to the researcher subagent (Haiku)'
+const AGENT_MODEL: Record<string, string> = { Explore: 'haiku', researcher: 'haiku', worker: 'sonnet' }
+const READ_ONLY_BASH = /^\s*(cat|grep|rg|find|ls|head|tail|sed\s+-n|wc|tree|stat|file)\b(?!.*(?:>|\|\s*(?:tee|sh|bash)\b|-exec|-delete))/
+const ALWAYS_OK = /(^|\/)\.claude\/|(^|\/)docs\/orchestration\.md$/
 
 const COLORS = { calm: '#3fb68b', warm: '#e0a03a', over: '#e5534b', track: '#8b8b8b33', ink: '#9aa0a6' }
 
@@ -220,6 +231,8 @@ async function checkHandover($: EngineInterface) {
   }
 }
 
+const isCostlyMain = (model: string) => /opus|fable/i.test(model)
+
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     const stored = (await $.store.get('limits')) as Limits | undefined
@@ -245,6 +258,8 @@ export const register: Register = on => {
   // No pane reaches the web and mobile views, so the alert goes through the conversation: once per level, Claude says it.
   on('prompt.submit', async ($, e, next) => {
     if (e.origin.kind === 'plugin') return next(e)
+    await update($, orch, o => ({ ...o, reads: 0 }))
+    void checkHandover($).catch(() => undefined)
     const level = await read($, alerted)
     const said = await read($, announced)
     if (level === 'calm' || level === said || (level === 'warm' && said === 'over')) return next(e)
@@ -286,8 +301,44 @@ export const register: Register = on => {
     return ran
   })
 
+  // Delegation, enforced: on an Opus or Fable main thread, web lookups and reading past the third call of a turn go to Haiku.
+  on('tool.call', async ($, e, next) => {
+    if (e.agentId) return next(e)
+    const tool = e.tool
+    if (tool === 'Agent') {
+      const key = e.model ?? AGENT_MODEL[e.subagent_type ?? ''] ?? 'inherit'
+      await update($, orch, o => ({ ...o, agents: { ...o.agents, [key]: (o.agents[key] ?? 0) + 1 } }))
+      return next(e)
+    }
+    if (tool === 'Edit' || tool === 'Write') {
+      await update($, orch, o => ({ ...o, edited: [...o.edited, e.file_path].slice(-50) }))
+      return next(e)
+    }
+    const isWeb = tool === 'WebSearch' || tool === 'WebFetch'
+    const isRead =
+      tool === 'Read' || tool === 'Grep' || tool === 'Glob' || (tool === 'Bash' && READ_ONLY_BASH.test(e.command))
+    if (!isWeb && !isRead) return next(e)
+    if (!isCostlyMain(await $.session.model())) return next(e)
+    const deny = async (reason: string) => {
+      await update($, orch, o => ({ ...o, denied: o.denied + 1 }))
+      return { deny: reason }
+    }
+    if (isWeb) return deny(WEB_DENY)
+    const path = tool === 'Read' ? e.file_path : tool === 'Bash' ? e.command : (e.path ?? '')
+    const state = await read($, orch)
+    if (ALWAYS_OK.test(path) || state.edited.includes(path)) return next(e)
+    if (state.reads >= READS_PER_TURN) return deny(EXPLORE_DENY)
+    await update($, orch, o => ({ ...o, reads: o.reads + 1 }))
+    return next(e)
+  })
+
   on('command.run', { command: 'meter' }, async ($, e) => {
     const [verb, ...rest] = (e.args ?? '').trim().split(/\s+/)
+    if (verb === 'orchestration') {
+      const o = await read($, orch)
+      const by = Object.entries(o.agents).map(([m, n]) => `${m} ${n}`).join(', ') || 'none'
+      return { text: `Subagent calls this session: ${by}. Main-thread reads denied (sent to Haiku): ${o.denied}.` }
+    }
     if (verb === 'handover') {
       await startHandover($)
       return { text: 'Handover started.' }

@@ -13,6 +13,8 @@ export type Snapshot = {
   turns: number
 }
 
+export type Orchestration = { reads: number; denied: number; agents: Record<string, number>; edited: string[] }
+
 export type Level = 'calm' | 'warm' | 'over'
 
 export type Handover = {
@@ -34,6 +36,7 @@ declare module 'claude-code' {
       panelVersion: number
       handledRequest: number
       sessionTitle: string
+      orchestration: Orchestration
     }
   }
 }
