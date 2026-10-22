@@ -32,6 +32,7 @@ declare module 'claude-code' {
       lastUsd: number
       announced: Level
       panelVersion: number
+      handledRequest: number
     }
   }
 }

@@ -75,3 +75,13 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 - Seeded this session's document by hand so the page shows data now.
 - Without the connector, the page tells the user to send `/meter handover` in the session.
 - Open: whether the mod's write runs without an approval prompt. The first real write happens at the end of the user's next turn.
+
+---
+
+**User:** "the spacing and aesthetics are off, neither do i like the fonts, look to notion or goodnotes websites for design and can it have a button for the slash meter handover task rather than me having to run it myself? also will this page be auto open in every new chat, how will that work"
+
+**Done:**
+- Page v3 redesigned in the Notion/GoodNotes manner: system fonts (Notion's stack), warm greys, page icon and big title, one soft card with a ring gauge and property rows, soft colour tags and callouts, hover rows for sessions. Checked in one headless screenshot, light and dark, at 420 px.
+- Handover button without the connector: the page writes `requests/<session id>` with `{handover: <ms>}`. The mod checks that document every 60 s (timer started in `session.start`) and, on a new request, submits the handover prompt, which wakes an idle session.
+- Auto-open: claude.ai has no way to open an artifact by itself when a chat starts. The page is pinned in the sidebar; told the user so.
+- Still unverified: whether the mod's ArtifactData calls run without approval prompts (first write is at the end of this turn; a background check is waiting on it).
