@@ -1,3 +1,14 @@
 {
-  "advisorModel": "opus"
+  "advisorModel": "opus",
+  "extraKnownMarketplaces": {
+    "studio-mods": {
+      "source": {
+        "source": "github",
+        "repo": "DastanZar/Autonomous_Game_Studio_Agent"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "session-meter@studio-mods": true
+  }
 }

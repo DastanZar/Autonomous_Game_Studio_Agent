@@ -192,8 +192,13 @@ export const register: Register = on => {
       await judge($, await measure($))
       return { text: `Limits set: context ${contextK}K tokens, ${fmtUsd(turnUsd)} per turn, ${fmtUsd(totalUsd)} per session.` }
     }
-    await $.ui.open({ id: PANE, title: TITLE })
-    return { text: 'Session meter opened.' }
+    const opened = await $.ui.open({ id: PANE, title: TITLE, focus: true })
+    const surfaces = await $.session.surfaces()
+    return {
+      text: opened.isPlaced
+        ? 'Session meter opened.'
+        : `Session meter is open but not drawn here (${opened.reason}; surfaces: ${surfaces.join(', ') || 'none'}). The summary line above the prompt shows the same figures.`,
+    }
   })
 
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {
@@ -329,22 +334,32 @@ export const register: Register = on => {
     )
   })
 
+  // A one-line summary that is always on, for surfaces that seat no pane; the alert and its buttons join it past a limit.
   on('ui.render', { component: 'AbovePrompt' }, async ($, e, next) => {
     const s = await read($, snap)
-    const level = await read($, alerted)
-    const h = await read($, handover)
-    if (e.props.hasSurvey || !s || level !== 'over' || h.status !== 'idle' || (await read($, isBandHidden))) {
-      return next(e)
-    }
+    if (e.props.hasSurvey || !s) return next(e)
+    const l = await read($, limits)
+    const costs = await read($, turnCosts)
+    const ho = await read($, handover)
+    const level = levelOf(worstOf(pressures(s, costs, l)).ratio)
+    const isAlerting = level === 'over' && ho.status === 'idle' && !(await read($, isBandHidden))
+    const five = s.rateLimits.find(r => r.kind === 'five_hour')
     const { Box, Text, Button } = $.ui.resolve(e)
     return (
-      <Box flexDirection="row" gap={1} alignItems="center">
-        <Text color={COLORS.over}>●</Text>
+      <Box flexDirection="row" gap={1} alignItems="center" flexWrap="wrap">
+        <Text color={COLORS[level]}>{level === 'over' ? '●' : level === 'warm' ? '◐' : '○'}</Text>
         <Text>
-          This session is expensive now ({fmtK(s.tokens)} context, {fmtUsd(s.usd)}).
+          <Text dimColor>context </Text>
+          <Text bold>{fmtK(s.tokens)}</Text>
+          <Text dimColor> ({s.percent}%) · spent </Text>
+          <Text bold>{fmtUsd(s.usd)}</Text>
+          {costs.length > 0 && <Text dimColor> · {fmtUsd(avg(costs.slice(-3)))}/turn</Text>}
+          {five && <Text dimColor> · 5h {five.percentUsed}%</Text>}
         </Text>
-        <Button key="go" label="Continue in a new session" variant="primary" onPress={() => startHandover($)} />
-        <Button key="later" label="Later" onPress={() => update($, isBandHidden, () => true)} />
+        {isAlerting && <Text color={COLORS.over}>Too expensive to keep going.</Text>}
+        {isAlerting && <Button key="go" label="Continue in a new session" variant="primary" onPress={() => startHandover($)} />}
+        {isAlerting && <Button key="later" label="Later" onPress={() => update($, isBandHidden, () => true)} />}
+        {ho.status === 'writing' && <Text dimColor>Writing the handover…</Text>}
       </Box>
     )
   })

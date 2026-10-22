@@ -1,0 +1,11 @@
+{
+  "name": "studio-mods",
+  "owner": { "name": "DastanZar" },
+  "plugins": [
+    {
+      "name": "session-meter",
+      "source": "./.claude/mods/session-meter",
+      "description": "Context, cost and rate-limit meter beside the chat; warns when the session gets too expensive and hands over to a fresh one."
+    }
+  ]
+}
