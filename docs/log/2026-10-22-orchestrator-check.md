@@ -119,3 +119,6 @@ Choosing Sonnet as the main model for a production session is still a manual pic
 **Fix:** two lines in the cloud environment's setup script (user action; it runs before Claude starts in every session). Not done by me: environment settings aren't reachable from a session.
 
 **Follow-up:** user added the setup lines; this session (started earlier) still had no plugin loaded (`claude plugin list` empty, hook never ran) and had lost the researcher and worker agents because I had moved the repo copies into the plugin. Restored the repo copies in `.claude/agents/` as a fallback for sessions without the plugin.
+
+**User:** (pasted) the hook refused the 4th read and a web search live, but `/meter orchestration` still said 0 denied.
+**Found:** the hook works on the Opus session. The deny counter, kept in `$.state`, was not seen by the command. **Done:** counts now live in `$.store` keyed by session (0.2.1). Unverified live until reinstalled.

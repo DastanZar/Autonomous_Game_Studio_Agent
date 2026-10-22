@@ -3,7 +3,10 @@ import { expect, test } from 'claude-code/testing'
 test('three reads pass, the fourth is denied, a subagent read passes', async ($, on) => {
   on('command.register', () => ({ value: { command: 'meter' } }))
   on('ui.open', () => ({ value: { isPlaced: true } }))
-  on('store.get', () => ({ value: undefined }))
+  const kv = new Map<string, unknown>()
+  on('session.id', () => ({ value: 's1' }) as never)
+  on('store.get', (_, e) => ({ value: kv.get((e as { key: string }).key) }))
+  on('store.set', (_, e) => (kv.set((e as { key: string }).key, (e as { value: unknown }).value), { value: undefined }) as never)
   on('clock.now', () => ({ value: 0 }))
   on('session.model', () => ({ value: 'claude-opus-5-5' }))
   on('session.turns', () => ({ value: 1 }))
