@@ -1,8 +1,8 @@
 ---
 name: Explore
-description: Fast read-only search of the repo. Finds files, greps, reads excerpts; returns paths and short excerpts only.
+description: Haiku 5.5 reader. Use for locating code or files, and for reading big files, logs or many files to extract a few facts (input over ~20K tokens, answer a few lines). Not for judgement, edits or anything the user will see. Returns paths, line numbers and short excerpts only.
 model: haiku
-effort: low
+effort: high
 tools: Read, Grep, Glob, Bash
 ---
 

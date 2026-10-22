@@ -80,4 +80,4 @@ OPEN     <anything a human must decide or check, e.g. "listen to line 'lost'">
 
 ## Models (2026-10-15, user-approved)
 
-Studio worker sessions for episode production (voice, render, gates, package) start on **Sonnet 5.5** with the **Opus advisor** (`advisorModel: opus` in `.claude/settings.json`). Reading goes to the `Explore`/`researcher` subagents (Haiku 5.5). Visual review of frames and new formats stays with Opus. Never use a Fable advisor without the user's go-ahead (it bills to usage credits on some plans).
+Studio worker sessions for episode production (voice, render, gates, package) start on **Sonnet 5.5** with the **Opus advisor** (`advisorModel: opus` in `.claude/settings.json`). Reading goes to the `Explore`/`researcher` subagents (Haiku 5.5). Visual review of frames and new formats stays with Opus. Never use a Fable advisor without the user's go-ahead (it bills to usage credits on some plans). Since 22 Oct all subagents run at high effort; the routing rule for what goes to which model is `docs/orchestration.md`.

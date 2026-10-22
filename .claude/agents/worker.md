@@ -1,8 +1,8 @@
 ---
 name: worker
-description: Bounded implementation job from a closed spec (files, deliverables, the check that proves each, what not to touch).
+description: Sonnet 5.5 implementer. Use for a job you can write as a closed spec: files to touch, the deliverable, the check that proves it, what not to touch. Multi-file code changes, tests, mechanical pipeline stages, drafting from research rows. Not for taste, visual review or user-facing decisions (Opus keeps those). Run independent jobs in parallel.
 model: sonnet
-effort: medium
+effort: high
 ---
 
 You do one well-scoped job in this repository. Follow AGENT_PROMPT.md and studio/sop/00-rules.md.
