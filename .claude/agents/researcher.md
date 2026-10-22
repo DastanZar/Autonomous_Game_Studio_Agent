@@ -1,8 +1,8 @@
 ---
 name: researcher
-description: Web lookups and doc reading. Fetches pages and returns only claim -> source URL rows; never edits files.
+description: Haiku 5.5 web researcher. Use for facts from the web or docs; send several in parallel for independent questions. Returns claim | source URL | date rows only; never edits files. Opus spot-checks any claim that ships.
 model: haiku
-effort: low
+effort: high
 tools: WebSearch, WebFetch, Read
 ---
 
